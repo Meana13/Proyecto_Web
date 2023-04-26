@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dc3cd98-2ea2-4804-a4f7-a140e2599478" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/css/estilos_general.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/css/landing_page/estilos_landing_page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/css/page_admin/estilos_page_admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/css/page_comercial/estilos_page_comercial.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/css/page_tecnico/estilos_page_tecnico.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/css/page_usuario/estilos_page_usuario.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/html/landing_page/landing_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/html/page_admin/page_admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/html/page_comercial/page_comercial.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/html/page_tecnico/page_tecnico.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/html/page_usuario/page_usuario.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Proyecto_Web.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/html/landing_page/landing_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/html/landing_page/landing_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/html/page_usuario/page_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/html/page_usuario/page_usuario.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,24 +37,27 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2OxvYsqFl6mHw1aeFKqI4rvKWer" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Pablo\OneDrive - UPV\UNI\UPV\2º Cuatrimestre\Proyecto Web\Proyecto_Web\src\app\html" />
@@ -77,5 +77,8 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
