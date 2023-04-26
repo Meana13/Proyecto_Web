@@ -1,10 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <!--Comentario-->
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Menú hamburguesa</title>
+  <!--meta name="viewport" en teoria resuelve el tema de que en el movil no se vea bien
+  la página web-->
+  <!--Si pulsamos ! y tabulador se genera la estructura básica de un documento web-->
+  <link rel="stylesheet" href="../../css/landing_page/encabezado.css">
+  <link rel="stylesheet" href="">
 </head>
 <body>
+<header>
+  <nav id="main-menu">
+    <a href="#">Logo</a>
+
+    <!--ul>li*5>a[href=#seccion$]{Sección $} + tabulador-->
+
+    <ul>
+      <li><a href="#seccion1">Sección 1</a></li>
+      <li><a href="#seccion2">Sección 2</a></li>
+      <li><a href="#seccion3">Sección 3</a></li>
+      <li><a href="#seccion4">Sección 4</a></li>
+      <li><a href="#seccion5">Sección 5</a></li>
+    </ul>
+    <div class="hamburguesa">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+</header>
+<!--Cargamos ahí el js porque quiero que se cree el menú primero antes de interaccionar-->
+<script src="../../scrips/landing_page/encabezado.js"></script>
+
+
 
 </body>
 </html>

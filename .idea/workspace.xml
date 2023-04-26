@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dc3cd98-2ea2-4804-a4f7-a140e2599478" name="Changes" comment="" />
+    <list default="true" id="9dc3cd98-2ea2-4804-a4f7-a140e2599478" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/css/landing_page/encabezado.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/css/landing_page/encabezado.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/html/landing_page/Encabezado.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/html/landing_page/Encabezado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/scrips/landing_page/encabezado.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/scrips/landing_page/encabezado.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
