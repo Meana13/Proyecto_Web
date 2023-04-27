@@ -3,21 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <title>Pagina Usuario</title>
-    <link href="">
+    <link rel="stylesheet" type="text/css" href="../../css/page_usuario/estilos_page_usuario.css" />
 
 </head>
 <body>
+<!--Aqui comienza el header-->
 <header>
     #include="header.htlm"
 </header>
-<section class="Cabecera-usuario">
-    <img src="usuario.png" placeholder="">
+<!--Aqui finaliza el header-->
+
+<!--Aqui comienza la cabecera del usuario-->
+
+<!--Aqui finaliza la cabecera del usuario-->
+
+<!--Aqui comienza la seccion de botones-->
+<div class="botones">
+    <div>
+        <div><button>Ver huertos</button></div>
+        <div><button>Ajustes perfil</button></div>
+        <div><button>Citas</button></div>
+    </div>
+</div>
+<!--Aqui finaliza la seccion de botones-->
+
+<!--Aqui comienza la zona de huertos-->
+<section id="huertos">
+    <!--    Aqui comienza la seccion de medidor Tª-->
+    <div id="Temperatura">
+        <div id="sensor-tº">
+            <img src="termometro.png" alt="Termometro">
+            <div>
+                <div><button>Historial</button></div>
+            </div>
+            <div>
+                <div><button>Medidas actuales</button></div>
+            </div>
+        </div>
+    </div>
+    <!--    Aqui finaliza la seccion de medidor Tª-->
+
+    <!--    Aqui comienza la seccion de medidor humedad-->
+    <div id="Humedad">
+        <div id="sensor-humedad">
+            <img src="medidorH.png" alt="Humedad">
+            <div>
+                <div><button>Historial</button></div>
+            </div>
+            <div>
+                <div><button>Medidas actuales</button></div>
+            </div>
+        </div>
+    </div>
+    <!--    Aqui finaliza la seccion de medidor humedad-->
+
+    <!--    Aqui comienza la seccion de medidor pH-->
+    <div id="pH">
+        <div id="sensor-pH">
+            <img src="Sensor_pH.png"alt="Sensor pH">
+            <div>
+                <div><button>Historial</button></div>
+            </div>
+            <div>
+                <div><button>Medidas actuales</button></div>
+            </div>
+        </div>
+    </div>
+    <!--    Aqui finaliza la seccion de medidor pH-->
+
+    <!--    Aqui comienza la seccion de medidor Luz -->
+    <div id="Luz">
+        <div id="sensor-luz">
+            <img src="sensorLuz.png"alt="Luz">
+            <div>
+                <button>Historial</button>
+            </div>
+            <div>
+              <button><span>Medidas actuales</span></button>
+            </div>
+        </div>
+    </div>
+    <!--    Aqui finaliza la seccion de medidor Luz -->
+
+    <!--    Aqui comienza la seccion de medidor sal -->
+    <div id="Sal">
+        <div id="sensor-sal">
+            <img src="medidor_sal.png"alt="Sal">
+            <div>
+                <div><button>Historial</button></div>
+            </div>
+            <div>
+                <div><button>Medidas actuales</button></div>
+            </div>
+        </div>
+    </div>
+    <!--    Aqui finaliza la seccion de medidor sal -->
+
+</section>
+<!--    Aqui finaliza la seccion de huertos -->
+
+
+<!--    Aqui comienza la seccion de ajustes de perfil -->
+<section class="ajustes-usuario">
     <div class="datos_usuario">
         <form action="#" method="post">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" required>
+
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" required>
-
-            <label for="apellidos">Apellidos:</label>
             <input type="text" id="apellidos" required>
 
             <label for="email">Email:</label>
@@ -26,19 +120,28 @@
             <label for="direccion">Direccion:</label>
             <input type="text" id="direccion">
 
-            <label for="tlfono">Telefono:</label>
-            <input type="tel" id="tlfono"
-                   placeholder="99 999 999"
-                   pattern="[0-9]{2} [0-9]{3} [0-9]{3}">
+            <label for="contraseña">Telefono:</label>
+            <input type="password" id="contraseña">
+
+            <div class="boton-switch">
+                <span>Notificaciones</span>
+                <!-- Checkbox -->
+                <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox">
+                <!-- Botón -->
+                <label for="switch-label" class="switch-button__label"></label>
+            </div>
+
+
+            <input type="submit" label value="Aplicar cambios">
         </form>
     </div>
 </section>
-<div class="botones">
-    <div>
-        <li><button>Ver huertos</button></li>
-        <li><button>Ajustes perfil</button></li>
-        <li><button>Citas</button></li>
-    </div>
-</div>
+<!--Aqui finaliza la seccion de ajustes de usuario-->
+
+<!--Aqui comienza la seccion de citas-->
+<section id="citas">
+
+</section>
+<!--Aqui finaliza la seccion de citas-->
 </body>
 </html>

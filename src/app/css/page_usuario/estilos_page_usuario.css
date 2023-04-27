@@ -1,0 +1,14 @@
+*{
+    width: 375px;
+    background-color:#FFF6ED;
+    border: 1px solid black;
+
+}
+.botones>div>div{
+    width: 111px;
+    height: 63px;
+    display: flex;
+    justify-content: flex-end;
+
+
+}
