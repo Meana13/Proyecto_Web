@@ -29,7 +29,6 @@
 
         <!--Aquí empieza el menu-comercial-->
         <nav id="menu-comercial">
-            <button id="boton-graficas">GRÁFICAS</button>
             <button id="boton-solicitudes">SOLICITUDES</button>
             <button id="boton-ventas">VENTAS</button>
         </nav>
@@ -40,6 +39,52 @@
 
     </section>
     <!--Aquí acaba la sección de usuario-comercial-->
+
+    <!--Aquí empieza la sección de solicitudes-->
+    <section id="solicitudes">
+
+        <!--Aquí empieza la sección de botones-solicitudes-->
+        <section id="botones-solicitudes">
+            <button>SOLICITUDES PENDIENTES</button>
+            <button>SOLICITUDES EN PROCESO</button>
+            <button>SOLICITUDES FINALIZADAS</button>
+        </section>
+        <!--Aquí acaba la sección de botones-solicitudes-->
+
+    <!--Aquí empieza el filtro de la tabla-->
+    <form class="filtro">
+        Busca por palabra clave o número: <input type="text">
+    </form>
+    <!--Aquí acaba el filtro de la tabla-->
+
+        <!--Aquí empieza la tabla de solicitudes-->
+        <table>
+
+            <!--Aquí empieza la cabecera de la tabla de solicitudes-->
+            <thead id="cabecera-tabla-solicitudes">
+                <tr>
+                    <th>ID</th>
+                    <th>E-MAIL</th>
+                    <th>NOMBRE</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <!--Aquí acaba la cabecera de la tabla de solicitudes-->
+
+            <!--Aquí empieza la tabla de solicitudes pendientes-->
+            <tbody id="tabla-solicitudes-pendientes">
+
+            </tbody>
+
+        </table>
+        <!--Aquí acaba la tabla de solicitudes-->
+
+
+    </section>
+    <!--Aquí acaba la sección de solicitudes-->
+
+
+
 
 
 </body>
