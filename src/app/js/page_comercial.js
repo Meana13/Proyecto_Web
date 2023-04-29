@@ -55,7 +55,12 @@ function crearFilaSolicitud(solicitud) {
     let celdaNombre = document.createElement("td");
     celdaNombre.textContent = solicitud.nombre;
 
-    fila.append(celdaId, celdaEmail, celdaNombre);
+    let celdaBoton = document.createElement("td");
+    let botonVerVenta = document.createElement("button");
+    botonVerVenta.textContent = "VER VENTA";
+    celdaBoton.appendChild(botonVerVenta);
+    
+    fila.append(celdaId, celdaEmail, celdaNombre, celdaBoton);
 
     return fila;
 }
