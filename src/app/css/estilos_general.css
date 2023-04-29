@@ -2,9 +2,13 @@ html {
     background-color: #FFF6ED;
 }
 
+label {
+    font-family: Arial, sans-serif;
+}
+
 p {
     font-family: Arial, sans-serif;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 h1 {
@@ -71,13 +75,15 @@ h3 {
     font-size: 12px;
     width: 40%;
     padding: 1.2em;
+    border-radius: .5em;
 }
 
 #divisor {
     margin-top: 1em;
-    width: 97%;
+    width: auto;
     height: 2px;
     background-color: black;
     margin-left: 3%;
+    margin-right: 3%;
     margin-bottom: 1em;
 }
