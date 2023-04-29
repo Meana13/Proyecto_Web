@@ -12,7 +12,10 @@ let pagina = 1;
 
 let solicitudes = [];
 
-const contenedor = document.getElementById("tabla-solicitudes-pendientes");
+const contenedorPendientes = document.getElementById("tabla-solicitudes-pendientes");
+const contenedorProceso = document.getElementById("tabla-solicitudes-proceso");
+const contenedorFinalizadas = document.getElementById("tabla-solicitudes-finalizadas");
+
 
 //------------------------------------------------------------
 /*
@@ -59,7 +62,7 @@ function crearFilaSolicitud(solicitud) {
     let botonVerVenta = document.createElement("button");
     botonVerVenta.textContent = "VER VENTA";
     celdaBoton.appendChild(botonVerVenta);
-    
+
     fila.append(celdaId, celdaEmail, celdaNombre, celdaBoton);
 
     return fila;
@@ -73,12 +76,18 @@ Función cambiarPagina():
 
 function cambiarPagina(numeroPagina) {
     pagina = numeroPagina;
-    contenedor.innerHTML = "";
+    contenedorPendientes.innerHTML = "";
+    contenedorProceso.innerHTML= "";
+    contenedorFinalizadas.innerHTML = "";
+
     let inicio = (pagina - 1) * solicitudesPorPagina;
     for (let i = inicio; i < inicio + solicitudesPorPagina; i++) {
         let solicitud = solicitudes[i];
-        if(solicitud) contenedor.appendChild(crearFilaSolicitud(solicitud)); //conversión implícita de tipos (ventas no es un booleano, pero aquí, si venta
-        //contiene un objeto, considera que es verdadero. Si es undefined (variable que no tiene valor asignado), lo considera falso.
+        if(solicitud) {
+            contenedorPendientes.appendChild(crearFilaSolicitud(solicitud));
+            contenedorProceso.appendChild(crearFilaSolicitud(solicitud));
+            contenedorFinalizadas.appendChild(crearFilaSolicitud(solicitud));
+        }
     }
     let inputPagina = document.querySelector("#paginador input");
     inputPagina.value = pagina;
