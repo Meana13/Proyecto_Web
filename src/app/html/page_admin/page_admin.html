@@ -1,10 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Titulo</title>
+    <link rel="stylesheet" href="../../css/estilos_general.css">
+    <link rel="stylesheet" href="../../css/page_admin/estilos_page_admin.css">
 </head>
+
 <body>
+    <!-- INICIO HEADER -->
+
+    <!-- FIN HEADER -->
+
+    <!-- INICIO DATOS ADMIN -->
+
+    <section class="perfil">
+        <img src="../../../../images/admin.png" alt="Foto admin" class="foto-perfil">
+
+        <p id="datos">
+            Nombre de usuario: HectorAdmin <br>
+            Nombre y apellidos: Héctor Iglesias <br>
+            E-mail: hectigle@empresa.com <br>
+            Dirección: Carretera Sequia del Rei, 3, Bloque X 1ª Planta Puerta 2
+        </p>    
+    </section>
+
+    <!-- FIN DATOS ADMIN -->
+
+    <!-- BOTONES -->
+
+    <div id="botones-perfil">
+        <button type="button" class="boton-perfil">administrar usuarios</button>
+        <button type="button" class="boton-perfil">opinión del personal</button>
+    </div>
+
+    <!------------->
+
+    <!-- LINEA SEPARATORIA -->
+
+    <div id="divisor"></div>
+
+    <!----------------------->
+
+    <!-- INICIO SECCIONES-->
+
+    <section id="seccion-administrar-usuarios">
+        <button type="button" class="boton-añadir-usuario"> <img src="./img/icono-añadir.svg" alt="Añadir">
+            Añadir</button>
+        <table>
+
+        </table>
+
+        <!-- INICIO SECCION AÑADIR USUARIO -->
+        <section id="añadir-usuario">
+            <h3>NUEVO USUARIO</h3>
+            <!-- DESPLEGABLE -->
+            <label for="tipo-usuario">Tipo de usuario:</label>
+            <select id="tipo-usuario" name="usuarios">
+                <option value="usuario">Usuario</option>
+                <option value="administrador">Administrador</option>
+                <option value="comercial">Comercial</option>
+                <option value="tecnico">Técnico</option>
+            </select>
+            <!--------------->
+            <br> <!---->
+            <label>Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            <br> <!---->
+            <label>Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos">
+            <br> <!---->
+            <label>E-mail:</label>
+            <input type="text" id="e-mail" name="e-mail">
+            <br> <!---->
+            <label>Dirección:</label>
+            <input type="text" id="direccion" name="direccion">
+            <br> <!---->
+
+            <button type="button" class="boton-generar-id">GENERAR ID</button>
+
+            <p>ID de usuario: </p>
+
+            <button type="button" class="boton-dar-de-alta">DAR DE ALTA</button>
+        </section>
+
+        <!-- FIN SECCION AÑADIR USUARIO -->
+
+        <!-- INICIO SECCION OPINION DEL PERSONAL -->
+
+        <section id="opinion-personal">
+            <!-- DESPLEGABLE -->
+            <select id="desplegable-tecnicos" name="tecnicos">
+                <option value="tecnico1">Nicolas Román</option>
+                <option value="tecnico2">Pablo García</option>
+                <option value="tecnico3">Julio Marco</option>
+                <option value="tecnico4">Estefanía Rodríguez</option>
+            </select>
+            <!---------------->
+            <!-- Opinion 1 -->
+            <div>
+                <img src="./img/icono-opinion-usuario.svg" alt="Opinion de usuario">
+                <label>Fecha de instalación: </label> <!-- importar fecha no se como --> <br>
+                <p>#01</p><!-- importar nº de instalacion -->
+                <div id="Estrellas">
+                    <img src="./img/estrella.svg" alt="Estrella">
+                    <img src="./img/estrella.svg" alt="Estrella">
+                    <img src="./img/estrella.svg" alt="Estrella">
+                    <img src="./img/estrella.svg" alt="Estrella">
+                    <img src="./img/media-estrella.svg" alt="Media estrella">
+                </div>
+                <p>Impresionado con su profesionalismo y habilidad. Desde el momento en que llegó a mi hogar tuve la
+                    suerte de contar con su servicio,tengo una solución perfecta en mi hogar!...</p>
+            </div>
+            <!-------------->
+
+        </section>
+
+        <!-- FIN SECCION OPINION DEL PERSONAL-->
+        <section>
+
+        </section>
+    </section>
 
 </body>
+
 </html>
