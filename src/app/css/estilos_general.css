@@ -3,25 +3,30 @@ html {
 }
 
 p {
-    font-size: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
 }
 
 h1 {
+    font-family: Arial, sans-serif;
     font-size: 32px;
     color:#FFFFFF;
     text-transform: uppercase;
 }
 
 h2 {
+    font-family: Arial, sans-serif;
     font-size: 25px;
 }
 
 h3 {
+    font-family: Arial, sans-serif;
     font-size: 20px;
 }
 
 .boton-landing {
     background-color: #9D4179;
+    font-family: Arial, sans-serif;
     font-size: 16px;
     color: #FFFFFF;
     border: 0;
@@ -29,15 +34,16 @@ h3 {
 }
 
 .perfil {
+    margin-top: 5%;
     display: flex;
     margin-left: 5%;
     margin-bottom: 20px;
+    align-items: center;
 }
 
 .foto-perfil {
-    margin-top: 10px;
-    width: 80px;
-    height: 80px;
+    width: 30%;
+    height: 30%;
     border-radius: 50%;
     border: 1px solid black;
 }
@@ -46,12 +52,13 @@ h3 {
     margin-left: 30px;
     margin-right: 30px;
     line-height: 2;
+    align-items: center;
 }
 
 #botones-perfil{
     display: flex;
     justify-content: center;
-    gap: 10%
+    gap: 10%;
 }
 
 .boton-perfil {
@@ -59,8 +66,9 @@ h3 {
     border: 0;
     color: #FFFFFF;
     text-transform: uppercase;
+    font-family: Arial, sans-serif;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 12px;
     width: 40%;
     padding: 1.2em;
 }
