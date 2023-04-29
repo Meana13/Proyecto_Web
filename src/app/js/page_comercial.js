@@ -53,13 +53,13 @@ function crearFilaSolicitud(solicitud) {
     let fila = document.createElement("tr");
 
     let celdaId = document.createElement("td");
-    celdaId.textContent = solicitud.datos.id;
+    celdaId.textContent = solicitud.id;
 
     let celdaEmail = document.createElement("td");
-    celdaEmail.textContent = solicitud.datos.email;
+    celdaEmail.textContent = solicitud.email;
 
     let celdaNombre = document.createElement("td");
-    celdaNombre.textContent = solicitud.datos.nombre;
+    celdaNombre.textContent = solicitud.nombre;
 
     fila.append(celdaId, celdaEmail, celdaNombre);
 
