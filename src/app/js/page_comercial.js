@@ -12,20 +12,17 @@ let pagina = 1;
 
 let solicitudes = [];
 
-const contenedor = document.getElementById("tabla-solicitudes-pendientes");
+const contenedorPendientes = document.getElementById("tabla-solicitudes-pendientes");
+const contenedorProceso = document.getElementById("tabla-solicitudes-proceso");
+const contenedorFinalizadas = document.getElementById("tabla-solicitudes-finalizadas");
+
 
 //------------------------------------------------------------
 /*
-Función obtenerDatos()
+Función anonima para obtener datos:
 */
 //------------------------------------------------------------
-/*
-async function obtenerDatos() {
-    const respuesta = await fetch("../../api/cien_datos_para_tabla.json");
-    const data = await respuesta.json();
-    solicitudes = data;
-}
-*/
+
 
 (async () => {
     const respuesta = await fetch("../../../api/cien_datos_para_tabla.json");
@@ -61,40 +58,36 @@ function crearFilaSolicitud(solicitud) {
     let celdaNombre = document.createElement("td");
     celdaNombre.textContent = solicitud.nombre;
 
-    fila.append(celdaId, celdaEmail, celdaNombre);
+    let celdaBoton = document.createElement("td");
+    let botonVerVenta = document.createElement("button");
+    botonVerVenta.textContent = "VER VENTA";
+    celdaBoton.appendChild(botonVerVenta);
+
+    fila.append(celdaId, celdaEmail, celdaNombre, celdaBoton);
 
     return fila;
 }
 
 //------------------------------------------------------------
 /*
-Función main():
+Función cambiarPagina():
 */
 //------------------------------------------------------------
-/*
-async function main(){
-    await obtenerDatos();
-
- */
-/*
-    for(let i = 0; i<solicitudes.length; i++){
-        let solicitud = solicitudes[i];
-        if(solicitud){
-            contenedor.appendChild(crearFilaSolicitud(solicitud));
-        }
-    }
-}
-
- */
 
 function cambiarPagina(numeroPagina) {
     pagina = numeroPagina;
-    contenedor.innerHTML = "";
+    contenedorPendientes.innerHTML = "";
+    contenedorProceso.innerHTML= "";
+    contenedorFinalizadas.innerHTML = "";
+
     let inicio = (pagina - 1) * solicitudesPorPagina;
     for (let i = inicio; i < inicio + solicitudesPorPagina; i++) {
         let solicitud = solicitudes[i];
-        if(solicitud) contenedor.appendChild(crearFilaSolicitud(solicitud)); //conversión implícita de tipos (ventas no es un booleano, pero aquí, si venta
-        //contiene un objeto, considera que es verdadero. Si es undefined (variable que no tiene valor asignado), lo considera falso.
+        if(solicitud) {
+            contenedorPendientes.appendChild(crearFilaSolicitud(solicitud));
+            contenedorProceso.appendChild(crearFilaSolicitud(solicitud));
+            contenedorFinalizadas.appendChild(crearFilaSolicitud(solicitud));
+        }
     }
     let inputPagina = document.querySelector("#paginador input");
     inputPagina.value = pagina;

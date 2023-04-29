@@ -17,29 +17,30 @@
     <section id="usuario-comercial">
 
         <!--Aquí empieza la sección de perfil-comercial-->
-        <section id="perfil-comercial">
+        <section class="perfil">
 
             <!--Foto de perfil del comercial:-->
-            <img src="#" alt="foto de perfil del comercial" id="foto-comercial">
+                <img src="../../../../images/comercial.png" alt="foto de perfil del comercial" class="foto-perfil">
 
             <!--Datos del comercial (se obtendrán automáticamente de la base de datos en posteriores versiones)-->
-            <p>Nombre de usuario: Ferser</p>
-            <p>Nombre y apellidos: Fernando Serrano</p>
-            <p>Nombre de usuario: admin.ferser@gmail.com</p>
-            <p>Nombre de usuario: Carretera Sequia del Rei, 3. Bloque X, 1ª planta, puerta 1</p>
-
+            < id="datos">
+                Nombre de usuario: Ferser<br>
+                Nombre y apellidos: Fernando Serrano<br>
+                Nombre de usuario: admin.ferser@gmail.com<br>
+                Nombre de usuario: Carretera Sequia del Rei, 3. Bloque X, 1ª planta, puerta 1<br>
+            </p>
         </section>
         <!--Aquí acaba la sección de perfil-comercial-->
 
         <!--Aquí empieza el menu-comercial-->
         <nav id="menu-comercial">
-            <button id="boton-solicitudes">SOLICITUDES</button>
-            <button id="boton-ventas">VENTAS</button>
+            <button class="boton-perfil" id="boton-solicitudes">SOLICITUDES</button>
+            <button class="boton-perfil" id="boton-ventas">VENTAS</button>
         </nav>
         <!--Aquí acaba el menu-comercial-->
 
         <!--Línea de separación:-->
-        <hr>
+        <div></div>
 
     </section>
     <!--Aquí acaba la sección de usuario-comercial-->
@@ -76,11 +77,11 @@
         </div>
         <!--Aquí acaba el paginador-->
 
-        <!--Aquí empieza la tabla de solicitudes-->
+        <!--Aquí empieza la tabla de solicitudes pendientes-->
         <table>
 
-            <!--Aquí empieza la cabecera de la tabla de solicitudes-->
-            <thead id="cabecera-tabla-solicitudes">
+            <!--Aquí empieza la cabecera de la tabla de solicitudes pendientes-->
+            <thead id="cabecera-tabla-solicitudes-pendientes">
                 <tr>
                     <th>ID</th>
                     <th>E-MAIL</th>
@@ -88,7 +89,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <!--Aquí acaba la cabecera de la tabla de solicitudes-->
+            <!--Aquí acaba la cabecera de la tabla de solicitudes pendientes-->
 
             <!--Aquí empieza la tabla de solicitudes pendientes-->
             <tbody id="tabla-solicitudes-pendientes">
@@ -96,15 +97,58 @@
             </tbody>
 
         </table>
-        <!--Aquí acaba la tabla de solicitudes-->
+        <!--Aquí acaba la tabla de solicitudes pendientes-->
+
+        <!--Aquí empieza la tabla de solicitudes en proceso-->
+        <table>
+
+            <!--Aquí empieza la cabecera de la tabla de solicitudes en proceso-->
+            <thead id="cabecera-tabla-solicitudes-proceso">
+            <tr>
+                <th>ID</th>
+                <th>E-MAIL</th>
+                <th>NOMBRE</th>
+                <th></th>
+            </tr>
+            </thead>
+            <!--Aquí acaba la cabecera de la tabla de solicitudes en proceso-->
+
+            <!--Aquí empieza la tabla de solicitudes en proceso-->
+            <tbody id="tabla-solicitudes-proceso">
+
+            </tbody>
+
+        </table>
+        <!--Aquí acaba la tabla de solicitudes en proceso-->
+
+        <!--Aquí empieza la tabla de solicitudes finalizadas-->
+        <table>
+
+            <!--Aquí empieza la cabecera de la tabla de solicitudes finalizadas-->
+            <thead id="cabecera-tabla-solicitudes-finalizadas">
+            <tr>
+                <th>ID</th>
+                <th>E-MAIL</th>
+                <th>NOMBRE</th>
+                <th></th>
+            </tr>
+            </thead>
+            <!--Aquí acaba la cabecera de la tabla de solicitudes finalizadas-->
+
+            <!--Aquí empieza la tabla de solicitudes en finalizadas-->
+            <tbody id="tabla-solicitudes-finalizadas">
+
+            </tbody>
+
+        </table>
+        <!--Aquí acaba la tabla de solicitudes en finalizadas-->
+
 
 
     </section>
     <!--Aquí acaba la sección de solicitudes-->
 
-
-
-
+    
 
 </body>
     <script src="../../js/page_comercial.js"></script>
