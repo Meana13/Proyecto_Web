@@ -16,16 +16,10 @@ const contenedor = document.getElementById("tabla-solicitudes-pendientes");
 
 //------------------------------------------------------------
 /*
-Función obtenerDatos()
+Función anonima para obtener datos:
 */
 //------------------------------------------------------------
-/*
-async function obtenerDatos() {
-    const respuesta = await fetch("../../api/cien_datos_para_tabla.json");
-    const data = await respuesta.json();
-    solicitudes = data;
-}
-*/
+
 
 (async () => {
     const respuesta = await fetch("../../../api/cien_datos_para_tabla.json");
@@ -68,24 +62,9 @@ function crearFilaSolicitud(solicitud) {
 
 //------------------------------------------------------------
 /*
-Función main():
+Función cambiarPagina():
 */
 //------------------------------------------------------------
-/*
-async function main(){
-    await obtenerDatos();
-
- */
-/*
-    for(let i = 0; i<solicitudes.length; i++){
-        let solicitud = solicitudes[i];
-        if(solicitud){
-            contenedor.appendChild(crearFilaSolicitud(solicitud));
-        }
-    }
-}
-
- */
 
 function cambiarPagina(numeroPagina) {
     pagina = numeroPagina;
