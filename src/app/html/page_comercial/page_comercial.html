@@ -1,10 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Page comercial</title>
+    <link rel="stylesheet" href="../../css/page_comercial/estilos_page_comercial.css">
+
 </head>
 <body>
+    <!--Aquí empieza el header-->
+
+    <!--Aquí acaba el header-->
+
+    <!--Aquí empieza la sección de usuario-comercial-->
+    <section id="usuario-comercial">
+
+        <!--Aquí empieza la sección de perfil-comercial-->
+        <section class="perfil">
+
+            <!--Foto de perfil del comercial:-->
+                <img src="../../../../images/comercial.png" alt="foto de perfil del comercial" class="foto-perfil">
+
+            <!--Datos del comercial (se obtendrán automáticamente de la base de datos en posteriores versiones)-->
+            < id="datos">
+                Nombre de usuario: Ferser<br>
+                Nombre y apellidos: Fernando Serrano<br>
+                Nombre de usuario: admin.ferser@gmail.com<br>
+                Nombre de usuario: Carretera Sequia del Rei, 3. Bloque X, 1ª planta, puerta 1<br>
+            </p>
+        </section>
+        <!--Aquí acaba la sección de perfil-comercial-->
+
+        <!--Aquí empieza el menu-comercial-->
+        <nav id="menu-comercial">
+            <button class="boton-perfil" id="boton-solicitudes">SOLICITUDES</button>
+            <button class="boton-perfil" id="boton-ventas">VENTAS</button>
+        </nav>
+        <!--Aquí acaba el menu-comercial-->
+
+        <!--Línea de separación:-->
+        <div></div>
+
+    </section>
+    <!--Aquí acaba la sección de usuario-comercial-->
+
+    <!--Aquí empieza la sección de solicitudes-->
+    <section id="solicitudes">
+
+        <!--Aquí empieza la sección de botones-solicitudes-->
+        <section id="botones-solicitudes">
+            <button>SOLICITUDES PENDIENTES</button>
+            <button>SOLICITUDES EN PROCESO</button>
+            <button>SOLICITUDES FINALIZADAS</button>
+        </section>
+        <!--Aquí acaba la sección de botones-solicitudes-->
+
+    <!--Aquí empieza el filtro de la tabla-->
+    <form class="filtro">
+        Busca por palabra clave o número: <input type="text">
+    </form>
+    <!--Aquí acaba el filtro de la tabla-->
+
+        <!--Aquí empieza el paginador-->
+        <div id="paginador">
+            <button onclick="cambiarPagina(1)">1</button>
+            <button onclick="cambiarPagina(2)">2</button>
+            <button onclick="cambiarPagina(3)">3</button>
+            <span class="btn-input">
+			<button onclick="mostrarInput(this)">...</button>
+			<input type="number" value="1"
+                   onchange="cambiarPagina(this.value)"
+                   onblur="ocultarInput(this)" />
+		    </span>
+            <button>n</button>
+        </div>
+        <!--Aquí acaba el paginador-->
+
+        <!--Aquí empieza la tabla de solicitudes pendientes-->
+        <table>
+
+            <!--Aquí empieza la cabecera de la tabla de solicitudes pendientes-->
+            <thead id="cabecera-tabla-solicitudes-pendientes">
+                <tr>
+                    <th>ID</th>
+                    <th>E-MAIL</th>
+                    <th>NOMBRE</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <!--Aquí acaba la cabecera de la tabla de solicitudes pendientes-->
+
+            <!--Aquí empieza la tabla de solicitudes pendientes-->
+            <tbody id="tabla-solicitudes-pendientes">
+
+            </tbody>
+
+        </table>
+        <!--Aquí acaba la tabla de solicitudes pendientes-->
+
+        <!--Aquí empieza la tabla de solicitudes en proceso-->
+        <table>
+
+            <!--Aquí empieza la cabecera de la tabla de solicitudes en proceso-->
+            <thead id="cabecera-tabla-solicitudes-proceso">
+            <tr>
+                <th>ID</th>
+                <th>E-MAIL</th>
+                <th>NOMBRE</th>
+                <th></th>
+            </tr>
+            </thead>
+            <!--Aquí acaba la cabecera de la tabla de solicitudes en proceso-->
+
+            <!--Aquí empieza la tabla de solicitudes en proceso-->
+            <tbody id="tabla-solicitudes-proceso">
+
+            </tbody>
+
+        </table>
+        <!--Aquí acaba la tabla de solicitudes en proceso-->
+
+        <!--Aquí empieza la tabla de solicitudes finalizadas-->
+        <table>
+
+            <!--Aquí empieza la cabecera de la tabla de solicitudes finalizadas-->
+            <thead id="cabecera-tabla-solicitudes-finalizadas">
+            <tr>
+                <th>ID</th>
+                <th>E-MAIL</th>
+                <th>NOMBRE</th>
+                <th></th>
+            </tr>
+            </thead>
+            <!--Aquí acaba la cabecera de la tabla de solicitudes finalizadas-->
+
+            <!--Aquí empieza la tabla de solicitudes en finalizadas-->
+            <tbody id="tabla-solicitudes-finalizadas">
+
+            </tbody>
+
+        </table>
+        <!--Aquí acaba la tabla de solicitudes en finalizadas-->
+
+
+
+    </section>
+    <!--Aquí acaba la sección de solicitudes-->
+
+    
 
 </body>
+    <script src="../../js/page_comercial.js"></script>
+
 </html>
