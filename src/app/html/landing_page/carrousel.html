@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slider</title>
+    <link rel="stylesheet" href="../../css/landing_page/estilos_carrousel.css">
+</head>
+<body>
+    <div class="slide-contenedor">
+        <div class="productos">
+            <div class="slider_vista fade">
+                <div class="vista_pequeña_producto">
+                    <a href="hoja_producto_1.html">
+                        <div>
+                            <img src="producto_1.png" class="vista_pequeña_imagen" alt="Sistema de Monitorización">
+                            <p class="vista_pequeña_parrafo" >Sistema de</br> Monitorización</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="vista_principal_producto">
+                    <a href="hoja_producto_2.html">
+                        <div>
+                            <img src="producto_2.png" class="vista_principal_imagen" alt="Huerto Hidroponico Monitorizado">
+                            <p class="vista_principal_parrafo">Huerto Hidropónico Monitorizado</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="vista_pequeña_producto">
+                    <a href="hoja_producto_3.html">
+                        <div>
+                            <img src="producto_3.png" class="vista_pequeña_imagen" alt="Sistema de ampliación">
+                            <p class="vista_pequeña_parrafo" >Sistema de</br> ampliación</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="slider_vista fade">
+                <div class="vista_pequeña_producto">
+                    <a href="hoja_producto_2.html">
+                        <div>
+                            <img src="producto_2.png" class="vista_pequeña_imagen" alt="Huerto Hidroponico Monitorizado">
+                            <p class="vista_pequeña_parrafo" >Huerto Hidropónico Monitorizado</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="vista_principal_producto">
+                    <a href="hoja_producto_3.html">
+                        <div>
+                            <img src="producto_3.png" class="vista_principal_imagen" alt="Sistema de ampliación">
+                            <p class="vista_principal_parrafo">Sistema de</br> ampliación</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="vista_pequeña_producto">
+                    <a href="hoja_producto_1.html">
+                        <div>
+                            <img src="producto_1.png" class="vista_pequeña_imagen" alt="Sistema de Monitorización">
+                            <p class="vista_pequeña_parrafo" >Sistema de</br> Monitorización</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="slider_vista fade">
+                <div class="vista_pequeña_producto">
+                    <a href="hoja_producto_3.html">
+                        <div>
+                            <img src="producto_3.png" class="vista_pequeña_imagen" alt="Sistema de ampliación">
+                            <p class="vista_pequeña_parrafo" >Sistema de</br> ampliación</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="vista_principal_producto">
+                    <a href="hoja_producto_1.html">
+                        <div>
+                            <img src="producto_1.png"class="vista_principal_imagen" alt="Sistema de Monitorización">
+                            <p class="vista_principal_parrafo">Sistema de </br>Monitorización</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="vista_pequeña_producto">
+                    <a href="hoja_producto_2.html">
+                        <div>
+                            <img src="producto_2.png" class="vista_pequeña_imagen" alt="Huerto Hidroponico Monitorizado">
+                            <p class="vista_pequeña_parrafo" >Huerto Hidropónico Monitorizado</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="direcciones">
+            <a href="#" class="atras" onclick="avanzaSlide(-1)">&#10094;</a>
+            <a href="#" class="adelante" onclick="avanzaSlide(1)">&#10095;</a>
+        </div>
+        <div class="barras">
+            <span class="barra active" onclick="posicionSlide(1)"></span>
+            <span class="barra" onclick="posicionSlide(2)"></span>
+            <span class="barra" onclick="posicionSlide(3)"></span>
+        </div>
+    </div>
+    <script src="../../scrips/landing_page/carrousel.js"></script>
+</body>
+</html>
