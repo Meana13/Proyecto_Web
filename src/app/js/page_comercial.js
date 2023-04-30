@@ -1,3 +1,7 @@
+
+
+
+
 function mostrarInput(element){
     element.parentNode.classList.add("activo");
 }
@@ -289,6 +293,7 @@ function buscarSolicitudesFinalizadas() {
         }
     }
 }
+
 
 
 
