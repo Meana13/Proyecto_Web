@@ -1,4 +1,4 @@
-.boton-añadir-usuario {
+#boton-añadir-usuario {
     background-color: #9D4179;
     border: 0;
     color: #FFFFFF;
@@ -11,12 +11,31 @@
     margin-right: 5%;
 }
 
-.boton-añadir-usuario img {
+#boton-añadir-usuario img {
     height: 1em;
     width: 1.2em;
     margin-right: .25em;
     margin-left: .5em;
 }
+
+#seccion-administrar-usuarios {
+    display: block;
+}
+
+#seccion-añadir-usuario {
+    display: none;
+}
+
+#seccion-opinion-personal {
+    display: none;
+    border: 2px solid black;
+    width: 90%;
+    margin-top: 2em;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: white;
+}
+
 
 /* TABLA USUARIOS */
 
@@ -70,7 +89,6 @@ th:last-child {
     display: block;
 }
 
-
 label {
     display: inline-block;
     width: 120px;
@@ -85,7 +103,7 @@ select {
     margin-bottom: 10px;
 }
 
-.boton-generar-id {
+#boton-generar-id {
     background-color: #555555;
     color: #FFFFFF;
     font-family: Arial, sans-serif;
@@ -106,9 +124,10 @@ select {
 
 #caja-id {
     width: 6em;
+    height: 1em;
     border: 1px solid black;
-    padding: 10px;
     background-color: #f0f0f0;
+    color: black;
 }
 
 .boton-dar-de-alta {
@@ -126,14 +145,11 @@ select {
     font-weight: bold;
 }
 
-#opinion-personal {
-    border: 2px solid black;
-    width: 90%;
-    margin-top: 2em;
-    margin-left: 5%;
-    margin-right: 5%;
-    background-color: white;
-}
+/* FIN AÑADIR USUARIO */
+
+/* INICIO OPINION DEL PERSONAL */
+
+
 
 #desplegable-tecnicos {
     width: 100%;
@@ -141,7 +157,7 @@ select {
     background-color: #969898;
     margin-bottom: 0;
     border: 1px solid black;
-  }
+}
 
 #caja-opinion {
     display: flex;

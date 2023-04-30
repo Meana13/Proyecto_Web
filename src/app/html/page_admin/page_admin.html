@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titulo</title>
+    <title>Titulo</title>   
+    <script src="../../js/page_admin.js"></script>
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/page_admin/estilos_page_admin.css">
 </head>
@@ -32,8 +33,8 @@
     <!-- BOTONES -->
 
     <nav id="botones-perfil">
-        <button type="button" class="boton-perfil">administrar <br>usuarios</button>
-        <button type="button" class="boton-perfil">opinión del <br>personal</button>
+        <button type="button" id="boton-administrar-usuarios" class="boton-perfil">administrar <br>usuarios</button>
+        <button type="button" id="boton-opinion-del-personal" class="boton-perfil">opinión del <br>personal</button>
     </nav>
 
     <!------------->
@@ -47,7 +48,7 @@
     <!-- INICIO SECCIONES-->
 
     <section id="seccion-administrar-usuarios">
-        <button type="button" class="boton-añadir-usuario"> <img src="./iconos/icono-añadir.svg" alt="Añadir">
+        <button type="button" id="boton-añadir-usuario"> <img src="./iconos/icono-añadir.svg" alt="Añadir">
             Añadir</button>
 
         <!-- TABLA USUARIOS -->
@@ -109,7 +110,7 @@
     </section>
 
     <!-- INICIO SECCION AÑADIR USUARIO -->
-    <section id="añadir-usuario">
+    <section id="seccion-añadir-usuario">
         <h3 id="nuevo-usuario">NUEVO USUARIO</h3>
         <!-- FORMULARIO -->
         <div id="formulario-nuevo-usuario">
@@ -136,11 +137,11 @@
             <br> <!---->
         </div>
 
-        <button type="button" class="boton-generar-id">GENERAR ID</button>
+        <button type="button" id="boton-generar-id">GENERAR ID</button>
 
         <div id="id-usuario">
-            <p>ID de usuario:</p>
-            <p id="caja-id"></p>
+            <label>ID de usuario:</label>
+            <label id="caja-id"></label>
         </div>
 
         <button type="button" class="boton-dar-de-alta">DAR DE ALTA</button>
@@ -150,7 +151,7 @@
 
     <!-- INICIO SECCION OPINION DEL PERSONAL -->
 
-    <section id="opinion-personal">
+    <section id="seccion-opinion-personal">
         <!-- DESPLEGABLE -->
         <select id="desplegable-tecnicos" name="tecnicos">
             <option value="tecnico1">Nicolas Román</option>
