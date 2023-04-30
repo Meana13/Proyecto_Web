@@ -68,11 +68,11 @@
         <!--Aquí empieza la sección de solicitudes pendientes-->
         <section id="solicitudes-pendientes">
             <h3>SOLICITUDES PENDIENTES</h3>
-            <!--Aquí empieza el filtro de la tabla-->
-            <form class="filtro" id="filtro-pendientes">
-                Busca por palabra clave o número: <input type="text">
-            </form>
-            <!--Aquí acaba el filtro de la tabla-->
+
+            <!--Aquí empieza el buscador de la tabla-->
+            <input class="buscador" id="buscador-pendientes" placeholder="Escribe lo que quieras buscar...">
+            <button onclick="buscarSolicitudesPendientes()">Buscar</button>
+            <!--Aquí acaba el buscador de la tabla-->
 
             <!--Aquí empieza el paginador-->
             <div class="paginador" id="paginador-pendientes" >
@@ -90,7 +90,7 @@
             <!--Aquí acaba el paginador-->
 
             <!--Aquí empieza la tabla de solicitudes pendientes-->
-            <table>
+            <table id="tabla-pendientes">
 
                 <!--Aquí empieza la cabecera de la tabla de solicitudes pendientes-->
                 <thead id="cabecera-tabla-solicitudes-pendientes">
@@ -119,11 +119,11 @@
         <!--Aquí empieza la sección de solicitudes en proceso-->
         <section id="solicitudes-en-proceso">
             <h3>SOLICITUDES EN PROCESO</h3>
-            <!--Aquí empieza el filtro de la tabla-->
-            <form class="filtro" id="filtro-proceso">
-                Busca por palabra clave o número: <input type="text">
-            </form>
-            <!--Aquí acaba el filtro de la tabla-->
+
+            <!--Aquí empieza el buscador de la tabla-->
+            <input class="buscador" id="buscador-proceso" placeholder="Escribe lo que quieras buscar...">
+            <button onclick="buscarSolicitudesEnProceso()">Buscar</button>
+            <!--Aquí acaba el buscador de la tabla-->
 
             <!--Aquí empieza el paginador-->
             <div class="paginador" id="paginador-proceso" >
@@ -141,7 +141,7 @@
             <!--Aquí acaba el paginador-->
 
             <!--Aquí empieza la tabla de solicitudes en proceso-->
-            <table>
+            <table id="tabla-proceso">
 
                 <!--Aquí empieza la cabecera de la tabla de solicitudes en proceso-->
                 <thead id="cabecera-tabla-solicitudes-proceso">
@@ -170,11 +170,11 @@
         <!---------------------------------------------------->
         <section id="solicitudes-finalizadas">
             <h3>SOLICITUDES FINALIZADAS</h3>
-            <!--Aquí empieza el filtro de la tabla-->
-            <form class="filtro" id="filtro-finalizadas">
-                Busca por palabra clave o número: <input type="text">
-            </form>
-            <!--Aquí acaba el filtro de la tabla-->
+
+            <!--Aquí empieza el buscador de la tabla-->
+            <input class="buscador" id="buscador-finalizadas" placeholder="Escribe lo que quieras buscar...">
+            <button onclick="buscarSolicitudesFinalizadas()">Buscar</button>
+            <!--Aquí acaba el buscador de la tabla-->
 
             <!--Aquí empieza el paginador-->
             <div class="paginador" id="paginador-finalizadas" >
@@ -192,7 +192,7 @@
             <!--Aquí acaba el paginador-->
 
         <!--Aquí empieza la tabla de solicitudes finalizadas-->
-        <table>
+        <table id="tabla-finalizadas">
 
             <!--Aquí empieza la cabecera de la tabla de solicitudes finalizadas-->
             <thead id="cabecera-tabla-solicitudes-finalizadas">

@@ -171,4 +171,124 @@ function mostrarSolicitudesFinalizadas(){
     document.getElementById("solicitudes-en-proceso").style.display = "none";
     document.getElementById("solicitudes-pendientes").style.display = "none";
 }
+//------------------------------------------------------------
+/*
+Función buscarSolicitudesPendientes():
+*/
+//------------------------------------------------------------
+function buscarSolicitudesPendientes() {
+    // Obtenemos el valor del input de búsqueda
+    var input = document.getElementById("buscador-pendientes").value.toUpperCase();
+
+    // Obtenemos la tabla
+    var tabla = document.getElementById("tabla-pendientes");
+
+    // Obtenemos todas las filas de la tabla
+    var filas = tabla.getElementsByTagName("tr");
+
+    // Recorremos todas las filas de la tabla
+    for (var i = 0; i < filas.length; i++) {
+        // Obtenemos todas las celdas de la fila actual
+        var celdas = filas[i].getElementsByTagName("td");
+        var mostrarFila = false;
+
+        // Recorremos todas las celdas de la fila actual
+        for (var j = 0; j < celdas.length; j++) {
+            var textoCelda = celdas[j].textContent.toUpperCase();
+            if (textoCelda.indexOf(input) > -1) {
+                // Si encontramos la cadena de búsqueda en una celda, mostramos la fila
+                mostrarFila = true;
+                break;
+            }
+        }
+
+        // Mostramos u ocultamos la fila según corresponda
+        if (mostrarFila) {
+            filas[i].style.display = "";
+        } else {
+            filas[i].style.display = "none";
+        }
+    }
+}
+//------------------------------------------------------------
+/*
+Función buscarSolicitudesEnProceso():
+*/
+//------------------------------------------------------------
+function buscarSolicitudesEnProceso() {
+    // Obtenemos el valor del input de búsqueda
+    var input = document.getElementById("buscador-proceso").value.toUpperCase();
+
+    // Obtenemos la tabla
+    var tabla = document.getElementById("tabla-proceso");
+
+    // Obtenemos todas las filas de la tabla
+    var filas = tabla.getElementsByTagName("tr");
+
+    // Recorremos todas las filas de la tabla
+    for (var i = 0; i < filas.length; i++) {
+        // Obtenemos todas las celdas de la fila actual
+        var celdas = filas[i].getElementsByTagName("td");
+        var mostrarFila = false;
+
+        // Recorremos todas las celdas de la fila actual
+        for (var j = 0; j < celdas.length; j++) {
+            var textoCelda = celdas[j].textContent.toUpperCase();
+            if (textoCelda.indexOf(input) > -1) {
+                // Si encontramos la cadena de búsqueda en una celda, mostramos la fila
+                mostrarFila = true;
+                break;
+            }
+        }
+
+        // Mostramos u ocultamos la fila según corresponda
+        if (mostrarFila) {
+            filas[i].style.display = "";
+        } else {
+            filas[i].style.display = "none";
+        }
+    }
+}
+
+//------------------------------------------------------------
+/*
+Función buscarSolicitudesFinalizadas():
+*/
+//------------------------------------------------------------
+function buscarSolicitudesFinalizadas() {
+    // Obtenemos el valor del input de búsqueda
+    var input = document.getElementById("buscador-finalizadas").value.toUpperCase();
+
+    // Obtenemos la tabla
+    var tabla = document.getElementById("tabla-finalizadas");
+
+    // Obtenemos todas las filas de la tabla
+    var filas = tabla.getElementsByTagName("tr");
+
+    // Recorremos todas las filas de la tabla
+    for (var i = 0; i < filas.length; i++) {
+        // Obtenemos todas las celdas de la fila actual
+        var celdas = filas[i].getElementsByTagName("td");
+        var mostrarFila = false;
+
+        // Recorremos todas las celdas de la fila actual
+        for (var j = 0; j < celdas.length; j++) {
+            var textoCelda = celdas[j].textContent.toUpperCase();
+            if (textoCelda.indexOf(input) > -1) {
+                // Si encontramos la cadena de búsqueda en una celda, mostramos la fila
+                mostrarFila = true;
+                break;
+            }
+        }
+
+        // Mostramos u ocultamos la fila según corresponda
+        if (mostrarFila) {
+            filas[i].style.display = "";
+        } else {
+            filas[i].style.display = "none";
+        }
+    }
+}
+
+
 
