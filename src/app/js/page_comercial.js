@@ -95,3 +95,56 @@ function cambiarPagina(numeroPagina) {
     let inputPagina = document.querySelector(".paginador input");
     inputPagina.value = pagina;
 }
+
+//------------------------------------------------------------
+/*
+Función mostrarSolicitudes():
+*/
+//------------------------------------------------------------
+function mostrarSolicitudes(){
+    document.getElementById("boton-solicitudes").classList.add("activo");
+    document.getElementById("boton-ventas").classList.remove("activo");
+
+    document.getElementById("solicitudes").style.display = "block";
+    document.getElementById("ventas").style.display = "none";
+    document.getElementById("ver-venta").style.display = "none";
+}
+
+//------------------------------------------------------------
+/*
+Función mostrarVentas():
+*/
+//------------------------------------------------------------
+function mostrarVentas() {
+    // Cambiar la clase "activo" del botón correspondiente
+    document.getElementById("boton-ventas").classList.add("activo");
+    document.getElementById("boton-solicitudes").classList.remove("activo");
+
+    // Mostrar la sección de ventas y ocultar la sección de solicitudes
+    document.getElementById("ventas").style.display = "block";
+    document.getElementById("solicitudes").style.display = "none";
+
+}
+
+
+
+
+/*
+function activarElemento(elementos, posicion) {
+    for (let i = 0; i < elementos.length; i++) {
+        if (i === posicion - 1) {
+            elementos[i].classList.add("activo");
+        } else {
+            elementos[i].classList.remove("activo");
+        }
+    }
+}
+
+function cambiarTab(tab) {
+    console.log("Tab:", tab);
+    let botones = document.querySelectorAll("button");
+    activarElemento(botones, tab);
+    let articulos = document.getElementById("solicitudes");
+    activarElemento(articulos, tab);
+}
+*/

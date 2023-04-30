@@ -10,10 +10,14 @@
 
 </head>
 <body>
+<!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza el header-->
 
     <!--Aquí acaba el header-->
+<!----------------------------------------------------------------------------------------------->
 
+
+<!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección de usuario-comercial-->
     <section id="usuario-comercial">
 
@@ -24,7 +28,7 @@
                 <img src="../../../../images/comercial.png" alt="foto de perfil del comercial" class="foto-perfil">
 
             <!--Datos del comercial (se obtendrán automáticamente de la base de datos en posteriores versiones)-->
-            < id="datos">
+            <p id="datos">
                 Nombre de usuario: Ferser<br>
                 Nombre y apellidos: Fernando Serrano<br>
                 Nombre de usuario: admin.ferser@gmail.com<br>
@@ -35,8 +39,8 @@
 
         <!--Aquí empieza el menu-comercial-->
         <nav id="menu-comercial">
-            <button class="boton-perfil" id="boton-solicitudes">SOLICITUDES</button>
-            <button class="boton-perfil" id="boton-ventas">VENTAS</button>
+            <button class="boton-perfil" id="boton-solicitudes" onclick="mostrarSolicitudes()">SOLICITUDES</button>
+            <button class="boton-perfil" id="boton-ventas" onclick="mostrarVentas()">VENTAS</button>
         </nav>
         <!--Aquí acaba el menu-comercial-->
 
@@ -45,26 +49,30 @@
 
     </section>
     <!--Aquí acaba la sección de usuario-comercial-->
+<!----------------------------------------------------------------------------------------------->
 
+<!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección de solicitudes-->
     <section id="solicitudes">
 
         <!--Aquí empieza la sección de botones-solicitudes-->
         <section id="botones-solicitudes">
-            <button>SOLICITUDES PENDIENTES</button>
-            <button>SOLICITUDES EN PROCESO</button>
-            <button>SOLICITUDES FINALIZADAS</button>
+            <button id="boton-solicitudes-pendientes" onclick="cambiarTab(1)" class="activo">SOLICITUDES PENDIENTES</button>
+            <button id="boton-solicitudes-proceso" onclick="cambiarTab(2)">SOLICITUDES EN PROCESO</button>
+            <button id="boton-solicitudes-finalizadas" onclick="cambiarTab(3)">SOLICITUDES FINALIZADAS</button>
         </section>
         <!--Aquí acaba la sección de botones-solicitudes-->
 
-    <!--Aquí empieza el filtro de la tabla-->
-    <form class="filtro">
-        Busca por palabra clave o número: <input type="text">
-    </form>
-    <!--Aquí acaba el filtro de la tabla-->
+    <section id="solicitudes-pendientes" class="activo">
+
+        <!--Aquí empieza el filtro de la tabla-->
+        <form class="filtro-pendientes">
+            Busca por palabra clave o número: <input type="text">
+        </form>
+        <!--Aquí acaba el filtro de la tabla-->
 
         <!--Aquí empieza el paginador-->
-        <div class="paginador" id="paginador-solicitudes" >
+        <div class="paginador" id="paginador-pendientes" >
             <button onclick="cambiarPagina(1)">1</button>
             <button onclick="cambiarPagina(2)">2</button>
             <button onclick="cambiarPagina(3)">3</button>
@@ -99,7 +107,7 @@
 
         </table>
         <!--Aquí acaba la tabla de solicitudes pendientes-->
-
+    </section>
         <!--Aquí empieza la tabla de solicitudes en proceso-->
         <table>
 
@@ -146,9 +154,10 @@
 
     </section>
     <!--Aquí acaba la sección de solicitudes-->
+<!----------------------------------------------------------------------------------------------->
 
 
-
+<!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección de ventas-->
     <section id="ventas">
 
@@ -232,7 +241,9 @@
 
     </section>
     <!--Aquí acaba la sección de ventas-->
+<!----------------------------------------------------------------------------------------------->
 
+<!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección ver venta-->
     <section id="ver-venta">
 
@@ -250,14 +261,16 @@
 
     </section>
     <!--Aquí acaba la sección ver venta-->
+<!----------------------------------------------------------------------------------------------->
 
 
 
 
-    
-    <!--Aquí empieza el footer-->
+<!----------------------------------------------------------------------------------------------->
+<!--Aquí empieza el footer-->
 
     <!--Aquí acaba el footer-->
+<!----------------------------------------------------------------------------------------------->
 
 </body>
     <script src="../../js/page_comercial.js"></script>

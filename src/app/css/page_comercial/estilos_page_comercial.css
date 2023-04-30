@@ -32,4 +32,10 @@ body {
     float: right;
 }
  */
+#ver-venta{
+    display: none;
+}
 
+#ventas{
+    display:none;
+}
