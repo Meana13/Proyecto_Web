@@ -1,10 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titulo</title>
+    <link rel="stylesheet" href="../../css/estilos_general.css">
+    <link rel="stylesheet" href="../../css/page_admin/estilos_page_admin.css">
 </head>
-<body>
 
+<body>
+    <!-- INICIO HEADER -->
+
+    <!-- FIN HEADER -->
+
+    <!-- INICIO DATOS ADMIN -->
+
+    <section class="perfil">
+        <img src="../../../../images/admin.png" alt="Foto admin" class="foto-perfil">
+
+        <p id="datos">
+            Nombre de usuario: HectorAdmin <br>
+            Nombre y apellidos: Héctor Iglesias <br>
+            E-mail: hectigle@empresa.com <br>
+            Dirección: Carretera Sequia del Rei, 3, Bloque X 1ª Planta Puerta 2
+        </p>
+    </section>
+
+    <!-- FIN DATOS ADMIN -->
+
+    <!-- BOTONES -->
+
+    <nav id="botones-perfil">
+        <button type="button" class="boton-perfil">administrar <br>usuarios</button>
+        <button type="button" class="boton-perfil">opinión del <br>personal</button>
+    </nav>
+
+    <!------------->
+
+    <!-- LINEA SEPARATORIA -->
+
+    <div id="divisor"></div>
+
+    <!----------------------->
+
+    <!-- INICIO SECCIONES-->
+
+    <section id="seccion-administrar-usuarios">
+        <button type="button" class="boton-añadir-usuario"> <img src="./iconos/icono-añadir.svg" alt="Añadir">
+            Añadir</button>
+
+        <!-- TABLA USUARIOS -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ricardo</td>
+                    <td>Marquez</td>
+                    <td>ricmar@gmail.com</td>
+                    <td><a href="#" id="ver-hoja-usuario"><img src="./iconos/ver-perfil.svg" alt="Hoja de usuario"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concepción</td>
+                    <td>García</td>
+                    <td>congar@gmail.com</td>
+                    <td><a href="#" id="ver-hoja-usuario"><img src="./iconos/ver-perfil.svg" alt="Hoja de usuario"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Victoria</td>
+                    <td>Serrano</td>
+                    <td>vicser@gmail.com</td>
+                    <td><a href="#" id="ver-hoja-usuario"><img src="./iconos/ver-perfil.svg" alt="Hoja de usuario"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gloria</td>
+                    <td>Guerrero</td>
+                    <td>glogue@gmail.com</td>
+                    <td><a href="#" id="ver-hoja-usuario"><img src="./iconos/ver-perfil.svg" alt="Hoja de usuario"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Julio</td>
+                    <td>Ortega</td>
+                    <td>julorg@gmail.com</td>
+                    <td><a href="#" id="ver-hoja-usuario"><img src="./iconos/ver-perfil.svg" alt="Hoja de usuario"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pedro</td>
+                    <td>Saez</td>
+                    <td>pedsae@gmail.com</td>
+                    <td><a href="#" id="ver-hoja-usuario"><img src="./iconos/ver-perfil.svg"
+                                alt="Hoja de usuario"></button></a></td>
+                </tr>
+            </tbody>
+        </table>
+        <!------------------->
+    </section>
+
+    <!-- INICIO SECCION AÑADIR USUARIO -->
+    <section id="añadir-usuario">
+        <h3 id="nuevo-usuario">NUEVO USUARIO</h3>
+        <!-- FORMULARIO -->
+        <div id="formulario-nuevo-usuario">
+            <label for="tipo-usuario">Tipo de usuario:</label>
+            <select id="tipo-usuario" name="usuarios">
+                <option value="usuario">Usuario</option>
+                <option value="administrador">Administrador</option>
+                <option value="comercial">Comercial</option>
+                <option value="tecnico">Técnico</option>
+            </select>
+            <!--------------->
+            <br> <!---->
+            <label>Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            <br> <!---->
+            <label>Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos">
+            <br> <!---->
+            <label>E-mail:</label>
+            <input type="text" id="e-mail" name="e-mail">
+            <br> <!---->
+            <label>Dirección:</label>
+            <input type="text" id="direccion" name="direccion">
+            <br> <!---->
+        </div>
+
+        <button type="button" class="boton-generar-id">GENERAR ID</button>
+
+        <div id="id-usuario">
+            <p>ID de usuario:</p>
+            <p id="caja-id"></p>
+        </div>
+
+        <button type="button" class="boton-dar-de-alta">DAR DE ALTA</button>
+    </section>
+
+    <!-- FIN SECCION AÑADIR USUARIO -->
+
+    <!-- INICIO SECCION OPINION DEL PERSONAL -->
+
+    <section id="opinion-personal">
+        <!-- DESPLEGABLE -->
+        <select id="desplegable-tecnicos" name="tecnicos">
+            <option value="tecnico1">Nicolas Román</option>
+            <option value="tecnico2">Pablo García</option>
+            <option value="tecnico3">Julio Marco</option>
+            <option value="tecnico4">Estefanía Rodríguez</option>
+        </select>
+        <!---------------->
+        <!-- Opinion 1 -->
+        <div id="caja-opinion">
+            <img src="./iconos/icono-opinion-usuario.svg" alt="Opinion de usuario" id="icono-opinion">
+            <div id="datos-opinion">
+                <label id="fecha-instalacion">Instalación: 04/04/2023 </label> <!-- importar fecha no se como --> <br>
+                <label id="n-instalacion">#01</label><!-- importar nº de instalacion -->
+                <div id="estrellas">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/media-estrella.svg" alt="Media estrella">
+                </div>
+            </div>
+            <textarea readonly id="opinion">Impresionado con su profesionalismo y habilidad. Desde el momento en que llegó a mi hogar tuve la suerte de contar con su servicio,tengo una solución perfecta en mi hogar!</textarea>
+        </div>
+        <!-- Opinion 2 -->
+        <div id="caja-opinion">
+            <img src="./iconos/icono-opinion-usuario.svg" alt="Opinion de usuario" id="icono-opinion">
+            <div id="datos-opinion">
+                <label id="fecha-instalacion">Instalación: 08/04/2023 </label> <!-- importar fecha no se como --> <br>
+                <label id="n-instalacion">#05</label><!-- importar nº de instalacion -->
+                <div id="estrellas">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/media-estrella.svg" alt="Media estrella">
+                </div>
+            </div>
+            <textarea readonly id="opinion">La instalación fue rápida y eficiente, y el técnico explicó todo lo que estaba haciendo en cada paso del proceso. Fue un alivio no tener que preocuparme por nada y simplemente dejarlo en manos de un profesional.</textarea>
+        </div>
+        <!-- Opinion 3 -->
+        <div id="caja-opinion">
+            <img src="./iconos/icono-opinion-usuario.svg" alt="Opinion de usuario" id="icono-opinion">
+            <div id="datos-opinion">
+                <label id="fecha-instalacion">Instalación: 15/04/2023 </label> <!-- importar fecha no se como --> <br>
+                <label id="n-instalacion">#08</label><!-- importar nº de instalacion -->
+                <div id="estrellas">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/estrella.svg" alt="Estrella">
+                    <img src="./iconos/media-estrella.svg" alt="Media estrella">
+                </div>
+            </div>
+            <textarea readonly id="opinion">Me gustó la forma en que el técnico explicó el proceso de instalación de manera clara y detallada. Fue fácil de entender y me dio tranquilidad saber exactamente lo que estaba sucediendo.</textarea>
+        </div>
+    </section>
+
+    <!-- FIN SECCION OPINION DEL PERSONAL-->
+    <section>
+
+    </section>
 </body>
+
 </html>
