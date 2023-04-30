@@ -15,6 +15,7 @@ let solicitudes = [];
 const contenedorPendientes = document.getElementById("tabla-solicitudes-pendientes");
 const contenedorProceso = document.getElementById("tabla-solicitudes-proceso");
 const contenedorFinalizadas = document.getElementById("tabla-solicitudes-finalizadas");
+const contenedorVentas = document.getElementById("tabla-ventas");
 
 
 //------------------------------------------------------------
@@ -30,11 +31,11 @@ Función anonima para obtener datos:
     solicitudes = data;
 
     let ultimaPagina = Math.ceil(solicitudes.length / solicitudesPorPagina);
-    let ultimoBoton = document.querySelector("#paginador > button:last-child")
+    let ultimoBoton = document.querySelector(".paginador > button:last-child")
     ultimoBoton.innerText = ultimaPagina;
     ultimoBoton.onclick = () => cambiarPagina(ultimaPagina);
 
-    let inputPagina = document.querySelector("#paginador input");
+    let inputPagina = document.querySelector(".paginador input");
     inputPagina.max = ultimaPagina;
     inputPagina.min = 1;
 
@@ -77,8 +78,9 @@ Función cambiarPagina():
 function cambiarPagina(numeroPagina) {
     pagina = numeroPagina;
     contenedorPendientes.innerHTML = "";
-    contenedorProceso.innerHTML= "";
+    contenedorProceso.innerHTML = "";
     contenedorFinalizadas.innerHTML = "";
+    contenedorVentas.innerHTML = "";
 
     let inicio = (pagina - 1) * solicitudesPorPagina;
     for (let i = inicio; i < inicio + solicitudesPorPagina; i++) {
@@ -87,8 +89,9 @@ function cambiarPagina(numeroPagina) {
             contenedorPendientes.appendChild(crearFilaSolicitud(solicitud));
             contenedorProceso.appendChild(crearFilaSolicitud(solicitud));
             contenedorFinalizadas.appendChild(crearFilaSolicitud(solicitud));
+            contenedorVentas.appendChild(crearFilaSolicitud(solicitud));
         }
     }
-    let inputPagina = document.querySelector("#paginador input");
+    let inputPagina = document.querySelector(".paginador input");
     inputPagina.value = pagina;
 }
