@@ -102,9 +102,11 @@ Función mostrarSolicitudes():
 */
 //------------------------------------------------------------
 function mostrarSolicitudes(){
+    // Cambiar la clase "activo" del botón correspondiente
     document.getElementById("boton-solicitudes").classList.add("activo");
     document.getElementById("boton-ventas").classList.remove("activo");
 
+    // Mostrar la sección de solicitudes y ocultar la sección de ventas
     document.getElementById("solicitudes").style.display = "block";
     document.getElementById("ventas").style.display = "none";
     document.getElementById("ver-venta").style.display = "none";
@@ -123,28 +125,50 @@ function mostrarVentas() {
     // Mostrar la sección de ventas y ocultar la sección de solicitudes
     document.getElementById("ventas").style.display = "block";
     document.getElementById("solicitudes").style.display = "none";
-
 }
 
-
-
-
+//------------------------------------------------------------
 /*
-function activarElemento(elementos, posicion) {
-    for (let i = 0; i < elementos.length; i++) {
-        if (i === posicion - 1) {
-            elementos[i].classList.add("activo");
-        } else {
-            elementos[i].classList.remove("activo");
-        }
-    }
+Función mostrarSolicitudesPendientes():
+*/
+//------------------------------------------------------------
+function mostrarSolicitudesPendientes(){
+    document.getElementById("boton-solicitudes-pendientes").classList.add("activo");
+    document.getElementById("boton-solicitudes-proceso").classList.remove("activo");
+    document.getElementById("boton-solicitudes-finalizadas").classList.remove("activo");
+
+    document.getElementById("solicitudes-pendientes").style.display = "block";
+    document.getElementById("solicitudes-en-proceso").style.display = "none";
+    document.getElementById("solicitudes-finalizadas").style.display = "none";
 }
 
-function cambiarTab(tab) {
-    console.log("Tab:", tab);
-    let botones = document.querySelectorAll("button");
-    activarElemento(botones, tab);
-    let articulos = document.getElementById("solicitudes");
-    activarElemento(articulos, tab);
-}
+//------------------------------------------------------------
+/*
+Función mostrarSolicitudesEnProceso():
 */
+//------------------------------------------------------------
+function mostrarSolicitudesEnProceso(){
+    document.getElementById("boton-solicitudes-proceso").classList.add("activo");
+    document.getElementById("boton-solicitudes-pendientes").classList.remove("activo");
+    document.getElementById("boton-solicitudes-finalizadas").classList.remove("activo");
+
+    document.getElementById("solicitudes-en-proceso").style.display = "block";
+    document.getElementById("solicitudes-pendientes").style.display = "none";
+    document.getElementById("solicitudes-finalizadas").style.display = "none";
+}
+
+//------------------------------------------------------------
+/*
+Función mostrarSolicitudesFinalizadas():
+*/
+//------------------------------------------------------------
+function mostrarSolicitudesFinalizadas(){
+    document.getElementById("boton-solicitudes-finalizadas").classList.add("activo");
+    document.getElementById("boton-solicitudes-proceso").classList.remove("activo");
+    document.getElementById("boton-solicitudes-pendientes").classList.remove("activo");
+
+    document.getElementById("solicitudes-finalizadas").style.display = "block";
+    document.getElementById("solicitudes-en-proceso").style.display = "none";
+    document.getElementById("solicitudes-pendientes").style.display = "none";
+}
+
