@@ -284,37 +284,34 @@
         <!--Aquí empieza la sección de graficas-ventas-->
         <section id="graficas-ventas">
 
-            <select>
-                <option>Mes</option>
-                <option>Año</option>
-                <option>Importe</option>
+            <select id="selector-opciones-graficas" onchange="seleccionarOpcion()">
+                <option id="opcion-semana" value="semana">Semana</option>
+                <option id="opcion-dia" value="dia">Día</option>
+                <option id="opcion-mes" value="mes">Meses</option>
+                <option id="opcion-anio" value="anio">Años</option>
+
             </select>
-            <div class="chart-container">
+
+            <div id="chart-container-mes">
 
                 <canvas id="chart-mes"></canvas>
 
             </div>
-            <div class="chart-container">
+            <div id="chart-container-anio">
 
                 <canvas id="chart-anio"></canvas>
 
             </div>
-            <div class="chart-container">
+            <div id="chart-container-semana">
 
                 <canvas id="chart-semana"></canvas>
 
             </div>
-            <div class="chart-container">
+            <div id="chart-container-dia">
 
                 <canvas id="chart-dia"></canvas>
 
             </div>
-            <div class="chart-container">
-
-                <canvas id="chart-importe"></canvas>
-
-            </div>
-
 
         </section>
         <!--Aquí acaba la sección de graficas-ventas-->

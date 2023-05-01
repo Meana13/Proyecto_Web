@@ -780,17 +780,77 @@ function datosGraficaDia(){
             options: opciones //las opciones
         });
 
-
-
     })//callback
 
 }//funcion
 //--------------------------------------------------------------------
 /*
-llamada de función datosGraficaSemana()
+llamada de función datosGraficaDia()
 */
 //--------------------------------------------------------------------
 datosGraficaDia();
+
+function seleccionarOpcion(){
+    var opcionSeleccionada = document.getElementById("selector-opciones-graficas").value;
+    if(opcionSeleccionada === "dia"){
+        mostrarGraficaDia();
+    } else if(opcionSeleccionada === "semana"){
+        mostrarGraficaSemana();
+    } else if(opcionSeleccionada === "mes"){
+        mostrarGraficaMes();
+    } else if(opcionSeleccionada === "anio"){
+        mostrarGraficaAnio();
+    }
+}
+
+function mostrarGraficaDia(){
+    document.getElementById("opcion-dia").classList.add("activo");
+    document.getElementById("opcion-semana").classList.remove("activo");
+    document.getElementById("opcion-mes").classList.remove("activo");
+    document.getElementById("opcion-anio").classList.remove("activo");
+
+    document.getElementById("chart-container-dia").style.display = "block";
+    document.getElementById("chart-container-semana").style.display = "none";
+    document.getElementById("chart-container-mes").style.display = "none";
+    document.getElementById("chart-container-anio").style.display = "none";
+}
+
+function mostrarGraficaSemana(){
+    document.getElementById("opcion-semana").classList.add("activo");
+    document.getElementById("opcion-dia").classList.remove("activo");
+    document.getElementById("opcion-mes").classList.remove("activo");
+    document.getElementById("opcion-anio").classList.remove("activo");
+
+    document.getElementById("chart-container-semana").style.display = "block";
+    document.getElementById("chart-container-dia").style.display = "none";
+    document.getElementById("chart-container-mes").style.display = "none";
+    document.getElementById("chart-container-anio").style.display = "none";
+}
+
+function mostrarGraficaMes(){
+    document.getElementById("opcion-mes").classList.add("activo");
+    document.getElementById("opcion-semana").classList.remove("activo");
+    document.getElementById("opcion-dia").classList.remove("activo");
+    document.getElementById("opcion-anio").classList.remove("activo");
+
+    document.getElementById("chart-container-mes").style.display = "block";
+    document.getElementById("chart-container-semana").style.display = "none";
+    document.getElementById("chart-container-dia").style.display = "none";
+    document.getElementById("chart-container-anio").style.display = "none";
+}
+
+function mostrarGraficaAnio(){
+    document.getElementById("opcion-anio").classList.add("activo");
+    document.getElementById("opcion-semana").classList.remove("activo");
+    document.getElementById("opcion-mes").classList.remove("activo");
+    document.getElementById("opcion-dia").classList.remove("activo");
+
+    document.getElementById("chart-container-anio").style.display = "block";
+    document.getElementById("chart-container-semana").style.display = "none";
+    document.getElementById("chart-container-mes").style.display = "none";
+    document.getElementById("chart-container-dia").style.display = "none";
+}
+
 
 
 

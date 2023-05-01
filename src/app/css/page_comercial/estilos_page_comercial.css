@@ -54,3 +54,7 @@ body {
     display:none;
 }
 
+#chart-container-mes, #chart-container-anio, #chart-container-dia {
+    display:none;
+}
+
