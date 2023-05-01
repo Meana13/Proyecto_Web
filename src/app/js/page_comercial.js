@@ -293,6 +293,31 @@ function buscarSolicitudesFinalizadas() {
         }
     }
 }
+//------------------------------------------------------------
+/*
+Función mostrarListaVentas():
+*/
+//------------------------------------------------------------
+function mostrarListaVentas(){
+    document.getElementById("boton-lista-ventas").classList.add("activo");
+    document.getElementById("boton-graficas").classList.remove("activo");
+
+    document.getElementById("lista-ventas").style.display = "block";
+    document.getElementById("graficas-ventas").style.display = "none";
+}
+
+//------------------------------------------------------------
+/*
+Función mostrarGraficas():
+*/
+//------------------------------------------------------------
+function mostrarGraficas(){
+    document.getElementById("boton-graficas").classList.add("activo");
+    document.getElementById("boton-lista-ventas").classList.remove("activo");
+
+    document.getElementById("graficas-ventas").style.display = "block";
+    document.getElementById("lista-ventas").style.display = "none";
+}
 
 
 
