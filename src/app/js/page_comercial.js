@@ -326,8 +326,8 @@ función obtenerDatos():
 */
 //--------------------------------------------------------------------
 async function obtenerDatos(url, callback){
-    const archivo = await fetch (url);
-    const datos = await archivo.json();
+    let archivo = await fetch (url);
+    let datos = await archivo.json();
     callback(datos);
 }
 
@@ -336,6 +336,7 @@ async function obtenerDatos(url, callback){
 función DatosGraficaMes()
 */
 //--------------------------------------------------------------------
+
 function datosGraficaMes(){
 
     obtenerDatos("../../../api/200datos_grafica_importe_fecha.json", (datos)=>{
@@ -383,8 +384,6 @@ function datosGraficaMes(){
             }
 
         }//for
-
-        console.log(arrayImporte);
 
         let datosGraficaMes = {
             labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
@@ -442,13 +441,14 @@ function datosGraficaMes(){
         }//opciones
 
 
-        let ctx = document.getElementById('chart'); //referencia al canvas.
+        let ctxmes = document.getElementById('chart-mes'); //referencia al canvas.
 
-        let miGrafica = new Chart(ctx, { //le pasamos el canvas y un objeto con la configuración.
+        let miGraficaMes = new Chart(ctxmes, { //le pasamos el canvas y un objeto con la configuración.
             type: 'line',
             data: datosGraficaMes, //los datos
             options: opciones //las opciones
         });
+
 
     })//callback
 
@@ -459,6 +459,115 @@ llamada de función datosGraficaMes()
 */
 //--------------------------------------------------------------------
 datosGraficaMes();
+
+
+//--------------------------------------------------------------------
+/*
+función DatosGraficaAnio()
+*/
+//--------------------------------------------------------------------
+function datosGraficaAnio(){
+
+    obtenerDatos("../../../api/200datos_grafica_importe_fecha.json", (datos)=>{
+
+        let arrayImporte = [0,0,0,0,0];
+
+        for(let i=0; i<datos.length; i++){
+            let venta = datos[i];
+
+            if (venta.fecha[9] == 0) {
+                arrayImporte[0] = arrayImporte[0] + venta.importe;
+            }
+            if (venta.fecha[9] == 1) {
+                arrayImporte[1] = arrayImporte[1] + venta.importe;
+            }
+            if (venta.fecha[9] == 2) {
+                arrayImporte[2] = arrayImporte[2] + venta.importe;
+            }
+            if (venta.fecha[9] == 3) {
+                arrayImporte[3] = arrayImporte[3] + venta.importe;
+            }
+            if (venta.fecha[9] == 4) {
+                arrayImporte[4] = arrayImporte[4] + venta.importe;
+            }
+
+        }//for
+
+        console.log(arrayImporte);
+
+        let datosGraficaAnio = {
+            labels: ["2020","2021","2022","2023","2024"],
+            datasets: [
+                {
+                    label: "Importe",
+                    data: arrayImporte,
+                    backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
+                    borderColor: 'rgb(255,110,86)',
+                    borderDash: [2, 3], //punteado [1,3,3,2]
+                    tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
+                    //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
+                    pointStyle: 'rectRot', //tipo de punto (este es diamante).
+                    pointRadius: 10, //este controla el tamaño del punto.
+                }
+            ]
+        } //datos
+
+        let opciones = { //las opciones de la gráfica.
+            responsive: true, //va a ser responsive
+            maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
+                                        //según necesite.
+            scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
+                //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
+                //0 de la gráfica azul.
+                y: {
+                    stacked: false
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom', //posicionamiento de la leyenda. En qué borde.
+                    align: 'end' //dentro del borde, donde queremos que aparezca (start, center y end).
+                },
+                title: { //titulo de la gráfica
+                    display: true,
+                    text: 'Ventas del mes',
+                    position: 'left',
+                    align: 'start',
+                    padding:{
+                        right: 50
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#fff',
+                    titleColor: '#000',
+                    titleAlign: 'center',
+                    bodyColor: '#333',
+                    borderColor: '#666',
+                    borderWidth: 1,
+                }
+
+            }//plugins
+
+        }//opciones
+
+
+        let ctxAnio = document.getElementById('chart-anio'); //referencia al canvas.
+
+        let miGraficaAnio = new Chart(ctxAnio, { //le pasamos el canvas y un objeto con la configuración.
+            type: 'line',
+            data: datosGraficaAnio, //los datos
+            options: opciones //las opciones
+        });
+
+    })//callback
+
+}//funcion
+//--------------------------------------------------------------------
+/*
+llamada de función datosGraficaAnio()
+*/
+//--------------------------------------------------------------------
+datosGraficaAnio();
 
 
 
