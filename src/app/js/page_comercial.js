@@ -207,6 +207,34 @@ function crearFilaSolicitud(solicitud) {
             contenedorFinalizadas.style.display = "none";
             contenedorProceso.style.display = "none";
             seccionVerMas.style.display = "block";
+
+            document.getElementById("boton-volver-a-lista-solicitudes").onclick= ()=>{
+                volverAListaSolicitudes("boton-volver-a-lista-solicitudes","solicitudes-pendientes","ver-mas");
+            }
+        }
+    });
+    contenedorProceso.addEventListener("click",(event)=>{
+        if(event.target.tagName === "BUTTON"){
+            const filaBoton = event.target.parentNode.parentNode;
+
+            llenarVerMas(filaBoton);
+
+            contenedorProceso.style.display = "none";
+            contenedorFinalizadas.style.display = "none";
+            contenedorPendientes.style.display = "none";
+            seccionVerMas.style.display = "block";
+        }
+    });
+    contenedorFinalizadas.addEventListener("click",(event)=>{
+        if(event.target.tagName === "BUTTON"){
+            const filaBoton = event.target.parentNode.parentNode;
+
+            llenarVerMas(filaBoton);
+
+            contenedorProceso.style.display = "none";
+            contenedorFinalizadas.style.display = "none";
+            contenedorPendientes.style.display = "none";
+            seccionVerMas.style.display = "block";
         }
     });
 
@@ -231,12 +259,12 @@ function crearFilaSolicitud(solicitud) {
     return fila;
 }
 
-function volverAListaSolicitudes(id){
+function volverAListaSolicitudes(idBotonActivo, idSeccionMostrar, idSeccionOcultar){
 
-    document.getElementById(id).classList.add("activo");
+    document.getElementById(idBotonActivo).classList.add("activo");
 
-    document.getElementById("ver-mas").style.display = "none";
-    document.getElementById("solicitudes").style.display = "block";
+    document.getElementById(idSeccionOcultar).style.display = "none";
+    document.getElementById(idSeccionMostrar).style.display = "block";
 
 }
 //------------------------------------------------------------
