@@ -41,8 +41,8 @@
 
         <!--Aquí empieza el menu-comercial-->
         <nav id="menu-comercial">
-            <button class="boton-perfil" id="boton-solicitudes" onclick="mostrarSolicitudes()">SOLICITUDES</button>
-            <button class="boton-perfil" id="boton-ventas" onclick="mostrarVentas()">VENTAS</button>
+            <button class="boton-perfil" id="boton-solicitudes" onclick="mostrarContenidoEntreDos('boton-solicitudes', 'boton-ventas', 'solicitudes', 'ventas')">SOLICITUDES</button>
+            <button class="boton-perfil" id="boton-ventas" onclick="mostrarContenidoEntreDos('boton-ventas', 'boton-solicitudes', 'ventas', 'solicitudes')">VENTAS</button>
         </nav>
         <!--Aquí acaba el menu-comercial-->
 
@@ -59,9 +59,9 @@
 
         <!--Aquí empieza la sección de botones-solicitudes-->
         <section id="botones-solicitudes">
-            <button id="boton-solicitudes-pendientes" onclick="mostrarSolicitudesPendientes()">SOLICITUDES PENDIENTES</button>
-            <button id="boton-solicitudes-proceso" onclick="mostrarSolicitudesEnProceso()">SOLICITUDES EN PROCESO</button>
-            <button id="boton-solicitudes-finalizadas" onclick="mostrarSolicitudesFinalizadas()">SOLICITUDES FINALIZADAS</button>
+            <button id="boton-solicitudes-pendientes" onclick="mostrarContenidoEntreTres('boton-solicitudes-pendientes','boton-solicitudes-proceso','boton-solicitudes-finalizadas','solicitudes-pendientes', 'solicitudes-en-proceso', 'solicitudes-finalizadas')">SOLICITUDES PENDIENTES</button>
+            <button id="boton-solicitudes-proceso" onclick="mostrarContenidoEntreTres('boton-solicitudes-proceso','boton-solicitudes-pendientes','boton-solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes', 'solicitudes-finalizadas')">SOLICITUDES EN PROCESO</button>
+            <button id="boton-solicitudes-finalizadas" onclick="mostrarContenidoEntreTres('boton-solicitudes-finalizadas','boton-solicitudes-proceso','boton-solicitudes-pendientes','solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes')">SOLICITUDES FINALIZADAS</button>
         </section>
         <!--Aquí acaba la sección de botones-solicitudes-->
         <!---------------------------------------------------->
@@ -228,8 +228,8 @@
 
         <!--Aquí empieza la sección de botones-ventas-->
         <section id="botones-ventas">
-            <button id="boton-lista-ventas" onclick="mostrarListaVentas()">VENTAS</button>
-            <button id="boton-graficas" onclick="mostrarGraficas()">GRÁFICAS</button>
+            <button id="boton-lista-ventas" onclick="mostrarContenidoEntreDos('boton-lista-ventas','boton-graficas','lista-ventas','graficas-ventas')">VENTAS</button>
+            <button id="boton-graficas" onclick="mostrarContenidoEntreDos('boton-graficas','boton-lista-ventas','graficas-ventas','lista-ventas')">GRÁFICAS</button>
         </section>
         <!--Aquí acaba la sección de botones-solicitudes-->
 
@@ -342,6 +342,31 @@
 
     </section>
     <!--Aquí acaba la sección ver venta-->
+<!----------------------------------------------------------------------------------------------->
+
+
+<!----------------------------------------------------------------------------------------------->
+<!--Aquí empieza la sección ver más-->
+<section id="ver-mas">
+
+    <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
+
+    <h5>Detalles de la solicitud</h5>
+    <p><strong>NOMBRE:</strong> <span id="nombre-solicitud"></span></p>
+    <p><strong>APELLIDOS:</strong> <span id="apellidos-solicitud"></span></p>
+    <p><strong>E-MAIL:</strong> <span id="email-solicitud"></span></p>
+    <p><strong>DIRECCIÓN:</strong> <span id="direccion-solicitud"></span></p>
+    <p><strong>SOLICITUDES:</strong></p>
+    <ul>
+        <li>E-mail 1</li>
+        <li>E-mail 2</li>
+        <li>E-mail 3</li>
+    </ul>
+    <button id="boton-volver-a-lista-solicitudes" onclick="volverAListaSolicitudes()">VOLVER ATRÁS</button>
+
+
+</section>
+<!--Aquí acaba la sección ver venta-->
 <!----------------------------------------------------------------------------------------------->
 
 

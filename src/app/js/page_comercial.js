@@ -1,7 +1,3 @@
-
-
-
-
 function mostrarInput(element){
     element.parentNode.classList.add("activo");
 }
@@ -10,26 +6,58 @@ function ocultarInput(element) {
     element.parentNode.classList.remove("activo");
 }
 
-let solicitudesPorPagina = 15;
+let datosPorPagina = 15;
 
 let pagina = 1;
 
-let solicitudes = [];
+let datosGeneral = [];
 
 const contenedorPendientes = document.getElementById("tabla-solicitudes-pendientes");
 const contenedorProceso = document.getElementById("tabla-solicitudes-proceso");
 const contenedorFinalizadas = document.getElementById("tabla-solicitudes-finalizadas");
 const contenedorVentas = document.getElementById("tabla-ventas");
 const seccionVerVenta = document.getElementById("ver-venta");
+const seccionVerMas = document.getElementById("ver-mas");
 
+//--------------------------------------------------------------------
+/*
+función obtenerDatos():
+*/
+//--------------------------------------------------------------------
+async function obtenerDatos(url, callback){
+    let archivo = await fetch (url);
+    let datos = await archivo.json();
+    callback(datos);
+}
+
+function prePaginador(){
+    obtenerDatos("../../../api/cien_datos_para_tabla.json", (datos)=>{
+
+        datosGeneral = datos;
+
+        let ultimaPagina = Math.ceil(datosGeneral.length / datosPorPagina);
+        let ultimoBoton = document.querySelector(".paginador > button:last-child")
+        ultimoBoton.innerText = ultimaPagina;
+        ultimoBoton.onclick = () => cambiarPaginaSolicitud(ultimaPagina);
+        ultimoBoton.onclick = () => cambiarPaginaVenta(ultimaPagina);
+
+        let inputPagina = document.querySelector(".paginador input");
+        inputPagina.max = ultimaPagina;
+        inputPagina.min = 1;
+
+        cambiarPaginaSolicitud(1);
+        cambiarPaginaVenta(1);
+    })
+}
+
+prePaginador();
 
 //------------------------------------------------------------
 /*
 Función anonima para obtener datos:
 */
 //------------------------------------------------------------
-
-
+/*
 (async () => {
     const respuesta = await fetch("../../../api/cien_datos_para_tabla.json");
     const data = await respuesta.json();
@@ -38,7 +66,7 @@ Función anonima para obtener datos:
     let ultimaPagina = Math.ceil(solicitudes.length / solicitudesPorPagina);
     let ultimoBoton = document.querySelector(".paginador > button:last-child")
     ultimoBoton.innerText = ultimaPagina;
-    ultimoBoton.onclick = () => cambiarPagina(ultimaPagina);
+    ultimoBoton.onclick = () => cambiarPaginaSolicitud(ultimaPagina);
 
     let inputPagina = document.querySelector(".paginador input");
     inputPagina.max = ultimaPagina;
@@ -46,23 +74,61 @@ Función anonima para obtener datos:
 
     cambiarPagina(1);
 })();
+*/
+//------------------------------------------------------------
+/*
+Función cambiarPaginaSolicitud():
+*/
+//------------------------------------------------------------
+function cambiarPaginaSolicitud(numeroPagina) {
+    pagina = numeroPagina;
+    contenedorPendientes.innerHTML = "";
+    contenedorProceso.innerHTML = "";
+    contenedorFinalizadas.innerHTML = "";
+
+    let inicio = (pagina - 1) * datosPorPagina;
+    for (let i = inicio; i < inicio + datosPorPagina; i++) {
+        let solicitud = datosGeneral[i];
+        if(solicitud) {
+            contenedorPendientes.appendChild(crearFilaSolicitud(solicitud));
+            contenedorProceso.appendChild(crearFilaSolicitud(solicitud));
+            contenedorFinalizadas.appendChild(crearFilaSolicitud(solicitud));
+        }
+    }
+    let inputPagina = document.querySelector(".paginador input");
+    inputPagina.value = pagina;
+}
+function cambiarPaginaVenta(numeroPagina) {
+    pagina = numeroPagina;
+    contenedorVentas.innerHTML = "";
+
+    let inicio = (pagina - 1) * datosPorPagina;
+    for (let i = inicio; i < inicio + datosPorPagina; i++) {
+        let venta = datosGeneral[i];
+        if(venta) {
+            contenedorVentas.appendChild(crearFilaVenta(venta));
+        }
+    }
+    let inputPagina = document.querySelector(".paginador input");
+    inputPagina.value = pagina;
+}
 
 //------------------------------------------------------------
 /*
 Función crearFilaSolicitud()
 */
 //------------------------------------------------------------
-function crearFilaSolicitud(solicitud) {
+function crearFilaVenta(venta) {
     let fila = document.createElement("tr");
 
     let celdaId = document.createElement("td");
-    celdaId.textContent = solicitud.id;
+    celdaId.textContent = venta.id;
 
     let celdaEmail = document.createElement("td");
-    celdaEmail.textContent = solicitud.email;
+    celdaEmail.textContent = venta.email;
 
     let celdaNombre = document.createElement("td");
-    celdaNombre.textContent = solicitud.nombre;
+    celdaNombre.textContent = venta.nombre;
 
     let celdaBoton = document.createElement("td");
     let botonVerVenta = document.createElement("button");
@@ -110,111 +176,90 @@ function volverAListaVentas(){
 
     document.getElementById("ver-venta").style.display = "none";
     document.getElementById("ventas").style.display = "block";
-
-
 }
 
-//------------------------------------------------------------
-/*
-Función cambiarPagina():
-*/
-//------------------------------------------------------------
+function crearFilaSolicitud(solicitud) {
+    let fila = document.createElement("tr");
 
-function cambiarPagina(numeroPagina) {
-    pagina = numeroPagina;
-    contenedorPendientes.innerHTML = "";
-    contenedorProceso.innerHTML = "";
-    contenedorFinalizadas.innerHTML = "";
-    contenedorVentas.innerHTML = "";
+    let celdaId = document.createElement("td");
+    celdaId.textContent = solicitud.id;
 
-    let inicio = (pagina - 1) * solicitudesPorPagina;
-    for (let i = inicio; i < inicio + solicitudesPorPagina; i++) {
-        let solicitud = solicitudes[i];
-        if(solicitud) {
-            contenedorPendientes.appendChild(crearFilaSolicitud(solicitud));
-            contenedorProceso.appendChild(crearFilaSolicitud(solicitud));
-            contenedorFinalizadas.appendChild(crearFilaSolicitud(solicitud));
-            contenedorVentas.appendChild(crearFilaSolicitud(solicitud));
+    let celdaEmail = document.createElement("td");
+    celdaEmail.textContent = solicitud.email;
+
+    let celdaNombre = document.createElement("td");
+    celdaNombre.textContent = solicitud.nombre;
+
+    let celdaBoton = document.createElement("td");
+    let botonVerMas = document.createElement("button");
+    botonVerMas.textContent = "VER MÁS";
+    celdaBoton.appendChild(botonVerMas);
+
+    fila.append(celdaId, celdaEmail, celdaNombre, celdaBoton);
+
+    contenedorPendientes.addEventListener("click",(event)=>{
+        if(event.target.tagName === "BUTTON"){
+            const filaBoton = event.target.parentNode.parentNode;
+
+            llenarVerMas(filaBoton);
+
+            contenedorPendientes.style.display = "none";
+            contenedorFinalizadas.style.display = "none";
+            contenedorProceso.style.display = "none";
+            seccionVerMas.style.display = "block";
         }
+    });
+
+    function llenarVerMas(filaBoton){
+        const nombre = filaBoton.cells[0].textContent;
+        const apellidos = filaBoton.cells[1].textContent;
+        const email = filaBoton.cells[2].textContent;
+        const direccion = "Dirección de ejemplo"; // Reemplazar con la dirección correspondiente
+
+        const nombreSpan = seccionVerMas.querySelector("#nombre-solicitud");
+        const apellidosSpan = seccionVerMas.querySelector("#apellidos-solicitud");
+        const emailSpan = seccionVerMas.querySelector("#email-solicitud");
+        const direccionSpan = seccionVerMas.querySelector("#direccion-solicitud");
+
+        apellidosSpan.textContent = apellidos;
+        emailSpan.textContent = email;
+        nombreSpan.textContent = nombre;
+        direccionSpan.textContent = direccion;
+
     }
-    let inputPagina = document.querySelector(".paginador input");
-    inputPagina.value = pagina;
+
+    return fila;
 }
 
-//------------------------------------------------------------
-/*
-Función mostrarSolicitudes():
-*/
-//------------------------------------------------------------
-function mostrarSolicitudes(){
-    // Cambiar la clase "activo" del botón correspondiente
-    document.getElementById("boton-solicitudes").classList.add("activo");
-    document.getElementById("boton-ventas").classList.remove("activo");
+function volverAListaSolicitudes(id){
 
-    // Mostrar la sección de solicitudes y ocultar la sección de ventas
+    document.getElementById(id).classList.add("activo");
+
+    document.getElementById("ver-mas").style.display = "none";
     document.getElementById("solicitudes").style.display = "block";
-    document.getElementById("ventas").style.display = "none";
-    document.getElementById("ver-venta").style.display = "none";
+
 }
-
-//------------------------------------------------------------
-/*
-Función mostrarVentas():
-*/
-//------------------------------------------------------------
-function mostrarVentas() {
-    // Cambiar la clase "activo" del botón correspondiente
-    document.getElementById("boton-ventas").classList.add("activo");
-    document.getElementById("boton-solicitudes").classList.remove("activo");
-
-    // Mostrar la sección de ventas y ocultar la sección de solicitudes
-    document.getElementById("ventas").style.display = "block";
-    document.getElementById("solicitudes").style.display = "none";
-}
-
 //------------------------------------------------------------
 /*
 Función mostrarSolicitudesPendientes():
 */
 //------------------------------------------------------------
-function mostrarSolicitudesPendientes(){
-    document.getElementById("boton-solicitudes-pendientes").classList.add("activo");
-    document.getElementById("boton-solicitudes-proceso").classList.remove("activo");
-    document.getElementById("boton-solicitudes-finalizadas").classList.remove("activo");
+function mostrarContenidoEntreDos(idBotonActivo, idBotonInactivo, idSeccionMostrar, idSeccionOcultar){
+    document.getElementById(idBotonActivo).classList.add("activo");
+    document.getElementById(idBotonInactivo).classList.remove("activo");
 
-    document.getElementById("solicitudes-pendientes").style.display = "block";
-    document.getElementById("solicitudes-en-proceso").style.display = "none";
-    document.getElementById("solicitudes-finalizadas").style.display = "none";
+    document.getElementById(idSeccionMostrar).style.display = "block";
+    document.getElementById(idSeccionOcultar).style.display = "none";
 }
 
-//------------------------------------------------------------
-/*
-Función mostrarSolicitudesEnProceso():
-*/
-//------------------------------------------------------------
-function mostrarSolicitudesEnProceso(){
-    document.getElementById("boton-solicitudes-proceso").classList.add("activo");
-    document.getElementById("boton-solicitudes-pendientes").classList.remove("activo");
-    document.getElementById("boton-solicitudes-finalizadas").classList.remove("activo");
+function mostrarContenidoEntreTres(idBotonActivo, idBotonInactivoUno, idBotonInactivoDos, idSeccionMostrar, idSeccionOcultarUno, idSeccionOcultarDos){
+    document.getElementById(idBotonActivo).classList.add("activo");
+    document.getElementById(idBotonInactivoUno).classList.remove("activo");
+    document.getElementById(idBotonInactivoDos).classList.remove("activo");
 
-    document.getElementById("solicitudes-en-proceso").style.display = "block";
-    document.getElementById("solicitudes-pendientes").style.display = "none";
-    document.getElementById("solicitudes-finalizadas").style.display = "none";
-}
-
-//------------------------------------------------------------
-/*
-Función mostrarSolicitudesFinalizadas():
-*/
-//------------------------------------------------------------
-function mostrarSolicitudesFinalizadas(){
-    document.getElementById("boton-solicitudes-finalizadas").classList.add("activo");
-    document.getElementById("boton-solicitudes-proceso").classList.remove("activo");
-    document.getElementById("boton-solicitudes-pendientes").classList.remove("activo");
-
-    document.getElementById("solicitudes-finalizadas").style.display = "block";
-    document.getElementById("solicitudes-en-proceso").style.display = "none";
-    document.getElementById("solicitudes-pendientes").style.display = "none";
+    document.getElementById(idSeccionMostrar).style.display = "block";
+    document.getElementById(idSeccionOcultarUno).style.display = "none";
+    document.getElementById(idSeccionOcultarDos).style.display = "none";
 }
 //------------------------------------------------------------
 /*
@@ -334,44 +379,6 @@ function buscarSolicitudesFinalizadas() {
         }
     }
 }
-//------------------------------------------------------------
-/*
-Función mostrarListaVentas():
-*/
-//------------------------------------------------------------
-function mostrarListaVentas(){
-    document.getElementById("boton-lista-ventas").classList.add("activo");
-    document.getElementById("boton-graficas").classList.remove("activo");
-
-    document.getElementById("lista-ventas").style.display = "block";
-    document.getElementById("graficas-ventas").style.display = "none";
-}
-
-//------------------------------------------------------------
-/*
-Función mostrarGraficas():
-*/
-//------------------------------------------------------------
-function mostrarGraficas(){
-    document.getElementById("boton-graficas").classList.add("activo");
-    document.getElementById("boton-lista-ventas").classList.remove("activo");
-
-    document.getElementById("graficas-ventas").style.display = "block";
-    document.getElementById("lista-ventas").style.display = "none";
-}
-
-
-//--------------------------------------------------------------------
-/*
-función obtenerDatos():
-*/
-//--------------------------------------------------------------------
-async function obtenerDatos(url, callback){
-    let archivo = await fetch (url);
-    let datos = await archivo.json();
-    callback(datos);
-}
-
 //--------------------------------------------------------------------
 /*
 función DatosGraficaMes()
