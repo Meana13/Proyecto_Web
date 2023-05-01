@@ -318,91 +318,147 @@ function mostrarGraficas(){
     document.getElementById("graficas-ventas").style.display = "block";
     document.getElementById("lista-ventas").style.display = "none";
 }
-//------------------------------------------------------------
-/*
-Datos de la gráfica:
-*/
-//------------------------------------------------------------
-let datos = {
-    labels: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes'], //array que nos permite establecer valores para el
-    //eje horizontal
-    datasets: [ //array donde colocamos los datasets que queremos que se dibujen.
-        //cada dataset puede tener su etiqueta. Si hacemos click, se tacha y se oculta.
-        {
-            label: 'ventas',
-            data: [100, 234, 45, 210, 430], //datos que queremos que se dibujen. Cada número, para un día de la semana.
-            //fill: true, //para que se rellene la zona de abajo de la línea.
-            backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
-            borderColor: 'rgb(255,110,86)',
-            borderDash: [2,3], //punteado [1,3,3,2]
-            tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
-            //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
-            pointStyle: 'rectRot', //tipo de punto (este es diamante).
-            pointRadius: 10, //este controla el tamaño del punto.
-        },
-        {
-            label: 'ventas 2',
-            data: [350, 34, 267, 110, 30],
-            //fill: true,
-            backgroundColor: 'rgb(63,80,255)', //rgb no tiene la a, por tanto no tiene transparencia.
-            borderColor: 'rgb(119,145,255)',
-            borderDash: [3,2],
-            pointStyle: 'rectRot',
-            pointRadius: 10,
-        },
-    ]
-}; //aquí irán los datos de la gráfica
 
-//------------------------------------------------------------
+
+//--------------------------------------------------------------------
 /*
-Opciones de la gráfica:
+función obtenerDatos():
 */
-//------------------------------------------------------------
-let opciones = { //las opciones de la gráfica.
-    responsive: true, //va a ser responsive
-    maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
-                                //según necesite.
-    scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
-        //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
-        //0 de la gráfica azul.
-        y: {
-            stacked: true
-        }
-    },
-    plugins: {
-        legend: {
-            position: 'bottom', //posicionamiento de la leyenda. En qué borde.
-            align: 'end' //dentro del borde, donde queremos que aparezca (start, center y end).
-        },
-        title: { //titulo de la gráfica
-            display: true,
-            text: '   Ventas de la semana',
-            position: 'left',
-            align: 'start',
-            padding:{
-                right: 10
+//--------------------------------------------------------------------
+async function obtenerDatos(url, callback){
+    const archivo = await fetch (url);
+    const datos = await archivo.json();
+    callback(datos);
+}
+
+//--------------------------------------------------------------------
+/*
+función DatosGraficaMes()
+*/
+//--------------------------------------------------------------------
+function datosGraficaMes(){
+
+    obtenerDatos("../../../api/200datos_grafica_importe_fecha.json", (datos)=>{
+
+        let arrayImporte = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+        for(let i=0; i<datos.length; i++){
+            let venta = datos[i];
+
+            if (venta.fecha[3] == 0 && venta.fecha[4] == 1) {
+                arrayImporte[0] = arrayImporte[0] + venta.importe;
             }
-        },
-        tooltip: {
-            backgroundColor: '#fff',
-            titleColor: '#000',
-            titleAlign: 'center',
-            bodyColor: '#333',
-            borderColor: '#666',
-            borderWidth: 1,
-        }
+            if (venta.fecha[3] == 0 && venta.fecha[4] == 2) {
+                arrayImporte[1] = arrayImporte[1] + venta.importe;
+            }
+            if (venta.fecha[3] == 0 && venta.fecha[4] == 3) {
+                arrayImporte[2] = arrayImporte[2] + venta.importe;
+            }
+            if (venta.fecha[3] == 0 && venta.fecha[4] == 4) {
+                arrayImporte[3] = arrayImporte[3] + venta.importe;
+            }
+            if (venta.fecha[3] == 0 && venta.fecha[4] == 5) {
+                arrayImporte[4] = arrayImporte[4] + venta.importe;
+            }
+            if (venta.fecha[3] == 0 && venta.fecha[4] == 6) {
+                arrayImporte[5] = arrayImporte[5] + venta.importe;
+            }
+            if (venta.fecha[3] == 0 && venta.fecha[4] == 7) {
+                arrayImporte[6] = arrayImporte[6] + venta.importe;
+            }
+            if (venta.fecha[3] == 0 && venta.fecha[4] == 8) {
+                arrayImporte[7] = arrayImporte[7] + venta.importe;
+            }
+            if (venta.fecha[3] == 0 && venta.fecha[4] == 9) {
+                arrayImporte[8] = arrayImporte[8] + venta.importe;
+            }
+            if (venta.fecha[3] == 1 && venta.fecha[4] == 0) {
+                arrayImporte[9] = arrayImporte[9] + venta.importe;
+            }
+            if (venta.fecha[3] == 1 && venta.fecha[4] == 1) {
+                arrayImporte[10] = arrayImporte[10] + venta.importe;
+            }
+            if (venta.fecha[3] == 1 && venta.fecha[4] == 2) {
+                arrayImporte[11] = arrayImporte[11] + venta.importe;
+            }
 
-    }//plugins
+        }//for
 
-}//opciones
+        console.log(arrayImporte);
 
-let ctx = document.getElementById('chart'); //referencia al canvas.
+        let datosGraficaMes = {
+            labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+            datasets: [
+                {
+                    label: "Importe",
+                    data: arrayImporte,
+                    backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
+                    borderColor: 'rgb(255,110,86)',
+                    borderDash: [2, 3], //punteado [1,3,3,2]
+                    tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
+                    //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
+                    pointStyle: 'rectRot', //tipo de punto (este es diamante).
+                    pointRadius: 10, //este controla el tamaño del punto.
+                }
+            ]
+        } //datos
 
-let miGrafica = new Chart(ctx, { //le pasamos el canvas y un objeto con la configuración.
-    type: 'line',
-    data: datos, //los datos
-    options: opciones //las opciones
-});
+        let opciones = { //las opciones de la gráfica.
+            responsive: true, //va a ser responsive
+            maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
+                                        //según necesite.
+            scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
+                //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
+                //0 de la gráfica azul.
+                y: {
+                    stacked: false
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom', //posicionamiento de la leyenda. En qué borde.
+                    align: 'end' //dentro del borde, donde queremos que aparezca (start, center y end).
+                },
+                title: { //titulo de la gráfica
+                    display: true,
+                    text: 'Ventas del mes',
+                    position: 'left',
+                    align: 'start',
+                    padding:{
+                        right: 50
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#fff',
+                    titleColor: '#000',
+                    titleAlign: 'center',
+                    bodyColor: '#333',
+                    borderColor: '#666',
+                    borderWidth: 1,
+                }
+
+            }//plugins
+
+        }//opciones
+
+
+        let ctx = document.getElementById('chart'); //referencia al canvas.
+
+        let miGrafica = new Chart(ctx, { //le pasamos el canvas y un objeto con la configuración.
+            type: 'line',
+            data: datosGraficaMes, //los datos
+            options: opciones //las opciones
+        });
+
+    })//callback
+
+}//funcion
+//--------------------------------------------------------------------
+/*
+llamada de función datosGraficaMes()
+*/
+//--------------------------------------------------------------------
+datosGraficaMes();
 
 
 
