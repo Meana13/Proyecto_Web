@@ -570,5 +570,119 @@ llamada de función datosGraficaAnio()
 datosGraficaAnio();
 
 
+//--------------------------------------------------------------------
+/*
+función DatosGraficaAnio()
+*/
+//--------------------------------------------------------------------
+function datosGraficaSemana(){
+
+    obtenerDatos("../../../api/200datos_grafica_importe_fecha.json", (datos)=>{
+
+        let arrayImporte = [0,0,0,0,0,0,0];
+
+
+        // Función para convertir una cadena de fecha en formato "dd/mm/yyyy" a objeto Date
+        function parseDate(str) {
+            const parts = str.split("/");
+            return new Date(parts[2], parts[1] - 1, parts[0]);
+        }
+
+        // Función de comparación para ordenar los datos por fecha de más reciente a más antigua
+        function compareDates(a, b) {
+            const dateA = parseDate(a.fecha);
+            const dateB = parseDate(b.fecha);
+            return dateB - dateA;
+        }
+
+        // Ordena los datos usando la función de comparación
+        datos.sort(compareDates);
+
+        const datosRecientes = datos.slice(0, 7);
+        console.log(datosRecientes);
+
+        for(let i=0; i<datosRecientes.length; i++){
+            arrayImporte[i] = arrayImporte[i] + datosRecientes[i].importe;
+        }
+
+        console.log(arrayImporte);
+
+        let datosGraficaSemana = {
+            labels: ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"],
+            datasets: [
+                {
+                    label: "Importe",
+                    data: arrayImporte,
+                    backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
+                    borderColor: 'rgb(255,110,86)',
+                    borderDash: [2, 3], //punteado [1,3,3,2]
+                    tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
+                    //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
+                    pointStyle: 'rectRot', //tipo de punto (este es diamante).
+                    pointRadius: 10, //este controla el tamaño del punto.
+                }
+            ]
+        } //datos
+
+        let opciones = { //las opciones de la gráfica.
+            responsive: true, //va a ser responsive
+            maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
+                                        //según necesite.
+            scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
+                //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
+                //0 de la gráfica azul.
+                y: {
+                    stacked: false
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom', //posicionamiento de la leyenda. En qué borde.
+                    align: 'end' //dentro del borde, donde queremos que aparezca (start, center y end).
+                },
+                title: { //titulo de la gráfica
+                    display: true,
+                    text: 'Ventas del mes',
+                    position: 'left',
+                    align: 'start',
+                    padding:{
+                        right: 50
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#fff',
+                    titleColor: '#000',
+                    titleAlign: 'center',
+                    bodyColor: '#333',
+                    borderColor: '#666',
+                    borderWidth: 1,
+                }
+
+            }//plugins
+
+        }//opciones
+
+
+        let ctxSemana = document.getElementById('chart-semana'); //referencia al canvas.
+
+        let miGraficaSemana = new Chart(ctxSemana, { //le pasamos el canvas y un objeto con la configuración.
+            type: 'line',
+            data: datosGraficaSemana, //los datos
+            options: opciones //las opciones
+        });
+
+         
+
+    })//callback
+
+}//funcion
+//--------------------------------------------------------------------
+/*
+llamada de función datosGraficaAnio()
+*/
+//--------------------------------------------------------------------
+datosGraficaSemana();
+
+
 
 
