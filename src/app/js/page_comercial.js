@@ -20,6 +20,7 @@ const contenedorPendientes = document.getElementById("tabla-solicitudes-pendient
 const contenedorProceso = document.getElementById("tabla-solicitudes-proceso");
 const contenedorFinalizadas = document.getElementById("tabla-solicitudes-finalizadas");
 const contenedorVentas = document.getElementById("tabla-ventas");
+const seccionVerVenta = document.getElementById("ver-venta");
 
 
 //------------------------------------------------------------
@@ -70,7 +71,47 @@ function crearFilaSolicitud(solicitud) {
 
     fila.append(celdaId, celdaEmail, celdaNombre, celdaBoton);
 
+    contenedorVentas.addEventListener("click",(event)=>{
+        if(event.target.tagName === "BUTTON"){
+            const filaBoton = event.target.parentNode.parentNode;
+
+            llenarVerVenta(filaBoton);
+
+            const seccionVentas = document.getElementById("ventas");
+            seccionVentas.style.display = "none";
+            seccionVerVenta.style.display = "block";
+        }
+    });
+
+    function llenarVerVenta(filaBoton){
+        const id = filaBoton.cells[0].textContent;
+        const email = filaBoton.cells[1].textContent;
+        const nombre = filaBoton.cells[2].textContent;
+        const direccion = "Dirección de ejemplo"; // Reemplazar con la dirección correspondiente
+
+        const idSpan = seccionVerVenta.querySelector("#id-venta");
+        const emailSpan = seccionVerVenta.querySelector("#email-venta");
+        const nombreSpan = seccionVerVenta.querySelector("#nombre-venta");
+        const direccionSpan = seccionVerVenta.querySelector("#direccion-venta");
+
+        idSpan.textContent = id;
+        emailSpan.textContent = email;
+        nombreSpan.textContent = nombre;
+        direccionSpan.textContent = direccion;
+
+    }
+
     return fila;
+}
+
+function volverAListaVentas(){
+
+    document.getElementById("boton-volver-a-lista-ventas").classList.add("activo");
+
+    document.getElementById("ver-venta").style.display = "none";
+    document.getElementById("ventas").style.display = "block";
+
+
 }
 
 //------------------------------------------------------------
