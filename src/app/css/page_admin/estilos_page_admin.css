@@ -1,4 +1,4 @@
-.boton-añadir-usuario {
+#boton-añadir-usuario {
     background-color: #9D4179;
     border: 0;
     color: #FFFFFF;
@@ -11,12 +11,35 @@
     margin-right: 5%;
 }
 
-.boton-añadir-usuario img {
+#boton-añadir-usuario img {
     height: 1em;
     width: 1.2em;
     margin-right: .25em;
     margin-left: .5em;
 }
+
+#seccion-administrar-usuarios {
+    display: block;
+}
+
+#seccion-añadir-usuario {
+    display: none;
+}
+
+#seccion-hoja-usuario {
+    display: none;
+}
+
+#seccion-opinion-personal {
+    display: none;
+    border: 2px solid black;
+    width: 90%;
+    margin-top: 2em;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: white;
+}
+
 
 /* TABLA USUARIOS */
 
@@ -46,6 +69,11 @@ th:last-child {
     background-color: transparent;
 }
 
+#ver-hoja-usuario {
+    border: 0;
+    background-color: transparent;
+}
+
 #ver-hoja-usuario img {
     margin-top: .3em;
     border: 1px solid black;
@@ -56,6 +84,66 @@ th:last-child {
 
 /* FIN TABLA USUARIOS */
 
+/* INICIO HOJA DE USUARIO */
+
+#hoja-de-usuario {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+}
+
+#formulario-hoja-usuario {
+    width: 380px;
+    margin: 0 auto;
+    display: block;
+}
+
+#formulario-hoja-usuario label {
+    display: inline-block;
+    width: 40%;
+    text-align: left;
+}
+
+
+#icono-editar {
+    margin-left: 10px;
+    padding: 0;
+    border: 0;
+    position: relative;
+    top: 6px;
+}
+
+#boton-cancelar {
+    background-color: #555555;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    padding: 1em;
+    border-radius: .5em;
+    font-weight: bold;
+}
+
+#boton-guardar-cambios {
+    background-color: #9D4179;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: .5em;
+    font-weight: bold;
+    padding: 1em;
+}
+
+#botones {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 15%;
+}
+
+/* FIN HOJA DE USUARIO */
+
 /* AÑADIR USUARIO */
 
 #nuevo-usuario {
@@ -63,15 +151,13 @@ th:last-child {
     margin-bottom: 2em;
 }
 
-
 #formulario-nuevo-usuario {
     width: 324px;
     margin: 0 auto;
     display: block;
 }
 
-
-label {
+#formulario-nuevo-usuario label {
     display: inline-block;
     width: 120px;
     text-align: left;
@@ -79,13 +165,13 @@ label {
 
 input[type="text"],
 select {
-    width: 200px;
+    width: 180px;
     box-sizing: border-box;
     padding: 3px;
     margin-bottom: 10px;
 }
 
-.boton-generar-id {
+#boton-generar-id {
     background-color: #555555;
     color: #FFFFFF;
     font-family: Arial, sans-serif;
@@ -106,9 +192,10 @@ select {
 
 #caja-id {
     width: 6em;
+    height: 1em;
     border: 1px solid black;
-    padding: 10px;
     background-color: #f0f0f0;
+    color: black;
 }
 
 .boton-dar-de-alta {
@@ -126,14 +213,9 @@ select {
     font-weight: bold;
 }
 
-#opinion-personal {
-    border: 2px solid black;
-    width: 90%;
-    margin-top: 2em;
-    margin-left: 5%;
-    margin-right: 5%;
-    background-color: white;
-}
+/* FIN AÑADIR USUARIO */
+
+/* INICIO OPINION DEL PERSONAL */
 
 #desplegable-tecnicos {
     width: 100%;
@@ -141,7 +223,12 @@ select {
     background-color: #969898;
     margin-bottom: 0;
     border: 1px solid black;
-  }
+}
+
+
+#desplebable-tecnicos option {
+    width: inherit;
+}
 
 #caja-opinion {
     display: flex;
@@ -150,7 +237,7 @@ select {
 }
 
 #icono-opinion {
-    width: 3.25em;
+    width: 4em;
     height: 4.5em;
     margin: auto 1em;
 }
@@ -165,15 +252,14 @@ select {
 }
 
 #fecha-instalacion {
+    font-size: 14px;
     width: auto;
-    margin: 0 auto;
 }
 
 #n-instalacion {
     width: auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
     display: flex;
+    padding-bottom: 15px;
     justify-content: center;
 }
 
