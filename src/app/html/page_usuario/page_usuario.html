@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Usuario</title>
     <link rel="stylesheet" type="text/css" href="../../css/page_usuario/estilos_page_usuario.css" />
 
@@ -19,98 +20,118 @@
 
 <!--Aqui comienza la seccion de botones-->
 <div class="botones">
-    <div>
-        <div><button>Ver huertos</button></div>
-        <div><button>Ajustes perfil</button></div>
-        <div><button>Citas</button></div>
-    </div>
+    <button id="ver-huertos"><span>Ver huertos</span></button>
+    <button id="ajustes-perfil"><span> Ajustes perfil</span> </button>
+    <button id="boton-citas"><span> Citas</span></button>
 </div>
 <!--Aqui finaliza la seccion de botones-->
 
 <!--Aqui comienza la zona de huertos-->
 <section id="huertos">
-    <!--    Aqui comienza la seccion de medidor Tª-->
+    <section id="botones_añadir_selección">
+        <select id="seleccionar_huerto">
+            <option value="1">Huerto 1</option>
+            <option value="2">Huerto 2</option>
+            <option value="3">Huerto 3</option>
+        </select>
+        <button id="añadir-huerto"> Añadir huerto</button>
+    </section>
+
+    <!--    Aqui comienza la seccion de editar huerto-->
+    <section id="editar-huerto">
+        <p class="editar huerto">
+        <img src="#" alt="Imagen huerto">
+        <label for="nombre_huerto">Nombre del huerto:</label>
+        <input type="text" id="nombre_huerto">
+        <label for="localizacion_huerto">Localizacion:</label>
+        <input type="text" id="localizacion_huerto">
+        </p>
+
+        <label for="fecha_huerto">Fecha de instalación:</label>
+        <input type="date" id="fecha_huerto">
+        <br>
+
+        <label for="notas_huerto">Notas:</label>
+        <p id="notas_huerto">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ducimus error necessitatibus nisi quidem quos reprehenderit sapiente similique totam voluptates. Ad consectetur deleniti eligendi eos et minus molestias optio quisquam.
+        </p>
+    </section>
+
+    <!--    Aqui finaliza la seccion de editar huerto-->
+
+
+    <section id="mediciones"> <!--    Aqui comienza la seccion de medidor Tª-->
+    <h2>Temperatura</h2>
     <div id="Temperatura">
-        <div id="sensor-tº">
-            <img src="termometro.png" alt="Termometro">
-            <div>
-                <div><button>Historial</button></div>
-            </div>
-            <div>
-                <div><button>Medidas actuales</button></div>
-            </div>
+        <img src="termometro.png" alt="Termometro">
+        <div class="circulo">22 ºC</div>
+        <div class="botones_gráficas">
+            <button>Historial</button>
+            <button>Medidas actuales</button>
         </div>
     </div>
     <!--    Aqui finaliza la seccion de medidor Tª-->
 
     <!--    Aqui comienza la seccion de medidor humedad-->
+    <h2>Humedad</h2>
     <div id="Humedad">
-        <div id="sensor-humedad">
-            <img src="medidorH.png" alt="Humedad">
-            <div>
-                <div><button>Historial</button></div>
-            </div>
-            <div>
-                <div><button>Medidas actuales</button></div>
-            </div>
+        <img src="medidorH.png" alt="Humedad">
+        <div class="circulo">80%</div>
+        <div class="botones_gráficas">
+            <button>Historial</button>
+            <button>Medidas actuales</button>
         </div>
     </div>
     <!--    Aqui finaliza la seccion de medidor humedad-->
 
     <!--    Aqui comienza la seccion de medidor pH-->
+    <h2>Nivel de pH</h2>
     <div id="pH">
-        <div id="sensor-pH">
-            <img src="Sensor_pH.png"alt="Sensor pH">
-            <div>
-                <div><button>Historial</button></div>
-            </div>
-            <div>
-                <div><button>Medidas actuales</button></div>
-            </div>
+        <img src="Sensor_pH.png" alt="Sensor pH">
+        <div class="circulo">pH= 7</div>
+        <div class="botones_gráficas">
+            <button>Historial</button>
+            <button>Medidas actuales</button>
         </div>
     </div>
     <!--    Aqui finaliza la seccion de medidor pH-->
 
     <!--    Aqui comienza la seccion de medidor Luz -->
+    <h2>Luminosidad</h2>
     <div id="Luz">
-        <div id="sensor-luz">
-            <img src="sensorLuz.png"alt="Luz">
-            <div>
-                <button>Historial</button>
-            </div>
-            <div>
-              <button><span>Medidas actuales</span></button>
-            </div>
+        <img src="sensorLuz.png" alt="Luz">
+        <div class="circulo">80%</div>
+        <div class="botones_gráficas">
+            <button>Historial</button>
+            <button>Medidas actuales</button>
         </div>
     </div>
     <!--    Aqui finaliza la seccion de medidor Luz -->
 
     <!--    Aqui comienza la seccion de medidor sal -->
+    <h2>Salinidad</h2>
     <div id="Sal">
-        <div id="sensor-sal">
-            <img src="medidor_sal.png"alt="Sal">
-            <div>
-                <div><button>Historial</button></div>
-            </div>
-            <div>
-                <div><button>Medidas actuales</button></div>
-            </div>
+        <img src="medidor_sal.png" alt="Sal">
+        <div class="circulo">60%</div>
+        <div class="botones_gráficas">
+            <button>Historial</button>
+            <button>Medidas actuales</button>
         </div>
+        <!--    Aqui finaliza la seccion de medidor sal -->
     </div>
-    <!--    Aqui finaliza la seccion de medidor sal -->
-
+    </section>
 </section>
 <!--    Aqui finaliza la seccion de huertos -->
 
 
 <!--    Aqui comienza la seccion de ajustes de perfil -->
-<section class="ajustes-usuario">
-    <div class="datos_usuario">
+<section id="ajustes-usuario">
+    <section class="datos_usuario">
         <form action="#" method="post">
-            <label for="usuario">Usuario:</label>
+            <label for="usuario">Nombre de usuario:</label>
             <input type="text" id="usuario" required>
-
             <label for="nombre">Nombre:</label>
+            <br>
             <input type="text" id="nombre" required>
             <input type="text" id="apellidos" required>
 
@@ -120,28 +141,96 @@
             <label for="direccion">Direccion:</label>
             <input type="text" id="direccion">
 
-            <label for="contraseña">Telefono:</label>
-            <input type="password" id="contraseña">
+            <label for="contraseña">Cambiar contraseña:</label>
+            <input type="text" id="contraseña">
 
-            <div class="boton-switch">
-                <span>Notificaciones</span>
-                <!-- Checkbox -->
-                <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox">
-                <!-- Botón -->
-                <label for="switch-label" class="switch-button__label"></label>
-            </div>
-
-
-            <input type="submit" label value="Aplicar cambios">
+            <label class="switch">
+                <span></span>
+                <input type="checkbox">
+                <div class="slider round"></div>
+            </label>
+            <br>
+            <input type="submit" label value="Aplicar cambios" id="cambios">
         </form>
-    </div>
+    </section>
 </section>
 <!--Aqui finaliza la seccion de ajustes de usuario-->
 
 <!--Aqui comienza la seccion de citas-->
 <section id="citas">
-
+    <table>
+        <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1 de mayo, 2023</td>
+            <td>14:30</td>
+            <td><button><img src="tick.png" alt="Aceptar"></button></td>
+            <td><button><img src="cross.png" alt="Rechazar"></button></td>
+        </tr>
+        <tr>
+            <td>2 de mayo, 2023</td>
+            <td>10:00</td>
+            <td><button><img src="tick.png" alt="Aceptar"></button></td>
+            <td><button><img src="cross.png" alt="Rechazar"></button></td>
+        </tr>
+        <tr>
+            <td>3 de mayo, 2023</td>
+            <td>16:45</td>
+            <td><button><img src="tick.png" alt="Aceptar"></button></td>
+            <td><button><img src="cross.png" alt="Rechazar"></button></td>
+        </tr>
+        </tbody>
+    </table>
 </section>
 <!--Aqui finaliza la seccion de citas-->
 </body>
+
 </html>
+
+<script>
+    const verhuertos = document.getElementById("ver-huertos");
+    const botonaju = document.getElementById("ajustes-perfil");
+    const btncitas = document.getElementById("boton-citas");
+    const añadir= document.getElementById("añadir-huerto");
+
+
+    const huertos = document.getElementById("huertos");
+    const ajustes = document.getElementById("ajustes-usuario");
+    const info = document.getElementById("editar-huerto");
+    const medidas=document.getElementById("mediciones");
+    const citas=document.getElementById("citas")
+
+    huertos.style.display = "none";
+    ajustes.style.display = "none";
+    info.style.display = "none";
+    citas.style.display = "block";
+
+    verhuertos.addEventListener("click", function() {
+        huertos.style.display = "block";
+        medidas.style.display="block"
+        ajustes.style.display = "none";
+        info.style.display = "none";
+        citas.style.display="none"
+    });
+
+    botonaju.addEventListener("click", function() {
+        huertos.style.display = "none";
+        ajustes.style.display = "block";
+        info.style.display = "none";
+        citas.style.display="none"
+    });
+    btncitas.addEventListener("click", function() {
+        huertos.style.display = "none";
+        ajustes.style.display = "none";
+        info.style.display = "none";
+        citas.style.display="block"
+    });
+
+</script>
