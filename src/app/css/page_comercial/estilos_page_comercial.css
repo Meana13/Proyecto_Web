@@ -34,7 +34,7 @@ body {
  */
 
 
-#ver-venta{
+#ver-venta, #ver-mas{
     display: none;
 }
 
@@ -51,6 +51,10 @@ body {
 }
 
 #graficas-ventas {
+    display:none;
+}
+
+#chart-container-mes, #chart-container-anio, #chart-container-dia {
     display:none;
 }
 

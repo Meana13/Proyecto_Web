@@ -10,7 +10,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
 
 
-
 </head>
 <body>
 <!----------------------------------------------------------------------------------------------->
@@ -42,8 +41,8 @@
 
         <!--Aquí empieza el menu-comercial-->
         <nav id="menu-comercial">
-            <button class="boton-perfil" id="boton-solicitudes" onclick="mostrarSolicitudes()">SOLICITUDES</button>
-            <button class="boton-perfil" id="boton-ventas" onclick="mostrarVentas()">VENTAS</button>
+            <button class="boton-perfil" id="boton-solicitudes" onclick="mostrarContenidoEntreDos('boton-solicitudes', 'boton-ventas', 'solicitudes', 'ventas')">SOLICITUDES</button>
+            <button class="boton-perfil" id="boton-ventas" onclick="mostrarContenidoEntreDos('boton-ventas', 'boton-solicitudes', 'ventas', 'solicitudes')">VENTAS</button>
         </nav>
         <!--Aquí acaba el menu-comercial-->
 
@@ -60,9 +59,9 @@
 
         <!--Aquí empieza la sección de botones-solicitudes-->
         <section id="botones-solicitudes">
-            <button id="boton-solicitudes-pendientes" onclick="mostrarSolicitudesPendientes()">SOLICITUDES PENDIENTES</button>
-            <button id="boton-solicitudes-proceso" onclick="mostrarSolicitudesEnProceso()">SOLICITUDES EN PROCESO</button>
-            <button id="boton-solicitudes-finalizadas" onclick="mostrarSolicitudesFinalizadas()">SOLICITUDES FINALIZADAS</button>
+            <button id="boton-solicitudes-pendientes" onclick="mostrarContenidoEntreTres('boton-solicitudes-pendientes','boton-solicitudes-proceso','boton-solicitudes-finalizadas','solicitudes-pendientes', 'solicitudes-en-proceso', 'solicitudes-finalizadas')">SOLICITUDES PENDIENTES</button>
+            <button id="boton-solicitudes-proceso" onclick="mostrarContenidoEntreTres('boton-solicitudes-proceso','boton-solicitudes-pendientes','boton-solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes', 'solicitudes-finalizadas')">SOLICITUDES EN PROCESO</button>
+            <button id="boton-solicitudes-finalizadas" onclick="mostrarContenidoEntreTres('boton-solicitudes-finalizadas','boton-solicitudes-proceso','boton-solicitudes-pendientes','solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes')">SOLICITUDES FINALIZADAS</button>
         </section>
         <!--Aquí acaba la sección de botones-solicitudes-->
         <!---------------------------------------------------->
@@ -98,9 +97,9 @@
                 <!--Aquí empieza la cabecera de la tabla de solicitudes pendientes-->
                 <thead id="cabecera-tabla-solicitudes-pendientes">
                     <tr>
-                        <th>ID</th>
-                        <th>E-MAIL</th>
+                        <th>APELLIDOS</th>
                         <th>NOMBRE</th>
+                        <th>E-MAIL</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -229,8 +228,8 @@
 
         <!--Aquí empieza la sección de botones-ventas-->
         <section id="botones-ventas">
-            <button id="boton-lista-ventas" onclick="mostrarListaVentas()">VENTAS</button>
-            <button id="boton-graficas" onclick="mostrarGraficas()">GRÁFICAS</button>
+            <button id="boton-lista-ventas" onclick="mostrarContenidoEntreDos('boton-lista-ventas','boton-graficas','lista-ventas','graficas-ventas')">VENTAS</button>
+            <button id="boton-graficas" onclick="mostrarContenidoEntreDos('boton-graficas','boton-lista-ventas','graficas-ventas','lista-ventas')">GRÁFICAS</button>
         </section>
         <!--Aquí acaba la sección de botones-solicitudes-->
 
@@ -270,40 +269,52 @@
                     <th></th>
                 </tr>
                 </thead>
-                <!--Aquí acaba la cabecera de la tabla de solicitudes pendientes-->
+                <!--Aquí acaba la cabecera de la tabla de ventas-->
 
-                <!--Aquí empieza la tabla de solicitudes pendientes-->
+                <!--Aquí empieza la tabla de ventas-->
                 <tbody id="tabla-ventas">
 
                 </tbody>
 
             </table>
-            <!--Aquí acaba la tabla de solicitudes pendientes-->
+            <!--Aquí acaba la tabla de ventas-->
         </section>
         <!--Aquí acaba la sección de lista-ventas-->
 
         <!--Aquí empieza la sección de graficas-ventas-->
         <section id="graficas-ventas">
 
-            <select>
-                <option>Mes</option>
-                <option>Año</option>
-                <option>Importe</option>
+            <select id="selector-opciones-graficas" onchange="seleccionarOpcion()">
+                <option id="opcion-semana" value="semana">Semana</option>
+                <option id="opcion-dia" value="dia">Día</option>
+                <option id="opcion-mes" value="mes">Meses</option>
+                <option id="opcion-anio" value="anio">Años</option>
+
             </select>
-            <div class="chart-container">
 
-                <canvas id="chart">
+            <div id="chart-container-mes">
 
-                </canvas>
+                <canvas id="chart-mes"></canvas>
+
+            </div>
+            <div id="chart-container-anio">
+
+                <canvas id="chart-anio"></canvas>
+
+            </div>
+            <div id="chart-container-semana">
+
+                <canvas id="chart-semana"></canvas>
+
+            </div>
+            <div id="chart-container-dia">
+
+                <canvas id="chart-dia"></canvas>
 
             </div>
 
-
-
         </section>
         <!--Aquí acaba la sección de graficas-ventas-->
-
-
 
     </section>
     <!--Aquí acaba la sección de ventas-->
@@ -314,19 +325,48 @@
     <section id="ver-venta">
 
         <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
-        <h5>Venta #0001</h5>
-        <p>Id Cliente: <input value="#71908409"> </p>
-        <p>Dirección: <input value="C/ Cuba Nº13 4ºIzq"> </p>
-        <p>Productos vendidos:</p>
-        <ul>
-            <li>Productos vendidos</li>
-        </ul>
 
-        <button>VOLVER ATRÁS</button>
+            <h5>Detalles de la venta</h5>
+            <p><strong>ID:</strong> <span id="id-venta"></span></p>
+            <p><strong>E-MAIL:</strong> <span id="email-venta"></span></p>
+            <p><strong>NOMBRE:</strong> <span id="nombre-venta"></span></p>
+            <p><strong>DIRECCIÓN:</strong> <span id="direccion-venta"></span></p>
+            <p><strong>PRODUCTOS VENDIDOS:</strong></p>
+            <ul>
+                <li>Producto 1</li>
+                <li>Producto 2</li>
+                <li>Producto 3</li>
+            </ul>
+            <button id="boton-volver-a-lista-ventas" onclick="volverAListaVentas()">VOLVER ATRÁS</button>
 
 
     </section>
     <!--Aquí acaba la sección ver venta-->
+<!----------------------------------------------------------------------------------------------->
+
+
+<!----------------------------------------------------------------------------------------------->
+<!--Aquí empieza la sección ver más-->
+<section id="ver-mas">
+
+    <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
+
+    <h5>Detalles de la solicitud</h5>
+    <p><strong>NOMBRE:</strong> <span id="nombre-solicitud"></span></p>
+    <p><strong>APELLIDOS:</strong> <span id="apellidos-solicitud"></span></p>
+    <p><strong>E-MAIL:</strong> <span id="email-solicitud"></span></p>
+    <p><strong>DIRECCIÓN:</strong> <span id="direccion-solicitud"></span></p>
+    <p><strong>SOLICITUDES:</strong></p>
+    <ul>
+        <li>E-mail 1</li>
+        <li>E-mail 2</li>
+        <li>E-mail 3</li>
+    </ul>
+    <button id="boton-volver-a-lista-solicitudes" >VOLVER ATRÁS</button>
+
+
+</section>
+<!--Aquí acaba la sección ver venta-->
 <!----------------------------------------------------------------------------------------------->
 
 
