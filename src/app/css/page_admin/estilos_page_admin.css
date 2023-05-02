@@ -1,0 +1,282 @@
+#boton-añadir-usuario {
+    background-color: #9D4179;
+    border: 0;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: .5em;
+    display: flex;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+#boton-añadir-usuario img {
+    height: 1em;
+    width: 1.2em;
+    margin-right: .25em;
+    margin-left: .5em;
+}
+
+#seccion-administrar-usuarios {
+    display: block;
+}
+
+#seccion-añadir-usuario {
+    display: none;
+}
+
+#seccion-hoja-usuario {
+    display: none;
+}
+
+#seccion-opinion-personal {
+    display: none;
+    border: 2px solid black;
+    width: 90%;
+    margin-top: 2em;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: white;
+}
+
+
+/* TABLA USUARIOS */
+
+table {
+    margin: 0 auto;
+    margin-top: 1em;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: gray;
+    color: white;
+    text-transform: uppercase;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding-left: .25em;
+    padding-right: .25em;
+    font-family: Arial, sans-serif;
+}
+
+td:last-child,
+th:last-child {
+    border: none;
+    background-color: transparent;
+}
+
+#ver-hoja-usuario {
+    border: 0;
+    background-color: transparent;
+}
+
+#ver-hoja-usuario img {
+    margin-top: .3em;
+    border: 1px solid black;
+    border-radius: 20%;
+    padding: .15em;
+    background-color: gray;
+}
+
+/* FIN TABLA USUARIOS */
+
+/* INICIO HOJA DE USUARIO */
+
+#hoja-de-usuario {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+}
+
+#formulario-hoja-usuario {
+    width: 380px;
+    margin: 0 auto;
+    display: block;
+}
+
+#formulario-hoja-usuario label {
+    display: inline-block;
+    width: 40%;
+    text-align: left;
+}
+
+
+#icono-editar {
+    margin-left: 10px;
+    padding: 0;
+    border: 0;
+    position: relative;
+    top: 6px;
+}
+
+#boton-cancelar {
+    background-color: #555555;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    padding: 1em;
+    border-radius: .5em;
+    font-weight: bold;
+}
+
+#boton-guardar-cambios {
+    background-color: #9D4179;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: .5em;
+    font-weight: bold;
+    padding: 1em;
+}
+
+#botones {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 15%;
+}
+
+/* FIN HOJA DE USUARIO */
+
+/* AÑADIR USUARIO */
+
+#nuevo-usuario {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#formulario-nuevo-usuario {
+    width: 324px;
+    margin: 0 auto;
+    display: block;
+}
+
+#formulario-nuevo-usuario label {
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+}
+
+input[type="text"],
+select {
+    width: 180px;
+    box-sizing: border-box;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+#boton-generar-id {
+    background-color: #555555;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    padding: 1em;
+    display: block;
+    margin: 1em auto;
+    border-radius: .5em;
+    font-weight: bold;
+}
+
+#id-usuario {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+#caja-id {
+    width: 6em;
+    height: 1em;
+    border: 1px solid black;
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.boton-dar-de-alta {
+    background-color: #9D4179;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    padding: 1em;
+    display: block;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: 5%;
+    border-radius: .5em;
+    font-weight: bold;
+}
+
+/* FIN AÑADIR USUARIO */
+
+/* INICIO OPINION DEL PERSONAL */
+
+
+
+#desplegable-tecnicos {
+    width: 100%;
+    height: 2.5em;
+    background-color: #969898;
+    margin-bottom: 0;
+    border: 1px solid black;
+}
+
+#caja-opinion {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+#icono-opinion {
+    width: 3.25em;
+    height: 4.5em;
+    margin: auto 1em;
+}
+
+#datos-opinion {
+    width: 40%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#fecha-instalacion {
+    width: auto;
+    margin: 0 auto;
+}
+
+#n-instalacion {
+    width: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+#estrellas {
+    display: flex;
+    justify-content: center;
+}
+
+#estrellas img {
+    width: 20px;
+    height: 20px;
+}
+
+#estrellas img:last-child {
+    width: 10px;
+}
+
+#opinion {
+    border: 1px solid black;
+    margin: .5em;
+    width: 40%;
+}

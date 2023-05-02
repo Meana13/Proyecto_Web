@@ -1,0 +1,56 @@
+/*
+body {
+    background-color: #FFF6ED;
+    font-family: "Arial","Arial Helvetica", sans-serif;
+}
+
+#perfil-comercial{
+    border: 1px solid black;
+    margin: 0 auto;
+    height: 200px;
+    display: flex;
+}
+.foto-comercial div{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.foto-comercial img {
+    width: 110px;
+    height: 110px;
+    border-radius:55px;
+    border:1px solid #797979;
+    margin: 0 40px 0 0;
+}
+
+#datos-comercial{
+    line-height: 2;
+    font-size: 10px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    float: right;
+}
+ */
+
+
+#ver-venta{
+    display: none;
+}
+
+#ventas{
+    display:none;
+}
+
+#solicitudes-en-proceso {
+    display: none;
+}
+
+#solicitudes-finalizadas {
+    display: none;
+}
+
+#graficas-ventas {
+    display:none;
+}
+
