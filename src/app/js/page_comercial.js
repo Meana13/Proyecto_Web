@@ -18,6 +18,7 @@ const contenedorFinalizadas = document.getElementById("tabla-solicitudes-finaliz
 const contenedorVentas = document.getElementById("tabla-ventas");
 const seccionVerVenta = document.getElementById("ver-venta");
 const seccionVerMas = document.getElementById("ver-mas");
+const seccionSolicitudes = document.getElementById("solicitudes");
 
 //--------------------------------------------------------------------
 /*
@@ -203,13 +204,11 @@ function crearFilaSolicitud(solicitud) {
 
             llenarVerMas(filaBoton);
 
-            contenedorPendientes.style.display = "none";
-            contenedorFinalizadas.style.display = "none";
-            contenedorProceso.style.display = "none";
+            seccionSolicitudes.style.display = "none";
             seccionVerMas.style.display = "block";
 
             document.getElementById("boton-volver-a-lista-solicitudes").onclick= ()=>{
-                volverAListaSolicitudes("boton-volver-a-lista-solicitudes","solicitudes-pendientes","ver-mas");
+                volverAListaSolicitudes("boton-volver-a-lista-solicitudes","solicitudes","ver-mas");
             }
         }
     });
@@ -219,10 +218,13 @@ function crearFilaSolicitud(solicitud) {
 
             llenarVerMas(filaBoton);
 
-            contenedorProceso.style.display = "none";
-            contenedorFinalizadas.style.display = "none";
-            contenedorPendientes.style.display = "none";
+            seccionSolicitudes.style.display = "none";
             seccionVerMas.style.display = "block";
+
+            document.getElementById("boton-volver-a-lista-solicitudes").onclick= ()=>{
+                volverAListaSolicitudes("boton-volver-a-lista-solicitudes","solicitudes","ver-mas");
+            }
+
         }
     });
     contenedorFinalizadas.addEventListener("click",(event)=>{
@@ -231,10 +233,13 @@ function crearFilaSolicitud(solicitud) {
 
             llenarVerMas(filaBoton);
 
-            contenedorProceso.style.display = "none";
-            contenedorFinalizadas.style.display = "none";
-            contenedorPendientes.style.display = "none";
+            seccionSolicitudes.style.display = "none";
             seccionVerMas.style.display = "block";
+
+            document.getElementById("boton-volver-a-lista-solicitudes").onclick= ()=>{
+                volverAListaSolicitudes("boton-volver-a-lista-solicitudes","solicitudes","ver-mas");
+            }
+
         }
     });
 
