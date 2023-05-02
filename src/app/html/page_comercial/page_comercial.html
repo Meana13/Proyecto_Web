@@ -6,13 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Page comercial</title>
     <link rel="stylesheet" href="../../css/page_comercial/estilos_page_comercial.css">
+    <link rel="stylesheet" href="../../css/estilos_general.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+
+
 
 </head>
 <body>
+<!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza el header-->
 
     <!--Aquí acaba el header-->
+<!----------------------------------------------------------------------------------------------->
 
+
+<!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección de usuario-comercial-->
     <section id="usuario-comercial">
 
@@ -23,7 +31,7 @@
                 <img src="../../../../images/comercial.png" alt="foto de perfil del comercial" class="foto-perfil">
 
             <!--Datos del comercial (se obtendrán automáticamente de la base de datos en posteriores versiones)-->
-            < id="datos">
+            <p id="datos">
                 Nombre de usuario: Ferser<br>
                 Nombre y apellidos: Fernando Serrano<br>
                 Nombre de usuario: admin.ferser@gmail.com<br>
@@ -34,8 +42,8 @@
 
         <!--Aquí empieza el menu-comercial-->
         <nav id="menu-comercial">
-            <button class="boton-perfil" id="boton-solicitudes">SOLICITUDES</button>
-            <button class="boton-perfil" id="boton-ventas">VENTAS</button>
+            <button class="boton-perfil" id="boton-solicitudes" onclick="mostrarSolicitudes()">SOLICITUDES</button>
+            <button class="boton-perfil" id="boton-ventas" onclick="mostrarVentas()">VENTAS</button>
         </nav>
         <!--Aquí acaba el menu-comercial-->
 
@@ -44,85 +52,150 @@
 
     </section>
     <!--Aquí acaba la sección de usuario-comercial-->
+<!----------------------------------------------------------------------------------------------->
 
+<!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección de solicitudes-->
     <section id="solicitudes">
 
         <!--Aquí empieza la sección de botones-solicitudes-->
         <section id="botones-solicitudes">
-            <button>SOLICITUDES PENDIENTES</button>
-            <button>SOLICITUDES EN PROCESO</button>
-            <button>SOLICITUDES FINALIZADAS</button>
+            <button id="boton-solicitudes-pendientes" onclick="mostrarSolicitudesPendientes()">SOLICITUDES PENDIENTES</button>
+            <button id="boton-solicitudes-proceso" onclick="mostrarSolicitudesEnProceso()">SOLICITUDES EN PROCESO</button>
+            <button id="boton-solicitudes-finalizadas" onclick="mostrarSolicitudesFinalizadas()">SOLICITUDES FINALIZADAS</button>
         </section>
         <!--Aquí acaba la sección de botones-solicitudes-->
+        <!---------------------------------------------------->
 
-    <!--Aquí empieza el filtro de la tabla-->
-    <form class="filtro">
-        Busca por palabra clave o número: <input type="text">
-    </form>
-    <!--Aquí acaba el filtro de la tabla-->
+        <!---------------------------------------------------->
+        <!--Aquí empieza la sección de solicitudes pendientes-->
+        <section id="solicitudes-pendientes">
+            <h3>SOLICITUDES PENDIENTES</h3>
 
-        <!--Aquí empieza el paginador-->
-        <div id="paginador">
-            <button onclick="cambiarPagina(1)">1</button>
-            <button onclick="cambiarPagina(2)">2</button>
-            <button onclick="cambiarPagina(3)">3</button>
-            <span class="btn-input">
-			<button onclick="mostrarInput(this)">...</button>
-			<input type="number" value="1"
-                   onchange="cambiarPagina(this.value)"
-                   onblur="ocultarInput(this)" />
-		    </span>
-            <button>n</button>
-        </div>
-        <!--Aquí acaba el paginador-->
+            <!--Aquí empieza el buscador de la tabla-->
+            <input class="buscador" id="buscador-pendientes" placeholder="Escribe lo que quieras buscar...">
+            <button onclick="buscarSolicitudesPendientes()">Buscar</button>
+            <!--Aquí acaba el buscador de la tabla-->
 
-        <!--Aquí empieza la tabla de solicitudes pendientes-->
-        <table>
+            <!--Aquí empieza el paginador-->
+            <div class="paginador" id="paginador-pendientes" >
+                <button onclick="cambiarPagina(1)">1</button>
+                <button onclick="cambiarPagina(2)">2</button>
+                <button onclick="cambiarPagina(3)">3</button>
+                <span class="btn-input">
+                <button onclick="mostrarInput(this)">...</button>
+                <input type="number" value="1"
+                       onchange="cambiarPagina(this.value)"
+                       onblur="ocultarInput(this)" />
+                </span>
+                <button>n</button>
+            </div>
+            <!--Aquí acaba el paginador-->
 
-            <!--Aquí empieza la cabecera de la tabla de solicitudes pendientes-->
-            <thead id="cabecera-tabla-solicitudes-pendientes">
+            <!--Aquí empieza la tabla de solicitudes pendientes-->
+            <table id="tabla-pendientes">
+
+                <!--Aquí empieza la cabecera de la tabla de solicitudes pendientes-->
+                <thead id="cabecera-tabla-solicitudes-pendientes">
+                    <tr>
+                        <th>ID</th>
+                        <th>E-MAIL</th>
+                        <th>NOMBRE</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!--Aquí acaba la cabecera de la tabla de solicitudes pendientes-->
+
+                <!--Aquí empieza la tabla de solicitudes pendientes-->
+                <tbody id="tabla-solicitudes-pendientes">
+
+                </tbody>
+
+            </table>
+            <!--Aquí acaba la tabla de solicitudes pendientes-->
+        </section>
+        <!--Aquí acaba la sección de solicitudes pendientes-->
+
+        <!---------------------------------------------------->
+
+        <!---------------------------------------------------->
+        <!--Aquí empieza la sección de solicitudes en proceso-->
+        <section id="solicitudes-en-proceso">
+            <h3>SOLICITUDES EN PROCESO</h3>
+
+            <!--Aquí empieza el buscador de la tabla-->
+            <input class="buscador" id="buscador-proceso" placeholder="Escribe lo que quieras buscar...">
+            <button onclick="buscarSolicitudesEnProceso()">Buscar</button>
+            <!--Aquí acaba el buscador de la tabla-->
+
+            <!--Aquí empieza el paginador-->
+            <div class="paginador" id="paginador-proceso" >
+                <button onclick="cambiarPagina(1)">1</button>
+                <button onclick="cambiarPagina(2)">2</button>
+                <button onclick="cambiarPagina(3)">3</button>
+                <span class="btn-input">
+                    <button onclick="mostrarInput(this)">...</button>
+                    <input type="number" value="1"
+                           onchange="cambiarPagina(this.value)"
+                           onblur="ocultarInput(this)" />
+                    </span>
+                <button>n</button>
+            </div>
+            <!--Aquí acaba el paginador-->
+
+            <!--Aquí empieza la tabla de solicitudes en proceso-->
+            <table id="tabla-proceso">
+
+                <!--Aquí empieza la cabecera de la tabla de solicitudes en proceso-->
+                <thead id="cabecera-tabla-solicitudes-proceso">
                 <tr>
                     <th>ID</th>
                     <th>E-MAIL</th>
                     <th>NOMBRE</th>
                     <th></th>
                 </tr>
-            </thead>
-            <!--Aquí acaba la cabecera de la tabla de solicitudes pendientes-->
+                </thead>
+                <!--Aquí acaba la cabecera de la tabla de solicitudes en proceso-->
 
-            <!--Aquí empieza la tabla de solicitudes pendientes-->
-            <tbody id="tabla-solicitudes-pendientes">
+                <!--Aquí empieza la tabla de solicitudes en proceso-->
+                <tbody id="tabla-solicitudes-proceso">
 
-            </tbody>
+                </tbody>
 
-        </table>
-        <!--Aquí acaba la tabla de solicitudes pendientes-->
+            </table>
+            <!--Aquí acaba la tabla de solicitudes en proceso-->
 
-        <!--Aquí empieza la tabla de solicitudes en proceso-->
-        <table>
+        </section>
+        <!--Aquí acaba de sección de solicitudes en proceso-->
 
-            <!--Aquí empieza la cabecera de la tabla de solicitudes en proceso-->
-            <thead id="cabecera-tabla-solicitudes-proceso">
-            <tr>
-                <th>ID</th>
-                <th>E-MAIL</th>
-                <th>NOMBRE</th>
-                <th></th>
-            </tr>
-            </thead>
-            <!--Aquí acaba la cabecera de la tabla de solicitudes en proceso-->
+        <!---------------------------------------------------->
 
-            <!--Aquí empieza la tabla de solicitudes en proceso-->
-            <tbody id="tabla-solicitudes-proceso">
+        <!---------------------------------------------------->
+        <section id="solicitudes-finalizadas">
+            <h3>SOLICITUDES FINALIZADAS</h3>
 
-            </tbody>
+            <!--Aquí empieza el buscador de la tabla-->
+            <input class="buscador" id="buscador-finalizadas" placeholder="Escribe lo que quieras buscar...">
+            <button onclick="buscarSolicitudesFinalizadas()">Buscar</button>
+            <!--Aquí acaba el buscador de la tabla-->
 
-        </table>
-        <!--Aquí acaba la tabla de solicitudes en proceso-->
+            <!--Aquí empieza el paginador-->
+            <div class="paginador" id="paginador-finalizadas" >
+                <button onclick="cambiarPagina(1)">1</button>
+                <button onclick="cambiarPagina(2)">2</button>
+                <button onclick="cambiarPagina(3)">3</button>
+                <span class="btn-input">
+                    <button onclick="mostrarInput(this)">...</button>
+                    <input type="number" value="1"
+                           onchange="cambiarPagina(this.value)"
+                           onblur="ocultarInput(this)" />
+                    </span>
+                <button>n</button>
+            </div>
+            <!--Aquí acaba el paginador-->
 
         <!--Aquí empieza la tabla de solicitudes finalizadas-->
-        <table>
+        <table id="tabla-finalizadas">
 
             <!--Aquí empieza la cabecera de la tabla de solicitudes finalizadas-->
             <thead id="cabecera-tabla-solicitudes-finalizadas">
@@ -142,15 +215,134 @@
 
         </table>
         <!--Aquí acaba la tabla de solicitudes en finalizadas-->
+        </section>
+        <!--Aquí acaba la sección de solicitudes finalizadas-->
+
+    </section>
+    <!--Aquí acaba la sección de solicitudes-->
+<!----------------------------------------------------------------------------------------------->
+
+
+<!----------------------------------------------------------------------------------------------->
+    <!--Aquí empieza la sección de ventas-->
+    <section id="ventas">
+
+        <!--Aquí empieza la sección de botones-ventas-->
+        <section id="botones-ventas">
+            <button id="boton-lista-ventas" onclick="mostrarListaVentas()">VENTAS</button>
+            <button id="boton-graficas" onclick="mostrarGraficas()">GRÁFICAS</button>
+        </section>
+        <!--Aquí acaba la sección de botones-solicitudes-->
+
+        <!--Aquí empieza la sección lista-ventas-->
+        <section id="lista-ventas">
+
+            <!--Aquí empieza el filtro de la tabla-->
+            <form class="filtro">
+                Busca por palabra clave o número: <input type="text">
+            </form>
+            <!--Aquí acaba el filtro de la tabla-->
+
+            <!--Aquí empieza el paginador-->
+            <div class="paginador" id="paginador-ventas" >
+                <button onclick="cambiarPagina(1)">1</button>
+                <button onclick="cambiarPagina(2)">2</button>
+                <button onclick="cambiarPagina(3)">3</button>
+                <span class="btn-input">
+                <button onclick="mostrarInput(this)">...</button>
+                <input type="number" value="1"
+                       onchange="cambiarPagina(this.value)"
+                       onblur="ocultarInput(this)" />
+                </span>
+                <button>n</button>
+            </div>
+            <!--Aquí acaba el paginador-->
+
+            <!--Aquí empieza la tabla de ventas-->
+            <table>
+
+                <!--Aquí empieza la cabecera de la tabla de ventas-->
+                <thead id="cabecera-tabla-ventas">
+                <tr>
+                    <th>ID</th>
+                    <th>E-MAIL</th>
+                    <th>NOMBRE</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <!--Aquí acaba la cabecera de la tabla de solicitudes pendientes-->
+
+                <!--Aquí empieza la tabla de solicitudes pendientes-->
+                <tbody id="tabla-ventas">
+
+                </tbody>
+
+            </table>
+            <!--Aquí acaba la tabla de solicitudes pendientes-->
+        </section>
+        <!--Aquí acaba la sección de lista-ventas-->
+
+        <!--Aquí empieza la sección de graficas-ventas-->
+        <section id="graficas-ventas">
+
+            <select>
+                <option>Mes</option>
+                <option>Año</option>
+                <option>Importe</option>
+            </select>
+            <div class="chart-container">
+
+                <canvas id="chart">
+
+                </canvas>
+
+            </div>
+
+
+
+        </section>
+        <!--Aquí acaba la sección de graficas-ventas-->
 
 
 
     </section>
-    <!--Aquí acaba la sección de solicitudes-->
+    <!--Aquí acaba la sección de ventas-->
+<!----------------------------------------------------------------------------------------------->
 
-    
+<!----------------------------------------------------------------------------------------------->
+    <!--Aquí empieza la sección ver venta-->
+    <section id="ver-venta">
+
+        <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
+        <h5>Venta #0001</h5>
+        <p>Id Cliente: <input value="#71908409"> </p>
+        <p>Dirección: <input value="C/ Cuba Nº13 4ºIzq"> </p>
+        <p>Productos vendidos:</p>
+        <ul>
+            <li>Productos vendidos</li>
+        </ul>
+
+        <button>VOLVER ATRÁS</button>
+
+
+    </section>
+    <!--Aquí acaba la sección ver venta-->
+<!----------------------------------------------------------------------------------------------->
+
+
+
+
+<!----------------------------------------------------------------------------------------------->
+<!--Aquí empieza el footer-->
+
+    <!--Aquí acaba el footer-->
+<!----------------------------------------------------------------------------------------------->
+<script src="../../js/page_comercial.js"></script>
+
+
+
 
 </body>
-    <script src="../../js/page_comercial.js"></script>
+
 
 </html>
