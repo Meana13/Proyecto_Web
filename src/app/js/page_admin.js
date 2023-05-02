@@ -10,22 +10,18 @@ document.addEventListener('DOMContentLoaded', function () {
     let secActiva = secAdminUsuarios;
     botonAdminUsuarios.style.backgroundColor = "#790050";
 
-    botonAdminUsuarios.addEventListener("click", function () {
-        if (botonActivo !== null && secActiva !== null) {
-            secActiva.style.display = "none";
-            botonActivo.style.backgroundColor = "";
-        }
+    botonAdminUsuarios.addEventListener("click", () => {
+        secActiva.style.display = "none";
+        botonActivo.style.backgroundColor = "";
         secAdminUsuarios.style.display = "block";
         botonAdminUsuarios.style.backgroundColor = "#790050";
         botonActivo = botonAdminUsuarios;
         secActiva = secAdminUsuarios;
     });
 
-    botonOpinion.addEventListener("click", function () {
-        if (botonActivo !== null && secActiva !== null) {
-            secActiva.style.display = "none";
-            botonActivo.style.backgroundColor = "";
-        }
+    botonOpinion.addEventListener("click", () => {c
+        secActiva.style.display = "none";
+        botonActivo.style.backgroundColor = "";
         secOpinion.style.display = "block";
         botonOpinion.style.backgroundColor = "#790050";
         botonActivo = botonOpinion;
@@ -36,10 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const seccionAñadir = document.getElementById("seccion-añadir-usuario");
 
     botonAñadir.addEventListener('click', () => {
-        if (botonActivo !== null && secActiva !== null) {
-            secActiva.style.display = "none";
-            botonActivo.style.backgroundColor = "";
-        }
+        secActiva.style.display = "none";
+        botonActivo.style.backgroundColor = "";
         seccionAñadir.style.display = "block";
         secActiva = seccionAñadir;
     });
@@ -51,4 +45,28 @@ document.addEventListener('DOMContentLoaded', function () {
         const nuevoId = Math.floor(Math.random() * 1000000).toString().padStart(6, "0");
         cajaId.textContent = nuevoId;
     });
+
+    const botonHojaUsuario = document.getElementById("ver-hoja-usuario");
+    const seccionHojaUsuario = document.getElementById("seccion-hoja-usuario");
+
+    botonHojaUsuario.addEventListener("click", () => {
+        secActiva.style.display = "none";
+        botonActivo.style.backgroundColor = "";
+        seccionHojaUsuario.style.display = "block";
+        secActiva = seccionHojaUsuario;
+    })
+
+    const botonGuardarCambios = document.getElementById("boton-guardar-cambios");
+    const botonCancelar = document.getElementById("boton-cancelar");
+
+    botonCancelar.addEventListener("click", () => {
+        secActiva.style.display = "none";
+        botonActivo.style.backgroundColor = "";
+        secAdminUsuarios.style.display = "block";
+        botonAdminUsuarios.style.backgroundColor = "#790050";
+        botonActivo = botonAdminUsuarios;
+        secActiva = secAdminUsuarios;
+    })
+
+    
 });

@@ -26,6 +26,10 @@
     display: none;
 }
 
+#seccion-hoja-usuario {
+    display: none;
+}
+
 #seccion-opinion-personal {
     display: none;
     border: 2px solid black;
@@ -65,6 +69,11 @@ th:last-child {
     background-color: transparent;
 }
 
+#ver-hoja-usuario {
+    border: 0;
+    background-color: transparent;
+}
+
 #ver-hoja-usuario img {
     margin-top: .3em;
     border: 1px solid black;
@@ -75,6 +84,66 @@ th:last-child {
 
 /* FIN TABLA USUARIOS */
 
+/* INICIO HOJA DE USUARIO */
+
+#hoja-de-usuario {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+}
+
+#formulario-hoja-usuario {
+    width: 380px;
+    margin: 0 auto;
+    display: block;
+}
+
+#formulario-hoja-usuario label {
+    display: inline-block;
+    width: 40%;
+    text-align: left;
+}
+
+
+#icono-editar {
+    margin-left: 10px;
+    padding: 0;
+    border: 0;
+    position: relative;
+    top: 6px;
+}
+
+#boton-cancelar {
+    background-color: #555555;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    padding: 1em;
+    border-radius: .5em;
+    font-weight: bold;
+}
+
+#boton-guardar-cambios {
+    background-color: #9D4179;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: .5em;
+    font-weight: bold;
+    padding: 1em;
+}
+
+#botones {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 15%;
+}
+
+/* FIN HOJA DE USUARIO */
+
 /* AÑADIR USUARIO */
 
 #nuevo-usuario {
@@ -82,14 +151,13 @@ th:last-child {
     margin-bottom: 2em;
 }
 
-
 #formulario-nuevo-usuario {
     width: 324px;
     margin: 0 auto;
     display: block;
 }
 
-label {
+#formulario-nuevo-usuario label {
     display: inline-block;
     width: 120px;
     text-align: left;
@@ -97,7 +165,7 @@ label {
 
 input[type="text"],
 select {
-    width: 200px;
+    width: 180px;
     box-sizing: border-box;
     padding: 3px;
     margin-bottom: 10px;
