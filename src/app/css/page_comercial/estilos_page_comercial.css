@@ -58,3 +58,45 @@ body {
     display:none;
 }
 
+table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+th {
+    border-bottom: solid 2px black;
+}
+td {
+    border-bottom: solid 1px black;
+    padding: .2em 3em;
+}
+
+tbody {
+    border: solid 1px black;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #a7a7a7;
+}
+
+.mensaje-error {
+    text-align: center;
+    padding: 2em;
+    font-weight: bold;
+    color: red;
+}
+
+.btn-input input {
+    max-width: 3em;
+    text-align: center;
+    display: none;
+}
+
+.btn-input.activo button {
+    display: none;
+}
+
+.btn-input.activo input {
+    display: initial;
+}
+
