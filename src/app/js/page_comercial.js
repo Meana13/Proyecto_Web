@@ -544,6 +544,41 @@ function volverAListaVentas() {
         }
     }
 
+function buscarVentas() {
+    // Obtenemos el valor del input de búsqueda
+    var input = document.getElementById("buscador-ventas").value.toUpperCase();
+
+    // Obtenemos la tabla
+    var tabla = document.getElementById("tabla-ventas");
+
+    // Obtenemos todas las filas de la tabla
+    var filas = tabla.getElementsByTagName("tr");
+
+    // Recorremos todas las filas de la tabla
+    for (var i = 0; i < filas.length; i++) {
+        // Obtenemos todas las celdas de la fila actual
+        var celdas = filas[i].getElementsByTagName("td");
+        var mostrarFila = false;
+
+        // Recorremos todas las celdas de la fila actual
+        for (var j = 0; j < celdas.length; j++) {
+            var textoCelda = celdas[j].textContent.toUpperCase();
+            if (textoCelda.indexOf(input) > -1) {
+                // Si encontramos la cadena de búsqueda en una celda, mostramos la fila
+                mostrarFila = true;
+                break;
+            }
+        }
+
+        // Mostramos u ocultamos la fila según corresponda
+        if (mostrarFila) {
+            filas[i].style.display = "";
+        } else {
+            filas[i].style.display = "none";
+        }
+    }
+}
+
 //--------------------------------------------------------------------
     /*
     función DatosGraficaMes()
@@ -1066,11 +1101,4 @@ function volverAListaVentas() {
         document.getElementById("chart-container-mes").style.display = "none";
         document.getElementById("chart-container-dia").style.display = "none";
     }
-
-
-
-
-
-
-
-
+    
