@@ -29,7 +29,7 @@ body{
 .productos{
     margin-left: 50px;
 }
-.slider_vista .vista_pequeña_producto{
+.slider_vista .vista_opinion{
     width: 100px;
     max-height: 100vh;
     height: inherit;
@@ -40,16 +40,7 @@ body{
     margin-top: 25px;
 
 }
-.slider_vista .vista_principal_producto{
-    width: 150px;
-    max-height: 100vh;
-    height: inherit;
-    object-fit: cover;
-    vertical-align: top;
-    transition: 2s;
-    display: inline-block;
 
-}
 .slider_vista div{
     width: 150px;
     max-height: 100vh;
@@ -61,6 +52,12 @@ body{
     margin-left: 25px;
 
 }
+.img_redonda {
+    width:50px;
+    height:50px;
+    border-radius:150px;
+    border:2px solid #666;
+}
 .slider_vista div .vista_principal_imagen{
     width: 150px;
     height: 150px;
@@ -68,6 +65,7 @@ body{
     vertical-align: center;
     transition: 2s;
 }
+
 .slider_vista div .vista_pequeña_imagen{
     width: 100px;
     height: 100px;

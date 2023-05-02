@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+  <component name="ChangeListManager">
+    <list default="true" id="9dc3cd98-2ea2-4804-a4f7-a140e2599478" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+=======
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dc3cd98-2ea2-4804-a4f7-a140e2599478" name="Changes" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/css/landing_page/estilos_carrousel_opiniones.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/css/landing_page/estilos_carrousel_opiniones.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/html/landing_page/carrousel_opiniones.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/html/landing_page/carrousel_opiniones.html" afterDir="false" />
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/src/app/css/landing_page/estilos_carrousel_opiniones.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/app/html/landing_page/carrousel_opiniones.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/app/scrips/landing_page/carrousel_opiniones.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/css/landing_page/estilos_carrousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/css/landing_page/estilos_carrousel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/html/landing_page/carrousel.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/html/landing_page/carrousel.html" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/app/css/landing_page/footer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/html/landing_page/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
+=======
+      <change afterPath="$PROJECT_DIR$/src/app/css/estilos_general.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/css/landing_page/estilos_landing_page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/css/page_admin/estilos_page_admin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/css/page_comercial/estilos_page_comercial.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/css/page_tecnico/estilos_page_tecnico.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/css/page_usuario/estilos_page_usuario.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/html/landing_page/landing_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/html/page_admin/page_admin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/html/page_comercial/page_comercial.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/html/page_tecnico/page_tecnico.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/html/page_usuario/page_usuario.html" afterDir="false" />
+>>>>>>> pablo
+>>>>>>> Marcos_Pagina_Usuario
+>>>>>>> develop
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +55,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        <option value="CSS File" />
+>>>>>>> pablo
+>>>>>>> Marcos_Pagina_Usuario
         <option value="HTML File" />
         <option value="CSS File" />
+<<<<<<< Updated upstream
         <option value="JavaScript File" />
+=======
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -43,21 +85,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/Users/Pablo/OneDrive - UPV/UNI/UPV/2º Cuatrimestre/Proyecto Web/Proyecto_Web/src/app/html/landing_page",
+=======
+<<<<<<< HEAD
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+=======
+>>>>>>> Marcos_Pagina_Usuario
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
+=======
+>>>>>>> develop
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+<<<<<<< HEAD
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pablo/OneDrive - UPV/UNI/UPV/2º Cuatrimestre/Proyecto Web/Proyecto_Web/src/app/html/landing_page&quot;,
+=======
+    &quot;last_opened_file_path&quot;: &quot;D:/GTI/Proyecto Diseño y Programación Web/Proyecto_Grupo05/Proyecto_Web&quot;,
+>>>>>>> develop
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> develop
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Pablo\OneDrive - UPV\UNI\UPV\2º Cuatrimestre\Proyecto Web\Proyecto_Web\src\app\html\landing_page" />
@@ -68,6 +144,7 @@
       <recent name="C:\Users\Pablo\OneDrive - UPV\UNI\UPV\2º Cuatrimestre\Proyecto Web\Proyecto_Web\src\app\html" />
     </key>
   </component>
+>>>>>>> pablo
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -76,8 +153,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1682515098430</updated>
+<<<<<<< HEAD
+      <workItem from="1682515099860" duration="142000" />
+=======
       <workItem from="1682515099860" duration="2389000" />
+<<<<<<< HEAD
+<<<<<<< Updated upstream
       <workItem from="1682871559958" duration="2719000" />
+=======
+      <workItem from="1682523469119" duration="2046000" />
+      <workItem from="1682678437953" duration="8000" />
+>>>>>>> Stashed changes
+=======
+>>>>>>> pablo
+>>>>>>> Marcos_Pagina_Usuario
     </task>
     <servers />
   </component>
