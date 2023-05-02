@@ -217,14 +217,17 @@ select {
 
 /* INICIO OPINION DEL PERSONAL */
 
-
-
 #desplegable-tecnicos {
     width: 100%;
     height: 2.5em;
     background-color: #969898;
     margin-bottom: 0;
     border: 1px solid black;
+}
+
+
+#desplebable-tecnicos option {
+    width: inherit;
 }
 
 #caja-opinion {
@@ -234,7 +237,7 @@ select {
 }
 
 #icono-opinion {
-    width: 3.25em;
+    width: 4em;
     height: 4.5em;
     margin: auto 1em;
 }
@@ -249,15 +252,14 @@ select {
 }
 
 #fecha-instalacion {
+    font-size: 14px;
     width: auto;
-    margin: 0 auto;
 }
 
 #n-instalacion {
     width: auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
     display: flex;
+    padding-bottom: 15px;
     justify-content: center;
 }
 

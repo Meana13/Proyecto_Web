@@ -1,0 +1,209 @@
+:root {
+    --main-bg-color: #eef;
+    --main-fg-color: #5f6c7b;
+    --contrast-bg-color:#90b4ce;
+    --contrast-fg-color:#094067;
+    --accent-bg-color: #fc3d93;
+    --accent-fg-color: #fffffe;
+}
+/*a todos los elementos de la página, vamos a resetear el estilo para controlarlo
+nosotros:*/
+* {
+    padding: 0;
+
+    margin: 0;
+
+    box-sizing: border-box; /*se coge la medida desde el borde del objeto*/
+
+    list-style: none; /*para quitar los puntos de la lista, después si queremos
+    los puntos en otra lista lo tenemos que especificar*/
+
+    text-decoration: none; /*ningún elemento tendrá subrayado*/
+
+    color: inherit; /*se hereda el color del padre*/
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*comentario*/
+
+/*Aquí hemos importado la fuente Roboto de Google Fonts. Entramos, seleccionamos fuente,
+y copiamos las ordenes de import, y quitamos las etiquetas de style.*/
+
+
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+
+    /*para usar las variables css:*/
+    background-color: var(--main-bg-color);
+    color: var(--main-fg-color);
+}
+
+/*pseudoclase:
+even es pares en inglés*/
+section:nth-child(even) {
+    /*Para mezclar colores:*/
+    background-color: color-mix(in srgb,
+    var(--main-fg-color) 10%, var(--main-bg-color));
+}
+
+section {
+    height: 100vh; /*vh: altura del viewport. 100: to_do el viewport,
+    50: la mitad*/
+
+    padding: 1rem;
+
+    display:flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-content: center;
+}
+
+section p {
+    text-align: justify;
+}
+
+#main-menu {
+    --bg-color: var(--contrast-bg-color);
+    --txt-color: var(--contrast-fg-color);
+    --hover-bg: var(--accent-bg-color);
+    --hover-txt: var(--accent-fg-color);
+    --menu-height: 3rem;
+}
+
+#main-menu {
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+    height: var(--menu-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+    /*recomendado utilizar siempre que sea posible medidas relativas.
+    En casos concretos, por ejemplo la altura de algún botón que me interesa
+    que sea de x tamaño para poder hacer bien click, utilizamos pixeles*/
+
+    /*menú fijo:*/
+    position: fixed;
+    width: 100%;
+}
+
+#main-menu ul {
+    background-color: var(--bg-color);
+    position: absolute;
+    top: var(--menu-height);
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%) scaleY(0);
+    transition: .5s;
+}
+
+#main-menu.activo ul{
+    transform:translateY(0) scaleY(1);
+
+}
+
+#main-menu li {
+    padding: .5em;
+    text-align: center;
+}
+
+.hamburguesa {
+    width: 2em;
+    height: 2em;
+}
+
+.hamburguesa div {
+    background-color: var(--txt-color);
+    width: 2em;
+    height: .3em;
+    margin: .3em auto;
+    transition: .5s;
+}
+
+#main-menu.activo .hamburguesa div:nth-child(2) {
+    opacity:0;
+}
+
+#main-menu.activo .hamburguesa div:nth-child(1) {
+    transform: translateY(.6em) rotate(45deg);
+}
+
+#main-menu.activo .hamburguesa div:nth-child(3) {
+    transform: translateY(-.6em) rotate(-45deg);
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*comentario*/
+
+/*Aquí hemos importado la fuente Roboto de Google Fonts. Entramos, seleccionamos fuente,
+y copiamos las ordenes de import, y quitamos las etiquetas de style.*/
+
+/*a todos los elementos de la página, vamos a resetear el estilo para controlarlo
+nosotros:*/
+* {
+    padding: 0;
+
+    margin: 0;
+
+    box-sizing: border-box; /*se coge la medida desde el borde del objeto*/
+
+    list-style: none; /*para quitar los puntos de la lista, después si queremos
+    los puntos en otra lista lo tenemos que especificar*/
+
+    text-decoration: none; /*ningún elemento tendrá subrayado*/
+
+    color: inherit; /*se hereda el color del padre*/
+}
+
+/*pseudoelemento que representa la raíz del documento, lo crea el navegador, aquí
+meteremos las variables css, y estarán disponibles para todos los elementos:*/
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+
+    /*para usar las variables css:*/
+    background-color: var(--main-bg-color);
+    color: var(--main-fg-color);
+}
+
+/*pseudoclase:
+even es pares en inglés*/
+section:nth-child(even) {
+    /*Para mezclar colores:*/
+    background-color: color-mix(in srgb,
+    var(--main-fg-color) 10%, var(--main-bg-color));
+}
+
+section {
+    height: 100vh; /*vh: altura del viewport. 100: to_do el viewport,
+    50: la mitad*/
+
+    padding: 1rem;
+
+    display:flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-content: center;
+}
+
+section p {
+    text-align: justify;
+}
