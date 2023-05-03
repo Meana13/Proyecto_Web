@@ -89,7 +89,7 @@ function crearFilaSolicitudPendiente(solicitud) {
         const nombre = filaBoton.cells[0].textContent;
         const apellidos = filaBoton.cells[1].textContent;
         const email = filaBoton.cells[2].textContent;
-        const direccion = "Dirección de ejemplo"; // Reemplazar con la dirección correspondiente
+        const direccion = "C/Cuba Nº13, 4º izq"; // Reemplazar con la dirección correspondiente
 
         const nombreSpan = seccionVerMas.querySelector("#nombre-solicitud");
         const apellidosSpan = seccionVerMas.querySelector("#apellidos-solicitud");
@@ -178,7 +178,7 @@ function crearFilaSolicitudProceso(solicitud) {
         const nombre = filaBoton.cells[0].textContent;
         const apellidos = filaBoton.cells[1].textContent;
         const email = filaBoton.cells[2].textContent;
-        const direccion = "Dirección de ejemplo"; // Reemplazar con la dirección correspondiente
+        const direccion = "C/Cuba Nº13, 4º izq"; // Reemplazar con la dirección correspondiente
 
         const nombreSpan = seccionVerMas.querySelector("#nombre-solicitud");
         const apellidosSpan = seccionVerMas.querySelector("#apellidos-solicitud");
@@ -268,7 +268,7 @@ function crearFilaSolicitudFinalizadas(solicitud) {
         const nombre = filaBoton.cells[0].textContent;
         const apellidos = filaBoton.cells[1].textContent;
         const email = filaBoton.cells[2].textContent;
-        const direccion = "Dirección de ejemplo"; // Reemplazar con la dirección correspondiente
+        const direccion = "C/Cuba Nº13, 4º izq"; // Reemplazar con la dirección correspondiente
 
         const nombreSpan = seccionVerMas.querySelector("#nombre-solicitud");
         const apellidosSpan = seccionVerMas.querySelector("#apellidos-solicitud");
@@ -366,7 +366,7 @@ function crearFilaVenta(venta) {
         const id = filaBoton.cells[0].textContent;
         const email = filaBoton.cells[1].textContent;
         const nombre = filaBoton.cells[2].textContent;
-        const direccion = "Dirección de ejemplo"; // Reemplazar con la dirección correspondiente
+        const direccion = "C/Cuba Nº13, 4º izq"; // Reemplazar con la dirección correspondiente
 
         const idSpan = seccionVerVenta.querySelector("#id-venta");
         const emailSpan = seccionVerVenta.querySelector("#email-venta");

@@ -69,7 +69,7 @@
         <!---------------------------------------------------->
         <!--Aquí empieza la sección de solicitudes pendientes-->
         <section id="solicitudes-pendientes">
-            <h3>SOLICITUDES PENDIENTES</h3>
+
 
             <!--Aquí empieza el buscador de la tabla-->
             <div class="buscador">
@@ -124,7 +124,7 @@
         <!---------------------------------------------------->
         <!--Aquí empieza la sección de solicitudes en proceso-->
         <section id="solicitudes-en-proceso">
-            <h3>SOLICITUDES EN PROCESO</h3>
+
 
             <!--Aquí empieza el buscador de la tabla-->
             <div class="buscador">
@@ -177,7 +177,7 @@
 
         <!---------------------------------------------------->
         <section id="solicitudes-finalizadas">
-            <h3>SOLICITUDES FINALIZADAS</h3>
+
 
             <!--Aquí empieza el buscador de la tabla-->
             <div class="buscador">
@@ -336,20 +336,20 @@
     <section id="ver-venta">
 
         <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
-
-            <h5>Detalles de la venta</h5>
-            <p><strong>ID:</strong> <span id="id-venta"></span></p>
-            <p><strong>E-MAIL:</strong> <span id="email-venta"></span></p>
-            <p><strong>NOMBRE:</strong> <span id="nombre-venta"></span></p>
-            <p><strong>DIRECCIÓN:</strong> <span id="direccion-venta"></span></p>
-            <p><strong>PRODUCTOS VENDIDOS:</strong></p>
-            <ul>
+        <div class="contenedor-datos">
+            <h3>Detalles de la venta</h3>
+            <p><b>Nombre:</b><span id="id-venta"></span></p>
+            <p><b>Apellidos:</b><span id="email-venta"></span></p>
+            <p><b>E-mail:</b><span id="nombre-venta"></span></p>
+            <p><b>Dirección:</b><span id="direccion-venta"></span></p>
+            <p><b>Productos vendidos:</b></p>
+            <ul  id="productos-vendidos">
                 <li>Producto 1</li>
                 <li>Producto 2</li>
                 <li>Producto 3</li>
             </ul>
             <button id="boton-volver-a-lista-ventas" onclick="volverAListaVentas()">VOLVER ATRÁS</button>
-
+        </div>
 
     </section>
     <!--Aquí acaba la sección ver venta-->
@@ -361,20 +361,20 @@
 <section id="ver-mas">
 
     <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
-
-    <h5>Detalles de la solicitud</h5>
-    <p><strong>NOMBRE:</strong> <span id="nombre-solicitud"></span></p>
-    <p><strong>APELLIDOS:</strong> <span id="apellidos-solicitud"></span></p>
-    <p><strong>E-MAIL:</strong> <span id="email-solicitud"></span></p>
-    <p><strong>DIRECCIÓN:</strong> <span id="direccion-solicitud"></span></p>
-    <p><strong>SOLICITUDES:</strong></p>
-    <ul>
-        <li>E-mail 1</li>
-        <li>E-mail 2</li>
-        <li>E-mail 3</li>
-    </ul>
-    <button id="boton-volver-a-lista-solicitudes" >VOLVER ATRÁS</button>
-
+    <div class="contenedor-datos">
+        <h3>Detalles de la solicitud</h3>
+        <p><b>Nombre:</b> <span id="nombre-solicitud"></span></p>
+        <p><b>Apellidos:</b> <span id="apellidos-solicitud"></span></p>
+        <p><b>E-mail:</b><span id="email-solicitud"></span></p>
+        <p><b>Dirección:</b><span id="direccion-solicitud"></span></p>
+        <p><b>Solicitudes:</b></p>
+        <ul class="foco-de-detalle">
+            <li>E-mail 1</li>
+            <li>E-mail 2</li>
+            <li>E-mail 3</li>
+        </ul>
+        <button id="boton-volver-a-lista-solicitudes" >VOLVER ATRÁS</button>
+    </div>
 
 </section>
 <!--Aquí acaba la sección ver venta-->
