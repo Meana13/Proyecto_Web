@@ -640,13 +640,7 @@ function buscarVentas() {
                     {
                         label: "Importe",
                         data: arrayImporte,
-                        backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
-                        borderColor: 'rgb(255,110,86)',
-                        borderDash: [2, 3], //punteado [1,3,3,2]
-                        tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
-                        //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
-                        pointStyle: 'rectRot', //tipo de punto (este es diamante).
-                        pointRadius: 10, //este controla el tamaño del punto.
+                        backgroundColor: ' #790050', //colores. De forma rgba añade transparencia (la a es la transparencia)
                     }
                 ]
             } //datos
@@ -655,25 +649,42 @@ function buscarVentas() {
                 responsive: true, //va a ser responsive
                 maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
                                             //según necesite.
-                scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
-                    //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
-                    //0 de la gráfica azul.
-                    y: {
-                        stacked: false
-                    }
+                scales:{
+                    x:{
+                        grid:{
+                            drawOnChartArea:false
+                        },
+                        ticks:{
+                            font:{
+                                size:15
+                            }
+                        }
+                    },
+                    y:{
+                        ticks: {
+                            font:{
+                                size: 15
+                            }
+                        }
+                    },
                 },
                 plugins: {
                     legend: {
                         position: 'bottom', //posicionamiento de la leyenda. En qué borde.
-                        align: 'end' //dentro del borde, donde queremos que aparezca (start, center y end).
+                        align: 'end',//dentro del borde, donde queremos que aparezca (start, center y end).
+                        labels:{
+                            font:{
+                                size: 15
+                            }
+                        }
                     },
                     title: { //titulo de la gráfica
                         display: true,
-                        text: 'Ventas del mes',
-                        position: 'left',
-                        align: 'start',
-                        padding: {
-                            right: 50
+                        text: 'Ventas mensuales',
+                        position: 'top',
+                        align: 'center',
+                        font:{
+                            size:15
                         }
                     },
                     tooltip: {
@@ -693,7 +704,7 @@ function buscarVentas() {
             let ctxmes = document.getElementById('chart-mes'); //referencia al canvas.
 
             let miGraficaMes = new Chart(ctxmes, { //le pasamos el canvas y un objeto con la configuración.
-                type: 'line',
+                type: 'bar',
                 data: datosGraficaMes, //los datos
                 options: opciones //las opciones
             });
@@ -751,13 +762,7 @@ function buscarVentas() {
                     {
                         label: "Importe",
                         data: arrayImporte,
-                        backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
-                        borderColor: 'rgb(255,110,86)',
-                        borderDash: [2, 3], //punteado [1,3,3,2]
-                        tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
-                        //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
-                        pointStyle: 'rectRot', //tipo de punto (este es diamante).
-                        pointRadius: 10, //este controla el tamaño del punto.
+                        backgroundColor: ' #790050', //colores. De forma rgba añade transparencia (la a es la transparencia)
                     }
                 ]
             } //datos
@@ -766,25 +771,42 @@ function buscarVentas() {
                 responsive: true, //va a ser responsive
                 maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
                                             //según necesite.
-                scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
-                    //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
-                    //0 de la gráfica azul.
-                    y: {
-                        stacked: false
-                    }
+                scales:{
+                    x:{
+                        grid:{
+                            drawOnChartArea:false
+                        },
+                        ticks:{
+                            font:{
+                                size:15
+                            }
+                        }
+                    },
+                    y:{
+                        ticks: {
+                            font:{
+                                size: 15
+                            }
+                        }
+                    },
                 },
                 plugins: {
                     legend: {
                         position: 'bottom', //posicionamiento de la leyenda. En qué borde.
-                        align: 'end' //dentro del borde, donde queremos que aparezca (start, center y end).
+                        align: 'end',//dentro del borde, donde queremos que aparezca (start, center y end).
+                        labels:{
+                            font:{
+                                size: 15
+                            }
+                        }
                     },
                     title: { //titulo de la gráfica
                         display: true,
-                        text: 'Ventas del mes',
-                        position: 'left',
-                        align: 'start',
-                        padding: {
-                            right: 50
+                        text: 'Ventas anuales',
+                        position: 'top',
+                        align: 'center',
+                        font:{
+                            size:15
                         }
                     },
                     tooltip: {
@@ -804,7 +826,7 @@ function buscarVentas() {
             let ctxAnio = document.getElementById('chart-anio'); //referencia al canvas.
 
             let miGraficaAnio = new Chart(ctxAnio, { //le pasamos el canvas y un objeto con la configuración.
-                type: 'line',
+                type: 'bar',
                 data: datosGraficaAnio, //los datos
                 options: opciones //las opciones
             });
@@ -862,13 +884,7 @@ function buscarVentas() {
                     {
                         label: "Importe",
                         data: arrayImporte,
-                        backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
-                        borderColor: 'rgb(255,110,86)',
-                        borderDash: [2, 3], //punteado [1,3,3,2]
-                        tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
-                        //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
-                        pointStyle: 'rectRot', //tipo de punto (este es diamante).
-                        pointRadius: 10, //este controla el tamaño del punto.
+                        backgroundColor: ' #790050', //colores. De forma rgba añade transparencia (la a es la transparencia)
                     }
                 ]
             } //datos
@@ -877,25 +893,42 @@ function buscarVentas() {
                 responsive: true, //va a ser responsive
                 maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
                                             //según necesite.
-                scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
-                    //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
-                    //0 de la gráfica azul.
-                    y: {
-                        stacked: false
-                    }
+                scales:{
+                  x:{
+                      grid:{
+                          drawOnChartArea:false
+                      },
+                      ticks:{
+                          font:{
+                              size:15
+                          }
+                      }
+                  },
+                  y:{
+                      ticks: {
+                          font:{
+                              size: 15
+                          }
+                      }
+                  },
                 },
                 plugins: {
                     legend: {
                         position: 'bottom', //posicionamiento de la leyenda. En qué borde.
-                        align: 'end' //dentro del borde, donde queremos que aparezca (start, center y end).
+                        align: 'end',//dentro del borde, donde queremos que aparezca (start, center y end).
+                        labels:{
+                            font:{
+                                size: 15
+                            }
+                        }
                     },
                     title: { //titulo de la gráfica
                         display: true,
-                        text: 'Ventas del mes',
-                        position: 'left',
-                        align: 'start',
-                        padding: {
-                            right: 50
+                        text: 'Ventas de la semana',
+                        position: 'top',
+                        align: 'center',
+                        font:{
+                            size:15
                         }
                     },
                     tooltip: {
@@ -915,7 +948,7 @@ function buscarVentas() {
             let ctxSemana = document.getElementById('chart-semana'); //referencia al canvas.
 
             let miGraficaSemana = new Chart(ctxSemana, { //le pasamos el canvas y un objeto con la configuración.
-                type: 'line',
+                type: 'bar',
                 data: datosGraficaSemana, //los datos
                 options: opciones //las opciones
             });
@@ -973,13 +1006,7 @@ function buscarVentas() {
                     {
                         label: "Importe",
                         data: arrayImporte,
-                        backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
-                        borderColor: 'rgb(255,110,86)',
-                        borderDash: [2, 3], //punteado [1,3,3,2]
-                        tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
-                        //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
-                        pointStyle: 'rectRot', //tipo de punto (este es diamante).
-                        pointRadius: 10, //este controla el tamaño del punto.
+                        backgroundColor: ' #790050', //colores. De forma rgba añade transparencia (la a es la transparencia)
                     }
                 ]
             } //datos
@@ -988,25 +1015,42 @@ function buscarVentas() {
                 responsive: true, //va a ser responsive
                 maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
                                             //según necesite.
-                scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
-                    //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
-                    //0 de la gráfica azul.
-                    y: {
-                        stacked: false
-                    }
+                scales:{
+                    x:{
+                        grid:{
+                            drawOnChartArea:false
+                        },
+                        ticks:{
+                            font:{
+                                size:15
+                            }
+                        }
+                    },
+                    y:{
+                        ticks: {
+                            font:{
+                                size: 15
+                            }
+                        }
+                    },
                 },
                 plugins: {
                     legend: {
                         position: 'bottom', //posicionamiento de la leyenda. En qué borde.
-                        align: 'end' //dentro del borde, donde queremos que aparezca (start, center y end).
+                        align: 'end',//dentro del borde, donde queremos que aparezca (start, center y end).
+                        labels:{
+                            font:{
+                                size: 15
+                            }
+                        }
                     },
                     title: { //titulo de la gráfica
                         display: true,
-                        text: 'Ventas del mes',
-                        position: 'left',
-                        align: 'start',
-                        padding: {
-                            right: 50
+                        text: 'Ventas durante las últimas 24h',
+                        position: 'top',
+                        align: 'center',
+                        font:{
+                            size:15
                         }
                     },
                     tooltip: {
@@ -1026,7 +1070,7 @@ function buscarVentas() {
             let ctxDia = document.getElementById('chart-dia'); //referencia al canvas.
 
             let miGraficaDia = new Chart(ctxDia, { //le pasamos el canvas y un objeto con la configuración.
-                type: 'line',
+                type: 'bar',
                 data: datosGraficaDia, //los datos
                 options: opciones //las opciones
             });
