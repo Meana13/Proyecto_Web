@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+}
+
 html {
     background-color: #FFF6ED;
     font-family: "Arial", "Arial Helvetica", sans-serif;
