@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
         secActiva = secAdminUsuarios;
     });
 
-    botonOpinion.addEventListener("click", () => {c
+    botonOpinion.addEventListener("click", () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";
         secOpinion.style.display = "block";
         botonOpinion.style.backgroundColor = "#790050";
-        botonActivo = botonOpinion;
+        botonActivo = botonOpinion;1
         secActiva = secOpinion;
     });
 
@@ -68,5 +68,5 @@ document.addEventListener('DOMContentLoaded', function () {
         secActiva = secAdminUsuarios;
     })
 
-    
+
 });
