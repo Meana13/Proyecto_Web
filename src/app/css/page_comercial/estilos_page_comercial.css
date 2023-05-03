@@ -62,9 +62,52 @@
     }
 }
 
+/*-------------SECCIÓN TABLA DE VENTAS----------------*/
 
-/*-------------SECCIÓN GRÁFICAS----------------*/
+/*Buscador:*/
+.buscador {
+    width: 90%;
+    max-width: 2000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
 
+}
+
+.buscador input {
+    flex: 2 1 0;
+    max-width: 500px;
+    padding: 10px;
+    margin: 0 10px 5px 0;
+    font-size: 1.2em;
+
+}
+.buscador button {
+    flex: 1 1 0;
+    max-width: 200px;
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+    border-radius: .5em;
+}
+
+/*Versión mobile:*/
+@media(max-width: 400px) {
+
+    .buscador input {
+        padding: 2px;
+        margin: 0 5px 2px 0;
+        font-size: 0.9em;
+    }
+
+    .buscador button {
+        margin: 0 0 2px 0;
+        font-size: 0.9em;
+        border-radius: .5em;
+    }
+}
+/*-------------SECCIÓN GRÁFICAS-----------------------*/
+
+/*Selector de gráfica: */
 #selector-opciones-graficas {
     background-color: #D7D7D7;
     width: 90%;
@@ -76,6 +119,7 @@
     font-size: 1.1em;
 }
 
+/*Gráficas:*/
 #chart-container-semana,
 #chart-container-mes,
 #chart-container-dia,
@@ -88,6 +132,7 @@
     border: 1px solid black;
 }
 
+/*Formato mobile:*/
 @media(max-width: 400px){
 
     #selector-opciones-graficas {

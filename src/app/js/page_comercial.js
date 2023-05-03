@@ -345,7 +345,7 @@ function crearFilaVenta(venta) {
 
     let celdaBoton = document.createElement("td");
     let botonVerVenta = document.createElement("button");
-    botonVerVenta.textContent = "VER MÁS";
+    botonVerVenta.textContent = "VER VENTA";
     celdaBoton.appendChild(botonVerVenta);
 
 
