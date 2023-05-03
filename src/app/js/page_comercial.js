@@ -11,7 +11,7 @@ function ocultarInput(element) {
     element.parentNode.classList.remove("activo");
 }
 
-let filasPorPagina = 15;
+let filasPorPagina = 10;
 
 let pagina = 1;
 
