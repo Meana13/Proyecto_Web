@@ -217,7 +217,7 @@ select {
 
 /* INICIO OPINION DEL PERSONAL */
 
-#desplegable-tecnicos {
+.desplegable-tecnicos {
     width: 100%;
     height: 2.5em;
     background-color: #969898;
@@ -226,23 +226,24 @@ select {
 }
 
 
-#desplebable-tecnicos option {
+
+.desplebable-tecnicos option {
     width: inherit;
 }
 
-#caja-opinion {
-    display: flex;
+.caja-opinion {
+    display: none;
     justify-content: space-between;
     border-bottom: 1px solid black;
 }
 
-#icono-opinion {
+.icono-opinion {
     width: 4em;
     height: 4.5em;
     margin: auto 1em;
 }
 
-#datos-opinion {
+.datos-opinion {
     width: 40%;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -251,33 +252,33 @@ select {
     justify-content: space-between;
 }
 
-#fecha-instalacion {
+.fecha-instalacion {
     font-size: 14px;
     width: auto;
 }
 
-#n-instalacion {
+.n-instalacion {
     width: auto;
     display: flex;
     padding-bottom: 15px;
     justify-content: center;
 }
 
-#estrellas {
+.estrellas {
     display: flex;
     justify-content: center;
 }
 
-#estrellas img {
+.estrellas img {
     width: 20px;
     height: 20px;
 }
 
-#estrellas img:last-child {
+#media-estrella {
     width: 10px;
 }
 
-#opinion {
+.opinion {
     border: 1px solid black;
     margin: .5em;
     width: 40%;

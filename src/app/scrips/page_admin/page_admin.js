@@ -68,5 +68,71 @@ document.addEventListener('DOMContentLoaded', function () {
         secActiva = secAdminUsuarios;
     })
 
+    const desplegableTecnicos = document.getElementById("desplegable-tecnicos");
+    //var tecnicoActual = desplegableTecnicos.AYUDAAAAAAAAAAAAAAAAAaaaa;
+    const opinion1 = document.getElementById("opinion1");
+    const opinion2 = document.getElementById("opinion2");
+    const opinion3 = document.getElementById("opinion3");
+    const opinion4 = document.getElementById("opinion4");
+    const opinion5 = document.getElementById("opinion5");
+    const opinion6 = document.getElementById("opinion6");
+    const opinion7 = document.getElementById("opinion7");
+    const opinion8 = document.getElementById("opinion8");
+    const opinion9 = document.getElementById("opinion9");
+    const opinion10 = document.getElementById("opinion10");
+    const opinion11 = document.getElementById("opinion11");
+    const opinion12 = document.getElementById("opinion12");
 
+    var opinionActiva1 = opinion1;
+    var opinionActiva2 = opinion5;
+    var opinionActiva3 = opinion9;
+
+
+    if (tecnicoActual == "tecnico1") {
+        opinionActiva1.style.display = "none";
+        opinionActiva2.style.display = "none";
+        opinionActiva3.style.display = "none";
+        opinionActiva1 = opinion1;
+        opinionActiva2 = opinion5;
+        opinionActiva3 = opinion9
+        opinionActiva1.style.display = "flow";
+        opinionActiva2.style.display = "flow";
+        opinionActiva3.style.display = "flow";
+    }
+
+    if (tecnicoActual == "tecnico2") {
+        opinionActiva1.style.display = "none";
+        opinionActiva2.style.display = "none";
+        opinionActiva3.style.display = "none";
+        opinionActiva1 = opinion2;
+        opinionActiva2 = opinion6;
+        opinionActiva3 = opinion10;
+        opinionActiva1.style.display = "flow";
+        opinionActiva2.style.display = "flow";
+        opinionActiva3.style.display = "flow";
+    }
+
+    if (tecnicoActual == "tecnico3") {
+        opinionActiva1.style.display = "none";
+        opinionActiva2.style.display = "none";
+        opinionActiva3.style.display = "none";
+        opinionActiva1 = opinion3;
+        opinionActiva2 = opinion7;
+        opinionActiva3 = opinion11;
+        opinionActiva1.style.display = "flow";
+        opinionActiva2.style.display = "flow";
+        opinionActiva3.style.display = "flow";
+    }
+
+    if (tecnicoActual == "tecnico4") {
+        opinionActiva1.style.display = "none";
+        opinionActiva2.style.display = "none";
+        opinionActiva3.style.display = "none";
+        opinionActiva1 = opinion4;
+        opinionActiva2 = opinion8;
+        opinionActiva3 = opinion12;
+        opinionActiva1.style.display = "flow";
+        opinionActiva2.style.display = "flow";
+        opinionActiva3.style.display = "flow";
+    }
 });
