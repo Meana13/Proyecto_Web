@@ -3,4 +3,87 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
+    margin-top: 80px;
+    padding-top: 50px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+}
+
+#columnas {
+    display: flex;
+}
+
+#columna-conocenos,
+#columna-ayuda {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 20px;
+    justify-content: center;
+    width: 170px;
+}
+
+#conocenos, #ayuda {
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+#logo {
+    margin-top: 70px;
+    width: 30%;
+}
+
+#copyright {
+    margin: 10px 0;
+    font-size: small;
+}
+
+/*\ ------------------------| MOVIL |------------------------ \*/
+
+@media (max-width: 768px) {
+    footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 80px;
+        padding-top: 50px;
+    }
+    
+    a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    #columnas {
+        display: block;
+    }
+
+    #columna-conocenos,
+    #columna-ayuda {
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+    
+    #conocenos, #ayuda {
+        text-transform: uppercase;
+        margin-bottom: 1em;
+    }
+    
+    #logo {
+        margin-top: 70px;
+        width: 50%;
+    }
+
+    #copyright {
+        margin: 10px 0;
+        font-size: small;
+    }
 }

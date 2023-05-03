@@ -225,14 +225,12 @@ select {
     border: 1px solid black;
 }
 
-
-
 .desplebable-tecnicos option {
     width: inherit;
 }
 
 .caja-opinion {
-    display: none;
+    display: flex;
     justify-content: space-between;
     border-bottom: 1px solid black;
 }
@@ -254,6 +252,7 @@ select {
 
 .fecha-instalacion {
     font-size: 14px;
+    text-align: center;
     width: auto;
 }
 
