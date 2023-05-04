@@ -17,7 +17,7 @@ function muestraSlides(n){
     let slides = document.getElementsByClassName('slider_vista');
     let barras = document.getElementsByClassName('barra');
 
-    if(n > slides.length){
+    if(n > 3){
         indice = 1;
     }
     if(n < 1){

@@ -15,11 +15,10 @@
     <title>Document</title>
 </head>
 <script src="app/scrips/script_index.js"></script>
-
 <header class="header">
     <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../../images/logoGTI.png" alt=""></a>
     <div class="login-tab">
-        <a href="#" class="login-tab-icon"><img src="../../../../images/icono_no_usuario.svg" alt=""></a>
+        <a href="#" class="login-tab-icon"><img src="../../../../images/icono_usuario_no_registrado.png" alt=""></a>
     </div>
 
 
@@ -87,102 +86,31 @@
     <button id="button">Contactanos</button>
     <a id="flecha" href="#titulo_nuestros_productos"><img src="../images/flecha.svg" alt=""></a>
 </div>
-
 <div id="contenedor_nuestros_productos">
     <h2 id="titulo_nuestros_productos">NUESTROS PRODUCTOS</h2>
     <div class="linea"></div>
-    <div class="slide-contenedor-carrousel">
-        <div class="productos">
-            <div class="slider_vista fade">
-                <div class="vista_pequeña_producto">
-                    <a href="hoja_producto_1.html">
-                        <div>
-                            <img src="../../../../images/producto_1.png" class="vista_pequeña_imagen" alt="Sistema de Monitorización">
-                            <p class="vista_pequeña_parrafo" >Sistema de</br> Monitorización</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="vista_principal_producto">
-                    <a href="hoja_producto_2.html">
-                        <div>
-                            <img src="../../../../images/producto_2.png" class="vista_principal_imagen" alt="Huerto Hidroponico Monitorizado">
-                            <p class="vista_principal_parrafo">Huerto Hidropónico Monitorizado</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="vista_pequeña_producto">
-                    <a href="hoja_producto_3.html">
-                        <div>
-                            <img src="../../../../images/producto_3.png" class="vista_pequeña_imagen" alt="Sistema de ampliación">
-                            <p class="vista_pequeña_parrafo" >Sistema de</br> ampliación</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="slider_vista fade">
-                <div class="vista_pequeña_producto">
-                    <a href="hoja_producto_2.html">
-                        <div>
-                            <img src="../../../../images/producto_2.png" class="vista_pequeña_imagen" alt="Huerto Hidroponico Monitorizado">
-                            <p class="vista_pequeña_parrafo" >Huerto Hidropónico Monitorizado</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="vista_principal_producto">
-                    <a href="hoja_producto_3.html">
-                        <div>
-                            <img src="../../../../images/producto_3.png" class="vista_principal_imagen" alt="Sistema de ampliación">
-                            <p class="vista_principal_parrafo">Sistema de</br> ampliación</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="vista_pequeña_producto">
-                    <a href="hoja_producto_1.html">
-                        <div>
-                            <img src="../../../../images/producto_1.png" class="vista_pequeña_imagen" alt="Sistema de Monitorización">
-                            <p class="vista_pequeña_parrafo" >Sistema de</br> Monitorización</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="slider_vista fade">
-                <div class="vista_pequeña_producto">
-                    <a href="hoja_producto_3.html">
-                        <div>
-                            <img src="../../../../images/producto_3.png" class="vista_pequeña_imagen" alt="Sistema de ampliación">
-                            <p class="vista_pequeña_parrafo" >Sistema de</br> ampliación</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="vista_principal_producto">
-                    <a href="hoja_producto_1.html">
-                        <div>
-                            <img src="../../../../images/producto_1.png"class="vista_principal_imagen" alt="Sistema de Monitorización">
-                            <p class="vista_principal_parrafo">Sistema de </br>Monitorización</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="vista_pequeña_producto">
-                    <a href="hoja_producto_2.html">
-                        <div>
-                            <img src="../../../../images/producto_2.png" class="vista_pequeña_imagen" alt="Huerto Hidroponico Monitorizado">
-                            <p class="vista_pequeña_parrafo" >Huerto Hidropónico Monitorizado</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+    <div class="container_productos">
+        <div class="vista_producto">
+            <a class="vista_parrafo" href="hoja_producto_1.html">
+                    <img src="../../../../images/producto_1.png" class="vista_imagen" alt="Sistema de Monitorización">
+                    <p >Sistema de Monitorización</p>
+            </a>
         </div>
-        <div class="direcciones">
-            <a href="#" class="atras" onclick="avanzaSlide(-1)">&#10094;</a>
-            <a href="#" class="adelante" onclick="avanzaSlide(1)">&#10095;</a>
+        <div class="vista_producto">
+            <a class="vista_parrafo" href="hoja_producto_2.html">
+                    <img src="../../../../images/producto_2.png" class="vista_imagen" alt="Huerto Hidroponico Monitorizado">
+                    <p >Huerto Hidropónico Monitorizado</p>
+
+            </a>
         </div>
-        <div class="barras">
-            <span class="barra active" onclick="posicionSlide(1)"></span>
-            <span class="barra" onclick="posicionSlide(2)"></span>
-            <span class="barra" onclick="posicionSlide(3)"></span>
+        <div class="vista_producto">
+            <a class="vista_parrafo" href="hoja_producto_3.html">
+                    <img src="../../../../images/producto_3.png" class="vista_imagen" alt="Sistema de ampliación">
+                    <p  >Sistema de ampliación</p>
+            </a>
         </div>
     </div>
-    <script src="../../scrips/landing_page/carrousel.js"></script>
+
 
 </div>
 <script src="app/scrips/landing_page/carrousel.js"></script>
@@ -192,11 +120,11 @@
     <div id="nuestros_valores">
         <ul class="lista_valores">
             <li class="valor1">
-                <img src="../images/icono_carita.svg" alt="">
+                <img src="../images/icono_cara.svg" alt="">
                 <p>El usuario es lo primero.</p>
             </li>
             <li class="valor2">
-                <img src="../images/icono_caja.svg" alt="">
+                <img src="../images/icono_cubo.svg" alt="">
                 <p>Somos sencillos.</p>
             </li>
             <li class="valor3">
