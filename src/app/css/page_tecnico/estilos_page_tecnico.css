@@ -1,0 +1,376 @@
+#seccion-citas {
+    display: block;
+}
+
+#seccion-hoja-cita {
+    display: none;
+}
+
+#seccion-opiniones {
+    display: none;
+}
+
+#seccion-administrar-huertos {
+    display: none;
+}
+
+#seccion-añadir-huerto {
+    display: none;
+}
+
+#seccion-ver-huerto {
+    display: none;
+}
+
+/* #region SECCION CITAS */
+#seccion-citas h3 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.desplegable-huertos {
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    border: 0;
+}
+
+tr td:nth-child(1),
+tr td:nth-child(3) {
+    padding: 8px;
+}
+
+tr th {
+    padding: 12px;
+}
+
+tr td:nth-child(3),
+#tabla-citas tr td:nth-child(2) {
+    text-align: center;
+}
+
+#boton-ver-cita,
+#boton-ver-huerto {
+    background-color: transparent;
+    border: 0;
+    background-color: #9D4179;
+    border: 0;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    padding: .5em;
+    width: 120px;
+    border-radius: 5px;
+}
+
+/* #endregion */
+
+/* #region SECCION FICHA CITA */
+
+#seccion-hoja-cita h3 {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#formulario-ficha {
+    width: 324px;
+    margin: 0 auto;
+    display: block;
+}
+
+#formulario-ficha label {
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+}
+
+input[type="text"],
+select {
+    width: 199px;
+    box-sizing: border-box;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+#productos-vendidos {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 40px;
+}
+
+#incidencias {
+    width: 100%;
+    height: 60px;
+}
+
+#boton-volver-atras {
+    background-color: #9D4179;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    padding: 1em;
+    display: block;
+    margin-top: 2em;
+    margin-left: 60%;
+    border-radius: .5em;
+    font-weight: bold;
+}
+
+/* #endregion */
+
+/* #region SECCION OPINION */
+
+#opiniones {
+    width: 80%;
+    border: 2px solid black;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+}
+
+.caja-opinion {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.icono-opinion {
+    width: 4em;
+    height: 4.5em;
+    margin: auto 1em;
+}
+
+.datos-opinion {
+    width: 40%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fecha-instalacion {
+    font-size: 14px;
+    text-align: center;
+    width: auto;
+}
+
+.n-instalacion {
+    width: auto;
+    display: flex;
+    padding-bottom: 15px;
+    justify-content: center;
+}
+
+.estrellas {
+    display: flex;
+    justify-content: center;
+}
+
+.estrellas img {
+    width: 20px;
+    height: 20px;
+}
+
+#media-estrella {
+    width: 10px;
+}
+
+.opinion {
+    border: 1px solid black;
+    margin: .5em;
+    width: 40%;
+}
+
+/* #endregion */
+
+/* #region SECCION ADMINISTRAR HUERTOS */
+
+
+#tabla-huertos tr td:nth-child(2) {
+    padding: 0;
+}
+
+#seccion-administrar-huertos h3 {
+    text-align: center;
+}
+
+#boton-añadir-huerto {
+    background-color: #9D4179;
+    border: 0;
+    border-radius: 5px;
+    color: #FFFFFF;
+    height: 35px;
+    width: 110px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 11%;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+/* #endregion */
+
+/* #region SECCION AÑADIR NUEVO HUERTO */
+
+#seccion-añadir-huerto h3 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#formulario-huerto {
+    width: 324px;
+    margin: 0 auto;
+    display: block;
+}
+
+#formulario-huerto label {
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+}
+
+input[type="text"],
+select {
+    width: 199px;
+    box-sizing: border-box;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+#formulario-huerto label#label-lista-sensores {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+#lista-sensores {
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+#lista-sensores li {
+    margin-bottom: 5px;
+}
+
+
+#medidas label {
+    margin-top: 10px;
+    width: 16px;
+}
+
+#medidas input {
+    width: 50px;
+}
+
+#notas {
+    width: 100%;
+    height: 100px;
+}
+
+#formulario-huerto label#label-imagen {
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    padding: 5px;
+    background-color: #9D4179;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#boton-guardar,
+#seccion-ver-huerto #boton-guardar2 {
+    margin-top: 40px;
+    margin-left: 80%;
+    background-color: #9D4179;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: .5em;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1em;
+}
+
+/* #endregion */
+
+/* #region INICIO SECCOIN VER HUERTO */
+
+#seccion-ver-huerto h3 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#boton-editar {
+    background-color: #9D4179;
+    color: white;
+    padding: 5px;
+    border: 0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#formulario-ver-huerto {
+    width: 324px;
+    margin: 0 auto;
+    display: block;
+}
+
+#formulario-ver-huerto label {
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+}
+
+input[type="text"],
+select {
+    width: 150px;
+    box-sizing: border-box;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+#formulario-ver-huerto label#label-lista-sensores {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+#medidas label {
+    margin-top: 10px;
+    width: 16px;
+}
+
+/* #endregion */
+
+
+@media (max-width: 768px) {
+    #boton-ver-cita,
+    #boton-ver-huerto {
+        width: 50px;
+    }
+
+    #boton-añadir-huerto {
+        width: auto;
+        height: 30px;
+        font-size: 11px;
+        width: 90px;
+    }
+}

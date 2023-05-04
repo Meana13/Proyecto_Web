@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+}
+
+#menu {
+    background-color: black;
+    height: px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5em;
+    position: fixed;
+}
+
+#iconos {
+    display: flex;
+    margin-right: 20px;
+}
+
+#logo {
+    height: 25px;
+    margin-left: 10px;
+}
+
+#boton-perfil, 
+#boton-alertas {
+    border: 0;
+    background-color: transparent;
+    margin: auto;
+}
+
+#boton-perfil img {
+    height: 30px;
+}
+
+#boton-alertas img {
+    height: 30px;
+    margin-right: 8px;
+}
+
+ul {
+    display: none;
+}
+
+.hamburguesa {
+    height: 2em;
+    width: 2em;
+}
+
+.hamburguesa div {
+    background-color: #790050;
+    width: 2em;
+    height: .3em;
+    margin: .3em auto;
+    transition: .5s;
+}

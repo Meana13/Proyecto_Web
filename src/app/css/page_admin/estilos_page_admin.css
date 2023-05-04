@@ -1,16 +1,3 @@
-#boton-añadir-usuario {
-    background-color: #9D4179;
-    border: 0;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    padding: .5em;
-    display: flex;
-    margin-left: auto;
-    margin-right: 5%;
-}
-
 #boton-añadir-usuario img {
     height: 1em;
     width: 1.2em;
@@ -33,17 +20,37 @@
 #seccion-opinion-personal {
     display: none;
     border: 2px solid black;
-    width: 90%;
+    width: 70%;
     margin-top: 2em;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
     background-color: white;
 }
 
+/* #region SECCION ADMINISTRAR USUARIOS */
 
-/* TABLA USUARIOS */
+#boton-añadir-usuario {
+    border-radius: 5px;
+    background-color: #9D4179;
+    border: 0;
+    color: #FFFFFF;
+    height: 35px;
+    width: 110px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+/* #region TABLA USUARIOS */
 
 table {
+    max-width: 80%;
     margin: 0 auto;
     margin-top: 1em;
     border-collapse: collapse;
@@ -57,17 +64,20 @@ th {
 
 th,
 td {
+    width: 40%;
     border: 1px solid black;
-    padding-left: .25em;
-    padding-right: .25em;
+    padding-left: .5em;
+    padding-right: .5em;
     font-family: Arial, sans-serif;
 }
 
 td:last-child,
 th:last-child {
+    width: 20px;
     border: none;
     background-color: transparent;
 }
+
 
 #ver-hoja-usuario {
     border: 0;
@@ -82,9 +92,9 @@ th:last-child {
     background-color: gray;
 }
 
-/* FIN TABLA USUARIOS */
+/* #endregion FIN TABLA */
 
-/* INICIO HOJA DE USUARIO */
+/* #region INICIO HOJA DE USUARIO */
 
 #hoja-de-usuario {
     text-align: center;
@@ -93,7 +103,7 @@ th:last-child {
 }
 
 #formulario-hoja-usuario {
-    width: 380px;
+    width: 550px;
     margin: 0 auto;
     display: block;
 }
@@ -121,6 +131,7 @@ th:last-child {
     border: 0;
     padding: 1em;
     border-radius: .5em;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -131,6 +142,7 @@ th:last-child {
     text-transform: uppercase;
     border: 0;
     border-radius: .5em;
+    font-size: 16px;
     font-weight: bold;
     padding: 1em;
 }
@@ -142,9 +154,9 @@ th:last-child {
     gap: 15%;
 }
 
-/* FIN HOJA DE USUARIO */
+/* #endregion FIN HOJA DE USUARIO */
 
-/* AÑADIR USUARIO */
+/* #region AÑADIR USUARIO */
 
 #nuevo-usuario {
     text-align: center;
@@ -213,33 +225,38 @@ select {
     font-weight: bold;
 }
 
-/* FIN AÑADIR USUARIO */
+/* #endregion FIN AÑADIR USUARIO */
 
-/* INICIO OPINION DEL PERSONAL */
+/* #endregion FIN ADMINISTRAR USUARIOS */
 
+/* #region INICIO OPINION DEL PERSONAL */
 
-
-#desplegable-tecnicos {
+.desplegable-tecnicos {
     width: 100%;
     height: 2.5em;
     background-color: #969898;
     margin-bottom: 0;
     border: 1px solid black;
+    font-size: 16px;
 }
 
-#caja-opinion {
+.desplebable-tecnicos option {
+    width: inherit;
+}
+
+.caja-opinion {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid black;
 }
 
-#icono-opinion {
-    width: 3.25em;
+.icono-opinion {
+    width: 4em;
     height: 4.5em;
     margin: auto 1em;
 }
 
-#datos-opinion {
+.datos-opinion {
     width: 40%;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -248,35 +265,130 @@ select {
     justify-content: space-between;
 }
 
-#fecha-instalacion {
+.fecha-instalacion {
+    font-size: 14px;
+    text-align: center;
     width: auto;
-    margin: 0 auto;
 }
 
-#n-instalacion {
+.n-instalacion {
     width: auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    display: flex;
+    padding-bottom: 15px;
+    justify-content: center;
+}
+
+.estrellas {
     display: flex;
     justify-content: center;
 }
 
-#estrellas {
-    display: flex;
-    justify-content: center;
-}
-
-#estrellas img {
+.estrellas img {
     width: 20px;
     height: 20px;
 }
 
-#estrellas img:last-child {
+#media-estrella {
     width: 10px;
 }
 
-#opinion {
+.opinion {
     border: 1px solid black;
     margin: .5em;
     width: 40%;
+}
+
+/* #endregion FIN OPINION DEL PERSONAL */
+
+
+/*\ ---------------- MOVIL -----------------\*/
+
+@media (max-width: 768px) {
+
+    /* #region SECCION ADMINISTRAR USUARIOS */
+    #boton-añadir-usuario {
+        width: auto;
+        height: 30px;
+        width: 90px;
+    }
+
+    /* #region TABLA USUARIOS */
+
+    table {
+        max-width: 90%;
+        margin: 0 auto;
+        margin-top: 1em;
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: gray;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    th,
+    td {
+        padding-left: .25em;
+        padding-right: .25em;
+        font-family: Arial, sans-serif;
+
+    }
+
+    td {
+        font-size: 14px;
+    }
+
+    td:last-child,
+    th:last-child {
+        border: none;
+        background-color: transparent;
+    }
+
+    /* #endregion */
+
+    #formulario-hoja-usuario {
+        width: 400px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    #boton-cancelar {
+        background-color: #555555;
+        color: #FFFFFF;
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        border: 0;
+        padding: 1em;
+        border-radius: .5em;
+        font-weight: bold;
+    }
+
+    #boton-guardar-cambios {
+        background-color: #9D4179;
+        color: #FFFFFF;
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        border: 0;
+        border-radius: .5em;
+        font-weight: bold;
+        padding: 1em;
+    }
+
+    .desplegable-tecnicos {
+        width: 100%;
+        height: 2.5em;
+        background-color: #969898;
+        margin-bottom: 0;
+        border: 1px solid black;
+        font-size: 12px;
+    }
+
+    #seccion-opinion-personal {
+        width: 90%;
+        margin-top: 2em;
+        margin-left: 5%;
+        margin-right: 5%;
+        background-color: white;
+    }
 }

@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.header {
+  background-color: black;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  z-index:2
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 992px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.logo {
+  height: 60px;
+  padding: 10px ;
+  line-height: 80px;
+}
+.boto_usuario{
+  position: absolute;
+  margin-top: 1%;
+  margin-left:85%;
+}
+.nav-menu {
+  display: flex;
+  margin-right: 40px;
+  list-style: none;
+  align-items: center;
+  text-align: center;
+}
+
+.nav-menu-item {
+  font-size: 18px;
+  padding:0 20px;
+
+  text-transform: uppercase;
+  border-left:1px solid white ;
+}
+.nav-menu-item:nth-child(1){
+  border-left:none;
+}
+
+.nav-menu-link {
+  /*padding: 8px 12px;*/
+  border-radius: 3px;
+}
+
+.nav-menu-link:hover,
+.nav-menu-link_active {
+  background-color: #034574;
+  transition: 0.5s;
+}
+.nav-toggle {
+  width: 4.5em;
+  height: 4.5em;
+  background-color: transparent;
+  border: none;
+}
+
+.nav-toggle div {
+  background-color: white;
+  width: 2em;
+  height: .1em;
+  margin: .3em auto;
+  transition: .5s;
+}
+
+
+
+/* TOGGLE */
+.nav-toggle {
+  display: none;
+
+}
+
+.login-tab {
+  padding-top: 5px;
+  position: absolute;
+  margin-left: 95%;
+  margin-top: 0.75%;
+}
+.login-tab-icon img{
+  width: 40px;
+  height: 40px;
+}
+.login-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.login-form {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-form h2 {
+  margin-top: 0;
+}
+
+.login-form .form-group {
+  margin-bottom: 10px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-form button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MOBILE */
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+
+  .header {
+    height: 60px;
+  }
+  .logo{
+    height: 50px;
+  }
+  .login-tab {
+    position: absolute;
+    margin-left: 70%;
+    margin-top: 2.5%;
+  }
+  .login-tab-icon img{
+    width: 30px;
+    height: 30px;
+  }
+  .nav-menu {
+    flex-direction: column;
+    float: left;
+    align-items: center;
+    margin: 0;
+    background-color: black;
+    position: fixed;
+    overflow:hidden;
+    top: 60px;
+    width: 70%;
+    opacity: 80%;
+    padding: 20px;
+    margin-left: 10px;
+    height: 400px;
+    overflow-y: auto;
+
+    left: 100%;
+    transition: right 0.3s;
+  }
+
+  .nav-menu-item {
+    text-align: center;
+    width: 100%;
+    padding: 0 50px;
+    line-height: 35px;
+    border-bottom: 1px solid white;
+    border-left: none;
+  }
+  .nav-menu-link {
+    padding: 0px;
+    border-radius: 3px;
+    height: 180px;
+  }
+
+  .nav-menu-link:hover,
+  .nav-menu-link_active {
+    background: none;
+    color: #83c5f7;
+  }
+
+  .nav-toggle {
+    display: block;
+    align-items:flex-end;
+    position: relative;
+    margin-left: 180px;
+  }
+
+  .nav-menu_visible {
+    left: 0;
+  }
+
+
+}

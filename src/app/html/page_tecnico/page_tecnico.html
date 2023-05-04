@@ -1,10 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titulo</title>
+    <script src="../../scrips/page_tecnico/page_tecnico.js"></script>
+    <link rel="stylesheet" href="../../css/page_tecnico/estilos_page_tecnico.css">
+    <link rel="stylesheet" href="../../css/estilos_general.css">
+    <link rel="stylesheet" href="../../css/landing_page/footer.css"
 </head>
+
 <body>
+    <!-- INICIO HEADER -->
+    
+    <!-- FIN HEADER -->
+
+    <!-- INICIO DATOS TECNICO -->
+
+    <section class="perfil">
+        <img src="../../../../images/tecnico.png" alt="Foto tecnico" class="foto-perfil">
+
+        <p id="datos">
+            Nombre de usuario: Nicorom <br>
+            Nombre y apellidos: Nicolás Román <br>
+            E-mail: tecnic.nicorom@empresa.com <br>
+            Dirección: Carretera Sequia del Rei, 3, Bloque Y 2ª Planta Puerta 6
+        </p>
+    </section>
+
+    <!-- FIN DATOS TECNICO -->
+
+    <!-- BOTONES -->
+
+    <nav id="botones-perfil">
+        <button type="button" id="boton-citas" class="boton-perfil">Citas</button>
+        <button type="button" id="boton-opiniones" class="boton-perfil">opiniones</button>
+        <button type="button" id="boton-administrar-huertos" class="boton-perfil">Administrar huertos</button>
+    </nav>
+
+    <!------------->
+
+    <!-- LINEA SEPARATORIA -->
+
+    <div id="divisor"></div>
+
+    <!----------------------->
+
+    <!-- INICIO SECCION CITAS -->
+    <section id="seccion-citas">
+        <h3>CALENDARIO DE CITAS</h3>
+
+        <table id="tabla-citas">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    <th>hora</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ricardo</td>
+                    <td>03/02/2023</td>
+                    <td>8:00</td>
+                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concepción</td>
+                    <td>10/04/2023</td>
+                    <td>10:20</td>
+                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Victoria</td>
+                    <td>16/04/2023</td>
+                    <td>11:30</td>
+                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gloria</td>
+                    <td>23/04/2023</td>
+                    <td>12:15</td>
+                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Julio</td>
+                    <td>27/04/2023</td>
+                    <td>12:50</td>
+                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pedro</td>
+                    <td>04/05/2023</td>
+                    <td>13:30</td>
+                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- INICIO SECCION FICHA CITA -->
+
+    <section id="seccion-hoja-cita">
+        <h3>FICHA #001</h3>
+        <div id="formulario-ficha">
+            <label><b>ID del cliente: </b></label>
+            <input type="text" id="id-cliente" name="id-cliente">
+            <br> <!---->
+            <label><b>Direccion: </b></label>
+            <input type="text" id="direccion" name="direccion">
+            <br> <!---->
+            <br>
+            <label><b>Productos vendidos: </b></label> <br>
+            <input type="text" id="productos-vendidos" name="productos-vendidos">
+            <br> <!---->
+            <label><b>Incidencias: </b></label> <br>
+            <input type="text" id="incidencias" name="incidencias">
+            <br> <!---->
+            <button type="button" id="boton-volver-atras">VOLVER ATRÁS</button>
+        </div>
+    </section>
+
+    <!-- FIN SECCION CITAS-->
+
+    <!-- FIN SECCION CITAS -->
+
+    <!-- INICIO SECCION OPINIONES -->
+    <section id="seccion-opiniones">
+        <div id="opiniones">
+            <!-- Opinion 1 -->
+            <div class="caja-opinion" id="opinion1">
+                <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
+                <div class="datos-opinion">
+                    <label class="fecha-instalacion">Instalación: 04/04/2023 </label> <!-- importar fecha no se como -->
+                    <br>
+                    <label class="n-instalacion">#01</label><!-- importar nº de instalacion -->
+                    <div class="estrellas">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/media-estrella.svg" alt="Media estrella" id="media-estrella">
+                    </div>
+                </div>
+                <textarea readonly
+                    class="opinion">Impresionado con su profesionalismo y habilidad. Desde el momento en que llegó a mi hogar tuve la suerte de contar con su servicio,tengo una solución perfecta en mi hogar!</textarea>
+            </div>
+            <!-- Opinion 2 -->
+            <div class="caja-opinion" id="opinion2">
+                <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
+                <div class="datos-opinion">
+                    <label class="fecha-instalacion">Instalación: 05/04/2023 </label> <!-- importar fecha no se como -->
+                    <br>
+                    <label class="n-instalacion">#02</label><!-- importar nº de instalacion -->
+                    <div class="estrellas">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                    </div>
+                </div>
+                <textarea readonly class="opinion">Su profesionalismo y habilidad son impresionantes. Desde el principio, su servicio fue excepcional y gracias a él, mi hogar ahora tiene una solución perfecta. Estoy muy agradecido por su trabajo.</textarea>
+            </div>
+
+            <!-- Opinion 3 -->
+            <div class="caja-opinion" id="opinion3">
+                <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
+                <div class="datos-opinion">
+                    <label class="fecha-instalacion">Instalación: 06/04/2023 </label> <!-- importar fecha no se como -->
+                    <br>
+                    <label class="n-instalacion">#03</label><!-- importar nº de instalacion -->
+                    <div class="estrellas">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/media-estrella.svg" alt="Media estrella" id="media-estrella">
+                    </div>
+                </div>
+                <textarea readonly class="opinion">Estoy realmente impresionado con su profesionalismo y habilidad. Desde el momento en que llegó a mi casa, su servicio fue excelente y gracias a él, mi hogar ahora cuenta con una solución perfecta.</textarea>
+            </div>
+
+            <!-- Opinion 4 -->
+            <div class="caja-opinion" id="opinion4">
+                <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
+                <div class="datos-opinion">
+                    <label class="fecha-instalacion">Instalación: 07/04/2023 </label> <!-- importar fecha no se como -->
+                    <br>
+                    <label class="n-instalacion">#04</label><!-- importar nº de instalacion -->
+                    <div class="estrellas">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                    </div>
+                </div>
+                <textarea readonly class="opinion">Me encantó su profesionalismo y habilidad. Desde el primer momento, su servicio fue excepcional y gracias a él, encontré la solución perfecta para mi hogar.</textarea>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIN SECCION OPINIONES -->
+
+    <!-- INICIO SECCION ADMINISTRAR HUERTOS -->
+
+    <section id="seccion-administrar-huertos">
+        <h3>ADMINISTRAR HUERTOS</h3>
+
+        <button type="button" id="boton-añadir-huerto">AÑADIR</button>
+        <table id="tabla-huertos">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Elegir huerto</th>
+                    <th>hora</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ricardo</td>
+                    <td>
+                        <select class="desplegable-huertos" name="elegir-huerto">
+                            <option value="huerto1">Huerto 1</option>
+                            <option value="huerto2">Huerto 2</option>
+                            <option value="huerto3">Huerto 3</option>
+                        </select>
+                    </td>
+                    <td>8:00</td>
+                    <td><button id="boton-ver-huerto">Ver huerto</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Concepción</td>
+                    <td>
+                        <select class="desplegable-huertos" name="elegir-huerto">
+                            <option value="huerto1">Huerto 1</option>
+                            <option value="huerto2">Huerto 2</option>
+                            <option value="huerto3">Huerto 3</option>
+                        </select>
+                    </td>
+                    <td>10:20</td>
+                    <td><button id="boton-ver-huerto">Ver huerto</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Victoria</td>
+                    <td>
+                        <select class="desplegable-huertos" name="elegir-huerto">
+                            <option value="huerto1">Huerto 1</option>
+                            <option value="huerto2">Huerto 2</option>
+                            <option value="huerto3">Huerto 3</option>
+                        </select>
+                    </td>
+                    <td>11:30</td>
+                    <td><button id="boton-ver-huerto">Ver huerto</button>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gloria</td>
+                    <td>
+                        <select class="desplegable-huertos" name="elegir-huerto">
+                            <option value="huerto1">Huerto 1</option>
+                            <option value="huerto2">Huerto 2</option>
+                            <option value="huerto3">Huerto 3</option>
+                        </select>
+                    </td>
+                    <td>12:15</td>
+                    <td><button id="boton-ver-huerto">Ver huerto</button>
+                    </td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Julio</td>
+                    <td>
+                        <select class="desplegable-huertos" name="elegir-huerto">
+                            <option value="huerto1">Huerto 1</option>
+                            <option value="huerto2">Huerto 2</option>
+                            <option value="huerto3">Huerto 3</option>
+                        </select>
+                    </td>
+                    <td>12:50</td>
+                    <td><button id="boton-ver-huerto">Ver huerto</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Pedro</td>
+                    <td>
+                        <select class="desplegable-huertos" name="elegir-huerto">
+                            <option value="huerto1">Huerto 1</option>
+                            <option value="huerto2">Huerto 2</option>
+                            <option value="huerto3">Huerto 3</option>
+                        </select>
+                    </td>
+                    <td>13:30</td>
+                    <td><button id="boton-ver-huerto">Ver huerto</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- INICIO SECCOIN AÑadir HUERTO -->
+
+    <section id="seccion-añadir-huerto">
+        <h3>AÑADIR NUEVO HUERTO</h3>
+        <div id="formulario-huerto">
+            <label>Nombre huerto </label>
+            <input type="text" id="nombre-huerto" name="id-cliente">
+            <br> <!---->
+            <label>Usuario: </label>
+            <select class="desplegable-usuario" name="elegir-usuario">
+                <option value="pmeagon">pmeagon</option>
+                <option value="nicorom">nicorom</option>
+                <option value="ricgon">ricgon</option>
+            </select>
+            <br> <!---->
+            <label>Dirección</label>
+            <input type="text" id="direccion" name="direccion">
+            <br> <!---->
+            <label id="label-lista-sensores">Lista de sensores: </label>
+            <ul id="lista-sensores">
+                <li>
+                    <input type="checkbox" id="salinidad" name="salinidad" value="salinidad">
+                    <label for="salinidad">Salinidad</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="humedad" name="humedad" value="humedad">
+                    <label for="humedad">Humedad</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="luminosidad" name="luminosidad" value="luminosidad">
+                    <label for="luminosidad">Luminosidad</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="temperatura" name="temperatura" value="temperatura">
+                    <label for="temperatura">Temperatura</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ph" name="ph" value="ph">
+                    <label for="ph">pH</label>
+                </li>
+            </ul>
+
+            <label id="tamaño">Tamaño: </label>
+            <div id="medidas">
+                <input type="text" id="Alto" name="Alto"> <label>X</label>
+                <input type="text" id="Anchoo" name="Anchoo"> <label>X</label>
+                <input type="text" id="Largo" name="Largo">
+            </div>
+            <br> <!---->
+            <label>Notas: </label> <br>
+            <input type="text" id="notas" name="Notas"> <br>
+            <label id="label-imagen">Imagen del huerto: </label> <br>
+            <input type="file" id="imagen" name="imagen"><br>
+            <button type="button" id="boton-guardar">GUARDAR</button>
+        </div>
+    </section>
+    <!-- FIN SECCION AÑADIR NUEVO HUERTO -->
+
+    <!-- INICIO SECCION VER HUERTO-->
+
+    <section id="seccion-ver-huerto">
+        <h3>VER HUERTO</h3>
+        <div id="formulario-ver-huerto">
+            <label>Nombre huerto </label>
+            <input type="text" id="nombre-huerto" name="id-cliente"> 
+            <button type="button" id="boton-editar">Editar</button>
+            <br> <!---->
+            <label>Usuario: </label>
+            <select class="desplegable-usuario" name="elegir-usuario">
+                <option value="pmeagon">pmeagon</option>
+                <option value="nicorom">nicorom</option>
+                <option value="ricgon">ricgon</option>
+            </select>
+            <button type="button" id="boton-editar">Editar</button>
+            <br> <!---->
+            <label>Dirección</label>
+            <input type="text" id="direccion" name="direccion">
+            <button type="button" id="boton-editar">Editar</button>
+            <br> <!---->
+            <label id="label-lista-sensores">Lista de sensores: </label> <button type="button" id="boton-editar">Editar</button>
+            <ul id="lista-sensores">
+                <li>
+                    <input type="checkbox" id="salinidad" name="salinidad" value="salinidad">
+                    <label for="salinidad">Salinidad</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="humedad" name="humedad" value="humedad">
+                    <label for="humedad">Humedad</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="luminosidad" name="luminosidad" value="luminosidad">
+                    <label for="luminosidad">Luminosidad</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="temperatura" name="temperatura" value="temperatura">
+                    <label for="temperatura">Temperatura</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="ph" name="ph" value="ph">
+                    <label for="ph">pH</label>
+                </li>
+            </ul>
+            
+
+            <label id="tamaño">Tamaño: </label> 
+            <button type="button" id="boton-editar">Editar</button>
+            <div id="medidas">
+                <input type="text" id="Alto" name="Alto"> <label>X</label>
+                <input type="text" id="Anchoo" name="Anchoo"> <label>X</label>
+                <input type="text" id="Largo" name="Largo">
+            </div>
+            <br> <!---->
+            <label>Notas: </label> <button type="button" id="boton-editar">Editar</button><br> 
+            <input type="text" id="notas" name="Notas"> <br>
+            <label id="label-imagen">Imagen del huerto: </label> <br>
+            <input type="file" id="imagen" name="imagen"><br>
+            <button type="button" id="boton-guardar2">GUARDAR</button>
+        </div>
+    </section>
+
+    <!-- FIN SECCION VER HUERTO -->
+
+    <!-- FIN SECCION ADMINISTRAR HUERTOS -->
+
+    <!-- FOOTER -->
+    <footer>
+        <div id="columnas">
+            <div id="columna-conocenos">
+                <h3 id="conocenos">conocenos</h3>
+                <a href="#">Quiénes somos</a>
+                <a href="#">Politica de privacidad</a>
+                <a href="#">Aviso legal</a>
+            </div>
+            <div id="columna-ayuda">
+                <h3 id="ayuda">ayuda</h3>
+                <a href="#">Contacto</a>
+                <a href="#">Pedir presupuesto</a>
+                <a href="#">Preguntas frecuentes</a>
+            </div>
+        </div>
+        <img src="../../../../images/logoGTI.png" id="logo">
+        <p id="copyright">©2023 gti Todos los derechos reservados</p>
+    </footer>
+    <!----------->
 
 </body>
+
 </html>
