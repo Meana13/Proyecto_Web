@@ -30,6 +30,7 @@
 /* #region SECCION ADMINISTRAR USUARIOS */
 
 #boton-añadir-usuario {
+    border-radius: 5px;
     background-color: #9D4179;
     border: 0;
     color: #FFFFFF;
@@ -302,6 +303,7 @@ select {
 /*\ ---------------- MOVIL -----------------\*/
 
 @media (max-width: 768px) {
+
     /* #region SECCION ADMINISTRAR USUARIOS */
     #boton-añadir-usuario {
         width: auto;
@@ -329,7 +331,7 @@ select {
         padding-left: .25em;
         padding-right: .25em;
         font-family: Arial, sans-serif;
-        
+
     }
 
     td {
@@ -341,6 +343,7 @@ select {
         border: none;
         background-color: transparent;
     }
+
     /* #endregion */
 
     #formulario-hoja-usuario {
@@ -359,7 +362,7 @@ select {
         border-radius: .5em;
         font-weight: bold;
     }
-    
+
     #boton-guardar-cambios {
         background-color: #9D4179;
         color: #FFFFFF;

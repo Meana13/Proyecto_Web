@@ -60,6 +60,8 @@ h3 {
     display: flex;
     justify-content: center;
     gap: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .boton-perfil {
@@ -81,6 +83,39 @@ h3 {
     height: 4px;
     background-color: black;
     margin-bottom: 2em;
+}
+
+table {
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 1em;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #9D4179;
+    text-transform: uppercase;
+    color: white;
+    padding: .25em;
+}
+
+td {
+    background-color: #FFFFFF;
+}
+
+th,
+td {
+    width: 40%;
+    border: 1px solid black;
+    padding-left: .5em;
+    padding-right: .5em;
+    font-family: Arial, sans-serif;
+}
+
+th:last-child,
+td:last-child {
+    background-color: transparent;
+    border: none;
 }
 
 /*\ ---------------- MOVIL -----------------\*/
