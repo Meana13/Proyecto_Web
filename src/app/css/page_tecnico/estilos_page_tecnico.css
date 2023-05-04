@@ -1,6 +1,30 @@
+#seccion-citas {
+    display: block;
+}
+
+#seccion-hoja-cita {
+    display: none;
+}
+
+#seccion-opiniones {
+    display: none;
+}
+
+#seccion-administrar-huertos {
+    display: none;
+}
+
+#seccion-añadir-huerto {
+    display: none;
+}
+
+#seccion-ver-huerto {
+    display: none;
+}
+
 /* #region SECCION CITAS */
 #seccion-citas h3 {
-    margin-left: 5%;
+    text-align: center;
     margin-bottom: 30px;
 }
 
@@ -25,7 +49,8 @@ tr td:nth-child(3),
     text-align: center;
 }
 
-#boton-ver-cita {
+#boton-ver-cita,
+#boton-ver-huerto {
     background-color: transparent;
     border: 0;
     background-color: #9D4179;
@@ -42,7 +67,7 @@ tr td:nth-child(3),
 
 /* #endregion */
 
-/* #region SECCION FICA CITA */
+/* #region SECCION FICHA CITA */
 
 #seccion-hoja-cita h3 {
     text-align: center;
@@ -102,6 +127,7 @@ select {
     width: 80%;
     border: 2px solid black;
     margin: 0 auto;
+    background-color: #FFFFFF;
 }
 
 .caja-opinion {
@@ -186,16 +212,18 @@ select {
     display: flex;
     justify-content: center;
     margin-left: auto;
-    margin-right: 5%;
+    margin-right: 11%;
+    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 /* #endregion */
 
-/* #region SECCOIN AÑADIR NUEVO HUERTO */
+/* #region SECCION AÑADIR NUEVO HUERTO */
 
 #seccion-añadir-huerto h3 {
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 40px;
 }
 
 #formulario-huerto {
@@ -267,7 +295,8 @@ input[type="file"]::-webkit-file-upload-button {
     cursor: pointer;
 }
 
-#boton-guardar {
+#boton-guardar,
+#seccion-ver-huerto #boton-guardar2 {
     margin-top: 40px;
     margin-left: 80%;
     background-color: #9D4179;
@@ -283,8 +312,58 @@ input[type="file"]::-webkit-file-upload-button {
 
 /* #endregion */
 
+/* #region INICIO SECCOIN VER HUERTO */
+
+#seccion-ver-huerto h3 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#boton-editar {
+    background-color: #9D4179;
+    color: white;
+    padding: 5px;
+    border: 0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#formulario-ver-huerto {
+    width: 324px;
+    margin: 0 auto;
+    display: block;
+}
+
+#formulario-ver-huerto label {
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+}
+
+input[type="text"],
+select {
+    width: 150px;
+    box-sizing: border-box;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+#formulario-ver-huerto label#label-lista-sensores {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+#medidas label {
+    margin-top: 10px;
+    width: 16px;
+}
+
+/* #endregion */
+
+
 @media (max-width: 768px) {
-    #boton-ver-cita {
+    #boton-ver-cita,
+    #boton-ver-huerto {
         width: 50px;
     }
 
