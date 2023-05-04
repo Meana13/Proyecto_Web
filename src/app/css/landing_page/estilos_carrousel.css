@@ -9,13 +9,14 @@
 
     }
     contenedor_nuestros_productos{
-
+        align-items: center;
+        align-content: center;
     }
     .container_productos{
         margin-top: 25px;
         margin-bottom: 25px;
-        padding-left: 20%;
-        width: 80%;
+        width: 100%;
+        margin: 0 auto;
         display: flex;
         justify-content: space-around;
 
@@ -128,6 +129,14 @@
         display: flex;
         flex-direction: column;
         padding-left: 10%;
+        width: 300px;
+        align-items: center;
+    }
+    .vista_parrafo p{
+        font-size: 15px;
+    }
+    .vista_producto{
+        margin-bottom: 20px;
     }
 
 }

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="app/css/landing_page/estilos_carrousel_opiniones.css">
     <link rel="stylesheet" href="app/css/landing_page/estilos_carrousel.css">
     <link rel="stylesheet" href="app/css/landing_page/estilos_index_menu_no_registrado.css"/>
-
+    <link rel="stylesheet" href="app/css/landing_page/footer.css">
 
     <title>Document</title>
 </head>
@@ -146,155 +146,86 @@
 <div id="contenedor_opiniones">
     <h2 id="titulo_opiniones">OPINIONES</h2>
     <div class="linea"></div>
-    <div class="slide-contenedor">
-        <div class="opiniones">
-            <div class="slider_vista fade">
-                <div class="contenedor_opinion">
 
-                    <table class="profile-review">
-                        <tr>
-                            <td><img src="../../../../images/concepcion.png" alt="Foto de perfil"></td>
-                            <td><p class="nombre_usuario">Nombre de usuario</p></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><div class="calificacion">
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                            </div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><p class="texto_opinion">Opinión <br /><br /><br /><br /><br /><br />del usuario sobre el producto/servicio</p></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="contenedor_opinion">
-
-                    <table class="profile-review">
-                        <tr>
-                            <td><img src="../../../../images/comercial.png" alt="Foto de perfil"></td>
-                            <td><p class="nombre_usuario">Nombre de usuario</p></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><div class="calificacion">
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                            </div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><p class="texto_opinion">Opinión <br /><br /><br /><br /><br /><br />del usuario sobre el producto/servicio</p></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="contenedor_opinion">
-
-                    <table class="profile-review">
-                        <tr>
-                            <td><img src="../../../../images/victoria.png" alt="Foto de perfil"></td>
-                            <td><p class="nombre_usuario">Nombre de usuario</p></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><div class="calificacion">
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                            </div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><p class="texto_opinion">Opinión <br /><br /><br /><br /><br /><br />del usuario sobre el producto/servicio</p></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="slider_vista fade">
-                <div class="contenedor_opinion">
-
-                    <table class="profile-review">
-                        <tr>
-                            <td><img src="../../../../images/comercial.png" alt="Foto de perfil"></td>
-                            <td><p class="nombre_usuario">Nombre de usuario</p></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><div class="calificacion">
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                            </div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><p class="texto_opinion">Opinión <br /><br /><br /><br /><br /><br />del usuario sobre el producto/servicio</p></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="contenedor_opinion">
-
-                    <table class="profile-review">
-                        <tr>
-                            <td><img src="../../../../images/victoria.png" alt="Foto de perfil"></td>
-                            <td><p class="nombre_usuario">Nombre de usuario</p></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><div class="calificacion">
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                            </div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><p class="texto_opinion">Opinión <br /><br /><br /><br /><br /><br />del usuario sobre el producto/servicio</p></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="contenedor_opinion">
-
-                    <table class="profile-review">
-                        <tr>
-                            <td><img src="../../../../images/concepcion.png" alt="Foto de perfil"></td>
-                            <td><p class="nombre_usuario">Nombre de usuario</p></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><div class="calificacion">
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                                <span class="star"></span>
-                            </div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><p class="texto_opinion">Opinión <br /><br /><br /><br /><br /><br />del usuario sobre el producto/servicio</p></td>
-                        </tr>
-                    </table>
-                </div>
+    <div class="container_productos">
+        <div class="vista_producto">
+            <div class="contenedor_foto_nombre_usuario">
+                <img src="../../../../images/concepcion.png" alt="Foto de perfil">
+                <p class="nombre_usuario">Nombre de usuario</p>
 
             </div>
+            <div class="calificacion">
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </div>
+            <p class="texto_opinion">Opinión <br /><br /><br /><br />
+                    <br /><br />del usuario sobre el producto/servicio</p>
+
         </div>
-        <div class="direcciones">
-            <a href="#" class="atras" onclick="avanzaSlide(-1)">&#10094;</a>
-            <a href="#" class="adelante" onclick="avanzaSlide(1)">&#10095;</a>
+        <div class="vista_producto">
+            <div class="contenedor_foto_nombre_usuario">
+                <img src="../../../../images/concepcion.png" alt="Foto de perfil">
+                <p class="nombre_usuario">Nombre de usuario</p>
+
+            </div>
+            <div class="calificacion">
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </div>
+            <div>
+                <p class="texto_opinion">Opinión <br /><br /><br /><br />
+                    <br /><br />del usuario sobre el producto/servicio</p>
+            </div>
         </div>
-        <div class="barras">
-            <span class="barra active" onclick="posicionSlide(1)"></span>
-            <span class="barra" onclick="posicionSlide(2)"></span>
-            <span class="barra" onclick="posicionSlide(3)"></span>
+        <div class="vista_producto">
+            <div class="contenedor_foto_nombre_usuario">
+                <img src="../../../../images/concepcion.png" alt="Foto de perfil">
+                <p class="nombre_usuario">Nombre de usuario</p>
+
+            </div>
+            <div class="calificacion">
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+                <span class="star"></span>
+            </div>
+            <div>
+                <p class="texto_opinion">Opinión <br /><br /><br /><br />
+                    <br /><br />del usuario sobre el producto/servicio</p>
+            </div>
         </div>
     </div>
-    <script src="../../scrips/landing_page/carrousel_opiniones.js"></script>
 </div>
-<script src="app/scrips/landing_page/carrousel_opiniones.js"></script>
+
 <button id="boton_volver_arriba">VOLVER ARRIBA</button>
-<script src="app/scrips/landing_page/carrousel.js"></script>
 <script src="app/scrips/landing_page/scripts_index.js"></script>
+
+<footer>
+    <div id="columnas">
+        <div id="columna-conocenos">
+            <h3 id="conocenos">conocenos</h3>
+            <a href="#">Quiénes somos</a>
+            <a href="#">Politica de privacidad</a>
+            <a href="#">Aviso legal</a>
+        </div>
+        <div id="columna-ayuda">
+            <h3 id="ayuda">ayuda</h3>
+            <a href="#">Contacto</a>
+            <a href="#">Pedir presupuesto</a>
+            <a href="#">Preguntas frecuentes</a>
+        </div>
+    </div>
+    <img src="../../../../images/logoGTI.png" id="logo">
+    <p id="copyright">©2023 gti Todos los derechos reservados</p>
+</footer>
+<script src="app/scrips/landing_page/"></script>
+
 </body>
 </html>
