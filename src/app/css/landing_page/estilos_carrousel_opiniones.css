@@ -8,78 +8,62 @@ body{
     font-family: 'lato';
 }
 /*estilo contenedor general*/
-.slide-contenedor {
+.contenedor_opiniones{
     margin-top: 25px;
     max-width: 100%;
     max-height: 250px;
     max-height: 250px;
-    width: 600px;
+    width: 80%;
     height: 220px;
-
     position: relative;
     overflow: hidden;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: row;
-}
-.slider_vista{
-    margin-left: 20px;
-}
-.slider_vista .vista_opinion{
-    width: 100px;
-    max-height: 100vh;
-    height: inherit;
-    object-fit: cover;
-    vertical-align: top;
-    transition: 2s;
-    display: inline-block;
-    margin-top: 25px;
+    margin-left: 515px;
 
 }
 
-.slider_vista div{
-    width: 150px;
-    max-height: 100vh;
-    height: inherit;
-    object-fit: cover;
-    vertical-align: central;
-    transition: 2s;
-    display: inline-block;
 
-}
-.opiniones{
-    margin-left: 35px;
-}
+
+
 .contenedor_opinion{
-    width: 175px;
+    width: 250px;
+    height: 200px;
     border: 2px solid black;
     padding-left: 10px;
+    margin-left: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
 }
-.profile-review {
+.contenedor_foto_nombre_usuario{
     display: flex;
     align-items: center;
-    gap: 20px;
-    width: 150px;
+}
+.nombre_usuario{
+    width: 200px;
+    height: 20px;
+    margin-left: 20px;
+
+    font-size: 15px;
 }
 
-.profile-review img {
+.contenedor_foto_nombre_usuario img {
     width: 40px;
     height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
     border-radius: 50%;
     border:2px solid #666;
 }
 
-.profile-review .nombre_usuario {
-    margin-left: 5px;
-    font-size: 15px;
-}
-
 .calificacion {
     font-size: 0;
+    height: 21px;
+    width: 100%;
+    margin-left: 15px;
 }
 
 .calificacion .star:before {
@@ -93,73 +77,15 @@ body{
     margin-right: 5px;
 }
 
-.profile-review .texto_opinion{
-    border : solid 1px #000000;
+.texto_opinion{
+    border : solid 3px #000000;
     background : transparent;
     color : #000000;
+    margin-top: 10px;
     padding : 4px;
-    width : 125px;
+    width : 280px;
     height : 100px;
     overflow : auto;
     margin-bottom: 5px;
-}
-
-.direcciones{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 45px;
-    font-size: 20px;
-}
-
-.direcciones a{
-    color: black;
-    display: inline-block;
-    padding: 20px;
-    text-decoration: none;
-}
-
-.direcciones a:hover{
-    color: black;
-    display: inline-block;
-    padding: 20px;
-    text-decoration: none;
-    font-size: 30px;
-    transition: .5s;
-}
-
-.barras{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-left: 6px;
-}
-
-.barra{
-    cursor: pointer;
-    height:2px;
-    width: 25px;
-    margin: 0 2px;
-    background: gray;
-    display: inline-block;
-}
-
-.active{
-    background-color: #e74c3c;
-}
-
-.fade{
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
-@keyframes fade {
-    from {opacity: .4;}
-    to{opacity:1;}
+    margin-left: 10px ;
 }
