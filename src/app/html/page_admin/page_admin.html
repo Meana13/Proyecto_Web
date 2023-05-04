@@ -8,11 +8,69 @@
     <script src="../../scrips/page_admin/page_admin.js"></script>
     <link rel="stylesheet" href="../../css/page_admin/estilos_page_admin.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
+    <link rel="stylesheet" href="../../css/landing_page/footer.css">
 </head>
 
 <body>
-    <!-- INICIO HEADER -->
-    
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
+    <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
+
+    <header class="header">
+        <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../../images/logoGTI.png" alt=""></a>
+        <div class="login-tab">
+            <a href="#" class="login-tab-icon"><img src="../../../../images/icono-usuario.svg" alt=""></a>
+        </div>
+
+
+
+        <div class="login-form-container">
+            <form class="login-form">
+                <h2>Iniciar sesión</h2>
+                <div class="form-group">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Iniciar sesión</button>
+                </div>
+            </form>
+        </div>
+
+
+
+
+
+        <nav class="nav">
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <!--div*3> + tabulador-->
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
     <!-- FIN HEADER -->
 
     <!-- INICIO DATOS ADMIN -->
@@ -66,21 +124,24 @@
                     <td>Ricardo</td>
                     <td>Marquez</td>
                     <td>ricmar@gmail.com</td>
-                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg" alt="Hoja de usuario"></button>
+                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg"
+                                alt="Hoja de usuario"></button>
                     </td>
                 </tr>
                 <tr>
                     <td>Concepción</td>
                     <td>García</td>
                     <td>congar@gmail.com</td>
-                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg" alt="Hoja de usuario"></button>
+                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg"
+                                alt="Hoja de usuario"></button>
                     </td>
                 </tr>
                 <tr>
                     <td>Victoria</td>
                     <td>Serrano</td>
                     <td>vicser@gmail.com</td>
-                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg" alt="Hoja de usuario"></button>
+                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg"
+                                alt="Hoja de usuario"></button>
                     </td>
                     </td>
                 </tr>
@@ -88,7 +149,8 @@
                     <td>Gloria</td>
                     <td>Guerrero</td>
                     <td>glogue@gmail.com</td>
-                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg" alt="Hoja de usuario"></button>
+                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg"
+                                alt="Hoja de usuario"></button>
                     </td>
                     </td>
                 </tr>
@@ -96,14 +158,16 @@
                     <td>Julio</td>
                     <td>Ortega</td>
                     <td>julorg@gmail.com</td>
-                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg" alt="Hoja de usuario"></button>
+                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg"
+                                alt="Hoja de usuario"></button>
                     </td>
                 </tr>
                 <tr>
                     <td>Pedro</td>
                     <td>Saez</td>
                     <td>pedsae@gmail.com</td>
-                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg" alt="Hoja de usuario"></button>
+                    <td><button id="ver-hoja-usuario"><img src="../../../../images/ver-perfil.svg"
+                                alt="Hoja de usuario"></button>
                     </td>
                 </tr>
             </tbody>
@@ -218,7 +282,8 @@
         <div class="caja-opinion" id="opinion1">
             <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
             <div class="datos-opinion">
-                <label class="fecha-instalacion">Instalación: 04/04/2023 </label> <!-- importar fecha no se como --> <br>
+                <label class="fecha-instalacion">Instalación: 04/04/2023 </label> <!-- importar fecha no se como -->
+                <br>
                 <label class="n-instalacion">#01</label><!-- importar nº de instalacion -->
                 <div class="estrellas">
                     <img src="../../../../images/estrella.svg" alt="Estrella">
@@ -235,7 +300,8 @@
         <div class="caja-opinion" id="opinion2">
             <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
             <div class="datos-opinion">
-                <label class="fecha-instalacion">Instalación: 05/04/2023 </label> <!-- importar fecha no se como --> <br>
+                <label class="fecha-instalacion">Instalación: 05/04/2023 </label> <!-- importar fecha no se como -->
+                <br>
                 <label class="n-instalacion">#02</label><!-- importar nº de instalacion -->
                 <div class="estrellas">
                     <img src="../../../../images/estrella.svg" alt="Estrella">
@@ -244,15 +310,15 @@
                     <img src="../../../../images/estrella.svg" alt="Estrella">
                 </div>
             </div>
-            <textarea readonly
-                class="opinion"></textarea>
+            <textarea readonly class="opinion"></textarea>
         </div>
-        
+
         <!-- Opinion 3 -->
         <div class="caja-opinion" id="opinion3">
             <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
             <div class="datos-opinion">
-                <label class="fecha-instalacion">Instalación: 06/04/2023 </label> <!-- importar fecha no se como --> <br>
+                <label class="fecha-instalacion">Instalación: 06/04/2023 </label> <!-- importar fecha no se como -->
+                <br>
                 <label class="n-instalacion">#03</label><!-- importar nº de instalacion -->
                 <div class="estrellas">
                     <img src="../../../../images/estrella.svg" alt="Estrella">
@@ -262,15 +328,15 @@
                     <img src="../../../../images/media-estrella.svg" alt="Media estrella" id="media-estrella">
                 </div>
             </div>
-            <textarea readonly
-                class="opinion"></textarea>
+            <textarea readonly class="opinion"></textarea>
         </div>
 
         <!-- Opinion 4 -->
         <div class="caja-opinion" id="opinion4">
             <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
             <div class="datos-opinion">
-                <label class="fecha-instalacion">Instalación: 07/04/2023 </label> <!-- importar fecha no se como --> <br>
+                <label class="fecha-instalacion">Instalación: 07/04/2023 </label> <!-- importar fecha no se como -->
+                <br>
                 <label class="n-instalacion">#04</label><!-- importar nº de instalacion -->
                 <div class="estrellas">
                     <img src="../../../../images/estrella.svg" alt="Estrella">
@@ -280,17 +346,32 @@
                     <img src="../../../../images/estrella.svg" alt="Estrella">
                 </div>
             </div>
-            <textarea readonly
-                class="opinion"></textarea>
+            <textarea readonly class="opinion"></textarea>
         </div>
     </section>
 
     <!-- FIN SECCION OPINION DEL PERSONAL-->
-    
-    <!-- FOOTER -->
-    <section>
 
-    </section>
-</body>
+    <!-- FOOTER -->
+    <footer>
+        <div id="columnas">
+            <div id="columna-conocenos">
+                <h3 id="conocenos">conocenos</h3>
+                <a href="#">Quiénes somos</a>
+                <a href="#">Politica de privacidad</a>
+                <a href="#">Aviso legal</a>
+            </div>
+            <div id="columna-ayuda">
+                <h3 id="ayuda">ayuda</h3>
+                <a href="#">Contacto</a>
+                <a href="#">Pedir presupuesto</a>
+                <a href="#">Preguntas frecuentes</a>
+            </div>
+        </div>
+        <img src="../../../../images/logoGTI.png" id="logo">
+        <p id="copyright">©2023 gti Todos los derechos reservados</p>
+    </footer>
+
+    <body>
 
 </html>

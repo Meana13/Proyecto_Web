@@ -1,164 +1,124 @@
+dialog {
+    margin: auto auto;
+    height: 50%;
+    width: 40%;
+}
 
-dialog::backdrop{
-    background-color: rgb(0,0,0,0.3);
+dialog::backdrop {
+    background-color: rgb(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
 }
 
-.botones{
-
-    margin: 5px auto;
+#botones_añadir_selección {
+    margin: 0 auto;
+    width: 90%;
     display: flex;
-    justify-content: space-evenly;
-    flex:1 1 0;
+    justify-content: space-between;
 }
-.botones>button{
 
-    justify-content: space-around;
-    flex:1 1 0;
-    width: 110px;
-    height: 63px;
-    flex-direction: column;
-    background-color: #790050;
+#botones_añadir_selección #seleccionar_huerto {
+    width: 80%;
+    background-color: lightgray;
+}
+
+#botones_añadir_selección #entrada {
+    width: 15%;
+    background-color: #9D4179;
     color: white;
-}
-.botones button span{
-    font-family:Arial,sans-serif;
-}
-
-#botones_añadir_selección{
-    display: flex;
+    border: 0;
+    border-radius: 5px;
     padding: 5px;
-    justify-content: space-around;
+}
 
-}
-#botones_añadir_selección>#seleccionar_huerto{
-    width: 221px;
-    flex: 2 1 0;
-}
-#botones_añadir_selección>#entrada{
-    width: 106px;
-    flex: 1 1 0;
-    margin-left: 12px;
-    background-color: #790050;
-    color: white;
-}
-#pagina-anyadir{
-    width: 500px;
-    height: 300px;
-    margin: auto;
-}
-#pagina-anyadir>#editar-huerto{
+#mediciones {
+    margin-top: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-#adjuntar{
-    width: 95px;
-    height: 25px;
-    background-color: #790050;
-    color: white;
-    font-size: 11px;
-
-}
-#pagina-anyadir>#editar-huerto>#enviar{
-    align-self:flex-end;
-    width: 120px;
-    height: 48px;
-    flex: 1 0 0;
-    background-color: #790050;
-    color: white;
-    border-radius: 4px;
-    padding: 1%;
-}
-
-#pagina-anyadir>#editar-huerto>#notas_huerto{
-    width: 223px;
-    height: 99px;
-}
-
-#mediciones{
-    width: 300px;
-    margin: auto;
-}
-#mediciones>h2{
-    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    flex: 1 1 0;
+    gap: 10%;
 }
-#mediciones div{
-    border: 1px solid black;
+
+#mediciones h2 {
+    text-align: center;
+    background-color: #FFF6ED;
+    padding-bottom: 15px;
+}
+
+#mediciones div {
+    width: 300px;
+    margin-bottom: 50px;
     background-color: #9C4078;
 }
-#mediciones>div>.circulo{
+
+#mediciones div .circulo {
     width: 129px;
     height: 129px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 2px solid green;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-inline: auto;
     margin-bottom: 15px;
     background-color: #CAF982;
-    font-size: 33px;
 }
-#mediciones>div>.circulo>span{
 
-}
-#mediciones>div>.botones_gráficas{
+#mediciones div .botones_gráficas {
     height: 30px;
     display: flex;
     justify-content: center;
+    margin-bottom: 0;
 }
-#mediciones>div>.botones_gráficas>button{
+
+#mediciones div .botones_gráficas button {
     width: 50%;
-    flex: 1 1 0;
-    border: 1px solid black;
 }
 
-#ajustes-usuario{
+/*CSS de ajustes usuario*/
+#ajustes-usuario {}
 
-}
-#ajustes-usuario>.datos_usuario{
+#ajustes-usuario>.datos_usuario {
     display: flex;
     align-items: center;
     padding: 4%;
 }
-#ajustes-usuario>.datos_usuario>form{
-    width:300px ;
+
+#ajustes-usuario>.datos_usuario>form {
+    width: 300px;
 }
 
 #ajustes-usuario>.datos_usuario>form>input {
-  display:flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
-#ajustes-usuario>.datos_usuario>form>#cambios{
+
+#ajustes-usuario>.datos_usuario>form>#cambios {
     alignment: right;
     margin-left: 400px;
     flex: 1 1 0;
 }
 
-#ajustes-usuario>.datos_usuario>form>label{
+#ajustes-usuario>.datos_usuario>form>label {
     width: 10px;
 }
 
 
 CSS Seccion citas
 
-#citas{
+#citas {}
 
-}
-#citas>table{
+#citas>table {
     flex: 1 1 0;
     width: 100%;
     border: 1px solid black;
 }
-#citas>table>thead{
+
+#citas>table>thead {
     margin: auto;
 }
 
-#citas>table>tbody>tr>td>button{
-    margin: auto;
+#citas>table>tbody>tr>td {
+    justify-content: center;
 }
-
-

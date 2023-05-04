@@ -1,222 +1,298 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Usuario</title>
     <link rel="stylesheet" type="text/css" href="../../css/page_usuario/estilos_page_usuario.css" />
     <link rel="stylesheet" href="../../css/estilos_general.css">
-
+    <link rel="stylesheet" href="../../css/landing_page/footer.css">
 </head>
+
 <body>
-<!--Aqui comienza el header-->
-<header>
-    #include="header.htlm"
-</header>
-<!--Aqui finaliza el header-->
+    <!--Aqui comienza el header-->
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
+    <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
-<!--Aqui comienza la cabecera del usuario-->
-<section class="perfil">
-    <img src="../../../../images/concepcion.png" alt="Foto admin" class="foto-perfil">
+    <header class="header">
+        <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../../images/logoGTI.png" alt=""></a>
+        <div class="login-tab">
+            <a href="#" class="login-tab-icon"><img src="../../../../images/icono-usuario.svg" alt=""></a>
+        </div>
 
-    <p id="datos">
-        Nombre de usuario: HectorAdmin <br>
-        Nombre y apellidos: Héctor Iglesias <br>
-        E-mail: hectigle@empresa.com <br>
-        Dirección: Carretera Sequia del Rei, 3, Bloque X 1ª Planta Puerta 2
-    </p>
-</section>
-<!--Aqui finaliza la cabecera del usuario-->
 
-<!--Aqui comienza la seccion de botones del menu-->
-<div class="botones">
-    <button id="boton_huertos"><span>Ver huertos</span></button>
-    <button id="boton_perfil"><span> Ajustes perfil</span> </button>
-    <button id="boton_citas"><span> Citas</span></button>
-</div>
-<!--Aqui finaliza la seccion de botones del menu-->
 
-<!--Aqui comienza la zona de huertos-->
-<section id="huertos">
-    <section id="botones_añadir_selección">
-        <select id="seleccionar_huerto">
-            <option value="1">Huerto 1</option>
-            <option value="2">Huerto 2</option>
-            <option value="3">Huerto 3</option>
-        </select>
-        <button id="entrada"> Editar huerto</button>
-    </section>
+        <div class="login-form-container">
+            <form class="login-form">
+                <h2>Iniciar sesión</h2>
+                <div class="form-group">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Iniciar sesión</button>
+                </div>
+            </form>
+        </div>
 
-    <!--    Aqui comienza la seccion de editar huerto-->
-   <dialog id="pagina-anyadir">
-    <section id="editar-huerto" class="seccion-oculta">
-        <button id="cancelar"><img src="boton_volver.png" alt="Volver"></button>
-        <p class="editar_huerto">
-        <img src="../../images/admin.png" alt="Imagen huerto">
-            <button id="adjuntar">Adjuntar imagen</button>
-            <br>
-            <br>
-        <label for="nombre_huerto">Nombre del huerto:</label>
-        <input type="text" id="nombre_huerto">
-        <label for="localizacion_huerto">Localizacion:</label>
-        <input type="text" id="localizacion_huerto">
+
+
+
+
+        <nav class="nav">
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <!--div*3> + tabulador-->
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <!--Aqui finaliza el header-->
+
+    <!--Aqui comienza la cabecera del usuario-->
+    <section class="perfil">
+        <img src="../../../../images/concepcion.png" alt="Foto admin" class="foto-perfil">
+
+        <p id="datos">
+            Nombre de usuario: HectorAdmin <br>
+            Nombre y apellidos: Héctor Iglesias <br>
+            E-mail: hectigle@empresa.com <br>
+            Dirección: Carretera Sequia del Rei, 3, Bloque X 1ª Planta Puerta 2
         </p>
-
-        <label>Fecha de instalación:</label>
-        <input type="text" id="fecha_huerto_dia">
-        <input type="text" id="fecha_huerto_meses">
-        <input type="text" id="fecha_huerto_año">
-        <label for="notas_huerto">Notas:</label>
-        <input id="notas_huerto">
-        <input type="submit" value="Guardar cambios" id="enviar">
     </section>
-   </dialog>
-    <!--    Aqui finaliza la seccion de editar huerto-->
+    <!--Aqui finaliza la cabecera del usuario-->
+
+    <!--Aqui comienza la seccion de botones del menu-->
+    <nav id="botones-perfil">
+        <button id="boton_huertos" class="boton-perfil">Ver huertos</button>
+        <button id="boton_perfil" class="boton-perfil">Ajustes perfil</button>
+        <button id="boton_citas" class="boton-perfil">Citas</button>
+    </nav>
+    <!--Aqui finaliza la seccion de botones del menu-->
+
+    <!-- DIVISOR -->
+    <div id="divisor"></div>
+    <!---->
+
+    <!--Aqui comienza la zona de huertos-->
+    <section id="huertos">
+        <section id="botones_añadir_selección">
+            <select id="seleccionar_huerto">
+                <option value="1">Huerto 1</option>
+                <option value="2">Huerto 2</option>
+                <option value="3">Huerto 3</option>
+            </select>
+            <button id="entrada"> Editar huerto</button>
+        </section>
+
+        <!--    Aqui comienza la seccion de editar huerto-->
+        <dialog>
+            <section id="editar-huerto" class="seccion-oculta">
+                <button id="cancelar"><img src="boton_volver.png" alt="Volver"></button>
+                <p class="editar_huerto">
+                    <img src="../../images/admin.png" alt="Imagen huerto">
+                    <button>Adjuntar imagen</button>
+                    <label for="nombre_huerto">Nombre del huerto:</label>
+                    <input type="text" id="nombre_huerto">
+                    <label for="localizacion_huerto">Localizacion:</label>
+                    <input type="text" id="localizacion_huerto">
+                </p>
+
+                <label>Fecha de instalación:</label>
+                <input type="text" id="fecha_huerto_dia">
+                <input type="text" id="fecha_huerto_meses">
+                <input type="text" id="fecha_huerto_año">
+                <label for="notas_huerto">Notas:</label>
+                <input id="notas_huerto">
+                <input type="submit" value="Guardar cambios" id="enviar">
+            </section>
+        </dialog>
+        <!--    Aqui finaliza la seccion de editar huerto-->
 
 
-    <section id="mediciones"> <!--    Aqui comienza la seccion de medidor Tª-->
-    <h2>Temperatura</h2>
-    <div id="Temperatura">
-        <img src="../../images/termometro.png" alt="Termometro">
-        <div class="circulo"><span>22ºC</span></div>
-        <div class="botones_gráficas">
-            <button>Historial</button>
-            <button>Datos actuales</button>
-        </div>
-    </div>
-    <!--    Aqui finaliza la seccion de medidor Tª-->
+        <section id="mediciones"> <!--    Aqui comienza la seccion de medidor Tª-->
+            <div id="Temperatura">
+                <h2>Temperatura</h2>
+                <img src="termometro.png" alt="Termometro">
+                <div class="circulo"><span>22ºC</span></div>
+                <div class="botones_gráficas">
+                    <button>Historial</button>
+                    <button>Datos actuales</button>
+                </div>
+            </div>
+            <!--    Aqui finaliza la seccion de medidor Tª-->
 
-    <!--    Aqui comienza la seccion de medidor humedad-->
-    <h2>Humedad</h2>
-    <div id="Humedad">
-        <img src="../../images/medidorH.png" alt="Humedad">
-        <div class="circulo">80%</div>
-        <div class="botones_gráficas">
-            <button>Historial</button>
-            <button>Datos actuales</button>
-        </div>
-    </div>
-    <!--    Aqui finaliza la seccion de medidor humedad-->
+            <!--    Aqui comienza la seccion de medidor humedad-->
+            <div id="Humedad">
+                <h2>Humedad</h2>
+                <img src="medidorH.png" alt="Humedad">
+                <div class="circulo">80%</div>
+                <div class="botones_gráficas">
+                    <button>Historial</button>
+                    <button>Datos actuales</button>
+                </div>
+            </div>
+            <!--    Aqui finaliza la seccion de medidor humedad-->
 
-    <!--    Aqui comienza la seccion de medidor pH-->
-    <h2>Nivel de pH</h2>
-    <div id="pH">
-        <img src="../../images/medidor_pH.png" alt="Sensor pH">
-        <div class="circulo">pH= 7</div>
-        <div class="botones_gráficas">
-            <button>Historial</button>
-            <button>Datos actuales</button>
-        </div>
-    </div>
-    <!--    Aqui finaliza la seccion de medidor pH-->
+            <!--    Aqui comienza la seccion de medidor pH-->
+            <div id="pH">
+            <h2>Nivel de pH</h2>
+                <img src="Sensor_pH.png" alt="Sensor pH">
+                <div class="circulo">pH= 7</div>
+                <div class="botones_gráficas">
+                    <button>Historial</button>
+                    <button>Datos actuales</button>
+                </div>
+            </div>
+            <!--    Aqui finaliza la seccion de medidor pH-->
 
-    <!--    Aqui comienza la seccion de medidor Luz -->
-    <h2>Luminosidad</h2>
-    <div id="Luz">
-        <img src="../../images/medidor_luz.png" alt="Luz">
-        <div class="circulo">80%</div>
-        <div class="botones_gráficas">
-            <button>Historial</button>
-            <button>Datos actuales</button>
-        </div>
-    </div>
-    <!--    Aqui finaliza la seccion de medidor Luz -->
+            <!--    Aqui comienza la seccion de medidor Luz -->
+            <div id="Luz">
+            <h2>Luminosidad</h2>
+                <img src="sensorLuz.png" alt="Luz">
+                <div class="circulo">80%</div>
+                <div class="botones_gráficas">
+                    <button>Historial</button>
+                    <button>Datos actuales</button>
+                </div>
+            </div>
+            <!--    Aqui finaliza la seccion de medidor Luz -->
 
-    <!--    Aqui comienza la seccion de medidor sal -->
-    <h2>Salinidad</h2>
-    <div id="Sal">
-        <img src="../../images/medidor_sal.png" alt="Sal">
-        <div class="circulo">60%</div>
-        <div class="botones_gráficas">
-            <button>Historial</button>
-            <button>Datos actuales</button>
-        </div>
-        <!--    Aqui finaliza la seccion de medidor sal -->
-    </div>
+            <!--    Aqui comienza la seccion de medidor sal -->
+            <div id="Sal">
+            <h2>Salinidad</h2>
+                <img src="medidor_sal.png" alt="Sal">
+                <div class="circulo">60%</div>
+                <div class="botones_gráficas">
+                    <button>Historial</button>
+                    <button>Datos actuales</button>
+                </div>
+                <!--    Aqui finaliza la seccion de medidor sal -->
+            </div>
+        </section>
     </section>
-</section>
-<!--    Aqui finaliza la seccion de huertos -->
+    <!--    Aqui finaliza la seccion de huertos -->
 
 
-<!--    Aqui comienza la seccion de ajustes de perfil -->
-<section id="ajustes-usuario">
-    <section class="datos_usuario">
-        <form action="#" method="post">
-            <label for="usuario">Nombre de usuario:</label>
-            <input type="text" id="usuario">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre">
-            <input type="text" id="apellidos">
+    <!--    Aqui comienza la seccion de ajustes de perfil -->
+    <section id="ajustes-usuario">
+        <section class="datos_usuario">
+            <form action="#" method="post">
+                <label for="usuario">Nombre de usuario:</label>
+                <input type="text" id="usuario">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre">
+                <input type="text" id="apellidos">
 
-            <label for="email">Email:</label>
-            <input type="email" id="email">
+                <label for="email">Email:</label>
+                <input type="email" id="email">
 
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion">
 
-            <label for="contraseña">Cambiar contraseña:</label>
-            <input type="text" id="contraseña">
+                <label for="contraseña">Cambiar contraseña:</label>
+                <input type="text" id="contraseña">
 
-            <label for="notificaciones">Notificaciones</label>
-            <input type="checkbox" id="notificaciones">
-            <br>
-            <input type="submit" value="Aplicar cambios" id="cambios_perfil">
+                <label for="notificaciones">Notificaciones</label>
+                <input type="checkbox" id="notificaciones">
+                <br>
+                <input type="submit" value="Aplicar cambios" id="cambios_perfil">
                 <dialog id="dialogo_cambios_perfil">
                     <p>Cambios realizados correctamente.</p>
                     <button id="btn_aceptar">Aceptar</button>
                 </dialog>
-        </form>
+            </form>
+        </section>
     </section>
-</section>
-<!--Aqui finaliza la seccion de ajustes de usuario-->
+    <!--Aqui finaliza la seccion de ajustes de usuario-->
 
-<!--Aqui comienza la seccion de citas-->
-<section id="citas">
-    <table>
-        <thead>
-        <tr>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Aceptar/Rechazar</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1 de mayo, 2023</td>
-            <td>14:30</td>
-            <td>
-                <button><img src="tick.png" alt="Aceptar"></button>
-                <button><img src="cross.png" alt="Rechazar"></button>
-            </td>
-        </tr>
-        <tr>
-            <td>2 de mayo, 2023</td>
-            <td>10:00</td>
-            <td>
-                <button><img src="tick.png" alt="Aceptar"></button>
-                <button><img src="cross.png" alt="Rechazar"></button>
-            </td>
-        </tr>
-        <tr>
-            <td>3 de mayo, 2023</td>
-            <td>16:45</td>
-            <td>
-                <button><img src="tick.png" alt="Aceptar"></button>
-                <button><img src="cross.png" alt="Rechazar"></button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</section>
-<!--Aqui finaliza la seccion de citas-->
+    <!--Aqui comienza la seccion de citas-->
+    <section id="citas">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Aceptar/Rechazar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1 de mayo, 2023</td>
+                    <td>14:30</td>
+                    <td>
+                        <button><img src="tick.png" alt="Aceptar"></button>
+                        <button><img src="cross.png" alt="Rechazar"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2 de mayo, 2023</td>
+                    <td>10:00</td>
+                    <td>
+                        <button><img src="tick.png" alt="Aceptar"></button>
+                        <button><img src="cross.png" alt="Rechazar"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3 de mayo, 2023</td>
+                    <td>16:45</td>
+                    <td>
+                        <button><img src="tick.png" alt="Aceptar"></button>
+                        <button><img src="cross.png" alt="Rechazar"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <!--Aqui finaliza la seccion de citas-->
+
+    <!-- FOOTER -->
+
+    <footer>
+        <div id="columnas">
+            <div id="columna-conocenos">
+                <h3 id="conocenos">conocenos</h3>
+                <a href="#">Quiénes somos</a>
+                <a href="#">Politica de privacidad</a>
+                <a href="#">Aviso legal</a>
+            </div>
+            <div id="columna-ayuda">
+                <h3 id="ayuda">ayuda</h3>
+                <a href="#">Contacto</a>
+                <a href="#">Pedir presupuesto</a>
+                <a href="#">Preguntas frecuentes</a>
+            </div>
+        </div>
+        <img src="../../../../images/logoGTI.png" id="logo">
+        <p id="copyright">©2023 gti Todos los derechos reservados</p>
+    </footer>
+
+
 </body>
 
 </html>
-<script src="../../js/page_usuario.js"></script>
-
-
-
-
-
-
-
+<script src="../../scrips/page_usuario/page_usuario.js"></script>

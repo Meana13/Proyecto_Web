@@ -8,13 +8,65 @@
     <script src="../../scrips/page_tecnico/page_tecnico.js"></script>
     <link rel="stylesheet" href="../../css/page_tecnico/estilos_page_tecnico.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
-    <link rel="stylesheet" href="../../css/landing_page/footer.css"
-</head>
+    <link rel="stylesheet" href="../../css/landing_page/footer.css" <link rel="stylesheet"
+        href="../../css/landing_page/estilos_index_menu_no_registrado.css" </head>
 
 <body>
-    <!-- INICIO HEADER -->
-    
-    <!-- FIN HEADER -->
+    <!-- HEADER -->
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
+    <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
+
+    <header class="header">
+        <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../../images/logoGTI.png" alt=""></a>
+        <div class="login-tab">
+            <a href="#" class="login-tab-icon"><img src="../../../../images/icono-usuario.svg" alt=""></a>
+        </div>
+
+        <div class="login-form-container">
+            <form class="login-form">
+                <h2>Iniciar sesión</h2>
+                <div class="form-group">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Iniciar sesión</button>
+                </div>
+            </form>
+        </div>
+
+        <nav class="nav">
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <!--div*3> + tabulador-->
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <!------------>
 
     <!-- INICIO DATOS TECNICO -->
 
@@ -142,7 +194,8 @@
             <div class="caja-opinion" id="opinion1">
                 <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
                 <div class="datos-opinion">
-                    <label class="fecha-instalacion">Instalación: 04/04/2023 </label> <!-- importar fecha no se como -->
+                    <label class="fecha-instalacion">Instalación: 04/04/2023 </label>
+                    <!-- importar fecha no se como -->
                     <br>
                     <label class="n-instalacion">#01</label><!-- importar nº de instalacion -->
                     <div class="estrellas">
@@ -160,7 +213,8 @@
             <div class="caja-opinion" id="opinion2">
                 <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
                 <div class="datos-opinion">
-                    <label class="fecha-instalacion">Instalación: 05/04/2023 </label> <!-- importar fecha no se como -->
+                    <label class="fecha-instalacion">Instalación: 05/04/2023 </label>
+                    <!-- importar fecha no se como -->
                     <br>
                     <label class="n-instalacion">#02</label><!-- importar nº de instalacion -->
                     <div class="estrellas">
@@ -170,14 +224,16 @@
                         <img src="../../../../images/estrella.svg" alt="Estrella">
                     </div>
                 </div>
-                <textarea readonly class="opinion">Su profesionalismo y habilidad son impresionantes. Desde el principio, su servicio fue excepcional y gracias a él, mi hogar ahora tiene una solución perfecta. Estoy muy agradecido por su trabajo.</textarea>
+                <textarea readonly
+                    class="opinion">Su profesionalismo y habilidad son impresionantes. Desde el principio, su servicio fue excepcional y gracias a él, mi hogar ahora tiene una solución perfecta. Estoy muy agradecido por su trabajo.</textarea>
             </div>
 
             <!-- Opinion 3 -->
             <div class="caja-opinion" id="opinion3">
                 <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
                 <div class="datos-opinion">
-                    <label class="fecha-instalacion">Instalación: 06/04/2023 </label> <!-- importar fecha no se como -->
+                    <label class="fecha-instalacion">Instalación: 06/04/2023 </label>
+                    <!-- importar fecha no se como -->
                     <br>
                     <label class="n-instalacion">#03</label><!-- importar nº de instalacion -->
                     <div class="estrellas">
@@ -188,14 +244,16 @@
                         <img src="../../../../images/media-estrella.svg" alt="Media estrella" id="media-estrella">
                     </div>
                 </div>
-                <textarea readonly class="opinion">Estoy realmente impresionado con su profesionalismo y habilidad. Desde el momento en que llegó a mi casa, su servicio fue excelente y gracias a él, mi hogar ahora cuenta con una solución perfecta.</textarea>
+                <textarea readonly
+                    class="opinion">Estoy realmente impresionado con su profesionalismo y habilidad. Desde el momento en que llegó a mi casa, su servicio fue excelente y gracias a él, mi hogar ahora cuenta con una solución perfecta.</textarea>
             </div>
 
             <!-- Opinion 4 -->
             <div class="caja-opinion" id="opinion4">
                 <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
                 <div class="datos-opinion">
-                    <label class="fecha-instalacion">Instalación: 07/04/2023 </label> <!-- importar fecha no se como -->
+                    <label class="fecha-instalacion">Instalación: 07/04/2023 </label>
+                    <!-- importar fecha no se como -->
                     <br>
                     <label class="n-instalacion">#04</label><!-- importar nº de instalacion -->
                     <div class="estrellas">
@@ -206,7 +264,8 @@
                         <img src="../../../../images/estrella.svg" alt="Estrella">
                     </div>
                 </div>
-                <textarea readonly class="opinion">Me encantó su profesionalismo y habilidad. Desde el primer momento, su servicio fue excepcional y gracias a él, encontré la solución perfecta para mi hogar.</textarea>
+                <textarea readonly
+                    class="opinion">Me encantó su profesionalismo y habilidad. Desde el primer momento, su servicio fue excepcional y gracias a él, encontré la solución perfecta para mi hogar.</textarea>
             </div>
         </div>
     </section>
@@ -377,7 +436,7 @@
         <h3>VER HUERTO</h3>
         <div id="formulario-ver-huerto">
             <label>Nombre huerto </label>
-            <input type="text" id="nombre-huerto" name="id-cliente"> 
+            <input type="text" id="nombre-huerto" name="id-cliente">
             <button type="button" id="boton-editar">Editar</button>
             <br> <!---->
             <label>Usuario: </label>
@@ -392,7 +451,8 @@
             <input type="text" id="direccion" name="direccion">
             <button type="button" id="boton-editar">Editar</button>
             <br> <!---->
-            <label id="label-lista-sensores">Lista de sensores: </label> <button type="button" id="boton-editar">Editar</button>
+            <label id="label-lista-sensores">Lista de sensores: </label> <button type="button"
+                id="boton-editar">Editar</button>
             <ul id="lista-sensores">
                 <li>
                     <input type="checkbox" id="salinidad" name="salinidad" value="salinidad">
@@ -415,9 +475,9 @@
                     <label for="ph">pH</label>
                 </li>
             </ul>
-            
 
-            <label id="tamaño">Tamaño: </label> 
+
+            <label id="tamaño">Tamaño: </label>
             <button type="button" id="boton-editar">Editar</button>
             <div id="medidas">
                 <input type="text" id="Alto" name="Alto"> <label>X</label>
@@ -425,7 +485,7 @@
                 <input type="text" id="Largo" name="Largo">
             </div>
             <br> <!---->
-            <label>Notas: </label> <button type="button" id="boton-editar">Editar</button><br> 
+            <label>Notas: </label> <button type="button" id="boton-editar">Editar</button><br>
             <input type="text" id="notas" name="Notas"> <br>
             <label id="label-imagen">Imagen del huerto: </label> <br>
             <input type="file" id="imagen" name="imagen"><br>
