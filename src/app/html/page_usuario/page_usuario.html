@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Usuario</title>
     <link rel="stylesheet" type="text/css" href="../../css/page_usuario/estilos_page_usuario.css" />
+    <link rel="stylesheet" href="../../css/estilos_general.css">
 
 </head>
 <body>
@@ -15,16 +16,25 @@
 <!--Aqui finaliza el header-->
 
 <!--Aqui comienza la cabecera del usuario-->
+<section class="perfil">
+    <img src="../../../../images/concepcion.png" alt="Foto admin" class="foto-perfil">
 
+    <p id="datos">
+        Nombre de usuario: HectorAdmin <br>
+        Nombre y apellidos: Héctor Iglesias <br>
+        E-mail: hectigle@empresa.com <br>
+        Dirección: Carretera Sequia del Rei, 3, Bloque X 1ª Planta Puerta 2
+    </p>
+</section>
 <!--Aqui finaliza la cabecera del usuario-->
 
-<!--Aqui comienza la seccion de botones-->
+<!--Aqui comienza la seccion de botones del menu-->
 <div class="botones">
-    <button id="ver-huertos"><span>Ver huertos</span></button>
-    <button id="ajustes-perfil"><span> Ajustes perfil</span> </button>
-    <button id="boton-citas"><span> Citas</span></button>
+    <button id="boton_huertos"><span>Ver huertos</span></button>
+    <button id="boton_perfil"><span> Ajustes perfil</span> </button>
+    <button id="boton_citas"><span> Citas</span></button>
 </div>
-<!--Aqui finaliza la seccion de botones-->
+<!--Aqui finaliza la seccion de botones del menu-->
 
 <!--Aqui comienza la zona de huertos-->
 <section id="huertos">
@@ -34,29 +44,31 @@
             <option value="2">Huerto 2</option>
             <option value="3">Huerto 3</option>
         </select>
-        <button id="añadir-huerto"> Añadir huerto</button>
+        <button id="entrada"> Editar huerto</button>
     </section>
 
     <!--    Aqui comienza la seccion de editar huerto-->
-    <section id="editar-huerto">
-        <p class="editar huerto">
-        <img src="#" alt="Imagen huerto">
+   <dialog>
+    <section id="editar-huerto" class="seccion-oculta">
+        <button id="cancelar"><img src="boton_volver.png" alt="Volver"></button>
+        <p class="editar_huerto">
+        <img src="../../images/admin.png" alt="Imagen huerto">
+            <button>Adjuntar imagen</button>
         <label for="nombre_huerto">Nombre del huerto:</label>
         <input type="text" id="nombre_huerto">
         <label for="localizacion_huerto">Localizacion:</label>
         <input type="text" id="localizacion_huerto">
         </p>
 
-        <label for="fecha_huerto">Fecha de instalación:</label>
-        <input type="date" id="fecha_huerto">
-        <br>
-
+        <label>Fecha de instalación:</label>
+        <input type="text" id="fecha_huerto_dia">
+        <input type="text" id="fecha_huerto_meses">
+        <input type="text" id="fecha_huerto_año">
         <label for="notas_huerto">Notas:</label>
-        <p id="notas_huerto">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ducimus error necessitatibus nisi quidem quos reprehenderit sapiente similique totam voluptates. Ad consectetur deleniti eligendi eos et minus molestias optio quisquam.
-        </p>
+        <input id="notas_huerto">
+        <input type="submit" value="Guardar cambios" id="enviar">
     </section>
-
+   </dialog>
     <!--    Aqui finaliza la seccion de editar huerto-->
 
 
@@ -64,10 +76,10 @@
     <h2>Temperatura</h2>
     <div id="Temperatura">
         <img src="termometro.png" alt="Termometro">
-        <div class="circulo">22 ºC</div>
+        <div class="circulo"><span>22ºC</span></div>
         <div class="botones_gráficas">
             <button>Historial</button>
-            <button>Medidas actuales</button>
+            <button>Datos actuales</button>
         </div>
     </div>
     <!--    Aqui finaliza la seccion de medidor Tª-->
@@ -79,7 +91,7 @@
         <div class="circulo">80%</div>
         <div class="botones_gráficas">
             <button>Historial</button>
-            <button>Medidas actuales</button>
+            <button>Datos actuales</button>
         </div>
     </div>
     <!--    Aqui finaliza la seccion de medidor humedad-->
@@ -91,7 +103,7 @@
         <div class="circulo">pH= 7</div>
         <div class="botones_gráficas">
             <button>Historial</button>
-            <button>Medidas actuales</button>
+            <button>Datos actuales</button>
         </div>
     </div>
     <!--    Aqui finaliza la seccion de medidor pH-->
@@ -103,7 +115,7 @@
         <div class="circulo">80%</div>
         <div class="botones_gráficas">
             <button>Historial</button>
-            <button>Medidas actuales</button>
+            <button>Datos actuales</button>
         </div>
     </div>
     <!--    Aqui finaliza la seccion de medidor Luz -->
@@ -115,7 +127,7 @@
         <div class="circulo">60%</div>
         <div class="botones_gráficas">
             <button>Historial</button>
-            <button>Medidas actuales</button>
+            <button>Datos actuales</button>
         </div>
         <!--    Aqui finaliza la seccion de medidor sal -->
     </div>
@@ -129,28 +141,28 @@
     <section class="datos_usuario">
         <form action="#" method="post">
             <label for="usuario">Nombre de usuario:</label>
-            <input type="text" id="usuario" required>
+            <input type="text" id="usuario">
             <label for="nombre">Nombre:</label>
-            <br>
-            <input type="text" id="nombre" required>
-            <input type="text" id="apellidos" required>
+            <input type="text" id="nombre">
+            <input type="text" id="apellidos">
 
             <label for="email">Email:</label>
-            <input type="email" id="email" required>
+            <input type="email" id="email">
 
-            <label for="direccion">Direccion:</label>
+            <label for="direccion">Dirección:</label>
             <input type="text" id="direccion">
 
             <label for="contraseña">Cambiar contraseña:</label>
             <input type="text" id="contraseña">
 
-            <label class="switch">
-                <span></span>
-                <input type="checkbox">
-                <div class="slider round"></div>
-            </label>
+            <label for="notificaciones">Notificaciones</label>
+            <input type="checkbox" id="notificaciones">
             <br>
-            <input type="submit" label value="Aplicar cambios" id="cambios">
+            <input type="submit" value="Aplicar cambios" id="cambios_perfil">
+                <dialog id="dialogo_cambios_perfil">
+                    <p>Cambios realizados correctamente.</p>
+                    <button id="btn_aceptar">Aceptar</button>
+                </dialog>
         </form>
     </section>
 </section>
@@ -163,28 +175,33 @@
         <tr>
             <th>Fecha</th>
             <th>Hora</th>
-            <th></th>
-            <th></th>
+            <th>Aceptar/Rechazar</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td>1 de mayo, 2023</td>
             <td>14:30</td>
-            <td><button><img src="tick.png" alt="Aceptar"></button></td>
-            <td><button><img src="cross.png" alt="Rechazar"></button></td>
+            <td>
+                <button><img src="tick.png" alt="Aceptar"></button>
+                <button><img src="cross.png" alt="Rechazar"></button>
+            </td>
         </tr>
         <tr>
             <td>2 de mayo, 2023</td>
             <td>10:00</td>
-            <td><button><img src="tick.png" alt="Aceptar"></button></td>
-            <td><button><img src="cross.png" alt="Rechazar"></button></td>
+            <td>
+                <button><img src="tick.png" alt="Aceptar"></button>
+                <button><img src="cross.png" alt="Rechazar"></button>
+            </td>
         </tr>
         <tr>
             <td>3 de mayo, 2023</td>
             <td>16:45</td>
-            <td><button><img src="tick.png" alt="Aceptar"></button></td>
-            <td><button><img src="cross.png" alt="Rechazar"></button></td>
+            <td>
+                <button><img src="tick.png" alt="Aceptar"></button>
+                <button><img src="cross.png" alt="Rechazar"></button>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -193,44 +210,11 @@
 </body>
 
 </html>
-
-<script>
-    const verhuertos = document.getElementById("ver-huertos");
-    const botonaju = document.getElementById("ajustes-perfil");
-    const btncitas = document.getElementById("boton-citas");
-    const añadir= document.getElementById("añadir-huerto");
+<script src="../../js/page_usuario.js"></script>
 
 
-    const huertos = document.getElementById("huertos");
-    const ajustes = document.getElementById("ajustes-usuario");
-    const info = document.getElementById("editar-huerto");
-    const medidas=document.getElementById("mediciones");
-    const citas=document.getElementById("citas")
 
-    huertos.style.display = "none";
-    ajustes.style.display = "none";
-    info.style.display = "none";
-    citas.style.display = "block";
 
-    verhuertos.addEventListener("click", function() {
-        huertos.style.display = "block";
-        medidas.style.display="block"
-        ajustes.style.display = "none";
-        info.style.display = "none";
-        citas.style.display="none"
-    });
 
-    botonaju.addEventListener("click", function() {
-        huertos.style.display = "none";
-        ajustes.style.display = "block";
-        info.style.display = "none";
-        citas.style.display="none"
-    });
-    btncitas.addEventListener("click", function() {
-        huertos.style.display = "none";
-        ajustes.style.display = "none";
-        info.style.display = "none";
-        citas.style.display="block"
-    });
 
-</script>
+
