@@ -16,6 +16,7 @@ body {
   top: 0;
   left: 0;
   display: flex;
+  z-index:2
 }
 
 .nav {
@@ -190,10 +191,12 @@ body {
   }
   .nav-menu {
     flex-direction: column;
+    float: left;
     align-items: center;
     margin: 0;
     background-color: black;
     position: fixed;
+    overflow:hidden;
     top: 60px;
     width: 70%;
     opacity: 80%;

@@ -8,7 +8,7 @@ body{
     font-family: 'lato';
 }
 /*estilo contenedor general*/
-.slide-contenedor {
+.slide-contenedor-carrousel {
     margin-top: 25px;
     max-width: 100%;
     max-height: 250px;
