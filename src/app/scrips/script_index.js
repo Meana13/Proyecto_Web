@@ -6,7 +6,7 @@ function validarFormulario(event) {
         // aquí se añadirían los usuarios y contraseñas guardados en la carpeta "usuarios"
         admin: "1234",
         tecnico: "5678",
-        wanda: "1111",
+        usuario: "1234567890",
     };
     if (usuariosGuardados[usuario] === contrasenya) {
         window.location.href = "../../estilos_page_tecnico.css/src/app/html/page_usuario/page_usuario.html"; // redirecciona a la página de carga si el usuario y contraseña son correctos
