@@ -7,15 +7,72 @@
     <title>Page comercial</title>
     <link rel="stylesheet" href="../../css/page_comercial/estilos_page_comercial.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
-
-
-
+    <link rel="stylesheet" href="../../css/landing_page/footer.css">
+    <script src="../../scrips/page_comercial/grafica.js"></script>
+   
 </head>
 <body>
 <!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza el header-->
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
+    <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
+    <header class="header">
+        <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../../images/logoGTI.png" alt=""></a>
+        <div class="login-tab">
+            <a href="#" class="login-tab-icon"><img src="../../../../images/icono-usuario.svg" alt=""></a>
+        </div>
+
+
+
+        <div class="login-form-container">
+            <form class="login-form">
+                <h2>Iniciar sesión</h2>
+                <div class="form-group">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Iniciar sesión</button>
+                </div>
+            </form>
+        </div>
+
+
+
+
+
+        <nav class="nav">
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <!--div*3> + tabulador-->
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="#" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
     <!--Aquí acaba el header-->
 <!----------------------------------------------------------------------------------------------->
 
@@ -41,14 +98,14 @@
         <!--Aquí acaba la sección de perfil-comercial-->
 
         <!--Aquí empieza el menu-comercial-->
-        <nav id="menu-comercial">
+        <nav id="botones-perfil">
             <button class="boton-perfil" id="boton-solicitudes" onclick="mostrarSolicitudes()">SOLICITUDES</button>
             <button class="boton-perfil" id="boton-ventas" onclick="mostrarVentas()">VENTAS</button>
         </nav>
         <!--Aquí acaba el menu-comercial-->
 
         <!--Línea de separación:-->
-        <div></div>
+        <div id="divisor"></div>
 
     </section>
     <!--Aquí acaba la sección de usuario-comercial-->
@@ -60,9 +117,9 @@
 
         <!--Aquí empieza la sección de botones-solicitudes-->
         <section id="botones-solicitudes">
-            <button id="boton-solicitudes-pendientes" onclick="mostrarSolicitudesPendientes()">SOLICITUDES PENDIENTES</button>
-            <button id="boton-solicitudes-proceso" onclick="mostrarSolicitudesEnProceso()">SOLICITUDES EN PROCESO</button>
-            <button id="boton-solicitudes-finalizadas" onclick="mostrarSolicitudesFinalizadas()">SOLICITUDES FINALIZADAS</button>
+            <button id="boton-solicitudes-pendientes" onclick="mostrarContenidoEntreTres('boton-solicitudes-pendientes','boton-solicitudes-proceso','boton-solicitudes-finalizadas','solicitudes-pendientes', 'solicitudes-en-proceso', 'solicitudes-finalizadas')">SOLICITUDES PENDIENTES</button>
+            <button id="boton-solicitudes-proceso" onclick="mostrarContenidoEntreTres('boton-solicitudes-proceso','boton-solicitudes-pendientes','boton-solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes', 'solicitudes-finalizadas')">SOLICITUDES EN PROCESO</button>
+            <button id="boton-solicitudes-finalizadas" onclick="mostrarContenidoEntreTres('boton-solicitudes-finalizadas','boton-solicitudes-proceso','boton-solicitudes-pendientes','solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes')">SOLICITUDES FINALIZADAS</button>
         </section>
         <!--Aquí acaba la sección de botones-solicitudes-->
         <!---------------------------------------------------->
@@ -70,39 +127,42 @@
         <!---------------------------------------------------->
         <!--Aquí empieza la sección de solicitudes pendientes-->
         <section id="solicitudes-pendientes">
-            <h3>SOLICITUDES PENDIENTES</h3>
+
 
             <!--Aquí empieza el buscador de la tabla-->
-            <input class="buscador" id="buscador-pendientes" placeholder="Escribe lo que quieras buscar...">
-            <button onclick="buscarSolicitudesPendientes()">Buscar</button>
+            <div class="buscador">
+                <input id="buscador-pendientes" placeholder="Escribe lo que quieras buscar...">
+                <button onclick="buscarSolicitudesPendientes()">Buscar</button>
+            </div>
             <!--Aquí acaba el buscador de la tabla-->
 
-            <!--Aquí empieza el paginador-->
-            <div class="paginador" id="paginador-pendientes" >
-                <button onclick="cambiarPagina(1)">1</button>
-                <button onclick="cambiarPagina(2)">2</button>
-                <button onclick="cambiarPagina(3)">3</button>
+            <!--Aquí empieza el paginador de solicitudes pendientes-->
+            <div id="paginadorPendientes" class="paginador">
+                <button onclick="cambiarPaginaPaginadorPendientes(1)">1</button>
+                <button onclick="cambiarPaginaPaginadorPendientes(2)">2</button>
+                <button onclick="cambiarPaginaPaginadorPendientes(3)">3</button>
                 <span class="btn-input">
-                <button onclick="mostrarInput(this)">...</button>
-                <input type="number" value="1"
-                       onchange="cambiarPagina(this.value)"
-                       onblur="ocultarInput(this)" />
-                </span>
+			<button onclick="mostrarInput(this)">...</button>
+			<input type="number" value="1"
+                   onchange="cambiarPaginaPaginadorPendientes(this.value)"
+                   onblur="ocultarInput(this)" />
+		</span>
                 <button>n</button>
             </div>
-            <!--Aquí acaba el paginador-->
+            <!--Aquí acaba el paginador de solicitudes pendientes-->
+
 
             <!--Aquí empieza la tabla de solicitudes pendientes-->
             <table id="tabla-pendientes">
 
                 <!--Aquí empieza la cabecera de la tabla de solicitudes pendientes-->
                 <thead id="cabecera-tabla-solicitudes-pendientes">
-                    <tr>
-                        <th>ID</th>
-                        <th>E-MAIL</th>
-                        <th>NOMBRE</th>
-                        <th></th>
-                    </tr>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>APELLIDOS</th>
+                    <th>E-MAIL</th>
+                    <th></th>
+                </tr>
                 </thead>
                 <!--Aquí acaba la cabecera de la tabla de solicitudes pendientes-->
 
@@ -113,6 +173,7 @@
 
             </table>
             <!--Aquí acaba la tabla de solicitudes pendientes-->
+
         </section>
         <!--Aquí acaba la sección de solicitudes pendientes-->
 
@@ -121,27 +182,29 @@
         <!---------------------------------------------------->
         <!--Aquí empieza la sección de solicitudes en proceso-->
         <section id="solicitudes-en-proceso">
-            <h3>SOLICITUDES EN PROCESO</h3>
+
 
             <!--Aquí empieza el buscador de la tabla-->
-            <input class="buscador" id="buscador-proceso" placeholder="Escribe lo que quieras buscar...">
-            <button onclick="buscarSolicitudesEnProceso()">Buscar</button>
+            <div class="buscador">
+                <input id="buscador-proceso" placeholder="Escribe lo que quieras buscar...">
+                <button onclick="buscarSolicitudesEnProceso()">Buscar</button>
+            </div>
             <!--Aquí acaba el buscador de la tabla-->
 
-            <!--Aquí empieza el paginador-->
-            <div class="paginador" id="paginador-proceso" >
-                <button onclick="cambiarPagina(1)">1</button>
-                <button onclick="cambiarPagina(2)">2</button>
-                <button onclick="cambiarPagina(3)">3</button>
-                <span class="btn-input">
-                    <button onclick="mostrarInput(this)">...</button>
-                    <input type="number" value="1"
-                           onchange="cambiarPagina(this.value)"
-                           onblur="ocultarInput(this)" />
-                    </span>
-                <button>n</button>
+            <!--Aquí empieza el paginador de solicitudes en proceso-->
+            <div id="paginadorProceso" class="paginador">
+                <button onclick="cambiarPaginaPaginadorProceso(1)">1</button>
+                <button onclick="cambiarPaginaPaginadorProceso(2)">2</button>
+                <button onclick="cambiarPaginaPaginadorProceso(3)">3</button>
+            <span class="btn-input">
+                <button onclick="mostrarInput(this)">...</button>
+                <input type="number" value="1"
+                       onchange="cambiarPaginaPaginadorProceso(this.value)"
+                       onblur="ocultarInput(this)" />
+            </span>
+            <button>n</button>
             </div>
-            <!--Aquí acaba el paginador-->
+            <!--Aquí acaba el paginador de solicitudes en proceso-->
 
             <!--Aquí empieza la tabla de solicitudes en proceso-->
             <table id="tabla-proceso">
@@ -149,9 +212,9 @@
                 <!--Aquí empieza la cabecera de la tabla de solicitudes en proceso-->
                 <thead id="cabecera-tabla-solicitudes-proceso">
                 <tr>
-                    <th>ID</th>
-                    <th>E-MAIL</th>
                     <th>NOMBRE</th>
+                    <th>APELLIDOS</th>
+                    <th>E-MAIL</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -172,49 +235,52 @@
 
         <!---------------------------------------------------->
         <section id="solicitudes-finalizadas">
-            <h3>SOLICITUDES FINALIZADAS</h3>
+
 
             <!--Aquí empieza el buscador de la tabla-->
-            <input class="buscador" id="buscador-finalizadas" placeholder="Escribe lo que quieras buscar...">
-            <button onclick="buscarSolicitudesFinalizadas()">Buscar</button>
+            <div class="buscador">
+                <input  id="buscador-finalizadas" placeholder="Escribe lo que quieras buscar...">
+                <button onclick="buscarSolicitudesFinalizadas()">Buscar</button>
+            </div>
             <!--Aquí acaba el buscador de la tabla-->
 
-            <!--Aquí empieza el paginador-->
-            <div class="paginador" id="paginador-finalizadas" >
-                <button onclick="cambiarPagina(1)">1</button>
-                <button onclick="cambiarPagina(2)">2</button>
-                <button onclick="cambiarPagina(3)">3</button>
+            <!--Aquí empieza el paginador de solicitudes finalizadas-->
+            <div id="paginadorFinalizadas" class="paginador">
+                <button onclick="cambiarPaginaPaginadorFinalizadas(1)">1</button>
+                <button onclick="cambiarPaginaPaginadorFinalizadas(2)">2</button>
+                <button onclick="cambiarPaginaPaginadorFinalizadas(3)">3</button>
                 <span class="btn-input">
-                    <button onclick="mostrarInput(this)">...</button>
-                    <input type="number" value="1"
-                           onchange="cambiarPagina(this.value)"
-                           onblur="ocultarInput(this)" />
-                    </span>
+			<button onclick="mostrarInput(this)">...</button>
+			<input type="number" value="1"
+                   onchange="cambiarPaginaPaginadorFinalizadas(this.value)"
+                   onblur="ocultarInput(this)" />
+		</span>
                 <button>n</button>
             </div>
-            <!--Aquí acaba el paginador-->
+            <!--Aquí acaba el paginador de solicitudes finalizadas-->
 
-        <!--Aquí empieza la tabla de solicitudes finalizadas-->
-        <table id="tabla-finalizadas">
+            <!--Aquí empieza la tabla de solicitudes finalizadas-->
+            <table id="tabla-finalizadas">
 
-            <!--Aquí empieza la cabecera de la tabla de solicitudes finalizadas-->
-            <thead id="cabecera-tabla-solicitudes-finalizadas">
-            <tr>
-                <th>ID</th>
-                <th>E-MAIL</th>
-                <th>NOMBRE</th>
-                <th></th>
-            </tr>
-            </thead>
-            <!--Aquí acaba la cabecera de la tabla de solicitudes finalizadas-->
+                <!--Aquí empieza la cabecera de la tabla de solicitudes finalizadas-->
+                <thead id="cabecera-tabla-solicitudes-finalizadas">
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>APELLIDOS</th>
+                    <th>E-MAIL</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <!--Aquí acaba la cabecera de la tabla de solicitudes finalizadas-->
 
-            <!--Aquí empieza la tabla de solicitudes en finalizadas-->
-            <tbody id="tabla-solicitudes-finalizadas">
+                <!--Aquí empieza la tabla de solicitudes finalizadas-->
+                <tbody id="tabla-solicitudes-finalizadas">
 
-            </tbody>
+                </tbody>
 
-        </table>
-        <!--Aquí acaba la tabla de solicitudes en finalizadas-->
+            </table>
+            <!--Aquí acaba la tabla de solicitudes finalizadas-->
+
         </section>
         <!--Aquí acaba la sección de solicitudes finalizadas-->
 
@@ -229,34 +295,35 @@
 
         <!--Aquí empieza la sección de botones-ventas-->
         <section id="botones-ventas">
-            <button id="boton-lista-ventas" onclick="mostrarListaVentas()">VENTAS</button>
-            <button id="boton-graficas" onclick="mostrarGraficas()">GRÁFICAS</button>
+            <button id="boton-lista-ventas" onclick="mostrarListaVentas()">Ventas</button>
+            <button id="boton-graficas" onclick="mostrarGraficas()">Gráficas</button>
         </section>
         <!--Aquí acaba la sección de botones-solicitudes-->
 
         <!--Aquí empieza la sección lista-ventas-->
         <section id="lista-ventas">
 
-            <!--Aquí empieza el filtro de la tabla-->
-            <form class="filtro">
-                Busca por palabra clave o número: <input type="text">
-            </form>
-            <!--Aquí acaba el filtro de la tabla-->
+            <!--Aquí empieza el buscador de la tabla-->
+            <div class="buscador">
+                <input id="buscador-ventas" placeholder="Escribe lo que quieras buscar...">
+                <button onclick="buscarVentas()">Buscar</button>
+            </div>
+            <!--Aquí acaba el buscador de la tabla-->
 
-            <!--Aquí empieza el paginador-->
-            <div class="paginador" id="paginador-ventas" >
-                <button onclick="cambiarPagina(1)">1</button>
-                <button onclick="cambiarPagina(2)">2</button>
-                <button onclick="cambiarPagina(3)">3</button>
+            <!--Aquí empieza el paginador de ventas-->
+            <div id="paginadorVentas" class="paginador">
+                <button onclick="cambiarPaginaPaginadorVentas(1)">1</button>
+                <button onclick="cambiarPaginaPaginadorVentas(2)">2</button>
+                <button onclick="cambiarPaginaPaginadorVentas(3)">3</button>
                 <span class="btn-input">
-                <button onclick="mostrarInput(this)">...</button>
-                <input type="number" value="1"
-                       onchange="cambiarPagina(this.value)"
-                       onblur="ocultarInput(this)" />
-                </span>
+			        <button onclick="mostrarInput(this)">...</button>
+			        <input type="number" value="1"
+                   onchange="cambiarPaginaPaginadorVentas(this.value)"
+                   onblur="ocultarInput(this)" />
+		        </span>
                 <button>n</button>
             </div>
-            <!--Aquí acaba el paginador-->
+            <!--Aquí acaba el paginador de ventas-->
 
             <!--Aquí empieza la tabla de ventas-->
             <table>
@@ -264,46 +331,59 @@
                 <!--Aquí empieza la cabecera de la tabla de ventas-->
                 <thead id="cabecera-tabla-ventas">
                 <tr>
-                    <th>ID</th>
-                    <th>E-MAIL</th>
                     <th>NOMBRE</th>
+                    <th>APELLIDOS</th>
+                    <th>E-MAIL</th>
                     <th></th>
                 </tr>
                 </thead>
-                <!--Aquí acaba la cabecera de la tabla de solicitudes pendientes-->
+                <!--Aquí acaba la cabecera de la tabla de ventas-->
 
-                <!--Aquí empieza la tabla de solicitudes pendientes-->
+                <!--Aquí empieza la tabla de ventas-->
                 <tbody id="tabla-ventas">
 
                 </tbody>
 
             </table>
-            <!--Aquí acaba la tabla de solicitudes pendientes-->
+            <!--Aquí acaba la tabla de ventas-->
+
         </section>
         <!--Aquí acaba la sección de lista-ventas-->
 
         <!--Aquí empieza la sección de graficas-ventas-->
         <section id="graficas-ventas">
 
-            <select>
-                <option>Mes</option>
-                <option>Año</option>
-                <option>Importe</option>
+            <select id="selector-opciones-graficas" onchange="seleccionarOpcion()">
+                <option id="opcion-semana" value="semana">Semana</option>
+                <option id="opcion-dia" value="dia">Día</option>
+                <option id="opcion-mes" value="mes">Meses</option>
+                <option id="opcion-anio" value="anio">Años</option>
+
             </select>
-            <div class="chart-container">
 
-                <canvas id="chart">
+            <div id="chart-container-mes">
 
-                </canvas>
+                <canvas id="chart-mes"></canvas>
+
+            </div>
+            <div id="chart-container-anio">
+
+                <canvas id="chart-anio"></canvas>
+
+            </div>
+            <div id="chart-container-semana">
+
+                <canvas id="chart-semana"></canvas>
+
+            </div>
+            <div id="chart-container-dia">
+
+                <canvas id="chart-dia"></canvas>
 
             </div>
 
-
-
         </section>
         <!--Aquí acaba la sección de graficas-ventas-->
-
-
 
     </section>
     <!--Aquí acaba la sección de ventas-->
@@ -314,19 +394,48 @@
     <section id="ver-venta">
 
         <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
-        <h5>Venta #0001</h5>
-        <p>Id Cliente: <input value="#71908409"> </p>
-        <p>Dirección: <input value="C/ Cuba Nº13 4ºIzq"> </p>
-        <p>Productos vendidos:</p>
-        <ul>
-            <li>Productos vendidos</li>
-        </ul>
-
-        <button>VOLVER ATRÁS</button>
-
+        <div class="contenedor-datos">
+            <h3>Detalles de la venta</h3>
+            <p><b>Nombre:</b><span id="id-venta"></span></p>
+            <p><b>Apellidos:</b><span id="email-venta"></span></p>
+            <p><b>E-mail:</b><span id="nombre-venta"></span></p>
+            <p><b>Dirección:</b><span id="direccion-venta"></span></p>
+            <p><b>Productos vendidos:</b></p>
+            <ul  id="productos-vendidos">
+                <li>Producto 1</li>
+                <li>Producto 2</li>
+                <li>Producto 3</li>
+            </ul>
+            <button id="boton-volver-a-lista-ventas" onclick="volverAListaVentas()">VOLVER ATRÁS</button>
+        </div>
 
     </section>
     <!--Aquí acaba la sección ver venta-->
+<!----------------------------------------------------------------------------------------------->
+
+
+<!----------------------------------------------------------------------------------------------->
+<!--Aquí empieza la sección ver más-->
+<section id="ver-mas">
+
+    <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
+    <div class="contenedor-datos">
+        <h3>Detalles de la solicitud</h3>
+        <p><b>Nombre:</b> <span id="nombre-solicitud"></span></p>
+        <p><b>Apellidos:</b> <span id="apellidos-solicitud"></span></p>
+        <p><b>E-mail:</b><span id="email-solicitud"></span></p>
+        <p><b>Dirección:</b><span id="direccion-solicitud"></span></p>
+        <p><b>Solicitudes:</b></p>
+        <ul class="foco-de-detalle">
+            <li>E-mail 1</li>
+            <li>E-mail 2</li>
+            <li>E-mail 3</li>
+        </ul>
+        <button id="boton-volver-a-lista-solicitudes" >VOLVER ATRÁS</button>
+    </div>
+
+</section>
+<!--Aquí acaba la sección ver venta-->
 <!----------------------------------------------------------------------------------------------->
 
 
@@ -334,15 +443,26 @@
 
 <!----------------------------------------------------------------------------------------------->
 <!--Aquí empieza el footer-->
-
+<footer>
+    <div id="columnas">
+        <div id="columna-conocenos">
+            <h3 id="conocenos">conocenos</h3>
+            <a href="#">Quiénes somos</a>
+            <a href="#">Politica de privacidad</a>
+            <a href="#">Aviso legal</a>
+        </div>
+        <div id="columna-ayuda">
+            <h3 id="ayuda">ayuda</h3>
+            <a href="#">Contacto</a>
+            <a href="#">Pedir presupuesto</a>
+            <a href="#">Preguntas frecuentes</a>
+        </div>
+    </div>
+    <img src="../../../../images/logoGTI.png" id="logo">
+    <p id="copyright">©2023 gti Todos los derechos reservados</p>
+</footer>
     <!--Aquí acaba el footer-->
 <!----------------------------------------------------------------------------------------------->
-<script src="../../js/page_comercial.js"></script>
-
-
-
-
+<script src="../../scrips/page_comercial/page_comercial.js"></script>
 </body>
-
-
 </html>

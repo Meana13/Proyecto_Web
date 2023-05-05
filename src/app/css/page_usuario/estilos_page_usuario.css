@@ -1,164 +1,241 @@
+dialog {
+    margin: auto auto;
+    height: 50%;
+    width: 60%;
+}
 
-dialog::backdrop{
-    background-color: rgb(0,0,0,0.3);
+dialog::backdrop {
+    background-color: rgb(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
 }
 
-.botones{
-
-    margin: 5px auto;
-    display: flex;
-    justify-content: space-evenly;
-    flex:1 1 0;
-}
-.botones>button{
-
-    justify-content: space-around;
-    flex:1 1 0;
-    width: 110px;
-    height: 63px;
-    flex-direction: column;
-    background-color: #790050;
-    color: white;
-}
-.botones button span{
-    font-family:Arial,sans-serif;
+#cancelar {
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 0;
 }
 
-#botones_añadir_selección{
-    display: flex;
-    padding: 5px;
-    justify-content: space-around;
-
-}
-#botones_añadir_selección>#seleccionar_huerto{
-    width: 221px;
-    flex: 2 1 0;
-}
-#botones_añadir_selección>#entrada{
-    width: 106px;
-    flex: 1 1 0;
-    margin-left: 12px;
-    background-color: #790050;
-    color: white;
-}
-#pagina-anyadir{
-    width: 500px;
-    height: 300px;
-    margin: auto;
-}
-#pagina-anyadir>#editar-huerto{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-#adjuntar{
-    width: 95px;
-    height: 25px;
-    background-color: #790050;
-    color: white;
-    font-size: 11px;
-
-}
-#pagina-anyadir>#editar-huerto>#enviar{
-    align-self:flex-end;
-    width: 120px;
-    height: 48px;
-    flex: 1 0 0;
-    background-color: #790050;
-    color: white;
-    border-radius: 4px;
-    padding: 1%;
+#cancelar img{
+    margin-right: 15px;
+    padding-top: 3px;
 }
 
-#pagina-anyadir>#editar-huerto>#notas_huerto{
-    width: 223px;
-    height: 99px;
+#editar-huerto label, 
+#editar-huerto input{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-#mediciones{
-    width: 300px;
-    margin: auto;
+#fecha_huerto_dia,
+#fecha_huerto_mes,
+#fecha_huerto_año {
+    width: 40px;
 }
-#mediciones>h2{
+
+#enviar {
+    border-radius: 5px;
+    background-color: #9D4179;
+    border: 0;
+    color: #FFFFFF;
+    height: 35px;
+    width: 150px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 1em;
     display: flex;
     justify-content: center;
-    flex: 1 1 0;
+    margin-left: auto;
+    margin-right: 5%;
 }
-#mediciones div{
-    border: 1px solid black;
+
+#botones_añadir_selección {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#botones_añadir_selección #seleccionar_huerto {
+    width: 80%;
+    background-color: lightgray;
+}
+
+#botones_añadir_selección #entrada {
+    width: 15%;
+    background-color: #9D4179;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#mediciones {
+    margin-top: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10%;
+}
+
+#mediciones h2 {
+    text-align: center;
+    background-color: #FFF6ED;
+    padding-bottom: 15px;
+}
+
+#mediciones div {
+    width: 300px;
+    margin-bottom: 50px;
+    height: 200px;
     background-color: #9C4078;
 }
-#mediciones>div>.circulo{
+
+#mediciones div .circulo {
+    margin-top: 12px;
     width: 129px;
     height: 129px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 2px solid green;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-inline: auto;
     margin-bottom: 15px;
     background-color: #CAF982;
-    font-size: 33px;
 }
-#mediciones>div>.circulo>span{
 
+.datos_usuario {
+    width: 300px;
+    margin: 0 auto;
 }
-#mediciones>div>.botones_gráficas{
+
+.datos_usuario input {
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+#nombre,
+#apellidos {
+    width: 100px;
+}
+
+#nombre-apellidos {
+    display: flex;
+}
+
+#cambios_perfil {
+    border-radius: 5px;
+    background-color: #9D4179;
+    border: 0;
+    color: #FFFFFF;
+    height: 35px;
+    width: 150px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+#formulario-hoja-usuario label {
+    display: inline-block;
+    width: 40%;
+    text-align: left;
+}
+
+
+#icono-editar {
+    margin-left: 10px;
+    padding: 0;
+    border: 0;
+    position: relative;
+    top: 6px;
+}
+
+#mediciones div .botones_gráficas {
     height: 30px;
     display: flex;
     justify-content: center;
+    margin-bottom: 0;
 }
-#mediciones>div>.botones_gráficas>button{
+
+#mediciones div .botones_gráficas button {
     width: 50%;
-    flex: 1 1 0;
-    border: 1px solid black;
 }
 
-#ajustes-usuario{
-
+#mediciones img {
+    position: relative;
+    right: 120px;
 }
-#ajustes-usuario>.datos_usuario{
+
+/*CSS de ajustes usuario*/
+
+#ajustes-usuario>.datos_usuario {
     display: flex;
     align-items: center;
     padding: 4%;
 }
-#ajustes-usuario>.datos_usuario>form{
-    width:300px ;
+
+#ajustes-usuario>.datos_usuario>form {
+    width: 300px;
 }
 
 #ajustes-usuario>.datos_usuario>form>input {
-  display:flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
-#ajustes-usuario>.datos_usuario>form>#cambios{
+
+#ajustes-usuario>.datos_usuario>form>#cambios {
     alignment: right;
     margin-left: 400px;
     flex: 1 1 0;
 }
 
-#ajustes-usuario>.datos_usuario>form>label{
+#ajustes-usuario>.datos_usuario>form>label {
     width: 10px;
 }
 
 
 CSS Seccion citas
 
-#citas{
-
-}
-#citas>table{
+#citas>table {
     flex: 1 1 0;
     width: 100%;
     border: 1px solid black;
 }
-#citas>table>thead{
+
+#citas>table>thead {
     margin: auto;
 }
 
-#citas>table>tbody>tr>td>button{
-    margin: auto;
+#citas>table>tbody>tr>td {
+    justify-content: center;
 }
 
-
+.boton-aceptar-rechazar img {
+    width: 15px;
+    margin-right: 5px;
+}
+.boton-aceptar-rechazar {
+    border-radius: 5px;
+    background-color: #9D4179;
+    border: 0;
+    color: #FFFFFF;
+    height: 35px;
+    width: 110px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: .5em;
+    display: flex;
+    margin-bottom: 2px;
+}
