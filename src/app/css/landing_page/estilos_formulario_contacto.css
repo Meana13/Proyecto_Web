@@ -1,0 +1,74 @@
+#contact-form{
+    margin-top: 100px;
+
+}
+.form-group {
+    margin-bottom: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#titulo_contacto{
+    font-size: 30px;
+    text-align: center;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+#nombre {
+    width: 70%;
+}
+#apellidos {
+     width: 70%;
+ }
+#email{
+    width: 70%;
+}
+#section{
+    width: 70%;
+}
+#mensaje{
+    margin-left: 1px;
+    width: 70%;
+    height: 20vh;
+}
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+}
+input[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+.required:after {
+    content: " *";
+    color: red;
+}
+#boton_enviar_formulario {
+    background-color: #9D4179;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 0.5em;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1em;
+    margin-left: 58%;
+}
