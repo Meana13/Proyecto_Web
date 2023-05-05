@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -24,19 +24,15 @@
 
 
     <div class="login-form-container">
-        <form class="login-form">
-            <h2>Iniciar sesión</h2>
-            <div class="form-group">
-                <label for="username">Nombre de usuario:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Iniciar sesión</button>
-            </div>
+        <form class="fomulario_iniciar_sesion" onsubmit="validarFormulario(event)">
+            <label for="usuario">Nombre de usuario:</label><br>
+            <input type="text" id="usuario" name="usuario" required><br>
+            <label for="contrasenya">Contraseña:</label><br>
+            <input type="password" id="contrasenya" name="contrasenya" required><br>
+            <!--botón enviar-->
+            <button type="submit" class="boton-envio-form">Enviar</button>
+            <br>
+            <a id="olvidado-contrasena" href="app/html/landing_page/formulario_contacto.html">¿Has olvidado tu contraseña? <br> Pincha aquí para recuperarla.</a>
         </form>
     </div>
 
@@ -113,7 +109,6 @@
 
 
 </div>
-<script src="app/scrips/landing_page/carrousel.js"></script>
 <div id="contenedor_nuestros_valores">
     <h2 id="titulo_nuestros_valores">NUESTROS VALORES</h2>
     <div class="linea"></div>
@@ -225,7 +220,6 @@
     <img src="../../../../images/logoGTI.png" id="logo">
     <p id="copyright">©2023 gti Todos los derechos reservados</p>
 </footer>
-<script src="app/scrips/landing_page/"></script>
 
 </body>
 </html>

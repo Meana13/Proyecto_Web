@@ -115,34 +115,31 @@ body {
   z-index: 2;
 }
 
-.login-form {
+.fomulario_iniciar_sesion {
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.login-form h2 {
-  margin-top: 0;
-}
 
-.login-form .form-group {
-  margin-bottom: 10px;
-}
 
-.login-form label {
+
+
+.fomulario_iniciar_sesion label {
   display: block;
   margin-bottom: 5px;
 }
 
-.login-form input {
+.fomulario_iniciar_sesion input {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
+  margin-bottom: 10px;
 }
 
-.login-form button[type="submit"] {
+{
   background-color: #333;
   color: #fff;
   border: none;
@@ -150,6 +147,18 @@ body {
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
+}
+.fomulario_iniciar_sesion button[type="submit"] {
+  background-color: #9D4179;
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 0.5em;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 1em;
+  margin-left: 58%;
 }
 
 
