@@ -13,18 +13,20 @@
         align-content: center;
     }
     .container_productos{
+        padding-top: 50px;
         margin-top: 25px;
-        margin-bottom: 25px;
-        width: 100%;
+        width: 80%;
         margin: 0 auto;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        gap: 20px;
+        padding-bottom: 80px;
 
     }
     .vista_producto{
         border: 1px solid grey;
         background-color: #FFF6ED;
-        width: 300px;
+        width:30%;
     }
 
     .slider_vista .vista_producto{
@@ -41,11 +43,10 @@
 
 
     .vista_imagen{
-        width: 250px;
+        width: 80%;
         height: 250px;
         object-fit: cover;
         vertical-align: center;
-
         margin: 10px 25px;
         transition: 2s;
     }
@@ -123,20 +124,26 @@
         }
     }
 @media(max-width: 768px){
-
-
     .container_productos{
         display: flex;
         flex-direction: column;
-        padding-left: 10%;
-        width: 300px;
-        align-items: center;
     }
     .vista_parrafo p{
         font-size: 15px;
     }
     .vista_producto{
+        margin: 0 auto;
         margin-bottom: 20px;
+        width: 70%;
+    }
+
+    .vista_imagen {
+        width: 80%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        margin-left: 10%;
+        margin-bottom: 15px;
     }
 
 }

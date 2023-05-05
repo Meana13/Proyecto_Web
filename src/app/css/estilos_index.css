@@ -7,6 +7,18 @@ body{
 #contenedor_primera_visivilidad{
     height: 100vh;
 }
+
+#boton-contacto {
+    background-color: #9D4179;
+    border: 0;
+    padding: 20px;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
 #container_hero {
     margin-top: 80px;
     background-image: linear-gradient(to bottom, rgba(0,0,0,1),rgba(255,255,255,0)), url('../../../images/fonfo_hero.jpg');
@@ -65,90 +77,33 @@ h1,h2,h3,h4{
 }
 
 #nuestros_valores ul{
-    width: 50%
-    display: flex;
-    justify-content: space-between;
-}
-.lista_valores{
-    margin-left: 25%;
-    margin-top: 25px;
-    margin-bottom: 30px;
-    align-items: center;
-    border-radius: 25px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    margin-top: 50px;
     width: 50%;
-    list-style: none;
-    background-color: #CAF982;
+    display: flex;
+}
+
+.lista_valores{
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 10%;
+    margin-bottom: 80px;
 }
 .lista_valores li {
     width: 40%;
     float: right;
     display: flex;
     align-items: center;
-    padding-top: 15px;
-}
-.valor1{
-    margin-left: 50px;
-}
-.valor2{
-    margin-left: 10px;
-}
-.valor3{
-    margin-left: 50px;
-}
-.valor4{
-    margin-left: 10px;
-}
-.valor5{
-    margin-left: 250px;
+    padding-top: 20px;
 }
 
-
-.valor1 img{
-    margin-right: 10px;
-    max-width: 100%;
-    padding-left: 10px;
-}
-.valor2 img{
-     margin-right: 10px;
-     max-width: 100%;
-     padding-left: 0px;
- }
-.valor3 img{
-    margin-right: 10px;
-    max-width: 100%;
-    padding-left: 18px;
-}
-.valor4 img{
-    margin-right: 10px;
-    max-width: 100%;
-    padding-left: 0px;
-}
-.valor5 img{
-    margin-right: 10px;
-    max-width: 100%;
-    padding-left: 17px;
-}
-.valor1 p{
-    padding-left: 10px;
-}
-.valor2 p{
-    padding-left: 20px;
-}
-.valor3 p{
-     padding-left: 17px;
- }
-.valor4 p{
-    padding-left: 25px;
-}
-.valor5 p{
-    padding-left: 13px;
+.lista_valores li img {
+    width: 30px;
+    margin-right: 20px;
 }
 
-#boton_volver_arriba {
+#boton-volver-arriba {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
@@ -159,6 +114,8 @@ h1,h2,h3,h4{
     font-size: 1.2em;
     cursor: pointer;
     margin-top: 25px;
+    width: 200px;
+    text-align: center;
 }
 
 #boton_volver_arriba:hover {
@@ -208,71 +165,29 @@ h1,h2,h3,h4{
     }
 
     #nuestros_valores ul{
-        width: 300px;
+        margin-top: 50px;
+        width: 90%;
         display: flex;
-        justify-content: space-between;
     }
+    
     .lista_valores{
-        margin-left: 10%;
-        margin-top: 25px;
-        align-items: center;
-        border-radius: 25px;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        width: 80%;
-        list-style: none;
-        background-color: #CAF982;
+        margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 10%;
+        margin-bottom: 80px;
     }
     .lista_valores li {
-        width: 100%;
+        width: 80%;
         float: right;
         display: flex;
         align-items: center;
-        padding-top: 15px;
+        padding-top: 20px;
     }
-    .valor1{
-        margin-left: 20px;
-    }
-    .valor2{
-        margin-left: 20px;
-    }
-    .valor3{
-        margin-left: 20px;
-    }
-    .valor4{
-        margin-left: 20px;
-    }
-    .valor5{
-        margin-left: 20px;
-    }
-    .valor1 img{
-        margin-right: 17px;
-        max-width: 100%;
-        padding-left: 0px;
-    }
-
-    .valor2 img{
-        margin-right: 10px;
-        max-width: 100%;
-        padding-left: 2px;
-    }
-    .valor3 img{
-        margin-right: 16px;
-        max-width: 100%;
-        padding-left: 12px;
-    }
-    .valor4 img{
-        margin-right: 13px;
-        max-width: 100%;
-        padding-left: 5px;
-    }
-    .valor5 img{
+    
+    .lista_valores li img {
+        width: 30px;
         margin-right: 20px;
-        max-width: 100%;
-        padding-left: 10px;
     }
-
-
 }
