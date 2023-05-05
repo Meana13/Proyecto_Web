@@ -1,22 +1,22 @@
-function validar() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    if (usuario === "" || contrasena === "") {
-        alert("Por favor, ingrese el usuario y la contraseña");
-        return false;
+function validarFormulario(event) {
+    event.preventDefault(); // previene el envío del formulario por defecto
+    const usuario = document.getElementById("usuario").value;
+    const contrasenya = document.getElementById("contrasenya").value;
+    const usuariosGuardados = {
+        // aquí se añadirían los usuarios y contraseñas guardados en la carpeta "usuarios"
+        admin: "1234",
+        tecnico: "5678",
+        wanda: "1111",
+    };
+    if (usuariosGuardados[usuario] === contrasenya) {
+        window.location.href = "../../estilos_page_tecnico.css/src/app/html/page_usuario/page_usuario.html"; // redirecciona a la página de carga si el usuario y contraseña son correctos
     }
-    // Validación de usuarios y contraseñas
-    if (username === "usuario" && password === "1234567890") {
-        window.location = "../html/page_usuario/page_usuario.html"; // Redirige al usuario a la pagina de usuario
-    } else if (username === "admin" && password === "1234567890") {
-        window.location.href = "../html/page_admin/page_admin.html"; // Redirige al administrador a la pagina de administrador
-    }else if (username === "tecnico" && password === "1234567890") {
-        window.location.href = "../html/page_tecnico/page_tecnico.html"; // Redirige al tecnico a la página de tecnico
-    }else if (username === "comercial" && password === "1234567890") {
-        window.location.href = "../html/page_comercial/page_comercial.html"; // Redirige al comercial a la página  de comercial
-    } else {
-        alert("Usuario o contraseña incorrectos");
+    else {
+        const popup = document.getElementById("popup");
+        popup.style.display = "block"; // muestra el popup si el usuario y contraseña son incorrectos
+        const cerrarPopup = document.getElementById("cerrar-popup");
+        cerrarPopup.addEventListener("click", () => {
+            popup.style.display = "none"; // cierra el popup cuando se clica en el botón de cerrar
+        });
     }
-
 }
