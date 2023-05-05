@@ -1,12 +1,53 @@
 dialog {
     margin: auto auto;
     height: 50%;
-    width: 40%;
+    width: 60%;
 }
 
 dialog::backdrop {
     background-color: rgb(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
+}
+
+#cancelar {
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: 0;
+}
+
+#cancelar img{
+    margin-right: 15px;
+    padding-top: 3px;
+}
+
+#editar-huerto label, 
+#editar-huerto input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#fecha_huerto_dia,
+#fecha_huerto_mes,
+#fecha_huerto_año {
+    width: 40px;
+}
+
+#enviar {
+    border-radius: 5px;
+    background-color: #9D4179;
+    border: 0;
+    color: #FFFFFF;
+    height: 35px;
+    width: 150px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 5%;
 }
 
 #botones_añadir_selección {
@@ -49,10 +90,12 @@ dialog::backdrop {
 #mediciones div {
     width: 300px;
     margin-bottom: 50px;
+    height: 200px;
     background-color: #9C4078;
 }
 
 #mediciones div .circulo {
+    margin-top: 12px;
     width: 129px;
     height: 129px;
     border-radius: 50%;
@@ -63,6 +106,58 @@ dialog::backdrop {
     margin-inline: auto;
     margin-bottom: 15px;
     background-color: #CAF982;
+}
+
+.datos_usuario {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.datos_usuario input {
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+#nombre,
+#apellidos {
+    width: 100px;
+}
+
+#nombre-apellidos {
+    display: flex;
+}
+
+#cambios_perfil {
+    border-radius: 5px;
+    background-color: #9D4179;
+    border: 0;
+    color: #FFFFFF;
+    height: 35px;
+    width: 150px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+#formulario-hoja-usuario label {
+    display: inline-block;
+    width: 40%;
+    text-align: left;
+}
+
+
+#icono-editar {
+    margin-left: 10px;
+    padding: 0;
+    border: 0;
+    position: relative;
+    top: 6px;
 }
 
 #mediciones div .botones_gráficas {
@@ -76,8 +171,12 @@ dialog::backdrop {
     width: 50%;
 }
 
+#mediciones img {
+    position: relative;
+    right: 120px;
+}
+
 /*CSS de ajustes usuario*/
-#ajustes-usuario {}
 
 #ajustes-usuario>.datos_usuario {
     display: flex;
@@ -107,8 +206,6 @@ dialog::backdrop {
 
 CSS Seccion citas
 
-#citas {}
-
 #citas>table {
     flex: 1 1 0;
     width: 100%;
@@ -121,4 +218,24 @@ CSS Seccion citas
 
 #citas>table>tbody>tr>td {
     justify-content: center;
+}
+
+.boton-aceptar-rechazar img {
+    width: 15px;
+    margin-right: 5px;
+}
+.boton-aceptar-rechazar {
+    border-radius: 5px;
+    background-color: #9D4179;
+    border: 0;
+    color: #FFFFFF;
+    height: 35px;
+    width: 110px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: .5em;
+    display: flex;
+    margin-bottom: 2px;
 }

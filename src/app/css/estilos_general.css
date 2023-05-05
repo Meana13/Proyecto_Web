@@ -57,6 +57,10 @@ h3 {
     align-items: center;
 }
 
+button:hover {
+    background-color: #EA89C3;
+}
+
 #botones-perfil {
     display: flex;
     justify-content: center;

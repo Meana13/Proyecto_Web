@@ -112,22 +112,26 @@
         <!--    Aqui comienza la seccion de editar huerto-->
         <dialog>
             <section id="editar-huerto" class="seccion-oculta">
-                <button id="cancelar"><img src="boton_volver.png" alt="Volver"></button>
+                <button id="cancelar"><img src="../../../../images/icono-volver.svg" alt="Volver">Cancelar</button>
                 <p class="editar_huerto">
                     <img src="../../images/admin.png" alt="Imagen huerto">
-                    <button>Adjuntar imagen</button>
+                    <button>Adjuntar imagen</button><br>
                     <label for="nombre_huerto">Nombre del huerto:</label>
-                    <input type="text" id="nombre_huerto">
+                    <input type="text" id="nombre_huerto"><br>
                     <label for="localizacion_huerto">Localizacion:</label>
-                    <input type="text" id="localizacion_huerto">
+                    <input type="text" id="localizacion_huerto"><br>
                 </p>
 
                 <label>Fecha de instalación:</label>
                 <input type="text" id="fecha_huerto_dia">
-                <input type="text" id="fecha_huerto_meses">
+                <label>/</label>
+                <input type="text" id="fecha_huerto_mes">
+                <label>/</label>
                 <input type="text" id="fecha_huerto_año">
+                <br>
                 <label for="notas_huerto">Notas:</label>
                 <input id="notas_huerto">
+                <br>
                 <input type="submit" value="Guardar cambios" id="enviar">
             </section>
         </dialog>
@@ -137,8 +141,9 @@
         <section id="mediciones"> <!--    Aqui comienza la seccion de medidor Tª-->
             <div id="Temperatura">
                 <h2>Temperatura</h2>
-                <img src="termometro.png" alt="Termometro">
-                <div class="circulo"><span>22ºC</span></div>
+                <div class="circulo"><span>22ºC</span>
+                    <img src="../../../../images/icono_temperatura.svg " alt="Termometro">
+                </div>
                 <div class="botones_gráficas">
                     <button>Historial</button>
                     <button>Datos actuales</button>
@@ -149,8 +154,9 @@
             <!--    Aqui comienza la seccion de medidor humedad-->
             <div id="Humedad">
                 <h2>Humedad</h2>
-                <img src="medidorH.png" alt="Humedad">
-                <div class="circulo">80%</div>
+                <div class="circulo">80%
+                    <img src="../../../../images/icono_humedad.svg" alt="Humedad">
+                </div>
                 <div class="botones_gráficas">
                     <button>Historial</button>
                     <button>Datos actuales</button>
@@ -160,9 +166,10 @@
 
             <!--    Aqui comienza la seccion de medidor pH-->
             <div id="pH">
-            <h2>Nivel de pH</h2>
-                <img src="Sensor_pH.png" alt="Sensor pH">
-                <div class="circulo">pH= 7</div>
+                <h2>Nivel de pH</h2>
+                <div class="circulo">pH= 7
+                    <img src="../../../../images/icono_ph.svg" alt="Sensor pH">
+                </div>
                 <div class="botones_gráficas">
                     <button>Historial</button>
                     <button>Datos actuales</button>
@@ -172,9 +179,10 @@
 
             <!--    Aqui comienza la seccion de medidor Luz -->
             <div id="Luz">
-            <h2>Luminosidad</h2>
-                <img src="sensorLuz.png" alt="Luz">
-                <div class="circulo">80%</div>
+                <h2>Luminosidad</h2>
+                <div class="circulo">80%
+                    <img src="../../../../images/icono_luminosidad.svg" alt="Luz">
+                </div>
                 <div class="botones_gráficas">
                     <button>Historial</button>
                     <button>Datos actuales</button>
@@ -184,9 +192,10 @@
 
             <!--    Aqui comienza la seccion de medidor sal -->
             <div id="Sal">
-            <h2>Salinidad</h2>
-                <img src="medidor_sal.png" alt="Sal">
-                <div class="circulo">60%</div>
+                <h2>Salinidad</h2>
+                <div class="circulo">60%
+                    <img src="../../../../images/icono_salinidad.svg" alt="Sal">
+                </div>
                 <div class="botones_gráficas">
                     <button>Historial</button>
                     <button>Datos actuales</button>
@@ -205,8 +214,10 @@
                 <label for="usuario">Nombre de usuario:</label>
                 <input type="text" id="usuario">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre">
-                <input type="text" id="apellidos">
+                <div id="nombre-apellidos">
+                    <input type="text" id="nombre">
+                    <input type="text" id="apellidos">
+                </div>
 
                 <label for="email">Email:</label>
                 <input type="email" id="email">
@@ -237,7 +248,7 @@
                 <tr>
                     <th>Fecha</th>
                     <th>Hora</th>
-                    <th>Aceptar/Rechazar</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -245,24 +256,24 @@
                     <td>1 de mayo, 2023</td>
                     <td>14:30</td>
                     <td>
-                        <button><img src="tick.png" alt="Aceptar"></button>
-                        <button><img src="cross.png" alt="Rechazar"></button>
+                        <button class="boton-aceptar-rechazar"><img src="../../../../images/icono-aceptar.svg" alt="Aceptar">Aceptar</button>
+                        <button class="boton-aceptar-rechazar"><img src="../../../../images/icono-rechazar.svg" alt="Rechazar">Rechazar</button>
                     </td>
                 </tr>
                 <tr>
                     <td>2 de mayo, 2023</td>
                     <td>10:00</td>
                     <td>
-                        <button><img src="tick.png" alt="Aceptar"></button>
-                        <button><img src="cross.png" alt="Rechazar"></button>
+                        <button class="boton-aceptar-rechazar"><img src="../../../../images/icono-aceptar.svg" alt="Aceptar">Aceptar</button>
+                        <button class="boton-aceptar-rechazar"><img src="../../../../images/icono-rechazar.svg" alt="Rechazar">Rechazar</button>
                     </td>
                 </tr>
                 <tr>
                     <td>3 de mayo, 2023</td>
                     <td>16:45</td>
                     <td>
-                        <button><img src="tick.png" alt="Aceptar"></button>
-                        <button><img src="cross.png" alt="Rechazar"></button>
+                        <button class="boton-aceptar-rechazar"><img src="../../../../images/icono-aceptar.svg" alt="Aceptar">Aceptar</button>
+                        <button class="boton-aceptar-rechazar"><img src="../../../../images/icono-rechazar.svg" alt="Rechazar">Rechazar</button>
                     </td>
                 </tr>
             </tbody>
