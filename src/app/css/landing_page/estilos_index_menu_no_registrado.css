@@ -209,10 +209,9 @@ body {
     width: 70%;
     opacity: 80%;
     padding: 20px;
-    margin-left: 10px;
-    height: 400px;
+    margin-left: 30%;
+    height: 320px;
     overflow-y: auto;
-
     left: 100%;
     transition: right 0.3s;
   }
@@ -225,6 +224,11 @@ body {
     border-bottom: 1px solid white;
     border-left: none;
   }
+
+  .ponte_en_contacto{
+    border: none;
+  }
+
   .nav-menu-link {
     padding: 0px;
     border-radius: 3px;
