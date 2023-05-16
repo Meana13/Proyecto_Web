@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="../../css/page_admin/estilos_page_admin.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
+    <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
+    <script src="../../scrips/landing_page/control-acceso.js"></script>
+
 </head>
 
 <body>
-    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
-    <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
     <header class="header">
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
@@ -42,7 +44,8 @@
                     <a href="../landing_page/formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
+                    <!--<a href="../../../index.html" class="nav-menu-link nav-link">CERRAR SESIÓN</a>-->
+                    <button class="nav-menu-link nav-link" onclick="logout()">CERRAR SESIÓN</button>
                 </li>
             </ul>
         </nav>
