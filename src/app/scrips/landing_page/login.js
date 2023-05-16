@@ -1,26 +1,3 @@
-//---------------------------------------
-/*
-Clicar en icono del menú y que salga el formulario:
-*/
-//---------------------------------------
-
-// Obtenemos referencias al icono del menú (navToggle) y a los botones del menú (navMenu)
-
-//const navToggle = document.querySelector(".nav-toggle");
-//const navMenu = document.querySelector(".nav-menu");
-
-//Cuando hacemos click en el icono del menú, se activa la clase "nav-menu_visible", si ya está presente y hacemos click, se elimina.
-navToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("nav-menu_visible");
-
-//Si la clase nav-menú_visible está activa o inactiva cambia el aria-label del icono del menú.
-
-    if (navMenu.classList.contains("nav-menu_visible")) {
-        navToggle.setAttribute("aria-label", "Cerrar menú");
-    } else {
-        navToggle.setAttribute("aria-label", "Abrir menú");
-    }
-});
 
 //---------------------------------------
 /*
@@ -50,13 +27,11 @@ async function login(event) {
 
     // si el resultado de la petición es OK (i.e. código HTTP 200)
     if (respuesta.ok) {
-        // redirigimos a la página correspondiente
-        //location.href = 'app/scrips/landing_page/ejemplo.html';
-        const data = await respuesta.json(); // Recibir el JSON devuelto por PHP
 
-        // Hacer algo con los datos recibidos
-        console.log(data);
+        //obtenemos los datos que nos devuelve el servidor:
+        const data = await respuesta.json();
 
+        //según el rol del usuario que inicie sesión, se traslada a una página o a otra:
         if(data.rol === "usuario"){
             location.href = 'app/html/page_usuario/page_usuario.html';
         }
@@ -73,10 +48,9 @@ async function login(event) {
             location.href = 'app/html/page_tecnico/page_tecnico.html';
         }
 
-
-
-    } else {
-        // si no, mostramos un mensaje de error
+    }
+    // si el resultado de la petición no es ok, mostramos un mensaje de error
+    else {
         output.innerText = "Credenciales no válidas";
         output.classList.add("error");
     }
