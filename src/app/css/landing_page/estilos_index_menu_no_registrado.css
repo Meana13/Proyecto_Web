@@ -102,6 +102,7 @@ body {
   width: 40px;
   height: 40px;
 }
+
 .login-form-container {
   position: fixed;
   top: 0;
@@ -140,7 +141,7 @@ body {
 }
 
 
-.fomulario_iniciar_sesion button[type="submit"] {
+.fomulario_iniciar_sesion input[type="submit"] {
   background-color: #9D4179;
   color: #FFFFFF;
   font-family: Arial, sans-serif;
@@ -153,23 +154,24 @@ body {
   margin-left: 58%;
 }
 
-.login-form-container{
-  display:none;
+#olvidado-contrasena {
+  color: black;
 }
 
-.login-form-container.activo {
-  display: flex;
+#output {
+  opacity:0;
+  margin: 1rem 2rem 1rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  text-align: center;
+  transition: opacity .5s;
+  color:white;
 }
 
-
-
-
-
-
-
-
-
-
+#output.error {
+  opacity: 1;
+  background-color: #d92121;
+}
 
 
 /* MOBILE */
