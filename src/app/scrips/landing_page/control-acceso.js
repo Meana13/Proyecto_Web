@@ -2,8 +2,8 @@
     const respuesta = await fetch('../../../api/sesion/');
     if(respuesta.ok) {
         const data = await respuesta.json();
-        document.getElementById('user-name').innerText = data.nombre;
-        document.body.classList.remove("loading");
+        //document.getElementById('user-name').innerText = data.nombre;
+        //document.body.classList.remove("loading");
     } else {
         location.href = '../../../index.html';
     }

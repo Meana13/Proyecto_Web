@@ -47,14 +47,40 @@ async function login(event) {
         method: 'post',
         body: formData
     })
+
     // si el resultado de la petición es OK (i.e. código HTTP 200)
     if (respuesta.ok) {
         // redirigimos a la página correspondiente
-        location.href = 'app/scrips/landing_page/ejemplo.html';
+        //location.href = 'app/scrips/landing_page/ejemplo.html';
+        const data = await respuesta.json(); // Recibir el JSON devuelto por PHP
+
+        // Hacer algo con los datos recibidos
+        console.log(data);
+
+        if(data.rol === "usuario"){
+            location.href = 'app/html/page_usuario/page_usuario.html';
+        }
+
+        if(data.rol === "administrador"){
+            location.href = 'app/html/page_admin/page_admin.html';
+        }
+
+        if(data.rol === "comercial"){
+            location.href = 'app/html/page_comercial/page_comercial.html';
+        }
+
+        if(data.rol === "tecnico"){
+            location.href = 'app/html/page_tecnico/page_tecnico.html';
+        }
+
+
+
     } else {
         // si no, mostramos un mensaje de error
         output.innerText = "Credenciales no válidas";
         output.classList.add("error");
     }
 }
+
+
 
