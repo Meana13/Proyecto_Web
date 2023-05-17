@@ -1,56 +1,404 @@
-/*
-body {
-    background-color: #FFF6ED;
-    font-family: "Arial","Arial Helvetica", sans-serif;
+#ver-venta,
+#ver-mas,
+#ventas,
+#solicitudes-en-proceso,
+#solicitudes-finalizadas,
+#graficas-ventas,
+#chart-container-mes,
+#chart-container-anio,
+#chart-container-dia {
+    display: none;
 }
 
-#perfil-comercial{
-    border: 1px solid black;
-    margin: 0 auto;
-    height: 200px;
+
+/*----------------------------------BOTONES DE NAVEGACIÓN------------------------------------*/
+
+#botones-ventas, #botones-solicitudes {
+    width: 90%;
+    max-width: 2000px;
     display: flex;
+    margin: 0 auto;
+    justify-content: flex-start;
 }
-.foto-comercial div{
-    display:flex;
-    align-items: center;
+
+#botones-ventas button, #botones-solicitudes button{
+    flex: 1 1 0;
+    font: 1em Arial, sans-serif;
+    color: #000000;
+    background-color: #D7D7D7;
+    border: 0;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    padding: 1.2em;
+    max-width: 300px;
+}
+
+#botones-ventas button:hover, #botones-solicitudes button:hover {
+    color: #FFFFFF;
+    background-color: #9D4179;
+    font-weight: bold;
+}
+
+#botones-ventas button.activo, #botones-solicitudes button.activo {
+    color: #FFFFFF;
+    background-color: #790050;
+    font-weight: bold;
+}
+
+#boton-lista-ventas,#boton-graficas, #botones-solicitudes button{
+    border-radius: .5em .5em 0em 0em;
+}
+
+
+@media(max-width: 400px){
+    #botones-ventas{
+        justify-content: flex-start;
+    }
+
+    #botones-ventas button{
+        max-width: 100px;
+        font-size: 0.8em;
+    }
+
+    #botones-solicitudes button {
+        font-size: 0.7em;
+    }
+}
+
+/*----------------------------SECCIÓN TABLAS (SOLICITUDES Y VENTAS)------------------------------*/
+
+/*Buscador:*/
+.buscador {
+    width: 90%;
+    max-width: 2000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.buscador input {
+    flex: 2 1 0;
+    max-width: 500px;
+    padding: 10px;
+    margin: 0 10px 5px 0;
+    font-size: 1.2em;
+
+}
+.buscador button {
+    flex: 1 1 0;
+    max-width: 200px;
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+    border-radius: .5em;
+    background-color: #D7D7D7;
+}
+
+.buscador button:hover {
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #790050;
+}
+
+/*Versión mobile:*/
+@media(max-width: 400px) {
+
+    .buscador input {
+        padding: 2px;
+        margin: 0 5px 2px 0;
+        font-size: 0.9em;
+    }
+
+    .buscador button {
+        margin: 0 0 2px 0;
+        font-size: 0.9em;
+        border-radius: .5em;
+    }
+}
+
+/*Paginador:*/
+.paginador {
+    width: 90%;
+    max-width: 2000px;
+    margin: 10px auto;
+    display: flex;
     justify-content: center;
-}
-.foto-comercial img {
-    width: 110px;
-    height: 110px;
-    border-radius:55px;
-    border:1px solid #797979;
-    margin: 0 40px 0 0;
+
 }
 
-#datos-comercial{
-    line-height: 2;
-    font-size: 10px;
-    width: 200px;
-    height: 200px;
+.paginador button, .paginador input{
+    padding: 10px;
+    margin: 0 5px 0 5px;
+    font-size: 1.1em;
+    border-radius: .3em;
+    background-color: #D7D7D7;
+}
+
+.paginador button:hover {
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #790050;
+}
+
+.btn-input input {
+    max-width: 3em;
+    text-align: center;
+    display: none;
+}
+
+.btn-input.activo button {
+    display: none;
+}
+
+.btn-input.activo input {
+    display: initial;
+}
+
+/*Versión mobile:*/
+@media(max-width: 400px) {
+    .paginador button, .paginador input {
+        font-size: 0.9em;
+        padding: 7px;
+        margin: 0 6px 0 6px;
+    }
+}
+
+
+/*Tablas:*/
+
+table {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 2000px;
+    font-size: 1.3em;
+    text-align: center;
+}
+
+th {
+    padding: 10px;
+    background-color: #9D4179;
+    color: white;
+    font-weight: normal;
+}
+
+th:nth-of-type(4){
+    display:none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #a7a7a7;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #D7D7D7;
+}
+
+td {
+    padding: .2em 2em;
+}
+
+td:nth-of-type(4){
+     background-color: #FFF6ED;
+     border:none;
+     padding: 5px;
+ }
+td:nth-of-type(4) button{
+    background-color: #9D4179;
+    border-radius: 1em;
+    border: none;
+    padding: 15px 0;
+    width: 100%;
+    max-width: 200px;
+    min-width: 150px;
+    text-align: center;
+    color: white;
+    font-size: 0.8em;
+}
+
+td:nth-of-type(4) button:hover{
+    background-color: #790050;
+    font-weight: bold;
+}
+
+/*Versión mobile:*/
+@media(max-width: 400px) {
+    table {
+        font-size: 0.7em;
+    }
+    td {
+        padding: 0;
+    }
+    td:nth-of-type(4) button{
+        padding:10px 0;
+        width: 65px;
+        min-width: 40px;
+        font-size: 1em;
+    }
+}
+
+
+
+/*--------------------------------------SECCIÓN GRÁFICAS-----------------------------------------*/
+
+/*Selector de gráfica: */
+#selector-opciones-graficas {
+    background-color: #D7D7D7;
+    width: 90%;
+    max-width: 2000px;
+    padding: 0.8em;
+    display:block;
+    margin:0 auto;
     border: 1px solid black;
-    float: right;
-}
- */
-
-
-#ver-venta{
-    display: none;
+    font-size: 1.1em;
 }
 
-#ventas{
-    display:none;
+/*Gráficas:*/
+#chart-container-semana,
+#chart-container-mes,
+#chart-container-dia,
+#chart-container-anio {
+    background-color: #FFFFFF;
+    width: 89.8%;
+    max-width: 2000px;
+    margin: 0 auto;
+    height: 60em;
+    border: 1px solid black;
 }
 
-#solicitudes-en-proceso {
-    display: none;
+/*Formato mobile:*/
+@media(max-width: 400px){
+
+    #selector-opciones-graficas {
+        padding: .3em;
+        font-size: .9em;
+    }
+
+    #chart-container-semana,
+    #chart-container-mes,
+    #chart-container-dia,
+    #chart-container-anio {
+        height: 23em;
+    }
 }
 
-#solicitudes-finalizadas {
-    display: none;
+/*----------------------SECCIÓN PANTALLA DE DETALLES (VER MÁS Y VER VENTA)----------------------*/
+
+.contenedor-datos {
+    margin: 0 auto;
+    width: 60%;
+    max-width: 800px;
+    display:flex;
+    flex-direction: column;
 }
 
-#graficas-ventas {
-    display:none;
+.contenedor-datos h3{
+    align-self: center;
+    font-size: 2em;
+    margin: 0 0 30px 0;
 }
 
+.contenedor-datos p{
+    align-self: flex-start;
+    font-size: 1.5em;
+    margin: 20px;
+ }
+
+.contenedor-datos p span{
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 40px;
+}
+
+.foco-de-detalle {
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    min-height: 200px;
+    list-style: none;
+}
+
+.foco-de-detalle li {
+    padding: 10px;
+    margin: 1px;
+    border: 1px solid black;
+    background-color: #D7D7D7;
+    border-radius: .5em;
+    font-size: 1.2em;
+}
+
+.contenedor-datos button {
+    background-color: #9D4179;
+    max-width: 300px;
+    align-self: flex-end;
+    font-size: 1.2em;
+    padding: 10px;
+    margin: 40px;
+    border-radius: .5em;
+    color: white;
+}
+
+
+.contenedor-datos button:hover {
+    background-color: #790050;
+    font-weight: bold;
+}
+
+
+#productos-vendidos {
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    min-height: 200px;
+}
+
+#productos-vendidos li {
+    margin: 30px;
+    font-size: 1.2em;
+}
+
+/*Formato mobile:*/
+@media(max-width: 400px){
+    .contenedor-datos {
+        width: 90%;
+    }
+
+    .contenedor-datos h3{
+        font-size: 1.3em;
+        margin:0 0 15px 0;
+    }
+
+    .contenedor-datos p{
+        font-size: 1em;
+    }
+
+    .contenedor-datos p span{
+        padding: 6px;
+        margin: 30px;
+    }
+
+    .foco-de-detalle {
+        width: 90%;
+    }
+
+    .foco-de-detalle li {
+        padding: 7px;
+        font-size: 1em;
+    }
+
+    #productos-vendidos {
+        width: 90%;
+        padding: 10px;
+        min-height: 200px;
+    }
+
+    #productos-vendidos li {
+        font-size: 1em;
+    }
+
+    .contenedor-datos button {
+        font-size: 1em;
+        padding: 10px;
+        margin: 10px;
+    }
+}

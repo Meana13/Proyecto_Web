@@ -1,0 +1,43 @@
+h3 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#ficha-producto {
+    width: 60%;
+    margin: 30px auto;
+}
+
+#ficha-producto img {
+    width: 60%;
+    display: block;
+    margin: auto;
+}
+
+#ficha-producto p {
+    margin-top: 40px;
+    border: 1px solid black;
+    background-color: white;
+    padding: 1em;
+    margin-bottom: 30px;
+}
+
+#ficha-producto a {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #9D4179;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    border: 0;
+    border-radius: 0.5em;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 1em;
+}
+
+@media (max-width: 768px) {
+    #ficha-producto img {
+        width: 70%;
+    }
+}

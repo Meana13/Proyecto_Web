@@ -7,6 +7,7 @@ html {
     font-family: "Arial", "Arial Helvetica", sans-serif;
 }
 
+
 label {
     font-family: Arial, sans-serif;
 }
@@ -35,7 +36,7 @@ h3 {
 }
 
 .perfil {
-    margin-top: 5%;
+    margin-top: 10%;
     display: flex;
     margin-left: 10%;
     margin-bottom: 20px;
@@ -54,6 +55,10 @@ h3 {
     margin-right: 30px;
     line-height: 2;
     align-items: center;
+}
+
+button:hover {
+    background-color: #EA89C3;
 }
 
 #botones-perfil {
@@ -116,6 +121,18 @@ th:last-child,
 td:last-child {
     background-color: transparent;
     border: none;
+}
+
+#quienes-somos {
+    font-size: 25px;
+    margin-top: 100px;
+    text-align: center;
+}
+
+#texto-quienes-somos {
+    width: 80%;
+    margin: 0 auto;
+    height: 100vh;
 }
 
 /*\ ---------------- MOVIL -----------------\*/

@@ -5,7 +5,6 @@
 
 body {
   font-family: sans-serif;
-  padding: 90px 20px 0;
 }
 
 .header {
@@ -16,6 +15,7 @@ body {
   top: 0;
   left: 0;
   display: flex;
+  z-index:2
 }
 
 .nav {
@@ -115,41 +115,42 @@ body {
   z-index: 2;
 }
 
-.login-form {
+.fomulario_iniciar_sesion {
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.login-form h2 {
-  margin-top: 0;
-}
 
-.login-form .form-group {
-  margin-bottom: 10px;
-}
 
-.login-form label {
+
+
+.fomulario_iniciar_sesion label {
   display: block;
   margin-bottom: 5px;
 }
 
-.login-form input {
+.fomulario_iniciar_sesion input {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
+  margin-bottom: 10px;
 }
 
-.login-form button[type="submit"] {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
+
+.fomulario_iniciar_sesion button[type="submit"] {
+  background-color: #9D4179;
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 0.5em;
   font-size: 16px;
-  cursor: pointer;
+  font-weight: bold;
+  padding: 1em;
+  margin-left: 58%;
 }
 
 
@@ -170,7 +171,7 @@ body {
 /* MOBILE */
 @media (max-width: 768px) {
   body {
-    padding-top: 70px;
+    padding-top: 60px;
   }
 
   .header {
@@ -190,18 +191,19 @@ body {
   }
   .nav-menu {
     flex-direction: column;
+    float: left;
     align-items: center;
     margin: 0;
     background-color: black;
     position: fixed;
+    overflow:hidden;
     top: 60px;
     width: 70%;
     opacity: 80%;
     padding: 20px;
-    margin-left: 10px;
-    height: 400px;
+    margin-left: 30%;
+    height: 320px;
     overflow-y: auto;
-
     left: 100%;
     transition: right 0.3s;
   }
@@ -214,6 +216,11 @@ body {
     border-bottom: 1px solid white;
     border-left: none;
   }
+
+  .ponte_en_contacto{
+    border: none;
+  }
+
   .nav-menu-link {
     padding: 0px;
     border-radius: 3px;
