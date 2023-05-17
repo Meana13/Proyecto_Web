@@ -18,7 +18,8 @@
     <header class="header">
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
         <div class="login-tab">
-            <a href="page_usuario.html" class="login-tab-icon"><img src="../../../images/icono-usuario.svg" alt=""></a>
+            <img src="../../../images/victoria.png" alt=""></a>
+            <label>VictoriaGue</label>
         </div>
         <nav class="nav">
             <button class="nav-toggle" aria-label="Abrir menú">
@@ -29,16 +30,13 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <a href="../landing_page/quienes_somos.html" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                    <button type="button" class="boton_menu" id="boton_huertos">ver huertos</button>    
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html#titulo_nuestros_productos" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
+                    <button type="button" class="boton_menu" id="boton_citas">citas</button>    
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../landing_page/faqs.html" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="../landing_page/formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
+                    <button type="button" class="boton_menu" id="boton_perfil">ajustes perfil</button>    
                 </li>
                 <li class="nav-menu-item">
                     <a href="../../../index.html" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
@@ -49,33 +47,11 @@
     </header>
     <!--Aqui finaliza el header-->
 
-    <!--Aqui comienza la cabecera del usuario-->
-    <section class="perfil">
-        <img src="../../../images/concepcion.png" alt="Foto admin" class="foto-perfil">
-
-        <p id="datos">
-            Nombre de usuario: HectorAdmin <br>
-            Nombre y apellidos: Héctor Iglesias <br>
-            E-mail: hectigle@empresa.com <br>
-            Dirección: Carretera Sequia del Rei, 3, Bloque X 1ª Planta Puerta 2
-        </p>
-    </section>
-    <!--Aqui finaliza la cabecera del usuario-->
-
-    <!--Aqui comienza la seccion de botones del menu-->
-    <nav id="botones-perfil">
-        <button id="boton_huertos" class="boton-perfil">Ver huertos</button>
-        <button id="boton_perfil" class="boton-perfil">Ajustes perfil</button>
-        <button id="boton_citas" class="boton-perfil">Citas</button>
-    </nav>
-    <!--Aqui finaliza la seccion de botones del menu-->
-
-    <!-- DIVISOR -->
-    <div id="divisor"></div>
-    <!---->
-
+    
     <!--Aqui comienza la zona de huertos-->
     <section id="huertos">
+        <h2>HUERTOS</h2>
+
         <section id="botones_añadir_selección">
             <select id="seleccionar_huerto">
                 <option value="1">Huerto 1</option>
@@ -88,7 +64,7 @@
         <!--    Aqui comienza la seccion de editar huerto-->
         <dialog>
             <section id="editar-huerto" class="seccion-oculta">
-                <button id="cancelar"><img src="../../../images/icono-volver.svg" alt="Volver">Cancelar</button>
+                <button id="cancelar"><img src="../../../images/icono-.svg" alt="Volver">Cancelar</button>
                 <p class="editar_huerto">
                     <img src="../images/admin.png" alt="Imagen huerto">
                     <button>Adjuntar imagen</button><br>
@@ -185,6 +161,7 @@
 
     <!--    Aqui comienza la seccion de ajustes de perfil -->
     <section id="ajustes-usuario">
+        <h2>AJUSTES DE PERFIL</h2>
         <section class="datos_usuario">
             <form action="#" method="post">
                 <label for="usuario">Nombre de usuario:</label>
@@ -219,6 +196,7 @@
 
     <!--Aqui comienza la seccion de citas-->
     <section id="citas">
+        <h2>CITAS</h2>
         <table>
             <thead>
                 <tr>

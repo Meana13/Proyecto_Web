@@ -16,9 +16,10 @@ body {
   top: 0;
   left: 0;
   display: flex;
-  z-index: 2;
-  display: flex;
-  justify-content: space-evenly;
+}
+
+nav.nav {
+  margin: 0 auto;
 }
 
 .nav-link {
@@ -197,6 +198,10 @@ button.boton_menu {
     padding: 5px;
     padding-bottom: 10px;
     height: 45px;
+  }
+
+  nav.nav {
+    margin: 0;
   }
 
   .login-tab {
