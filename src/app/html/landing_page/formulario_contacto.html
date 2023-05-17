@@ -30,7 +30,7 @@
       <header><h2>Iniciar Sesión</h2></header>
       <button class="boton-cerrar-formulario" onclick="document.getElementById('login').style.display = 'none'">Cerrar</button>
       <label for="nombre">Nombre de usuario:</label><br>
-      <input type="text" name="nombre" required><br>
+      <input type="text" id="nombre" name="nombre" required><br>
 
       <label for="password">Contraseña:</label><br>
       <input type="password" id="password" name="password" required><br>
@@ -75,11 +75,11 @@
 </header>
 
 
-<form id="contact-form">
+<form id="contact-form" action="../../../index.html">
   <p id="titulo_contacto">Ponte en Contacto</p>
   <div class="form-group">
     <label for="nombre">Nombre:<span class="required"></span></label>
-    <input type="text" id="nombre" name="name" required>
+    <input type="text" id="name" name="name" required>
   </div>
   <div class="form-group">
     <label for="apellidos">Apellidos:<span class="required"></span></label>
@@ -103,14 +103,15 @@
     <label for="mensaje">Mensaje:<span class="required"></span></label>
     <textarea id="mensaje" name="message" required></textarea>
   </div>
-  <a href="../../../index.html" id="boton_enviar_formulario">Enviar</a>
+
+  <button type="submit" id="boton_enviar_formulario">Enviar</button>
 </form>
 
 <!--Aquí empieza el mensaje de "se ha enviado el formulario correctamente"-->
-<div id="dialog-container">
+<div id="dialog-container" >
   <div id="dialog-correcto">
     <p>¡Se ha enviado correctamente el formulario!</p>
-    <a href=../../../index.html class="boton-cerrar-formulario">Aceptar</a>
+    <a href=../../../index.html class="boton-cerrar-dialogo">Aceptar</a>
   </div>
 </div>
 

@@ -72,3 +72,33 @@ input[type="submit"]:hover {
     padding: 1em;
     margin-left: 58%;
 }
+
+/*
+    ===============================================
+    ESTILOS DIALOGO "¡Se ha enviado correctamente!"
+    ===============================================
+                                                    */
+
+#dialog-container{
+    display:none;
+    position:absolute;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.4);
+}
+
+#dialog-correcto{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+
+.boton-cerrar-dialogo {
+    color:black;
+}
+
+

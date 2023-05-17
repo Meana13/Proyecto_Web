@@ -187,6 +187,13 @@ button.boton_menu {
 }
 
 
+#menu-usuario-registrado,
+#header-admin,
+#header-comercial,
+#header-tecnico{
+  display:none;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   body {

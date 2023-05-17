@@ -2,6 +2,7 @@
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         session_start();
+
         if(!isset($_SESSION['user'])) {
             http_response_code(401);
         } else {
@@ -10,6 +11,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE');
             header('Content-Type: application/json; charset=utf-8');
             echo json_encode($_SESSION ['user']);
+
         }
         break;
     case 'POST':
