@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let botonActivo = botonCitas;
     let secActiva = secCitas;
-    botonCitas.style.backgroundColor = "#790050";
 
     botonCitas.addEventListener("click", () => {
         secActiva.style.display = "none";
