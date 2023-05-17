@@ -5,6 +5,7 @@
 
 body {
   font-family: sans-serif;
+  margin-top: 100px;
 }
 
 .header {
@@ -15,14 +16,9 @@ body {
   top: 0;
   left: 0;
   display: flex;
-  z-index:2
-}
-
-.nav {
+  z-index: 2;
   display: flex;
-  justify-content: space-between;
-  max-width: 992px;
-  margin: 0 auto;
+  justify-content: space-evenly;
 }
 
 .nav-link {
@@ -32,31 +28,28 @@ body {
 
 .logo {
   height: 60px;
-  padding: 10px ;
+  padding: 10px;
   line-height: 80px;
 }
-.boto_usuario{
-  position: absolute;
-  margin-top: 1%;
-  margin-left:85%;
-}
+
 .nav-menu {
   display: flex;
-  margin-right: 40px;
+  margin-right: 120px;
   list-style: none;
   align-items: center;
   text-align: center;
+  margin-top: 1.5em;
 }
 
 .nav-menu-item {
   font-size: 18px;
-  padding:0 20px;
-
+  padding: 0 20px;
   text-transform: uppercase;
-  border-left:1px solid white ;
+  border-left: 1px solid white;
 }
-.nav-menu-item:nth-child(1){
-  border-left:none;
+
+.nav-menu-item:nth-child(1) {
+  border-left: none;
 }
 
 .nav-menu-link {
@@ -69,6 +62,7 @@ body {
   background-color: #034574;
   transition: 0.5s;
 }
+
 .nav-toggle {
   width: 4.5em;
   height: 4.5em;
@@ -84,6 +78,14 @@ body {
   transition: .5s;
 }
 
+button.boton_menu {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 18px;
+}
 
 
 /* TOGGLE */
@@ -93,15 +95,26 @@ body {
 }
 
 .login-tab {
-  padding-top: 5px;
   position: absolute;
-  margin-left: 95%;
-  margin-top: 0.75%;
+  right: 10px;
+  margin-top: .80em;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  align-items: center;
+  right: 40px;
+  height: 30px;
 }
-.login-tab-icon img{
+
+.login-tab img {
   width: 40px;
   height: 40px;
+  border-radius: 100%;
+  border: 2px solid white;
+  margin-bottom: .25em;
 }
+
 .login-form-container {
   position: fixed;
   top: 0;
@@ -171,24 +184,41 @@ body {
 /* MOBILE */
 @media (max-width: 768px) {
   body {
-    padding-top: 60px;
+    margin-top: 80px;
   }
 
   .header {
     height: 60px;
+    display: flex;
+    justify-content: space-between;
   }
-  .logo{
-    height: 50px;
+
+  .logo {
+    padding: 5px;
+    padding-bottom: 10px;
+    height: 45px;
   }
+
   .login-tab {
     position: absolute;
-    margin-left: 70%;
-    margin-top: 2.5%;
-  }
-  .login-tab-icon img{
-    width: 30px;
+    right: 120px;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    align-items: center;
+    right: 60px;
     height: 30px;
+    margin-top: 15px;
   }
+
+  .login-tab img {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border-radius: 100%;
+    border: 2px solid white;
+  }
+
   .nav-menu {
     flex-direction: column;
     float: left;
@@ -196,13 +226,13 @@ body {
     margin: 0;
     background-color: black;
     position: fixed;
-    overflow:hidden;
+    overflow: hidden;
     top: 60px;
     width: 70%;
     opacity: 80%;
     padding: 20px;
     margin-left: 30%;
-    height: 320px;
+    height: fit-content;
     overflow-y: auto;
     left: 100%;
     transition: right 0.3s;
@@ -211,13 +241,14 @@ body {
   .nav-menu-item {
     text-align: center;
     width: 100%;
-    padding: 0 50px;
-    line-height: 35px;
+    line-height: 20px;
     border-bottom: 1px solid white;
     border-left: none;
+    font-size: 18px;
+    padding: 15px 0;
   }
 
-  .ponte_en_contacto{
+  .ponte_en_contacto {
     border: none;
   }
 
@@ -235,14 +266,9 @@ body {
 
   .nav-toggle {
     display: block;
-    align-items:flex-end;
-    position: relative;
-    margin-left: 180px;
   }
 
   .nav-menu_visible {
     left: 0;
   }
-
-
 }
