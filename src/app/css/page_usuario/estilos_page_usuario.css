@@ -1,3 +1,7 @@
+:root {
+    --principal: #9D4179;
+}
+
 h2 {
     text-align: center;
     margin-bottom: 30px;
@@ -5,7 +9,7 @@ h2 {
 
 dialog {
     margin: auto auto;
-    height: 50%;
+    height: fit-content;
     width: 60%;
 }
 
@@ -18,11 +22,14 @@ dialog::backdrop {
     margin-bottom: 20px;
     background-color: transparent;
     border: 0;
+    display: flex;
+    align-items: center;
 }
 
 #cancelar img {
     margin-right: 15px;
     padding-top: 3px;
+    width: 20px;
 }
 
 #editar-huerto label, 
@@ -32,14 +39,17 @@ dialog::backdrop {
 }
 
 #fecha_huerto_dia,
-#fecha_huerto_mes,
+#fecha_huerto_mes {
+    width: 30px;
+}
+
 #fecha_huerto_año {
     width: 40px;
 }
 
 #enviar {
     border-radius: 5px;
-    background-color: #9D4179;
+    background-color: var(--principal);
     border: 0;
     color: #FFFFFF;
     height: 35px;
@@ -69,49 +79,11 @@ dialog::backdrop {
 
 #botones_añadir_selección #entrada {
     width: 15%;
-    background-color: #9D4179;
+    background-color: var(--principal);
     color: white;
     border: 0;
     border-radius: 5px;
     padding: 5px;
-}
-
-#mediciones {
-    margin-top: 50px;
-    margin-left: 15%;
-    margin-right: 15%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10%;
-}
-
-#mediciones h2 {
-    text-align: center;
-    background-color: #FFF6ED;
-    padding-bottom: 15px;
-    margin-bottom: 0;
-}
-
-#mediciones div {
-    width: 300px;
-    margin-bottom: 50px;
-    height: 200px;
-    background-color: #9C4078;
-}
-
-#mediciones div .circulo {
-    margin-top: 12px;
-    width: 129px;
-    height: 129px;
-    border-radius: 50%;
-    border: 2px solid green;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-inline: auto;
-    margin-bottom: 15px;
-    background-color: #CAF982;
 }
 
 .datos_usuario {
@@ -135,7 +107,7 @@ dialog::backdrop {
 
 #cambios_perfil {
     border-radius: 5px;
-    background-color: #9D4179;
+    background-color: var(--principal);
     border: 0;
     color: #FFFFFF;
     height: 35px;
@@ -157,7 +129,6 @@ dialog::backdrop {
     text-align: left;
 }
 
-
 #icono-editar {
     margin-left: 10px;
     padding: 0;
@@ -166,10 +137,45 @@ dialog::backdrop {
     top: 6px;
 }
 
+#mediciones {
+    margin-top: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10%;
+}
+
+#mediciones h2 {
+    text-align: center;
+    background-color: #FFF6ED;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+}
+
+#mediciones img {
+    width: 30px;
+    margin-left: 20px;
+    height: fit-content;
+}
+
+#mediciones div .circulo {
+    margin: 20px 0;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 30px;
+}
+
 #mediciones div .botones_gráficas {
     height: 30px;
     display: flex;
-    justify-content: center;
     margin-bottom: 0;
 }
 
@@ -177,15 +183,26 @@ dialog::backdrop {
     width: 50%;
 }
 
-#mediciones img {
-    position: relative;
-    right: 120px;
+#caja-medicion {
+    width: 300px;
+    height: 170px;
+    background-color: var(--principal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 0%;
+}
+
+#espacio-vacio {
+    width: 50px;
 }
 
 /*CSS de ajustes usuario*/
 
 #ajustes-usuario>.datos_usuario {
     display: flex;
+    justify-content: center;
+    gap: 0px;
     align-items: center;
     padding: 4%;
 }
@@ -200,7 +217,6 @@ dialog::backdrop {
 }
 
 #ajustes-usuario>.datos_usuario>form>#cambios {
-    alignment: right;
     margin-left: 400px;
     flex: 1 1 0;
 }
@@ -210,7 +226,7 @@ dialog::backdrop {
 }
 
 
-CSS Seccion citas
+/* CSS Seccion citas */
 
 #citas>table {
     flex: 1 1 0;
@@ -232,7 +248,7 @@ CSS Seccion citas
 }
 .boton-aceptar-rechazar {
     border-radius: 5px;
-    background-color: #9D4179;
+    background-color: var(--principal);
     border: 0;
     color: #FFFFFF;
     height: 35px;
