@@ -14,6 +14,7 @@ async function logout() {
         method: 'delete'
     });
     if(respuesta.ok) {
+        sessionStorage.clear();
         location.href = '../../../index.html';
     }
 }
