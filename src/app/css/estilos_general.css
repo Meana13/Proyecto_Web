@@ -114,5 +114,8 @@ td:last-child {
         margin: 0 auto;
         margin-top: 1em;
         border-collapse: collapse;
+        font-size: 1em;
     }
+
+    
 }
