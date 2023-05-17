@@ -10,6 +10,10 @@
     display: none;
 }
 
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
 /*----------------------------------BOTONES DE NAVEGACIÓN------------------------------------*/
 
@@ -221,9 +225,18 @@ td:nth-of-type(4) button:hover{
 }
 
 /*Versión mobile:*/
+@media (max-width: 768px) {
+    td:nth-of-type(4) button{
+        padding: 10px ;
+        width: 65px;
+        min-width: 50px;
+        font-size: .7em;
+    }
+}
+
 @media(max-width: 400px) {
     table {
-        font-size: 0.7em;
+        font-size: .7em;
     }
     td {
         padding: 0;
@@ -232,7 +245,7 @@ td:nth-of-type(4) button:hover{
         padding:10px 0;
         width: 65px;
         min-width: 40px;
-        font-size: 1em;
+        font-size: .5em;
     }
 }
 

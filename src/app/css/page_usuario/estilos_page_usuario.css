@@ -1,3 +1,8 @@
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 dialog {
     margin: auto auto;
     height: 50%;
@@ -15,7 +20,7 @@ dialog::backdrop {
     border: 0;
 }
 
-#cancelar img{
+#cancelar img {
     margin-right: 15px;
     padding-top: 3px;
 }
@@ -85,6 +90,7 @@ dialog::backdrop {
     text-align: center;
     background-color: #FFF6ED;
     padding-bottom: 15px;
+    margin-bottom: 0;
 }
 
 #mediciones div {
