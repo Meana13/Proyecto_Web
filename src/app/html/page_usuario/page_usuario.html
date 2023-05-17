@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/page_usuario/estilos_page_usuario.css" />
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
+    <script src="../../scrips/landing_page/control-acceso.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
 </head>
 
@@ -19,7 +20,8 @@
     <header class="header">
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
         <div class="login-tab">
-            <a href="page_usuario.html" class="login-tab-icon"><img src="../../../images/icono-usuario.svg" alt=""></a>
+            <img src="../../../images/victoria.png" alt=""></a>
+            <label>VictoriaGue</label>
         </div>
         <nav class="nav">
             <button class="nav-toggle" aria-label="Abrir menú">
@@ -30,19 +32,19 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <a href="../landing_page/quienes_somos.html" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                    <button class="boton_menu" id="boton_huertos">ver huertos</button>    
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html#titulo_nuestros_productos" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
+                    <button class="boton_menu" id="boton_citas">citas</button>    
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../landing_page/faqs.html" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
+                    <button class="boton_menu" id="boton_perfil">ajustes perfil</button>    
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../landing_page/formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
+                    <button class="nav-menu-link nav-link" onclick="logout()">CERRAR SESIÓN</a>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
+                    <button class="nav-menu-link nav-link" onclick="logout()">CERRAR SESIÓN</button>
                 </li>
             </ul>
         </nav>
@@ -50,53 +52,11 @@
     </header>
     <!--Aqui finaliza el header-->
 
-    <!--Aqui comienza la cabecera del usuario-->
-    <section class="perfil">
-        <img src="../../../images/concepcion.png" alt="Foto admin" class="foto-perfil">
-
-        <p id="datos">
-            Nombre de usuario:  <br>
-            Nombre y apellidos: Héctor Iglesias <br>
-            E-mail: hectigle@empresa.com <br>
-            Dirección: Carretera Sequia del Rei, 3, Bloque X 1ª Planta Puerta 2
-        </p>
-    </section>
-    <!--Aqui finaliza la cabecera del usuario-->
-
-    <!--    Aqui comienza la seccion de editar huerto-->
-   <dialog id="pagina-anyadir">
-    <section id="editar-huerto" class="seccion-oculta">
-        <button id="cancelar"><img src="boton_volver.png" alt="Volver"></button>
-        <section class="editar_huerto">
-        <section id="foto_perfil">
-            <img src="../../../../images/huerto.png" alt="Imagen huerto">
-            <br>
-            <button id="adjuntar">Adjuntar imagen</button>
-        </section>
-            <br>
-            <br>
-        <section id="nombre_localizacion">
-        <label for="nombre_huerto">Nombre del huerto:</label>
-        <input type="text" id="nombre_huerto">
-            <br>
-        <label for="localizacion_huerto">Localizacion:</label>
-        <input type="text" id="localizacion_huerto">
-        </section>
-        <section id="fecha_notas">
-        <label>Fecha de instalación:</label>
-        <input type="text" id="fecha_huerto_dia">
-        <input type="text" id="fecha_huerto_meses">
-        <input type="text" id="fecha_huerto_año">
-        <label for="notas_huerto">Notas:</label>
-        <input id="notas_huerto">
-        <input type="submit" value="Guardar cambios" id="enviar">
-        <section>
-    </section>
-   </dialog>
-    <!--    Aqui finaliza la seccion de editar huerto-->
-
+    
     <!--Aqui comienza la zona de huertos-->
     <section id="huertos">
+        <h2>HUERTOS</h2>
+
         <section id="botones_añadir_selección">
             <select id="seleccionar_huerto">
                 <option value="1">Huerto 1</option>
@@ -106,20 +66,18 @@
             <button id="entrada"> Editar huerto</button>
         </section>
 
-    <section id="mediciones"> <!--    Aqui comienza la seccion de medidor Tª-->
-    <h2>Temperatura</h2>
-    <div id="Temperatura">
-        <img src="../../../../images/termometro.png" alt="Termometro">
-        <div class="circulo"><span>22ºC</span></div>
-        <div class="chart-container">
-            <canvas id="chart_temperatura"></canvas>
-        </div>
-        <div class="botones_gráficas">
-            <button class="historial">Historial</button>
-            <button class="actual">Datos actuales</button>
-        </div>
-    </div>
-    <!--    Aqui finaliza la seccion de medidor Tª-->
+        <!--    Aqui comienza la seccion de editar huerto-->
+        <dialog>
+            <section id="editar-huerto" class="seccion-oculta">
+                <button id="cancelar"><img src="../../../images/icono-.svg" alt="Volver">Cancelar</button>
+                <p class="editar_huerto">
+                    <img src="../images/admin.png" alt="Imagen huerto">
+                    <button>Adjuntar imagen</button><br>
+                    <label for="nombre_huerto">Nombre del huerto:</label>
+                    <input type="text" id="nombre_huerto"><br>
+                    <label for="localizacion_huerto">Localizacion:</label>
+                    <input type="text" id="localizacion_huerto"><br>
+                </p>
 
     <!--    Aqui comienza la seccion de medidor humedad-->
     <h2>Humedad</h2>
@@ -186,6 +144,7 @@
 
     <!--    Aqui comienza la seccion de ajustes de perfil -->
     <section id="ajustes-usuario">
+        <h2>AJUSTES DE PERFIL</h2>
         <section class="datos_usuario">
             <form action="#" method="post">
                 <label for="usuario">Nombre de usuario:</label>
@@ -220,6 +179,7 @@
 
     <!--Aqui comienza la seccion de citas-->
     <section id="citas">
+        <h2>CITAS</h2>
         <table>
             <thead>
                 <tr>

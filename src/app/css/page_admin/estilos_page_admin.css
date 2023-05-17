@@ -1,3 +1,8 @@
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 #boton-añadir-usuario img {
     height: 1em;
     width: 1.2em;
@@ -314,12 +319,7 @@ select {
 
     /* #region TABLA USUARIOS */
 
-    table {
-        max-width: 90%;
-        margin: 0 auto;
-        margin-top: 1em;
-        border-collapse: collapse;
-    }
+    
 
     th {
         background-color: gray;

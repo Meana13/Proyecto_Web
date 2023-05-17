@@ -2,30 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const botonAdminUsuarios = document.getElementById("boton-administrar-usuarios");
     const secAdminUsuarios = document.getElementById("seccion-administrar-usuarios");
 
-    const botonOpinion = document.getElementById("boton-opinion-del-personal");
-    const secOpinion = document.getElementById("seccion-opinion-personal");
-
 
     let botonActivo = botonAdminUsuarios;
     let secActiva = secAdminUsuarios;
-    botonAdminUsuarios.style.backgroundColor = "#790050";
 
     botonAdminUsuarios.addEventListener("click", () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";
         secAdminUsuarios.style.display = "block";
-        botonAdminUsuarios.style.backgroundColor = "#790050";
         botonActivo = botonAdminUsuarios;
         secActiva = secAdminUsuarios;
-    });
-
-    botonOpinion.addEventListener("click", () => {
-        secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
-        secOpinion.style.display = "block";
-        botonOpinion.style.backgroundColor = "#790050";
-        botonActivo = botonOpinion;1
-        secActiva = secOpinion;
     });
 
     const botonAñadir = document.getElementById("boton-añadir-usuario");
