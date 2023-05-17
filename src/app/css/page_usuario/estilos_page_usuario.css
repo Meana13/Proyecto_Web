@@ -70,21 +70,35 @@ dialog::backdrop {
     border-radius: 5px;
     padding: 5px;
 }
-
-#mediciones {
-    margin-top: 50px;
-    margin-left: 15%;
-    margin-right: 15%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10%;
+#pagina-anyadir{
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    background-color:#FFF6ED
 }
-
-#mediciones h2 {
-    text-align: center;
-    background-color: #FFF6ED;
-    padding-bottom: 15px;
+#pagina-anyadir>#foto_perfil{
+    width: 90px;
+    background-color: red;
+}
+#adjuntar{
+    width: 95px;
+    height: 25px;
+    background-color: #790050;
+    color: white;
+    font-size: 11px;
+}
+#pagina-anyadir>#editar-huerto>img{
+    float: left;
+}
+#pagina-anyadir>#editar-huerto>#enviar{
+    align-self:flex-end;
+    width: 120px;
+    height: 48px;
+    flex: 1 0 0;
+    background-color: #790050;
+    color: white;
+    border-radius: 4px;
+    padding: 1%;
 }
 
 #mediciones div {
@@ -93,9 +107,10 @@ dialog::backdrop {
     height: 200px;
     background-color: #9C4078;
 }
-
-#mediciones div .circulo {
-    margin-top: 12px;
+#mediciones div>img{
+    margin-left:10px;
+}
+#mediciones>div>.circulo{
     width: 129px;
     height: 129px;
     border-radius: 50%;
@@ -183,28 +198,31 @@ dialog::backdrop {
     align-items: center;
     padding: 4%;
 }
+#ajustes-usuario>.datos_usuario>form{
 
-#ajustes-usuario>.datos_usuario>form {
-    width: 300px;
 }
 
 #ajustes-usuario>.datos_usuario>form>input {
-    display: flex;
-    align-items: center;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
 }
-
-#ajustes-usuario>.datos_usuario>form>#cambios {
-    alignment: right;
-    margin-left: 400px;
+#ajustes-usuario>.datos_usuario>form>#cambios_perfil{
+    display: flex;
+    justify-content: space-between;
     flex: 1 1 0;
 }
-
-#ajustes-usuario>.datos_usuario>form>label {
+#ajustes-usuario>.datos_usuario>form>label{
     width: 10px;
+}
+#dialogo_cambios_perfil{
+    margin: auto;
+    text-align: center;
 }
 
 
-CSS Seccion citas
+/*CSS Seccion citas*/
 
 #citas>table {
     flex: 1 1 0;

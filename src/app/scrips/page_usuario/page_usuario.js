@@ -43,6 +43,36 @@ btn_ajustesperfil.addEventListener("click", function () {
 });
 /*Script para navegar botones de menu*/
 
+/*Script para cambiar entre medidas e historial*/
+const btn_graficas = document.getElementsByClassName("historial");
+const btn_actual = document.getElementsByClassName("actual");
+
+const graficas =document.getElementsByClassName("chart-container");
+const humedad =document.getElementById("Humedad");
+const temperatura =document.getElementById("Temperatura");
+const sal =document.getElementById("Sal");
+const luz =document.getElementById("Luz");
+const pH =document.getElementById("pH");
+
+
+graficas.style.display = "none";
+humedad.style.display = "block";
+temperatura.display = "block";
+sal.style.display = "block";
+luz.style.display = "block";
+pH.style.display = "block";
+btn_graficas.addEventListener('click',function (){
+    graficas.style.display = "block";
+    circulo.style.display = "none";
+})
+
+btn_actual.addEventListener('click',function (){
+    graficas.style.display = "none";
+    circulo.style.display = "block";
+})
+
+/*Script para cambiar entre medidas e historial*/
+
 /*Script para dialogo de Añadir huertos*/
 
 const boton = document.getElementById('entrada');
@@ -102,3 +132,5 @@ botonesRechazar.forEach(botonRechazar => {
         fila.remove(); // Elimina la fila de la tabla
     });
 });
+
+
