@@ -86,3 +86,4 @@ let luz = new Chart(
         options:
         opciones
     });
+hey
