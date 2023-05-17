@@ -154,7 +154,7 @@ button.boton_menu {
 }
 
 
-.fomulario_iniciar_sesion button[type="submit"] {
+.fomulario_iniciar_sesion input[type="submit"] {
   background-color: #9D4179;
   color: #FFFFFF;
   font-family: Arial, sans-serif;
@@ -167,19 +167,24 @@ button.boton_menu {
   margin-left: 58%;
 }
 
+#olvidado-contrasena {
+  color: black;
+}
 
+#output {
+  opacity:0;
+  margin: 1rem 2rem 1rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  text-align: center;
+  transition: opacity .5s;
+  color:white;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+#output.error {
+  opacity: 1;
+  background-color: #d92121;
+}
 
 
 /* MOBILE */

@@ -8,8 +8,10 @@
     <script src="../../scrips/page_tecnico/page_tecnico.js"></script>
     <link rel="stylesheet" href="../../css/page_tecnico/estilos_page_tecnico.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
-    <link rel="stylesheet" href="../../css/landing_page/footer.css" <link rel="stylesheet"
-        href="../../css/landing_page/estilos_index_menu_no_registrado.css" </head>
+    <link rel="stylesheet" href="../../css/landing_page/footer.css">
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css">
+    <script src="../../scrips/landing_page/control-acceso.js"></script>
+</head>
 
 <body>
     <!-- HEADER -->
@@ -45,7 +47,7 @@
                     <a href="../landing_page/formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
+                    <button class="nav-menu-link nav-link" onclick="logout()">CERRAR SESIÓN</button>
                 </li>
             </ul>
         </nav>
