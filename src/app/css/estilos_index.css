@@ -3,6 +3,7 @@
 }
 body{
     padding: 0px;
+    margin-top: 80px;
 }
 #contenedor_primera_visivilidad{
     height: 100vh;
@@ -20,7 +21,6 @@ body{
 }
 
 #container_hero {
-    margin-top: 80px;
     background-image: linear-gradient(to bottom, rgba(0,0,0,1),rgba(255,255,255,0)), url('../../images/fonfo_hero.jpg');
     height: 100vh;
     background-size: cover;
@@ -124,6 +124,11 @@ h1,h2,h3,h4{
 
 
 @media(max-width: 768px){
+    
+    body {
+        margin-top: 60px;
+    }
+
     #container_hero {
         padding-top: 0px ;
         margin-top: 0px;
