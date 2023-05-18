@@ -143,6 +143,7 @@ button.boton_menu {
 }
 
 .fomulario_iniciar_sesion input {
+  width: 180px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid black;
