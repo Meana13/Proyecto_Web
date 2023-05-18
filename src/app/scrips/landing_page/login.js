@@ -34,19 +34,30 @@ async function login(event) {
         //según el rol del usuario que inicie sesión, se traslada a una página o a otra:
         if(data.rol === "usuario"){
             location.href = 'app/html/page_usuario/page_usuario.html';
+            //Si la respuesta es ok, significa que se ha iniciado sesión, por tanto guardamos
+            //en el almacenamiento local del navegador un ítem: sesionIniciada:
+            sessionStorage.setItem('sesionIniciada', 'true');
+            sessionStorage.setItem('rolUsuario', 'true');
         }
 
         if(data.rol === "administrador"){
             location.href = 'app/html/page_admin/page_admin.html';
+            sessionStorage.setItem('sesionIniciada', 'true');
+            sessionStorage.setItem('rolAdmin', 'true');
         }
 
         if(data.rol === "comercial"){
             location.href = 'app/html/page_comercial/page_comercial.html';
+            sessionStorage.setItem('sesionIniciada', 'true');
+            sessionStorage.setItem('rolComercial', 'true');
         }
 
         if(data.rol === "tecnico"){
             location.href = 'app/html/page_tecnico/page_tecnico.html';
+            sessionStorage.setItem('sesionIniciada', 'true');
+            sessionStorage.setItem('rolTecnico', 'true');
         }
+
 
     }
     // si el resultado de la petición no es ok, mostramos un mensaje de error
