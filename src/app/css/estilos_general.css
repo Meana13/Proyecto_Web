@@ -11,6 +11,10 @@ label {
     font-family: Arial, sans-serif;
 }
 
+body {
+    background-color: transparent;
+}
+
 p {
     font-family: Arial, sans-serif;
     font-size: 15px;

@@ -2,6 +2,10 @@
     --principal: #9D4179;
 }
 
+body {
+    margin-top: 120px;
+}
+
 h2 {
     text-align: center;
     margin-bottom: 30px;
@@ -32,8 +36,8 @@ dialog::backdrop {
     width: 20px;
 }
 
-#editar-huerto label, 
-#editar-huerto input{
+#editar-huerto label,
+#editar-huerto input {
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -70,6 +74,7 @@ dialog::backdrop {
     width: 90%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 #botones_añadir_selección #seleccionar_huerto {
@@ -137,21 +142,57 @@ dialog::backdrop {
     top: 6px;
 }
 
+#acordeon {
+    margin-top: 40px;
+}
+
+.card {
+    width: 90%;
+    margin: 0 auto;
+    background-color: transparent;
+    border: 0;
+}
+
+#seleccionar_huerto {
+    padding: 6px;
+}
+
+.card-header {
+    border-radius: 1em;
+    background-color: #9D4179;
+    border-bottom: 3px solid gray;
+    border-radius: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.triangulo {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid white;
+}
+
+#headingOne.card-header {
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+}
+
+#headingFive.card-header {
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-bottom: 0;
+}
+
 #mediciones {
     margin-top: 50px;
-    margin-left: 15%;
-    margin-right: 15%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10%;
-}
-
-#mediciones h2 {
-    text-align: center;
-    background-color: #FFF6ED;
-    padding-bottom: 15px;
-    margin-bottom: 0;
 }
 
 #mediciones img {
@@ -184,17 +225,25 @@ dialog::backdrop {
 }
 
 #caja-medicion {
-    width: 300px;
+    width: 100%;
     height: 170px;
-    background-color: var(--principal);
+    background-color: gray;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 0%;
+    padding-right: 40px;
+}
+
+#caja-medicion img {
+    margin-left: 40px;
+}
+
+.card-body {
+    background-color: white;
 }
 
 #espacio-vacio {
-    width: 50px;
+    width: 60px;
 }
 
 /*CSS de ajustes usuario*/
@@ -246,6 +295,7 @@ dialog::backdrop {
     width: 15px;
     margin-right: 5px;
 }
+
 .boton-aceptar-rechazar {
     border-radius: 5px;
     background-color: var(--principal);
@@ -267,5 +317,17 @@ dialog::backdrop {
 #chart-container-pH,
 #chart-container-temperatura,
 #chart-container-sal {
-    display:none;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 80px;
+    }
+
+    #seleccionar_huerto {
+        height: fit-content;
+        padding: 7px;
+        margin-top: 3px;
+    }
 }
