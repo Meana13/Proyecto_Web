@@ -160,7 +160,7 @@ dialog::backdrop {
     height: fit-content;
 }
 
-#mediciones div .circulo {
+.circulo {
     margin: 20px 0;
     width: 130px;
     height: 130px;
@@ -173,13 +173,13 @@ dialog::backdrop {
     font-size: 30px;
 }
 
-#mediciones div .botones_gráficas {
+.botones_gráficas {
     height: 30px;
     display: flex;
     margin-bottom: 0;
 }
 
-#mediciones div .botones_gráficas button {
+.botones_gráficas button {
     width: 50%;
 }
 
@@ -260,4 +260,12 @@ dialog::backdrop {
     padding: .5em;
     display: flex;
     margin-bottom: 2px;
+}
+
+#chart-container-humedad,
+#chart-container-luz,
+#chart-container-pH,
+#chart-container-temperatura,
+#chart-container-sal {
+    display:none;
 }
