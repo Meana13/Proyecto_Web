@@ -1,6 +1,5 @@
-#contact-form {
-    margin-top: 100px;
-
+body {
+    margin-top: 120px;
 }
 
 .form-group {
@@ -117,4 +116,10 @@ input[type="submit"]:hover {
 
 .boton-cerrar-dialogo {
     color: black;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 80px;
+    }
 }
