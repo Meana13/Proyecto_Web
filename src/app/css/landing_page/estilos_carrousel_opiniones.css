@@ -78,7 +78,7 @@ body{
 }
 
 .texto_opinion{
-    border : solid 3px #000000;
+    border : solid 1px #000000;
     background : transparent;
     color : #000000;
     margin-top: 10px;
@@ -90,6 +90,23 @@ body{
     margin-left: 10px ;
 }
 
+
+
+.vista_opinion {
+    border: 2px solid black;
+    width: 30%;
+    object-fit: cover;
+    vertical-align: top;
+    transition: 2s;
+    display: inline-block;
+    margin-top: 25px;
+}
+
 @media (max-width: 768px) {
+    .vista_opinion {
+        width: 80%;
+        margin: 10px auto;
+    }
+
     
 }

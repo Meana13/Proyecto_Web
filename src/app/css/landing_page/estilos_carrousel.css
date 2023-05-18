@@ -12,9 +12,8 @@
         align-items: center;
         align-content: center;
     }
+    
     .container_productos{
-        padding-top: 50px;
-        margin-top: 25px;
         width: 80%;
         margin: 0 auto;
         display: flex;
@@ -22,11 +21,6 @@
         gap: 20px;
         padding-bottom: 80px;
 
-    }
-    .vista_producto{
-        border: 1px solid grey;
-        background-color: #FFF6ED;
-        width:30%;
     }
 
     .slider_vista .vista_producto{
@@ -41,15 +35,16 @@
 
     }
 
-
     .vista_imagen{
         width: 80%;
-        height: 250px;
+        height: 200px;
         object-fit: cover;
         vertical-align: center;
         margin: 10px 25px;
         transition: 2s;
+        border: 2px solid black;
     }
+
     .vista_parrafo{
         text-decoration: none;
         font-family: Arial;
@@ -127,6 +122,7 @@
     .container_productos{
         display: flex;
         flex-direction: column;
+        gap: 0;
     }
     .vista_parrafo p{
         font-size: 15px;
