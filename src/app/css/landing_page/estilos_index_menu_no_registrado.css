@@ -109,6 +109,10 @@ button.boton_menu {
   margin-bottom: .25em;
 }
 
+#icono-usuario {
+  border: 0;
+}
+
 .login-form-container {
   position: fixed;
   top: 0;
@@ -165,13 +169,13 @@ button.boton_menu {
 }
 
 #output {
-  opacity:0;
+  opacity: 0;
   margin: 1rem 2rem 1rem;
   padding: 0.5rem;
   background-color: transparent;
   text-align: center;
   transition: opacity .5s;
-  color:white;
+  color: white;
 }
 
 #output.error {
@@ -183,8 +187,8 @@ button.boton_menu {
 #menu-usuario-registrado,
 #header-admin,
 #header-comercial,
-#header-tecnico{
-  display:none;
+#header-tecnico {
+  display: none;
 }
 
 /* MOBILE */
@@ -223,6 +227,11 @@ button.boton_menu {
     margin-right: 10px;
     border-radius: 100%;
     border: 2px solid white;
+  }
+
+  #icono-usuario {
+    margin-right: 0;
+    margin-top: 10px;
   }
 
   .nav-menu {
