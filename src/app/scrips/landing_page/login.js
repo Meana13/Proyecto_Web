@@ -40,7 +40,7 @@ async function login(event) {
             sessionStorage.setItem('rolUsuario', 'true');
         }
 
-        if(data.rol === "administrador"){
+        if(data.rol === "admin"){
             location.href = 'app/html/page_admin/page_admin.html';
             sessionStorage.setItem('sesionIniciada', 'true');
             sessionStorage.setItem('rolAdmin', 'true');

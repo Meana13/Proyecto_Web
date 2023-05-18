@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     const botonAdminUsuarios = document.getElementById("boton-administrar-usuarios");
     const secAdminUsuarios = document.getElementById("seccion-administrar-usuarios");
@@ -14,14 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
         secActiva = secAdminUsuarios;
     });
 
-    const botonAñadir = document.getElementById("boton-añadir-usuario");
-    const seccionAñadir = document.getElementById("seccion-añadir-usuario");
+    const botonAnyadir = document.getElementById("boton-añadir-usuario");
+    const seccionAnyadir = document.getElementById("seccion-añadir-usuario");
 
-    botonAñadir.addEventListener('click', () => {
+    botonAnyadir.addEventListener('click', () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";
-        seccionAñadir.style.display = "block";
-        secActiva = seccionAñadir;
+        seccionAnyadir.style.display = "block";
+        secActiva = seccionAnyadir;
     });
 
     const botonGenerarId = document.getElementById("boton-generar-id");
@@ -52,5 +53,35 @@ document.addEventListener('DOMContentLoaded', function () {
         botonAdminUsuarios.style.backgroundColor = "#790050";
         botonActivo = botonAdminUsuarios;
         secActiva = secAdminUsuarios;
-    })
+    });
 });
+
+let datosUsuario = {
+    nombre:"",
+    apellidos: "",
+    email:"",
+    direccion:"",
+}
+
+function crearTablaUsuarios(solicitud) {
+    let fila = document.createElement('tr');
+
+    let celdaNombre = document.createElement('td');
+    celdaNombre.textContent = solicitud.nombre;
+
+    let celdaApellidos = document.createElement('td');
+    celdaApellidos.textContent = solicitud.apellidos;
+
+    let celdaEmail = document.createElement('td');
+    celdaEmail.textContent = solicitud.email;
+
+    let celdaDireccion
+
+    let celdaBoton = document.createElement("td");
+    let botonHojaUsuario = document.createElement("button");
+
+    celdaBoton.appendChild(botonHojaUsuario);
+
+
+    fila.append(celdaNombre, celdaApellidos, celdaEmail, celdaBoton);
+}
