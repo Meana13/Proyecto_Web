@@ -1,30 +1,30 @@
-
+                        /*
+                            ========================
+                              GRÁFICA DE SALINIDAD
+                            ========================
+                                                      */
 let datosSal = {
     labels: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes','sábado','domingo'],
 
     datasets: [
         {
             label: 'datosSal',
-            data: [50, 55, 40, 45, 50, 55, 50], //datos que queremos que se dibujen. Cada número, para un día de la semana.
-            fill: false, //para que se rellene la zona de abajo de la línea.
-            backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
+            data: [50, 55, 40, 45, 50, 55, 50],
+            fill: false,
+            backgroundColor: 'rgba(255,69,34,.5)',
             borderColor: 'rgb(255,110,86)',
-            borderDash: [2,3], //punteado [1,3,3,2]
-            tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
-            //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
-            pointStyle: 'rectRot', //tipo de punto (este es diamante).
-            pointRadius: 10, //este controla el tamaño del punto.
+            borderDash: [2,3],
+            tension: 0,
+            pointStyle: 'rectRot',
+            pointRadius: 10,
         },
     ]
-}; //aquí irán los datos de la gráfica
+};
 
-let opcionesSal = { //las opciones de la gráfica.
-    responsive: true, //va a ser responsive
-    maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
-                                //según necesite.
-    scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
-        //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
-        //0 de la gráfica azul.
+let opcionesSal = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
         y: {
             stacked: true
         }
@@ -32,7 +32,7 @@ let opcionesSal = { //las opciones de la gráfica.
     plugins: {
         legend: false,
 
-        title: { //titulo de la gráfica
+        title: {
             display: true,
             text: 'Datos de salinidad',
             position: 'left',
@@ -54,42 +54,41 @@ let opcionesSal = { //las opciones de la gráfica.
 
 }//opciones
 
-let ctxSal = document.getElementById('chart-sal'); //referencia al canvas.
+let ctxSal = document.getElementById('chart-sal');
 
-let miGrafica = new Chart(ctxSal, { //le pasamos el canvas y un objeto con la configuración.
+let miGrafica = new Chart(ctxSal, {
     type: 'line',
-    data: datosSal, //los datos
-    options: opcionesSal //las opciones
+    data: datosSal,
+    options: opcionesSal
 });
 
-
-
+                        /*
+                            ========================
+                              GRÁFICA DE HUMEDAD
+                            ========================
+                                                      */
 let datosHumedad = {
     labels: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes','sábado','domingo'],
 
     datasets: [
         {
             label: 'datosHumedad',
-            data: [50, 55, 40, 45, 50, 55, 50], //datos que queremos que se dibujen. Cada número, para un día de la semana.
-            fill: false, //para que se rellene la zona de abajo de la línea.
-            backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
+            data: [50, 55, 40, 45, 50, 55, 50],
+            fill: false,
+            backgroundColor: 'rgba(255,69,34,.5)',
             borderColor: 'rgb(255,110,86)',
-            borderDash: [2,3], //punteado [1,3,3,2]
-            tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
-            //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
-            pointStyle: 'rectRot', //tipo de punto (este es diamante).
-            pointRadius: 10, //este controla el tamaño del punto.
+            borderDash: [2,3],
+            tension: 0,
+            pointStyle: 'rectRot',
+            pointRadius: 10,
         },
     ]
-}; //aquí irán los datos de la gráfica
+};
 
-let opcionesHumedad = { //las opciones de la gráfica.
-    responsive: true, //va a ser responsive
-    maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
-                                //según necesite.
-    scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
-        //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
-        //0 de la gráfica azul.
+let opcionesHumedad = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
         y: {
             stacked: true
         }
@@ -97,7 +96,7 @@ let opcionesHumedad = { //las opciones de la gráfica.
     plugins: {
         legend: false,
 
-        title: { //titulo de la gráfica
+        title: {
             display: true,
             text: 'Datos de humedad',
             position: 'left',
@@ -119,41 +118,41 @@ let opcionesHumedad = { //las opciones de la gráfica.
 
 }//opciones
 
-let ctxHumedad = document.getElementById('chart-humedad'); //referencia al canvas.
+let ctxHumedad = document.getElementById('chart-humedad');
 
-let miGraficaHumedad = new Chart(ctxHumedad, { //le pasamos el canvas y un objeto con la configuración.
+let miGraficaHumedad = new Chart(ctxHumedad, {
     type: 'line',
     data: datosHumedad, //los datos
     options: opcionesHumedad //las opciones
 });
 
-
+                        /*
+                            ========================
+                              GRÁFICA DE TEMPERATURA
+                            ========================
+                                                      */
 let datosTemperatura = {
     labels: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes','sábado','domingo'],
 
     datasets: [
         {
             label: 'datosTemperatura',
-            data: [50, 55, 40, 45, 50, 55, 50], //datos que queremos que se dibujen. Cada número, para un día de la semana.
-            fill: false, //para que se rellene la zona de abajo de la línea.
-            backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
+            data: [50, 55, 40, 45, 50, 55, 50],
+            fill: false,
+            backgroundColor: 'rgba(255,69,34,.5)',
             borderColor: 'rgb(255,110,86)',
-            borderDash: [2,3], //punteado [1,3,3,2]
-            tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
-            //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
-            pointStyle: 'rectRot', //tipo de punto (este es diamante).
-            pointRadius: 10, //este controla el tamaño del punto.
+            borderDash: [2,3],
+            tension: 0,
+            pointStyle: 'rectRot',
+            pointRadius: 10,
         },
     ]
-}; //aquí irán los datos de la gráfica
+};
 
-let opcionesTemperatura = { //las opciones de la gráfica.
-    responsive: true, //va a ser responsive
-    maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
-                                //según necesite.
-    scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
-        //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
-        //0 de la gráfica azul.
+let opcionesTemperatura = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
         y: {
             stacked: true
         }
@@ -161,7 +160,7 @@ let opcionesTemperatura = { //las opciones de la gráfica.
     plugins: {
         legend: false,
 
-        title: { //titulo de la gráfica
+        title: {
             display: true,
             text: 'Datos de temperatura',
             position: 'left',
@@ -183,41 +182,41 @@ let opcionesTemperatura = { //las opciones de la gráfica.
 
 }//opciones
 
-let ctxTemperatura = document.getElementById('chart-temperatura'); //referencia al canvas.
+let ctxTemperatura = document.getElementById('chart-temperatura');
 
-let miGraficaTemperatura = new Chart(ctxTemperatura, { //le pasamos el canvas y un objeto con la configuración.
+let miGraficaTemperatura = new Chart(ctxTemperatura, {
     type: 'line',
-    data: datosTemperatura, //los datos
-    options: opcionesTemperatura //las opciones
+    data: datosTemperatura,
+    options: opcionesTemperatura
 });
 
-
+                        /*
+                            ========================
+                                 GRÁFICA DE PH
+                            ========================
+                                                      */
 let datospH = {
     labels: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes','sábado','domingo'],
 
     datasets: [
         {
             label: 'datospH',
-            data: [50, 55, 40, 45, 50, 55, 50], //datos que queremos que se dibujen. Cada número, para un día de la semana.
-            fill: false, //para que se rellene la zona de abajo de la línea.
-            backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
+            data: [50, 55, 40, 45, 50, 55, 50],
+            fill: false,
+            backgroundColor: 'rgba(255,69,34,.5)',
             borderColor: 'rgb(255,110,86)',
-            borderDash: [2,3], //punteado [1,3,3,2]
-            tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
-            //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
-            pointStyle: 'rectRot', //tipo de punto (este es diamante).
-            pointRadius: 10, //este controla el tamaño del punto.
+            borderDash: [2,3],
+            tension: 0,
+            pointStyle: 'rectRot',
+            pointRadius: 10,
         },
     ]
-}; //aquí irán los datos de la gráfica
+};
 
-let opcionespH = { //las opciones de la gráfica.
-    responsive: true, //va a ser responsive
-    maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
-                                //según necesite.
-    scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
-        //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
-        //0 de la gráfica azul.
+let opcionespH = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
         y: {
             stacked: true
         }
@@ -225,7 +224,7 @@ let opcionespH = { //las opciones de la gráfica.
     plugins: {
         legend: false,
 
-        title: { //titulo de la gráfica
+        title: {
             display: true,
             text: 'Datos de temperatura',
             position: 'left',
@@ -247,41 +246,41 @@ let opcionespH = { //las opciones de la gráfica.
 
 }//opciones
 
-let ctxpH = document.getElementById('chart-pH'); //referencia al canvas.
+let ctxpH = document.getElementById('chart-pH');
 
-let miGraficapH = new Chart(ctxpH, { //le pasamos el canvas y un objeto con la configuración.
+let miGraficapH = new Chart(ctxpH, {
     type: 'line',
     data: datospH, //los datos
     options: opcionespH //las opciones
 });
 
-
+                        /*
+                            ========================
+                                 GRÁFICA DE LUZ
+                            ========================
+                                                      */
 let datosLuz = {
     labels: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes','sábado','domingo'],
 
     datasets: [
         {
             label: 'datosLuz',
-            data: [50, 55, 40, 45, 50, 55, 50], //datos que queremos que se dibujen. Cada número, para un día de la semana.
-            fill: false, //para que se rellene la zona de abajo de la línea.
-            backgroundColor: 'rgba(255,69,34,.5)', //colores. De forma rgba añade transparencia (la a es la transparencia)
+            data: [50, 55, 40, 45, 50, 55, 50],
+            fill: false,
+            backgroundColor: 'rgba(255,69,34,.5)',
             borderColor: 'rgb(255,110,86)',
-            borderDash: [2,3], //punteado [1,3,3,2]
-            tension: 0, //para curvar. Si ponemos tensión 0, es una línea recta. Añadir tensión es como estirar
-            //la recta para curvarla. Entre 0 y 0.5 es adecuado para curvar. Sino sale muy raro.
-            pointStyle: 'rectRot', //tipo de punto (este es diamante).
-            pointRadius: 10, //este controla el tamaño del punto.
+            borderDash: [2,3],
+            tension: 0,
+            pointStyle: 'rectRot',
+            pointRadius: 10,
         },
     ]
-}; //aquí irán los datos de la gráfica
+};
 
-let opcionesLuz = { //las opciones de la gráfica.
-    responsive: true, //va a ser responsive
-    maintainAspectRatio: false, //mantener la razón de aspecto, false para que se estire o se encoja
-                                //según necesite.
-    scales: { //configurar las escalas, aquí digo que en el eje y aparezca apilada.
-        //entonces la segunda gráfica, su 0 es el primer punto de la primera gráfica. En este caso, el 100 es el
-        //0 de la gráfica azul.
+let opcionesLuz = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
         y: {
             stacked: true
         }
@@ -289,7 +288,7 @@ let opcionesLuz = { //las opciones de la gráfica.
     plugins: {
         legend: false,
 
-        title: { //titulo de la gráfica
+        title: {
             display: true,
             text: 'Datos de luminosidad',
             position: 'left',
@@ -311,13 +310,21 @@ let opcionesLuz = { //las opciones de la gráfica.
 
 }//opciones
 
-let ctxLuz = document.getElementById('chart-luz'); //referencia al canvas.
+let ctxLuz = document.getElementById('chart-luz');
 
-let miGraficaLuz = new Chart(ctxLuz, { //le pasamos el canvas y un objeto con la configuración.
+let miGraficaLuz = new Chart(ctxLuz, {
     type: 'line',
     data: datosLuz, //los datos
     options: opcionesLuz //las opciones
 });
+
+/*
+                ====================================================
+                FUNCIONES PARA BOTONES DE HISTORIAL Y DATOS ACTUALES
+                ====================================================
+                                                                                */
+
+/*Declaración de variables para realizar las funciones*/
 
 let botonDatosActualesHumedad = document.getElementById('boton-datos-actuales-humedad')
 let botonDatosActualesSal = document.getElementById('boton-datos-actuales-sal')
@@ -343,7 +350,7 @@ let graficaTemperatura = document.getElementById('chart-container-temperatura');
 let graficapH = document.getElementById('chart-container-pH');
 let graficaLuz = document.getElementById('chart-container-luz');
 
-
+/*Funciones:*/
 function verDatosActualesHumedad() {
     botonDatosActualesHumedad.classList.add('activo');
     botonHistorialHumedad.classList.remove('activo');
