@@ -16,31 +16,42 @@
 </head>
 
 <body>
-    <header class="header">
-        <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link"
-                src="../../../images/logoGTI.png" alt=""></a>
-        <div class="login-tab">
-            <a href="#" class="login-tab-icon"><img src="../../../images/icono_usuario_no_registrado.png" alt=""></a>
+    <header class="header" id="header-no-registrado">
+        <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
+
+
+
+        <div class="login-tab" onclick="document.getElementById('login').style.display = 'flex'">
+            <a href="#" class="login-tab-icon"><img id="icono-usuario" src="../../../images/icono-usuario.svg"
+                    alt=""></a>
         </div>
-        <div class="login-form-container">
-            <form class="login-form">
-                <h2>Iniciar sesión</h2>
-                <div class="form-group">
-                    <label for="username">Nombre de usuario:</label>
-                    <input type="text" id="username" name="username" required>
+
+        <div id="login" class="login-form-container" onclick="if(event.target === this) this.style.display='none'">
+
+            <form id="login-form" class="fomulario_iniciar_sesion">
+                <button class="boton-cerrar-formulario"
+                    onclick="document.getElementById('login').style.display = 'none'"><img
+                        src="../../../images/icono-cerrar.svg"></button>
+                <header>
+                    <h2>Iniciar Sesión</h2>
+                </header>
+                <label for="nombre">Nombre de usuario:</label><br>
+                <input type="text" id="nombre" name="nombre" required><br>
+                <div id="formulario-login">
+                    <label for="password">Contraseña:</label><br>
+                    <input type="password" id="password" name="password" required><br>
+                    <!--botón enviar-->
+                    <input type="submit" value="Acceder">
+                    <br>
+                    <a id="olvidado-contrasena" href="../../../app/html/landing_page/formulario_contacto.html">¿Has
+                        olvidado tu
+                        contraseña? <br> Pincha aquí para recuperarla.</a>
                 </div>
-                <div class="form-group">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Iniciar sesión</button>
+                <div id="output">
+                    Area de mensajes
                 </div>
             </form>
         </div>
-
-
-
 
 
         <nav class="nav">
@@ -52,29 +63,33 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <a href="./quienes_somos.html" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                    <a href="../../../app/html/landing_page/quienes_somos.html" class="nav-menu-link nav-link">QUIENES
+                        SOMOS</a>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html#titulo_nuestros_productos" class="nav-menu-link nav-link">NUESTROS
-                        PRODUCTOS</a>
+                    <a href="../../../index.html#flecha" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="./faqs.html" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
+                    <a href="../../../app/html/landing_page/faqs.html" class="nav-menu-link nav-link">PREGUNTAS
+                        FRECUENTES</a>
                 </li>
-                <li class="nav-menu-item">
-                    <a href="./formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
+                <li class="nav-menu-item ponte_en_contacto">
+                    <a href="../../../app/html/landing_page/formulario_contacto.html"
+                        class="nav-menu-link nav-link">PONTE EN
+                        CONTACTO</a>
                 </li>
-
             </ul>
         </nav>
 
     </header>
-    <script src="/../scrips/landing_page/script_index_menu_no_registrado.js"></script>
-
+    <script src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
     <h3>Aplicación de monitorización</h3>
     <div id="ficha-producto">
-        <img src="/../../../images/producto_1.png" alt="Foto del producto">
-        <p>La aplicación de monitorización para huertos hidropónicos es una herramienta indispensable para aquellos que buscan controlar y optimizar el crecimiento de sus plantas en un ambiente controlado. Con esta aplicación, podrás supervisar el estado de tus cultivos desde cualquier lugar y en cualquier momento, ya que podrás acceder a ella desde tu teléfono inteligente o tablet.</p>
+        <img src="../../../images/producto_1.png" alt="Foto del producto">
+        <p>La aplicación de monitorización para huertos hidropónicos es una herramienta indispensable para aquellos que
+            buscan controlar y optimizar el crecimiento de sus plantas en un ambiente controlado. Con esta aplicación,
+            podrás supervisar el estado de tus cultivos desde cualquier lugar y en cualquier momento, ya que podrás
+            acceder a ella desde tu teléfono inteligente o tablet.</p>
         <a href="../landing_page/formulario_contacto.html">Pedir presupuesto</a>
     </div>
 
