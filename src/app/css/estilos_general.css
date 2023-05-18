@@ -7,7 +7,6 @@ html {
     font-family: "Arial", "Arial Helvetica", sans-serif;
 }
 
-
 label {
     font-family: Arial, sans-serif;
 }
@@ -80,30 +79,33 @@ td:last-child {
     height: 100vh;
 }
 
+
+
 /*\ ---------------- MOVIL -----------------\*/
 
 @media (max-width: 768px) {
+
     label {
         font-family: Arial, sans-serif;
     }
-    
+
     p {
         font-family: Arial, sans-serif;
         font-size: 13px;
     }
-    
+
     h1 {
         font-family: Arial, sans-serif;
         font-size: 32px;
         color: #FFFFFF;
         text-transform: uppercase;
     }
-    
+
     h2 {
         font-family: Arial, sans-serif;
         font-size: 25px;
     }
-    
+
     h3 {
         font-family: Arial, sans-serif;
         font-size: 20px;
@@ -117,5 +119,5 @@ td:last-child {
         font-size: 1em;
     }
 
-    
+
 }

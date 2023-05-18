@@ -21,7 +21,8 @@
     <header class="header">
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
         <div class="login-tab">
-            <a href="#" class="login-tab-icon"><img src="../../../images/icono-usuario.svg" alt=""></a>
+            <img src="../../../images/tecnico.png" alt="">
+            <label>Nicorom</label>
         </div>
 
 
@@ -35,16 +36,13 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <a href="../landing_page/quienes_somos.html" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                    <button class="boton_menu" id="boton-citas">citas</button>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html#titulo_nuestros_productos" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
+                    <button class="boton_menu" id="boton-opiniones">Opiniones</button>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../landing_page/faqs.html" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="../landing_page/formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
+                    <button class="boton_menu" id="boton-administrar-huertos">Administracion de huertos</button>
                 </li>
                 <li class="nav-menu-item">
                     <button class="nav-menu-link nav-link" onclick="logout()">CERRAR SESIÓN</button>
@@ -55,36 +53,7 @@
     </header>
     <!------------>
 
-    <!-- INICIO DATOS TECNICO -->
-
-    <section class="perfil">
-        <img src="../../../images/tecnico.png" alt="Foto tecnico" class="foto-perfil">
-
-        <p id="datos">
-            Nombre de usuario: Nicorom <br>
-            Nombre y apellidos: Nicolás Román <br>
-            E-mail: tecnic.nicorom@empresa.com <br>
-            Dirección: Carretera Sequia del Rei, 3, Bloque Y 2ª Planta Puerta 6
-        </p>
-    </section>
-
-    <!-- FIN DATOS TECNICO -->
-
-    <!-- BOTONES -->
-
-    <nav id="botones-perfil">
-        <button type="button" id="boton-citas" class="boton-perfil">Citas</button>
-        <button type="button" id="boton-opiniones" class="boton-perfil">opiniones</button>
-        <button type="button" id="boton-administrar-huertos" class="boton-perfil">Administrar huertos</button>
-    </nav>
-
-    <!------------->
-
-    <!-- LINEA SEPARATORIA -->
-
-    <div id="divisor"></div>
-
-    <!----------------------->
+    
 
     <!-- INICIO SECCION CITAS -->
     <section id="seccion-citas">
@@ -176,6 +145,8 @@
 
     <!-- INICIO SECCION OPINIONES -->
     <section id="seccion-opiniones">
+        <h3>OPINIONES</h3>
+        
         <div id="opiniones">
             <!-- Opinion 1 -->
             <div class="caja-opinion" id="opinion1">
@@ -262,7 +233,7 @@
     <!-- INICIO SECCION ADMINISTRAR HUERTOS -->
 
     <section id="seccion-administrar-huertos">
-        <h3>ADMINISTRAR HUERTOS</h3>
+        <h3>ADMINISTRACIÓN DE HUERTOS</h3>
 
         <button type="button" id="boton-añadir-huerto">AÑADIR</button>
         <table id="tabla-huertos">
