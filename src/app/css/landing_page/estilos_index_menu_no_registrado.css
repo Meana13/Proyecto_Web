@@ -143,10 +143,10 @@ button.boton_menu {
 }
 
 .fomulario_iniciar_sesion input {
-  width: 180px;
-  box-sizing: border-box;
-  padding: 3px;
-  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-bottom: 15px
 }
 
 .fomulario_iniciar_sesion input[type="submit"] {
