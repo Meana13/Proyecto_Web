@@ -2,9 +2,11 @@ footer {
     background-color: black;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     margin-top: 60vh;
-    padding-top: 50px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -13,34 +15,56 @@ a {
     margin: 5px;
 }
 
-#columnas {
+#seccion-logo {
     display: flex;
-}
-
-#columna-conocenos,
-#columna-ayuda {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-bottom: 20px;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
     justify-content: center;
-    width: 170px;
-}
-
-#conocenos, #ayuda {
-    text-transform: uppercase;
-    margin-bottom: 1em;
+    margin-bottom: 50px;
 }
 
 #logo {
-    margin-top: 70px;
-    width: 30%;
+    width: 80%;
 }
 
-#copyright {
-    margin: 10px 0;
-    font-size: small;
+.linea-logo {
+    width: 35%;
+    height: 3px;
+    background-color: white;
+    border: 0;
+}
+
+#contactanos {
+    border: 2px solid white;
+    border-radius: 2em;
+    width: fit-content;
+    padding: 10px 60px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+#contactanos span {
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+#legal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#legal a span {
+    font-size: 18px;
+}
+
+#linea-separatoria {
+    background-color: white;
+    width: 2px;
+    height: 2em;
+    margin: 0 10px;
 }
 
 /*\ ------------------------| MOVIL |------------------------ \*/
