@@ -109,6 +109,10 @@ button.boton_menu {
   margin-bottom: .25em;
 }
 
+#icono-usuario {
+  border: 0;
+}
+
 .login-form-container {
   position: fixed;
   top: 0;
@@ -129,9 +133,9 @@ button.boton_menu {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-
-
-
+.fomulario_iniciar_sesion h2 {
+  margin: 20px 0;
+}
 
 .fomulario_iniciar_sesion label {
   display: block;
@@ -139,13 +143,12 @@ button.boton_menu {
 }
 
 .fomulario_iniciar_sesion input {
-  width: 100%;
-  padding: 10px;
+  width: 180px;
+  padding: 5px;
   border-radius: 5px;
   border: 1px solid black;
-  margin-bottom: 10px;
+  margin-bottom: 15px
 }
-
 
 .fomulario_iniciar_sesion input[type="submit"] {
   background-color: #9D4179;
@@ -157,21 +160,42 @@ button.boton_menu {
   font-size: 16px;
   font-weight: bold;
   padding: 1em;
-  margin-left: 58%;
+  margin: 10px auto;
+}
+
+.boton-cerrar-formulario {
+  margin-left: 90%;
+  border: 0;
+  background-color: transparent;
+  height: fit-content;
+  width: fit-content;
+}
+
+.boton-cerrar-formulario img {
+  height: 20px;
+  width: 20px;
+}
+
+#formulario-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #olvidado-contrasena {
   color: black;
+  font-size: 13px;
+  margin: 0 auto;
 }
 
 #output {
-  opacity:0;
+  opacity: 0;
   margin: 1rem 2rem 1rem;
   padding: 0.5rem;
   background-color: transparent;
   text-align: center;
   transition: opacity .5s;
-  color:white;
+  color: white;
 }
 
 #output.error {
@@ -183,8 +207,8 @@ button.boton_menu {
 #menu-usuario-registrado,
 #header-admin,
 #header-comercial,
-#header-tecnico{
-  display:none;
+#header-tecnico {
+  display: none;
 }
 
 /* MOBILE */
@@ -223,6 +247,11 @@ button.boton_menu {
     margin-right: 10px;
     border-radius: 100%;
     border: 2px solid white;
+  }
+
+  #icono-usuario {
+    margin-right: 0;
+    margin-top: 10px;
   }
 
   .nav-menu {

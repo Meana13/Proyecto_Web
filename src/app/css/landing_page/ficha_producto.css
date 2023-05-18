@@ -1,3 +1,7 @@
+body {
+    margin-top: 120px;
+}
+
 h3 {
     margin-top: 30px;
     text-align: center;
@@ -39,5 +43,9 @@ h3 {
 @media (max-width: 768px) {
     #ficha-producto img {
         width: 70%;
+    }
+
+    body {
+        margin-top: 80px;
     }
 }
