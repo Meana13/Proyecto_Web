@@ -15,19 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sesionIniciada && rolUsuario) {
         // Mostrar el menú para usuarios
         document.getElementById('header-no-registrado').style.display = 'none';
-        document.getElementById('menu-usuario-registrado').style.display = 'block';
+        document.getElementById('menu-usuario-registrado').style.display = 'flex';
 
     } else if(sesionIniciada && rolAdministrador) {
         document.getElementById('header-no-registrado').style.display = 'none';
-        document.getElementById('header-admin').style.display = 'block';
+        document.getElementById('header-admin').style.display = 'flex';
 
     }else if(sesionIniciada && rolTecnico) {
         document.getElementById('header-no-registrado').style.display = 'none';
-        document.getElementById('header-tecnico').style.display = 'block';
+        document.getElementById('header-tecnico').style.display = 'flex';
 
     }else if(sesionIniciada && rolComercial){
         document.getElementById('header-no-registrado').style.display='none';
-        document.getElementById('header-comercial').style.display= 'block';
+        document.getElementById('header-comercial').style.display= 'flex';
     }
 
 });
