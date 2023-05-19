@@ -26,7 +26,7 @@ label {
 }
 
 /* Estilos para el campo de nombre */
-#nombre {
+#name {
     width: 100%;
 }
 
@@ -91,13 +91,14 @@ input[type="submit"]:hover {
 
 /* Estilos para el contenedor del diálogo */
 #dialog-container {
-    display: none; 
+    display: flex;
     position: absolute; 
     bottom: 0; 
     top: 0; 
     left: 0; 
     right: 0; 
-    background-color: rgba(0, 0, 0, 0.4); 
+    background-color: rgba(0, 0, 0, 0.4);
+
 }
 
 /* Estilos para el diálogo "¡Se ha enviado correctamente!" */
@@ -106,17 +107,72 @@ input[type="submit"]:hover {
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
-    background-color: white; 
+    background-color: #FFF6ED;
+    width: 40%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Estilos para el párrafo del diálogo "¡Se ha enviado correctamente!" */
+
+#dialog-correcto p{
+    align-self: center;
 }
 
 /* Estilos para el botón de cerrar el diálogo */
 .boton-cerrar-dialogo {
-    color: black; 
+    color: white;
+    background-color: #790050;
+    height: 20%;
+    width: 30%;
+    align-self: center;
+    text-align: center;
+    padding: .2rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/*Para que cuando se entre en el formulario en dialogo no se muestre*/
+#dialog-container {
+    display:none;
 }
 
 /* Estilos para el cuerpo de la página en pantallas pequeñas */
 @media (max-width: 768px) {
     body {
         margin-top: 80px; 
+    }
+
+    #dialog-correcto p{
+        margin: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 550px){
+    #dialog-correcto p{
+        margin: .2rem
+    }
+    .boton-cerrar-dialogo{
+        font-size: .8rem;
+        padding: .3rem;
+    }
+}
+
+@media (max-width: 400px){
+    #dialog-correcto{
+        padding:.1rem;
+    }
+    #dialog-correcto p{
+        margin: 0;
+    }
+    .boton-cerrar-dialogo{
+        font-size: .8rem;
+        padding: .2rem;
+        width: 50%;
+        height: 20%;
+
     }
 }

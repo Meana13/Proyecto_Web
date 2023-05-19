@@ -14,9 +14,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
 
     <!-- Carga de estilos -->
-    <link rel="stylesheet" type="text/css" href="../../css/page_usuario/estilos_page_usuario.css" />
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/page_usuario/estilos_page_usuario.css" />
 
     <!-- Carga de script -->
     <script src="../../scrips/landing_page/control-acceso.js"></script>
@@ -24,7 +25,6 @@
 
 <body>
     <!--Aqui comienza el header-->
-    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
     <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
     <header class="header">
@@ -85,8 +85,8 @@
                 <!-- TITULO TARJETA -->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingOne">
-                        <a data-toggle="collapse" class="enlaces_a_flecha" href="#collapseOne" aria-expanded="true"
-                           aria-controls="collapseOne">
+                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true"
+                           aria-controls="collapseOne" class="enlaces_a_flecha">
                         <h5 class="mb-0">
 
                                 Salinidad
@@ -126,8 +126,8 @@
                 <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingTwo">
-                        <a data-toggle="collapse" class="enlaces_a_flecha" href="#collapseTwo" aria-expanded="true"
-                           aria-controls="collapseTwo">
+                        <a data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
+                           aria-controls="collapseTwo" class="enlaces_a_flecha">
                         <h5 class="mb-0">
 
                                 Humedad
@@ -169,8 +169,8 @@
                 <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingThree">
-                        <a data-toggle="collapse" class="enlaces_a_flecha" href="#collapseThree" aria-expanded="true"
-                           aria-controls="collapseThree">
+                        <a data-toggle="collapse" href="#collapseThree" aria-expanded="true"
+                           aria-controls="collapseThree" class="enlaces_a_flecha">
                         <h5 class="mb-0">
 
                                 pH
@@ -211,8 +211,8 @@
                 <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingFour">
-                        <a data-toggle="collapse" class="enlaces_a_flecha" href="#collapseFour" aria-expanded="true"
-                           aria-controls="collapseFour">
+                        <a data-toggle="collapse" href="#collapseFour" aria-expanded="true"
+                           aria-controls="collapseFour" class="enlaces_a_flecha">
                         <h5 class="mb-0">
 
                                 Temperatura
@@ -254,8 +254,8 @@
                 <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingFive">
-                        <a data-toggle="collapse" class="enlaces_a_flecha" href="#collapseFive" aria-expanded="true"
-                           aria-controls="collapseFive">
+                        <a data-toggle="collapse" href="#collapseFive" aria-expanded="true"
+                           aria-controls="collapseFive" class="enlaces_a_flecha">
                         <h5 class="mb-0">
 
                                 Luz
@@ -322,6 +322,20 @@
     </section>
     <!--    Aqui finaliza la seccion de editar huerto-->
 
+    <!--    Aqui comienza la seccion de medidor pH-->
+    <h2>Nivel de pH</h2>
+    <div id="pH">
+        <img src="../../../../images/medidor_pH.png" alt="Sensor pH">
+        <div class="circulo">pH= 7</div>
+        <div class="chart-container">
+            <canvas id="chart_pH"></canvas>
+        </div>
+        <div class="botones_gráficas">
+            <button class="historial">Historial</button>
+            <button class="actual">Datos actuales</button>
+        </div>
+    </div>
+    <!--    Aqui finaliza la seccion de medidor pH-->
 
 
     <!--    Aqui comienza la seccion de ajustes de perfil -->
@@ -438,5 +452,4 @@
     <script src="../../scrips/page_usuario/graficas_sensores.js"></script>
 
 </body>
-
 </html>

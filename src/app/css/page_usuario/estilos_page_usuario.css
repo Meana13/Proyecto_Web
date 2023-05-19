@@ -8,6 +8,7 @@ body {
     margin-top: 120px;
 }
 
+
 /* Estilos para los títulos de nivel 2 */
 h2 {
     text-align: center;
@@ -155,9 +156,23 @@ dialog::backdrop {
     top: 6px;
 }
 
+.header {
+    position:fixed;
+    z-index: 2;
+    }
+
+
 /* Estilos para el acordeón */
 #acordeon {
     margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.enlaces_a_flecha {
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .card {
@@ -273,12 +288,17 @@ dialog::backdrop {
     align-items: center;
     padding: 4%;
 }
+#ajustes-usuario>.datos_usuario>form{
 
-#ajustes-usuario>.datos_usuario>form {
-    width: 300px;
 }
 
 #ajustes-usuario>.datos_usuario>form>input {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+#ajustes-usuario>.datos_usuario>form>#cambios_perfil{
     display: flex;
     align-items: center;
 }
@@ -287,9 +307,12 @@ dialog::backdrop {
     margin-left: 400px;
     flex: 1 1 0;
 }
-
-#ajustes-usuario>.datos_usuario>form>label {
+#ajustes-usuario>.datos_usuario>form>label{
     width: 10px;
+}
+#dialogo_cambios_perfil{
+    margin: auto;
+    text-align: center;
 }
 
 /* Estilos para la sección de citas */
@@ -337,6 +360,7 @@ dialog::backdrop {
 #chart-container-sal {
     display: none;
 }
+
 
 /* Estilos para dispositivos con un ancho máximo de 768px */
 @media (max-width: 768px) {
