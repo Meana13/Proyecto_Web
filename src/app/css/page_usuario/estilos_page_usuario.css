@@ -8,6 +8,7 @@ body {
     margin-top: 120px;
 }
 
+
 /* Estilos para los títulos de nivel 2 */
 h2 {
     text-align: center;
@@ -155,9 +156,23 @@ dialog::backdrop {
     top: 6px;
 }
 
+.header {
+    position:fixed;
+    z-index: 2;
+    }
+
+
 /* Estilos para el acordeón */
 #acordeon {
     margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.enlaces_a_flecha {
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .card {
@@ -337,6 +352,7 @@ dialog::backdrop {
 #chart-container-sal {
     display: none;
 }
+
 
 /* Estilos para dispositivos con un ancho máximo de 768px */
 @media (max-width: 768px) {
