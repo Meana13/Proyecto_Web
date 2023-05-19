@@ -1,19 +1,28 @@
+/* margen superior para evitar conflicto con header */
+body {
+    margin-top: 120px;
+}
+
+/* estilos h3 (titulos de secciones) */
 h3 {
     margin-top: 30px;
     text-align: center;
 }
 
+/* estilos generales de la ficha */
 #ficha-producto {
     width: 60%;
     margin: 30px auto;
 }
 
+/* estilos de la imagen de la ficha */
 #ficha-producto img {
     width: 60%;
     display: block;
     margin: auto;
 }
 
+/* estilos del texto de la ficha de producto */
 #ficha-producto p {
     margin-top: 40px;
     border: 1px solid black;
@@ -22,6 +31,7 @@ h3 {
     margin-bottom: 30px;
 }
 
+/* estilos boton pedir presupuesto */
 #ficha-producto a {
     display: flex;
     justify-content: center;
@@ -36,8 +46,13 @@ h3 {
     padding: 1em;
 }
 
+/* estilos para dispositivos mas pequeños */
 @media (max-width: 768px) {
     #ficha-producto img {
         width: 70%;
+    }
+
+    body {
+        margin-top: 80px;
     }
 }

@@ -16,95 +16,66 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const botonAñadir = document.getElementById("boton-añadir-huerto");
     const secAñadir = document.getElementById("seccion-añadir-huerto");
-
-    let botonActivo = botonCitas;
+    
     let secActiva = secCitas;
-    botonCitas.style.backgroundColor = "#790050";
 
     botonCitas.addEventListener("click", () => {
         secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
         secActiva = secCitas;
         secActiva.style.display = "block";
-        botonActivo = botonCitas;
-        botonActivo.style.backgroundColor = "#790050";
     })
 
     botonOpiniones.addEventListener("click", () => {
         secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
         secActiva = secOpiniones;
         secActiva.style.display = "block";
-        botonActivo = botonOpiniones;
-        botonActivo.style.backgroundColor = "#790050";
     })
 
     botonAdminHuertos.addEventListener("click", () =>{
         secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
         secActiva = secAdminHuertos;
         secActiva.style.display = "block";
-        botonActivo = botonAdminHuertos;
-        botonActivo.style.backgroundColor = "#790050";
     })
 
     botonVerFicha.addEventListener("click", () => {
         secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
         secActiva = secFicha;
         secActiva.style.display = "block";
-        botonActivo = botonVerFicha;
-        botonActivo.style.backgroundColor = "#790050";
     })
     
     botonVerHuerto.addEventListener("click", () => {
         secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
         secActiva = secHuerto;
         secActiva.style.display = "block";
-        botonActivo = botonVerHuerto;
-        botonActivo.style.backgroundColor = "#790050";
     })
 
     botonAñadir.addEventListener("click", () => {
         secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
         secActiva = secAñadir;
         secActiva.style.display = "block";
-        botonActivo = botonAñadir;
-        botonActivo.style.backgroundColor = "#790050";
     })
 
     const botonGuardar = document.getElementById("boton-guardar");
 
     botonGuardar.addEventListener("click", () => {
         secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
         secActiva = secAdminHuertos;
         secActiva.style.display = "block";
-        botonActivo = botonAdminHuertos;
-        botonActivo.style.backgroundColor = "#790050";
     })
 
     const botonVolver = document.getElementById("boton-volver-atras");
     
     botonVolver.addEventListener("click", () => {
         secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
         secActiva = secCitas;
         secActiva.style.display = "block";
-        botonActivo = botonCitas;
-        botonActivo.style.backgroundColor = "#790050";
     })
 
     const botonGuardar2 = document.getElementById("boton-guardar2");
 
     botonGuardar2.addEventListener("click", () => {
         secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
         secActiva = secAdminHuertos;
         secActiva.style.display = "block";
-        botonActivo = botonAdminHuertos;
-        botonActivo.style.backgroundColor = "#790050";
     })
 })

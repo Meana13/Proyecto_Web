@@ -1,14 +1,16 @@
-*{
-    margin:0;
+/* Estilos generales para todos los elementos */
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    font-family: 'lato';
+body {
+    font-family: 'lato'; /* Fuente utilizada en el cuerpo del documento */
 }
-/*estilo contenedor general*/
-.contenedor_opiniones{
+
+/* Estilos para el contenedor general de opiniones */
+.contenedor_opiniones {
     margin-top: 25px;
     max-width: 100%;
     max-height: 250px;
@@ -21,13 +23,10 @@ body{
     flex-direction: column;
     margin-bottom: 10px;
     margin-left: 515px;
-
 }
 
-
-
-
-.contenedor_opinion{
+/* Estilos para cada opinión en el contenedor */
+.contenedor_opinion {
     width: 250px;
     height: 200px;
     border: 2px solid black;
@@ -38,15 +37,17 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
-.contenedor_foto_nombre_usuario{
+
+/* Estilos para el contenedor de la foto y el nombre de usuario */
+.contenedor_foto_nombre_usuario {
     display: flex;
     align-items: center;
 }
-.nombre_usuario{
+
+.nombre_usuario {
     width: 200px;
     height: 20px;
     margin-left: 20px;
-
     font-size: 15px;
 }
 
@@ -56,9 +57,10 @@ body{
     margin-top: 10px;
     margin-left: 10px;
     border-radius: 50%;
-    border:2px solid #666;
+    border: 2px solid #666;
 }
 
+/* Estilos para la calificación de la opinión */
 .calificacion {
     font-size: 0;
     height: 21px;
@@ -77,19 +79,35 @@ body{
     margin-right: 5px;
 }
 
-.texto_opinion{
-    border : solid 3px #000000;
-    background : transparent;
-    color : #000000;
+/* Estilos para el texto de la opinión */
+.texto_opinion {
+    border: solid 1px #000000;
+    background: transparent;
+    color: #000000;
     margin-top: 10px;
-    padding : 4px;
-    width : 90%;
-    height : 100px;
-    overflow : auto;
+    padding: 4px;
+    width: 90%;
+    height: 100px;
+    overflow: auto;
     margin-bottom: 5px;
-    margin-left: 10px ;
+    margin-left: 10px;
 }
 
+/* Estilos para la vista de la opinión */
+.vista_opinion {
+    border: 2px solid black;
+    width: 30%;
+    object-fit: cover;
+    vertical-align: top;
+    transition: 2s;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+/* Estilos para pantallas más pequeñas */
 @media (max-width: 768px) {
-    
+    .vista_opinion {
+        width: 80%;
+        margin: 10px auto;
+    }
 }

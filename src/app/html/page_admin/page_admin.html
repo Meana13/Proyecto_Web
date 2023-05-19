@@ -4,23 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titulo</title>
+    <title>Page administrador</title>
+
+    <!-- carga de scripts-->
     <script src="../../scrips/page_admin/page_admin.js"></script>
+    <script src="../../scrips/landing_page/control-acceso.js"></script>
+    <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
+    
+    <!-- carga de hoja de estilos-->
     <link rel="stylesheet" href="../../css/page_admin/estilos_page_admin.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
 </head>
 
 <body>
-    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
-    <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
-
+    <!-- inicio de header -->
     <header class="header">
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
         <div class="login-tab">
-            <a href="../../../index.html" class="login-tab-icon"><img src="../../../images/icono-usuario.svg" alt=""></a>
+            <img src="../../../images/admin.png" alt="">
+            <label>HectorAdmin</label>
         </div>
-
+        <!--- menu --->
         <nav class="nav">
             <button class="nav-toggle" aria-label="Abrir menú">
                 <!--div*3> + tabulador-->
@@ -30,19 +36,10 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <a href="../landing_page/quienes_somos.html" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                    <button type="button" class="boton_menu" id="boton-administrar-usuarios">administrar usuarios</button>    
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html#titulo_nuestros_productos" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="../landing_page/faqs.html" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="../landing_page/formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="../../../index.html" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
+                    <button class="nav-menu-link nav-link" onclick="logout()">CERRAR SESIÓN</button>
                 </li>
             </ul>
         </nav>
@@ -50,39 +47,12 @@
     </header>
     <!-- FIN HEADER -->
 
-    <!-- INICIO DATOS ADMIN -->
-
-    <section class="perfil">
-        <img src="../../../images/admin.png" alt="Foto admin" class="foto-perfil">
-
-        <p id="datos">
-            Nombre de usuario: HectorAdmin <br>
-            Nombre y apellidos: Héctor Iglesias <br>
-            E-mail: hectigle@empresa.com <br>
-            Dirección: Carretera Sequia del Rei, 3, Bloque X 1ª Planta Puerta 2
-        </p>
-    </section>
-
-    <!-- FIN DATOS ADMIN -->
-
-    <!-- BOTONES -->
-
-    <nav id="botones-perfil">
-        <button type="button" id="boton-administrar-usuarios" class="boton-perfil">administrar <br>usuarios</button>
-        <button type="button" id="boton-opinion-del-personal" class="boton-perfil">opinión del <br>personal</button>
-    </nav>
-
-    <!------------->
-
-    <!-- LINEA SEPARATORIA -->
-
-    <div id="divisor"></div>
-
-    <!----------------------->
-
     <!-- INICIO SECCION ADMINSITRAR USUARIOS -->
 
     <section id="seccion-administrar-usuarios">
+
+        <h2>ADMINISTRACIÓN DE USUARIOS</h2>
+
         <button type="button" id="boton-añadir-usuario"> <img src="../../../images/icono-añadir.svg" alt="Añadir">
             Añadir</button>
 
@@ -244,111 +214,24 @@
 
     <!-- FIN SECCION HOJA DE USUARIO-->
 
-    <!-- INICIO SECCION OPINION DEL PERSONAL -->
-
-    <section id="seccion-opinion-personal">
-        <!-- DESPLEGABLE -->
-        <select class="desplegable-tecnicos" name="tecnicos">
-            <option value="tecnico1">Nicolas Román</option>
-            <option value="tecnico2">Pablo García</option>
-            <option value="tecnico3">Julio Marco</option>
-            <option value="tecnico4">Estefanía Rodríguez</option>
-        </select>
-        <!---------------->
-        <!-- Opinion 1 -->
-        <div class="caja-opinion" id="opinion1">
-            <img src="../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
-            <div class="datos-opinion">
-                <label class="fecha-instalacion">Instalación: 04/04/2023 </label> <!-- importar fecha no se como -->
-                <br>
-                <label class="n-instalacion">#01</label><!-- importar nº de instalacion -->
-                <div class="estrellas">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/media-estrella.svg" alt="Media estrella" id="media-estrella">
-                </div>
-            </div>
-            <textarea readonly
-                class="opinion">Impresionado con su profesionalismo y habilidad. Desde el momento en que llegó a mi hogar tuve la suerte de contar con su servicio,tengo una solución perfecta en mi hogar!</textarea>
-        </div>
-        <!-- Opinion 2 -->
-        <div class="caja-opinion" id="opinion2">
-            <img src="../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
-            <div class="datos-opinion">
-                <label class="fecha-instalacion">Instalación: 05/04/2023 </label> <!-- importar fecha no se como -->
-                <br>
-                <label class="n-instalacion">#02</label><!-- importar nº de instalacion -->
-                <div class="estrellas">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                </div>
-            </div>
-            <textarea readonly class="opinion"></textarea>
-        </div>
-
-        <!-- Opinion 3 -->
-        <div class="caja-opinion" id="opinion3">
-            <img src="../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
-            <div class="datos-opinion">
-                <label class="fecha-instalacion">Instalación: 06/04/2023 </label> <!-- importar fecha no se como -->
-                <br>
-                <label class="n-instalacion">#03</label><!-- importar nº de instalacion -->
-                <div class="estrellas">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/media-estrella.svg" alt="Media estrella" id="media-estrella">
-                </div>
-            </div>
-            <textarea readonly class="opinion"></textarea>
-        </div>
-
-        <!-- Opinion 4 -->
-        <div class="caja-opinion" id="opinion4">
-            <img src="../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
-            <div class="datos-opinion">
-                <label class="fecha-instalacion">Instalación: 07/04/2023 </label> <!-- importar fecha no se como -->
-                <br>
-                <label class="n-instalacion">#04</label><!-- importar nº de instalacion -->
-                <div class="estrellas">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                    <img src="../../../images/estrella.svg" alt="Estrella">
-                </div>
-            </div>
-            <textarea readonly class="opinion"></textarea>
-        </div>
-    </section>
-
-    <!-- FIN SECCION OPINION DEL PERSONAL-->
-
     <!-- FOOTER -->
     <footer>
-        <div id="columnas">
-            <div id="columna-conocenos">
-                <h3 id="conocenos">conocenos</h3>
-                <a href="#">Quiénes somos</a>
-                <a href="#">Politica de privacidad</a>
-                <a href="#">Aviso legal</a>
-            </div>
-            <div id="columna-ayuda">
-                <h3 id="ayuda">ayuda</h3>
-                <a href="#">Contacto</a>
-                <a href="#">Pedir presupuesto</a>
-                <a href="#">Preguntas frecuentes</a>
-            </div>
+        <div id="seccion-logo">
+            <div class="linea-logo"></div>
+            <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
+            <div class="linea-logo"></div>
         </div>
-        <img src="../../../images/logoGTI.png" id="logo">
-        <p id="copyright">©2023 gti Todos los derechos reservados</p>
+    
+        <a href="../landing_page/formulario_contacto.html" id="contactanos"><span>contactanos</span></a>
+        <div id="legal">
+            <a href="#"><span>Politica de privacidad</span></a>
+            <div id="linea-separatoria"></div>
+            <a href="#"><span>Aviso legal</span></a>
+        </div>
     </footer>
 
-    <body>
+
+    <script src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
+    </body>
 
 </html>

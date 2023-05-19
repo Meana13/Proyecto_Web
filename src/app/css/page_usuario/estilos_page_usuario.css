@@ -1,40 +1,68 @@
+/* Definición de variables de colores */
+:root {
+    --principal: #9D4179;
+}
+
+/* Estilos generales para el cuerpo de la página */
+body {
+    margin-top: 120px;
+}
+
+/* Estilos para los títulos de nivel 2 */
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Estilos para el diálogo */
 dialog {
     margin: auto auto;
-    height: 50%;
+    height: fit-content;
     width: 60%;
 }
 
+/* Estilos para el fondo del diálogo */
 dialog::backdrop {
     background-color: rgb(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
 }
 
+/* Estilos para el botón "cancelar" */
 #cancelar {
     margin-bottom: 20px;
     background-color: transparent;
     border: 0;
+    display: flex;
+    align-items: center;
 }
 
-#cancelar img{
+#cancelar img {
     margin-right: 15px;
     padding-top: 3px;
+    width: 20px;
 }
 
-#editar-huerto label, 
-#editar-huerto input{
+/* Estilos para los campos de etiquetas e inputs en la sección "editar-huerto" */
+#editar-huerto label,
+#editar-huerto input {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+/* Estilos para los campos de fecha en el formulario de huerto */
 #fecha_huerto_dia,
-#fecha_huerto_mes,
+#fecha_huerto_mes {
+    width: 30px;
+}
+
 #fecha_huerto_año {
     width: 40px;
 }
 
+/* Estilos para el botón "enviar" en el formulario de huerto */
 #enviar {
     border-radius: 5px;
-    background-color: #9D4179;
+    background-color: var(--principal);
     border: 0;
     color: #FFFFFF;
     height: 35px;
@@ -50,11 +78,13 @@ dialog::backdrop {
     margin-right: 5%;
 }
 
+/* Estilos para los botones de la sección "botones_añadir_selección" */
 #botones_añadir_selección {
     margin: 0 auto;
     width: 90%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 #botones_añadir_selección #seleccionar_huerto {
@@ -64,65 +94,14 @@ dialog::backdrop {
 
 #botones_añadir_selección #entrada {
     width: 15%;
-    background-color: #9D4179;
+    background-color: var(--principal);
     color: white;
     border: 0;
     border-radius: 5px;
     padding: 5px;
 }
-#pagina-anyadir{
-    width: 500px;
-    height: 300px;
-    margin: auto;
-    background-color:#FFF6ED
-}
-#pagina-anyadir>#foto_perfil{
-    width: 90px;
-    background-color: red;
-}
-#adjuntar{
-    width: 95px;
-    height: 25px;
-    background-color: #790050;
-    color: white;
-    font-size: 11px;
-}
-#pagina-anyadir>#editar-huerto>img{
-    float: left;
-}
-#pagina-anyadir>#editar-huerto>#enviar{
-    align-self:flex-end;
-    width: 120px;
-    height: 48px;
-    flex: 1 0 0;
-    background-color: #790050;
-    color: white;
-    border-radius: 4px;
-    padding: 1%;
-}
 
-#mediciones div {
-    width: 300px;
-    margin-bottom: 50px;
-    height: 200px;
-    background-color: #9C4078;
-}
-#mediciones div>img{
-    margin-left:10px;
-}
-#mediciones>div>.circulo{
-    width: 129px;
-    height: 129px;
-    border-radius: 50%;
-    border: 2px solid green;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-inline: auto;
-    margin-bottom: 15px;
-    background-color: #CAF982;
-}
-
+/* Estilos para los campos de input en la sección "datos_usuario" */
 .datos_usuario {
     width: 300px;
     margin: 0 auto;
@@ -142,9 +121,10 @@ dialog::backdrop {
     display: flex;
 }
 
+/* Estilos para el botón "cambios_perfil" en la sección "datos_usuario" */
 #cambios_perfil {
     border-radius: 5px;
-    background-color: #9D4179;
+    background-color: var(--principal);
     border: 0;
     color: #FFFFFF;
     height: 35px;
@@ -160,41 +140,136 @@ dialog::backdrop {
     margin-right: 5%;
 }
 
+/* Estilos para los campos de etiquetas e inputs en el formulario de hoja de usuario */
 #formulario-hoja-usuario label {
     display: inline-block;
     width: 40%;
     text-align: left;
 }
 
-
+/* Estilos para el icono de editar */
 #icono-editar {
     margin-left: 10px;
     padding: 0;
     border: 0;
-    position: relative;
     top: 6px;
 }
 
-#mediciones div .botones_gráficas {
-    height: 30px;
+/* Estilos para el acordeón */
+#acordeon {
+    margin-top: 40px;
+}
+
+.card {
+    width: 90%;
+    margin: 0 auto;
+    background-color: transparent;
+    border: 0;
+}
+
+/* Estilos para el encabezado de las tarjetas en el acordeón */
+.card-header {
+    border-radius: 1em;
+    background-color: #9D4179;
+    border-bottom: 3px solid gray;
+    border-radius: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilos para el triángulo del acordeón */
+.triangulo {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid white;
+}
+
+/* Estilos específicos para el encabezado de la primera tarjeta en el acordeón */
+#headingOne.card-header {
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+}
+
+/* Estilos específicos para el encabezado de la quinta tarjeta en el acordeón */
+#headingFive.card-header {
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-bottom: 0;
+}
+
+/* Estilos para la sección de mediciones */
+#mediciones {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10%;
+}
+
+/* Estilos para las imágenes en la sección de mediciones */
+#mediciones img {
+    width: 30px;
+    margin-left: 20px;
+    height: fit-content;
+}
+
+/* Estilos para los círculos en la sección de mediciones */
+.circulo {
+    margin: 20px 0;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 2px solid gray;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 30px;
+}
+
+/* Estilos para los botones de gráficas */
+.botones_gráficas {
+    height: 30px;
+    display: flex;
     margin-bottom: 0;
 }
 
-#mediciones div .botones_gráficas button {
+.botones_gráficas button {
     width: 50%;
 }
 
-#mediciones img {
-    position: relative;
-    right: 120px;
+/* Estilos para la caja de medición */
+#caja-medicion {
+    width: 100%;
+    height: 170px;
+    background-color: gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
 }
 
-/*CSS de ajustes usuario*/
+#caja-medicion img {
+    margin-left: 40px;
+}
 
+.card-body {
+    background-color: white;
+}
+
+#espacio-vacio {
+    width: 60px;
+}
+
+/* Estilos para la sección de ajustes de usuario */
 #ajustes-usuario>.datos_usuario {
     display: flex;
+    justify-content: center;
+    gap: 0px;
     align-items: center;
     padding: 4%;
 }
@@ -210,7 +285,11 @@ dialog::backdrop {
 }
 #ajustes-usuario>.datos_usuario>form>#cambios_perfil{
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+}
+
+#ajustes-usuario>.datos_usuario>form>#cambios {
+    margin-left: 400px;
     flex: 1 1 0;
 }
 #ajustes-usuario>.datos_usuario>form>label{
@@ -221,9 +300,7 @@ dialog::backdrop {
     text-align: center;
 }
 
-
-/*CSS Seccion citas*/
-
+/* Estilos para la sección de citas */
 #citas>table {
     flex: 1 1 0;
     width: 100%;
@@ -238,13 +315,15 @@ dialog::backdrop {
     justify-content: center;
 }
 
+/* Estilos para el botón "aceptar/rechazar" en la sección de citas */
 .boton-aceptar-rechazar img {
     width: 15px;
     margin-right: 5px;
 }
+
 .boton-aceptar-rechazar {
     border-radius: 5px;
-    background-color: #9D4179;
+    background-color: var(--principal);
     border: 0;
     color: #FFFFFF;
     height: 35px;
@@ -256,4 +335,26 @@ dialog::backdrop {
     padding: .5em;
     display: flex;
     margin-bottom: 2px;
+}
+
+/* Estilos para los contenedores de las gráficas */
+#chart-container-humedad,
+#chart-container-luz,
+#chart-container-pH,
+#chart-container-temperatura,
+#chart-container-sal {
+    display: none;
+}
+
+/* Estilos para dispositivos con un ancho máximo de 768px */
+@media (max-width: 768px) {
+    body {
+        margin-top: 80px;
+    }
+
+    #seleccionar_huerto {
+        height: fit-content;
+        padding: 7px;
+        margin-top: 3px;
+    }
 }

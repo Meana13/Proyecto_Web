@@ -1,12 +1,15 @@
+/* Estilos generales para todos los elementos */
 * {
   margin: 0;
   box-sizing: border-box;
 }
 
+/* Estilos para el cuerpo de la página */
 body {
   font-family: sans-serif;
 }
 
+/* Estilos para el encabezado */
 .header {
   background-color: black;
   height: 80px;
@@ -15,60 +18,56 @@ body {
   top: 0;
   left: 0;
   display: flex;
-  z-index:2
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  max-width: 992px;
+/* Estilos para la barra de navegación */
+nav.nav {
   margin: 0 auto;
 }
 
+/* Estilos para los enlaces de navegación */
 .nav-link {
   color: white;
   text-decoration: none;
+  background-color: transparent;
+  border: 0;
+  font-size: 18px;
+  height: fit-content;
+  width: fit-content;
 }
 
+/* Estilos para el logo */
 .logo {
   height: 60px;
-  padding: 10px ;
+  padding: 10px;
   line-height: 80px;
 }
-.boto_usuario{
-  position: absolute;
-  margin-top: 1%;
-  margin-left:85%;
-}
+
+/* Estilos para el menú de navegación */
 .nav-menu {
   display: flex;
-  margin-right: 40px;
+  margin-right: 120px;
   list-style: none;
   align-items: center;
   text-align: center;
+  margin-top: 1.5em;
+  z-index: 99;
 }
 
+/* Estilos para los elementos del menú de navegación */
 .nav-menu-item {
   font-size: 18px;
-  padding:0 20px;
-
+  padding: 0 20px;
   text-transform: uppercase;
-  border-left:1px solid white ;
-}
-.nav-menu-item:nth-child(1){
-  border-left:none;
+  border-left: 1px solid white;
 }
 
-.nav-menu-link {
-  /*padding: 8px 12px;*/
-  border-radius: 3px;
+/* Estilos para el primer elemento del menú de navegación */
+.nav-menu-item:nth-child(1) {
+  border-left: none;
 }
 
-.nav-menu-link:hover,
-.nav-menu-link_active {
-  background-color: #034574;
-  transition: 0.5s;
-}
+/* Estilos para el botón de alternar menú de navegación */
 .nav-toggle {
   width: 4.5em;
   height: 4.5em;
@@ -76,6 +75,7 @@ body {
   border: none;
 }
 
+/* Estilos para las barras del botón de alternar menú de navegación */
 .nav-toggle div {
   background-color: white;
   width: 2em;
@@ -84,24 +84,50 @@ body {
   transition: .5s;
 }
 
+/* Estilos para el botón de menú */
+button.boton_menu {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 18px;
+}
 
-
-/* TOGGLE */
+/* Estilos para el botón de alternar menú en dispositivos móviles */
 .nav-toggle {
   display: none;
-
 }
 
+/* Estilos para la pestaña de inicio de sesión */
 .login-tab {
-  padding-top: 5px;
   position: absolute;
-  margin-left: 95%;
-  margin-top: 0.75%;
+  right: 10px;
+  margin-top: .80em;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  align-items: center;
+  right: 40px;
+  height: 30px;
 }
-.login-tab-icon img{
+
+/* Estilos para la imagen de la pestaña de inicio de sesión */
+.login-tab img {
   width: 40px;
   height: 40px;
+  border-radius: 100%;
+  border: 2px solid white;
+  margin-bottom: .25em;
 }
+
+/* Estilos para el icono de usuario */
+#icono-usuario {
+  border: 0;
+}
+
+/* Estilos para el contenedor del formulario de inicio de sesión */
 .login-form-container {
   position: fixed;
   top: 0;
@@ -115,6 +141,7 @@ body {
   z-index: 2;
 }
 
+/* Estilos para el formulario de inicio de sesión */
 .fomulario_iniciar_sesion {
   background-color: #fff;
   border-radius: 10px;
@@ -122,25 +149,28 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Estilos para el encabezado del formulario de inicio de sesión */
+.fomulario_iniciar_sesion h2 {
+  margin: 20px 0;
+}
 
-
-
-
+/* Estilos para las etiquetas del formulario de inicio de sesión */
 .fomulario_iniciar_sesion label {
   display: block;
   margin-bottom: 5px;
 }
 
+/* Estilos para los campos de entrada del formulario de inicio de sesión */
 .fomulario_iniciar_sesion input {
-  width: 100%;
-  padding: 10px;
+  width: 180px;
+  padding: 5px;
   border-radius: 5px;
   border: 1px solid black;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-
-.fomulario_iniciar_sesion button[type="submit"] {
+/* Estilos para el botón de envío del formulario de inicio de sesión */
+.fomulario_iniciar_sesion input[type="submit"] {
   background-color: #9D4179;
   color: #FFFFFF;
   font-family: Arial, sans-serif;
@@ -150,45 +180,113 @@ body {
   font-size: 16px;
   font-weight: bold;
   padding: 1em;
-  margin-left: 58%;
+  margin: 10px auto;
 }
 
+/* Estilos para el botón de cerrar el formulario de inicio de sesión */
+.boton-cerrar-formulario {
+  margin-left: 90%;
+  border: 0;
+  background-color: transparent;
+  height: fit-content;
+  width: fit-content;
+}
 
+/* Estilos para la imagen del botón de cerrar el formulario de inicio de sesión */
+.boton-cerrar-formulario img {
+  height: 20px;
+  width: 20px;
+}
 
+/* Estilos para el contenedor del formulario de inicio de sesión */
+#formulario-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+/* Estilos para el enlace de contraseña olvidada */
+#olvidado-contrasena {
+  color: black;
+  font-size: 13px;
+  margin: 0 auto;
+}
 
+/* Estilos para el mensaje de salida */
+#output {
+  opacity: 0;
+  margin: 1rem 2rem 1rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  text-align: center;
+  transition: opacity .5s;
+  color: white;
+}
 
+/* Estilos para el mensaje de salida de error */
+#output.error {
+  opacity: 1;
+  background-color: #d92121;
+}
 
+/* Estilos para los elementos del menú de usuario registrado, administrador, comercial y técnico */
+#menu-usuario-registrado,
+#header-admin,
+#header-comercial,
+#header-tecnico {
+  display: none;
+}
 
-
-
-
-
-
-
-
-
-/* MOBILE */
+/* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
-  body {
-    padding-top: 60px;
-  }
-
+  /* Estilos para el encabezado en dispositivos móviles */
   .header {
     height: 60px;
+    display: flex;
+    justify-content: space-between;
   }
-  .logo{
-    height: 50px;
+
+  /* Estilos para el logo en dispositivos móviles */
+  .logo {
+    padding: 5px;
+    padding-bottom: 10px;
+    height: 45px;
   }
+
+  /* Estilos para la barra de navegación en dispositivos móviles */
+  nav.nav {
+    margin: 0;
+  }
+
+  /* Estilos para la pestaña de inicio de sesión en dispositivos móviles */
   .login-tab {
     position: absolute;
-    margin-left: 70%;
-    margin-top: 2.5%;
-  }
-  .login-tab-icon img{
-    width: 30px;
+    right: 120px;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    align-items: center;
+    right: 60px;
     height: 30px;
+    margin-top: 15px;
   }
+
+  /* Estilos para la imagen de la pestaña de inicio de sesión en dispositivos móviles */
+  .login-tab img {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    border-radius: 100%;
+    border: 2px solid white;
+  }
+
+  /* Estilos para el icono de usuario en dispositivos móviles */
+  #icono-usuario {
+    margin-right: 0;
+    margin-top: 10px;
+  }
+
+  /* Estilos para el menú de navegación en dispositivos móviles */
   .nav-menu {
     flex-direction: column;
     float: left;
@@ -196,53 +294,46 @@ body {
     margin: 0;
     background-color: black;
     position: fixed;
-    overflow:hidden;
+    overflow: hidden;
     top: 60px;
     width: 70%;
     opacity: 80%;
     padding: 20px;
     margin-left: 30%;
-    height: 320px;
+    height: fit-content;
     overflow-y: auto;
     left: 100%;
     transition: right 0.3s;
   }
 
+  /* Estilos para los elementos del menú de navegación en dispositivos móviles */
   .nav-menu-item {
     text-align: center;
     width: 100%;
-    padding: 0 50px;
-    line-height: 35px;
+    line-height: 20px;
     border-bottom: 1px solid white;
     border-left: none;
+    font-size: 18px;
+    padding: 15px 0;
   }
 
-  .ponte_en_contacto{
+  /* Estilos para el enlace de "Ponte en contacto" en dispositivos móviles */
+  .ponte_en_contacto {
     border: none;
   }
 
+  /* Estilos para el enlace del menú en dispositivos móviles */
   .nav-menu-link {
     padding: 0px;
-    border-radius: 3px;
-    height: 180px;
   }
 
-  .nav-menu-link:hover,
-  .nav-menu-link_active {
-    background: none;
-    color: #83c5f7;
-  }
-
+  /* Estilos para el botón de alternar menú de navegación en dispositivos móviles */
   .nav-toggle {
     display: block;
-    align-items:flex-end;
-    position: relative;
-    margin-left: 180px;
   }
 
+  /* Estilos para el menú de navegación visible en dispositivos móviles */
   .nav-menu_visible {
     left: 0;
   }
-
-
 }

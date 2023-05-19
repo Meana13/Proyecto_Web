@@ -13,33 +13,23 @@ const citas = document.getElementById("citas");
 huertos.style.display = "block";
 ajustes.style.display = "none";
 citas.style.display = "none";
-btn_verhuertos.style.backgroundColor = "#790050";
 
 btn_verhuertos.addEventListener("click", function () {
     huertos.style.display = "block";
     ajustes.style.display = "none";
     citas.style.display = "none";
-    btn_verhuertos.style.backgroundColor = "#790050";
-    btn_citas.style.backgroundColor = "#9D4179";
-    btn_ajustesperfil.style.backgroundColor = "#9D4179";
 });
 
 btn_citas.addEventListener("click", function () {
     huertos.style.display = "none";
     ajustes.style.display = "none";
     citas.style.display = "block";
-    btn_verhuertos.style.backgroundColor = "#9D4179";
-    btn_citas.style.backgroundColor = "#790050";
-    btn_ajustesperfil.style.backgroundColor = "#9D4179";
 });
 
 btn_ajustesperfil.addEventListener("click", function () {
     huertos.style.display = "none";
     ajustes.style.display = "block";
     citas.style.display = "none";
-    btn_verhuertos.style.backgroundColor = "#9D4179";
-    btn_citas.style.backgroundColor = "#9D4179";
-    btn_ajustesperfil.style.backgroundColor = "#790050";
 });
 /*Script para navegar botones de menu*/
 

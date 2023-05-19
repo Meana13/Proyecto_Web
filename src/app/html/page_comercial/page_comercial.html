@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Page comercial</title>
     <link rel="stylesheet" href="../../css/page_comercial/estilos_page_comercial.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
     <script src="../../scrips/page_comercial/grafica.js"></script>
-   
+    <script src="../../scrips/landing_page/control-acceso.js"></script>
+
 </head>
+
 <body>
-<!----------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza el header-->
     <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
     <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
     <header class="header">
-        <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
+        <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png"
+                alt=""></a>
         <div class="login-tab">
-            <a href="../../../index.html" class="login-tab-icon"><img src="../../../images/icono-usuario.svg" alt=""></a>
+            <img src="../../../images/comercial.png" alt="">
+            <label>Ferser</label>
         </div>
 
         <nav class="nav">
-            <button class="nav-toggle" aria-label="Abrir menú">
+            <button class="nav-toggle" aria-label="Abrir menú" >
                 <!--div*3> + tabulador-->
                 <div></div>
                 <div></div>
@@ -32,71 +37,47 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <a href="../landing_page/quienes_somos.html" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                    <button type="button" class="boton_menu" id="boton-solicitudes"
+                        onclick="mostrarSolicitudes()">solicitudes</button>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html#titulo_nuestros_productos" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
+                    <button type="button" class="boton_menu" id="boton-ventas" onclick="mostrarVentas()">ventas</button>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../landing_page/faqs.html" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="../landing_page/formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="../../../index.html" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
+                    <button class="nav-menu-link nav-link" onclick="logout()">CERRAR SESIÓN</button>
                 </li>
             </ul>
         </nav>
 
     </header>
     <!--Aquí acaba el header-->
-<!----------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
 
 
-<!----------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección de usuario-comercial-->
     <section id="usuario-comercial">
 
-        <!--Aquí empieza la sección de perfil-comercial-->
-        <section class="perfil">
-
-            <!--Foto de perfil del comercial:-->
-                <img src="../../../images/comercial.png" alt="foto de perfil del comercial" class="foto-perfil">
-
-            <!--Datos del comercial (se obtendrán automáticamente de la base de datos en posteriores versiones)-->
-            <p id="datos">
-                Nombre de usuario: Ferser<br>
-                Nombre y apellidos: Fernando Serrano<br>
-                Nombre de usuario: admin.ferser@gmail.com<br>
-                Nombre de usuario: Carretera Sequia del Rei, 3. Bloque X, 1ª planta, puerta 1<br>
-            </p>
-        </section>
-        <!--Aquí acaba la sección de perfil-comercial-->
-
-        <!--Aquí empieza el menu-comercial-->
-        <nav id="botones-perfil">
-            <button class="boton-perfil" id="boton-solicitudes" onclick="mostrarSolicitudes()">SOLICITUDES</button>
-            <button class="boton-perfil" id="boton-ventas" onclick="mostrarVentas()">VENTAS</button>
-        </nav>
-        <!--Aquí acaba el menu-comercial-->
-
-        <!--Línea de separación:-->
-        <div id="divisor"></div>
 
     </section>
     <!--Aquí acaba la sección de usuario-comercial-->
-<!----------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
 
-<!----------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección de solicitudes-->
     <section id="solicitudes">
-
+        <h2>SOLICITUDES</h2>
         <!--Aquí empieza la sección de botones-solicitudes-->
         <section id="botones-solicitudes">
-            <button id="boton-solicitudes-pendientes" onclick="mostrarContenidoEntreTres('boton-solicitudes-pendientes','boton-solicitudes-proceso','boton-solicitudes-finalizadas','solicitudes-pendientes', 'solicitudes-en-proceso', 'solicitudes-finalizadas')">SOLICITUDES PENDIENTES</button>
-            <button id="boton-solicitudes-proceso" onclick="mostrarContenidoEntreTres('boton-solicitudes-proceso','boton-solicitudes-pendientes','boton-solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes', 'solicitudes-finalizadas')">SOLICITUDES EN PROCESO</button>
-            <button id="boton-solicitudes-finalizadas" onclick="mostrarContenidoEntreTres('boton-solicitudes-finalizadas','boton-solicitudes-proceso','boton-solicitudes-pendientes','solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes')">SOLICITUDES FINALIZADAS</button>
+            <button id="boton-solicitudes-pendientes" class="activo"
+                onclick="mostrarContenidoEntreTres('boton-solicitudes-pendientes','boton-solicitudes-proceso','boton-solicitudes-finalizadas','solicitudes-pendientes', 'solicitudes-en-proceso', 'solicitudes-finalizadas')">SOLICITUDES
+                PENDIENTES</button>
+            <button id="boton-solicitudes-proceso"
+                onclick="mostrarContenidoEntreTres('boton-solicitudes-proceso','boton-solicitudes-pendientes','boton-solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes', 'solicitudes-finalizadas')">SOLICITUDES
+                EN PROCESO</button>
+            <button id="boton-solicitudes-finalizadas"
+                onclick="mostrarContenidoEntreTres('boton-solicitudes-finalizadas','boton-solicitudes-proceso','boton-solicitudes-pendientes','solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes')">SOLICITUDES
+                FINALIZADAS</button>
         </section>
         <!--Aquí acaba la sección de botones-solicitudes-->
         <!---------------------------------------------------->
@@ -119,11 +100,10 @@
                 <button onclick="cambiarPaginaPaginadorPendientes(2)">2</button>
                 <button onclick="cambiarPaginaPaginadorPendientes(3)">3</button>
                 <span class="btn-input">
-			<button onclick="mostrarInput(this)">...</button>
-			<input type="number" value="1"
-                   onchange="cambiarPaginaPaginadorPendientes(this.value)"
-                   onblur="ocultarInput(this)" />
-		</span>
+                    <button onclick="mostrarInput(this)">...</button>
+                    <input type="number" value="1" onchange="cambiarPaginaPaginadorPendientes(this.value)"
+                        onblur="ocultarInput(this)" />
+                </span>
                 <button>n</button>
             </div>
             <!--Aquí acaba el paginador de solicitudes pendientes-->
@@ -134,12 +114,12 @@
 
                 <!--Aquí empieza la cabecera de la tabla de solicitudes pendientes-->
                 <thead id="cabecera-tabla-solicitudes-pendientes">
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>APELLIDOS</th>
-                    <th>E-MAIL</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>APELLIDOS</th>
+                        <th>E-MAIL</th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <!--Aquí acaba la cabecera de la tabla de solicitudes pendientes-->
 
@@ -173,13 +153,12 @@
                 <button onclick="cambiarPaginaPaginadorProceso(1)">1</button>
                 <button onclick="cambiarPaginaPaginadorProceso(2)">2</button>
                 <button onclick="cambiarPaginaPaginadorProceso(3)">3</button>
-            <span class="btn-input">
-                <button onclick="mostrarInput(this)">...</button>
-                <input type="number" value="1"
-                       onchange="cambiarPaginaPaginadorProceso(this.value)"
-                       onblur="ocultarInput(this)" />
-            </span>
-            <button>n</button>
+                <span class="btn-input">
+                    <button onclick="mostrarInput(this)">...</button>
+                    <input type="number" value="1" onchange="cambiarPaginaPaginadorProceso(this.value)"
+                        onblur="ocultarInput(this)" />
+                </span>
+                <button>n</button>
             </div>
             <!--Aquí acaba el paginador de solicitudes en proceso-->
 
@@ -188,12 +167,12 @@
 
                 <!--Aquí empieza la cabecera de la tabla de solicitudes en proceso-->
                 <thead id="cabecera-tabla-solicitudes-proceso">
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>APELLIDOS</th>
-                    <th>E-MAIL</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>APELLIDOS</th>
+                        <th>E-MAIL</th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <!--Aquí acaba la cabecera de la tabla de solicitudes en proceso-->
 
@@ -216,7 +195,7 @@
 
             <!--Aquí empieza el buscador de la tabla-->
             <div class="buscador">
-                <input  id="buscador-finalizadas" placeholder="Escribe lo que quieras buscar...">
+                <input id="buscador-finalizadas" placeholder="Escribe lo que quieras buscar...">
                 <button onclick="buscarSolicitudesFinalizadas()">Buscar</button>
             </div>
             <!--Aquí acaba el buscador de la tabla-->
@@ -227,11 +206,10 @@
                 <button onclick="cambiarPaginaPaginadorFinalizadas(2)">2</button>
                 <button onclick="cambiarPaginaPaginadorFinalizadas(3)">3</button>
                 <span class="btn-input">
-			<button onclick="mostrarInput(this)">...</button>
-			<input type="number" value="1"
-                   onchange="cambiarPaginaPaginadorFinalizadas(this.value)"
-                   onblur="ocultarInput(this)" />
-		</span>
+                    <button onclick="mostrarInput(this)">...</button>
+                    <input type="number" value="1" onchange="cambiarPaginaPaginadorFinalizadas(this.value)"
+                        onblur="ocultarInput(this)" />
+                </span>
                 <button>n</button>
             </div>
             <!--Aquí acaba el paginador de solicitudes finalizadas-->
@@ -241,12 +219,12 @@
 
                 <!--Aquí empieza la cabecera de la tabla de solicitudes finalizadas-->
                 <thead id="cabecera-tabla-solicitudes-finalizadas">
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>APELLIDOS</th>
-                    <th>E-MAIL</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>APELLIDOS</th>
+                        <th>E-MAIL</th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <!--Aquí acaba la cabecera de la tabla de solicitudes finalizadas-->
 
@@ -263,12 +241,13 @@
 
     </section>
     <!--Aquí acaba la sección de solicitudes-->
-<!----------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
 
 
-<!----------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección de ventas-->
     <section id="ventas">
+        <h2>VENTAS</h2>
 
         <!--Aquí empieza la sección de botones-ventas-->
         <section id="botones-ventas">
@@ -293,11 +272,10 @@
                 <button onclick="cambiarPaginaPaginadorVentas(2)">2</button>
                 <button onclick="cambiarPaginaPaginadorVentas(3)">3</button>
                 <span class="btn-input">
-			        <button onclick="mostrarInput(this)">...</button>
-			        <input type="number" value="1"
-                   onchange="cambiarPaginaPaginadorVentas(this.value)"
-                   onblur="ocultarInput(this)" />
-		        </span>
+                    <button onclick="mostrarInput(this)">...</button>
+                    <input type="number" value="1" onchange="cambiarPaginaPaginadorVentas(this.value)"
+                        onblur="ocultarInput(this)" />
+                </span>
                 <button>n</button>
             </div>
             <!--Aquí acaba el paginador de ventas-->
@@ -307,12 +285,12 @@
 
                 <!--Aquí empieza la cabecera de la tabla de ventas-->
                 <thead id="cabecera-tabla-ventas">
-                <tr>
-                    <th>NOMBRE</th>
-                    <th>APELLIDOS</th>
-                    <th>E-MAIL</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>APELLIDOS</th>
+                        <th>E-MAIL</th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <!--Aquí acaba la cabecera de la tabla de ventas-->
 
@@ -364,9 +342,9 @@
 
     </section>
     <!--Aquí acaba la sección de ventas-->
-<!----------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
 
-<!----------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección ver venta-->
     <section id="ver-venta">
 
@@ -378,7 +356,7 @@
             <p><b>E-mail:</b><span id="nombre-venta"></span></p>
             <p><b>Dirección:</b><span id="direccion-venta"></span></p>
             <p><b>Productos vendidos:</b></p>
-            <ul  id="productos-vendidos">
+            <ul id="productos-vendidos">
                 <li>Producto 1</li>
                 <li>Producto 2</li>
                 <li>Producto 3</li>
@@ -388,58 +366,55 @@
 
     </section>
     <!--Aquí acaba la sección ver venta-->
-<!----------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------->
 
 
-<!----------------------------------------------------------------------------------------------->
-<!--Aquí empieza la sección ver más-->
-<section id="ver-mas">
+    <!----------------------------------------------------------------------------------------------->
+    <!--Aquí empieza la sección ver más-->
+    <section id="ver-mas">
 
-    <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
-    <div class="contenedor-datos">
-        <h3>Detalles de la solicitud</h3>
-        <p><b>Nombre:</b> <span id="nombre-solicitud"></span></p>
-        <p><b>Apellidos:</b> <span id="apellidos-solicitud"></span></p>
-        <p><b>E-mail:</b><span id="email-solicitud"></span></p>
-        <p><b>Dirección:</b><span id="direccion-solicitud"></span></p>
-        <p><b>Solicitudes:</b></p>
-        <ul class="foco-de-detalle">
-            <li>E-mail 1</li>
-            <li>E-mail 2</li>
-            <li>E-mail 3</li>
-        </ul>
-        <button id="boton-volver-a-lista-solicitudes" >VOLVER ATRÁS</button>
-    </div>
-
-</section>
-<!--Aquí acaba la sección ver venta-->
-<!----------------------------------------------------------------------------------------------->
-
-
-
-
-<!----------------------------------------------------------------------------------------------->
-<!--Aquí empieza el footer-->
-<footer>
-    <div id="columnas">
-        <div id="columna-conocenos">
-            <h3 id="conocenos">conocenos</h3>
-            <a href="#">Quiénes somos</a>
-            <a href="#">Politica de privacidad</a>
-            <a href="#">Aviso legal</a>
+        <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
+        <div class="contenedor-datos">
+            <h3>Detalles de la solicitud</h3>
+            <p><b>Nombre:</b> <span id="nombre-solicitud"></span></p>
+            <p><b>Apellidos:</b> <span id="apellidos-solicitud"></span></p>
+            <p><b>E-mail:</b><span id="email-solicitud"></span></p>
+            <p><b>Dirección:</b><span id="direccion-solicitud"></span></p>
+            <p><b>Solicitudes:</b></p>
+            <ul class="foco-de-detalle">
+                <li>E-mail 1</li>
+                <li>E-mail 2</li>
+                <li>E-mail 3</li>
+            </ul>
+            <button id="boton-volver-a-lista-solicitudes">VOLVER ATRÁS</button>
         </div>
-        <div id="columna-ayuda">
-            <h3 id="ayuda">ayuda</h3>
-            <a href="#">Contacto</a>
-            <a href="#">Pedir presupuesto</a>
-            <a href="#">Preguntas frecuentes</a>
+
+    </section>
+    <!--Aquí acaba la sección ver venta-->
+    <!----------------------------------------------------------------------------------------------->
+
+
+
+
+    <!----------------------------------------------------------------------------------------------->
+    <!--Aquí empieza el footer-->
+    <footer>
+        <div id="seccion-logo">
+            <div class="linea-logo"></div>
+            <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
+            <div class="linea-logo"></div>
         </div>
-    </div>
-    <img src="../../../images/logoGTI.png" id="logo">
-    <p id="copyright">©2023 gti Todos los derechos reservados</p>
-</footer>
+
+        <a href="../landing_page/formulario_contacto.html" id="contactanos"><span>contactanos</span></a>
+        <div id="legal">
+            <a href="#"><span>Politica de privacidad</span></a>
+            <div id="linea-separatoria"></div>
+            <a href="#"><span>Aviso legal</span></a>
+        </div>
+    </footer>
     <!--Aquí acaba el footer-->
 <!----------------------------------------------------------------------------------------------->
 <script src="../../scrips/page_comercial/page_comercial.js"></script>
 </body>
+
 </html>

@@ -1,4 +1,3 @@
-2
 <!doctype html>
 <html lang="es">
 
@@ -7,43 +6,53 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sistema de aplicación</title>
+
+    <!-- Carga de hojas de estilos -->
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
     <link rel="stylesheet" href="../../css/landing_page/ficha_producto.css">
-
-
-    <title>sistema de aplicación</title>
 </head>
 
 <body>
-    <header class="header">
-        <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png"
-                alt=""></a>
-        <div class="login-tab">
-            <a href="#" class="login-tab-icon"><img src="../../../images/icono_usuario_no_registrado.png" alt=""></a>
+    <!-- inicio header -->
+    <header class="header" id="header-no-registrado">
+        <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
+
+        <div class="login-tab" onclick="document.getElementById('login').style.display = 'flex'">
+            <a href="#" class="login-tab-icon"><img id="icono-usuario" src="../../../images/icono-usuario.svg"
+                    alt=""></a>
         </div>
-        <div class="login-form-container">
-            <form class="login-form">
-                <h2>Iniciar sesión</h2>
-                <div class="form-group">
-                    <label for="username">Nombre de usuario:</label>
-                    <input type="text" id="username" name="username" required>
+
+        <div id="login" class="login-form-container" onclick="if(event.target === this) this.style.display='none'">
+
+            <form id="login-form" class="fomulario_iniciar_sesion">
+                <button class="boton-cerrar-formulario"
+                    onclick="document.getElementById('login').style.display = 'none'"><img
+                        src="../../../images/icono-cerrar.svg"></button>
+                <header>
+                    <h2>Iniciar Sesión</h2>
+                </header>
+                <label for="nombre">Nombre de usuario:</label><br>
+                <input type="text" id="nombre" name="nombre" required><br>
+                <div id="formulario-login">
+                    <label for="password">Contraseña:</label><br>
+                    <input type="password" id="password" name="password" required><br>
+                    <!--botón enviar-->
+                    <input type="submit" value="Acceder">
+                    <br>
+                    <a id="olvidado-contrasena" href="../../../app/html/landing_page/formulario_contacto.html">¿Has
+                        olvidado tu
+                        contraseña? <br> Pincha aquí para recuperarla.</a>
                 </div>
-                <div class="form-group">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Iniciar sesión</button>
+                <div id="output">
+                    Area de mensajes
                 </div>
             </form>
         </div>
 
-
-
-
-
+        <!--- menu --->
         <nav class="nav">
             <button class="nav-toggle" aria-label="Abrir menú">
                 <!--div*3> + tabulador-->
@@ -53,33 +62,59 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <a href="./quienes_somos.html" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                    <a href="../../../app/html/landing_page/quienes_somos.html" class="nav-menu-link nav-link">QUIENES
+                        SOMOS</a>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html#titulo_nuestros_productos" class="nav-menu-link nav-link">NUESTROS
-                        PRODUCTOS</a>
+                    <a href="../../../index.html#flecha" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="./faqs.html" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
+                    <a href="../../../app/html/landing_page/faqs.html" class="nav-menu-link nav-link">PREGUNTAS
+                        FRECUENTES</a>
                 </li>
-                <li class="nav-menu-item">
-                    <a href="./formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
+                <li class="nav-menu-item ponte_en_contacto">
+                    <a href="../../../app/html/landing_page/formulario_contacto.html"
+                        class="nav-menu-link nav-link">PONTE EN
+                        CONTACTO</a>
                 </li>
-
             </ul>
         </nav>
-
     </header>
-    <script src="/../scrips/landing_page/script_index_menu_no_registrado.js"></script>
+    <!-- fin de header -->
 
+    <!-- script de header -->
+    <script src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
+
+    <!-- titulo -->
     <h3>Sistema de ampliación</h3>
+
+    <!-- ficha de producto-->
     <div id="ficha-producto">
-        <img src="/../../../images/producto_3.png" alt="Foto del producto">
-        <p>El sistema de ampliación para huertos hidropónicos es la solución ideal para aquellos que desean expandir su huerto y aumentar su capacidad de producción. Este sistema le permite conectar múltiples unidades de huertos hidropónicos, lo que le brinda la flexibilidad de adaptarse a sus necesidades cambiantes.</p>
+        <img src="../../../images/producto_3.png" alt="Foto del producto">
+
+        <p>El sistema de ampliación para huertos hidropónicos es la solución ideal para aquellos que desean expandir su
+            huerto y aumentar su capacidad de producción. Este sistema le permite conectar múltiples unidades de huertos
+            hidropónicos, lo que le brinda la flexibilidad de adaptarse a sus necesidades cambiantes.</p>
+
+        <!-- boton pedir presupuesto -->
         <a href="../landing_page/formulario_contacto.html">Pedir presupuesto</a>
     </div>
 
+    <!---- FOOTER ---->
+    <footer>
+        <div id="seccion-logo">
+            <div class="linea-logo"></div>
+            <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
+            <div class="linea-logo"></div>
+        </div>
 
+        <a href="./formulario_contacto.html" id="contactanos"><span>contactanos</span></a>
+        <div id="legal">
+            <a href="#"><span>Politica de privacidad</span></a>
+            <div id="linea-separatoria"></div>
+            <a href="#"><span>Aviso legal</span></a>
+        </div>
+    </footer>
 </body>
 
 </html>
