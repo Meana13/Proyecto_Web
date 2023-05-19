@@ -9,6 +9,7 @@
 
     <title>Landing Page</title>
 
+    <!---- incluimos los archivos de estilo ----->
     <link rel="stylesheet" href="app/css/estilos_index.css">
     <link rel="stylesheet" href="app/css/estilos_general.css">
     <link rel="stylesheet" href="app/css/landing_page/estilos_carrousel_opiniones.css">
@@ -19,6 +20,7 @@
 </head>
 
 <body>
+    <!-- HEADER -->
     <script defer src="app/scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
     <header class="header" id="header-no-registrado">
@@ -82,10 +84,10 @@
 
     </header>
 
+    <!-- FINAL DE HEADER -->
 
 
     <!--Aqui comienza el header de usuario registrado-->
-    <script defer src="app/scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
     <header class="header" id="menu-usuario-registrado">
         <a href="#" class="logo nav-link"><img class="logo nav-link" src="images/logoGTI.png" alt=""></a>
@@ -122,12 +124,11 @@
 
 
     <!--Aqui comienza el header de tecnico-->
-    <script defer src="app/scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
     <header class="header" id="header-tecnico">
         <a href="#" class="logo nav-link"><img class="logo nav-link" src="images/logoGTI.png" alt=""></a>
         <div class="login-tab">
-            <a href="app/html/page_tecnico/page_tecnico.html"><img src="images/icono-usuario.svg" alt=""></a>
+            <a href="app/html/page_tecnico/page_tecnico.html"><img src="images/tecnico.png" alt=""></a>
         </div>
 
 
@@ -140,17 +141,17 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <a href="../../../landing_page/quienes_somos.html" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                    <a href="app/html/landing_page/quienes_somos.html" class="nav-menu-link nav-link">QUIENES SOMOS</a>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html#titulo_nuestros_productos" class="nav-menu-link nav-link">NUESTROS
+                    <a href="index.html#titulo_nuestros_productos" class="nav-menu-link nav-link">NUESTROS
                         PRODUCTOS</a>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../landing_page/faqs.html" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
+                    <a href="app/html/landing_page/faqs.html" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../landing_page/formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN
+                    <a href="app/html/landing_page/formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN
                         CONTACTO</a>
                 </li>
                 <li class="nav-menu-item">
@@ -164,19 +165,25 @@
 
 
     <!--Aquí empieza el header del comercial-->
-    <script defer src="app/scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
     <header class="header" id="header-comercial">
+<<<<<<< HEAD
+        <!-- logo -->
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png"
+=======
+        <a href="index.html" class="logo nav-link"><img class="logo nav-link" src="images/logoGTI.png"
+>>>>>>> develop
                 alt=""></a>
+
+        <!-- imagen de perfil + nombre usuario -->
         <div class="login-tab">
-            <a href="app/html/page_comercial/page_comercial.html"><img src="../../../images/comercial.png" alt=""></a>
+            <a href="app/html/page_comercial/page_comercial.html"><img src="images/comercial.png" alt=""></a>
             <label>Ferser</label>
         </div>
 
+        <!-- menu -->
         <nav class="nav">
             <button class="nav-toggle" aria-label="Abrir menú">
-                <!--div*3> + tabulador-->
                 <div></div>
                 <div></div>
                 <div></div>
@@ -189,9 +196,7 @@
                 <li class="nav-menu-item">
                     <button type="button" class="boton_menu" id="boton-ventas" onclick="mostrarVentas()">ventas</button>
                 </li>
-                <li class="nav-menu-item">
-                    <a href="../../../index.html">Cerrar sesión</a>
-                </li>
+
                 <li class="nav-menu-item">
                     <button class="nav-menu-link nav-link" onclick="logout()">CERRAR SESIÓN</button>
                 </li>
@@ -203,16 +208,25 @@
 
 
     <!--Aquí empieza el header del administrador-->
-    <script defer src="app/scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
     <header class="header" id="header-admin">
+<<<<<<< HEAD
+        <!-- logo -->
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png"
                 alt=""></a>
         <div class="login-tab">
+            <!-- imagen de perfil + nombre usuario -->
             <a href="app/html/page_admin/page_admin.html"><img src="../../../images/admin.png" alt=""></a>
+=======
+        <a href="index.html" class="logo nav-link"><img class="logo nav-link" src="images/logoGTI.png"
+                alt=""></a>
+        <div class="login-tab">
+            <a href="app/html/page_admin/page_admin.html"><img src="images/admin.png" alt=""></a>
+>>>>>>> develop
             <label>HectorAdmin</label>
         </div>
 
+        <!-- menu -->
         <nav class="nav">
             <button class="nav-toggle" aria-label="Abrir menú">
                 <!--div*3> + tabulador-->
@@ -226,7 +240,7 @@
                         usuarios</button>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html">Cerrar sesión</a>
+                    <a href="index.html">Cerrar sesión</a>
                 </li>
                 <li class="nav-menu-item">
                     <!--<a href="../../../index.html" class="nav-menu-link nav-link">CERRAR SESIÓN</a>-->
@@ -247,21 +261,28 @@
         <h1 id="titulo_hero">HUERTOS<br />
             HIDROPONICOS</h1>
         <div class="overlay">
-
             <p id="parrafo">
                 Ofrecemos monitorizar tu
                 huerto hidropónico desde cualquier parte del mundo
                 a través de los planes de suscripción de nuestra
                 página web.</p>
         </div>
+
+        <!-- CALL TO ACTION -->
         <a href="./app/html/landing_page/formulario_contacto.html" id="boton-contacto"><b>Contactanos</b></a>
+
+        <!-- flecha leer más -->
         <a id="flecha" href="#titulo_nuestros_productos"><img src="images/flecha.svg" alt=""></a>
+
     </div>
+
+    <!------------ NUESTROS PRODUCTOS ------------>
     <div id="contenedor_nuestros_productos">
         <h2 id="titulo_nuestros_productos">NUESTROS PRODUCTOS</h2>
         <div class="linea"></div>
         <p id="p-productos">Pulsa sobre cada producto para saber más</p>
         <div class="container_productos">
+            <!-- Producto 1 -->
             <div class="vista_producto">
                 <a class="vista_parrafo" href="app/html/landing_page/ficha_producto1.html">
                     <img src="images/producto_1.png" class="vista_imagen" alt="Sistema de Monitorización">
@@ -269,6 +290,7 @@
                 </a>
             </div>
             <div class="vista_producto">
+                <!-- Producto 2 -->
                 <a class="vista_parrafo" href="app/html/landing_page/ficha_producto2.html">
                     <img src="images/producto_2.png" class="vista_imagen" alt="Huerto Hidroponico Monitorizado">
                     <p>Huerto Hidropónico Monitorizado</p>
@@ -276,6 +298,7 @@
                 </a>
             </div>
             <div class="vista_producto">
+                <!-- Producto 3 -->
                 <a class="vista_parrafo" href="app/html/landing_page/ficha_producto3.html">
                     <img src="images/producto_3.png" class="vista_imagen" alt="Sistema de ampliación">
                     <p>Sistema de ampliación</p>
@@ -285,9 +308,13 @@
 
 
     </div>
+
+    <!------------ NUESTROS VALORES ------------>
     <div id="contenedor_nuestros_valores">
         <h2 id="titulo_nuestros_valores">NUESTROS VALORES</h2>
         <div class="linea"></div>
+
+        <!-- valores -->
         <div id="nuestros_valores">
             <ul class="lista_valores">
                 <li class="valor1">
@@ -314,18 +341,23 @@
         </div>
     </div>
 
+
+    <!------------ SECCION OPINIONES ------------>
     <div id="contenedor_opiniones">
         <h2 id="titulo_opiniones">OPINIONES</h2>
         <div class="linea"></div>
         <p id="p-productos">¡Lee algunas opiniones de nuestros clientes!</p>
 
+        <!-- opiniones -->
         <div class="container_productos">
+            <!-- caja de opinion-->
             <div class="vista_opinion">
+                <!-- foto y nombre usuario -->
                 <div class="contenedor_foto_nombre_usuario">
                     <img src="images/concepcion.png" alt="Foto de perfil">
                     <p class="nombre_usuario">pmeagon</p>
-
                 </div>
+                <!-- calificacion (estrellas) -->
                 <div class="calificacion">
                     <span class="star"></span>
                     <span class="star"></span>
@@ -333,6 +365,7 @@
                     <span class="star"></span>
                     <span class="star"></span>
                 </div>
+                <!-- texto de la opinion -->
                 <p class="texto_opinion">¡Increíble! Simplemente impresionante aplicación web</p>
 
             </div>
@@ -373,31 +406,29 @@
         </div>
     </div>
 
+    <!------------ BOTON VOLVER ARRIBA ------------>
     <a href="#" id="boton-volver-arriba">VOLVER ARRIBA</a>
 
+    <!------------ FOOTER ------------>
     <footer>
-        <div id="columnas">
-            <div id="columna-conocenos">
-                <h3 id="conocenos">conocenos</h3>
-                <a href="#">Quiénes somos</a>
-                <a href="#">Politica de privacidad</a>
-                <a href="#">Aviso legal</a>
-            </div>
-            <div id="columna-ayuda">
-                <h3 id="ayuda">ayuda</h3>
-                <a href="#">Contacto</a>
-                <a href="#">Pedir presupuesto</a>
-                <a href="#">Preguntas frecuentes</a>
-            </div>
+        <div id="seccion-logo">
+            <div class="linea-logo"></div>
+            <a href="index.html"><img src="/src/images/logoGTI.png" id="logoFooter"></a>
+            <div class="linea-logo"></div>
         </div>
-        <img src="images/logoGTI.png" id="logo">
-        <p id="copyright">©2023 gti Todos los derechos reservados</p>
+
+        <a href="/src/app/html/landing_page/formulario_contacto.html" id="contactanos"><span>contactanos</span></a>
+        <div id="legal">
+            <a href="#"><span>Politica de privacidad</span></a>
+            <div id="linea-separatoria"></div>
+            <a href="#"><span>Aviso legal</span></a>
+        </div>
     </footer>
 
+    <!------------ SCRIPTS ------------>
     <script src="app/scrips/landing_page/login.js"></script>
     <script src="app/scrips/landing_page/menuSesionIniciada.js"></script>
     <script src="app/scrips/landing_page/logoutParaIndex.js"></script>
-
 
 </body>
 

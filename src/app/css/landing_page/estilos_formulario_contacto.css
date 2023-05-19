@@ -1,125 +1,122 @@
+/* Estilos generales del cuerpo de la página */
 body {
     margin-top: 120px;
 }
 
+/* Estilos para el grupo de formulario */
 .form-group {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
-    width: 20em;
+    margin: 0 auto; 
+    width: 20em; 
 }
 
+/* Estilos para el encabezado h2 */
 h2 {
-    text-align: center;
+    text-align: center; 
     margin-bottom: 25px;
 }
 
+/* Estilos para las etiquetas */
 label {
-    display: block;
-    margin-bottom: 5px;
+    display: block; 
+    margin-bottom: 5px; 
 }
 
+/* Estilos para el campo de nombre */
 #nombre {
     width: 100%;
 }
 
+/* Estilos para el campo de apellidos */
 #apellidos {
-    width: 100%;
+    width: 100%; 
 }
 
+/* Estilos para el campo de email */
 #email {
-    width: 100%;
+    width: 100%; 
 }
 
+/* Estilos para el campo de sección */
 #section {
-    width: 100%;
+    width: 100%; 
 }
 
+/* Estilos para el campo de mensaje */
 #mensaje {
-    margin-left: 1px;
-    width: 100%;
-    height: 20vh;
+    margin-left: 1px; 
+    width: 100%; 
+    height: 20vh; 
 }
 
+/* Estilos para los campos de texto, email y select */
 input[type="text"],
 input[type="email"],
 select {
     width: 100%;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid black;
-    margin-bottom: 15px;
+    padding: 5px; 
+    border-radius: 5px; 
+    border: 1px solid black; 
+    margin-bottom: 15px; 
 }
 
+/* Estilos para el botón de envío */
 input[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #4CAF50; 
     border: none;
     color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 30px;
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-top: 30px; 
 }
 
+/* Estilos para el botón de envío al pasar el cursor sobre él */
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #45a049; 
 }
 
+/* Estilos para los elementos requeridos */
 .required:after {
-    content: " *";
-    color: red;
+    content: " *"; 
+    color: red; 
 }
 
-#boton_enviar_formulario {
-    background-color: #9D4179;
-    color: #FFFFFF;
-    font-family: Arial, sans-serif;
-    text-transform: uppercase;
-    border: 0;
-    border-radius: 0.5em;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 1em;
-    width: 40%;
-    margin: 30px auto;
-}
-
-/*
-    ===============================================
-    ESTILOS DIALOGO "¡Se ha enviado correctamente!"
-    ===============================================
-                                                    */
-
+/* Estilos para el contenedor del diálogo */
 #dialog-container {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    display: none; 
+    position: absolute; 
+    bottom: 0; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    background-color: rgba(0, 0, 0, 0.4); 
 }
 
+/* Estilos para el diálogo "¡Se ha enviado correctamente!" */
 #dialog-correcto {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: white; 
 }
 
+/* Estilos para el botón de cerrar el diálogo */
 .boton-cerrar-dialogo {
-    color: black;
+    color: black; 
 }
 
+/* Estilos para el cuerpo de la página en pantallas pequeñas */
 @media (max-width: 768px) {
     body {
-        margin-top: 80px;
+        margin-top: 80px; 
     }
 }

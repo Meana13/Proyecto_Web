@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Usuario</title>
+    <title>Pagina usuario</title>
 
     <!--Carga de estilos de bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -13,11 +13,12 @@
     <!--Carga de script de Chart.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
 
+    <!-- Carga de estilos -->
     <link rel="stylesheet" type="text/css" href="../../css/page_usuario/estilos_page_usuario.css" />
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
 
-
+    <!-- Carga de script -->
     <script src="../../scrips/landing_page/control-acceso.js"></script>
 </head>
 
@@ -29,10 +30,13 @@
     <header class="header">
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png"
                 alt=""></a>
+
         <div class="login-tab">
             <img src="../../../images/victoria.png" alt=""></a>
             <label>VictoriaGue</label>
         </div>
+
+        <!-- MENU -->
         <nav class="nav">
             <button class="nav-toggle" aria-label="Abrir menú">
                 <!--div*3> + tabulador-->
@@ -55,7 +59,6 @@
                 </li>
             </ul>
         </nav>
-
     </header>
     <!--Aqui finaliza el header-->
 
@@ -64,17 +67,22 @@
     <section id="huertos">
         <h2>HUERTOS</h2>
 
+        <!-- Seleccion de huertos -->
         <section id="botones_añadir_selección">
+            <!-- desplegable -->
             <select id="seleccionar_huerto">
                 <option value="1">Huerto 1</option>
                 <option value="2">Huerto 2</option>
                 <option value="3">Huerto 3</option>
             </select>
+
             <button id="entrada"> Editar huerto</button>
         </section>
+
+        <!-- ACORDEON DE SENSORES-->
         <div id="acordeon">
             <div id="graficas-salinidad accordion" role="tablist">
-
+                <!-- TITULO TARJETA -->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingOne">
                         <h5 class="mb-0">
@@ -86,6 +94,7 @@
                         <div class="triangulo"></div>
                     </div>
 
+                    <!-- contenido -->
                     <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
                         <!--    Aqui comienza la seccion de medidor sal -->
                         <div id="Sal">
@@ -96,7 +105,7 @@
                             </div>
                         </div>
 
-
+                        <!-- grafica -->
                         <div id="chart-container-sal" class="card-body">
 
                             <canvas id="chart-sal"></canvas>
@@ -112,7 +121,7 @@
             </div>
 
             <div id="graficas-humedad accordion" role="tablist">
-
+                <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingTwo">
                         <h5 class="mb-0">
@@ -124,6 +133,7 @@
                         <div class="triangulo"></div>
                     </div>
 
+                    <!-- contenido despegable -->
                     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                         <!--    Aqui comienza la seccion de medidor humedad-->
                         <div id="Humedad">
@@ -152,7 +162,7 @@
             </div>
 
             <div id="graficas-pH accordion" role="tablist">
-
+                <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingThree">
                         <h5 class="mb-0">
@@ -164,6 +174,7 @@
                         <div class="triangulo"></div>
                     </div>
 
+                    <!-- contenido despegable -->
                     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
 
                         <!--    Aqui comienza la seccion de medidor pH-->
@@ -191,7 +202,7 @@
             </div>
 
             <div id="graficas-temperatura accordion" role="tablist">
-
+                <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingFour">
                         <h5 class="mb-0">
@@ -203,6 +214,7 @@
                         <div class="triangulo"></div>
                     </div>
 
+                    <!-- contenido despegable -->
                     <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
                         <!--    Aqui comienza la seccion de medidor Tª-->
                         <div id="Temperatura">
@@ -232,7 +244,7 @@
             </div>
 
             <div id="graficas-luz accordion" role="tablist">
-
+                <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingFive">
                         <h5 class="mb-0">
@@ -244,6 +256,7 @@
                         <div class="triangulo"></div>
                     </div>
 
+                    <!-- contenido despegable -->
                     <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
                         <!--    Aqui comienza la seccion de medidor Luz -->
                         <div id="Luz">
@@ -389,7 +402,7 @@
     <footer>
         <div id="seccion-logo">
             <div class="linea-logo"></div>
-            <a href="index.html"><img src="../../../images/logoGTI.png" id="logo"></a>
+            <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
             <div class="linea-logo"></div>
         </div>
 

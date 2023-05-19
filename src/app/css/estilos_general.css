@@ -1,25 +1,31 @@
+/* Estilos aplicados a todos los elementos */
 * {
     margin: 0;
 }
 
+/* Estilos aplicados al elemento HTML */
 html {
     background-color: #FFF6ED;
     font-family: "Arial", "Arial Helvetica", sans-serif;
 }
 
+/* Estilos aplicados a los elementos de etiqueta 'label' */
 label {
     font-family: Arial, sans-serif;
 }
 
+/* Estilos aplicados al elemento 'body' */
 body {
     background-color: transparent;
 }
 
+/* Estilos aplicados a los elementos de párrafo 'p' */
 p {
     font-family: Arial, sans-serif;
     font-size: 15px;
 }
 
+/* Estilos aplicados al encabezado de nivel 1 'h1' */
 h1 {
     text-align: center;
     font-family: Arial, sans-serif;
@@ -28,16 +34,19 @@ h1 {
     text-transform: uppercase;
 }
 
+/* Estilos aplicados al encabezado de nivel 2 'h2' */
 h2 {
     font-family: Arial, sans-serif;
     font-size: 25px;
 }
 
+/* Estilos aplicados al encabezado de nivel 3 'h3' */
 h3 {
     font-family: Arial, sans-serif;
     font-size: 20px;
 }
 
+/* Estilos aplicados a las tablas */
 table {
     max-width: 80%;
     margin: 0 auto;
@@ -45,6 +54,7 @@ table {
     border-collapse: collapse;
 }
 
+/* Estilos aplicados a las celdas de encabezado 'th' */
 th {
     background-color: #9D4179;
     text-transform: uppercase;
@@ -52,10 +62,12 @@ th {
     padding: .25em;
 }
 
+/* Estilos aplicados a las celdas de datos 'td' */
 td {
     background-color: #FFFFFF;
 }
 
+/* Estilos compartidos entre encabezados y celdas de tabla */
 th,
 td {
     width: 40%;
@@ -65,39 +77,42 @@ td {
     font-family: Arial, sans-serif;
 }
 
+/* Estilos aplicados a la última celda de encabezado y datos */
 th:last-child,
 td:last-child {
     background-color: transparent;
     border: none;
 }
 
+/* Estilos aplicados al elemento con el id 'quienes-somos' */
 #quienes-somos {
     font-size: 25px;
     margin-top: 100px;
     text-align: center;
 }
 
+/* Estilos aplicados al elemento con el id 'texto-quienes-somos' */
 #texto-quienes-somos {
     width: 80%;
     margin: 0 auto;
     height: 100vh;
 }
 
-
-
-/*\ ---------------- MOVIL -----------------\*/
-
+/* Estilos aplicados en la media query para dispositivos móviles */
 @media (max-width: 768px) {
 
+    /* Estilos aplicados a los elementos de etiqueta 'label' en dispositivos móviles */
     label {
         font-family: Arial, sans-serif;
     }
 
+    /* Estilos aplicados a los elementos de párrafo 'p' en dispositivos móviles */
     p {
         font-family: Arial, sans-serif;
         font-size: 13px;
     }
 
+    /* Estilos aplicados al encabezado de nivel 1 'h1' en dispositivos móviles */
     h1 {
         font-family: Arial, sans-serif;
         font-size: 32px;
@@ -105,16 +120,19 @@ td:last-child {
         text-transform: uppercase;
     }
 
+    /* Estilos aplicados al encabezado de nivel 2 'h2' en dispositivos móviles */
     h2 {
         font-family: Arial, sans-serif;
         font-size: 25px;
     }
 
+    /* Estilos aplicados al encabezado de nivel 3 'h3' en dispositivos móviles */
     h3 {
         font-family: Arial, sans-serif;
         font-size: 20px;
     }
 
+    /* Estilos aplicados a las tablas en dispositivos móviles */
     table {
         max-width: 90%;
         margin: 0 auto;
@@ -122,6 +140,4 @@ td:last-child {
         border-collapse: collapse;
         font-size: 1em;
     }
-
-
 }
