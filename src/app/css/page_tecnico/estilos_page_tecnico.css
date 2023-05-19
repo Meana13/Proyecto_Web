@@ -362,6 +362,9 @@ select {
 
 /* #endregion */
 
+#seccion-citas{
+    margin-top: 100px;
+}
 
 @media (max-width: 768px) {
     #boton-ver-cita,
