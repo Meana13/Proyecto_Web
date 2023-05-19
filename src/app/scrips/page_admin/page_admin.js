@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const botonAdminUsuarios = document.getElementById("boton-administrar-usuarios");
     const secAdminUsuarios = document.getElementById("seccion-administrar-usuarios");
 
-
     let botonActivo = botonAdminUsuarios;
     let secActiva = secAdminUsuarios;
 
+    // si se hace click a botonAdminUsuarios hacemos que aparezca su seccion y desaparezcan las demas
     botonAdminUsuarios.addEventListener("click", () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const botonAnyadir = document.getElementById("boton-añadir-usuario");
     const seccionAnyadir = document.getElementById("seccion-añadir-usuario");
 
+    // si se hace click a botonAnyadir hacemos que aparezca su seccion y desaparezcan las demas
     botonAnyadir.addEventListener('click', () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const botonGenerarId = document.getElementById("boton-generar-id");
     const cajaId = document.getElementById("caja-id");
 
+    // si se hace click a botonGenerarId hacemos que aparezca su seccion y desaparezcan las demas
     botonGenerarId.addEventListener("click", () => {
         const nuevoId = Math.floor(Math.random() * 1000000).toString().padStart(6, "0");
         cajaId.textContent = nuevoId;
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const botonHojaUsuario = document.getElementById("ver-hoja-usuario");
     const seccionHojaUsuario = document.getElementById("seccion-hoja-usuario");
 
+    // si se hace click a botonHojaUsuario hacemos que aparezca su seccion y desaparezcan las demas
     botonHojaUsuario.addEventListener("click", () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";
@@ -46,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const botonGuardarCambios = document.getElementById("boton-guardar-cambios");
     const botonCancelar = document.getElementById("boton-cancelar");
 
+    // si se hace click a botonCancelar hacemos que aparezca su seccion y desaparezcan las demas
     botonCancelar.addEventListener("click", () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";

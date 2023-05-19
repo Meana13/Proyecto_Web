@@ -4,23 +4,20 @@ ABRIR Y CERRAR MENÚ HAMBURGUESA
 */
 //---------------------------------------
 
-// Obtenemos referencias al icono del menú (navToggle) y a los botones del menú (navMenu)
-
+// Obtenemos referencias al icono del menú (navToggle) y al menú desplegable (navMenu)
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 
-//Cuando hacemos click en el icono del menú, se activa la clase "nav-menu_visible", si ya está presente y hacemos click, se elimina.
+// Agregamos el evento 'click' al icono del menú para alternar la visibilidad del menú desplegable
+navToggle.addEventListener("click", desplegarMenu);
 
-function desplegarMenu(){
-    navMenu.classList.toggle("nav-menu_visible");
+// Función para desplegar o ocultar el menú
+function desplegarMenu() {
+  navMenu.classList.toggle("nav-menu_visible");
 
-    if (navMenu.classList.contains("nav-menu_visible")) {
-        navToggle.setAttribute("aria-label", "Cerrar menú");
-    } else {
-        navToggle.setAttribute("aria-label", "Abrir menú");
-    }
+  if (navMenu.classList.contains("nav-menu_visible")) {
+    navToggle.setAttribute("aria-label", "Cerrar menú");
+  } else {
+    navToggle.setAttribute("aria-label", "Abrir menú");
+  }
 }
-
-
-
-

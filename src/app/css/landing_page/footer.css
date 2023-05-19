@@ -1,3 +1,4 @@
+/* Estilos para el footer */
 footer {
     background-color: black;
     color: white;
@@ -9,12 +10,14 @@ footer {
     flex-direction: column;
 }
 
+/* Estilos para los enlaces */
 a {
     color: white;
     text-decoration: none;
     margin: 5px;
 }
 
+/* Estilos para la sección del logo */
 #seccion-logo {
     display: flex;
     flex-direction: row;
@@ -24,10 +27,12 @@ a {
     margin-bottom: 50px;
 }
 
-#logo {
+/* Estilos para el logo del footer */
+#logoFooter {
     width: 80%;
 }
 
+/* Estilos para la línea del logo */
 .linea-logo {
     width: 35%;
     height: 3px;
@@ -35,6 +40,7 @@ a {
     border: 0;
 }
 
+/* Estilos para el elemento "contactanos" */
 #contactanos {
     border: 2px solid white;
     border-radius: 2em;
@@ -44,11 +50,13 @@ a {
     margin-bottom: 30px;
 }
 
+/* Estilos para el texto dentro de "contactanos" */
 #contactanos span {
     font-size: 25px;
     text-transform: uppercase;
 }
 
+/* Estilos para el elemento "legal" */
 #legal {
     display: flex;
     flex-direction: row;
@@ -56,10 +64,17 @@ a {
     justify-content: center;
 }
 
+/* Estilos para el texto dentro de "legal" */
 #legal a span {
     font-size: 18px;
 }
 
+/* Estilos para los enlaces dentro de "legal" */
+#legal a {
+    width: 100px;
+}
+
+/* Estilos para la línea separadora */
 #linea-separatoria {
     background-color: white;
     width: 2px;
@@ -67,47 +82,44 @@ a {
     margin: 0 10px;
 }
 
-/*\ ------------------------| MOVIL |------------------------ \*/
-
+/* Estilos para dispositivos mas pequeños */
 @media (max-width: 768px) {
     footer {
         background-color: black;
         color: white;
         text-align: center;
         padding: 20px;
-        margin-top: 60vh;
+        margin-top: 60vh; 
         padding-top: 50px;
     }
     
+    /* Estilos para los enlaces en dispositivos móviles */
     a {
         color: white;
         text-decoration: none;
     }
     
-    #columnas {
-        display: block;
+    /* Estilos para la sección del logo en dispositivos móviles */
+    #seccion-logo {
+        gap: 10px;
     }
 
-    #columna-conocenos,
-    #columna-ayuda {
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 40px;
-    }
-    
-    #conocenos, #ayuda {
-        text-transform: uppercase;
-        margin-bottom: 1em;
-    }
-    
-    #logo {
-        margin-top: 70px;
+    /* Estilos para la línea del logo en dispositivos móviles */
+    .linea-logo {
         width: 50%;
+        height: 3px;
+        background-color: white;
+        border: 0;
     }
 
-    #copyright {
-        margin: 10px 0;
-        font-size: small;
+    /* Estilos para el texto dentro de "contactanos" en dispositivos móviles */
+    #contactanos span {
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+
+    /* Estilos para el texto dentro de "legal" en dispositivos móviles */
+    #legal a span {
+        font-size: 14px;
     }
 }

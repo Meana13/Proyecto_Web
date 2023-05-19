@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titulo</title>
+    <title>Page tecnico</title>
+    
+    <!-- carga de scripts -->
     <script src="../../scrips/page_tecnico/page_tecnico.js"></script>
+    <script src="../../scrips/landing_page/control-acceso.js"></script>
+    
+    <!-- carga hoja de estilos -->
     <link rel="stylesheet" href="../../css/page_tecnico/estilos_page_tecnico.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
     <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css">
-    <script src="../../scrips/landing_page/control-acceso.js"></script>
 </head>
 
 <body>
@@ -457,22 +461,18 @@
 
     <!-- FOOTER -->
     <footer>
-        <div id="columnas">
-            <div id="columna-conocenos">
-                <h3 id="conocenos">conocenos</h3>
-                <a href="#">Quiénes somos</a>
-                <a href="#">Politica de privacidad</a>
-                <a href="#">Aviso legal</a>
-            </div>
-            <div id="columna-ayuda">
-                <h3 id="ayuda">ayuda</h3>
-                <a href="#">Contacto</a>
-                <a href="#">Pedir presupuesto</a>
-                <a href="#">Preguntas frecuentes</a>
-            </div>
+        <div id="seccion-logo">
+            <div class="linea-logo"></div>
+            <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
+            <div class="linea-logo"></div>
         </div>
-        <img src="../../../images/logoGTI.png" id="logo">
-        <p id="copyright">©2023 gti Todos los derechos reservados</p>
+    
+        <a href="../landing_page/formulario_contacto.html" id="contactanos"><span>contactanos</span></a>
+        <div id="legal">
+            <a href="#"><span>Politica de privacidad</span></a>
+            <div id="linea-separatoria"></div>
+            <a href="#"><span>Aviso legal</span></a>
+        </div>
     </footer>
     <!----------->
 </body>

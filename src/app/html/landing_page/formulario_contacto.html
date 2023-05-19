@@ -6,17 +6,17 @@
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contacto</title>
+
+  <!-- carga de hoja de estilos -->
   <link rel="stylesheet" href="../../css/estilos_general.css">
   <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
   <link rel="stylesheet" href="../../css/landing_page/footer.css">
   <link rel="stylesheet" href="../../css/landing_page/estilos_formulario_contacto.css">
-
-
-  <title>Contacto</title>
 </head>
 
 <body>
-
+  <!-- inicio de header -->
   <header class="header" id="header-no-registrado">
     <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
 
@@ -51,7 +51,7 @@
       </form>
     </div>
 
-
+    <!--- menu --->
     <nav class="nav">
       <button class="nav-toggle" aria-label="Abrir menú">
         <!--div*3> + tabulador-->
@@ -77,7 +77,7 @@
     </nav>
 
   </header>
-
+  <!-- fin de header -->
 
   <form id="contact-form" action="../../../index.html">
     <h2>Ponte en Contacto</h2>
@@ -120,26 +120,23 @@
     </div>
   </div>
 
-
+  <!---- FOOTER ---->
   <footer>
-    <div id="columnas">
-      <div id="columna-conocenos">
-        <h3 id="conocenos">conocenos</h3>
-        <a href="#">Quiénes somos</a>
-        <a href="#">Politica de privacidad</a>
-        <a href="#">Aviso legal</a>
-      </div>
-      <div id="columna-ayuda">
-        <h3 id="ayuda">ayuda</h3>
-        <a href="#">Contacto</a>
-        <a href="#">Pedir presupuesto</a>
-        <a href="#">Preguntas frecuentes</a>
-      </div>
+    <div id="seccion-logo">
+        <div class="linea-logo"></div>
+        <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
+        <div class="linea-logo"></div>
     </div>
-    <img src="../../../images/logoGTI.png" id="logo">
-    <p id="copyright">©2023 gti Todos los derechos reservados</p>
-  </footer>
 
+    <a href="./formulario_contacto.html" id="contactanos"><span>contactanos</span></a>
+    <div id="legal">
+        <a href="#"><span>Politica de privacidad</span></a>
+        <div id="linea-separatoria"></div>
+        <a href="#"><span>Aviso legal</span></a>
+    </div>
+</footer>
+
+  <!-- Carga de scripts -->
   <script src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
   <script src="../../scrips/landing_page/login.js"></script>
   <script src="../../scrips/landing_page/script_formulario_contacto.js"></script>

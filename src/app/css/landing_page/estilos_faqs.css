@@ -1,7 +1,9 @@
+/* margen para eliminar conflicto con header */
 body {
     margin-top: 120px;
 }
 
+/* estilos generales del acordeon */
 .acordeon {
     width: 60%;
     margin: 0 auto;
@@ -10,6 +12,7 @@ body {
     justify-content: center;
 }
 
+/* estilos de las preguntas */
 .pregunta {
     background-color: #9D4179;
     color: white;
@@ -17,6 +20,7 @@ body {
     border: 1px solid black;
 }   
 
+/* estilos de las respuestas */
 .respuesta {
     display: none;
     background-color: white;
@@ -25,11 +29,13 @@ body {
     max-height: fit-content;
 }
 
+/* tamaño de la letra de las respuestas */
 .respuesta p {
     font-size: 14px;
 }
 
 @media(max-width: 768px) {
+    /* Responsividad para pantallas más pequeñas */
     body {
         margin-top: 80px;
     }
@@ -45,51 +51,3 @@ body {
     }
 }
 
-/*.........................*/
-
-.faq-section {
-    width: 80%;
-    margin: 100px auto;
-}
-
-#contenedor_faqs {
-    margin-top: 100px;
-    width: 70%;
-    margin-left: 15%;
-}
-
-#titulo_faqs {
-    margin-bottom: 40px;
-    font-size: 25px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.faq-item {
-    border: 1px solid black;
-}
-
-.question {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 10px 10px;
-    font-weight: bold;
-
-}
-
-.answer {
-    padding-left: 20px;
-}
-
-.answer {
-    border: solid 1px #000000;
-    background: transparent;
-    color: #000000;
-    margin-top: 10px;
-    padding: 4px;
-    width: 95%;
-    height: 100px;
-    overflow-y: auto;
-    margin-bottom: 5px;
-    margin-left: 10px;
-}
