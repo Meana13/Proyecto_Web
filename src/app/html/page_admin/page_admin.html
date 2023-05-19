@@ -5,26 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page administrador</title>
+
+    <!-- carga de scripts-->
     <script src="../../scrips/page_admin/page_admin.js"></script>
+    <script src="../../scrips/landing_page/control-acceso.js"></script>
+    <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
+    
+    <!-- carga de hoja de estilos-->
     <link rel="stylesheet" href="../../css/page_admin/estilos_page_admin.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
     <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
-
-    <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
-    <script src="../../scrips/landing_page/control-acceso.js"></script>
-
 </head>
 
 <body>
-
+    <!-- inicio de header -->
     <header class="header">
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
         <div class="login-tab">
             <img src="../../../images/admin.png" alt="">
             <label>HectorAdmin</label>
         </div>
-
+        <!--- menu --->
         <nav class="nav">
             <button class="nav-toggle" aria-label="Abrir menú">
                 <!--div*3> + tabulador-->
@@ -216,7 +218,7 @@
     <footer>
         <div id="seccion-logo">
             <div class="linea-logo"></div>
-            <a href="index.html"><img src="../../../images/logoGTI.png" id="logo"></a>
+            <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
             <div class="linea-logo"></div>
         </div>
     

@@ -1,8 +1,10 @@
+/* Estilos para los títulos de nivel h2 */
 h2 {
     text-align: center;
     margin-bottom: 30px;
 }
 
+/* Estilos para la imagen dentro del botón "añadir usuario" */
 #boton-añadir-usuario img {
     height: 1em;
     width: 1.2em;
@@ -10,18 +12,22 @@ h2 {
     margin-left: .5em;
 }
 
+/* Estilos para la sección "administrar usuarios" */
 #seccion-administrar-usuarios {
     display: block;
 }
 
+/* Estilos para la sección "añadir usuario" */
 #seccion-añadir-usuario {
     display: none;
 }
 
+/* Estilos para la sección "hoja de usuario" */
 #seccion-hoja-usuario {
     display: none;
 }
 
+/* Estilos para la sección "opinión personal" */
 #seccion-opinion-personal {
     display: none;
     border: 2px solid black;
@@ -32,8 +38,7 @@ h2 {
     background-color: white;
 }
 
-/* #region SECCION ADMINISTRAR USUARIOS */
-
+/* Estilos para el botón "añadir usuario" */
 #boton-añadir-usuario {
     border-radius: 5px;
     background-color: #9D4179;
@@ -52,8 +57,7 @@ h2 {
     margin-right: 5%;
 }
 
-/* #region TABLA USUARIOS */
-
+/* Estilos para la tabla de usuarios */
 table {
     max-width: 80%;
     margin: 0 auto;
@@ -61,12 +65,14 @@ table {
     border-collapse: collapse;
 }
 
+/* Estilos para las celdas de encabezado de la tabla */
 th {
     background-color: gray;
     color: white;
     text-transform: uppercase;
 }
 
+/* Estilos para las celdas de la tabla */
 th,
 td {
     width: 40%;
@@ -76,6 +82,7 @@ td {
     font-family: Arial, sans-serif;
 }
 
+/* Estilos para la última celda de cada fila y columna de la tabla */
 td:last-child,
 th:last-child {
     width: 20px;
@@ -83,12 +90,13 @@ th:last-child {
     background-color: transparent;
 }
 
-
+/* Estilos para el enlace "ver hoja de usuario" */
 #ver-hoja-usuario {
     border: 0;
     background-color: transparent;
 }
 
+/* Estilos para la imagen dentro del enlace "ver hoja de usuario" */
 #ver-hoja-usuario img {
     margin-top: .3em;
     border: 1px solid black;
@@ -97,29 +105,28 @@ th:last-child {
     background-color: gray;
 }
 
-/* #endregion FIN TABLA */
-
-/* #region INICIO HOJA DE USUARIO */
-
+/* Estilos para la sección "hoja de usuario" */
 #hoja-de-usuario {
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 2em;
 }
 
+/* Estilos para el formulario de la "hoja de usuario" */
 #formulario-hoja-usuario {
     width: 550px;
     margin: 0 auto;
     display: block;
 }
 
+/* Estilos para las etiquetas dentro del formulario de la "hoja de usuario" */
 #formulario-hoja-usuario label {
     display: inline-block;
     width: 40%;
     text-align: left;
 }
 
-
+/* Estilos para el icono de editar */
 #icono-editar {
     margin-left: 10px;
     padding: 0;
@@ -128,6 +135,7 @@ th:last-child {
     top: 6px;
 }
 
+/* Estilos para el botón "cancelar" */
 #boton-cancelar {
     background-color: #555555;
     color: #FFFFFF;
@@ -140,6 +148,7 @@ th:last-child {
     font-weight: bold;
 }
 
+/* Estilos para el botón "guardar cambios" */
 #boton-guardar-cambios {
     background-color: #9D4179;
     color: #FFFFFF;
@@ -152,6 +161,7 @@ th:last-child {
     padding: 1em;
 }
 
+/* Estilos para el contenedor de los botones en la "hoja de usuario" */
 #botones {
     margin-top: 2em;
     display: flex;
@@ -159,27 +169,27 @@ th:last-child {
     gap: 15%;
 }
 
-/* #endregion FIN HOJA DE USUARIO */
-
-/* #region AÑADIR USUARIO */
-
+/* Estilos para la sección "añadir usuario" */
 #nuevo-usuario {
     text-align: center;
     margin-bottom: 2em;
 }
 
+/* Estilos para el formulario de "añadir usuario" */
 #formulario-nuevo-usuario {
     width: 324px;
     margin: 0 auto;
     display: block;
 }
 
+/* Estilos para las etiquetas dentro del formulario de "añadir usuario" */
 #formulario-nuevo-usuario label {
     display: inline-block;
     width: 120px;
     text-align: left;
 }
 
+/* Estilos para los inputs de texto y select en el formulario de "añadir usuario" */
 input[type="text"],
 select {
     width: 180px;
@@ -188,6 +198,7 @@ select {
     margin-bottom: 10px;
 }
 
+/* Estilos para el botón "generar ID" */
 #boton-generar-id {
     background-color: #555555;
     color: #FFFFFF;
@@ -201,12 +212,14 @@ select {
     font-weight: bold;
 }
 
+/* Estilos para el contenedor del ID de usuario */
 #id-usuario {
     display: flex;
     gap: 1em;
     justify-content: center;
 }
 
+/* Estilos para la caja que muestra el ID de usuario */
 #caja-id {
     width: 6em;
     height: 1em;
@@ -215,6 +228,7 @@ select {
     color: black;
 }
 
+/* Estilos para el botón "dar de alta" */
 .boton-dar-de-alta {
     background-color: #9D4179;
     color: #FFFFFF;
@@ -230,12 +244,7 @@ select {
     font-weight: bold;
 }
 
-/* #endregion FIN AÑADIR USUARIO */
-
-/* #endregion FIN ADMINISTRAR USUARIOS */
-
-/* #region INICIO OPINION DEL PERSONAL */
-
+/* Estilos para la sección "opinión del personal" */
 .desplegable-tecnicos {
     width: 100%;
     height: 2.5em;
@@ -245,22 +254,26 @@ select {
     font-size: 16px;
 }
 
+/* Estilos para las opciones del desplegable en la sección "opinión del personal" */
 .desplebable-tecnicos option {
     width: inherit;
 }
 
+/* Estilos para cada caja de opinión en la sección "opinión del personal" */
 .caja-opinion {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid black;
 }
 
+/* Estilos para el icono de opinión en cada caja de opinión */
 .icono-opinion {
     width: 4em;
     height: 4.5em;
     margin: auto 1em;
 }
 
+/* Estilos para los datos de la opinión en cada caja de opinión */
 .datos-opinion {
     width: 40%;
     margin-top: 1em;
@@ -270,12 +283,14 @@ select {
     justify-content: space-between;
 }
 
+/* Estilos para la fecha de instalación en la sección "opinión del personal" */
 .fecha-instalacion {
     font-size: 14px;
     text-align: center;
     width: auto;
 }
 
+/* Estilos para el número de instalación en la sección "opinión del personal" */
 .n-instalacion {
     width: auto;
     display: flex;
@@ -283,87 +298,115 @@ select {
     justify-content: center;
 }
 
+/* Estilos para las estrellas de calificación en la sección "opinión del personal" */
 .estrellas {
     display: flex;
     justify-content: center;
 }
 
+/* Estilos para las imágenes de las estrellas de calificación en la sección "opinión del personal" */
 .estrellas img {
     width: 20px;
     height: 20px;
 }
 
+/* Estilos para la media estrella de calificación en la sección "opinión del personal" */
 #media-estrella {
     width: 10px;
 }
 
+/* Estilos para el contenedor de la opinión en la sección "opinión del personal" */
 .opinion {
     border: 1px solid black;
     margin: .5em;
     width: 40%;
 }
 
-/* #endregion FIN OPINION DEL PERSONAL */
-
-
-/*\ ---------------- MOVIL -----------------\*/
-
+/* Estilos específicos para pantallas de dispositivos móviles */
 @media (max-width: 768px) {
 
-    /* #region SECCION ADMINISTRAR USUARIOS */
+    /* Estilos para el botón "añadir usuario" en dispositivos móviles */
     #boton-añadir-usuario {
         width: auto;
         height: 30px;
         width: 90px;
     }
 
-    /* #region TABLA USUARIOS */
+    /* Estilos para la tabla de usuarios en dispositivos móviles */
+    table {
+        max-width: 80%;
+        margin: 0 auto;
+        margin-top: 1em;
+        border-collapse: collapse;
+    }
 
-    
-
+    /* Estilos para las celdas de encabezado en la tabla de usuarios en dispositivos móviles */
     th {
         background-color: gray;
         color: white;
         text-transform: uppercase;
     }
 
+    /* Estilos para las celdas de datos en la tabla de usuarios en dispositivos móviles */
     th,
     td {
         padding-left: .25em;
         padding-right: .25em;
         font-family: Arial, sans-serif;
-
     }
 
-    td {
-        font-size: 14px;
-    }
-
+    /* Estilos para las celdas de datos en la última columna de la tabla de usuarios en dispositivos móviles */
     td:last-child,
     th:last-child {
+        width: 10px;
         border: none;
         background-color: transparent;
     }
 
-    /* #endregion */
+    /* Estilos para la sección "hoja de usuario" en dispositivos móviles */
+    #hoja-de-usuario {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 2em;
+    }
 
+    /* Estilos para el formulario de la "hoja de usuario" en dispositivos móviles */
     #formulario-hoja-usuario {
-        width: 400px;
+        width: auto;
         margin: 0 auto;
         display: block;
     }
 
+    /* Estilos para las etiquetas dentro del formulario de la "hoja de usuario" en dispositivos móviles */
+    #formulario-hoja-usuario label {
+        display: inline-block;
+        width: 40%;
+        text-align: left;
+    }
+
+    /* Estilos para el icono de editar en dispositivos móviles */
+    #icono-editar {
+        margin-left: 5px;
+        padding: 0;
+        border: 0;
+        position: relative;
+        top: 6px;
+    }
+
+    /* Estilos para el botón "cancelar" en dispositivos móviles */
     #boton-cancelar {
         background-color: #555555;
         color: #FFFFFF;
         font-family: Arial, sans-serif;
         text-transform: uppercase;
         border: 0;
-        padding: 1em;
+        padding: .5em;
         border-radius: .5em;
+        font-size: 12px;
         font-weight: bold;
     }
 
+    /* Estilos para el botón "guardar cambios" en dispositivos móviles */
     #boton-guardar-cambios {
         background-color: #9D4179;
         color: #FFFFFF;
@@ -371,10 +414,104 @@ select {
         text-transform: uppercase;
         border: 0;
         border-radius: .5em;
+        font-size: 12px;
         font-weight: bold;
-        padding: 1em;
+        padding: .5em;
     }
 
+    /* Estilos para el contenedor de los botones en la "hoja de usuario" en dispositivos móviles */
+    #botones {
+        margin-top: 1em;
+        display: flex;
+        justify-content: center;
+        gap: 15%;
+    }
+
+    /* Estilos para la sección "añadir usuario" en dispositivos móviles */
+    #nuevo-usuario {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    /* Estilos para el formulario de "añadir usuario" en dispositivos móviles */
+    #formulario-nuevo-usuario {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Estilos para las etiquetas dentro del formulario de "añadir usuario" en dispositivos móviles */
+    #formulario-nuevo-usuario label {
+        display: inline-block;
+        width: 120px;
+        text-align: left;
+    }
+
+    /* Estilos para los inputs de texto y select en el formulario de "añadir usuario" en dispositivos móviles */
+    input[type="text"],
+    select {
+        width: 180px;
+        box-sizing: border-box;
+        padding: 3px;
+        margin-bottom: 10px;
+    }
+
+    /* Estilos para el botón "generar ID" en dispositivos móviles */
+    #boton-generar-id {
+        background-color: #555555;
+        color: #FFFFFF;
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        border: 0;
+        padding: .5em;
+        display: block;
+        margin: 1em auto;
+        border-radius: .5em;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    /* Estilos para el contenedor del ID de usuario en dispositivos móviles */
+    #id-usuario {
+        display: flex;
+        gap: 1em;
+        justify-content: center;
+    }
+
+    /* Estilos para la caja que muestra el ID de usuario en dispositivos móviles */
+    #caja-id {
+        width: 6em;
+        height: 1em;
+        border: 1px solid black;
+        background-color: #f0f0f0;
+        color: black;
+        font-size: 12px;
+    }
+
+    /* Estilos para el botón "dar de alta" en dispositivos móviles */
+    .boton-dar-de-alta {
+        background-color: #9D4179;
+        color: #FFFFFF;
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        border: 0;
+        padding: .5em;
+        display: block;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: 5%;
+        border-radius: .5em;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    /* Estilos para la sección "opinión del personal" en dispositivos móviles */
+    #opinion-del-personal {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
+    /* Estilos para el desplegable de técnicos en dispositivos móviles */
     .desplegable-tecnicos {
         width: 100%;
         height: 2.5em;
@@ -384,11 +521,64 @@ select {
         font-size: 12px;
     }
 
-    #seccion-opinion-personal {
-        width: 90%;
-        margin-top: 2em;
-        margin-left: 5%;
-        margin-right: 5%;
-        background-color: white;
+    /* Estilos para las cajas de opinión en la sección "opinión del personal" en dispositivos móviles */
+    .caja-opinion {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-bottom: 1px solid black;
+        padding: .5em;
+    }
+
+    /* Estilos para el icono de opinión en las cajas de opinión en dispositivos móviles */
+    .icono-opinion {
+        width: 3em;
+        height: 3.5em;
+        margin: auto;
+    }
+
+    /* Estilos para los datos de opinión en las cajas de opinión en dispositivos móviles */
+    .datos-opinion {
+        width: 100%;
+        margin-top: .5em;
+        margin-bottom: .5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    /* Estilos para la fecha de instalación en la sección "opinión del personal" en dispositivos móviles */
+    .fecha-instalacion {
+        font-size: 12px;
+        text-align: center;
+        width: auto;
+    }
+
+    /* Estilos para el número de instalación en la sección "opinión del personal" en dispositivos móviles */
+    .n-instalacion {
+        width: auto;
+        display: flex;
+        padding-bottom: 10px;
+        justify-content: center;
+    }
+
+    /* Estilos para las estrellas de calificación en la sección "opinión del personal" en dispositivos móviles */
+    .estrellas {
+        display: flex;
+        justify-content: center;
+        gap: 2px;
+    }
+
+    /* Estilos para las imágenes de las estrellas de calificación en la sección "opinión del personal" en dispositivos móviles */
+    .estrellas img {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* Estilos para el contenedor de la opinión en la sección "opinión del personal" en dispositivos móviles */
+    .opinion {
+        border: 1px solid black;
+        margin: .5em;
+        width: 100%;
     }
 }

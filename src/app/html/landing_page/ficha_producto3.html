@@ -6,20 +6,19 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sistema de aplicación</title>
+
+    <!-- Carga de hojas de estilos -->
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
     <link rel="stylesheet" href="../../css/landing_page/ficha_producto.css">
-
-
-    <title>sistema de aplicación</title>
 </head>
 
 <body>
+    <!-- inicio header -->
     <header class="header" id="header-no-registrado">
         <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
-
-
 
         <div class="login-tab" onclick="document.getElementById('login').style.display = 'flex'">
             <a href="#" class="login-tab-icon"><img id="icono-usuario" src="../../../images/icono-usuario.svg"
@@ -53,7 +52,7 @@
             </form>
         </div>
 
-
+        <!--- menu --->
         <nav class="nav">
             <button class="nav-toggle" aria-label="Abrir menú">
                 <!--div*3> + tabulador-->
@@ -80,24 +79,35 @@
                 </li>
             </ul>
         </nav>
-
     </header>
+    <!-- fin de header -->
+
+    <!-- script de header -->
     <script src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
+    <!-- titulo -->
     <h3>Sistema de ampliación</h3>
+
+    <!-- ficha de producto-->
     <div id="ficha-producto">
         <img src="../../../images/producto_3.png" alt="Foto del producto">
-        <p>El sistema de ampliación para huertos hidropónicos es la solución ideal para aquellos que desean expandir su huerto y aumentar su capacidad de producción. Este sistema le permite conectar múltiples unidades de huertos hidropónicos, lo que le brinda la flexibilidad de adaptarse a sus necesidades cambiantes.</p>
+
+        <p>El sistema de ampliación para huertos hidropónicos es la solución ideal para aquellos que desean expandir su
+            huerto y aumentar su capacidad de producción. Este sistema le permite conectar múltiples unidades de huertos
+            hidropónicos, lo que le brinda la flexibilidad de adaptarse a sus necesidades cambiantes.</p>
+
+        <!-- boton pedir presupuesto -->
         <a href="../landing_page/formulario_contacto.html">Pedir presupuesto</a>
     </div>
 
+    <!---- FOOTER ---->
     <footer>
         <div id="seccion-logo">
             <div class="linea-logo"></div>
-            <a href="index.html"><img src="../../../images/logoGTI.png" id="logo"></a>
+            <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
             <div class="linea-logo"></div>
         </div>
-    
+
         <a href="./formulario_contacto.html" id="contactanos"><span>contactanos</span></a>
         <div id="legal">
             <a href="#"><span>Politica de privacidad</span></a>
