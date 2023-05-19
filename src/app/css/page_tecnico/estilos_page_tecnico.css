@@ -1,3 +1,5 @@
+/* SECCION CITAS */
+/* Configuración de la sección de citas */
 #seccion-citas {
     display: block;
 }
@@ -22,12 +24,13 @@
     display: none;
 }
 
-/* #region SECCION CITAS */
+/* Estilos para el encabezado de la sección de citas */
 #seccion-citas h3 {
     text-align: center;
     margin-bottom: 30px;
 }
 
+/* Estilos para el desplegable de huertos en la sección de citas */
 .desplegable-huertos {
     width: 100%;
     height: 44px;
@@ -35,20 +38,24 @@
     border: 0;
 }
 
+/* Estilos para las celdas de la tabla de citas */
 tr td:nth-child(1),
 tr td:nth-child(3) {
     padding: 8px;
 }
 
+/* Estilos para las celdas de encabezado de la tabla de citas */
 tr th {
     padding: 12px;
 }
 
+/* Estilos para alinear el contenido de ciertas celdas en la tabla de citas */
 tr td:nth-child(3),
 #tabla-citas tr td:nth-child(2) {
     text-align: center;
 }
 
+/* Estilos para los botones "Ver cita" y "Ver huerto" */
 #boton-ver-cita,
 #boton-ver-huerto {
     background-color: transparent;
@@ -65,27 +72,29 @@ tr td:nth-child(3),
     border-radius: 5px;
 }
 
-/* #endregion */
 
 /* #region SECCION FICHA CITA */
-
+/* Configuración de la sección de la ficha de la cita */
 #seccion-hoja-cita h3 {
     text-align: center;
     margin-bottom: 2em;
 }
 
+/* Estilos para el formulario de la ficha de la cita */
 #formulario-ficha {
     width: 324px;
     margin: 0 auto;
     display: block;
 }
 
+/* Estilos para las etiquetas del formulario de la ficha de la cita */
 #formulario-ficha label {
     display: inline-block;
     width: 120px;
     text-align: left;
 }
 
+/* Estilos para los campos de texto y select del formulario de la ficha de la cita */
 input[type="text"],
 select {
     width: 199px;
@@ -93,17 +102,20 @@ select {
     margin-bottom: 10px;
 }
 
+/* Estilos para el campo "productos vendidos" del formulario de la ficha de la cita */
 #productos-vendidos {
     width: 100%;
     height: 100px;
     margin-bottom: 40px;
 }
 
+/* Estilos para el campo "incidencias" del formulario de la ficha de la cita */
 #incidencias {
     width: 100%;
     height: 60px;
 }
 
+/* Estilos para el botón "Volver atrás" en la ficha de la cita */
 #boton-volver-atras {
     background-color: #9D4179;
     color: #FFFFFF;
@@ -117,11 +129,10 @@ select {
     border-radius: .5em;
     font-weight: bold;
 }
-
 /* #endregion */
 
 /* #region SECCION OPINION */
-
+/* Configuración de la sección de opiniones */
 #opiniones {
     width: 80%;
     border: 2px solid black;
@@ -129,23 +140,27 @@ select {
     background-color: #FFFFFF;
 }
 
+/* Estilos para el encabezado de la sección de opiniones */
 #seccion-opiniones h3 {
     text-align: center;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }
 
+/* Estilos para cada caja de opinión en la sección de opiniones */
 .caja-opinion {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid black;
 }
 
+/* Estilos para el icono de la opinión */
 .icono-opinion {
     width: 4em;
     height: 4.5em;
     margin: auto 1em;
 }
 
+/* Estilos para los datos de la opinión */
 .datos-opinion {
     width: 40%;
     margin-top: 1em;
@@ -155,12 +170,14 @@ select {
     justify-content: space-between;
 }
 
+/* Estilos para la fecha de instalación en la opinión */
 .fecha-instalacion {
     font-size: 14px;
     text-align: center;
     width: auto;
 }
 
+/* Estilos para el número de instalación en la opinión */
 .n-instalacion {
     width: auto;
     display: flex;
@@ -168,39 +185,43 @@ select {
     justify-content: center;
 }
 
+/* Estilos para las estrellas en la opinión */
 .estrellas {
     display: flex;
     justify-content: center;
 }
 
+/* Estilos para las imágenes de las estrellas en la opinión */
 .estrellas img {
     width: 20px;
     height: 20px;
 }
 
+/* Estilos para la media estrella en la opinión */
 #media-estrella {
     width: 10px;
 }
 
+/* Estilos para el cuadro de la opinión */
 .opinion {
     border: 1px solid black;
     margin: .5em;
     width: 40%;
 }
-
 /* #endregion */
 
 /* #region SECCION ADMINISTRAR HUERTOS */
-
-
+/* Configuración de la sección de administrar huertos */
 #tabla-huertos tr td:nth-child(2) {
     padding: 0;
 }
 
+/* Estilos para el encabezado de la sección de administrar huertos */
 #seccion-administrar-huertos h3 {
     text-align: center;
 }
 
+/* Estilos para el botón "Añadir huerto" en la sección de administrar huertos */
 #boton-añadir-huerto {
     background-color: #9D4179;
     border: 0;
@@ -221,27 +242,29 @@ select {
     margin-top: 30px;
 }
 
-/* #endregion */
 
-/* #region SECCION AÑADIR NUEVO HUERTO */
-
+/*  SECCION AÑADIR NUEVO HUERTO */
+/* Configuración de la sección de añadir nuevo huerto */
 #seccion-añadir-huerto h3 {
     text-align: center;
     margin-bottom: 40px;
 }
 
+/* Estilos para el formulario de añadir nuevo huerto */
 #formulario-huerto {
     width: 324px;
     margin: 0 auto;
     display: block;
 }
 
+/* Estilos para las etiquetas del formulario de añadir nuevo huerto */
 #formulario-huerto label {
     display: inline-block;
     width: 120px;
     text-align: left;
 }
 
+/* Estilos para los campos de texto y select del formulario de añadir nuevo huerto */
 input[type="text"],
 select {
     width: 199px;
@@ -249,55 +272,54 @@ select {
     margin-bottom: 10px;
 }
 
+/* Estilos para la etiqueta de la lista de sensores en el formulario de añadir nuevo huerto */
 #formulario-huerto label#label-lista-sensores {
     width: 200px;
     margin-bottom: 10px;
 }
 
+/* Estilos para la lista de sensores en el formulario de añadir nuevo huerto */
 #lista-sensores {
     list-style: none;
     margin-bottom: 16px;
 }
 
+/* Estilos para los elementos de la lista de sensores en el formulario de añadir nuevo huerto */
 #lista-sensores li {
     margin-bottom: 5px;
 }
 
-
+/* Estilos para las etiquetas de medidas en el formulario de añadir nuevo huerto */
 #medidas label {
     margin-top: 10px;
     width: 16px;
 }
 
+/* Estilos para los campos de texto de las medidas en el formulario de añadir nuevo huerto */
 #medidas input {
     width: 50px;
 }
 
+/* Estilos para el campo de notas en el formulario de añadir nuevo huerto */
 #notas {
     width: 100%;
     height: 100px;
 }
 
+/* Estilos para la etiqueta de la imagen en el formulario de añadir nuevo huerto */
 #formulario-huerto label#label-imagen {
     width: 300px;
     margin-bottom: 10px;
 }
 
+/* Estilos para el campo de archivo en el formulario de añadir nuevo huerto */
 input[type="file"] {
     border: none;
     border-radius: 4px;
     font-size: 13px;
 }
 
-input[type="file"]::-webkit-file-upload-button {
-    padding: 5px;
-    background-color: #9D4179;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
+/* Estilos para el botón "Guardar" en el formulario de añadir nuevo huerto */
 #boton-guardar,
 #seccion-ver-huerto #boton-guardar2 {
     margin-top: 40px;
@@ -313,66 +335,58 @@ input[type="file"]::-webkit-file-upload-button {
     padding: 1em;
 }
 
-/* #endregion */
-
-/* #region INICIO SECCOIN VER HUERTO */
-
+/* INICIO SECCOIN VER HUERTO */
+/* Configuración de la sección de ver huerto */
 #seccion-ver-huerto h3 {
     text-align: center;
     margin-bottom: 40px;
 }
 
+/* Estilos para el botón "Editar" en la sección de ver huerto */
 #boton-editar {
     background-color: #9D4179;
     color: white;
     padding: 5px;
     border: 0;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-#formulario-ver-huerto {
-    width: 324px;
-    margin: 0 auto;
-    display: block;
+/* Estilos para la imagen del huerto en la sección de ver huerto */
+#imagen-huerto {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
 }
 
-#formulario-ver-huerto label {
-    display: inline-block;
-    width: 120px;
-    text-align: left;
+/* Estilos para las filas de la tabla en la sección de ver huerto */
+#tabla-ver-huerto tr {
+    border-bottom: 1px solid black;
 }
 
-input[type="text"],
-select { 
-    width: 150px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
+/* Estilos para las celdas de la tabla en la sección de ver huerto */
+#tabla-ver-huerto td {
+    padding: 10px;
 }
 
-#formulario-ver-huerto label#label-lista-sensores {
-    width: 200px;
-    margin-bottom: 10px;
+/* Estilos para los encabezados de las filas en la sección de ver huerto */
+#tabla-ver-huerto th {
+    padding: 10px;
+    background-color: #9D4179;
+    color: white;
 }
 
-#medidas label {
-    margin-top: 10px;
-    width: 16px;
-}
-
-/* #endregion */
-
-
-@media (max-width: 768px) {
-    #boton-ver-cita,
-    #boton-ver-huerto {
-        width: 70px;
-    }
-
-    #boton-añadir-huerto {
-        width: auto;
-        height: 30px;
-        font-size: 11px;
-        width: 90px;
-    }
+/* Estilos para el botón "Guardar" en la sección de ver huerto */
+#seccion-ver-huerto #boton-guardar2 {
+    margin-top: 40px;
+    margin-left: 80%;
+    background-color: #9D4179;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: .5em;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 1em;
 }

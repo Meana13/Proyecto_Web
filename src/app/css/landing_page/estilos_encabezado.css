@@ -143,7 +143,6 @@ section p {
     transform: translateY(-.6em) rotate(-45deg);
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-/*comentario*/
 
 /*Aquí hemos importado la fuente Roboto de Google Fonts. Entramos, seleccionamos fuente,
 y copiamos las ordenes de import, y quitamos las etiquetas de style.*/
