@@ -15,14 +15,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
         }
         break;
     case 'POST':
-        $bbdd_servidor = 'localhost';
-        $bbdd_nombre = 'test_login';
-        $bbdd_user = 'root';
-        $bbdd_password = '';
-        //$bbdd_servidor = 'pmeagon.upv.edu.es';
-        //$bbdd_nombre = 'pmeagon_proyecto_web';
-        //$bbdd_user = 'pmeagon_usuario';
-        //$bbdd_password = 'Pitirili13.';
+        //$bbdd_servidor = 'localhost';
+        //$bbdd_nombre = 'test_login';
+        //$bbdd_user = 'root';
+        //$bbdd_password = '';
+        $bbdd_servidor = 'pmeagon.upv.edu.es';
+        $bbdd_nombre = 'pmeagon_proyecto_web';
+        $bbdd_user = 'pmeagon_usuario';
+        $bbdd_password = 'Pitirili13.';
         try {
             $connexion = mysqli_connect($bbdd_servidor, $bbdd_user, $bbdd_password, $bbdd_nombre);
         } catch (Exception $e) {

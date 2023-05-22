@@ -15,6 +15,7 @@ h2 {
 /* Estilos para la sección "administrar usuarios" */
 #seccion-administrar-usuarios {
     display: block;
+	margin-top:120px;
 }
 
 /* Estilos para la sección "añadir usuario" */

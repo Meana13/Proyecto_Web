@@ -6,22 +6,27 @@
 
 #seccion-hoja-cita {
     display: none;
+	margin-top:100px;
 }
 
 #seccion-opiniones {
     display: none;
+	margin-top:100px;
 }
 
 #seccion-administrar-huertos {
     display: none;
+	margin-top:100px;
 }
 
 #seccion-añadir-huerto {
     display: none;
+	margin-top:100px;
 }
 
 #seccion-ver-huerto {
     display: none;
+	margin-top:100px;
 }
 
 /* Estilos para el encabezado de la sección de citas */
