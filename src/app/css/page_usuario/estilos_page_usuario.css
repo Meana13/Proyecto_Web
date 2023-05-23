@@ -1,27 +1,34 @@
+/* Definición de variables de colores */
 :root {
     --principal: #9D4179;
 }
 
+/* Estilos generales para el cuerpo de la página */
 body {
     margin-top: 120px;
 }
 
+
+/* Estilos para los títulos de nivel 2 */
 h2 {
     text-align: center;
     margin-bottom: 30px;
 }
 
+/* Estilos para el diálogo */
 dialog {
     margin: auto auto;
     height: fit-content;
     width: 60%;
 }
 
+/* Estilos para el fondo del diálogo */
 dialog::backdrop {
     background-color: rgb(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
 }
 
+/* Estilos para el botón "cancelar" */
 #cancelar {
     margin-bottom: 20px;
     background-color: transparent;
@@ -36,12 +43,14 @@ dialog::backdrop {
     width: 20px;
 }
 
+/* Estilos para los campos de etiquetas e inputs en la sección "editar-huerto" */
 #editar-huerto label,
 #editar-huerto input {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
+/* Estilos para los campos de fecha en el formulario de huerto */
 #fecha_huerto_dia,
 #fecha_huerto_mes {
     width: 30px;
@@ -51,6 +60,7 @@ dialog::backdrop {
     width: 40px;
 }
 
+/* Estilos para el botón "enviar" en el formulario de huerto */
 #enviar {
     border-radius: 5px;
     background-color: var(--principal);
@@ -69,6 +79,7 @@ dialog::backdrop {
     margin-right: 5%;
 }
 
+/* Estilos para los botones de la sección "botones_añadir_selección" */
 #botones_añadir_selección {
     margin: 0 auto;
     width: 90%;
@@ -91,6 +102,7 @@ dialog::backdrop {
     padding: 5px;
 }
 
+/* Estilos para los campos de input en la sección "datos_usuario" */
 .datos_usuario {
     width: 300px;
     margin: 0 auto;
@@ -110,6 +122,7 @@ dialog::backdrop {
     display: flex;
 }
 
+/* Estilos para el botón "cambios_perfil" en la sección "datos_usuario" */
 #cambios_perfil {
     border-radius: 5px;
     background-color: var(--principal);
@@ -128,22 +141,38 @@ dialog::backdrop {
     margin-right: 5%;
 }
 
+/* Estilos para los campos de etiquetas e inputs en el formulario de hoja de usuario */
 #formulario-hoja-usuario label {
     display: inline-block;
     width: 40%;
     text-align: left;
 }
 
+/* Estilos para el icono de editar */
 #icono-editar {
     margin-left: 10px;
     padding: 0;
     border: 0;
-    position: relative;
     top: 6px;
 }
 
+.header {
+    position:fixed;
+    z-index: 2;
+    }
+
+
+/* Estilos para el acordeón */
 #acordeon {
     margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.enlaces_a_flecha {
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .card {
@@ -153,10 +182,7 @@ dialog::backdrop {
     border: 0;
 }
 
-#seleccionar_huerto {
-    padding: 6px;
-}
-
+/* Estilos para el encabezado de las tarjetas en el acordeón */
 .card-header {
     border-radius: 1em;
     background-color: #9D4179;
@@ -168,6 +194,7 @@ dialog::backdrop {
     justify-content: space-between;
 }
 
+/* Estilos para el triángulo del acordeón */
 .triangulo {
     width: 0;
     height: 0;
@@ -176,17 +203,20 @@ dialog::backdrop {
     border-top: 15px solid white;
 }
 
+/* Estilos específicos para el encabezado de la primera tarjeta en el acordeón */
 #headingOne.card-header {
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
 }
 
+/* Estilos específicos para el encabezado de la quinta tarjeta en el acordeón */
 #headingFive.card-header {
     border-bottom-left-radius: 2em;
     border-bottom-right-radius: 2em;
     border-bottom: 0;
 }
 
+/* Estilos para la sección de mediciones */
 #mediciones {
     margin-top: 50px;
     display: flex;
@@ -195,12 +225,14 @@ dialog::backdrop {
     gap: 10%;
 }
 
+/* Estilos para las imágenes en la sección de mediciones */
 #mediciones img {
     width: 30px;
     margin-left: 20px;
     height: fit-content;
 }
 
+/* Estilos para los círculos en la sección de mediciones */
 .circulo {
     margin: 20px 0;
     width: 130px;
@@ -214,6 +246,7 @@ dialog::backdrop {
     font-size: 30px;
 }
 
+/* Estilos para los botones de gráficas */
 .botones_gráficas {
     height: 30px;
     display: flex;
@@ -224,6 +257,7 @@ dialog::backdrop {
     width: 50%;
 }
 
+/* Estilos para la caja de medición */
 #caja-medicion {
     width: 100%;
     height: 170px;
@@ -246,8 +280,7 @@ dialog::backdrop {
     width: 60px;
 }
 
-/*CSS de ajustes usuario*/
-
+/* Estilos para la sección de ajustes de usuario */
 #ajustes-usuario>.datos_usuario {
     display: flex;
     justify-content: center;
@@ -255,12 +288,17 @@ dialog::backdrop {
     align-items: center;
     padding: 4%;
 }
+#ajustes-usuario>.datos_usuario>form{
 
-#ajustes-usuario>.datos_usuario>form {
-    width: 300px;
 }
 
 #ajustes-usuario>.datos_usuario>form>input {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+#ajustes-usuario>.datos_usuario>form>#cambios_perfil{
     display: flex;
     align-items: center;
 }
@@ -269,14 +307,15 @@ dialog::backdrop {
     margin-left: 400px;
     flex: 1 1 0;
 }
-
-#ajustes-usuario>.datos_usuario>form>label {
+#ajustes-usuario>.datos_usuario>form>label{
     width: 10px;
 }
+#dialogo_cambios_perfil{
+    margin: auto;
+    text-align: center;
+}
 
-
-/* CSS Seccion citas */
-
+/* Estilos para la sección de citas */
 #citas>table {
     flex: 1 1 0;
     width: 100%;
@@ -291,6 +330,7 @@ dialog::backdrop {
     justify-content: center;
 }
 
+/* Estilos para el botón "aceptar/rechazar" en la sección de citas */
 .boton-aceptar-rechazar img {
     width: 15px;
     margin-right: 5px;
@@ -312,6 +352,7 @@ dialog::backdrop {
     margin-bottom: 2px;
 }
 
+/* Estilos para los contenedores de las gráficas */
 #chart-container-humedad,
 #chart-container-luz,
 #chart-container-pH,
@@ -320,6 +361,8 @@ dialog::backdrop {
     display: none;
 }
 
+
+/* Estilos para dispositivos con un ancho máximo de 768px */
 @media (max-width: 768px) {
     body {
         margin-top: 80px;

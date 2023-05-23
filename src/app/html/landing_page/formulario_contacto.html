@@ -6,20 +6,19 @@
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contacto</title>
+
+  <!-- carga de hoja de estilos -->
   <link rel="stylesheet" href="../../css/estilos_general.css">
   <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
   <link rel="stylesheet" href="../../css/landing_page/footer.css">
   <link rel="stylesheet" href="../../css/landing_page/estilos_formulario_contacto.css">
-
-
-  <title>Contacto</title>
 </head>
 
 <body>
-
+  <!-- inicio de header -->
   <header class="header" id="header-no-registrado">
-    <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
-
+    <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
 
 
     <div class="login-tab" onclick="document.getElementById('login').style.display = 'flex'">
@@ -51,7 +50,7 @@
       </form>
     </div>
 
-
+    <!--- menu --->
     <nav class="nav">
       <button class="nav-toggle" aria-label="Abrir menú">
         <!--div*3> + tabulador-->
@@ -77,13 +76,15 @@
     </nav>
 
   </header>
+  <!-- fin de header -->
 
 
+  <!--Empieza el formulario de contacto-->
   <form id="contact-form" action="../../../index.html">
     <h2>Ponte en Contacto</h2>
     <div class="form-group">
-      <label for="nombre">Nombre:<span class="required"></span></label>
-      <input type="text" id="nombre" name="name" required>
+      <label for="name">Nombre:<span class="required"></span></label>
+      <input type="text" id="name" name="name" required>
     </div>
     <div class="form-group">
       <label for="apellidos">Apellidos:<span class="required"></span></label>
@@ -111,6 +112,7 @@
       <button type="submit" id="boton_enviar_formulario">Enviar</button>
     </div>
   </form>
+  <!--Aquí termina el formulario de contacto-->
 
   <!--Aquí empieza el mensaje de "se ha enviado el formulario correctamente"-->
   <div id="dialog-container">
@@ -119,12 +121,15 @@
       <a href=../../../index.html class="boton-cerrar-dialogo">Aceptar</a>
     </div>
   </div>
+  <!--Aquí acaba el mensaje de "se ha enviado el formulario correctamente"-->
 
 
+
+  <!---- FOOTER ---->
   <footer>
     <div id="seccion-logo">
         <div class="linea-logo"></div>
-        <a href="index.html"><img src="../../../images/logoGTI.png" id="logo"></a>
+        <a href="../../../index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
         <div class="linea-logo"></div>
     </div>
 
@@ -135,7 +140,9 @@
         <a href="#"><span>Aviso legal</span></a>
     </div>
 </footer>
+  <!--fin de footer-->
 
+  <!-- Carga de scripts -->
   <script src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
   <script src="../../scrips/landing_page/login.js"></script>
   <script src="../../scrips/landing_page/script_formulario_contacto.js"></script>
