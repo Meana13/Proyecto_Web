@@ -85,13 +85,15 @@
                 <!-- TITULO TARJETA -->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingOne">
+                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true"
+                           aria-controls="collapseOne" class="enlaces_a_flecha">
                         <h5 class="mb-0">
-                            <a data-toggle="collapse" href="#collapseOne" aria-expanded="true"
-                                aria-controls="collapseOne">
+
                                 Salinidad
-                            </a>
+
                         </h5>
                         <div class="triangulo"></div>
+                        </a>
                     </div>
 
                     <!-- contenido -->
@@ -124,13 +126,15 @@
                 <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingTwo">
+                        <a data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
+                           aria-controls="collapseTwo" class="enlaces_a_flecha">
                         <h5 class="mb-0">
-                            <a data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
-                                aria-controls="collapseTwo">
+
                                 Humedad
-                            </a>
+
                         </h5>
                         <div class="triangulo"></div>
+                        </a>
                     </div>
 
                     <!-- contenido despegable -->
@@ -165,13 +169,15 @@
                 <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingThree">
+                        <a data-toggle="collapse" href="#collapseThree" aria-expanded="true"
+                           aria-controls="collapseThree" class="enlaces_a_flecha">
                         <h5 class="mb-0">
-                            <a data-toggle="collapse" href="#collapseThree" aria-expanded="true"
-                                aria-controls="collapseThree">
+
                                 pH
-                            </a>
+
                         </h5>
                         <div class="triangulo"></div>
+                        </a>
                     </div>
 
                     <!-- contenido despegable -->
@@ -205,13 +211,14 @@
                 <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingFour">
+                        <a data-toggle="collapse" href="#collapseFour" aria-expanded="true"
+                           aria-controls="collapseFour" class="enlaces_a_flecha">
                         <h5 class="mb-0">
-                            <a data-toggle="collapse" href="#collapseFour" aria-expanded="true"
-                                aria-controls="collapseFour">
+
                                 Temperatura
-                            </a>
                         </h5>
                         <div class="triangulo"></div>
+                        </a>
                     </div>
 
                     <!-- contenido despegable -->
@@ -247,13 +254,15 @@
                 <!-- TITULO TARJETA-->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingFive">
+                        <a data-toggle="collapse" href="#collapseFive" aria-expanded="true"
+                           aria-controls="collapseFive" class="enlaces_a_flecha">
                         <h5 class="mb-0">
-                            <a data-toggle="collapse" href="#collapseFive" aria-expanded="true"
-                                aria-controls="collapseFive">
+
                                 Luz
-                            </a>
+
                         </h5>
                         <div class="triangulo"></div>
+                        </a>
                     </div>
 
                     <!-- contenido despegable -->
@@ -313,6 +322,20 @@
     </section>
     <!--    Aqui finaliza la seccion de editar huerto-->
 
+    <!--    Aqui comienza la seccion de medidor pH-->
+    <h2>Nivel de pH</h2>
+    <div id="pH">
+        <img src="../../../../images/medidor_pH.png" alt="Sensor pH">
+        <div class="circulo">pH= 7</div>
+        <div class="chart-container">
+            <canvas id="chart_pH"></canvas>
+        </div>
+        <div class="botones_gráficas">
+            <button class="historial">Historial</button>
+            <button class="actual">Datos actuales</button>
+        </div>
+    </div>
+    <!--    Aqui finaliza la seccion de medidor pH-->
 
 
     <!--    Aqui comienza la seccion de ajustes de perfil -->
@@ -429,5 +452,4 @@
     <script src="../../scrips/page_usuario/graficas_sensores.js"></script>
 
 </body>
-
 </html>

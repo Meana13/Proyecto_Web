@@ -288,12 +288,17 @@ dialog::backdrop {
     align-items: center;
     padding: 4%;
 }
+#ajustes-usuario>.datos_usuario>form{
 
-#ajustes-usuario>.datos_usuario>form {
-    width: 300px;
 }
 
 #ajustes-usuario>.datos_usuario>form>input {
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+#ajustes-usuario>.datos_usuario>form>#cambios_perfil{
     display: flex;
     align-items: center;
 }
@@ -302,9 +307,12 @@ dialog::backdrop {
     margin-left: 400px;
     flex: 1 1 0;
 }
-
-#ajustes-usuario>.datos_usuario>form>label {
+#ajustes-usuario>.datos_usuario>form>label{
     width: 10px;
+}
+#dialogo_cambios_perfil{
+    margin: auto;
+    text-align: center;
 }
 
 /* Estilos para la sección de citas */
