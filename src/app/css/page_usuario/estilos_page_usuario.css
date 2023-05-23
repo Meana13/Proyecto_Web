@@ -15,6 +15,55 @@ h2 {
     margin-bottom: 30px;
 }
 
+.cabecera_huertos {
+    display:flex;
+    justify-content: space-between;
+}
+.desplegable_y_editar {
+    margin-left: 5%;
+    width: 100%;
+}
+
+/*Estilos para el selector de huertos*/
+.selector_de_huertos {
+    width: 30%;
+    height: 2.5rem;
+    padding: 4px 4px 4px 4px;
+    border-radius: 5px;
+    background-color: #D7D7D7;
+    border: #000000 1px solid
+}
+
+/*Estilo del botón de editar huerto*/
+.boton_editar_huerto {
+    width: 10%;
+    height: 2.5rem;
+    border-radius: 5px;
+    padding: 4px 4px 4px 4px;
+    font-weight: bold;
+    font-size: .9rem;
+    color: #f9f9f9;
+    background-color: #790050;
+    border: none;
+    margin-left: 1rem;
+}
+
+/*Estilo del contenedor de nombre + foto del huerto*/
+.nombre-huerto-container {
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    margin-right: 5%;
+}
+
+/*Estilo nombre del huerto*/
+.nombre-huerto {
+    font-size: 2rem;
+    font-weight: bold;
+    align-self: center;
+}
+
+
 /* Estilos para el diálogo */
 dialog {
     margin: auto auto;
@@ -79,28 +128,7 @@ dialog::backdrop {
     margin-right: 5%;
 }
 
-/* Estilos para los botones de la sección "botones_añadir_selección" */
-#botones_añadir_selección {
-    margin: 0 auto;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-#botones_añadir_selección #seleccionar_huerto {
-    width: 80%;
-    background-color: lightgray;
-}
-
-#botones_añadir_selección #entrada {
-    width: 15%;
-    background-color: var(--principal);
-    color: white;
-    border: 0;
-    border-radius: 5px;
-    padding: 5px;
-}
 
 /* Estilos para los campos de input en la sección "datos_usuario" */
 .datos_usuario {
