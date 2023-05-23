@@ -20,30 +20,36 @@
     <link rel="stylesheet" type="text/css" href="../../css/page_usuario/estilos_page_usuario.css" />
 
     <!-- Carga de script -->
-    <script src="../../scrips/landing_page/control-acceso.js"></script>
+    <!--<script src="../../scrips/landing_page/control-acceso.js"></script>-->
 </head>
 
 <body>
-    <!--Aqui comienza el header-->
+    <!--script para que se muestre el menú desplegable (en pantallas pequeñas)-->
     <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
+    <!--Aquí comienza el header-->
     <header class="header">
-        <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png"
-                alt=""></a>
 
+        <!--Logo de la empresa para volver a la landing page-->
+        <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png"
+                alt="logotipo de la empresa"></a>
+
+        <!--Imagen de perfil de usuario + nombre de usuario-->
         <div class="login-tab">
             <img src="../../../images/victoria.png" alt=""></a>
             <label>VictoriaGue</label>
         </div>
 
-        <!-- MENU -->
+        <!-- Menú hamburguesa (en pantallas pequeñas)-->
+        <!--Estas son las tres barras que representan el menú desplegable, al clicar en ellas se mostrará el menú (en pantallas pequeñas)-->
         <nav class="nav">
             <button class="nav-toggle" aria-label="Abrir menú">
-                <!--div*3> + tabulador-->
                 <div></div>
                 <div></div>
                 <div></div>
             </button>
+
+            <!--Menú propio de usuario registrado-->
             <ul class="nav-menu">
                 <li class="nav-menu-item">
                     <button class="boton_menu" id="boton_huertos">ver huertos</button>
@@ -60,29 +66,41 @@
             </ul>
         </nav>
     </header>
-    <!--Aqui finaliza el header-->
+    <!--Aquí finaliza el header-->
 
 
-    <!--Aqui comienza la zona de huertos-->
+    <!--Aquí comienza la zona de huertos-->
     <section id="huertos">
-        <h2>HUERTOS</h2>
+        <h2>MIS HUERTOS</h2>
 
-        <!-- Seleccion de huertos -->
-        <section id="botones_añadir_selección">
-            <!-- desplegable -->
-            <select id="seleccionar_huerto">
-                <option value="1">Huerto 1</option>
-                <option value="2">Huerto 2</option>
-                <option value="3">Huerto 3</option>
-            </select>
+        <!--Aquí empieza la sección de cabecera de la sección huertos-->
+        <section id="botones_añadir_selección" class="cabecera_huertos"> <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
+            <div class="desplegable_y_editar">
+                <!-- desplegable con los huertos-->
+                <select id="seleccionar_huerto" class="selector_de_huertos">            <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
+                    <option value="1">Huerto cocina</option>
+                    <option value="2">Huerto terraza</option>
+                    <option value="3">Huerto salón</option>
+                </select>
 
-            <button id="entrada"> Editar huerto</button>
+                <button id="entrada" class="boton_editar_huerto">EDITAR HUERTO</button> <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
+            </div>
+
+            <!--Aquí empieza la sección de nombre y foto del huerto-->
+            <section class="nombre-huerto-container">
+                <h3 class="nombre-huerto">Huerto cocina</h3>
+                <img src="../../../images/huerto_cocina.svg" alt="foto huerto hidropónico en cocina">
+            </section>
+            <!--Aquí acaba la sección de nombre y foto del huerto-->
         </section>
+        <!--Aquí acaba la sección de cabecera de la sección huertos-->
 
-        <!-- ACORDEON DE SENSORES-->
+
+
+        <!--Aquí empieza el acordeón de sensores-->
+        <!--Aquí empieza el sensor de SALINIDAD-->
         <div id="acordeon">
             <div id="graficas-salinidad accordion" role="tablist">
-                <!-- TITULO TARJETA -->
                 <div class="card">
                     <div class="card-header" role="tab" id="headingOne">
                         <a data-toggle="collapse" href="#collapseOne" aria-expanded="true"
@@ -96,9 +114,8 @@
                         </a>
                     </div>
 
-                    <!-- contenido -->
                     <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <!--    Aqui comienza la seccion de medidor sal -->
+                        <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
                         <div id="Sal">
                             <div id="caja-medicion">
                                 <img src="../../../images/icono_salinidad.svg" alt="Sal">
@@ -107,7 +124,7 @@
                             </div>
                         </div>
 
-                        <!-- grafica -->
+                        <!--Gráfica de sensor de salinidad-->
                         <div id="chart-container-sal" class="card-body">
 
                             <canvas id="chart-sal"></canvas>
@@ -319,23 +336,9 @@
                 <input type="submit" value="Guardar cambios" id="enviar">
             </section>
         </dialog>
+        <!--Aqui finaliza la seccion de editar huerto-->
     </section>
-    <!--    Aqui finaliza la seccion de editar huerto-->
-
-    <!--    Aqui comienza la seccion de medidor pH-->
-    <h2>Nivel de pH</h2>
-    <div id="pH">
-        <img src="../../../../images/medidor_pH.png" alt="Sensor pH">
-        <div class="circulo">pH= 7</div>
-        <div class="chart-container">
-            <canvas id="chart_pH"></canvas>
-        </div>
-        <div class="botones_gráficas">
-            <button class="historial">Historial</button>
-            <button class="actual">Datos actuales</button>
-        </div>
-    </div>
-    <!--    Aqui finaliza la seccion de medidor pH-->
+    <!--Aqui finaliza la seccion de huertos-->
 
 
     <!--    Aqui comienza la seccion de ajustes de perfil -->
