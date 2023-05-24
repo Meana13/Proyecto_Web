@@ -8,25 +8,15 @@ body {
     margin-top: 120px;
 }
 
-
-/* Estilos para los títulos de nivel 2 */
-h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
 .cabecera_huertos {
-    display:flex;
+    display: flex;
     justify-content: space-between;
-}
-.desplegable_y_editar {
-    margin-left: 5%;
-    width: 100%;
+    margin: 1rem 2.5rem;
 }
 
 /*Estilos para el selector de huertos*/
 .selector_de_huertos {
-    width: 30%;
+    width: 20rem;
     height: 2.5rem;
     padding: 4px 4px 4px 4px;
     border-radius: 5px;
@@ -36,7 +26,7 @@ h2 {
 
 /*Estilo del botón de editar huerto*/
 .boton_editar_huerto {
-    width: 10%;
+    width: 7rem;
     height: 2.5rem;
     border-radius: 5px;
     padding: 4px 4px 4px 4px;
@@ -46,22 +36,123 @@ h2 {
     background-color: #790050;
     border: none;
     margin-left: 1rem;
+    align-self: start;
 }
 
 /*Estilo del contenedor de nombre + foto del huerto*/
 .nombre-huerto-container {
     display: flex;
-    width: 30%;
+    width: 18rem;
     justify-content: space-between;
-    margin-right: 5%;
+    margin: 0 2.5rem;
 }
 
 /*Estilo nombre del huerto*/
-.nombre-huerto {
-    font-size: 2rem;
+.nombre-huerto-container .nombre-huerto {
+    font-size: 1.5rem;
     font-weight: bold;
     align-self: center;
+    order: 2;
 }
+
+.nombre-huerto-container img {
+    width: 6rem;
+    height: 6rem;
+    order: 1;
+}
+
+
+
+
+
+
+
+.visualizador_de_datos{
+    width: 90%;
+    height: 50%;
+    margin: 2rem auto;
+}
+
+.tabs{
+    display:flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tabs button {
+    border: .5px solid #790050;
+    border-bottom: none;
+    padding: 1rem;
+    border-radius: .3rem .3rem 0 0;
+    font-size: 1.2rem;
+    flex: 1 1 auto;
+    background-color: #D7D7D7;
+}
+
+.tabs button.activo { /*punto para hacer referencia a una clase*/
+    background: #790050;
+    color: white;
+}
+
+.tabs button:hover,
+.tabs button.activo:hover{/*lo que va despues de los dos puntos, son pseudoclases, clases predefinidas
+de css.*/
+    background-color: #9D4179;
+    color: #FFFFFF;
+}
+
+.cuerpo_del_visualizador article{
+    border: 0;
+    width: 80%;
+    height: 300px;
+    padding: 1rem;
+    display: none;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+}
+
+
+.cuerpo_del_visualizador article.activo {
+    display: flex;
+}
+
+.cuerpo_del_visualizador article .grafica-container {
+    width: 70%;
+    height: 100%;
+}
+
+.cuerpo_del_visualizador article .grafica-container div {
+    width: 100%;
+    height: 90%;
+}
+
+.cuerpo_del_visualizador article .grafica-container select {
+    width: 30%;
+}
+
+.cuerpo_del_visualizador article .dato_actual {
+    align-self: center;
+    margin: 0 auto;
+}
+
+/*
+.cuerpo_del_visualizador article .filtro_graficas {
+    order:0;
+}
+
+.cuerpo_del_visualizador article .dato_actual {
+    margin-left: auto;
+
+}
+*/
+
+
+
+
+
+
+
+
 
 
 /* Estilos para el diálogo */
@@ -191,10 +282,12 @@ dialog::backdrop {
 
 
 /* Estilos para el acordeón */
+/*
 #acordeon {
     margin-top: 40px;
     position: relative;
     z-index: 1;
+
 }
 
 .enlaces_a_flecha {
@@ -210,7 +303,7 @@ dialog::backdrop {
     border: 0;
 }
 
-/* Estilos para el encabezado de las tarjetas en el acordeón */
+/* Estilos para el encabezado de las tarjetas en el acordeón *//*
 .card-header {
     border-radius: 1em;
     background-color: #9D4179;
@@ -222,7 +315,7 @@ dialog::backdrop {
     justify-content: space-between;
 }
 
-/* Estilos para el triángulo del acordeón */
+/* Estilos para el triángulo del acordeón *//*
 .triangulo {
     width: 0;
     height: 0;
@@ -231,20 +324,20 @@ dialog::backdrop {
     border-top: 15px solid white;
 }
 
-/* Estilos específicos para el encabezado de la primera tarjeta en el acordeón */
+/* Estilos específicos para el encabezado de la primera tarjeta en el acordeón *//*
 #headingOne.card-header {
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
 }
 
-/* Estilos específicos para el encabezado de la quinta tarjeta en el acordeón */
+/* Estilos específicos para el encabezado de la quinta tarjeta en el acordeón *//*
 #headingFive.card-header {
     border-bottom-left-radius: 2em;
     border-bottom-right-radius: 2em;
     border-bottom: 0;
 }
 
-/* Estilos para la sección de mediciones */
+/* Estilos para la sección de mediciones *//*
 #mediciones {
     margin-top: 50px;
     display: flex;
@@ -253,14 +346,14 @@ dialog::backdrop {
     gap: 10%;
 }
 
-/* Estilos para las imágenes en la sección de mediciones */
+/* Estilos para las imágenes en la sección de mediciones *//*
 #mediciones img {
     width: 30px;
     margin-left: 20px;
     height: fit-content;
 }
 
-/* Estilos para los círculos en la sección de mediciones */
+/* Estilos para los círculos en la sección de mediciones *//*
 .circulo {
     margin: 20px 0;
     width: 130px;
@@ -274,7 +367,7 @@ dialog::backdrop {
     font-size: 30px;
 }
 
-/* Estilos para los botones de gráficas */
+/* Estilos para los botones de gráficas *//*
 .botones_gráficas {
     height: 30px;
     display: flex;
@@ -285,7 +378,7 @@ dialog::backdrop {
     width: 50%;
 }
 
-/* Estilos para la caja de medición */
+/* Estilos para la caja de medición *//*
 #caja-medicion {
     width: 100%;
     height: 170px;
@@ -307,7 +400,7 @@ dialog::backdrop {
 #espacio-vacio {
     width: 60px;
 }
-
+*/
 /* Estilos para la sección de ajustes de usuario */
 #ajustes-usuario>.datos_usuario {
     display: flex;
@@ -381,14 +474,15 @@ dialog::backdrop {
 }
 
 /* Estilos para los contenedores de las gráficas */
+/*
 #chart-container-humedad,
 #chart-container-luz,
 #chart-container-pH,
 #chart-container-temperatura,
-#chart-container-sal {
+#chart-container-sal{
     display: none;
 }
-
+*/
 
 /* Estilos para dispositivos con un ancho máximo de 768px */
 @media (max-width: 768px) {
