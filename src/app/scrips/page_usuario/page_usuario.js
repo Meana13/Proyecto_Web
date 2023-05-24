@@ -33,19 +33,46 @@ btn_ajustesperfil.addEventListener("click", function () {
 });
 /*Script para navegar botones de menu*/
 
+
+/*
+    =========================================================================
+    FUNCIONES PARA EL FUNCIONAMIENTO DEL VISUALIZADOR DE HUERTOS EN PESTAÑAS
+    =========================================================================
+                                                                               */
+function activarElemento(elementos, posicion) {
+    for (let i = 0; i < elementos.length; i++) {
+        if (i === posicion - 1) {
+            elementos[i].classList.add("activo");
+        } else {
+            elementos[i].classList.remove("activo");
+        }
+    }
+}
+
+function cambiarTab(tab) {
+    let botones = document.getElementsByClassName("tab");
+    activarElemento(botones, tab);
+    let articulos = document.getElementsByClassName("grafica");
+    activarElemento(articulos, tab);
+}
+
+/*-----------------------------------------------Aquí acaban las funciones para el visualizador de huertos en pestañas*/
+
+
+
 /*Script para cambiar entre medidas e historial*/
 const btn_graficas = document.getElementsByClassName("historial");
 const btn_actual = document.getElementsByClassName("actual");
 
-const graficas =document.getElementsByClassName("chart-container");
+//const graficas =document.getElementsByClassName("chart-container");
 const humedad =document.getElementById("Humedad");
 const temperatura =document.getElementById("Temperatura");
 const sal =document.getElementById("Sal");
 const luz =document.getElementById("Luz");
 const pH =document.getElementById("pH");
+/*
 
-
-graficas.style.display = "none";
+//graficas.style.display = "none";
 humedad.style.display = "block";
 temperatura.display = "block";
 sal.style.display = "block";
@@ -64,7 +91,7 @@ btn_actual.addEventListener('click',function (){
 /*Script para cambiar entre medidas e historial*/
 
 /*Script para dialogo de Añadir huertos*/
-
+/*
 const boton = document.getElementById('entrada');
 const enviar = document.getElementById('enviar');
 const cancelar = document.getElementById('cancelar');
@@ -89,7 +116,7 @@ popup.addEventListener('close', () => {
 })
 /*Script para dialogo de Añadir huertos*/
 
-/*Script para mensajes de cambios aceptados emergentes*/
+/*Script para mensajes de cambios aceptados emergentes*//*
 const dialogoCambiosPerfil = document.querySelector('#dialogo_cambios_perfil');
 const btnAceptar = document.querySelector('#btn_aceptar');
 
@@ -103,7 +130,7 @@ btnAceptar.addEventListener('click', function () {
 });
 /*Script para mensajes de cambios aceptados emergentes*/
 
-/*Script para eliminar flias de citas*/
+/*Script para eliminar flias de citas*//*
 const botonesAceptar = document.querySelectorAll('button img[alt="Aceptar"]');
 const botonesRechazar = document.querySelectorAll('button img[alt="Rechazar"]');
 
@@ -123,4 +150,4 @@ botonesRechazar.forEach(botonRechazar => {
     });
 });
 
-
+*/

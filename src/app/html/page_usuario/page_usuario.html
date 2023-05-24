@@ -71,11 +71,12 @@
 
     <!--Aquí comienza la zona de huertos-->
     <section id="huertos">
+        <section class="cabecera_huertos">
         <h2>MIS HUERTOS</h2>
 
         <!--Aquí empieza la sección de cabecera de la sección huertos-->
-        <section id="botones_añadir_selección" class="cabecera_huertos"> <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
-            <div class="desplegable_y_editar">
+        <section id="botones_añadir_selección"> <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
+
                 <!-- desplegable con los huertos-->
                 <select id="seleccionar_huerto" class="selector_de_huertos">            <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
                     <option value="1">Huerto cocina</option>
@@ -83,22 +84,130 @@
                     <option value="3">Huerto salón</option>
                 </select>
 
-                <button id="entrada" class="boton_editar_huerto">EDITAR HUERTO</button> <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
-            </div>
-
+                <button id="entrada" class="boton_editar_huerto">EDITAR</button> <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
+        </section>
+        </section>
             <!--Aquí empieza la sección de nombre y foto del huerto-->
             <section class="nombre-huerto-container">
                 <h3 class="nombre-huerto">Huerto cocina</h3>
                 <img src="../../../images/huerto_cocina.svg" alt="foto huerto hidropónico en cocina">
             </section>
             <!--Aquí acaba la sección de nombre y foto del huerto-->
-        </section>
+
         <!--Aquí acaba la sección de cabecera de la sección huertos-->
 
 
+        <!--Aquí empieza el visualizador de datos de sensores (formato pestañas, para pantallas más grandes)-->
+        <section class="visualizador_de_datos">
 
-        <!--Aquí empieza el acordeón de sensores-->
+            <!--Estas son las pestañas-->
+            <div class="tabs" id="tabs">
+                <button onclick="cambiarTab(1)" class="salinidad tab activo" id="tab_salinidad">Salinidad</button>
+                <button onclick="cambiarTab(2)" class="humedad tab" id="tab_humedad">Humedad</button>
+                <button onclick="cambiarTab(3)" class="pH tab" id="tab_pH">pH</button>
+                <button onclick="cambiarTab(4)" class="temperatura tab" id="tab_temperatura">Temperatura</button>
+                <button onclick="cambiarTab(5)" class="luz tab" id="tab_luz">Luz</button>
+            </div>
+
+            <!--Esto es el cuerpo del visualizador, donde se verán los datos-->
+            <div class="cuerpo_del_visualizador">
+
+                <!--Gráfica de salinidad-->
+                <article class="grafica_salinidad grafica activo" >
+
+                    <section class="grafica-container">
+                        <select class="filtro_graficas">
+                            <option>Día</option>
+                            <option>Semana</option>
+                            <option>Mes</option>
+                        </select>
+
+                        <div id="chart-container-sal">
+                            <canvas id="chart-sal"></canvas>
+                        </div>
+                    </section>
+
+                    <div class="dato_actual">
+                        <p>Dato actual</p>
+                    </div>
+
+                </article>
+
+                <!--Gráfica de humedad-->
+                <article class="grafica_humedad grafica">
+                    <select class="filtro_graficas">
+                        <option>Día</option>
+                        <option>Semana</option>
+                        <option>Mes</option>
+                    </select>
+
+                    <div class="dato_actual">
+                        <p>Dato actual</p>
+                    </div>
+
+                    <div id="chart-container-humedad">
+                        <canvas id="chart-humedad"></canvas>
+                    </div>
+                </article>
+
+                <!--Gráfica de pH-->
+                <article class="grafica_pH grafica">
+                    <select class="filtro_graficas">
+                        <option>Día</option>
+                        <option>Semana</option>
+                        <option>Mes</option>
+                    </select>
+
+                    <div class="dato_actual">
+                        <p>Dato actual</p>
+                    </div>
+
+                    <div id="chart-container-pH">
+                        <canvas id="chart-pH"></canvas>
+                    </div>
+                </article>
+
+                <!--Gráfica de temperatura-->
+                <article class="grafica_temperatura grafica">
+                    <select class="filtro_graficas">
+                        <option>Día</option>
+                        <option>Semana</option>
+                        <option>Mes</option>
+                    </select>
+
+                    <div class="dato_actual">
+                        <p>Dato actual</p>
+                    </div>
+
+                    <div id="chart-container-temperatura">
+                        <canvas id="chart-temperatura"></canvas>
+                    </div>
+                </article>
+
+                <!--Gráfica de luz-->
+                <article class="grafica_luz grafica">
+
+                    <select class="filtro_graficas">
+                        <option>Día</option>
+                        <option>Semana</option>
+                        <option>Mes</option>
+                    </select>
+
+                    <div id="chart-container-luz">
+                        <canvas id="chart-luz"></canvas>
+                    </div>
+
+                    <div class="dato_actual">
+                        <p>Dato actual</p>
+                    </div>
+                </article>
+
+            </div> <!--Aquí acaba el cuerpo del visualizador-->
+        </section> <!--Aquí acaba la sección del visualizador de datos-->
+
+        <!--Aquí empieza el acordeón de sensores (versión para pantallas pequeñas)-->
         <!--Aquí empieza el sensor de SALINIDAD-->
+        <!--
         <div id="acordeon">
             <div id="graficas-salinidad accordion" role="tablist">
                 <div class="card">
@@ -114,8 +223,9 @@
                         </a>
                     </div>
 
-                    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne"> -->
                         <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
+        <!--
                         <div id="Sal">
                             <div id="caja-medicion">
                                 <img src="../../../images/icono_salinidad.svg" alt="Sal">
@@ -123,13 +233,17 @@
                                 <div id="espacio-vacio"></div>
                             </div>
                         </div>
-
+-->
                         <!--Gráfica de sensor de salinidad-->
+
+                        <!--
                         <div id="chart-container-sal" class="card-body">
 
                             <canvas id="chart-sal"></canvas>
 
                         </div>
+                        -->
+        <!--
                         <div class="botones_gráficas">
                             <button id="boton-historial-sal" onclick="verGraficaSalinidad()">Historial</button>
                             <button id="boton-datos-actuales-sal" onclick="verDatosActualesSalinidad()">Datos
@@ -139,8 +253,9 @@
                 </div>
             </div>
 
-            <div id="graficas-humedad accordion" role="tablist">
+            <div id="graficas-humedad accordion" role="tablist"> -->
                 <!-- TITULO TARJETA-->
+        <!--
                 <div class="card">
                     <div class="card-header" role="tab" id="headingTwo">
                         <a data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
@@ -153,10 +268,12 @@
                         <div class="triangulo"></div>
                         </a>
                     </div>
-
+-->
                     <!-- contenido despegable -->
+        <!--
                     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                        <!--    Aqui comienza la seccion de medidor humedad-->
+                         Aqui comienza la seccion de medidor humedad-->
+        <!--
                         <div id="Humedad">
                             <div id="caja-medicion">
                                 <img src="../../../images/icono_humedad.svg" alt="Humedad">
@@ -165,8 +282,9 @@
                             </div>
 
                         </div>
+        -->
                         <!--    Aqui finaliza la seccion de medidor humedad-->
-
+<!--
                         <div id="chart-container-humedad" class="card-body">
 
                             <canvas id="chart-humedad"></canvas>
@@ -183,7 +301,9 @@
             </div>
 
             <div id="graficas-pH accordion" role="tablist">
+            -->
                 <!-- TITULO TARJETA-->
+        <!--
                 <div class="card">
                     <div class="card-header" role="tab" id="headingThree">
                         <a data-toggle="collapse" href="#collapseThree" aria-expanded="true"
@@ -196,11 +316,13 @@
                         <div class="triangulo"></div>
                         </a>
                     </div>
-
+-->
                     <!-- contenido despegable -->
+        <!--
                     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-
+-->
                         <!--    Aqui comienza la seccion de medidor pH-->
+        <!--
                         <div id="pH">
                             <div id="caja-medicion">
                                 <img src="../../../images/icono_ph.svg" alt="Sensor pH">
@@ -208,8 +330,9 @@
                                 <div id="espacio-vacio"></div>
                             </div>
                         </div>
+                        -->
                         <!--    Aqui finaliza la seccion de medidor pH-->
-
+<!--
                         <div id="chart-container-pH">
 
                             <canvas id="chart-pH"></canvas>
@@ -225,7 +348,9 @@
             </div>
 
             <div id="graficas-temperatura accordion" role="tablist">
+            -->
                 <!-- TITULO TARJETA-->
+        <!--
                 <div class="card">
                     <div class="card-header" role="tab" id="headingFour">
                         <a data-toggle="collapse" href="#collapseFour" aria-expanded="true"
@@ -237,10 +362,13 @@
                         <div class="triangulo"></div>
                         </a>
                     </div>
-
+-->
                     <!-- contenido despegable -->
+        <!--
                     <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                    -->
                         <!--    Aqui comienza la seccion de medidor Tª-->
+        <!--
                         <div id="Temperatura">
                             <div id="caja-medicion">
                                 <img src="../../../images/icono_temperatura.svg " alt="Termometro">
@@ -249,7 +377,9 @@
                             </div>
 
                         </div>
+                        -->
                         <!--    Aqui finaliza la seccion de medidor Tª-->
+        <!--
                         <div id="chart-container-temperatura">
 
                             <canvas id="chart-temperatura"></canvas>
@@ -268,7 +398,9 @@
             </div>
 
             <div id="graficas-luz accordion" role="tablist">
+            -->
                 <!-- TITULO TARJETA-->
+        <!--
                 <div class="card">
                     <div class="card-header" role="tab" id="headingFive">
                         <a data-toggle="collapse" href="#collapseFive" aria-expanded="true"
@@ -281,10 +413,13 @@
                         <div class="triangulo"></div>
                         </a>
                     </div>
-
+-->
                     <!-- contenido despegable -->
+        <!--
                     <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                    -->
                         <!--    Aqui comienza la seccion de medidor Luz -->
+        <!--
                         <div id="Luz">
                             <div id="caja-medicion">
                                 <img src="../../../images/icono_luminosidad.svg" alt="Luz">
@@ -292,7 +427,9 @@
                                 <div id="espacio-vacio"></div>
                             </div>
                         </div>
+                        -->
                         <!--    Aqui finaliza la seccion de medidor Luz -->
+        <!--
                         <div id="chart-container-luz">
 
                             <canvas id="chart-luz"></canvas>
@@ -308,7 +445,7 @@
                 </div>
             </div>
         </div>
-
+-->
         <!--    Aqui comienza la seccion de editar huerto-->
         <dialog>
             <section id="editar-huerto" class="seccion-oculta">
