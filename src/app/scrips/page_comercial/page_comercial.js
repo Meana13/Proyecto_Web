@@ -612,6 +612,7 @@ Función buscarSolicitudesPendientes():
             // Mostramos u ocultamos la fila según corresponda
             if (mostrarFila) {
                 filas[i].style.display = "";
+                filas[0].style.display = "";
             } else {
                 filas[i].style.display = "none";
             }
