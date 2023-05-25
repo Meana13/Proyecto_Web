@@ -13,6 +13,9 @@
     <!--Carga de script de Chart.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
 
+    <!--Carga de iconos de bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     <!-- Carga de estilos -->
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
@@ -68,6 +71,7 @@
     </header>
     <!--Aquí finaliza el header-->
 
+<!---------------------------------------------------------------------------------------->
 
     <!--Aquí comienza la zona de huertos-->
     <section id="huertos">
@@ -84,126 +88,368 @@
                     <option value="3">Huerto salón</option>
                 </select>
 
-                <button id="entrada" class="boton_editar_huerto">EDITAR</button> <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
+                <button id="boton_abrir_ajustes_huerto" class="boton_abrir_ajustes_huerto">AJUSTES</button> <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
         </section>
         </section>
             <!--Aquí empieza la sección de nombre y foto del huerto-->
-            <section class="nombre-huerto-container">
-                <h3 class="nombre-huerto">Huerto cocina</h3>
-                <img src="../../../images/huerto_cocina.svg" alt="foto huerto hidropónico en cocina">
-            </section>
+        <section class="nombre-huerto-container">
+            <img src="../../../images/huerto_cocina.svg" alt="foto huerto hidropónico en cocina">
+            <h3 class="nombre-huerto">Huerto cocina</h3>
+
+            <!--Aquí empieza la sección de alertas-->
+            <button type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                    data-toggle="popover" data-placement="bottom"
+                    data-content="Temperatura alta">
+                <i class="bi bi-exclamation-circle-fill"></i>
+            </button>
+
+            <button type="button" class="btn btn-secondary alerta_media" data-container="body"
+                    data-toggle="popover" data-placement="bottom"
+                    data-content="La temperatura está aumentando">
+                <i class="bi bi-exclamation-circle-fill"></i>
+            </button>
+            <!--Aquí acaba la sección de alertas-->
+
+        </section>
             <!--Aquí acaba la sección de nombre y foto del huerto-->
 
         <!--Aquí acaba la sección de cabecera de la sección huertos-->
 
+<!---------------------------------------------------------------------------------------->
 
         <!--Aquí empieza el visualizador de datos de sensores (formato pestañas, para pantallas más grandes)-->
         <section class="visualizador_de_datos">
 
             <!--Estas son las pestañas-->
             <div class="tabs" id="tabs">
-                <button onclick="cambiarTab(1)" class="salinidad tab activo" id="tab_salinidad">Salinidad</button>
-                <button onclick="cambiarTab(2)" class="humedad tab" id="tab_humedad">Humedad</button>
-                <button onclick="cambiarTab(3)" class="pH tab" id="tab_pH">pH</button>
-                <button onclick="cambiarTab(4)" class="temperatura tab" id="tab_temperatura">Temperatura</button>
-                <button onclick="cambiarTab(5)" class="luz tab" id="tab_luz">Luz</button>
+                <button onclick="cambiarTab(1)" class="salinidad tab activo" id="tab_salinidad">
+                    <p>Salinidad</p>
+                    <p class="dato_actual_tab">Dato Actual</p>
+                </button>
+                <button onclick="cambiarTab(2)" class="humedad tab" id="tab_humedad">
+                    <p>Humedad</p>
+                    <p class="dato_actual_tab">Dato Actual</p>
+                </button>
+                <button onclick="cambiarTab(3)" class="pH tab" id="tab_pH">
+                    <p>pH</p>
+                    <p class="dato_actual_tab">Dato Actual</p>
+                </button>
+                <button onclick="cambiarTab(4)" class="temperatura tab" id="tab_temperatura">
+                    <p>Temperatura</p>
+                    <p class="dato_actual_tab">Dato Actual</p>
+                </button>
+                <button onclick="cambiarTab(5)" class="luz tab" id="tab_luz">
+                    <p>Luz</p>
+                    <p class="dato_actual_tab">Dato Actual</p>
+                </button>
             </div>
 
             <!--Esto es el cuerpo del visualizador, donde se verán los datos-->
             <div class="cuerpo_del_visualizador">
 
-                <!--Gráfica de salinidad-->
+                <!--DATOS DE SALINIDAD-->
                 <article class="grafica_salinidad grafica activo" >
-
                     <section class="grafica-container">
-                        <select class="filtro_graficas">
-                            <option>Día</option>
-                            <option>Semana</option>
-                            <option>Mes</option>
-                        </select>
 
-                        <div id="chart-container-sal">
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div>
+                            <select class="filtro_graficas">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" action="#">
+                                <label for="desde-sal">
+                                    Desde: <input name="desde" id="desde-sal" class="desde" type="date">
+                                </label>
+                                <label for="hasta-sal" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-sal"  type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
+                        <!--Gráfica de salinidad-->
+                        <div class="chart-container" id="chart-container-sal">
                             <canvas id="chart-sal"></canvas>
                         </div>
                     </section>
+                    <section class="datos_y_descripcion_alerta_container">
+                        <div class="dato_actual">
+                            <p>Dato actual</p>
+                        </div>
 
-                    <div class="dato_actual">
-                        <p>Dato actual</p>
-                    </div>
+                        <div class="alerta_descripcion">
+                            <p>La salinidad está demasiado alta: XX%</p>
+                            <p>¿Quieres cambiar el límite de salinidad?</p>
+                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                        </div>
 
+                        <dialog class="atajo_cambiar_limites_medidas">
+                            <p>Salinidad (0 - 100%) :</p>
+                            <input type="number" placeholder="Mínima">
+                            <input type="number" placeholder="Máxima">
+                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
+                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                        </dialog>
+                    </section>
                 </article>
 
-                <!--Gráfica de humedad-->
+                <!--DATOS DE HUMEDAD-->
                 <article class="grafica_humedad grafica">
-                    <select class="filtro_graficas">
-                        <option>Día</option>
-                        <option>Semana</option>
-                        <option>Mes</option>
-                    </select>
+                    <section class="grafica-container">
 
-                    <div class="dato_actual">
-                        <p>Dato actual</p>
-                    </div>
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div>
+                            <select class="filtro_graficas">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
 
-                    <div id="chart-container-humedad">
-                        <canvas id="chart-humedad"></canvas>
-                    </div>
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" action="#">
+                                <label for="desde-humedad">
+                                    Desde: <input name="desde" id="desde-humedad" class="desde" type="date">
+                                </label>
+                                <label for="hasta-humedad" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-humedad"  type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
+                        <!--Gráfica de humedad-->
+                        <div class="chart-container" id="chart-container-humedad">
+                            <canvas id="chart-humedad"></canvas>
+                        </div>
+                    </section>
+                    <section class="datos_y_descripcion_alerta_container">
+                        <div class="dato_actual">
+                            <p>Dato actual</p>
+                        </div>
+
+                        <div class="alerta_descripcion">
+                            <p>La humedad está demasiado alta: XX%</p>
+                            <p>¿Quieres cambiar el límite de humedad?</p>
+                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                        </div>
+
+                        <dialog class="atajo_cambiar_limites_medidas">
+                            <p>Humedad (0 - 100%) :</p>
+                            <input type="number" placeholder="Mínima">
+                            <input type="number" placeholder="Máxima">
+                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
+                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                        </dialog>
+                    </section>
                 </article>
 
-                <!--Gráfica de pH-->
+                <!--DATOS DE PH-->
                 <article class="grafica_pH grafica">
-                    <select class="filtro_graficas">
-                        <option>Día</option>
-                        <option>Semana</option>
-                        <option>Mes</option>
-                    </select>
+                    <section class="grafica-container">
 
-                    <div class="dato_actual">
-                        <p>Dato actual</p>
-                    </div>
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div>
+                            <select class="filtro_graficas">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
 
-                    <div id="chart-container-pH">
-                        <canvas id="chart-pH"></canvas>
-                    </div>
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" action="#">
+                                <label for="desde-ph">
+                                    Desde: <input name="desde" id="desde-ph" class="desde" type="date">
+                                </label>
+                                <label for="hasta-ph" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-ph"  type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
+                        <!--Gráfica de pH-->
+                        <div class="chart-container" id="chart-container-pH">
+                            <canvas id="chart-pH"></canvas>
+                        </div>
+                    </section>
+                    <section class="datos_y_descripcion_alerta_container">
+                        <div class="dato_actual">
+                            <p>Dato actual</p>
+                        </div>
+
+                        <div class="alerta_descripcion">
+                            <p>El pH está demasiado ácido: X</p>
+                            <p>¿Quieres cambiar el límite del pH?</p>
+                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                        </div>
+
+                        <dialog class="atajo_cambiar_limites_medidas">
+                            <p>pH (0 - 14) :</p>
+                            <input type="number" placeholder="Mínimo">
+                            <input type="number" placeholder="Máximo">
+                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
+                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                        </dialog>
+                    </section>
                 </article>
 
-                <!--Gráfica de temperatura-->
+                <!--DATOS DE TEMPERATURA-->
                 <article class="grafica_temperatura grafica">
-                    <select class="filtro_graficas">
-                        <option>Día</option>
-                        <option>Semana</option>
-                        <option>Mes</option>
-                    </select>
 
-                    <div class="dato_actual">
-                        <p>Dato actual</p>
-                    </div>
+                    <section class="grafica-container">
 
-                    <div id="chart-container-temperatura">
-                        <canvas id="chart-temperatura"></canvas>
-                    </div>
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div>
+                            <select class="filtro_graficas">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" action="#">
+                                <label for="desde-temperatura">
+                                    Desde: <input name="desde" id="desde-temperatura" class="desde" type="date">
+                                </label>
+                                <label for="hasta-temperatura" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-temperatura"  type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
+                        <!--Gráfica de temperatura-->
+                        <div class="chart-container" id="chart-container-temperatura">
+                            <canvas id="chart-temperatura"></canvas>
+                        </div>
+                    </section>
+                    <section class="datos_y_descripcion_alerta_container">
+                        <div class="dato_actual">
+                            <p>Dato actual</p>
+                        </div>
+
+                        <div class="alerta_descripcion">
+                            <p>La temperatura está demasiado alta: XXºC</p>
+                            <p>¿Quieres cambiar el límite de temperatura?</p>
+                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                        </div>
+
+                        <dialog class="atajo_cambiar_limites_medidas">
+                            <p>Temperatura (-10 - 50ºC%) :</p>
+                            <input type="number" placeholder="Mínima">
+                            <input type="number" placeholder="Máxima">
+                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
+                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                        </dialog>
+                    </section>
+
                 </article>
 
-                <!--Gráfica de luz-->
+                <!--DATOS DE LUZ-->
                 <article class="grafica_luz grafica">
 
-                    <select class="filtro_graficas">
-                        <option>Día</option>
-                        <option>Semana</option>
-                        <option>Mes</option>
-                    </select>
+                    <section class="grafica-container">
 
-                    <div id="chart-container-luz">
-                        <canvas id="chart-luz"></canvas>
-                    </div>
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div>
+                            <select class="filtro_graficas">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
 
-                    <div class="dato_actual">
-                        <p>Dato actual</p>
-                    </div>
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" action="#">
+                                <label for="desde-luz">
+                                    Desde: <input name="desde" id="desde-luz" class="desde" type="date">
+                                </label>
+                                <label for="hasta-luz" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-luz"  type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
+                        <!--Gráfica de salinidad-->
+                        <div class="chart-container" id="chart-container-luz">
+                            <canvas id="chart-luz"></canvas>
+                        </div>
+                    </section>
+                    <section class="datos_y_descripcion_alerta_container">
+                        <div class="dato_actual">
+                            <p>Dato actual</p>
+                        </div>
+
+                        <div class="alerta_descripcion">
+                            <p>La luminosidad está demasiado baja: X, durante X días</p>
+                            <p>¿Quieres cambiar el límite de luminosidad?</p>
+                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                        </div>
+
+                        <dialog class="atajo_cambiar_limites_medidas">
+                            <p>Luminosidad (0 - 3) :</p>
+                            <ul>
+                                <li> 0: Oscuridad</li>
+                                <li> 1: Poco iluminado</li>
+                                <li> 2: Sombra</li>
+                                <li> 3: Luz directa</li>
+                            </ul>
+                            <input type="number" placeholder="Mínima">
+                            <input type="number" placeholder="Máxima">
+                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
+                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                        </dialog>
+                    </section>
                 </article>
 
-            </div> <!--Aquí acaba el cuerpo del visualizador-->
-        </section> <!--Aquí acaba la sección del visualizador de datos-->
+            </div>
+            <!--Aquí acaba el cuerpo del visualizador-->
+
+        </section>
+        <!--Aquí acaba la sección del visualizador de datos-->
+
+    </section>
+    <!--Aqui finaliza la seccion de huertos-->
+
+<!---------------------------------------------------------------------------------------->
+
+        <!--Aquí comienza el diálogo de ajustes de huerto-->
+        <dialog class="ajustes_de_huerto" id="ajustes_de_huerto">
+
+            <!--Botón de cerrar-->
+            <button id="cerrar_ajustes_huerto" class="boton_cerrar_ajustes_huerto">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+
+            <img src="../../../images/huerto_cocina.svg" alt="Foto del huerto">
+            <button>Adjuntar imagen</button>
+            <label for="nombre_huerto">Nombre del huerto:</label>
+            <input type="text" id="nombre_huerto">
+            <label for="notas_huerto">Notas:</label>
+            <textarea id="notas_huerto"></textarea>
+            <input type="submit"
+                   value="Guardar cambios"
+                   id="boton_guardar_ajustes_huerto"
+                   class="boton_guardar_ajustes_huerto">
+
+        </dialog>
+        <!--Aqui finaliza la seccion de editar huerto-->
+
+
+
+
+
+
 
         <!--Aquí empieza el acordeón de sensores (versión para pantallas pequeñas)-->
         <!--Aquí empieza el sensor de SALINIDAD-->
@@ -446,36 +692,7 @@
             </div>
         </div>
 -->
-        <!--    Aqui comienza la seccion de editar huerto-->
-        <dialog>
-            <section id="editar-huerto" class="seccion-oculta">
-                <button id="cancelar"><img src="../../../images/icono-cerrar.svg"
-                        alt="Volver"><span>Cancelar</span></button>
-                <p class="editar_huerto">
-                    <img src="../images/admin.png" alt="Imagen huerto">
-                    <button>Adjuntar imagen</button><br>
-                    <label for="nombre_huerto">Nombre del huerto:</label>
-                    <input type="text" id="nombre_huerto"><br>
-                    <label for="localizacion_huerto">Localizacion:</label>
-                    <input type="text" id="localizacion_huerto"><br>
-                </p>
 
-                <label>Fecha de instalación:</label>
-                <input type="text" id="fecha_huerto_dia">
-                <label>/</label>
-                <input type="text" id="fecha_huerto_mes">
-                <label>/</label>
-                <input type="text" id="fecha_huerto_año">
-                <br>
-                <label for="notas_huerto">Notas:</label>
-                <input id="notas_huerto">
-                <br>
-                <input type="submit" value="Guardar cambios" id="enviar">
-            </section>
-        </dialog>
-        <!--Aqui finaliza la seccion de editar huerto-->
-    </section>
-    <!--Aqui finaliza la seccion de huertos-->
 
 
     <!--    Aqui comienza la seccion de ajustes de perfil -->
@@ -565,7 +782,7 @@
     <footer>
         <div id="seccion-logo">
             <div class="linea-logo"></div>
-            <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
+            <a href="../../../index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
             <div class="linea-logo"></div>
         </div>
 
