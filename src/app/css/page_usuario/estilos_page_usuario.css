@@ -78,9 +78,10 @@ body {
 .nombre-huerto-container button.alerta_grave:focus,
 .nombre-huerto-container button.alerta_grave:active,
 .nombre-huerto-container button.alerta_grave span {
-    background-color: transparent;
+    background-color: transparent !important;
     border: none;
-    color: #c05353;
+    color: #c05353 !important;
+    outline: 0;
 }
 
 .nombre-huerto-container button.alerta_media {
@@ -94,9 +95,10 @@ body {
 .nombre-huerto-container button.alerta_media:focus,
 .nombre-huerto-container button.alerta_media:active,
 .nombre-huerto-container button.alerta_media span {
-    background-color: transparent;
+    background-color: transparent !important;
     border: none;
-    color: #be894d;
+    color: #be894d !important;
+    outline: 0;
 }
 
 
@@ -308,12 +310,16 @@ body {
                                                                                             */
 
 /*Estilos del diálogo*/
-dialog.ajustes_de_huerto{
+dialog.ajustes_de_huerto {
+    display:none;
+}
+
+dialog.ajustes_de_huerto.activo{
     margin: auto auto;
     background-color: var(--fondo);
     border:none;
     border-radius: 5px;
-    padding: 2rem;
+    padding: .5rem 2rem 2rem 2rem;
     display: flex;
     flex-direction: column;
 }
@@ -327,7 +333,30 @@ dialog.ajustes_de_huerto::backdrop{
 dialog.ajustes_de_huerto button.boton_cerrar_ajustes_huerto{
     font-size: 2rem;
     font-weight: bold;
+    background-color: transparent;
+    border:none;
+    text-align: end;
 }
+
+/*Estilos para el título de ajustes de huerto*/
+dialog.ajustes_de_huerto h3{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+dialog.ajustes_de_huerto div {
+    display: flex;
+    align-items: baseline;
+}
+
+/*Estilos para la foto del huerto*/
+dialog.ajustes_de_huerto div img{
+    height: 15%;
+    width: 15%;
+}
+
+
+
 
 
 
