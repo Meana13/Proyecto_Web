@@ -95,21 +95,6 @@
         <section class="nombre-huerto-container">
             <img src="../../../images/huerto_cocina.svg" alt="foto huerto hidropónico en cocina">
             <h3 class="nombre-huerto">Huerto cocina</h3>
-
-            <!--Aquí empieza la sección de alertas-->
-            <button type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                    data-toggle="popover" data-placement="bottom"
-                    data-content="Temperatura alta">
-                <i class="bi bi-exclamation-circle-fill"></i>
-            </button>
-
-            <button type="button" class="btn btn-secondary alerta_media" data-container="body"
-                    data-toggle="popover" data-placement="bottom"
-                    data-content="La temperatura está aumentando">
-                <i class="bi bi-exclamation-circle-fill"></i>
-            </button>
-            <!--Aquí acaba la sección de alertas-->
-
         </section>
             <!--Aquí acaba la sección de nombre y foto del huerto-->
 
@@ -123,24 +108,113 @@
             <!--Estas son las pestañas-->
             <div class="tabs" id="tabs">
                 <button onclick="cambiarTab(1)" class="salinidad tab activo" id="tab_salinidad">
+                    <!--Aquí empieza la sección de alertas-->
+                    <div class="alertas-container">
+                        <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="Temperatura alta">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="La temperatura está aumentando">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+                    </div>
+                    <!--Aquí acaba la sección de alertas-->
+
                     <p>Salinidad</p>
                     <p class="dato_actual_tab">Dato Actual</p>
+
+
+
                 </button>
                 <button onclick="cambiarTab(2)" class="humedad tab" id="tab_humedad">
+
+                    <!--Aquí empieza la sección de alertas-->
+                    <div class="alertas-container">
+                        <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="Temperatura alta">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="La temperatura está aumentando">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+                    </div>
+                    <!--Aquí acaba la sección de alertas-->
+
                     <p>Humedad</p>
                     <p class="dato_actual_tab">Dato Actual</p>
+
                 </button>
                 <button onclick="cambiarTab(3)" class="pH tab" id="tab_pH">
+
+                    <!--Aquí empieza la sección de alertas-->
+                    <div class="alertas-container">
+                        <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="Temperatura alta">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="La temperatura está aumentando">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+                    </div>
+                    <!--Aquí acaba la sección de alertas-->
+
                     <p>pH</p>
                     <p class="dato_actual_tab">Dato Actual</p>
+
                 </button>
                 <button onclick="cambiarTab(4)" class="temperatura tab" id="tab_temperatura">
+                    <!--Aquí empieza la sección de alertas-->
+                    <div class="alertas-container">
+                        <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="Temperatura alta">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="La temperatura está aumentando">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+                    </div>
+                    <!--Aquí acaba la sección de alertas-->
+
                     <p>Temperatura</p>
                     <p class="dato_actual_tab">Dato Actual</p>
+
                 </button>
                 <button onclick="cambiarTab(5)" class="luz tab" id="tab_luz">
+
+                    <!--Aquí empieza la sección de alertas-->
+                    <div class="alertas-container">
+                        <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="Temperatura alta">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="La temperatura está aumentando">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+                    </div>
+                    <!--Aquí acaba la sección de alertas-->
                     <p>Luz</p>
                     <p class="dato_actual_tab">Dato Actual</p>
+
                 </button>
             </div>
 

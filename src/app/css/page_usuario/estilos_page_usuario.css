@@ -66,42 +66,6 @@ body {
     margin: 0 2rem;
 }
 
-/*Estilo de los iconos de alerta*/
-.nombre-huerto-container button.alerta_grave {
-    font-size: 2rem;
-    background-color: transparent;
-    border: none;
-    color: #cd0404;
-}
-
-.nombre-huerto-container button.alerta_grave:hover,
-.nombre-huerto-container button.alerta_grave:focus,
-.nombre-huerto-container button.alerta_grave:active,
-.nombre-huerto-container button.alerta_grave span {
-    background-color: transparent !important;
-    border: none;
-    color: #c05353 !important;
-    outline: 0;
-}
-
-.nombre-huerto-container button.alerta_media {
-    font-size: 2rem;
-    background-color: transparent;
-    border: none;
-    color: #cd6904;
-}
-
-.nombre-huerto-container button.alerta_media:hover,
-.nombre-huerto-container button.alerta_media:focus,
-.nombre-huerto-container button.alerta_media:active,
-.nombre-huerto-container button.alerta_media span {
-    background-color: transparent !important;
-    border: none;
-    color: #be894d !important;
-    outline: 0;
-}
-
-
 
 /*Estilos del visualizador de datos de los sensores*/
 .visualizador_de_datos{
@@ -125,14 +89,17 @@ body {
     flex: 1 1 auto;
     background-color: #D7D7D7;
     display:flex;
-    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .tabs button.activo{
     display:flex;
+    flex: 2 1 auto;
     justify-content: center;
     background: #790050;
     color: #FFFFFF;
+    align-items: center;
 }
 
 .tabs button:hover,
@@ -144,10 +111,60 @@ body {
 /*Estilos para los títulos de las pestañas del visualizador de datos*/
 .tabs button p{
     font-size: 1.3rem;
+    flex: 1 1 0;
 }
 
 .tabs button.activo p.dato_actual_tab{
     display:none;
+}
+
+/*Estilo de los iconos de alerta*/
+.alertas-container{
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.alerta_grave {
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    color: #cd0404;
+    margin:0;
+}
+
+.alerta_grave:hover,
+.alerta_grave:focus,
+.alerta_grave:active,
+.alerta_grave span,
+.alerta_grave:focus-visible{
+    background-color: transparent !important;
+    border: none;
+    color: #c05353 !important;
+    outline: none;
+    box-shadow: none!important;
+}
+
+.alerta_media {
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    color: #cd6904;
+    margin:0;
+}
+
+.alerta_media:hover,
+.alerta_media:focus,
+.alerta_media:active,
+.alerta_media span,
+.alerta_media:focus-visible{
+    background-color: transparent !important;
+    border: none;
+    color: #be894d !important;
+    outline: none;
+    box-shadow: none !important;
 }
 
 /*Estilos para la zona de los datos, donde está la gráfica y los datos actuales*/
