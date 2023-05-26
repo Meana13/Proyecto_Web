@@ -98,6 +98,22 @@ td:last-child {
     height: 100vh;
 }
 
+#intro {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5%;
+    margin-bottom: 20px;
+}
+
+#intro img {
+    width: 35%;
+}
+
+#intro p {
+    width: 40%;
+}
+
 /* Estilos aplicados en la media query para dispositivos móviles */
 @media (max-width: 768px) {
 
