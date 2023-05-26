@@ -398,6 +398,22 @@ input[type="file"] {
 }
 
 @media (max-width: 768px) {
+
+    /* Ajustar tamaño de fuente */
+
+    table {
+        font-size: 12px;
+    }
+
+    /* Ocultar columnas "Estado" y "Motivo" */
+
+    th:nth-child(4),
+    td:nth-child(4),
+    th:nth-child(5),
+    td:nth-child(5) {
+        display: none;
+    }
+
     #boton-ver-cita,
     #boton-ver-huerto {
         width: 70px;
