@@ -1,6 +1,11 @@
 /* Definición de variables de colores */
 :root {
-    --principal: #9D4179;
+    --principal: #790050;
+    --secundario: #9D4179;
+    --textoBotones: #FFFFFF;
+    --textoGeneral: #000000;
+    --auxiliar: #D7D7D7;
+    --fondo: #FFF6ED;
 }
 
 /* Estilos generales para el cuerpo de la página */
@@ -8,35 +13,26 @@ body {
     margin-top: 120px;
 }
 
-
-/* Estilos para los títulos de nivel 2 */
-h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
 .cabecera_huertos {
-    display:flex;
+    display: flex;
     justify-content: space-between;
-}
-.desplegable_y_editar {
-    margin-left: 5%;
-    width: 100%;
+    margin: 1rem 2.5rem;
 }
 
 /*Estilos para el selector de huertos*/
 .selector_de_huertos {
-    width: 30%;
+    width: 20rem;
     height: 2.5rem;
     padding: 4px 4px 4px 4px;
     border-radius: 5px;
     background-color: #D7D7D7;
-    border: #000000 1px solid
+    border: #000000 1px solid;
+    font-size: 1.2rem;
 }
 
-/*Estilo del botón de editar huerto*/
-.boton_editar_huerto {
-    width: 10%;
+/*Estilo del botón de ajustes del huerto*/
+.boton_abrir_ajustes_huerto {
+    width: 7rem;
     height: 2.5rem;
     border-radius: 5px;
     padding: 4px 4px 4px 4px;
@@ -46,38 +42,318 @@ h2 {
     background-color: #790050;
     border: none;
     margin-left: 1rem;
+    align-self: start;
 }
 
 /*Estilo del contenedor de nombre + foto del huerto*/
 .nombre-huerto-container {
     display: flex;
-    width: 30%;
-    justify-content: space-between;
-    margin-right: 5%;
+    width: 40%;
+    margin: 0 2.5rem;
+}
+
+/*Estilo de la foto del huerto*/
+.nombre-huerto-container img {
+    width: 6rem;
+    height: 6rem;
 }
 
 /*Estilo nombre del huerto*/
-.nombre-huerto {
-    font-size: 2rem;
+.nombre-huerto-container .nombre-huerto {
+    font-size: 1.5rem;
     font-weight: bold;
     align-self: center;
+    margin: 0 2rem;
+}
+
+/*Estilo de los iconos de alerta*/
+.nombre-huerto-container button.alerta_grave {
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    color: #cd0404;
+}
+
+.nombre-huerto-container button.alerta_grave:hover,
+.nombre-huerto-container button.alerta_grave:focus,
+.nombre-huerto-container button.alerta_grave:active,
+.nombre-huerto-container button.alerta_grave span {
+    background-color: transparent;
+    border: none;
+    color: #c05353;
+}
+
+.nombre-huerto-container button.alerta_media {
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    color: #cd6904;
+}
+
+.nombre-huerto-container button.alerta_media:hover,
+.nombre-huerto-container button.alerta_media:focus,
+.nombre-huerto-container button.alerta_media:active,
+.nombre-huerto-container button.alerta_media span {
+    background-color: transparent;
+    border: none;
+    color: #be894d;
 }
 
 
-/* Estilos para el diálogo */
+
+/*Estilos del visualizador de datos de los sensores*/
+.visualizador_de_datos{
+    width: 90%;
+    height: 50%;
+    margin: 2rem auto;
+}
+
+/*Estilo para las pestañas del visualizador de datos*/
+.tabs{
+    display:flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.tabs button {
+    border: .5px solid #FFFFFF;
+    border-bottom: none;
+    padding: 1rem;
+    border-radius: .3rem .3rem 0 0;
+    flex: 1 1 auto;
+    background-color: #D7D7D7;
+    display:flex;
+    justify-content: space-between;
+}
+
+.tabs button.activo{
+    display:flex;
+    justify-content: center;
+    background: #790050;
+    color: #FFFFFF;
+}
+
+.tabs button:hover,
+.tabs button.activo:hover{
+    background-color: #9D4179;
+    color: #FFFFFF;
+}
+
+/*Estilos para los títulos de las pestañas del visualizador de datos*/
+.tabs button p{
+    font-size: 1.3rem;
+}
+
+.tabs button.activo p.dato_actual_tab{
+    display:none;
+}
+
+/*Estilos para la zona de los datos, donde está la gráfica y los datos actuales*/
+.cuerpo_del_visualizador article{
+    border: 0;
+    width: 80%;
+    height: 300px;
+    padding: 1rem;
+    display: none;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+}
+
+.cuerpo_del_visualizador article.activo {
+    display: flex;
+}
+
+/*Estilos para el contenedor de la gráfica su filtro*/
+.cuerpo_del_visualizador article .grafica-container {
+    width: 70%;
+    height: 100%;
+}
+/*Estilos para el filtro de la gráfica*/
+.cuerpo_del_visualizador article .grafica-container div {
+    display:flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.cuerpo_del_visualizador article .grafica-container div select {
+    width: 30%;
+    height: 1.8rem;
+    flex: 1 1 auto;
+    margin-right: 1rem;
+}
+
+.cuerpo_del_visualizador article .grafica-container div form .hasta{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/*Estilos de la gráfica*/
+.cuerpo_del_visualizador article .grafica-container div.chart-container {
+    width: 100%;
+    height: 90%;
+}
+
+.cuerpo_del_visualizador article section.datos_y_descripcion_alerta_container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+}
+
+/*Estilos del dato actual*/
+.cuerpo_del_visualizador article .dato_actual {
+    align-self: center;
+    margin: 0 auto;
+    background-color: #D7D7D7;
+    flex: 1 1 auto;
+    height: 100%;
+    width: 11rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10rem;
+}
+
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
+    font-size: 2rem;
+}
+
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion{
+    width: 100%;
+    height:auto;
+    margin-top: .8rem;
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion p {
+    text-align: center;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion button {
+    width: 50%;
+    align-self: center;
+    border: none;
+    background-color: transparent;
+    color: #790050;
+}
+
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion button:hover {
+    color: #9D4179;
+}
+
+/*Estilos para el dialogo de cambiar limites de medidas, que se pulsa desde el visualizador de datos*/
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas {
+    display:none;
+}
+
+/*Estilos para cuando abramos el dialogo*/
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas.activo {
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-radius: 1rem;
+    border: none;
+    background-color: #FFF6ED;
+    padding: 2rem;
+    margin: auto auto;
+    height: fit-content;
+    width: 55%;
+}
+
+/*Estilos del fondo del diálogo*/
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog::backdrop {
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(3px);
+}
+
+/*Estilos del párrafo del diálogo*/
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas p{
+    font-size: 1.1rem;
+}
+
+/*Estilos de los inputs del diálogo*/
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas input,
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas button
+{
+    padding: .5rem;
+    border-radius: 5px;
+    border: 1px solid #D7D7D7;
+}
+
+/*Estilos del botón guardar del diálogo*/
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas button{
+    background-color: #790050;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: .9rem;
+}
+
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas button:hover{
+    background-color: #9D4179;
+    font-weight: bold;
+}
+
+
+
+/*
+    ======================================================================================
+                        ESTILOS DE LA SECCIÓN DE AJUSTES DEL HUERTO
+    ======================================================================================
+                                                                                            */
+
+/*Estilos del diálogo*/
+dialog.ajustes_de_huerto{
+    margin: auto auto;
+    background-color: var(--fondo);
+    border:none;
+    border-radius: 5px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+dialog.ajustes_de_huerto::backdrop{
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(3px);
+}
+
+/*Estilos del botón de cerrar*/
+dialog.ajustes_de_huerto button.boton_cerrar_ajustes_huerto{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el diálogo *//*
 dialog {
     margin: auto auto;
     height: fit-content;
-    width: 60%;
+    width: 50%;
 }
 
-/* Estilos para el fondo del diálogo */
+/* Estilos para el fondo del diálogo *//*
 dialog::backdrop {
     background-color: rgb(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
 }
 
-/* Estilos para el botón "cancelar" */
+/* Estilos para el botón "cancelar" *//*
 #cancelar {
     margin-bottom: 20px;
     background-color: transparent;
@@ -92,14 +368,14 @@ dialog::backdrop {
     width: 20px;
 }
 
-/* Estilos para los campos de etiquetas e inputs en la sección "editar-huerto" */
+/* Estilos para los campos de etiquetas e inputs en la sección "editar-huerto" *//*
 #editar-huerto label,
 #editar-huerto input {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-/* Estilos para los campos de fecha en el formulario de huerto */
+/* Estilos para los campos de fecha en el formulario de huerto *//*
 #fecha_huerto_dia,
 #fecha_huerto_mes {
     width: 30px;
@@ -109,7 +385,7 @@ dialog::backdrop {
     width: 40px;
 }
 
-/* Estilos para el botón "enviar" en el formulario de huerto */
+/* Estilos para el botón "enviar" en el formulario de huerto *//*
 #enviar {
     border-radius: 5px;
     background-color: var(--principal);
@@ -130,7 +406,7 @@ dialog::backdrop {
 
 
 
-/* Estilos para los campos de input en la sección "datos_usuario" */
+/* Estilos para los campos de input en la sección "datos_usuario" *//*
 .datos_usuario {
     width: 300px;
     margin: 0 auto;
@@ -150,7 +426,7 @@ dialog::backdrop {
     display: flex;
 }
 
-/* Estilos para el botón "cambios_perfil" en la sección "datos_usuario" */
+/* Estilos para el botón "cambios_perfil" en la sección "datos_usuario" *//*
 #cambios_perfil {
     border-radius: 5px;
     background-color: var(--principal);
@@ -169,14 +445,14 @@ dialog::backdrop {
     margin-right: 5%;
 }
 
-/* Estilos para los campos de etiquetas e inputs en el formulario de hoja de usuario */
+/* Estilos para los campos de etiquetas e inputs en el formulario de hoja de usuario *//*
 #formulario-hoja-usuario label {
     display: inline-block;
     width: 40%;
     text-align: left;
 }
 
-/* Estilos para el icono de editar */
+/* Estilos para el icono de editar *//*
 #icono-editar {
     margin-left: 10px;
     padding: 0;
@@ -191,10 +467,12 @@ dialog::backdrop {
 
 
 /* Estilos para el acordeón */
+/*
 #acordeon {
     margin-top: 40px;
     position: relative;
     z-index: 1;
+
 }
 
 .enlaces_a_flecha {
@@ -210,7 +488,7 @@ dialog::backdrop {
     border: 0;
 }
 
-/* Estilos para el encabezado de las tarjetas en el acordeón */
+/* Estilos para el encabezado de las tarjetas en el acordeón *//*
 .card-header {
     border-radius: 1em;
     background-color: #9D4179;
@@ -222,7 +500,7 @@ dialog::backdrop {
     justify-content: space-between;
 }
 
-/* Estilos para el triángulo del acordeón */
+/* Estilos para el triángulo del acordeón *//*
 .triangulo {
     width: 0;
     height: 0;
@@ -231,20 +509,20 @@ dialog::backdrop {
     border-top: 15px solid white;
 }
 
-/* Estilos específicos para el encabezado de la primera tarjeta en el acordeón */
+/* Estilos específicos para el encabezado de la primera tarjeta en el acordeón *//*
 #headingOne.card-header {
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
 }
 
-/* Estilos específicos para el encabezado de la quinta tarjeta en el acordeón */
+/* Estilos específicos para el encabezado de la quinta tarjeta en el acordeón *//*
 #headingFive.card-header {
     border-bottom-left-radius: 2em;
     border-bottom-right-radius: 2em;
     border-bottom: 0;
 }
 
-/* Estilos para la sección de mediciones */
+/* Estilos para la sección de mediciones *//*
 #mediciones {
     margin-top: 50px;
     display: flex;
@@ -253,14 +531,14 @@ dialog::backdrop {
     gap: 10%;
 }
 
-/* Estilos para las imágenes en la sección de mediciones */
+/* Estilos para las imágenes en la sección de mediciones *//*
 #mediciones img {
     width: 30px;
     margin-left: 20px;
     height: fit-content;
 }
 
-/* Estilos para los círculos en la sección de mediciones */
+/* Estilos para los círculos en la sección de mediciones *//*
 .circulo {
     margin: 20px 0;
     width: 130px;
@@ -274,7 +552,7 @@ dialog::backdrop {
     font-size: 30px;
 }
 
-/* Estilos para los botones de gráficas */
+/* Estilos para los botones de gráficas *//*
 .botones_gráficas {
     height: 30px;
     display: flex;
@@ -285,7 +563,7 @@ dialog::backdrop {
     width: 50%;
 }
 
-/* Estilos para la caja de medición */
+/* Estilos para la caja de medición *//*
 #caja-medicion {
     width: 100%;
     height: 170px;
@@ -307,7 +585,7 @@ dialog::backdrop {
 #espacio-vacio {
     width: 60px;
 }
-
+*/
 /* Estilos para la sección de ajustes de usuario */
 #ajustes-usuario>.datos_usuario {
     display: flex;
@@ -381,14 +659,15 @@ dialog::backdrop {
 }
 
 /* Estilos para los contenedores de las gráficas */
+/*
 #chart-container-humedad,
 #chart-container-luz,
 #chart-container-pH,
 #chart-container-temperatura,
-#chart-container-sal {
+#chart-container-sal{
     display: none;
 }
-
+*/
 
 /* Estilos para dispositivos con un ancho máximo de 768px */
 @media (max-width: 768px) {

@@ -1,5 +1,4 @@
 
-
 /*Script para navegar botones de menu*/
 const btn_verhuertos = document.getElementById("boton_huertos");
 const btn_citas = document.getElementById("boton_citas");
@@ -33,19 +32,115 @@ btn_ajustesperfil.addEventListener("click", function () {
 });
 /*Script para navegar botones de menu*/
 
-/*Script para cambiar entre medidas e historial*/
+
+
+/*
+    =========================================================================
+                                AJUSTES DE HUERTO
+    =========================================================================
+                                                                                */
+
+const botonAbrirAjustesHuerto = document.getElementById('boton_abrir_ajustes_huerto');
+const dialogoAjustesHuerto = document.getElementById('ajustes_de_huerto');
+const botonGuardarAjustesHuerto = document.getElementById('boton_guardar_ajustes_huerto');
+const botonCerrarAjustesHuerto = document.getElementById('cerrar_ajustes_huerto');
+botonAbrirAjustesHuerto.addEventListener("click", ()=>{
+    dialogoAjustesHuerto.showModal();
+});
+
+function cerrarAjustesHuerto(){
+    dialogoAjustesHuerto.close();
+}
+
+botonGuardarAjustesHuerto.addEventListener("click", cerrarAjustesHuerto);
+botonCerrarAjustesHuerto.addEventListener("click", cerrarAjustesHuerto);
+
+
+
+
+
+/*
+    =======================================================================
+                        FUNCIONES PARA LAS ALERTAS
+    =======================================================================
+                                                                                */
+/*Función de bootstrap para que el popover funcione:*/
+$(function(){
+    $('[data-toggle="popover"]').popover()
+});
+
+/*-----------------------------------------------Aquí acaban las funciones para las alertas*/
+
+
+/*
+    =========================================================================
+    FUNCIONES PARA EL FUNCIONAMIENTO DEL VISUALIZADOR DE HUERTOS EN PESTAÑAS
+    =========================================================================
+                                                                                */
+function activarElemento(elementos, posicion) {
+    for (let i = 0; i < elementos.length; i++) {
+        if (i === posicion - 1) {
+            elementos[i].classList.add("activo");
+        } else {
+            elementos[i].classList.remove("activo");
+        }
+    }
+}
+
+function cambiarTab(tab) {
+    let botones = document.getElementsByClassName("tab");
+    activarElemento(botones, tab);
+    let articulos = document.getElementsByClassName("grafica");
+    activarElemento(articulos, tab);
+}
+
+/*-----------------------------------------------Aquí acaban las funciones para el visualizador de huertos en pestañas*/
+
+
+/*
+    =========================================================================
+              DIÁLOGO ATAJO PARA CAMBIAR LOS LÍMITES DE LAS MEDIDAS
+    =========================================================================
+                                                                                */
+const botonAbrirDialogo = document.getElementById('boton_dialogo_atajo_limites_medidas');
+const dialogo = document.querySelector('dialog');
+const guardar = document.getElementById('boton_guardar_limites_medidas_dialogo');
+const cancelar = document.getElementById('boton_cancelar_limites_medidas_dialogo');
+
+botonAbrirDialogo.addEventListener("click", ()=>{
+    dialogo.classList.add('activo');
+    dialogo.showModal();
+});
+
+function cerrarDialogo(){
+    dialogo.classList.remove('activo');
+    dialogo.close();
+}
+
+guardar.addEventListener("click", cerrarDialogo);
+cancelar.addEventListener("click", cerrarDialogo);
+
+/*-----------------------------------------------Aquí acaban las funciones para el diálogo de cambiar límites de medidas*/
+
+
+
+
+
+
+
+/*Script para cambiar entre medidas e historial*//*
 const btn_graficas = document.getElementsByClassName("historial");
 const btn_actual = document.getElementsByClassName("actual");
 
-const graficas =document.getElementsByClassName("chart-container");
+//const graficas =document.getElementsByClassName("chart-container");
 const humedad =document.getElementById("Humedad");
 const temperatura =document.getElementById("Temperatura");
 const sal =document.getElementById("Sal");
 const luz =document.getElementById("Luz");
 const pH =document.getElementById("pH");
+/*
 
-
-graficas.style.display = "none";
+//graficas.style.display = "none";
 humedad.style.display = "block";
 temperatura.display = "block";
 sal.style.display = "block";
@@ -63,7 +158,7 @@ btn_actual.addEventListener('click',function (){
 
 /*Script para cambiar entre medidas e historial*/
 
-/*Script para dialogo de Añadir huertos*/
+/*Script para dialogo de Añadir huertos*//*
 
 const boton = document.getElementById('entrada');
 const enviar = document.getElementById('enviar');
@@ -89,7 +184,7 @@ popup.addEventListener('close', () => {
 })
 /*Script para dialogo de Añadir huertos*/
 
-/*Script para mensajes de cambios aceptados emergentes*/
+/*Script para mensajes de cambios aceptados emergentes*//*
 const dialogoCambiosPerfil = document.querySelector('#dialogo_cambios_perfil');
 const btnAceptar = document.querySelector('#btn_aceptar');
 
@@ -103,7 +198,7 @@ btnAceptar.addEventListener('click', function () {
 });
 /*Script para mensajes de cambios aceptados emergentes*/
 
-/*Script para eliminar flias de citas*/
+/*Script para eliminar flias de citas*//*
 const botonesAceptar = document.querySelectorAll('button img[alt="Aceptar"]');
 const botonesRechazar = document.querySelectorAll('button img[alt="Rechazar"]');
 
@@ -122,5 +217,5 @@ botonesRechazar.forEach(botonRechazar => {
         fila.remove(); // Elimina la fila de la tabla
     });
 });
-
+*/
 
