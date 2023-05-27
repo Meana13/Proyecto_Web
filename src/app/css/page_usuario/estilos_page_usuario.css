@@ -353,6 +353,8 @@ dialog.ajustes_de_huerto button.boton_cerrar_ajustes_huerto{
     background-color: transparent;
     border:none;
     text-align: end;
+    width: 5%;
+    margin-left:auto;
 }
 
 /*Estilos para el título de ajustes de huerto*/
@@ -361,17 +363,110 @@ dialog.ajustes_de_huerto h3{
     margin-bottom: 1rem;
 }
 
-dialog.ajustes_de_huerto div {
-    display: flex;
+/*Estilos para cambiar la foto y el nombre del huerto*/
+dialog.ajustes_de_huerto div.container-nombre-imagen{
+    display:flex;
     align-items: baseline;
+    justify-content: center;
+    font-size: 1.1rem;
 }
 
-/*Estilos para la foto del huerto*/
-dialog.ajustes_de_huerto div img{
-    height: 15%;
-    width: 15%;
+dialog.ajustes_de_huerto div.container-nombre-imagen div.imagen_ajustes{
+    display:flex;
+    flex-direction: column;
+    margin-right: 1.5rem;
 }
 
+dialog.ajustes_de_huerto div.container-nombre-imagen div.imagen_ajustes img{
+   height: 30%;
+    width: 30%;
+}
+
+/*Estilos para las notas*/
+dialog.ajustes_de_huerto div.notas{
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem;
+    font-size: 1.1rem;
+    width: 100%;
+    border-bottom: 1px solid black;
+    padding-bottom:2rem;
+}
+
+dialog.ajustes_de_huerto div textarea{
+    width: 50%;
+    height: 5rem;
+    margin-left: 1rem;
+}
+
+/*Estilos para el switch de las notificaciones*/
+.notificaciones div{
+    display:flex;
+    justify-content: flex-end;
+    margin: 1rem;
+}
+.custom-switch.custom-switch-md .custom-control-label {
+    padding-left: 2rem;
+    padding-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.custom-switch.custom-switch-md .custom-control-label::before {
+    height: 1.5rem;
+    width: calc(2rem + 0.75rem);
+    border-radius: 3rem;
+}
+
+.custom-switch.custom-switch-md .custom-control-label::after {
+    width: calc(1.5rem - 4px);
+    height: calc(1.5rem - 4px);
+    border-radius: calc(2rem - (1.5rem / 2));
+}
+
+.custom-switch.custom-switch-md .custom-control-input:checked ~ .custom-control-label::after {
+    transform: translateX(calc(1.5rem - 0.25rem));
+}
+
+/*Estilos para los campos de poner los límites de las medidas*/
+dialog.ajustes_de_huerto form.limites_medidas,
+dialog.ajustes_de_huerto form.limites_medidas p{
+    font-size: 1.1rem;
+}
+
+dialog.ajustes_de_huerto form.limites_medidas p {
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
+dialog.ajustes_de_huerto form.limites_medidas input[type="checkbox"] {
+    margin:2rem .5rem 2rem 2rem;
+    transform: scale(1.5); /* Ajusta el valor según el tamaño deseado */
+    -ms-transform: scale(1.5); /* Para compatibilidad con navegadores antiguos */
+    -webkit-transform: scale(1.5); /* Para compatibilidad con navegadores basados en webkit*/
+}
+
+/*Estilos para los botones de editar y guardar*/
+dialog.ajustes_de_huerto div.botones_editar_y_guardar{
+    display:flex;
+    justify-content: flex-end;
+}
+
+dialog.ajustes_de_huerto div.botones_editar_y_guardar button.boton_editar_ajustes,
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
+    background-color: var(--principal);
+    color: var(--textoBotones);
+    border-radius: 5px;
+    border:none;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 1rem;
+    width: 30%;
+}
+
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
+    display:none;
+}
 
 
 

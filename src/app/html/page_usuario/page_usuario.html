@@ -504,26 +504,106 @@
                 <i class="bi bi-x-lg"></i>
             </button>
 
+            <!--Título de la sección-->
             <h3>AJUSTES DE HUERTO COCINA</h3>
 
-            <div class="nombre_imagen_ajustes">
-            <img src="../../../images/huerto_cocina.svg" alt="Foto del huerto">
+            <!--Cambiar nombre del huerto y la foto-->
+            <div class="container-nombre-imagen">
+                <div class="imagen_ajustes">
+                    <img src="../../../images/huerto_cocina.svg" alt="Foto del huerto">
 
-            <input type="file">
-
-            <label for="nombre_huerto">Nombre del huerto:</label>
-            <input type="text" id="nombre_huerto">
+                    <input type="file">
+                </div>
+                <div class="nombre_ajustes">
+                    <label for="nombre_huerto">Nombre del huerto:</label>
+                    <input type="text" id="nombre_huerto">
+                </div>
             </div>
 
-            <label for="notas_huerto">Notas:</label>
-            <textarea id="notas_huerto"></textarea>
+            <!--Notas del huerto-->
+            <div class="notas">
+                <label for="notas_huerto">Notas:</label>
+                <textarea id="notas_huerto" rows="10" cols="50"></textarea>
+            </div>
 
+            <!--Aquí empieza la sección de notificaciones-->
+            <section class="notificaciones">
 
-            <input type="submit"
-                   value="Guardar cambios"
-                   id="boton_guardar_ajustes_huerto"
-                   class="boton_guardar_ajustes_huerto">
+                <!--Switch para activar o desactivar las notificaciones-->
+                <div class="custom-control custom-switch custom-switch-md">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch3">
+                    <label class="custom-control-label" for="customSwitch3">Notificaciones</label>
+                </div>
 
+                <h3>Personaliza las notificaciones</h3>
+                <!--Para que el usuario personalice las notificaciones-->
+                <form action="#" class="limites_medidas">
+
+                    <p>Salinidad</p>
+                    <label for="salinidad-minima">Mínima:</label>
+                    <input type="number" id="salinidad-minima">
+                    <label for="salinidad-maxima">Máxima:</label>
+                    <input type="number" id="salinidad-maxima">
+                    <label>Valores posibles: 0 - 100%</label>
+
+                    <p>Humedad</p>
+                    <label for="humedad-minima">Mínima:</label>
+                    <input type="number" id="humedad-minima">
+                    <label for="humedad-maxima">Máxima:</label>
+                    <input type="number" id="humedad-maxima">
+                    <label>Valores posibles: 0 - 100%</label>
+
+                    <p>pH</p>
+                    <label for="pH-minimo">Mínimo:</label>
+                    <input type="number" id="pH-minimo">
+                    <label for="pH-maximo">Máximo:</label>
+                    <input type="number" id="pH-maximo">
+                    <label>Valores posibles: 0 - 14</label>
+
+                    <p>Temperatura</p>
+                    <label for="temperatura-minima">Mínima:</label>
+                    <input type="number" id="temperatura-minima">
+                    <label for="temperatura-maxima">Máxima:</label>
+                    <input type="number" id="temperatura-maxima">
+                    <label>Valores posibles: -30 - 50ºC</label>
+
+                    <p>Luz</p>
+                    <label>Nivel de luz:</label>
+                    <select>
+                        <option>0 - Oscuridad</option>
+                        <option>1 - Poco iluminado</option>
+                        <option>2 - Sombra</option>
+                        <option>3 - Luz directa</option>
+                    </select>
+                    <label>Durante </label>
+                    <input type="number">
+                    <label>días</label>
+                    <br>
+                    <label>Nivel de luz:</label>
+                    <select>
+                        <option>0 - Oscuridad</option>
+                        <option>1 - Poco iluminado</option>
+                        <option>2 - Sombra</option>
+                        <option>3 - Luz directa</option>
+                    </select>
+                    <label>Durante </label>
+                    <input type="number">
+                    <label>días</label>
+                    <br>
+                    <input type="checkbox">
+                    <label>quiero recibir un correo cuando se emita una notificación.</label>
+                </form>
+
+            </section>
+
+            <div class="botones_editar_y_guardar">
+                <button class="boton_editar_ajustes">Editar</button>
+
+                <input type="submit"
+                       value="Guardar cambios"
+                       id="boton_guardar_ajustes_huerto"
+                       class="boton_guardar_ajustes_huerto">
+            </div>
         </dialog>
         <!--Aqui finaliza la seccion de editar huerto-->
 
