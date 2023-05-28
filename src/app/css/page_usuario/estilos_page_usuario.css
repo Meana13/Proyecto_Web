@@ -88,13 +88,14 @@ body {
 .tabs button {
     border: .5px solid #FFFFFF;
     border-bottom: none;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: .3rem .3rem 0 0;
     flex: 1 1 auto;
     background-color: #D7D7D7;
     display:flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .tabs button.activo{
@@ -115,7 +116,6 @@ body {
 /*Estilos para los títulos de las pestañas del visualizador de datos*/
 .tabs button p{
     font-size: 1.3rem;
-    flex: 1 1 0;
 }
 
 .tabs button.activo p.dato_actual_tab{
@@ -126,7 +126,7 @@ body {
 .alertas-container{
     display: flex;
     flex: 1 1 100%;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
 }
@@ -175,7 +175,7 @@ body {
 .cuerpo_del_visualizador article{
     border: 0;
     width: 80%;
-    height: 300px;
+    height: 40rem;
     padding: 1rem;
     display: none;
     background-color: #FFFFFF;
@@ -194,15 +194,20 @@ body {
 /*Estilos para el filtro de la gráfica*/
 .cuerpo_del_visualizador article .grafica-container div {
     display:flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: baseline;
 }
 
 .cuerpo_del_visualizador article .grafica-container div select {
-    width: 30%;
+    width: 10%;
     height: 1.8rem;
-    flex: 1 1 auto;
+    flex: .5 1 auto;
     margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cuerpo_del_visualizador article .grafica-container div form.seleccionar_fecha{
+    display: none;
 }
 
 .cuerpo_del_visualizador article .grafica-container div form .hasta{
@@ -226,11 +231,9 @@ body {
 
 /*Estilos del dato actual*/
 .cuerpo_del_visualizador article .dato_actual {
-    align-self: center;
     margin: 0 auto;
     background-color: #D7D7D7;
-    flex: 1 1 auto;
-    height: 60%;
+    height: 50%;
     width: 60%;
     display: flex;
     justify-content: center;
@@ -239,23 +242,22 @@ body {
 }
 
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 /*Estilos de la descripción de la alerta*/
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion{
     width: 100%;
     height:auto;
-    margin-top: .8rem;
+    margin-top: 2rem;
     flex: 0 1 auto;
     display: flex;
     flex-direction: column;
-
 }
 
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion p {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: 0;
 }
 
@@ -287,7 +289,7 @@ body {
     padding: 2rem;
     margin: auto auto;
     height: fit-content;
-    width: 60%;
+    width: 40%;
 }
 
 /*Estilos del fondo del diálogo*/
@@ -331,7 +333,7 @@ body {
     padding: 2rem;
     margin: auto auto;
     display: block;
-    width: 55%;
+    width: 40%;
 }
 
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz input {
@@ -343,12 +345,15 @@ body {
 }
 
 /*Estilos del botón guardar y cancelar del diálogo de luz*/
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz div.botones_editar_guardar_luz {
+    display:flex;
+    justify-content: flex-end;
+}
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz button{
     background-color: #790050;
     color: #FFFFFF;
     text-transform: uppercase;
     font-size: .9rem;
-    float:right;
     margin: 0 .5rem;
 }
 
@@ -500,10 +505,79 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     display:none;
 }
 
+@media(max-width: 2300px){
+    /*Estilos del dato actual*/
+    .cuerpo_del_visualizador article .dato_actual {
+        height: 50%;
+        width: 60%;
+        border-radius: 60%;
+    }
+}
 
+@media(max-width: 2200px){
+    /*Estilos del dato actual*/
+    .cuerpo_del_visualizador article .dato_actual {
+        height: 45%;
+        width: 60%;
+        border-radius: 50%;
+    }
+}
 
+@media(max-width: 2000px){
+    /*Estilos para el visualizador de datos*/
+    .cuerpo_del_visualizador article{
+        height: 35rem;
+    }
 
+    /*Estilos del dato actual*/
+    .cuerpo_del_visualizador article .dato_actual {
+        height: 50%;
+        width: 70%;
+        border-radius: 50%;
+    }
 
+}
+
+@media(max-width: 1800px){
+    /*Estilos del dato actual*/
+    .cuerpo_del_visualizador article .dato_actual {
+        height: 50%;
+        width: 70%;
+        border-radius: 50%;
+    }
+}
+
+@media(max-width: 1700px) {
+
+    .tabs button {
+        border: .5px solid #FFFFFF;
+        border-bottom: none;
+        padding: 2rem;
+        border-radius: .3rem .3rem 0 0;
+        flex: 1 1 auto;
+        background-color: #D7D7D7;
+        display:flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .cuerpo_del_visualizador article {
+        height: 30rem;
+    }
+
+    /*Estilos del dato actual*/
+    .cuerpo_del_visualizador article .dato_actual {
+        height: 50%;
+        width: 80%;
+        border-radius: 50%;
+    }
+
+    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
+        font-size: 2rem;
+    }
+
+}
 
 
 
@@ -759,77 +833,6 @@ dialog::backdrop {
     width: 60px;
 }
 */
-/* Estilos para la sección de ajustes de usuario */
-#ajustes-usuario>.datos_usuario {
-    display: flex;
-    justify-content: center;
-    gap: 0px;
-    align-items: center;
-    padding: 4%;
-}
-#ajustes-usuario>.datos_usuario>form{
-
-}
-
-#ajustes-usuario>.datos_usuario>form>input {
-    display:flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-}
-#ajustes-usuario>.datos_usuario>form>#cambios_perfil{
-    display: flex;
-    align-items: center;
-}
-
-#ajustes-usuario>.datos_usuario>form>#cambios {
-    margin-left: 400px;
-    flex: 1 1 0;
-}
-#ajustes-usuario>.datos_usuario>form>label{
-    width: 10px;
-}
-#dialogo_cambios_perfil{
-    margin: auto;
-    text-align: center;
-}
-
-/* Estilos para la sección de citas */
-#citas>table {
-    flex: 1 1 0;
-    width: 100%;
-    border: 1px solid black;
-}
-
-#citas>table>thead {
-    margin: auto;
-}
-
-#citas>table>tbody>tr>td {
-    justify-content: center;
-}
-
-/* Estilos para el botón "aceptar/rechazar" en la sección de citas */
-.boton-aceptar-rechazar img {
-    width: 15px;
-    margin-right: 5px;
-}
-
-.boton-aceptar-rechazar {
-    border-radius: 5px;
-    background-color: var(--principal);
-    border: 0;
-    color: #FFFFFF;
-    height: 35px;
-    width: 110px;
-    align-items: center;
-    text-transform: uppercase;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    padding: .5em;
-    display: flex;
-    margin-bottom: 2px;
-}
 
 /* Estilos para los contenedores de las gráficas */
 /*
@@ -842,7 +845,8 @@ dialog::backdrop {
 }
 */
 
-/* Estilos para dispositivos con un ancho máximo de 768px */
+
+/* Estilos para dispositivos con un ancho máximo de 768px*/
 @media (max-width: 768px) {
     body {
         margin-top: 80px;
