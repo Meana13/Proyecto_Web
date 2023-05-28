@@ -259,15 +259,15 @@
                         <div class="alerta_descripcion">
                             <p>La salinidad está demasiado alta: XX%</p>
                             <p>¿Quieres cambiar el límite de salinidad?</p>
-                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                            <button id="atajo_limites_sal">pulsa aquí</button>
                         </div>
 
-                        <dialog class="atajo_cambiar_limites_medidas">
+                        <dialog id="dialogo_atajo_sal">
                             <p>Salinidad (0 - 100%) :</p>
                             <input type="number" placeholder="Mínima">
                             <input type="number" placeholder="Máxima">
-                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
-                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                            <button id="atajo_guardar_limites_sal">Guardar</button>
+                            <button id="atajo_cancelar_limites_sal">Cancelar</button>
                         </dialog>
                     </section>
                 </article>
@@ -310,15 +310,15 @@
                         <div class="alerta_descripcion">
                             <p>La humedad está demasiado alta: XX%</p>
                             <p>¿Quieres cambiar el límite de humedad?</p>
-                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                            <button id="atajo_limites_humedad">pulsa aquí</button>
                         </div>
 
-                        <dialog class="atajo_cambiar_limites_medidas">
+                        <dialog id="dialogo_atajo_humedad">
                             <p>Humedad (0 - 100%) :</p>
                             <input type="number" placeholder="Mínima">
                             <input type="number" placeholder="Máxima">
-                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
-                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                            <button id="atajo_guardar_limites_humedad">Guardar</button>
+                            <button id="atajo_cancelar_limites_humedad">Cancelar</button>
                         </dialog>
                     </section>
                 </article>
@@ -361,15 +361,15 @@
                         <div class="alerta_descripcion">
                             <p>El pH está demasiado ácido: X</p>
                             <p>¿Quieres cambiar el límite del pH?</p>
-                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                            <button id="atajo_limites_ph">pulsa aquí</button>
                         </div>
 
-                        <dialog class="atajo_cambiar_limites_medidas">
+                        <dialog id="dialogo_atajo_ph">
                             <p>pH (0 - 14) :</p>
                             <input type="number" placeholder="Mínimo">
                             <input type="number" placeholder="Máximo">
-                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
-                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                            <button id="atajo_guardar_limites_ph">Guardar</button>
+                            <button id="atajo_cancelar_limites_ph">Cancelar</button>
                         </dialog>
                     </section>
                 </article>
@@ -413,15 +413,15 @@
                         <div class="alerta_descripcion">
                             <p>La temperatura está demasiado alta: XXºC</p>
                             <p>¿Quieres cambiar el límite de temperatura?</p>
-                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                            <button id="atajo_limites_temperatura">pulsa aquí</button>
                         </div>
 
-                        <dialog class="atajo_cambiar_limites_medidas">
-                            <p>Temperatura (-10 - 50ºC%) :</p>
+                        <dialog id="dialogo_atajo_temperatura">
+                            <p>Temperatura (de -30 a 50ºC) :</p>
                             <input type="number" placeholder="Mínima">
                             <input type="number" placeholder="Máxima">
-                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
-                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                            <button id="atajo_guardar_limites_temperatura">Guardar</button>
+                            <button id="atajo_cancelar_limites_temperatura">Cancelar</button>
                         </dialog>
                     </section>
 
@@ -466,21 +466,34 @@
                         <div class="alerta_descripcion">
                             <p>La luminosidad está demasiado baja: X, durante X días</p>
                             <p>¿Quieres cambiar el límite de luminosidad?</p>
-                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                            <button id="atajo_limites_luz">pulsa aquí</button>
                         </div>
 
-                        <dialog class="atajo_cambiar_limites_medidas">
-                            <p>Luminosidad (0 - 3) :</p>
-                            <ul>
-                                <li> 0: Oscuridad</li>
-                                <li> 1: Poco iluminado</li>
-                                <li> 2: Sombra</li>
-                                <li> 3: Luz directa</li>
-                            </ul>
-                            <input type="number" placeholder="Mínima">
-                            <input type="number" placeholder="Máxima">
-                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
-                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                        <dialog id="dialogo_atajo_luz">
+                            <label>Nivel de luz:</label>
+                            <select>
+                                <option>0 - Oscuridad</option>
+                                <option>1 - Poco iluminado</option>
+                                <option>2 - Sombra</option>
+                                <option>3 - Luz directa</option>
+                            </select>
+                            <label>durante </label>
+                            <input type="number">
+                            <label>días</label>
+                            <br>
+                            <label>Nivel de luz:</label>
+                            <select>
+                                <option>0 - Oscuridad</option>
+                                <option>1 - Poco iluminado</option>
+                                <option>2 - Sombra</option>
+                                <option>3 - Luz directa</option>
+                            </select>
+                            <label>durante </label>
+                            <input type="number">
+                            <label>días</label>
+                            <br>
+                            <button id="atajo_guardar_limites_luz">Guardar</button>
+                            <button id="atajo_cancelar_limites_luz">Cancelar</button>
                         </dialog>
                     </section>
                 </article>
@@ -605,10 +618,121 @@
                        class="boton_guardar_ajustes_huerto">
             </div>
         </dialog>
-        <!--Aqui finaliza la seccion de editar huerto-->
+        <!--Aqui finaliza la seccion de ajustes de huerto-->
 
 
+<!---------------------------------------------------------------------------------------->
 
+    <!--Aqui comienza la seccion de citas-->
+    <section id="citas">
+        <h2>CITAS</h2>
+
+        <!--Tabla de citas-->
+        <table>
+            <thead>
+            <tr>
+                <th>FECHAS DISPONIBLES</th>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Motivo</th>
+                <th>Técnico</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 de mayo, 2023</td>
+                <td>14:30</td>
+                <td>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
+                                                                alt="Aceptar">Aceptar</button>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
+                                                                alt="Rechazar">Rechazar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2 de mayo, 2023</td>
+                <td>10:00</td>
+                <td>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
+                                                                alt="Aceptar">Aceptar</button>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
+                                                                alt="Rechazar">Rechazar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3 de mayo, 2023</td>
+                <td>16:45</td>
+                <td>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
+                                                                alt="Aceptar">Aceptar</button>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
+                                                                alt="Rechazar">Rechazar</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <!--Aqui finaliza la seccion de citas-->
+
+<!---------------------------------------------------------------------------------------->
+
+    <!--Aquí comienza la seccion de ajustes de perfil -->
+    <section id="ajustes-usuario">
+        <h2>AJUSTES DE PERFIL</h2>
+        <section class="datos_usuario">
+            <form action="#" method="post">
+                <!--Datos personales:-->
+                <label for="nombre_usuario">Nombre de usuario:</label>
+                <input type="text" id="nombre_usuario">
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre">
+
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos">
+
+                <!--E-mail y contraseña-->
+                <label for="email">Email:</label>
+                <input type="email" id="email">
+
+                <button>Cambiar contraseña</button>
+
+                <!--Diálogo para cambiar la contraseña-->
+                <dialog>
+                    <form action="#">
+                        <label for="antigua_contrasenya">Antigua contraseña:</label>
+                        <input type=password id="antigua_contrasenya">
+
+                        <label for="nueva_contrasenya">Nueva contraseña:</label>
+                        <input type=password id="nueva_contrasenya">
+
+                        <label for="repetir_contrasenya">Repetir nueva contraseña:</label>
+                        <input type=password id="repetir_contrasenya">
+
+                        <input type="submit" value="Validar">
+                    </form>
+                </dialog>
+
+                <br>
+                <button>Editar</button>
+
+                <input type="submit" value="Aplicar cambios" id="cambios_perfil">
+                <button>Cancelar</button>
+
+                <!--Mensaje de cambios realizados correctamente-->
+                <dialog id="dialogo_cambios_perfil">
+                    <p>Cambios realizados correctamente.</p>
+                    <button id="btn_aceptar">Aceptar</button>
+                </dialog>
+
+
+            </form>
+        </section>
+    </section>
+    <!--Aqui finaliza la seccion de ajustes de usuario-->
 
 
 
@@ -857,87 +981,7 @@
 
 
 
-    <!--    Aqui comienza la seccion de ajustes de perfil -->
-    <section id="ajustes-usuario">
-        <h2>AJUSTES DE PERFIL</h2>
-        <section class="datos_usuario">
-            <form action="#" method="post">
-                <label for="usuario">Nombre de usuario:</label>
-                <input type="text" id="usuario">
-                <label for="nombre">Nombre:</label>
-                <div id="nombre-apellidos">
-                    <input type="text" id="nombre">
-                    <input type="text" id="apellidos">
-                </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email">
-
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion">
-
-                <label for="contraseña">Cambiar contraseña:</label>
-                <input type="text" id="contraseña">
-
-                <label for="notificaciones">Notificaciones</label>
-                <input type="checkbox" id="notificaciones">
-                <br>
-                <input type="submit" value="Aplicar cambios" id="cambios_perfil">
-                <dialog id="dialogo_cambios_perfil">
-                    <p>Cambios realizados correctamente.</p>
-                    <button id="btn_aceptar">Aceptar</button>
-                </dialog>
-            </form>
-        </section>
-    </section>
-    <!--Aqui finaliza la seccion de ajustes de usuario-->
-
-    <!--Aqui comienza la seccion de citas-->
-    <section id="citas">
-        <h2>CITAS</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1 de mayo, 2023</td>
-                    <td>14:30</td>
-                    <td>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                alt="Aceptar">Aceptar</button>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                alt="Rechazar">Rechazar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2 de mayo, 2023</td>
-                    <td>10:00</td>
-                    <td>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                alt="Aceptar">Aceptar</button>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                alt="Rechazar">Rechazar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3 de mayo, 2023</td>
-                    <td>16:45</td>
-                    <td>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                alt="Aceptar">Aceptar</button>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                alt="Rechazar">Rechazar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <!--Aqui finaliza la seccion de citas-->
 
     <!-- FOOTER -->
 

@@ -12,7 +12,11 @@
 body {
     margin-top: 120px;
 }
-
+/*
+    ==============================================================================
+                            ESTILOS SECCIÓN DE HUERTOS
+    ==============================================================================
+                                                                                    */
 .cabecera_huertos {
     display: flex;
     justify-content: space-between;
@@ -226,18 +230,19 @@ body {
     margin: 0 auto;
     background-color: #D7D7D7;
     flex: 1 1 auto;
-    height: 100%;
-    width: 11rem;
+    height: 60%;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10rem;
+    border-radius: 50%;
 }
 
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
     font-size: 2rem;
 }
 
+/*Estilos de la descripción de la alerta*/
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion{
     width: 100%;
     height:auto;
@@ -272,7 +277,7 @@ body {
 }
 
 /*Estilos para cuando abramos el dialogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas.activo {
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.activo {
     display:flex;
     justify-content: space-between;
     align-items: baseline;
@@ -282,7 +287,7 @@ body {
     padding: 2rem;
     margin: auto auto;
     height: fit-content;
-    width: 55%;
+    width: 60%;
 }
 
 /*Estilos del fondo del diálogo*/
@@ -292,33 +297,60 @@ body {
 }
 
 /*Estilos del párrafo del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas p{
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog p{
     font-size: 1.1rem;
 }
 
 /*Estilos de los inputs del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas input,
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas button
-{
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog input,
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button {
     padding: .5rem;
     border-radius: 5px;
     border: 1px solid #D7D7D7;
 }
 
-/*Estilos del botón guardar del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas button{
+/*Estilos del botón guardar y cancelar del diálogo*/
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button{
     background-color: #790050;
     color: #FFFFFF;
     text-transform: uppercase;
     font-size: .9rem;
 }
 
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas button:hover{
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button:hover{
     background-color: #9D4179;
     font-weight: bold;
 }
 
 
+/*Estilos para cuando abramos el dialogo de luz*/
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz.activo {
+    border-radius: 1rem;
+    border: none;
+    background-color: #FFF6ED;
+    padding: 2rem;
+    margin: auto auto;
+    display: block;
+    width: 55%;
+}
+
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz input {
+    margin: .5rem 0;
+}
+
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz select {
+    margin: 0 .5rem;
+}
+
+/*Estilos del botón guardar y cancelar del diálogo de luz*/
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz button{
+    background-color: #790050;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: .9rem;
+    float:right;
+    margin: 0 .5rem;
+}
 
 /*
     ======================================================================================
