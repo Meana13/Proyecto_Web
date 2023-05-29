@@ -506,6 +506,240 @@
         </section>
         <!--Aquí acaba la sección del visualizador de datos-->
 
+        <!--Aquí empieza el acordeón de sensores (versión para pantallas pequeñas)-->
+        <!--Aquí empieza el sensor de SALINIDAD-->
+
+        <div class="acordeon" id="acordeon">
+            <div id="graficas-salinidad accordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingOne">
+                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true"
+                           aria-controls="collapseOne" class="enlaces_a_flecha">
+                        <h5 class="mb-0">
+
+                                Salinidad
+
+                        </h5>
+                        <div class="triangulo"></div>
+                        </a>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+
+
+        <!--Gráfica de sensor de salinidad-->
+
+
+        <div id="chart-container-sal" class="card-body">
+
+            <canvas id="chart-sal"></canvas>
+
+        </div>
+
+
+                        <div class="botones_gráficas">
+                            <button id="boton-historial-sal" onclick="verGraficaSalinidad()">Historial</button>
+                            <button id="boton-datos-actuales-sal" onclick="verDatosActualesSalinidad()">Datos
+                                actuales</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="graficas-humedad accordion" role="tablist">
+        <!-- TITULO TARJETA-->
+
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingTwo">
+                        <a data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
+                           aria-controls="collapseTwo" class="enlaces_a_flecha">
+                        <h5 class="mb-0">
+
+                                Humedad
+
+                        </h5>
+                        <div class="triangulo"></div>
+                        </a>
+                    </div>
+
+        <!-- contenido despegable -->
+
+                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+
+
+                        <div id="Humedad">
+                            <div id="caja-medicion">
+                                <img src="../../../images/icono_humedad.svg" alt="Humedad">
+                                <div class="circulo">80%</div>
+                                <div id="espacio-vacio"></div>
+                            </div>
+
+                        </div>
+
+        <!--    Aqui finaliza la seccion de medidor humedad-->
+
+                                <div id="chart-container-humedad" class="card-body">
+
+                                    <canvas id="chart-humedad"></canvas>
+
+                                </div>
+
+                                <div class="botones_gráficas">
+                                    <button id="boton-historial-humedad" onclick="verGraficaHumedad()">Historial </button>
+                                    <button id="boton-datos-actuales-humedad" class="activo"
+                                        onclick="verDatosActualesHumedad()">Datos actuales</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="graficas-pH accordion" role="tablist">
+
+        <!-- TITULO TARJETA-->
+
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingThree">
+                        <a data-toggle="collapse" href="#collapseThree" aria-expanded="true"
+                           aria-controls="collapseThree" class="enlaces_a_flecha">
+                        <h5 class="mb-0">
+
+                                pH
+
+                        </h5>
+                        <div class="triangulo"></div>
+                        </a>
+                    </div>
+
+        <!-- contenido despegable -->
+
+                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+
+        <!--    Aqui comienza la seccion de medidor pH-->
+
+                        <div id="pH">
+                            <div id="caja-medicion">
+                                <img src="../../../images/icono_ph.svg" alt="Sensor pH">
+                                <div class="circulo">pH= 7</div>
+                                <div id="espacio-vacio"></div>
+                            </div>
+                        </div>
+
+        <!--    Aqui finaliza la seccion de medidor pH-->
+
+                                <div id="chart-container-pH">
+
+                                    <canvas id="chart-pH"></canvas>
+
+                                </div>
+
+                                <div class="botones_gráficas">
+                                    <button id="boton-historial-ph" onclick="verGraficapH()">Historial</button>
+                                    <button id="boton-datos-actuales-ph" onclick="verDatosActualespH()">Datos actuales</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="graficas-temperatura accordion" role="tablist">
+
+        <!-- TITULO TARJETA-->
+
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingFour">
+                        <a data-toggle="collapse" href="#collapseFour" aria-expanded="true"
+                           aria-controls="collapseFour" class="enlaces_a_flecha">
+                        <h5 class="mb-0">
+
+                                Temperatura
+                        </h5>
+                        <div class="triangulo"></div>
+                        </a>
+                    </div>
+
+        <!-- contenido despegable -->
+
+                    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+
+        <!--    Aqui comienza la seccion de medidor Tª-->
+
+                        <div id="Temperatura">
+                            <div id="caja-medicion">
+                                <img src="../../../images/icono_temperatura.svg " alt="Termometro">
+                                <div class="circulo"><span>22ºC</span></div>
+                                <div id="espacio-vacio"></div>
+                            </div>
+
+                        </div>
+
+        <!--    Aqui finaliza la seccion de medidor Tª-->
+
+                        <div id="chart-container-temperatura">
+
+                            <canvas id="chart-temperatura"></canvas>
+
+                        </div>
+
+                        <div class="botones_gráficas">
+                            <button id="boton-historial-temperatura"
+                                onclick="verGraficaTemperatura()">Historial</button>
+                            <button id="boton-datos-actuales-temperatura" onclick="verDatosActualesTemperatura()">Datos
+                                actuales</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="graficas-luz accordion" role="tablist">
+
+        <!-- TITULO TARJETA-->
+
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingFive">
+                        <a data-toggle="collapse" href="#collapseFive" aria-expanded="true"
+                           aria-controls="collapseFive" class="enlaces_a_flecha">
+                        <h5 class="mb-0">
+
+                                Luz
+
+                        </h5>
+                        <div class="triangulo"></div>
+                        </a>
+                    </div>
+
+        <!-- contenido despegable -->
+
+                    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+
+        <!--    Aqui comienza la seccion de medidor Luz -->
+
+                        <div id="Luz">
+                            <div id="caja-medicion">
+                                <img src="../../../images/icono_luminosidad.svg" alt="Luz">
+                                <div class="circulo">80%</div>
+                                <div id="espacio-vacio"></div>
+                            </div>
+                        </div>
+
+        <!--    Aqui finaliza la seccion de medidor Luz -->
+
+                        <div id="chart-container-luz">
+
+                            <canvas id="chart-luz"></canvas>
+
+                        </div>
+                        <div class="botones_gráficas">
+                            <button id="boton-historial-luz" onclick="verGraficaLuz()">Historial</button>
+                            <button id="boton-datos-actuales-luz" onclick="verDatosActualesLuz()">Datos
+                                actuales</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </section>
     <!--Aqui finaliza la seccion de huertos-->
 
@@ -738,248 +972,6 @@
 
 
 
-
-        <!--Aquí empieza el acordeón de sensores (versión para pantallas pequeñas)-->
-        <!--Aquí empieza el sensor de SALINIDAD-->
-        <!--
-        <div id="acordeon">
-            <div id="graficas-salinidad accordion" role="tablist">
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingOne">
-                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true"
-                           aria-controls="collapseOne" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
-
-                                Salinidad
-
-                        </h5>
-                        <div class="triangulo"></div>
-                        </a>
-                    </div>
-
-                    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne"> -->
-                        <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
-        <!--
-                        <div id="Sal">
-                            <div id="caja-medicion">
-                                <img src="../../../images/icono_salinidad.svg" alt="Sal">
-                                <div class="circulo">60%</div>
-                                <div id="espacio-vacio"></div>
-                            </div>
-                        </div>
--->
-                        <!--Gráfica de sensor de salinidad-->
-
-                        <!--
-                        <div id="chart-container-sal" class="card-body">
-
-                            <canvas id="chart-sal"></canvas>
-
-                        </div>
-                        -->
-        <!--
-                        <div class="botones_gráficas">
-                            <button id="boton-historial-sal" onclick="verGraficaSalinidad()">Historial</button>
-                            <button id="boton-datos-actuales-sal" onclick="verDatosActualesSalinidad()">Datos
-                                actuales</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="graficas-humedad accordion" role="tablist"> -->
-                <!-- TITULO TARJETA-->
-        <!--
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingTwo">
-                        <a data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
-                           aria-controls="collapseTwo" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
-
-                                Humedad
-
-                        </h5>
-                        <div class="triangulo"></div>
-                        </a>
-                    </div>
--->
-                    <!-- contenido despegable -->
-        <!--
-                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                         Aqui comienza la seccion de medidor humedad-->
-        <!--
-                        <div id="Humedad">
-                            <div id="caja-medicion">
-                                <img src="../../../images/icono_humedad.svg" alt="Humedad">
-                                <div class="circulo">80%</div>
-                                <div id="espacio-vacio"></div>
-                            </div>
-
-                        </div>
-        -->
-                        <!--    Aqui finaliza la seccion de medidor humedad-->
-<!--
-                        <div id="chart-container-humedad" class="card-body">
-
-                            <canvas id="chart-humedad"></canvas>
-
-                        </div>
-
-                        <div class="botones_gráficas">
-                            <button id="boton-historial-humedad" onclick="verGraficaHumedad()">Historial </button>
-                            <button id="boton-datos-actuales-humedad" class="activo"
-                                onclick="verDatosActualesHumedad()">Datos actuales</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="graficas-pH accordion" role="tablist">
-            -->
-                <!-- TITULO TARJETA-->
-        <!--
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingThree">
-                        <a data-toggle="collapse" href="#collapseThree" aria-expanded="true"
-                           aria-controls="collapseThree" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
-
-                                pH
-
-                        </h5>
-                        <div class="triangulo"></div>
-                        </a>
-                    </div>
--->
-                    <!-- contenido despegable -->
-        <!--
-                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
--->
-                        <!--    Aqui comienza la seccion de medidor pH-->
-        <!--
-                        <div id="pH">
-                            <div id="caja-medicion">
-                                <img src="../../../images/icono_ph.svg" alt="Sensor pH">
-                                <div class="circulo">pH= 7</div>
-                                <div id="espacio-vacio"></div>
-                            </div>
-                        </div>
-                        -->
-                        <!--    Aqui finaliza la seccion de medidor pH-->
-<!--
-                        <div id="chart-container-pH">
-
-                            <canvas id="chart-pH"></canvas>
-
-                        </div>
-
-                        <div class="botones_gráficas">
-                            <button id="boton-historial-ph" onclick="verGraficapH()">Historial</button>
-                            <button id="boton-datos-actuales-ph" onclick="verDatosActualespH()">Datos actuales</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="graficas-temperatura accordion" role="tablist">
-            -->
-                <!-- TITULO TARJETA-->
-        <!--
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingFour">
-                        <a data-toggle="collapse" href="#collapseFour" aria-expanded="true"
-                           aria-controls="collapseFour" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
-
-                                Temperatura
-                        </h5>
-                        <div class="triangulo"></div>
-                        </a>
-                    </div>
--->
-                    <!-- contenido despegable -->
-        <!--
-                    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
-                    -->
-                        <!--    Aqui comienza la seccion de medidor Tª-->
-        <!--
-                        <div id="Temperatura">
-                            <div id="caja-medicion">
-                                <img src="../../../images/icono_temperatura.svg " alt="Termometro">
-                                <div class="circulo"><span>22ºC</span></div>
-                                <div id="espacio-vacio"></div>
-                            </div>
-
-                        </div>
-                        -->
-                        <!--    Aqui finaliza la seccion de medidor Tª-->
-        <!--
-                        <div id="chart-container-temperatura">
-
-                            <canvas id="chart-temperatura"></canvas>
-
-                        </div>
-
-                        <div class="botones_gráficas">
-                            <button id="boton-historial-temperatura"
-                                onclick="verGraficaTemperatura()">Historial</button>
-                            <button id="boton-datos-actuales-temperatura" onclick="verDatosActualesTemperatura()">Datos
-                                actuales</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div id="graficas-luz accordion" role="tablist">
-            -->
-                <!-- TITULO TARJETA-->
-        <!--
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingFive">
-                        <a data-toggle="collapse" href="#collapseFive" aria-expanded="true"
-                           aria-controls="collapseFive" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
-
-                                Luz
-
-                        </h5>
-                        <div class="triangulo"></div>
-                        </a>
-                    </div>
--->
-                    <!-- contenido despegable -->
-        <!--
-                    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
-                    -->
-                        <!--    Aqui comienza la seccion de medidor Luz -->
-        <!--
-                        <div id="Luz">
-                            <div id="caja-medicion">
-                                <img src="../../../images/icono_luminosidad.svg" alt="Luz">
-                                <div class="circulo">80%</div>
-                                <div id="espacio-vacio"></div>
-                            </div>
-                        </div>
-                        -->
-                        <!--    Aqui finaliza la seccion de medidor Luz -->
-        <!--
-                        <div id="chart-container-luz">
-
-                            <canvas id="chart-luz"></canvas>
-
-                        </div>
-                        <div class="botones_gráficas">
-                            <button id="boton-historial-luz" onclick="verGraficaLuz()">Historial</button>
-                            <button id="boton-datos-actuales-luz" onclick="verDatosActualesLuz()">Datos
-                                actuales</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
--->
 
 
 

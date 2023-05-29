@@ -70,7 +70,9 @@ body {
     margin: 0 2rem;
 }
 
-
+.acordeon{
+    display:none;
+}
 /*Estilos del visualizador de datos de los sensores*/
 .visualizador_de_datos{
     width: 90%;
@@ -115,7 +117,7 @@ body {
 
 /*Estilos para los títulos de las pestañas del visualizador de datos*/
 .tabs button p{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .tabs button.activo p.dato_actual_tab{
@@ -524,6 +526,9 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 }
 
 @media(max-width: 2000px){
+    .tabs button p{
+        font-size: 1.3rem;
+    }
     /*Estilos para el visualizador de datos*/
     .cuerpo_del_visualizador article{
         height: 35rem;
@@ -539,28 +544,21 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 }
 
 @media(max-width: 1800px){
+
+    .tabs button {
+        padding: 1rem;
+    }
+
     /*Estilos del dato actual*/
     .cuerpo_del_visualizador article .dato_actual {
         height: 50%;
         width: 70%;
         border-radius: 50%;
     }
+
 }
 
 @media(max-width: 1700px) {
-
-    .tabs button {
-        border: .5px solid #FFFFFF;
-        border-bottom: none;
-        padding: 2rem;
-        border-radius: .3rem .3rem 0 0;
-        flex: 1 1 auto;
-        background-color: #D7D7D7;
-        display:flex;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
 
     .cuerpo_del_visualizador article {
         height: 30rem;
@@ -569,7 +567,7 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     /*Estilos del dato actual*/
     .cuerpo_del_visualizador article .dato_actual {
         height: 50%;
-        width: 80%;
+        width: 70%;
         border-radius: 50%;
     }
 
@@ -579,271 +577,252 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 
 }
 
-
-
-
-
-
-
-
-
-/* Estilos para el diálogo *//*
-dialog {
-    margin: auto auto;
-    height: fit-content;
-    width: 50%;
+@media(max-width: 1550px) {
+    .tabs button {
+        padding: 0.5rem;
+    }
 }
 
-/* Estilos para el fondo del diálogo *//*
-dialog::backdrop {
-    background-color: rgb(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
+@media(max-width: 1400px) {
+
+    .visualizador_de_datos {
+        width: 100%;
+    }
+
+    /*Estilo para las pestañas del visualizador de datos*/
+    .tabs{
+        width: 80%;
+    }
+    /*Estilos para los títulos de las pestañas del visualizador de datos*/
+    .tabs button p{
+        font-size: 1.1rem;
+    }
+
+    /*Estilos del dato actual*/
+    .cuerpo_del_visualizador article .dato_actual {
+        height: 40%;
+        width: 60%;
+        border-radius: 50%;
+    }
+
+    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
+        font-size: 1.5rem;
+    }
+
+    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion p {
+        font-size: 1rem;
+    }
 }
 
-/* Estilos para el botón "cancelar" *//*
-#cancelar {
-    margin-bottom: 20px;
-    background-color: transparent;
-    border: 0;
-    display: flex;
-    align-items: center;
+@media(max-width: 1200px) {
+
+    /*Estilos para la zona de los datos, donde está la gráfica y los datos actuales*/
+    .cuerpo_del_visualizador article{
+        width: 90%;
+        height: 30rem;
+        padding: 1rem;
+    }
+    /*Estilo para las pestañas del visualizador de datos*/
+    .tabs{
+        width: 90%;
+    }
+    /*Estilos para los títulos de las pestañas del visualizador de datos*/
+    .tabs button p{
+        font-size: 1.1rem;
+    }
+
+    /*Estilos del dato actual*/
+    .cuerpo_del_visualizador article .dato_actual {
+        height: 40%;
+        width: 60%;
+        border-radius: 50%;
+    }
+
+    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
+        font-size: 1.5rem;
+    }
+
+    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion p {
+        font-size: 1rem;
+    }
 }
 
-#cancelar img {
-    margin-right: 15px;
-    padding-top: 3px;
-    width: 20px;
+@media(max-width: 1100px){
+
+    .cuerpo_del_visualizador article{
+        width: 95%;
+        height: 30rem;
+        padding: 1rem;
+    }
+    /*Estilo para las pestañas del visualizador de datos*/
+    .tabs{
+        width: 95%;
+    }
+
+    .cuerpo_del_visualizador article .dato_actual {
+        height: 40%;
+        width: 70%;
+        border-radius: 50%;
+    }
+
+    .cuerpo_del_visualizador article.grafica_luz .dato_actual {
+        height: 40%;
+        width: 60%;
+        border-radius: 50%;
+    }
+    /*Estilos para los títulos de las pestañas del visualizador de datos*/
+    .tabs button p{
+        font-size: 1rem;
+    }
+
+    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion p {
+        font-size: .9rem;
+    }
 }
 
-/* Estilos para los campos de etiquetas e inputs en la sección "editar-huerto" *//*
-#editar-huerto label,
-#editar-huerto input {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+/*Con esta medida cambiamos de formato de visualizar los datos y lo hacemos con acordeón*/
+@media(max-width: 900px){
+    .visualizador_de_datos{
+        display:none;
+    }
 
-/* Estilos para los campos de fecha en el formulario de huerto *//*
-#fecha_huerto_dia,
-#fecha_huerto_mes {
-    width: 30px;
-}
+    .acordeon {
+        display:block;
+    }
+    /* Estilos para el acordeón */
 
-#fecha_huerto_año {
-    width: 40px;
-}
+    #acordeon {
+        margin-top: 40px;
+        position: relative;
+        z-index: 1;
 
-/* Estilos para el botón "enviar" en el formulario de huerto *//*
-#enviar {
-    border-radius: 5px;
-    background-color: var(--principal);
-    border: 0;
-    color: #FFFFFF;
-    height: 35px;
-    width: 150px;
-    align-items: center;
-    text-transform: uppercase;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    padding: 1em;
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: 5%;
-}
+    }
 
+    .enlaces_a_flecha {
+        display:flex;
+        justify-content: space-between;
+        width: 100%;
+    }
 
+    .card {
+        width: 90%;
+        margin: 0 auto;
+        background-color: transparent;
+        border: 0;
+    }
 
-/* Estilos para los campos de input en la sección "datos_usuario" *//*
-.datos_usuario {
-    width: 300px;
-    margin: 0 auto;
-}
+    /* Estilos para el encabezado de las tarjetas en el acordeón */
+    .card-header {
+        border-radius: 1em;
+        background-color: #9D4179;
+        border-bottom: 3px solid gray;
+        border-radius: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-.datos_usuario input {
-    margin-bottom: 20px;
-    margin-right: 10px;
-}
+    /* Estilos para el triángulo del acordeón */
+    .triangulo {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 15px solid white;
+    }
 
-#nombre,
-#apellidos {
-    width: 100px;
-}
+    /* Estilos específicos para el encabezado de la primera tarjeta en el acordeón */
+    #headingOne.card-header {
+        border-top-left-radius: 2em;
+        border-top-right-radius: 2em;
+    }
 
-#nombre-apellidos {
-    display: flex;
-}
+    /* Estilos específicos para el encabezado de la quinta tarjeta en el acordeón */
+    #headingFive.card-header {
+        border-bottom-left-radius: 2em;
+        border-bottom-right-radius: 2em;
+        border-bottom: 0;
+    }
 
-/* Estilos para el botón "cambios_perfil" en la sección "datos_usuario" *//*
-#cambios_perfil {
-    border-radius: 5px;
-    background-color: var(--principal);
-    border: 0;
-    color: #FFFFFF;
-    height: 35px;
-    width: 150px;
-    align-items: center;
-    text-transform: uppercase;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    padding: 1em;
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: 5%;
-}
+    /* Estilos para la sección de mediciones */
+    #mediciones {
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10%;
+    }
 
-/* Estilos para los campos de etiquetas e inputs en el formulario de hoja de usuario *//*
-#formulario-hoja-usuario label {
-    display: inline-block;
-    width: 40%;
-    text-align: left;
-}
+    /* Estilos para las imágenes en la sección de mediciones */
+    #mediciones img {
+        width: 30px;
+        margin-left: 20px;
+        height: fit-content;
+    }
 
-/* Estilos para el icono de editar *//*
-#icono-editar {
-    margin-left: 10px;
-    padding: 0;
-    border: 0;
-    top: 6px;
-}
+    /* Estilos para los círculos en la sección de mediciones */
+    .circulo {
+        margin: 20px 0;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        border: 2px solid gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        font-size: 30px;
+    }
 
-.header {
-    position:fixed;
-    z-index: 2;
+    /* Estilos para los botones de gráficas */
+    .botones_gráficas {
+        height: 30px;
+        display: flex;
+        margin-bottom: 0;
+    }
+
+    .botones_gráficas button {
+        width: 50%;
+    }
+
+    /* Estilos para la caja de medición */
+    #caja-medicion {
+        width: 100%;
+        height: 170px;
+        background-color: gray;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 40px;
+    }
+
+    #caja-medicion img {
+        margin-left: 40px;
+    }
+
+    .card-body {
+        background-color: white;
+    }
+
+    #espacio-vacio {
+        width: 60px;
     }
 
 
-/* Estilos para el acordeón */
-/*
-#acordeon {
-    margin-top: 40px;
-    position: relative;
-    z-index: 1;
+    /* Estilos para los contenedores de las gráficas */
+
+    #chart-container-humedad,
+    #chart-container-luz,
+    #chart-container-pH,
+    #chart-container-temperatura,
+    #chart-container-sal{
+        display: none;
+    }
+
 
 }
 
-.enlaces_a_flecha {
-    display:flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.card {
-    width: 90%;
-    margin: 0 auto;
-    background-color: transparent;
-    border: 0;
-}
-
-/* Estilos para el encabezado de las tarjetas en el acordeón *//*
-.card-header {
-    border-radius: 1em;
-    background-color: #9D4179;
-    border-bottom: 3px solid gray;
-    border-radius: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* Estilos para el triángulo del acordeón *//*
-.triangulo {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 15px solid white;
-}
-
-/* Estilos específicos para el encabezado de la primera tarjeta en el acordeón *//*
-#headingOne.card-header {
-    border-top-left-radius: 2em;
-    border-top-right-radius: 2em;
-}
-
-/* Estilos específicos para el encabezado de la quinta tarjeta en el acordeón *//*
-#headingFive.card-header {
-    border-bottom-left-radius: 2em;
-    border-bottom-right-radius: 2em;
-    border-bottom: 0;
-}
-
-/* Estilos para la sección de mediciones *//*
-#mediciones {
-    margin-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10%;
-}
-
-/* Estilos para las imágenes en la sección de mediciones *//*
-#mediciones img {
-    width: 30px;
-    margin-left: 20px;
-    height: fit-content;
-}
-
-/* Estilos para los círculos en la sección de mediciones *//*
-.circulo {
-    margin: 20px 0;
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 2px solid gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    font-size: 30px;
-}
-
-/* Estilos para los botones de gráficas *//*
-.botones_gráficas {
-    height: 30px;
-    display: flex;
-    margin-bottom: 0;
-}
-
-.botones_gráficas button {
-    width: 50%;
-}
-
-/* Estilos para la caja de medición *//*
-#caja-medicion {
-    width: 100%;
-    height: 170px;
-    background-color: gray;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 40px;
-}
-
-#caja-medicion img {
-    margin-left: 40px;
-}
-
-.card-body {
-    background-color: white;
-}
-
-#espacio-vacio {
-    width: 60px;
-}
-*/
-
-/* Estilos para los contenedores de las gráficas */
-/*
-#chart-container-humedad,
-#chart-container-luz,
-#chart-container-pH,
-#chart-container-temperatura,
-#chart-container-sal{
-    display: none;
-}
-*/
 
 
 /* Estilos para dispositivos con un ancho máximo de 768px*/
