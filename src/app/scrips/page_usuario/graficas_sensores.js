@@ -55,6 +55,7 @@ let opcionesSal = {
 }//opciones
 
 let ctxSal = document.getElementById('chart-sal');
+let ctxAcordeonSal = document.getElementById('chart-acordeon-sal');
 
 let miGrafica = new Chart(ctxSal, {
     type: 'line',
@@ -367,20 +368,8 @@ function verGraficaHumedad(){
     datosActualesHumedad.style.display = 'none';
 }
 
-function verDatosActualesSalinidad() {
-    botonDatosActualesSal.classList.add('activo');
-    botonHistorialSal.classList.remove('activo');
-
-    datosActualesSal.style.display = 'block';
-    graficaSal.style.display = 'none';
-}
-
 function verGraficaSalinidad(){
-    botonHistorialSal.classList.add('activo');
-    botonDatosActualesSal.classList.add('activo');
-
     graficaSal.style.display = 'block';
-    datosActualesSal.style.display = 'none';
 }
 
 function verDatosActualespH() {
