@@ -680,6 +680,8 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     }
 }
 
+
+
 /*Con esta medida cambiamos de formato de visualizar los datos y lo hacemos con acordeón*/
 @media(max-width: 900px){
     .visualizador_de_datos{
@@ -688,20 +690,28 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 
     .acordeon {
         display:block;
-    }
-    /* Estilos para el acordeón */
-
-    #acordeon {
-        margin-top: 40px;
-        position: relative;
-        z-index: 1;
-
+        margin-top: 2rem;
     }
 
     .enlaces_a_flecha {
         display:flex;
         justify-content: space-between;
         width: 100%;
+        font-size: 2rem;
+        align-items: center;
+        border:none;
+        background-color: transparent;
+        color: var(--textoBotones);
+        padding: .5rem;
+    }
+
+    .enlaces_a_flecha:hover{
+        color: var(--textoBotones);
+        text-decoration: none;
+    }
+
+    .enlaces_a_flecha .alertas-container{
+        flex: 1 1 auto;
     }
 
     .card {
@@ -713,23 +723,29 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 
     /* Estilos para el encabezado de las tarjetas en el acordeón */
     .card-header {
-        border-radius: 1em;
-        background-color: #9D4179;
-        border-bottom: 3px solid gray;
+        background-color: var(--principal);
+        border-bottom: .5px solid var(--textoBotones);
         border-radius: 0;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        padding:0 1rem;
     }
 
-    /* Estilos para el triángulo del acordeón */
-    .triangulo {
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 15px solid white;
+    .card-header:hover{
+        background-color: var(--secundario);
+    }
+
+    .triangulo{
+        display: flex;
+        align-items: center;
+    }
+
+    .triangulo p{
+        margin:0;
+        font-size: 1.2rem;
+        margin-right: 1rem;
     }
 
     /* Estilos específicos para el encabezado de la primera tarjeta en el acordeón */
@@ -808,19 +824,6 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     #espacio-vacio {
         width: 60px;
     }
-
-
-    /* Estilos para los contenedores de las gráficas */
-
-    #chart-container-humedad,
-    #chart-container-luz,
-    #chart-container-pH,
-    #chart-container-temperatura,
-    #chart-container-sal{
-        display: none;
-    }
-
-
 }
 
 
