@@ -12,6 +12,11 @@
 body {
     margin-top: 120px;
 }
+
+.header{
+    z-index: 1000;
+}
+
 /*
     ==============================================================================
                             ESTILOS SECCIÓN DE HUERTOS
@@ -691,6 +696,7 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     .acordeon {
         display:block;
         margin-top: 2rem;
+
     }
 
     .enlaces_a_flecha {
