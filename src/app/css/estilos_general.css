@@ -1,3 +1,15 @@
+/*Declaración de variables*/
+:root {
+    --principal: #790050;
+    --secundario: #9D4179;
+    --textoBotones: #FFFFFF;
+    --textoGeneral: #000000;
+    --fondo: #FFF6ED;
+    --fondoSecundario: #D7D7D7;
+
+}
+
+
 /* Estilos aplicados a todos los elementos */
 * {
     margin: 0;

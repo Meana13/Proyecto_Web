@@ -95,21 +95,6 @@
         <section class="nombre-huerto-container">
             <img src="../../../images/huerto_cocina.svg" alt="foto huerto hidropónico en cocina">
             <h3 class="nombre-huerto">Huerto cocina</h3>
-
-            <!--Aquí empieza la sección de alertas-->
-            <button type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                    data-toggle="popover" data-placement="bottom"
-                    data-content="Temperatura alta">
-                <i class="bi bi-exclamation-circle-fill"></i>
-            </button>
-
-            <button type="button" class="btn btn-secondary alerta_media" data-container="body"
-                    data-toggle="popover" data-placement="bottom"
-                    data-content="La temperatura está aumentando">
-                <i class="bi bi-exclamation-circle-fill"></i>
-            </button>
-            <!--Aquí acaba la sección de alertas-->
-
         </section>
             <!--Aquí acaba la sección de nombre y foto del huerto-->
 
@@ -123,24 +108,113 @@
             <!--Estas son las pestañas-->
             <div class="tabs" id="tabs">
                 <button onclick="cambiarTab(1)" class="salinidad tab activo" id="tab_salinidad">
+                    <!--Aquí empieza la sección de alertas-->
+                    <div class="alertas-container">
+                        <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="Temperatura alta">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="La temperatura está aumentando">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+                    </div>
+                    <!--Aquí acaba la sección de alertas-->
+
                     <p>Salinidad</p>
                     <p class="dato_actual_tab">Dato Actual</p>
+
+
+
                 </button>
                 <button onclick="cambiarTab(2)" class="humedad tab" id="tab_humedad">
+
+                    <!--Aquí empieza la sección de alertas-->
+                    <div class="alertas-container">
+                        <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="Temperatura alta">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="La temperatura está aumentando">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+                    </div>
+                    <!--Aquí acaba la sección de alertas-->
+
                     <p>Humedad</p>
                     <p class="dato_actual_tab">Dato Actual</p>
+
                 </button>
                 <button onclick="cambiarTab(3)" class="pH tab" id="tab_pH">
+
+                    <!--Aquí empieza la sección de alertas-->
+                    <div class="alertas-container">
+                        <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="Temperatura alta">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="La temperatura está aumentando">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+                    </div>
+                    <!--Aquí acaba la sección de alertas-->
+
                     <p>pH</p>
                     <p class="dato_actual_tab">Dato Actual</p>
+
                 </button>
                 <button onclick="cambiarTab(4)" class="temperatura tab" id="tab_temperatura">
+                    <!--Aquí empieza la sección de alertas-->
+                    <div class="alertas-container">
+                        <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="Temperatura alta">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="La temperatura está aumentando">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+                    </div>
+                    <!--Aquí acaba la sección de alertas-->
+
                     <p>Temperatura</p>
                     <p class="dato_actual_tab">Dato Actual</p>
+
                 </button>
                 <button onclick="cambiarTab(5)" class="luz tab" id="tab_luz">
+
+                    <!--Aquí empieza la sección de alertas-->
+                    <div class="alertas-container">
+                        <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="Temperatura alta">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+
+                        <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                           data-toggle="popover" data-placement="bottom"
+                           data-content="La temperatura está aumentando">
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        </a>
+                    </div>
+                    <!--Aquí acaba la sección de alertas-->
                     <p>Luz</p>
                     <p class="dato_actual_tab">Dato Actual</p>
+
                 </button>
             </div>
 
@@ -185,15 +259,15 @@
                         <div class="alerta_descripcion">
                             <p>La salinidad está demasiado alta: XX%</p>
                             <p>¿Quieres cambiar el límite de salinidad?</p>
-                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                            <button id="atajo_limites_sal">pulsa aquí</button>
                         </div>
 
-                        <dialog class="atajo_cambiar_limites_medidas">
+                        <dialog id="dialogo_atajo_sal">
                             <p>Salinidad (0 - 100%) :</p>
                             <input type="number" placeholder="Mínima">
                             <input type="number" placeholder="Máxima">
-                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
-                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                            <button id="atajo_guardar_limites_sal">Guardar</button>
+                            <button id="atajo_cancelar_limites_sal">Cancelar</button>
                         </dialog>
                     </section>
                 </article>
@@ -236,15 +310,15 @@
                         <div class="alerta_descripcion">
                             <p>La humedad está demasiado alta: XX%</p>
                             <p>¿Quieres cambiar el límite de humedad?</p>
-                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                            <button id="atajo_limites_humedad">pulsa aquí</button>
                         </div>
 
-                        <dialog class="atajo_cambiar_limites_medidas">
+                        <dialog id="dialogo_atajo_humedad">
                             <p>Humedad (0 - 100%) :</p>
                             <input type="number" placeholder="Mínima">
                             <input type="number" placeholder="Máxima">
-                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
-                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                            <button id="atajo_guardar_limites_humedad">Guardar</button>
+                            <button id="atajo_cancelar_limites_humedad">Cancelar</button>
                         </dialog>
                     </section>
                 </article>
@@ -287,15 +361,15 @@
                         <div class="alerta_descripcion">
                             <p>El pH está demasiado ácido: X</p>
                             <p>¿Quieres cambiar el límite del pH?</p>
-                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                            <button id="atajo_limites_ph">pulsa aquí</button>
                         </div>
 
-                        <dialog class="atajo_cambiar_limites_medidas">
+                        <dialog id="dialogo_atajo_ph">
                             <p>pH (0 - 14) :</p>
                             <input type="number" placeholder="Mínimo">
                             <input type="number" placeholder="Máximo">
-                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
-                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                            <button id="atajo_guardar_limites_ph">Guardar</button>
+                            <button id="atajo_cancelar_limites_ph">Cancelar</button>
                         </dialog>
                     </section>
                 </article>
@@ -339,15 +413,15 @@
                         <div class="alerta_descripcion">
                             <p>La temperatura está demasiado alta: XXºC</p>
                             <p>¿Quieres cambiar el límite de temperatura?</p>
-                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                            <button id="atajo_limites_temperatura">pulsa aquí</button>
                         </div>
 
-                        <dialog class="atajo_cambiar_limites_medidas">
-                            <p>Temperatura (-10 - 50ºC%) :</p>
+                        <dialog id="dialogo_atajo_temperatura">
+                            <p>Temperatura (de -30 a 50ºC) :</p>
                             <input type="number" placeholder="Mínima">
                             <input type="number" placeholder="Máxima">
-                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
-                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                            <button id="atajo_guardar_limites_temperatura">Guardar</button>
+                            <button id="atajo_cancelar_limites_temperatura">Cancelar</button>
                         </dialog>
                     </section>
 
@@ -392,21 +466,36 @@
                         <div class="alerta_descripcion">
                             <p>La luminosidad está demasiado baja: X, durante X días</p>
                             <p>¿Quieres cambiar el límite de luminosidad?</p>
-                            <button id="boton_dialogo_atajo_limites_medidas">pulsa aquí</button>
+                            <button id="atajo_limites_luz">pulsa aquí</button>
                         </div>
 
-                        <dialog class="atajo_cambiar_limites_medidas">
-                            <p>Luminosidad (0 - 3) :</p>
-                            <ul>
-                                <li> 0: Oscuridad</li>
-                                <li> 1: Poco iluminado</li>
-                                <li> 2: Sombra</li>
-                                <li> 3: Luz directa</li>
-                            </ul>
-                            <input type="number" placeholder="Mínima">
-                            <input type="number" placeholder="Máxima">
-                            <button id="boton_guardar_limites_medidas_dialogo">Guardar</button>
-                            <button id="boton_cancelar_limites_medidas_dialogo">Cancelar</button>
+                        <dialog id="dialogo_atajo_luz">
+                            <label>Nivel de luz:</label>
+                            <select>
+                                <option>0 - Oscuridad</option>
+                                <option>1 - Poco iluminado</option>
+                                <option>2 - Sombra</option>
+                                <option>3 - Luz directa</option>
+                            </select>
+                            <label>durante </label>
+                            <input type="number">
+                            <label>días</label>
+                            <br>
+                            <label>Nivel de luz:</label>
+                            <select>
+                                <option>0 - Oscuridad</option>
+                                <option>1 - Poco iluminado</option>
+                                <option>2 - Sombra</option>
+                                <option>3 - Luz directa</option>
+                            </select>
+                            <label>durante </label>
+                            <input type="number">
+                            <label>días</label>
+                            <br>
+                            <div class="botones_editar_guardar_luz">
+                                <button id="atajo_guardar_limites_luz">Guardar</button>
+                                <button id="atajo_cancelar_limites_luz">Cancelar</button>
+                            </div>
                         </dialog>
                     </section>
                 </article>
@@ -416,6 +505,232 @@
 
         </section>
         <!--Aquí acaba la sección del visualizador de datos-->
+
+        <!--Aquí empieza el acordeón de sensores (versión para pantallas pequeñas)-->
+        <!--Aquí empieza el sensor de SALINIDAD-->
+
+        <div class="acordeon" id="acordeon">
+
+            <!--SALINIDAD-->
+            <div id="graficas-salinidad accordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingOne">
+                        <button data-toggle="collapse" href="#collapseOne" aria-expanded="true"
+                           aria-controls="collapseOne" class="enlaces_a_flecha">
+                            <h5 class="mb-0">
+
+                                    Salinidad
+
+                            </h5>
+                            <!--Aquí empieza la sección de alertas-->
+                            <div class="alertas-container">
+                                <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                                   data-toggle="popover" data-placement="bottom"
+                                   data-content="Temperatura alta">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </a>
+
+                                <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                                   data-toggle="popover" data-placement="bottom"
+                                   data-content="La temperatura está aumentando">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </a>
+                            </div>
+                            <!--Aquí acaba la sección de alertas-->
+                            <div class="triangulo">
+                                <p>dato actual</p>
+                                <i class="bi bi-caret-down-fill"></i>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <!--Gráfica de salinidad-->
+                        <div id="chart-container-acordeon-sal" class="card-body">
+                            <canvas id="chart-acordeon-sal"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--HUMEDAD-->
+            <div id="graficas-humedad accordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingTwo">
+                        <button data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
+                           aria-controls="collapseTwo" class="enlaces_a_flecha">
+                        <h5 class="mb-0">
+
+                                Humedad
+
+                        </h5>
+                            <!--Aquí empieza la sección de alertas-->
+                            <div class="alertas-container">
+                                <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                                   data-toggle="popover" data-placement="bottom"
+                                   data-content="Temperatura alta">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </a>
+
+                                <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                                   data-toggle="popover" data-placement="bottom"
+                                   data-content="La temperatura está aumentando">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </a>
+                            </div>
+                            <!--Aquí acaba la sección de alertas-->
+                        <div class="triangulo">
+                            <p>dato actual</p>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </div>
+                        </button>
+                    </div>
+
+                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <!--Gráfica de humedad-->
+                        <div id="chart-container-acordeon-humedad" class="card-body">
+
+                            <canvas id="chart-acordeon-humedad"></canvas>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--pH-->
+            <div id="graficas-pH accordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingThree">
+                        <button data-toggle="collapse" href="#collapseThree" aria-expanded="true"
+                           aria-controls="collapseThree" class="enlaces_a_flecha">
+                        <h5 class="mb-0">
+
+                                pH
+
+                        </h5>
+                            <!--Aquí empieza la sección de alertas-->
+                            <div class="alertas-container">
+                                <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                                   data-toggle="popover" data-placement="bottom"
+                                   data-content="Temperatura alta">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </a>
+
+                                <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                                   data-toggle="popover" data-placement="bottom"
+                                   data-content="La temperatura está aumentando">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </a>
+                            </div>
+                            <!--Aquí acaba la sección de alertas-->
+                        <div class="triangulo">
+                            <p>dato actual</p>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </div>
+                        </button>
+                    </div>
+
+                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <!--Gráfica de pH-->
+                        <div id="chart-container-acordeon-pH">
+
+                            <canvas id="chart-acordeon-pH"></canvas>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--TEMPERATURA-->
+            <div id="graficas-temperatura accordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingFour">
+                        <button data-toggle="collapse" href="#collapseFour" aria-expanded="true"
+                           aria-controls="collapseFour" class="enlaces_a_flecha">
+                        <h5 class="mb-0">
+
+                                Temperatura
+                        </h5>
+                            <!--Aquí empieza la sección de alertas-->
+                            <div class="alertas-container">
+                                <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                                   data-toggle="popover" data-placement="bottom"
+                                   data-content="Temperatura alta">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </a>
+
+                                <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                                   data-toggle="popover" data-placement="bottom"
+                                   data-content="La temperatura está aumentando">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </a>
+                            </div>
+                            <!--Aquí acaba la sección de alertas-->
+                        <div class="triangulo">
+                            <p>dato actual</p>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </div>
+                        </button>
+                    </div>
+
+
+                    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                        <!--Gráfica de temperatura-->
+                        <div id="chart-container-acordeon-temperatura">
+
+                            <canvas id="chart-acordeon-temperatura"></canvas>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--LUZ-->
+            <div id="graficas-luz accordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingFive">
+                        <button data-toggle="collapse" href="#collapseFive" aria-expanded="true"
+                           aria-controls="collapseFive" class="enlaces_a_flecha">
+                        <h5 class="mb-0">
+
+                                Luz
+
+                        </h5>
+                            <!--Aquí empieza la sección de alertas-->
+                            <div class="alertas-container">
+                                <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
+                                   data-toggle="popover" data-placement="bottom"
+                                   data-content="Temperatura alta">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </a>
+
+                                <a type="button" class="btn btn-secondary alerta_media" data-container="body"
+                                   data-toggle="popover" data-placement="bottom"
+                                   data-content="La temperatura está aumentando">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                </a>
+                            </div>
+                            <!--Aquí acaba la sección de alertas-->
+                        <div class="triangulo">
+                            <p>dato actual</p>
+                            <i class="bi bi-caret-down-fill"></i>
+                        </div>
+                        </button>
+                    </div>
+
+                    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                        <!--Gráfica de luz-->
+                        <div id="chart-container-acordeon-luz">
+
+                            <canvas id="chart-acordeon-luz"></canvas>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </section>
     <!--Aqui finaliza la seccion de huertos-->
@@ -430,352 +745,229 @@
                 <i class="bi bi-x-lg"></i>
             </button>
 
+            <!--Título de la sección-->
+            <h3>AJUSTES DE HUERTO COCINA</h3>
 
-            <img src="../../../images/huerto_cocina.svg" alt="Foto del huerto">
-            <button>Adjuntar imagen</button>
-            <label for="nombre_huerto">Nombre del huerto:</label>
-            <input type="text" id="nombre_huerto">
-            <label for="notas_huerto">Notas:</label>
-            <textarea id="notas_huerto"></textarea>
-            <input type="submit"
-                   value="Guardar cambios"
-                   id="boton_guardar_ajustes_huerto"
-                   class="boton_guardar_ajustes_huerto">
+            <!--Cambiar nombre del huerto y la foto-->
+            <div class="container-nombre-imagen">
+                <div class="imagen_ajustes">
+                    <img src="../../../images/huerto_cocina.svg" alt="Foto del huerto">
 
+                    <input type="file">
+                </div>
+                <div class="nombre_ajustes">
+                    <label for="nombre_huerto">Nombre del huerto:</label>
+                    <input type="text" id="nombre_huerto">
+                </div>
+            </div>
+
+            <!--Notas del huerto-->
+            <div class="notas">
+                <label for="notas_huerto">Notas:</label>
+                <textarea id="notas_huerto" rows="10" cols="50"></textarea>
+            </div>
+
+            <!--Aquí empieza la sección de notificaciones-->
+            <section class="notificaciones">
+
+                <!--Switch para activar o desactivar las notificaciones-->
+                <div class="custom-control custom-switch custom-switch-md">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch3">
+                    <label class="custom-control-label" for="customSwitch3">Notificaciones</label>
+                </div>
+
+                <h3>Personaliza las notificaciones</h3>
+                <!--Para que el usuario personalice las notificaciones-->
+                <form action="#" class="limites_medidas">
+
+                    <p>Salinidad</p>
+                    <label for="salinidad-minima">Mínima:</label>
+                    <input type="number" id="salinidad-minima">
+                    <label for="salinidad-maxima">Máxima:</label>
+                    <input type="number" id="salinidad-maxima">
+                    <label>Valores posibles: 0 - 100%</label>
+
+                    <p>Humedad</p>
+                    <label for="humedad-minima">Mínima:</label>
+                    <input type="number" id="humedad-minima">
+                    <label for="humedad-maxima">Máxima:</label>
+                    <input type="number" id="humedad-maxima">
+                    <label>Valores posibles: 0 - 100%</label>
+
+                    <p>pH</p>
+                    <label for="pH-minimo">Mínimo:</label>
+                    <input type="number" id="pH-minimo">
+                    <label for="pH-maximo">Máximo:</label>
+                    <input type="number" id="pH-maximo">
+                    <label>Valores posibles: 0 - 14</label>
+
+                    <p>Temperatura</p>
+                    <label for="temperatura-minima">Mínima:</label>
+                    <input type="number" id="temperatura-minima">
+                    <label for="temperatura-maxima">Máxima:</label>
+                    <input type="number" id="temperatura-maxima">
+                    <label>Valores posibles: -30 - 50ºC</label>
+
+                    <p>Luz</p>
+                    <label>Nivel de luz:</label>
+                    <select>
+                        <option>0 - Oscuridad</option>
+                        <option>1 - Poco iluminado</option>
+                        <option>2 - Sombra</option>
+                        <option>3 - Luz directa</option>
+                    </select>
+                    <label>Durante </label>
+                    <input type="number">
+                    <label>días</label>
+                    <br>
+                    <label>Nivel de luz:</label>
+                    <select>
+                        <option>0 - Oscuridad</option>
+                        <option>1 - Poco iluminado</option>
+                        <option>2 - Sombra</option>
+                        <option>3 - Luz directa</option>
+                    </select>
+                    <label>Durante </label>
+                    <input type="number">
+                    <label>días</label>
+                    <br>
+                    <input type="checkbox">
+                    <label>quiero recibir un correo cuando se emita una notificación.</label>
+                </form>
+
+            </section>
+
+            <div class="botones_editar_y_guardar">
+                <button class="boton_editar_ajustes">Editar</button>
+
+                <input type="submit"
+                       value="Guardar cambios"
+                       id="boton_guardar_ajustes_huerto"
+                       class="boton_guardar_ajustes_huerto">
+            </div>
         </dialog>
-        <!--Aqui finaliza la seccion de editar huerto-->
+        <!--Aqui finaliza la seccion de ajustes de huerto-->
 
 
+<!---------------------------------------------------------------------------------------->
 
+    <!--Aqui comienza la seccion de citas-->
+    <section id="citas">
+        <h2>CITAS</h2>
 
+        <!--Tabla de citas-->
+        <table>
+            <thead>
+            <tr>
+                <th>FECHAS DISPONIBLES</th>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Motivo</th>
+                <th>Técnico</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1 de mayo, 2023</td>
+                <td>14:30</td>
+                <td>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
+                                                                alt="Aceptar">Aceptar</button>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
+                                                                alt="Rechazar">Rechazar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2 de mayo, 2023</td>
+                <td>10:00</td>
+                <td>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
+                                                                alt="Aceptar">Aceptar</button>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
+                                                                alt="Rechazar">Rechazar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3 de mayo, 2023</td>
+                <td>16:45</td>
+                <td>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
+                                                                alt="Aceptar">Aceptar</button>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
+                                                                alt="Rechazar">Rechazar</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+    <!--Aqui finaliza la seccion de citas-->
 
+<!---------------------------------------------------------------------------------------->
 
-
-        <!--Aquí empieza el acordeón de sensores (versión para pantallas pequeñas)-->
-        <!--Aquí empieza el sensor de SALINIDAD-->
-        <!--
-        <div id="acordeon">
-            <div id="graficas-salinidad accordion" role="tablist">
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingOne">
-                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true"
-                           aria-controls="collapseOne" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
-
-                                Salinidad
-
-                        </h5>
-                        <div class="triangulo"></div>
-                        </a>
-                    </div>
-
-                    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne"> -->
-                        <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
-        <!--
-                        <div id="Sal">
-                            <div id="caja-medicion">
-                                <img src="../../../images/icono_salinidad.svg" alt="Sal">
-                                <div class="circulo">60%</div>
-                                <div id="espacio-vacio"></div>
-                            </div>
-                        </div>
--->
-                        <!--Gráfica de sensor de salinidad-->
-
-                        <!--
-                        <div id="chart-container-sal" class="card-body">
-
-                            <canvas id="chart-sal"></canvas>
-
-                        </div>
-                        -->
-        <!--
-                        <div class="botones_gráficas">
-                            <button id="boton-historial-sal" onclick="verGraficaSalinidad()">Historial</button>
-                            <button id="boton-datos-actuales-sal" onclick="verDatosActualesSalinidad()">Datos
-                                actuales</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="graficas-humedad accordion" role="tablist"> -->
-                <!-- TITULO TARJETA-->
-        <!--
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingTwo">
-                        <a data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
-                           aria-controls="collapseTwo" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
-
-                                Humedad
-
-                        </h5>
-                        <div class="triangulo"></div>
-                        </a>
-                    </div>
--->
-                    <!-- contenido despegable -->
-        <!--
-                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                         Aqui comienza la seccion de medidor humedad-->
-        <!--
-                        <div id="Humedad">
-                            <div id="caja-medicion">
-                                <img src="../../../images/icono_humedad.svg" alt="Humedad">
-                                <div class="circulo">80%</div>
-                                <div id="espacio-vacio"></div>
-                            </div>
-
-                        </div>
-        -->
-                        <!--    Aqui finaliza la seccion de medidor humedad-->
-<!--
-                        <div id="chart-container-humedad" class="card-body">
-
-                            <canvas id="chart-humedad"></canvas>
-
-                        </div>
-
-                        <div class="botones_gráficas">
-                            <button id="boton-historial-humedad" onclick="verGraficaHumedad()">Historial </button>
-                            <button id="boton-datos-actuales-humedad" class="activo"
-                                onclick="verDatosActualesHumedad()">Datos actuales</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="graficas-pH accordion" role="tablist">
-            -->
-                <!-- TITULO TARJETA-->
-        <!--
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingThree">
-                        <a data-toggle="collapse" href="#collapseThree" aria-expanded="true"
-                           aria-controls="collapseThree" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
-
-                                pH
-
-                        </h5>
-                        <div class="triangulo"></div>
-                        </a>
-                    </div>
--->
-                    <!-- contenido despegable -->
-        <!--
-                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
--->
-                        <!--    Aqui comienza la seccion de medidor pH-->
-        <!--
-                        <div id="pH">
-                            <div id="caja-medicion">
-                                <img src="../../../images/icono_ph.svg" alt="Sensor pH">
-                                <div class="circulo">pH= 7</div>
-                                <div id="espacio-vacio"></div>
-                            </div>
-                        </div>
-                        -->
-                        <!--    Aqui finaliza la seccion de medidor pH-->
-<!--
-                        <div id="chart-container-pH">
-
-                            <canvas id="chart-pH"></canvas>
-
-                        </div>
-
-                        <div class="botones_gráficas">
-                            <button id="boton-historial-ph" onclick="verGraficapH()">Historial</button>
-                            <button id="boton-datos-actuales-ph" onclick="verDatosActualespH()">Datos actuales</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="graficas-temperatura accordion" role="tablist">
-            -->
-                <!-- TITULO TARJETA-->
-        <!--
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingFour">
-                        <a data-toggle="collapse" href="#collapseFour" aria-expanded="true"
-                           aria-controls="collapseFour" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
-
-                                Temperatura
-                        </h5>
-                        <div class="triangulo"></div>
-                        </a>
-                    </div>
--->
-                    <!-- contenido despegable -->
-        <!--
-                    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
-                    -->
-                        <!--    Aqui comienza la seccion de medidor Tª-->
-        <!--
-                        <div id="Temperatura">
-                            <div id="caja-medicion">
-                                <img src="../../../images/icono_temperatura.svg " alt="Termometro">
-                                <div class="circulo"><span>22ºC</span></div>
-                                <div id="espacio-vacio"></div>
-                            </div>
-
-                        </div>
-                        -->
-                        <!--    Aqui finaliza la seccion de medidor Tª-->
-        <!--
-                        <div id="chart-container-temperatura">
-
-                            <canvas id="chart-temperatura"></canvas>
-
-                        </div>
-
-                        <div class="botones_gráficas">
-                            <button id="boton-historial-temperatura"
-                                onclick="verGraficaTemperatura()">Historial</button>
-                            <button id="boton-datos-actuales-temperatura" onclick="verDatosActualesTemperatura()">Datos
-                                actuales</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div id="graficas-luz accordion" role="tablist">
-            -->
-                <!-- TITULO TARJETA-->
-        <!--
-                <div class="card">
-                    <div class="card-header" role="tab" id="headingFive">
-                        <a data-toggle="collapse" href="#collapseFive" aria-expanded="true"
-                           aria-controls="collapseFive" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
-
-                                Luz
-
-                        </h5>
-                        <div class="triangulo"></div>
-                        </a>
-                    </div>
--->
-                    <!-- contenido despegable -->
-        <!--
-                    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
-                    -->
-                        <!--    Aqui comienza la seccion de medidor Luz -->
-        <!--
-                        <div id="Luz">
-                            <div id="caja-medicion">
-                                <img src="../../../images/icono_luminosidad.svg" alt="Luz">
-                                <div class="circulo">80%</div>
-                                <div id="espacio-vacio"></div>
-                            </div>
-                        </div>
-                        -->
-                        <!--    Aqui finaliza la seccion de medidor Luz -->
-        <!--
-                        <div id="chart-container-luz">
-
-                            <canvas id="chart-luz"></canvas>
-
-                        </div>
-                        <div class="botones_gráficas">
-                            <button id="boton-historial-luz" onclick="verGraficaLuz()">Historial</button>
-                            <button id="boton-datos-actuales-luz" onclick="verDatosActualesLuz()">Datos
-                                actuales</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
--->
-
-
-
-    <!--    Aqui comienza la seccion de ajustes de perfil -->
+    <!--Aquí comienza la seccion de ajustes de perfil -->
     <section id="ajustes-usuario">
         <h2>AJUSTES DE PERFIL</h2>
         <section class="datos_usuario">
             <form action="#" method="post">
-                <label for="usuario">Nombre de usuario:</label>
-                <input type="text" id="usuario">
-                <label for="nombre">Nombre:</label>
-                <div id="nombre-apellidos">
-                    <input type="text" id="nombre">
-                    <input type="text" id="apellidos">
-                </div>
+                <!--Datos personales:-->
+                <label for="nombre_usuario">Nombre de usuario:</label>
+                <input type="text" id="nombre_usuario">
 
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre">
+
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos">
+
+                <!--E-mail y contraseña-->
                 <label for="email">Email:</label>
                 <input type="email" id="email">
 
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion">
+                <button>Cambiar contraseña</button>
 
-                <label for="contraseña">Cambiar contraseña:</label>
-                <input type="text" id="contraseña">
+                <!--Diálogo para cambiar la contraseña-->
+                <dialog>
+                    <form action="#">
+                        <label for="antigua_contrasenya">Antigua contraseña:</label>
+                        <input type=password id="antigua_contrasenya">
 
-                <label for="notificaciones">Notificaciones</label>
-                <input type="checkbox" id="notificaciones">
+                        <label for="nueva_contrasenya">Nueva contraseña:</label>
+                        <input type=password id="nueva_contrasenya">
+
+                        <label for="repetir_contrasenya">Repetir nueva contraseña:</label>
+                        <input type=password id="repetir_contrasenya">
+
+                        <input type="submit" value="Validar">
+                    </form>
+                </dialog>
+
                 <br>
+                <button>Editar</button>
+
                 <input type="submit" value="Aplicar cambios" id="cambios_perfil">
+                <button>Cancelar</button>
+
+                <!--Mensaje de cambios realizados correctamente-->
                 <dialog id="dialogo_cambios_perfil">
                     <p>Cambios realizados correctamente.</p>
                     <button id="btn_aceptar">Aceptar</button>
                 </dialog>
+
+
             </form>
         </section>
     </section>
     <!--Aqui finaliza la seccion de ajustes de usuario-->
 
-    <!--Aqui comienza la seccion de citas-->
-    <section id="citas">
-        <h2>CITAS</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1 de mayo, 2023</td>
-                    <td>14:30</td>
-                    <td>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                alt="Aceptar">Aceptar</button>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                alt="Rechazar">Rechazar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2 de mayo, 2023</td>
-                    <td>10:00</td>
-                    <td>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                alt="Aceptar">Aceptar</button>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                alt="Rechazar">Rechazar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3 de mayo, 2023</td>
-                    <td>16:45</td>
-                    <td>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                alt="Aceptar">Aceptar</button>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                alt="Rechazar">Rechazar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <!--Aqui finaliza la seccion de citas-->
+
+
+
+
+
+
 
     <!-- FOOTER -->
 
