@@ -9,14 +9,13 @@ body {
     margin-top: 80px;
 }
 
-/* Estilos aplicados al elemento con el id 'contenedor_primera_visivilidad' */
 #contenedor_primera_visivilidad {
     height: 100vh;
 }
 
-/* Estilos aplicados al elemento con el id 'boton-contacto' */
+/* Estilos boton contacto */
 #boton-contacto {
-    background-color: #9D4179;
+    background-color: var(--secundario);
     border: 0;
     padding: 20px;
     border-radius: 5px;
@@ -26,25 +25,23 @@ body {
     text-transform: uppercase;
 }
 
-/* Estilos aplicados al elemento con el id 'container_hero' */
+/* Estilos Container hero' */
 #container_hero {
     background-image: linear-gradient(to bottom, rgba(0,0,0,1),rgba(255,255,255,0)), url('../../images/fonfo_hero.jpg');
     height: 100vh;
     background-size: cover;
     width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-/* Estilos aplicados al elemento con el id 'titulo_hero' */
+/* Estilos titulo hero */
 #titulo_hero{
     margin-bottom: 50px;
 }
 
-/* Estilos aplicados a la clase 'overlay' */
 .overlay {
     background-color: rgba(255, 255, 255, 0.5);
     margin: 20px;
@@ -55,95 +52,82 @@ body {
     text-align: center;
 }
 
-/* Estilos aplicados al elemento con el id 'button' */
-#button {
-    margin-top: 20px;
-    background-color: #9D4179;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Estilos aplicados al elemento con el id 'parrafo' */
 #parrafo {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
-/* Estilos aplicados al elemento con el id 'flecha' */
+/* Estilos flecha */
 #flecha{
     margin-top: 85px;
 }
 
-/* Estilos aplicados a los encabezados de nivel 1, 2, 3 y 4 */
+/* Titulos centrados */
 h1,h2,h3,h4{
     text-align: center;
 }
 
-/* Estilos aplicados a la clase 'slide-contenedor_productos' */
-.slide-contenedor_productos{
-    margin-left: 25%;
-}
+/* Estilos de los prudctos */
 
-/* Estilos aplicados al elemento con el id 'titulo_nuestros_productos' */
 #titulo_nuestros_productos{
     margin-top: 25px;
 }
 
-/* Estilos aplicados al elemento con el id 'p-productos' */
 #p-productos {
     text-align: center;
     margin: 30px 0;
     font-size: 14px;
 }
 
-/* Estilos aplicados a la clase 'linea' */
+/* Estilos para la sección de productos */
+
+.vista_imagen {
+    width: 80%;
+    object-fit: cover;
+    vertical-align: center;
+    margin: 10px 25px;
+    transition: 2s;
+    border: 2px solid black;
+}
+
+.vista_parrafo {
+    text-decoration: none;
+    font-family: Arial;
+    color: black;
+    width: 300px;
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
 .linea{
     height: 1px;
     background-color: black;
     border: 1px solid black;
 }
 
-/* Estilos aplicados al elemento con el id 'nuestros_valores' y su lista no ordenada */
-#nuestros_valores ul{
-    margin-top: 50px;
-    width: 50%;
-    display: flex;
-}
+/* Estilos nuestros_valores */
 
-/* Estilos aplicados a la clase 'lista_valores' */
+
 .lista_valores{
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10%;
     margin-bottom: 80px;
 }
 
-/* Estilos aplicados a los elementos 'li' dentro de la clase 'lista_valores' */
 .lista_valores li {
-    width: 40%;
-    float: right;
+    list-style: none;
     display: flex;
-    align-items: center;
-    padding-top: 20px;
 }
 
-/* Estilos aplicados a las imágenes dentro de los elementos 'li' de la clase 'lista_valores' */
-.lista_valores li img {
+.lista_valores div li img {
     width: 30px;
-    margin-right: 20px;
 }
 
-/* Estilos aplicados al elemento con el id 'boton-volver-arriba' */
+/* Estilos boton volver arriba */
 #boton-volver-arriba {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
-    background-color: #790050;
+    background-color: var(--principal);
     color: white;
     border: none;
     border-radius: 20px;
@@ -154,9 +138,8 @@ h1,h2,h3,h4{
     text-align: center;
 }
 
-/* Estilos aplicados al elemento con el id 'boton_volver_arriba' al pasar el ratón por encima */
 #boton_volver_arriba:hover {
-    background-color: #ff7eb9;
+    background-color: var(--hover);
 }
 
 /* Estilos aplicados en dispositivos con un ancho máximo de 768px */
@@ -197,7 +180,7 @@ h1,h2,h3,h4{
     /* Estilos aplicados al elemento con el id 'button' en dispositivos móviles */
     #button {
         margin-top: 10px;
-        background-color: #9D4179;
+        background-color: var(--secundario);
         color: white;
         font-size: 25px;
         padding: 10px 20px;
@@ -220,32 +203,20 @@ h1,h2,h3,h4{
     /* Estilos aplicados al elemento con el id 'nuestros_valores' y su lista no ordenada en dispositivos móviles */
     #nuestros_valores ul{
         margin-top: 50px;
-        width: 90%;
-        display: flex;
     }
 
     /* Estilos aplicados a la clase 'lista_valores' en dispositivos móviles */
     .lista_valores{
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10%;
         margin-bottom: 80px;
-    }
-
-    /* Estilos aplicados a los elementos 'li' dentro de la clase 'lista_valores' en dispositivos móviles */
-    .lista_valores li {
-        width: 80%;
-        float: right;
-        display: flex;
-        align-items: center;
-        padding-top: 20px;
     }
 
     /* Estilos aplicados a las imágenes dentro de los elementos 'li' de la clase 'lista_valores' en dispositivos móviles */
     .lista_valores li img {
         width: 30px;
         margin-right: 20px;
+    }
+
+    .vista_imagen {
+        width: 60%;
     }
 }
