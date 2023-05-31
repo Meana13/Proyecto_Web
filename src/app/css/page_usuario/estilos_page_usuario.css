@@ -54,6 +54,10 @@ body {
     align-self: start;
 }
 
+.boton_abrir_ajustes_huerto:hover {
+    background-color: #9D4179;
+}
+
 /*Estilo del contenedor de nombre + foto del huerto*/
 .nombre-huerto-container {
     display: flex;
@@ -506,6 +510,9 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     font-weight: bold;
     padding: 1rem;
     width: 30%;
+}
+.boton_editar_ajustes:hover {
+    background-color: #9D4179;
 }
 
 dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{

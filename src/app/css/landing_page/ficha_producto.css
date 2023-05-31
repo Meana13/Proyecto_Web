@@ -36,7 +36,7 @@ h3 {
     display: flex;
     justify-content: center;
     text-align: center;
-    background-color: #9D4179;
+    background-color: #790050;
     color: #FFFFFF;
     font-family: Arial, sans-serif;
     border: 0;
@@ -44,6 +44,10 @@ h3 {
     font-size: 14px;
     font-weight: bold;
     padding: 1em;
+}
+
+#ficha-producto a:hover{
+    background-color: #9D4179;
 }
 
 /* estilos para dispositivos mas pequeños */

@@ -121,7 +121,7 @@ h2 {
 .buscador button:hover {
     color: #FFFFFF;
     font-weight: bold;
-    background-color: #790050;
+    background-color: #9D4179;
 }
 
 /* Estilos para el buscador en dispositivos móviles */
@@ -161,7 +161,7 @@ h2 {
 .paginador button:hover {
     color: #FFFFFF;
     font-weight: bold;
-    background-color: #790050;
+    background-color: #9D4179;
 }
 
 /* Estilos adicionales para el paginador */

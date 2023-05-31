@@ -22,6 +22,7 @@ h2 {
     display: none;
 }
 
+
 /* Estilos para la sección "hoja de usuario" */
 #seccion-hoja-usuario {
     display: none;
@@ -41,7 +42,7 @@ h2 {
 /* Estilos para el botón "añadir usuario" */
 #boton-añadir-usuario {
     border-radius: 5px;
-    background-color: #9D4179;
+    background-color: #790050;
     border: 0;
     color: #FFFFFF;
     height: 35px;
@@ -55,6 +56,10 @@ h2 {
     justify-content: center;
     margin-left: auto;
     margin-right: 5%;
+}
+
+#boton-añadir-usuario:hover {
+    background-color:#9D4179
 }
 
 /* Estilos para la tabla de usuarios */

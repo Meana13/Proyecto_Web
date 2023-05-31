@@ -60,7 +60,7 @@ tr td:nth-child(3),
 #boton-ver-huerto {
     background-color: transparent;
     border: 0;
-    background-color: #9D4179;
+    background-color: #790050;
     border: 0;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -72,6 +72,13 @@ tr td:nth-child(3),
     border-radius: 5px;
 }
 
+#boton-ver-cita:hover {
+    background-color: #9D4179;
+}
+
+#boton-ver-huerto:hover {
+    background-color: #9D4179;
+}
 
 /* #region SECCION FICHA CITA */
 /* Configuración de la sección de la ficha de la cita */
@@ -117,7 +124,7 @@ select {
 
 /* Estilos para el botón "Volver atrás" en la ficha de la cita */
 #boton-volver-atras {
-    background-color: #9D4179;
+    background-color: #790050;
     color: #FFFFFF;
     font-family: Arial, sans-serif;
     text-transform: uppercase;
@@ -128,6 +135,10 @@ select {
     margin-left: 60%;
     border-radius: .5em;
     font-weight: bold;
+}
+
+#boton-volver-atras:hover{
+    background-color:#9D4179;
 }
 /* #endregion */
 
@@ -223,7 +234,7 @@ select {
 
 /* Estilos para el botón "Añadir huerto" en la sección de administrar huertos */
 #boton-añadir-huerto {
-    background-color: #9D4179;
+    background-color: #790050;
     border: 0;
     border-radius: 5px;
     color: #FFFFFF;
@@ -242,6 +253,9 @@ select {
     margin-top: 30px;
 }
 
+#boton-añadir-huerto:hover {
+    background-color: #9D4179;
+}
 
 /*  SECCION AÑADIR NUEVO HUERTO */
 /* Configuración de la sección de añadir nuevo huerto */
@@ -324,7 +338,7 @@ input[type="file"] {
 #seccion-ver-huerto #boton-guardar2 {
     margin-top: 40px;
     margin-left: 80%;
-    background-color: #9D4179;
+    background-color: #790050;
     color: #FFFFFF;
     font-family: Arial, sans-serif;
     text-transform: uppercase;
@@ -335,6 +349,11 @@ input[type="file"] {
     padding: 1em;
 }
 
+#boton-guardar:hover {
+    background-color: #9D4179;
+}
+
+
 /* INICIO SECCOIN VER HUERTO */
 /* Configuración de la sección de ver huerto */
 #seccion-ver-huerto h3 {
@@ -344,12 +363,16 @@ input[type="file"] {
 
 /* Estilos para el botón "Editar" en la sección de ver huerto */
 #boton-editar {
-    background-color: #9D4179;
+    background-color: #790050;
     color: white;
     padding: 5px;
     border: 0;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+
+#boton-editar:hover{
+    background-color: #9D4179;
 }
 
 /* Estilos para la imagen del huerto en la sección de ver huerto */
@@ -372,7 +395,7 @@ input[type="file"] {
 /* Estilos para los encabezados de las filas en la sección de ver huerto */
 #tabla-ver-huerto th {
     padding: 10px;
-    background-color: #9D4179;
+    background-color: #790050;
     color: white;
 }
 
