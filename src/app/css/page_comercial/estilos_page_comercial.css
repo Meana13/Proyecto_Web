@@ -212,14 +212,6 @@ th:nth-of-type(4) {
     display: none;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #a7a7a7;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #D7D7D7;
-}
-
 td {
     padding: .2em 2em;
 }
