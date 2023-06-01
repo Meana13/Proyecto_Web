@@ -237,8 +237,29 @@ button.boton_menu {
   display: none;
 }
 
+@media (max-width: 1446px) {
+  .header {
+    height: fit-content;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    padding: 0;
+  }
+  
+  .logo {
+    margin: auto 15px;
+    height: 50px;
+
+  }
+
+  .login-tab {
+    margin-top: 25px;
+  }
+}
+
 /* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
+@media (max-width: 1060px) {
   /* Estilos para el encabezado en dispositivos móviles */
   .header {
     height: 60px;
@@ -329,6 +350,7 @@ button.boton_menu {
 
   /* Estilos para el botón de alternar menú de navegación en dispositivos móviles */
   .nav-toggle {
+    height: inherit;
     display: block;
   }
 

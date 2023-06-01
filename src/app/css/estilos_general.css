@@ -6,7 +6,7 @@
     --textoGeneral: #000000;
     --fondo: #FFF6ED;
     --fondoSecundario: #D7D7D7;
-
+    --hover: #ff7eb9;
 }
 
 
@@ -95,36 +95,6 @@ th:last-child,
 td:last-child {
     background-color: transparent;
     border: none;
-}
-
-/* Estilos aplicados al elemento con el id 'quienes-somos' */
-#quienes-somos {
-    font-size: 25px;
-    margin-top: 100px;
-    text-align: center;
-}
-
-/* Estilos aplicados al elemento con el id 'texto-quienes-somos' */
-#texto-quienes-somos {
-    width: 80%;
-    margin: 0 auto;
-    height: 100vh;
-}
-
-#intro {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 5%;
-    margin-bottom: 20px;
-}
-
-#intro img {
-    width: 35%;
-}
-
-#intro p {
-    width: 40%;
 }
 
 /* Estilos aplicados en la media query para dispositivos móviles */
