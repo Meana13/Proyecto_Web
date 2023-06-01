@@ -76,6 +76,7 @@ tr td:nth-child(3),
     background-color: #9D4179;
 }
 
+
 #boton-ver-huerto:hover {
     background-color: #9D4179;
 }
@@ -354,8 +355,13 @@ input[type="file"] {
 }
 
 
-/* INICIO SECCOIN VER HUERTO */
+/* INICIO SECCIÓN VER HUERTO */
 /* Configuración de la sección de ver huerto */
+#seccion-ver-huerto {
+    width: fit-content;
+    margin: 0 auto;
+}
+
 #seccion-ver-huerto h3 {
     text-align: center;
     margin-bottom: 40px;
@@ -403,7 +409,7 @@ input[type="file"] {
 #seccion-ver-huerto #boton-guardar2 {
     margin-top: 40px;
     margin-left: 80%;
-    background-color: #9D4179;
+    background-color: #790050;
     color: #FFFFFF;
     font-family: Arial, sans-serif;
     text-transform: uppercase;
@@ -412,6 +418,9 @@ input[type="file"] {
     font-size: 16px;
     font-weight: bold;
     padding: 1em;
+}
+#boton-guardar2:hover{
+    background-color: #9D4179;
 }
 
 /* #endregion */

@@ -1,3 +1,13 @@
+body {
+    margin-top: 120px;
+}
+
+
+#seccion-administrar-usuarios {
+    width: fit-content;
+    margin: 0 auto;
+}
+
 /* Estilos para los títulos de nivel h2 */
 h2 {
     text-align: center;
@@ -26,6 +36,8 @@ h2 {
 /* Estilos para la sección "hoja de usuario" */
 #seccion-hoja-usuario {
     display: none;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 /* Estilos para la sección "opinión personal" */
