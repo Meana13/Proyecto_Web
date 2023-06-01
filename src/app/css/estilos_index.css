@@ -1,9 +1,7 @@
-/* Estilos aplicados a todos los elementos */
 * {
     margin: 0;
 }
 
-/* Estilos aplicados al elemento 'body' */
 body {
     padding: 0px;
     margin-top: 80px;
@@ -25,7 +23,7 @@ body {
     text-transform: uppercase;
 }
 
-/* Estilos Container hero' */
+/* Estilos Container hero */
 #container_hero {
     background-image: linear-gradient(to bottom, rgba(0,0,0,1),rgba(255,255,255,0)), url('../../images/fonfo_hero.jpg');
     height: 100vh;
@@ -59,7 +57,12 @@ body {
 
 /* Estilos flecha */
 #flecha{
-    margin-top: 85px;
+    font-size: 50px;
+    color: #fff;
+    margin-top: 70px;
+    animation: flecha_animada 2s ease-in-out;
+    display: inline-block;
+    animation-iteration-count: infinite;
 }
 
 /* Titulos centrados */
@@ -80,7 +83,6 @@ h1,h2,h3,h4{
 }
 
 /* Estilos para la sección de productos */
-
 .vista_imagen {
     width: 80%;
     object-fit: cover;
@@ -108,6 +110,9 @@ h1,h2,h3,h4{
 
 /* Estilos nuestros_valores */
 
+#nuestros_valores ul {
+    margin-top: 50px;
+}
 
 .lista_valores{
     margin-bottom: 80px;
@@ -118,9 +123,117 @@ h1,h2,h3,h4{
     display: flex;
 }
 
-.lista_valores div li img {
-    width: 30px;
+.lista_valores .bi {
+    font-size: 30px;
+    color: var(--principal);
+    margin-right: 20px;
 }
+
+.lista_valores li p {
+    margin-top: 12px;
+}
+
+#ultima-fila {
+    padding: 0;
+}
+
+/* Estilos opiniones */
+.contenedor_opiniones {
+    margin-top: 25px;
+    max-width: 100%;
+    max-height: 250px;
+    max-height: 250px;
+    width: 80%;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-left: 515px;
+}
+
+.nombre_usuario {
+    margin-top: 16px;
+    width: fit-content;
+    height: 20px;
+    font-size: 15px;
+}
+
+#foto-perfil {
+    width: auto;
+    height: 40px;   
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    padding: 0;
+}
+
+/* Estilos para la calificación de la opinión */
+.calificacion div i {
+    font-size: 15px;
+    width: auto;
+    color: #FFD700;
+}
+
+.calificacion div {
+    margin-top: 16px;
+}
+
+.texto_opinion {
+    border-top: solid 1px #000;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    height: fit-content;
+    overflow: auto;
+}
+
+.vista_opinion {
+    border: 2px solid black;
+    object-fit: cover;
+    vertical-align: top;
+    transition: 2s;
+    margin-top: 25px;
+    margin: 30px auto;
+}
+
+#foto {
+    width: auto;
+}
+
+.vista_opinion .col-1 {
+    width: 5px;
+}
+
+#contenedor_opiniones .container {
+    display: flex;
+}
+
+
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 1200px) {
+    .vista_opinion {
+        width: 50%;
+    }
+    #contenedor_opiniones .container {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .vista_opinion {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    
+}
+
 
 /* Estilos boton volver arriba */
 #boton-volver-arriba {
@@ -140,6 +253,21 @@ h1,h2,h3,h4{
 
 #boton_volver_arriba:hover {
     background-color: var(--hover);
+}
+
+/* animacion flecha bajar */
+@keyframes flecha_animada {
+    from {
+        transform: translateY(0);
+    } 50% {
+        transform: translateY(20px);
+    } to {
+        transform: translateY(0);
+    }
+}
+
+@media(max-width: 1446px) {
+
 }
 
 /* Estilos aplicados en dispositivos con un ancho máximo de 768px */
@@ -193,11 +321,6 @@ h1,h2,h3,h4{
     #parrafo {
         font-size: 1.5rem;
         margin-bottom: 20px;
-    }
-
-    /* Estilos aplicados al elemento con el id 'flecha' en dispositivos móviles */
-    #flecha{
-        margin-top: 20px;
     }
 
     /* Estilos aplicados al elemento con el id 'nuestros_valores' y su lista no ordenada en dispositivos móviles */
