@@ -96,21 +96,6 @@ td:last-child {
     background-color: transparent;
     border: none;
 }
-
-/* Estilos aplicados al elemento con el id 'quienes-somos' */
-#quienes-somos {
-    font-size: 25px;
-    margin-top: 100px;
-    text-align: center;
-}
-
-/* Estilos aplicados al elemento con el id 'texto-quienes-somos' */
-#texto-quienes-somos {
-    width: 80%;
-    margin: 0 auto;
-    height: 100vh;
-}
-
 /* Estilos aplicados en la media query para dispositivos móviles */
 @media (max-width: 768px) {
 
