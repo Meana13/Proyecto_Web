@@ -241,13 +241,20 @@ button.boton_menu {
   .header {
     height: fit-content;
   }
+
+  .nav-link {
+    font-size: 16px;
+    padding: 0;
+  }
   
   .logo {
-    margin: auto 0;
+    margin: auto 15px;
+    height: 50px;
+
   }
 
   .login-tab {
-    margin-top: 40px;
+    margin-top: 25px;
   }
 }
 

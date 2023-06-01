@@ -96,6 +96,7 @@ td:last-child {
     background-color: transparent;
     border: none;
 }
+
 /* Estilos aplicados en la media query para dispositivos móviles */
 @media (max-width: 768px) {
 
