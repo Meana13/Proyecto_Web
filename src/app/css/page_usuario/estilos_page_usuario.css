@@ -22,6 +22,7 @@ body {
                             ESTILOS SECCIÓN DE HUERTOS
     ==============================================================================
                                                                                     */
+
 .cabecera_huertos {
     display: flex;
     justify-content: space-between;
@@ -377,6 +378,7 @@ dialog.ajustes_de_huerto {
 
 dialog.ajustes_de_huerto.activo{
     margin: auto auto;
+    width: 90%;
     background-color: var(--fondo);
     border:none;
     border-radius: 5px;
@@ -405,43 +407,46 @@ dialog.ajustes_de_huerto button.boton_cerrar_ajustes_huerto{
 dialog.ajustes_de_huerto h3{
     text-align: center;
     margin-bottom: 1rem;
+    margin-top: 0;
+    font-weight: bold;
 }
 
 /*Estilos para cambiar la foto y el nombre del huerto*/
-dialog.ajustes_de_huerto div.container-nombre-imagen{
-    display:flex;
-    align-items: baseline;
-    justify-content: center;
+.container-nombre-imagen{
     font-size: 1.1rem;
+    border-bottom: 2px solid black;
+    padding-bottom: 2rem;
 }
 
-dialog.ajustes_de_huerto div.container-nombre-imagen div.imagen_ajustes{
-    display:flex;
-    flex-direction: column;
-    margin-right: 1.5rem;
+.imagen_ajustes{
 }
 
-dialog.ajustes_de_huerto div.container-nombre-imagen div.imagen_ajustes img{
-   height: 30%;
-    width: 30%;
+.imagen_ajustes img {
+    margin-bottom: 5px;
+}
+
+.imagen_ajustes input {
+    width: 172px;
+}
+
+.nombre_ajustes {
+    display: flex;
+    align-items: center;
 }
 
 /*Estilos para las notas*/
-dialog.ajustes_de_huerto div.notas{
-    display: flex;
-    justify-content: center;
-    margin: 1.5rem;
-    font-size: 1.1rem;
-    width: 100%;
-    border-bottom: 1px solid black;
-    padding-bottom:2rem;
+
+.nombre_ajustes div p {
+    margin: 0 15px; 
+    margin-bottom: 5px;
 }
 
-dialog.ajustes_de_huerto div textarea{
-    width: 50%;
+#notas_huerto {
+    width: 95%;
     height: 5rem;
-    margin-left: 1rem;
+    margin: 0 15px;
 }
+
 
 /*Estilos para el switch de las notificaciones*/
 .notificaciones div{
@@ -449,6 +454,7 @@ dialog.ajustes_de_huerto div textarea{
     justify-content: flex-end;
     margin: 1rem;
 }
+
 .custom-switch.custom-switch-md .custom-control-label {
     padding-left: 2rem;
     padding-bottom: 1.5rem;
@@ -840,9 +846,18 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
         margin-top: 80px;
     }
 
+    #huertos {
+        display: flex;
+        flex-direction: column;
+    }
+
     #seleccionar_huerto {
         height: fit-content;
         padding: 7px;
         margin-top: 3px;
+    }
+
+    .imagen_ajustes {
+        margin-bottom: 2rem;
     }
 }
