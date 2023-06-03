@@ -846,7 +846,7 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
         margin-top: 80px;
     }
 
-    #huertos {
+    .cabecera_huertos {
         display: flex;
         flex-direction: column;
     }
@@ -855,6 +855,10 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
         height: fit-content;
         padding: 7px;
         margin-top: 3px;
+    }
+
+    .selector_de_huertos {
+        width: 60%;
     }
 
     .imagen_ajustes {

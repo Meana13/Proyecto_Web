@@ -1,5 +1,5 @@
 #ver-venta,
-#ver-mas,
+#ver-mas,   
 #ventas,
 #solicitudes-en-proceso,
 #solicitudes-finalizadas,
@@ -28,8 +28,7 @@ h2 {
 /*----------------------------------BOTONES DE NAVEGACIÓN------------------------------------*/
 
 /* Estilos para los botones de navegación */
-#botones-ventas,
-#botones-solicitudes {
+#botones-ventas {
     width: 90%;
     max-width: 2000px;
     display: flex;
@@ -39,7 +38,7 @@ h2 {
 
 #botones-ventas button,
 #botones-solicitudes button {
-    flex: 1 1 0;
+    width: 100%;
     font: 1em Arial, sans-serif;
     color: #000000;
     background-color: #D7D7D7;
@@ -47,7 +46,10 @@ h2 {
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     padding: 1.2em;
-    max-width: 300px;
+}
+
+.col-4 {
+    padding: 0 5px;
 }
 
 /* Estilos para los botones de navegación al pasar el cursor */
@@ -93,20 +95,16 @@ h2 {
 
 /* Estilos para el buscador */
 .buscador {
-    width: 90%;
-    max-width: 2000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.buscador input {
-    flex: 2 1 0;
-    max-width: 500px;
     padding: 10px;
-    margin: 0 10px 5px 0;
     font-size: 1.2em;
 }
+
+.boton-buscar {
+    border-radius: .5em;
+    background-color: #D7D7D7;
+    font-size: 1.2em;
+}
+
 
 .buscador button {
     flex: 1 1 0;
