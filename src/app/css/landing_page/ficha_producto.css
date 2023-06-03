@@ -16,7 +16,7 @@ h3 {
 
 /* estilos boton pedir presupuesto */
 .boton-presupuesto {
-    color: #FFF;
+    color: var(--textoBotones);
     background-color: var(--principal);
     padding: 20px;
     border-radius: 10px;

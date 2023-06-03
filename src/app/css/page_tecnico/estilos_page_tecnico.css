@@ -60,9 +60,9 @@ tr td:nth-child(3),
 #boton-ver-huerto {
     background-color: transparent;
     border: 0;
-    background-color: #9D4179;
+    background-color: var(--secundario);
     border: 0;
-    color: #FFFFFF;
+    color: var(--textoBotones);
     text-transform: uppercase;
     font-family: Arial, sans-serif;
     font-weight: bold;
@@ -117,8 +117,8 @@ select {
 
 /* Estilos para el botón "Volver atrás" en la ficha de la cita */
 #boton-volver-atras {
-    background-color: #9D4179;
-    color: #FFFFFF;
+    background-color: var(--secundario);
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;
@@ -135,9 +135,9 @@ select {
 /* Configuración de la sección de opiniones */
 #opiniones {
     width: 80%;
-    border: 2px solid black;
+    border: 2px solid var(--textoGeneral);
     margin: 0 auto;
-    background-color: #FFFFFF;
+    background-color: var(--textoBotones);
 }
 
 /* Estilos para el encabezado de la sección de opiniones */
@@ -150,7 +150,7 @@ select {
 .caja-opinion {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--textoGeneral);
 }
 
 /* Estilos para el icono de la opinión */
@@ -204,7 +204,7 @@ select {
 
 /* Estilos para el cuadro de la opinión */
 .opinion {
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     margin: .5em;
     width: 40%;
 }
@@ -223,10 +223,10 @@ select {
 
 /* Estilos para el botón "Añadir huerto" en la sección de administrar huertos */
 #boton-añadir-huerto {
-    background-color: #9D4179;
+    background-color: var(--secundario);
     border: 0;
     border-radius: 5px;
-    color: #FFFFFF;
+    color: var(--textoBotones);
     height: 35px;
     width: 110px;
     align-items: center;
@@ -324,8 +324,8 @@ input[type="file"] {
 #seccion-ver-huerto #boton-guardar2 {
     margin-top: 40px;
     margin-left: 80%;
-    background-color: #9D4179;
-    color: #FFFFFF;
+    background-color: var(--secundario);
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;
@@ -344,8 +344,8 @@ input[type="file"] {
 
 /* Estilos para el botón "Editar" en la sección de ver huerto */
 #boton-editar {
-    background-color: #9D4179;
-    color: white;
+    background-color: var(--secundario);
+    color: var(--textoBotones);
     padding: 5px;
     border: 0;
     border-radius: 5px;
@@ -361,7 +361,7 @@ input[type="file"] {
 
 /* Estilos para las filas de la tabla en la sección de ver huerto */
 #tabla-ver-huerto tr {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--textoGeneral);
 }
 
 /* Estilos para las celdas de la tabla en la sección de ver huerto */
@@ -372,16 +372,16 @@ input[type="file"] {
 /* Estilos para los encabezados de las filas en la sección de ver huerto */
 #tabla-ver-huerto th {
     padding: 10px;
-    background-color: #9D4179;
-    color: white;
+    background-color: var(--secundario);
+    color: var(--textoBotones);
 }
 
 /* Estilos para el botón "Guardar" en la sección de ver huerto */
 #seccion-ver-huerto #boton-guardar2 {
     margin-top: 40px;
     margin-left: 80%;
-    background-color: #9D4179;
-    color: #FFFFFF;
+    background-color: var(--secundario);
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;

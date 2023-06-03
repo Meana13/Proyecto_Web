@@ -1,7 +1,7 @@
 /* Estilos para el footer */
 footer {
-    background-color: black;
-    color: white;
+    background-color: var(--textoGeneral);
+    color: var(--textoBotones);
     text-align: center;
     padding: 30px;
     margin-top: 60vh;
@@ -12,7 +12,7 @@ footer {
 
 /* Estilos para los enlaces */
 a {
-    color: white;
+    color: var(--textoBotones);
     text-decoration: none;
     margin: 5px;
 }
@@ -36,13 +36,13 @@ a {
 .linea-logo {
     width: 35%;
     height: 3px;
-    background-color: white;
+    background-color: var(--textoBotones);
     border: 0;
 }
 
 /* Estilos para el elemento "contactanos" */
 #contactanos {
-    border: 2px solid white;
+    border: 2px solid var(--textoBotones);
     border-radius: 2em;
     width: fit-content;
     padding: 10px 60px;
@@ -76,7 +76,7 @@ a {
 
 /* Estilos para la línea separadora */
 #linea-separatoria {
-    background-color: white;
+    background-color: var(--textoBotones);
     width: 2px;
     height: 2em;
     margin: 0 10px;
@@ -85,8 +85,8 @@ a {
 /* Estilos para dispositivos mas pequeños */
 @media (max-width: 768px) {
     footer {
-        background-color: black;
-        color: white;
+        background-color: var(--textoGeneral);
+        color: var(--textoBotones);
         text-align: center;
         padding: 20px;
         margin-top: 60vh; 
@@ -95,7 +95,7 @@ a {
     
     /* Estilos para los enlaces en dispositivos móviles */
     a {
-        color: white;
+        color: var(--textoBotones);
         text-decoration: none;
     }
     
@@ -108,7 +108,7 @@ a {
     .linea-logo {
         width: 50%;
         height: 3px;
-        background-color: white;
+        background-color: var(--textoBotones);
         border: 0;
     }
 

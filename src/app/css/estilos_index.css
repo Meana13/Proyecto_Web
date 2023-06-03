@@ -58,7 +58,7 @@ body {
 /* Estilos flecha */
 #flecha{
     font-size: 50px;
-    color: #fff;
+    color: var(--textoBotones);
     margin-top: 70px;
     animation: flecha_animada 2s ease-in-out;
     display: inline-block;
@@ -89,13 +89,13 @@ h1,h2,h3,h4{
     vertical-align: center;
     margin: 10px 25px;
     transition: 2s;
-    border: 2px solid black;
+    border: 2px solid var(--textoGeneral);
 }
 
 .vista_parrafo {
     text-decoration: none;
     font-family: Arial;
-    color: black;
+    color: var(--textoGeneral);
     width: 300px;
     text-align: center;
     font-size: 17px;
@@ -104,8 +104,8 @@ h1,h2,h3,h4{
 
 .linea{
     height: 1px;
-    background-color: black;
-    border: 1px solid black;
+    background-color: var(--textoGeneral);
+    border: 1px solid var(--textoGeneral);
 }
 
 /* Estilos nuestros_valores */
@@ -166,7 +166,7 @@ h1,h2,h3,h4{
     margin-top: 10px;
     margin-left: 10px;
     border-radius: 50%;
-    border: 2px solid #000;
+    border: 2px solid var(--textoGeneral);
     padding: 0;
 }
 
@@ -182,7 +182,7 @@ h1,h2,h3,h4{
 }
 
 .texto_opinion {
-    border-top: solid 1px #000;
+    border-top: solid 1px var(--textoGeneral);
     padding-top: 15px;
     padding-left: 10px;
     padding-right: 10px;
@@ -193,7 +193,7 @@ h1,h2,h3,h4{
 }
 
 .vista_opinion {
-    border: 2px solid black;
+    border: 2px solid var(--textoGeneral);
     object-fit: cover;
     vertical-align: top;
     transition: 2s;
@@ -241,7 +241,7 @@ h1,h2,h3,h4{
     margin: 0 auto;
     padding: 10px 20px;
     background-color: var(--principal);
-    color: white;
+    color: var(--textoBotones);
     border: none;
     border-radius: 20px;
     font-size: 1.2em;
@@ -309,7 +309,7 @@ h1,h2,h3,h4{
     #button {
         margin-top: 10px;
         background-color: var(--secundario);
-        color: white;
+        color: var(--textoBotones);
         font-size: 25px;
         padding: 10px 20px;
         border: none;
