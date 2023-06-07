@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,9 +68,6 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Fecha</th>
-                    <th>Hora</th>
-                    <th> Estado</th>
-                    <th> Motivo</th>
                     <th></th>
                 </tr>
             </thead>
@@ -77,19 +75,13 @@
                 <tr>
                     <td>Ricardo</td>
                     <td>03/02/2023</td>
-                    <td>8:00</td>
-                    <td> </td>
-                    <td></td>
-                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    <td>
+                        <button id="boton-ver-cita">Ver ficha</button>
                     </td>
                 </tr>
                 <tr>
                     <td>Concepción</td>
                     <td>10/04/2023</td>
-                    <td>10:20</td>
-                    <td> </td>
-                    <td> </td>
-
                     <td>
                         <button id="boton-ver-cita">Ver ficha</button>
                     </td>
@@ -97,9 +89,6 @@
                 <tr>
                     <td>Victoria</td>
                     <td>16/04/2023</td>
-                    <td>11:30</td>
-                    <td> </td>
-                    <td> </td>
                     <td>
                         <button id="boton-ver-cita">Ver ficha</button>
                     </td>
@@ -108,9 +97,6 @@
                 <tr>
                     <td>Gloria</td>
                     <td>23/04/2023</td>
-                    <td>12:15</td>
-                    <td> </td>
-                    <td> </td>
                     <td>
                         <button id="boton-ver-cita">Ver ficha</button>
                     </td>
@@ -119,9 +105,6 @@
                 <tr>
                     <td>Julio</td>
                     <td>27/04/2023</td>
-                    <td>12:50</td>
-                    <td> </td>
-                    <td> </td>
                     <td>
                         <button id="boton-ver-cita">Ver ficha</button>
                     </td>
@@ -129,9 +112,6 @@
                 <tr>
                     <td>Pedro</td>
                     <td>04/05/2023</td>
-                    <td>13:30</td>
-                    <td> </td>
-                    <td> </td>
                     <td>
                         <button id="boton-ver-cita">Ver ficha</button>
                     </td>
@@ -150,7 +130,9 @@
             <br> <!---->
             <label><b>Direccion: </b></label>
             <input type="text" id="direccion" name="direccion">
-            <br> <!---->
+            <br>
+            <label><b>Hora: </b></label>
+            <input type="text" id="hora" name="hora">
             <br>
             <label><b>Productos vendidos: </b></label> <br>
             <input type="text" id="productos-vendidos" name="productos-vendidos">
@@ -264,9 +246,6 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Elegir huerto</th>
-                    
-                    <th>Nº de huertos</th>
-                    <th> </th>
                     <th> </th>
                 </tr>
             </thead>
@@ -281,7 +260,6 @@
                         </select>
                     </td>
                     
-                    <td> </td>
                     <td><button id="boton-ver-huerto">Ver huerto</button></td>
                     <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                 </tr>
@@ -295,7 +273,6 @@
                         </select>
                     </td>
                     
-                    <td> </td>
                     <td><button id="boton-ver-huerto">Ver huerto</button>
                     <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                     </td>
@@ -310,7 +287,6 @@
                         </select>
                     </td>
                     
-                    <td> </td>
                     <td><button id="boton-ver-huerto">Ver huerto</button>
                     <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                     </td>
@@ -326,7 +302,6 @@
                         </select>
                     </td>
                     
-                    <td> </td>
                     <td><button id="boton-ver-huerto">Ver huerto</button>
                     <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                     </td>
@@ -342,7 +317,6 @@
                         </select>
                     </td>
                     
-                    <td> </td>
                     <td><button id="boton-ver-huerto">Ver huerto</button>
                     <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                     </td>
@@ -357,7 +331,6 @@
                         </select>
                     </td>
                    
-                    <td> </td>
                     <td><button id="boton-ver-huerto">Ver huerto</button>
                     <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                     </td>
@@ -432,7 +405,7 @@
             <label>Nombre huerto </label>
             <input type="text" id="nombre-huerto" name="id-cliente">
             <button type="button" id="boton-editar">Editar</button>
-            <br> <!---->
+            <br>
             <label>Usuario: </label>
             <select class="desplegable-usuario" name="elegir-usuario">
                 <option value="pmeagon">pmeagon</option>
@@ -440,11 +413,11 @@
                 <option value="ricgon">ricgon</option>
             </select>
             <button type="button" id="boton-editar">Editar</button>
-            <br> <!---->
+            <br> 
             <label>Dirección</label>
             <input type="text" id="direccion" name="direccion">
             <button type="button" id="boton-editar">Editar</button>
-            <br> <!---->
+            <br> 
             <label id="label-lista-sensores">Lista de sensores: </label> <button type="button"
                 id="boton-editar">Editar</button>
             <ul id="lista-sensores">
@@ -478,7 +451,7 @@
                 <input type="text" id="Anchoo" name="Anchoo"> <label>X</label>
                 <input type="text" id="Largo" name="Largo">
             </div>
-            <br> <!---->
+            <br>
             <label>Notas: </label> <button type="button" id="boton-editar">Editar</button><br>
             <input type="text" id="notas" name="Notas"> <br>
             <label id="label-imagen">Imagen del huerto: </label> <br>

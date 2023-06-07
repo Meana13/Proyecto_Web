@@ -1,3 +1,13 @@
+body {
+    margin-top: 120px;
+}
+
+
+#seccion-administrar-usuarios {
+    width: fit-content;
+    margin: 0 auto;
+}
+
 /* Estilos para los títulos de nivel h2 */
 h2 {
     text-align: center;
@@ -22,28 +32,31 @@ h2 {
     display: none;
 }
 
+
 /* Estilos para la sección "hoja de usuario" */
 #seccion-hoja-usuario {
     display: none;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 /* Estilos para la sección "opinión personal" */
 #seccion-opinion-personal {
     display: none;
-    border: 2px solid black;
+    border: 2px solid var(--textoGeneral);
     width: 70%;
     margin-top: 2em;
     margin-left: 15%;
     margin-right: 15%;
-    background-color: white;
+    background-color: var(--textoBotones);
 }
 
 /* Estilos para el botón "añadir usuario" */
 #boton-añadir-usuario {
     border-radius: 5px;
-    background-color: #9D4179;
+    background-color: var(--secundario);
     border: 0;
-    color: #FFFFFF;
+    color: var(--textoBotones);
     height: 35px;
     width: 110px;
     align-items: center;
@@ -57,6 +70,10 @@ h2 {
     margin-right: 5%;
 }
 
+#boton-añadir-usuario:hover {
+    background-color:#9D4179
+}
+
 /* Estilos para la tabla de usuarios */
 table {
     max-width: 80%;
@@ -67,8 +84,8 @@ table {
 
 /* Estilos para las celdas de encabezado de la tabla */
 th {
-    background-color: gray;
-    color: white;
+    background-color: var(--fondoSecundario);
+    color: var(--textoBotones);
     text-transform: uppercase;
 }
 
@@ -76,7 +93,7 @@ th {
 th,
 td {
     width: 40%;
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     padding-left: .5em;
     padding-right: .5em;
     font-family: Arial, sans-serif;
@@ -99,10 +116,10 @@ th:last-child {
 /* Estilos para la imagen dentro del enlace "ver hoja de usuario" */
 #ver-hoja-usuario img {
     margin-top: .3em;
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     border-radius: 20%;
     padding: .15em;
-    background-color: gray;
+    background-color: var(--fondoSecundario);
 }
 
 /* Estilos para la sección "hoja de usuario" */
@@ -137,8 +154,8 @@ th:last-child {
 
 /* Estilos para el botón "cancelar" */
 #boton-cancelar {
-    background-color: #555555;
-    color: #FFFFFF;
+    background-color: var(--fondoSecundario);
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;
@@ -150,8 +167,8 @@ th:last-child {
 
 /* Estilos para el botón "guardar cambios" */
 #boton-guardar-cambios {
-    background-color: #9D4179;
-    color: #FFFFFF;
+    background-color: var(--secundario);
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;
@@ -201,7 +218,7 @@ select {
 /* Estilos para el botón "generar ID" */
 #boton-generar-id {
     background-color: #555555;
-    color: #FFFFFF;
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;
@@ -223,15 +240,15 @@ select {
 #caja-id {
     width: 6em;
     height: 1em;
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     background-color: #f0f0f0;
-    color: black;
+    color: var(--textoGeneral);
 }
 
 /* Estilos para el botón "dar de alta" */
 .boton-dar-de-alta {
-    background-color: #9D4179;
-    color: #FFFFFF;
+    background-color: var(--secundario);
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;
@@ -250,7 +267,7 @@ select {
     height: 2.5em;
     background-color: #969898;
     margin-bottom: 0;
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     font-size: 16px;
 }
 
@@ -263,7 +280,7 @@ select {
 .caja-opinion {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--textoGeneral);
 }
 
 /* Estilos para el icono de opinión en cada caja de opinión */
@@ -317,7 +334,7 @@ select {
 
 /* Estilos para el contenedor de la opinión en la sección "opinión del personal" */
 .opinion {
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     margin: .5em;
     width: 40%;
 }
@@ -343,7 +360,7 @@ select {
     /* Estilos para las celdas de encabezado en la tabla de usuarios en dispositivos móviles */
     th {
         background-color: gray;
-        color: white;
+        color: var(--textoBotones);
         text-transform: uppercase;
     }
 
@@ -396,7 +413,7 @@ select {
     /* Estilos para el botón "cancelar" en dispositivos móviles */
     #boton-cancelar {
         background-color: #555555;
-        color: #FFFFFF;
+        color: var(--textoBotones);
         font-family: Arial, sans-serif;
         text-transform: uppercase;
         border: 0;
@@ -408,8 +425,8 @@ select {
 
     /* Estilos para el botón "guardar cambios" en dispositivos móviles */
     #boton-guardar-cambios {
-        background-color: #9D4179;
-        color: #FFFFFF;
+        background-color: var(--secundario);
+        color: var(--textoBotones);
         font-family: Arial, sans-serif;
         text-transform: uppercase;
         border: 0;
@@ -459,7 +476,7 @@ select {
     /* Estilos para el botón "generar ID" en dispositivos móviles */
     #boton-generar-id {
         background-color: #555555;
-        color: #FFFFFF;
+        color: var(--textoBotones);
         font-family: Arial, sans-serif;
         text-transform: uppercase;
         border: 0;
@@ -482,16 +499,16 @@ select {
     #caja-id {
         width: 6em;
         height: 1em;
-        border: 1px solid black;
+        border: 1px solid var(--textoGeneral);
         background-color: #f0f0f0;
-        color: black;
+        color: var(--textoGeneral);
         font-size: 12px;
     }
 
     /* Estilos para el botón "dar de alta" en dispositivos móviles */
     .boton-dar-de-alta {
-        background-color: #9D4179;
-        color: #FFFFFF;
+        background-color: var(--secundario);
+        color: var(--textoBotones);
         font-family: Arial, sans-serif;
         text-transform: uppercase;
         border: 0;
@@ -517,7 +534,7 @@ select {
         height: 2.5em;
         background-color: #969898;
         margin-bottom: 0;
-        border: 1px solid black;
+        border: 1px solid var(--textoGeneral);
         font-size: 12px;
     }
 
@@ -526,7 +543,7 @@ select {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid var(--textoGeneral);
         padding: .5em;
     }
 
@@ -577,7 +594,7 @@ select {
 
     /* Estilos para el contenedor de la opinión en la sección "opinión del personal" en dispositivos móviles */
     .opinion {
-        border: 1px solid black;
+        border: 1px solid var(--textoGeneral);
         margin: .5em;
         width: 100%;
     }

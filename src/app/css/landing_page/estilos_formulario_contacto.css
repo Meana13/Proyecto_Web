@@ -64,23 +64,28 @@ select {
 }
 
 /* Estilos para el botón de envío */
-input[type="submit"] {
-    background-color: #4CAF50; 
+#boton_enviar_formulario{
+    background-color: #790050; 
     border: none;
     color: white;
     padding: 10px 20px; 
     text-align: center; 
-    text-decoration: none; 
-    display: inline-block; 
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px; 
     border-radius: 5px; 
     cursor: pointer; 
-    margin-top: 30px; 
+    margin-top: 30px;
+}
+
+#boton_enviar_formulario:hover{
+    background-color:#9D4179;
+    font-weight: bold;
 }
 
 /* Estilos para el botón de envío al pasar el cursor sobre él */
 input[type="submit"]:hover {
-    background-color: #45a049; 
+    background-color: #790050; 
 }
 
 /* Estilos para los elementos requeridos */
@@ -124,7 +129,7 @@ input[type="submit"]:hover {
 /* Estilos para el botón de cerrar el diálogo */
 .boton-cerrar-dialogo {
     color: white;
-    background-color: #790050;
+    background-color: var(--principal);
     height: 20%;
     width: 30%;
     align-self: center;

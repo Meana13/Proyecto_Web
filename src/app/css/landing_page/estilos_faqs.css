@@ -14,11 +14,15 @@ body {
 
 /* estilos de las preguntas */
 .pregunta {
-    background-color: #9D4179;
+    background-color: var(--secundario);
     color: white;
     padding: 5px 10px;
     border: 1px solid black;
 }   
+
+.pregunta:hover{
+    background-color:#9D4179;
+}
 
 /* estilos de las respuestas */
 .respuesta {
