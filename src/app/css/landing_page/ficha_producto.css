@@ -3,56 +3,41 @@ body {
     margin-top: 120px;
 }
 
-/* estilos h3 (titulos de secciones) */
 h3 {
-    margin-top: 30px;
-    text-align: center;
-}
-
-/* estilos generales de la ficha */
-#ficha-producto {
-    width: 60%;
-    margin: 30px auto;
+    margin-top: 0px;
+    font-weight: bold;
 }
 
 /* estilos de la imagen de la ficha */
-#ficha-producto img {
-    width: 60%;
-    display: block;
-    margin: auto;
-}
-
-/* estilos del texto de la ficha de producto */
-#ficha-producto p {
-    margin-top: 40px;
-    border: 1px solid black;
-    background-color: white;
-    padding: 1em;
-    margin-bottom: 30px;
+.foto-producto {
+    width: 100%;
+    border: 3px solid var(--secundario);
 }
 
 /* estilos boton pedir presupuesto */
-#ficha-producto a {
+.boton-presupuesto {
+    color: var(--textoBotones);
+    background-color: var(--principal);
+    padding: 20px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
-    text-align: center;
-    background-color: #9D4179;
-    color: #FFFFFF;
-    font-family: Arial, sans-serif;
-    border: 0;
-    border-radius: 0.5em;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 1em;
+
+}
+
+#info-producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* estilos para dispositivos mas pequeños */
 @media (max-width: 768px) {
-    #ficha-producto img {
-        width: 70%;
-    }
-
     body {
         margin-top: 80px;
+    }
+
+    .foto-producto {
+        margin-bottom: 30px;
     }
 }
