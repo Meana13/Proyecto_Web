@@ -20,6 +20,10 @@ body {
     border: 1px solid black;
 }   
 
+.pregunta:hover{
+    background-color:#9D4179;
+}
+
 /* estilos de las respuestas */
 .respuesta {
     display: none;

@@ -72,6 +72,14 @@ tr td:nth-child(3),
     border-radius: 5px;
 }
 
+#boton-ver-cita:hover {
+    background-color: #9D4179;
+}
+
+
+#boton-ver-huerto:hover {
+    background-color: #9D4179;
+}
 
 /* #region SECCION FICHA CITA */
 /* Configuración de la sección de la ficha de la cita */
@@ -128,6 +136,10 @@ select {
     margin-left: 60%;
     border-radius: .5em;
     font-weight: bold;
+}
+
+#boton-volver-atras:hover{
+    background-color:#9D4179;
 }
 /* #endregion */
 
@@ -242,6 +254,9 @@ select {
     margin-top: 30px;
 }
 
+#boton-añadir-huerto:hover {
+    background-color: #9D4179;
+}
 
 /*  SECCION AÑADIR NUEVO HUERTO */
 /* Configuración de la sección de añadir nuevo huerto */
@@ -335,8 +350,18 @@ input[type="file"] {
     padding: 1em;
 }
 
-/* INICIO SECCOIN VER HUERTO */
+#boton-guardar:hover {
+    background-color: #9D4179;
+}
+
+
+/* INICIO SECCIÓN VER HUERTO */
 /* Configuración de la sección de ver huerto */
+#seccion-ver-huerto {
+    width: fit-content;
+    margin: 0 auto;
+}
+
 #seccion-ver-huerto h3 {
     text-align: center;
     margin-bottom: 40px;
@@ -350,6 +375,10 @@ input[type="file"] {
     border: 0;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+
+#boton-editar:hover{
+    background-color: #9D4179;
 }
 
 /* Estilos para la imagen del huerto en la sección de ver huerto */
@@ -389,6 +418,9 @@ input[type="file"] {
     font-size: 16px;
     font-weight: bold;
     padding: 1em;
+}
+#boton-guardar2:hover{
+    background-color: #9D4179;
 }
 
 /* #endregion */

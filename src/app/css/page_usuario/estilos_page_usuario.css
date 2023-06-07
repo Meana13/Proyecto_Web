@@ -45,6 +45,10 @@ body {
     align-self: start;
 }
 
+.boton_abrir_ajustes_huerto:hover {
+    background-color: #9D4179;
+}
+
 /*Estilo del contenedor de nombre + foto del huerto*/
 .nombre-huerto-container {
     display: flex;
@@ -503,6 +507,9 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     padding: 1rem;
     width: 30%;
 }
+.boton_editar_ajustes:hover {
+    background-color: #9D4179;
+}
 
 dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     display:none;
@@ -855,3 +862,120 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
         margin-bottom: 2rem;
     }
 }
+
+
+/*Estilos para los Ajustes de perfil*/
+/* Configuración de la sección de la ficha de la cita */
+#ajustes-usuario h2 {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#ajustes-usuario {
+    padding-left: 20px;
+}
+
+.datos_usuario form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .campo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .campo label {
+    width: 150px;
+    margin-right: 10px;
+  }
+
+/* Estilos para el formulario de la ficha de la cita */
+#nombre_usuario {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+
+/* Estilos para los campos de texto y select del formulario de la ficha de la cita */
+input[type="text"],
+select {
+    width: 199px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el campo "productos vendidos" del formulario de la ficha de la cita */
+#nombre {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Estilos para el campo "incidencias" del formulario de la ficha de la cita */
+#apellidos {
+    width: 100%;
+}
+
+#email {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.contenedor2 {
+    display: flex;
+    justify-content: left; /* Alineación horizontal */
+    align-items: center; /* Alineación vertical */
+    height: 50px;
+}
+
+.cambiar_contraseña {
+    padding: 10px 20px;
+    margin-right: 10px; 
+    background-color: #790050; 
+    border: none;
+    cursor: pointer;
+    color: #fff; 
+}
+
+.contenedor5 {
+    display: flex;
+    justify-content: center; /* Alineación horizontal */
+    align-items: center; /* Alineación vertical */
+    height: 85px;
+}
+
+.boton-editar-ajustes {
+    padding: 10px 20px;
+  margin-right: 10px; 
+  background-color: #790050; 
+  border: none;
+  cursor: pointer;
+  color: #fff; 
+}
+
+
+.cambios_perfil {
+    padding: 10px 20px;
+    margin-right: 10px; 
+    background-color: #D7D7D7; 
+    border: none;
+    cursor: pointer;
+    color: #000000;
+    border: 2px solid #000000;
+    
+}
+
+
+.boton-cancelar-ajustes {
+    padding: 10px 20px;
+    margin-right: 10px; 
+    background-color: #D7D7D7; 
+    border: 2px solid #000000; 
+    cursor: pointer;
+    color: #000000;
+}
+

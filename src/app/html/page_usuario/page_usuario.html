@@ -849,48 +849,47 @@
         <!--Tabla de citas-->
         <table>
             <thead>
-                <tr>
-                    <th>FECHAS DISPONIBLES</th>
-                </tr>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Hora</th>
-                    <th>Motivo</th>
-                    <th>Técnico</th>
-                    <th></th>
-                </tr>
+            <tr>
+                <th>Fecha disponibles</th>
+                <th>Hora</th>
+                <th>Técnico</th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1 de mayo, 2023</td>
-                    <td>14:30</td>
-                    <td>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                alt="Aceptar">Aceptar</button>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                alt="Rechazar">Rechazar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2 de mayo, 2023</td>
-                    <td>10:00</td>
-                    <td>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                alt="Aceptar">Aceptar</button>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                alt="Rechazar">Rechazar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3 de mayo, 2023</td>
-                    <td>16:45</td>
-                    <td>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                alt="Aceptar">Aceptar</button>
-                        <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                alt="Rechazar">Rechazar</button>
-                    </td>
-                </tr>
+            <tr>
+                <td>1 de mayo, 2023</td>
+                <td>14:30</td>
+                <td>Nicolás García </td>
+                <td>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
+                                                                alt="Aceptar">Aceptar</button>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
+                                                                alt="Rechazar">Rechazar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2 de mayo, 2023</td>
+                <td>10:00</td>
+                <td>Leonardo Messi</td>
+                <td>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
+                                                                alt="Aceptar">Aceptar</button>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
+                                                                alt="Rechazar">Rechazar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>3 de mayo, 2023</td>
+                <td>16:45</td>
+                <td>Mario Luís Mesero</td>
+                <td>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
+                                                                alt="Aceptar">Aceptar</button>
+                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
+                                                                alt="Rechazar">Rechazar</button>
+                </td>
+            </tr>
             </tbody>
         </table>
     </section>
@@ -901,23 +900,35 @@
     <!--Aquí comienza la seccion de ajustes de perfil -->
     <section id="ajustes-usuario">
         <h2>AJUSTES DE PERFIL</h2>
-        <section class="datos_usuario">
-            <form action="#" method="post">
+            <section class="datos_usuario">
+              <form action="#" method="post">
                 <!--Datos personales:-->
-                <label for="nombre_usuario">Nombre de usuario:</label>
-                <input type="text" id="nombre_usuario">
-
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre">
-
-                <label for="apellidos">Apellidos:</label>
-                <input type="text" id="apellidos">
+                <div class="campo">
+                  <label for="nombre_usuario">Usuario:</label>
+                  <input type="text" id="nombre_usuario">
+                </div>
+          
+                <div class="campo">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" id="nombre">
+                </div>
+          
+                <div class="campo">
+                  <label for="apellidos">Apellidos:</label>
+                  <input type="text" id="apellidos">
+                </div>
+              </form>
 
                 <!--E-mail y contraseña-->
+                <div class="campo">
                 <label for="email">Email:</label>
                 <input type="email" id="email">
+                </div>
 
-                <button>Cambiar contraseña</button>
+
+                <div class="contenedor2">
+                <button id="cambiar_contraseña">Cambiar contraseña</button>
+                </div>    
 
                 <!--Diálogo para cambiar la contraseña-->
                 <dialog>
@@ -935,16 +946,19 @@
                     </form>
                 </dialog>
 
-                <br>
-                <button>Editar</button>
 
-                <input type="submit" value="Aplicar cambios" id="cambios_perfil">
-                <button>Cancelar</button>
+                <div class="contenedor5">
+                    <button class="boton-editar-ajustes">Editar</button>
+                    <button class="cambios_perfil">Aplicar cambios</button>
+                    <button class="boton-cancelar-ajustes">Cancelar</button>
+                  </div>
+                  
+
 
                 <!--Mensaje de cambios realizados correctamente-->
                 <dialog id="dialogo_cambios_perfil">
                     <p>Cambios realizados correctamente.</p>
-                    <button id="btn_aceptar">Aceptar</button>
+                    <button id="boton_aceptar">Aceptar</button>
                 </dialog>
 
 
@@ -956,7 +970,8 @@
 
 
 
-
+<!--  <button type="button" id="boton-volver-atras">VOLVER ATRÁS</button>
+-->
 
 
 
