@@ -25,7 +25,7 @@ body {
 
 /* Estilos Container hero */
 #container_hero {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,1),rgba(255,255,255,0)), url('../../images/fonfo_hero.jpg');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0)), url('../../images/fonfo_hero.jpg');
     height: 100vh;
     background-size: cover;
     width: 100%;
@@ -36,7 +36,7 @@ body {
 }
 
 /* Estilos titulo hero */
-#titulo_hero{
+#titulo_hero {
     margin-bottom: 50px;
 }
 
@@ -56,7 +56,7 @@ body {
 }
 
 /* Estilos flecha */
-#flecha{
+#flecha {
     font-size: 50px;
     color: var(--textoBotones);
     margin-top: 70px;
@@ -66,13 +66,16 @@ body {
 }
 
 /* Titulos centrados */
-h1,h2,h3,h4{
+h1,
+h2,
+h3,
+h4 {
     text-align: center;
 }
 
 /* Estilos de los prudctos */
 
-#titulo_nuestros_productos{
+#titulo_nuestros_productos {
     margin-top: 25px;
 }
 
@@ -102,19 +105,27 @@ h1,h2,h3,h4{
     margin-bottom: 10px;
 }
 
-.linea{
+.linea {
     height: 1px;
     background-color: var(--textoGeneral);
     border: 1px solid var(--textoGeneral);
 }
 
-/* Estilos nuestros_valores */
+/*···························*/
+/* SECCION NUESTROS VALORES */
+/*··························*/
 
-#nuestros_valores ul {
-    margin-top: 50px;
+#contenedor_nuestros_valores {
+    margin-bottom: 50px;
 }
 
-.lista_valores{
+#nuestros_valores ul {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 50%;
+}
+
+.lista_valores {
     margin-bottom: 80px;
 }
 
@@ -137,7 +148,10 @@ h1,h2,h3,h4{
     padding: 0;
 }
 
-/* Estilos opiniones */
+ /*··························*\
+|*     SECCION OPINIONES      *|
+ \*··························*/
+
 .contenedor_opiniones {
     margin-top: 25px;
     max-width: 100%;
@@ -162,7 +176,7 @@ h1,h2,h3,h4{
 
 #foto-perfil {
     width: auto;
-    height: 40px;   
+    height: 40px;
     margin-top: 10px;
     margin-left: 10px;
     border-radius: 50%;
@@ -220,6 +234,7 @@ h1,h2,h3,h4{
     .vista_opinion {
         width: 50%;
     }
+
     #contenedor_opiniones .container {
         display: block;
     }
@@ -230,8 +245,6 @@ h1,h2,h3,h4{
         width: 80%;
         margin: 10px auto;
     }
-
-    
 }
 
 
@@ -259,28 +272,30 @@ h1,h2,h3,h4{
 @keyframes flecha_animada {
     from {
         transform: translateY(0);
-    } 50% {
+    }
+
+    50% {
         transform: translateY(20px);
-    } to {
+    }
+
+    to {
         transform: translateY(0);
     }
 }
 
-@media(max-width: 1446px) {
-
-}
+@media(max-width: 1446px) {}
 
 /* Estilos aplicados en dispositivos con un ancho máximo de 768px */
-@media(max-width: 768px){
-    
+@media(max-width: 768px) {
+
     /* Estilos aplicados al elemento 'body' en dispositivos móviles */
     body {
         margin-top: 60px;
     }
 
-    /* Estilos aplicados al elemento con el id 'container_hero' en dispositivos móviles */
+    /* Estilos SECCION HERO */
     #container_hero {
-        padding-top: 0px ;
+        padding-top: 0px;
         margin-top: 0px;
         background-size: cover;
         height: 100vh;
@@ -290,12 +305,10 @@ h1,h2,h3,h4{
         flex-direction: column;
     }
 
-    /* Estilos aplicados al elemento con el id 'titulo_hero' en dispositivos móviles */
-    #titulo_hero{
+    #titulo_hero {
         margin-top: 10px;
     }
 
-    /* Estilos aplicados a la clase 'overlay' en dispositivos móviles */
     .overlay {
         background-color: rgba(255, 255, 255, 0.5);
         margin-top: -30px;
@@ -305,7 +318,6 @@ h1,h2,h3,h4{
         text-align: center;
     }
 
-    /* Estilos aplicados al elemento con el id 'button' en dispositivos móviles */
     #button {
         margin-top: 10px;
         background-color: var(--secundario);
@@ -317,23 +329,24 @@ h1,h2,h3,h4{
         cursor: pointer;
     }
 
-    /* Estilos aplicados al elemento con el id 'parrafo' en dispositivos móviles */
     #parrafo {
         font-size: 1.5rem;
         margin-bottom: 20px;
     }
 
-    /* Estilos aplicados al elemento con el id 'nuestros_valores' y su lista no ordenada en dispositivos móviles */
-    #nuestros_valores ul{
+    /*···························*/
+    /* SECCION NUESTROS VALORES */
+    /*··························*/
+
+    #nuestros_valores ul {
         margin-top: 50px;
+        width: 80%;
     }
 
-    /* Estilos aplicados a la clase 'lista_valores' en dispositivos móviles */
-    .lista_valores{
+    .lista_valores {
         margin-bottom: 80px;
     }
 
-    /* Estilos aplicados a las imágenes dentro de los elementos 'li' de la clase 'lista_valores' en dispositivos móviles */
     .lista_valores li img {
         width: 30px;
         margin-right: 20px;
