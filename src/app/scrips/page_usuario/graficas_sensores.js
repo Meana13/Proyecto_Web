@@ -22,6 +22,10 @@ async function getHuertosUsuario(){
     let idUsuario = datosDeUsuario.id_usuario;
 
     const respuesta = await fetch('../../../api/huertos/');
+    if(respuesta.ok) {
+        const datos = await respuesta.json();
+        console.log(datos);
+    }
 }
 
 //función para modificar el html para que muestre los huertos del usuario en el selector
