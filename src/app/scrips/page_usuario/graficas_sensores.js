@@ -29,8 +29,16 @@ async function getHuertosUsuario(){
     }
 }
 
+async function getDatosHuertoPorIdHuerto(idHuerto){
+    const respuesta = await fetch('../../../api/huertos/' + '?idHuerto=' + idHuerto);
+    if(respuesta.ok) {
+        const datos = await respuesta.json();
+        console.log(datos);
+        return datos;
+    }
+}
 //función para modificar el html para que muestre los huertos del usuario en el selector
-//de huertos y que cambie el nombre del huerto.?????????
+//de huertos y que cambie el nombre del huerto.
 async function escribirNombreHuerto(){
     let huertosDelUsuario = await getHuertosUsuario();
     let nombreDeHuertos = huertosDelUsuario.map(function(huerto){
@@ -48,6 +56,20 @@ async function escribirNombreHuerto(){
         opcion.innerText = nombreDeHuertos[i];
         selector.appendChild(opcion);
     }
+
+    const nombreDeHuerto = document.getElementById('nombreDeHuerto');
+    nombreDeHuerto.innerText = "";
+    nombreDeHuerto.innerText = nombreDeHuertos[0];
+
+    selector.addEventListener('change', async function(){
+        let idHuerto = selector.value;
+        console.log(idHuerto);
+
+        let datosHuerto = await getDatosHuertoPorIdHuerto(idHuerto);
+
+        nombreDeHuerto.innerText = "";
+        nombreDeHuerto.innerText = datosHuerto[0].nombre_huerto;
+    });
 }
 
 //llamada de la función para que se escriba el nombre en el selector.
