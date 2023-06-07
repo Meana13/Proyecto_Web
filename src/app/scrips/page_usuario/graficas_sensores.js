@@ -21,7 +21,7 @@ async function getHuertosUsuario(){
     let datosDeUsuario = await getSesionUsuario();
     let idUsuario = datosDeUsuario.id_usuario;
 
-    const respuesta = await fetch('../../../api/huertos/');
+    const respuesta = await fetch('../../../api/huertos/' + '?idUsuario=' + idUsuario);
     if(respuesta.ok) {
         const datos = await respuesta.json();
         console.log(datos);
