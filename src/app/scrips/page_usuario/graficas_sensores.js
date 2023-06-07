@@ -1,5 +1,43 @@
                         /*
                             ========================
+                              SELECTOR DE HUERTOS
+                            ========================
+                                                      */
+
+//funcion para conseguir la información de la sesión del usuario, para poder recoger el id
+//y así poder buscar los huertos del usuario.
+async function getSesionUsuario(){
+
+    const respuesta = await fetch('../../../api/sesion/');
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        console.log(datos);
+        return datos;
+    }
+}
+
+//función para conseguir los huertos del usuario, llama a
+async function getHuertosUsuario(){
+    let datosDeUsuario = await getSesionUsuario();
+    let idUsuario = datosDeUsuario.id_usuario;
+
+    const respuesta = await fetch('../../../api/huertos/');
+}
+
+//función para modificar el html para que muestre los huertos del usuario en el selector
+//de huertos y que cambie el nombre del huerto.?????????
+async function escribirNombreHuerto(){
+    getHuertosUsuario();
+
+}
+
+escribirNombreHuerto();
+
+
+
+
+                        /*
+                            ========================
                               GRÁFICA DE SALINIDAD
                             ========================
                                                       */
