@@ -25,16 +25,32 @@ async function getHuertosUsuario(){
     if(respuesta.ok) {
         const datos = await respuesta.json();
         console.log(datos);
+        return datos;
     }
 }
 
 //función para modificar el html para que muestre los huertos del usuario en el selector
 //de huertos y que cambie el nombre del huerto.?????????
 async function escribirNombreHuerto(){
-    getHuertosUsuario();
+    let huertosDelUsuario = await getHuertosUsuario();
+    let nombreDeHuertos = huertosDelUsuario.map(function(huerto){
+        return huerto.nombre_huerto;
+    });
 
+    let idHuertos = huertosDelUsuario.map(function(huerto){
+        return huerto.id_huerto;
+    });
+
+    const selector = document.getElementById('seleccionar_huerto');
+    for(let i=0; i<nombreDeHuertos.length; i++){
+        const opcion = document.createElement('option');
+        opcion.value = idHuertos[i];
+        opcion.innerText = nombreDeHuertos[i];
+        selector.appendChild(opcion);
+    }
 }
 
+//llamada de la función para que se escriba el nombre en el selector.
 escribirNombreHuerto();
 
 
