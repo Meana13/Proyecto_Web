@@ -2847,11 +2847,11 @@ async function getDatosSemana() {
 
     //-------------------------------------------------------------------------------VISUALIZADOR
     let filtroLuz = document.getElementById('filtro_luz');
-    let filtroAcordeonTemperatura = document.getElementById('filtro_acordeon_temperatura');
+    let filtroAcordeonLuz = document.getElementById('filtro_acordeon_luz');
 
-    filtroTemperatura.addEventListener('change', async function () {
+    filtroLuz.addEventListener('change', async function () {
 
-        if (filtroTemperatura.value === 'Semana') {
+        if (filtroLuz.value === 'Semana') {
 
             //-----------------------------------------------------------------------------HUERTO POR DEFECTO
             //conseguimos la id de los huertos del usuario y las metemos en un array:
@@ -2881,11 +2881,11 @@ async function getDatosSemana() {
                 });
 
 
-                let datosTemperaturaSemana = {
+                let datosLuzSemana = {
                     labels: [],
                     datasets: [
                         {
-                            label: "Temperatura (ºC)",
+                            label: "Luz",
                             data: [],
                             tension: 0.2,
                             fill: false,
@@ -2898,7 +2898,7 @@ async function getDatosSemana() {
                     ]
                 };
 
-                let opcionesTemperaturaSemana = {
+                let opcionesLuzSemana = {
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
@@ -2915,7 +2915,7 @@ async function getDatosSemana() {
                         legend: false,
                         title: {
                             display: true,
-                            text: 'Temperatura (ºC)',
+                            text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
                             position: 'top',
                             align: 'start',
                             padding: {
@@ -2939,13 +2939,13 @@ async function getDatosSemana() {
                 }
 
                 for (let i = 6; i >= 0; i--) {
-                    datosTemperaturaSemana.labels.push(dias[i]);
-                    datosTemperaturaSemana.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                    datosLuzSemana.labels.push(dias[i]);
+                    datosLuzSemana.datasets[0].data.push(mediciones[i].mediaLuminosidad);
                 }
 
-                miGraficaTemperatura.options = opcionesTemperaturaSemana;
-                miGraficaTemperatura.data = datosTemperaturaSemana;
-                miGraficaTemperatura.update();
+                miGraficaLuz.options = opcionesLuzSemana;
+                miGraficaLuz.data = datosLuzSemana;
+                miGraficaLuz.update();
 
 
             }
@@ -2976,11 +2976,11 @@ async function getDatosSemana() {
                     });
 
 
-                    let datosTemperaturaSemana = {
+                    let datosLuzSemana = {
                         labels: [],
                         datasets: [
                             {
-                                label: "Temperatura (ºC)",
+                                label: "Luz",
                                 data: [],
                                 tension: 0.2,
                                 fill: false,
@@ -2993,7 +2993,7 @@ async function getDatosSemana() {
                         ]
                     };
 
-                    let opcionesTemperaturaSemana = {
+                    let opcionesLuzSemana = {
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
@@ -3010,7 +3010,7 @@ async function getDatosSemana() {
                             legend: false,
                             title: {
                                 display: true,
-                                text: 'Temperatura (ºC)',
+                                text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
                                 position: 'top',
                                 align: 'start',
                                 padding: {
@@ -3034,13 +3034,13 @@ async function getDatosSemana() {
                     }
 
                     for (let i = 6; i >= 0; i--) {
-                        datosTemperaturaSemana.labels.push(dias[i]);
-                        datosTemperaturaSemana.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                        datosLuzSemana.labels.push(dias[i]);
+                        datosLuzSemana.datasets[0].data.push(mediciones[i].mediaLuminosidad);
                     }
 
-                    miGraficaTemperatura.options = opcionesTemperaturaSemana;
-                    miGraficaTemperatura.data = datosTemperaturaSemana;
-                    miGraficaTemperatura.update();
+                    miGraficaLuz.options = opcionesLuzSemana;
+                    miGraficaLuz.data = datosLuzSemana;
+                    miGraficaLuz.update();
                 }
 
             });
@@ -3049,9 +3049,9 @@ async function getDatosSemana() {
 
     //------------------------------------------------------------------------------------ACORDEÓN
 
-    filtroAcordeonTemperatura.addEventListener('change', async function () {
+    filtroAcordeonLuz.addEventListener('change', async function () {
 
-        if (filtroAcordeonTemperatura.value === 'Semana') {
+        if (filtroAcordeonLuz.value === 'Semana') {
             //----------------------------------------------------------------------------HUERTO POR DEFECTO
             //conseguimos la id de los huertos del usuario y las metemos en un array:
             let huertosDelUsuario = await getHuertosUsuario();
@@ -3079,11 +3079,11 @@ async function getDatosSemana() {
                 });
 
 
-                let datosTemperaturaSemana = {
+                let datosLuzSemana = {
                     labels: [],
                     datasets: [
                         {
-                            label: "Temperatura (ºC)",
+                            label: "Luz",
                             data: [],
                             tension: 0.2,
                             fill: false,
@@ -3096,7 +3096,7 @@ async function getDatosSemana() {
                     ]
                 };
 
-                let opcionesTemperaturaSemana = {
+                let opcionesLuzSemana = {
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
@@ -3113,7 +3113,7 @@ async function getDatosSemana() {
                         legend: false,
                         title: {
                             display: true,
-                            text: 'Temperatura (ºC)',
+                            text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
                             position: 'top',
                             align: 'start',
                             padding: {
@@ -3137,13 +3137,13 @@ async function getDatosSemana() {
                 }
 
                 for (let i = 6; i >= 0; i--) {
-                    datosTemperaturaSemana.labels.push(dias[i]);
-                    datosTemperaturaSemana.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                    datosLuzSemana.labels.push(dias[i]);
+                    datosLuzSemana.datasets[0].data.push(mediciones[i].mediaLuminosidad);
                 }
 
-                graficaAcordeonTemperatura.options = opcionesTemperaturaSemana;
-                graficaAcordeonTemperatura.data = datosTemperaturaSemana;
-                graficaAcordeonTemperatura.update();
+                graficaAcordeonLuz.options = opcionesLuzSemana;
+                graficaAcordeonLuz.data = datosLuzSemana;
+                graficaAcordeonLuz.update();
             }
 
             //--------------------------------------------------------------------------------------SELECTOR
@@ -3157,7 +3157,6 @@ async function getDatosSemana() {
                 const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
                 if (respuesta.ok) {
                     const mediciones = await respuesta.json();
-
 
                     let dias = mediciones.map(function (medicion) {
                         let fecha = medicion.fecha_medicion;
@@ -3173,11 +3172,11 @@ async function getDatosSemana() {
                     });
 
 
-                    let datosTemperaturaSemana = {
+                    let datosLuzSemana = {
                         labels: [],
                         datasets: [
                             {
-                                label: "Temperatura (ºC)",
+                                label: "Luz",
                                 data: [],
                                 tension: 0.2,
                                 fill: false,
@@ -3190,7 +3189,7 @@ async function getDatosSemana() {
                         ]
                     };
 
-                    let opcionesTemperaturaSemana = {
+                    let opcionesLuzSemana = {
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
@@ -3207,7 +3206,7 @@ async function getDatosSemana() {
                             legend: false,
                             title: {
                                 display: true,
-                                text: 'Temperatura (ºC)',
+                                text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
                                 position: 'top',
                                 align: 'start',
                                 padding: {
@@ -3231,13 +3230,13 @@ async function getDatosSemana() {
                     }
 
                     for (let i = 6; i >= 0; i--) {
-                        datosTemperaturaSemana.labels.push(dias[i]);
-                        datosTemperaturaSemana.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                        datosLuzSemana.labels.push(dias[i]);
+                        datosLuzSemana.datasets[0].data.push(mediciones[i].mediaLuminosidad);
                     }
 
-                    graficaAcordeonTemperatura.options = opcionesTemperaturaSemana;
-                    graficaAcordeonTemperatura.data = datosTemperaturaSemana;
-                    graficaAcordeonTemperatura.update();
+                    graficaAcordeonLuz.options = opcionesLuzSemana;
+                    graficaAcordeonLuz.data = datosLuzSemana;
+                    graficaAcordeonLuz.update();
                 }
 
             });
