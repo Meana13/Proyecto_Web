@@ -856,7 +856,6 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 
 
 /*Estilos para los Ajustes de perfil*/
-/* Configuración de la sección de la ficha de la cita */
 #ajustes-usuario h2 {
     text-align: center;
     margin-bottom: 2em;
@@ -887,6 +886,7 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     width: 100%;
     margin: 0 auto;
     display: block;
+    margin-right: 4em;
 }
 
 
@@ -903,16 +903,22 @@ select {
     width: 100%;
     margin: 0 auto;
     display: block;
+    margin-right: 4em;
+
 }
 
 /* Estilos para el campo "incidencias" del formulario de la ficha de la cita */
 #apellidos {
     width: 100%;
+    margin-right: 4em;
+
 }
 
 #email {
     width: 100%;
     margin: 0 auto;
+    margin-right: 4em;
+
 }
 
 
@@ -945,7 +951,8 @@ select {
   background-color: #790050; 
   border: none;
   cursor: pointer;
-  color: #fff; 
+  color: #fff;
+  border-radius: 5px;
 }
 
 
@@ -957,6 +964,7 @@ select {
     cursor: pointer;
     color: #000000;
     border: 2px solid #000000;
+    border-radius: 5px;
     
 }
 
@@ -968,5 +976,6 @@ select {
     border: 2px solid #000000; 
     cursor: pointer;
     color: #000000;
+    border-radius: 5px;
 }
 

@@ -222,9 +222,9 @@ select {
 }
 /* #endregion */
 
-/* #region SECCION ADMINISTRAR HUERTOS */
+/* SECCION ADMINISTRAR HUERTOS */
 /* Configuración de la sección de administrar huertos */
-#tabla-huertos tr td:nth-child(2) {
+#tabla-huertos tr td:nth-child(1) {
     padding: 0;
 }
 
