@@ -1,7 +1,18 @@
+//---------------------------------------
+/*
+ABRIR Y CERRAR MENÚ HAMBURGUESA
+*/
+//---------------------------------------
+
+// Obtenemos referencias al icono del menú (navToggle) y al menú desplegable (navMenu)
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 
-navToggle.addEventListener("click", () => {
+// Agregamos el evento 'click' al icono del menú para alternar la visibilidad del menú desplegable
+navToggle.addEventListener("click", desplegarMenu);
+
+// Función para desplegar o ocultar el menú
+function desplegarMenu() {
   navMenu.classList.toggle("nav-menu_visible");
 
   if (navMenu.classList.contains("nav-menu_visible")) {
@@ -9,14 +20,15 @@ navToggle.addEventListener("click", () => {
   } else {
     navToggle.setAttribute("aria-label", "Abrir menú");
   }
-});
-const loginTab = document.querySelector('.login-tab');
-const loginFormContainer = document.querySelector('.login-form-container');
-const loginForm = document.querySelector('.login-form');
+}
 
-// Mostrar el formulario de inicio de sesión cuando se hace clic en la pestaña
-loginTab.addEventListener('click', function(event) {
-  event.preventDefault();
-  loginFormContainer.style.display = 'flex';
+// Obtener referencias a los enlaces del menú
+const enlacesMenu = document.querySelectorAll(".boton_menu");
+
+// Agregar evento 'click' a cada enlace del menú
+enlacesMenu.forEach((enlace) => {
+  enlace.addEventListener("click", () => {
+    // Ocultar el menú desplegable al hacer clic en un enlace
+    desplegarMenu();
+  });
 });
-// Ocultar el formulario de inicio de sesión cuando se hace clic en cualquier lugar fuera de él

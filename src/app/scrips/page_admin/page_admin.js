@@ -1,46 +1,35 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     const botonAdminUsuarios = document.getElementById("boton-administrar-usuarios");
     const secAdminUsuarios = document.getElementById("seccion-administrar-usuarios");
 
-    const botonOpinion = document.getElementById("boton-opinion-del-personal");
-    const secOpinion = document.getElementById("seccion-opinion-personal");
-
-
     let botonActivo = botonAdminUsuarios;
     let secActiva = secAdminUsuarios;
-    botonAdminUsuarios.style.backgroundColor = "#790050";
 
+    // si se hace click a botonAdminUsuarios hacemos que aparezca su seccion y desaparezcan las demas
     botonAdminUsuarios.addEventListener("click", () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";
         secAdminUsuarios.style.display = "block";
-        botonAdminUsuarios.style.backgroundColor = "#790050";
         botonActivo = botonAdminUsuarios;
         secActiva = secAdminUsuarios;
     });
 
-    botonOpinion.addEventListener("click", () => {
+    const botonAnyadir = document.getElementById("boton-añadir-usuario");
+    const seccionAnyadir = document.getElementById("seccion-añadir-usuario");
+
+    // si se hace click a botonAnyadir hacemos que aparezca su seccion y desaparezcan las demas
+    botonAnyadir.addEventListener('click', () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";
-        secOpinion.style.display = "block";
-        botonOpinion.style.backgroundColor = "#790050";
-        botonActivo = botonOpinion;1
-        secActiva = secOpinion;
-    });
-
-    const botonAñadir = document.getElementById("boton-añadir-usuario");
-    const seccionAñadir = document.getElementById("seccion-añadir-usuario");
-
-    botonAñadir.addEventListener('click', () => {
-        secActiva.style.display = "none";
-        botonActivo.style.backgroundColor = "";
-        seccionAñadir.style.display = "block";
-        secActiva = seccionAñadir;
+        seccionAnyadir.style.display = "block";
+        secActiva = seccionAnyadir;
     });
 
     const botonGenerarId = document.getElementById("boton-generar-id");
     const cajaId = document.getElementById("caja-id");
 
+    // si se hace click a botonGenerarId hacemos que aparezca su seccion y desaparezcan las demas
     botonGenerarId.addEventListener("click", () => {
         const nuevoId = Math.floor(Math.random() * 1000000).toString().padStart(6, "0");
         cajaId.textContent = nuevoId;
@@ -49,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const botonHojaUsuario = document.getElementById("ver-hoja-usuario");
     const seccionHojaUsuario = document.getElementById("seccion-hoja-usuario");
 
+    // si se hace click a botonHojaUsuario hacemos que aparezca su seccion y desaparezcan las demas
     botonHojaUsuario.addEventListener("click", () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";
@@ -59,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const botonGuardarCambios = document.getElementById("boton-guardar-cambios");
     const botonCancelar = document.getElementById("boton-cancelar");
 
+    // si se hace click a botonCancelar hacemos que aparezca su seccion y desaparezcan las demas
     botonCancelar.addEventListener("click", () => {
         secActiva.style.display = "none";
         botonActivo.style.backgroundColor = "";
@@ -66,5 +57,35 @@ document.addEventListener('DOMContentLoaded', function () {
         botonAdminUsuarios.style.backgroundColor = "#790050";
         botonActivo = botonAdminUsuarios;
         secActiva = secAdminUsuarios;
-    })
+    });
 });
+
+let datosUsuario = {
+    nombre:"",
+    apellidos: "",
+    email:"",
+    direccion:"",
+}
+
+function crearTablaUsuarios(solicitud) {
+    let fila = document.createElement('tr');
+
+    let celdaNombre = document.createElement('td');
+    celdaNombre.textContent = solicitud.nombre;
+
+    let celdaApellidos = document.createElement('td');
+    celdaApellidos.textContent = solicitud.apellidos;
+
+    let celdaEmail = document.createElement('td');
+    celdaEmail.textContent = solicitud.email;
+
+    let celdaDireccion
+
+    let celdaBoton = document.createElement("td");
+    let botonHojaUsuario = document.createElement("button");
+
+    celdaBoton.appendChild(botonHojaUsuario);
+
+
+    fila.append(celdaNombre, celdaApellidos, celdaEmail, celdaBoton);
+}

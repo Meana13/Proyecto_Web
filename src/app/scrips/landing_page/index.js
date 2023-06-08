@@ -10,6 +10,7 @@ navToggle.addEventListener("click", () => {
     navToggle.setAttribute("aria-label", "Abrir menú");
   }
 });
+
 const loginTab = document.querySelector('.login-tab');
 const loginFormContainer = document.querySelector('.login-form-container');
 const loginForm = document.querySelector('.login-form');

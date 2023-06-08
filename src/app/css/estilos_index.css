@@ -1,15 +1,19 @@
 * {
     margin: 0;
 }
-body{
+
+body {
     padding: 0px;
+    margin-top: 80px;
 }
-#contenedor_primera_visivilidad{
+
+#contenedor_primera_visivilidad {
     height: 100vh;
 }
 
+/* Estilos boton contacto */
 #boton-contacto {
-    background-color: #9D4179;
+    background-color: var(--secundario);
     border: 0;
     padding: 20px;
     border-radius: 5px;
@@ -19,21 +23,23 @@ body{
     text-transform: uppercase;
 }
 
+/* Estilos Container hero */
 #container_hero {
-    margin-top: 80px;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,1),rgba(255,255,255,0)), url('../../../images/fonfo_hero.jpg');
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0)), url('../../images/fonfo_hero.jpg');
     height: 100vh;
     background-size: cover;
     width: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-#titulo_hero{
+
+/* Estilos titulo hero */
+#titulo_hero {
     margin-bottom: 50px;
 }
+
 .overlay {
     background-color: rgba(255, 255, 255, 0.5);
     margin: 20px;
@@ -43,72 +49,212 @@ body{
     border-radius: 10px;
     text-align: center;
 }
-#button {
-    margin-top: 20px;
-    background-color: #9D4179;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 #parrafo {
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
-#flecha{
-    margin-top: 85px;
+
+/* Estilos flecha */
+#flecha {
+    font-size: 50px;
+    color: var(--textoBotones);
+    margin-top: 70px;
+    animation: flecha_animada 2s ease-in-out;
+    display: inline-block;
+    animation-iteration-count: infinite;
 }
-h1,h2,h3,h4{
+
+/* Titulos centrados */
+h1,
+h2,
+h3,
+h4 {
     text-align: center;
 }
-.slide-contenedor_productos{
-    margin-left: 25%;
-}
-#titulo_nuestros_productos{
+
+/* Estilos de los prudctos */
+
+#titulo_nuestros_productos {
     margin-top: 25px;
 }
-.linea{
-    height: 1px;
-    background-color: black;
 
-    border: 1px solid black;
+#p-productos {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 14px;
 }
 
-#nuestros_valores ul{
+/* Estilos para la sección de productos */
+.vista_imagen {
+    width: 80%;
+    object-fit: cover;
+    vertical-align: center;
+    margin: 10px 25px;
+    transition: 2s;
+    border: 2px solid var(--textoGeneral);
+}
+
+.vista_parrafo {
+    text-decoration: none;
+    font-family: Arial;
+    color: var(--textoGeneral);
+    width: 300px;
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.linea {
+    height: 1px;
+    background-color: var(--textoGeneral);
+    border: 1px solid var(--textoGeneral);
+}
+
+/*···························*/
+/* SECCION NUESTROS VALORES */
+/*··························*/
+
+#contenedor_nuestros_valores {
+    margin-bottom: 50px;
+}
+
+#nuestros_valores ul {
+    margin: 0 auto;
     margin-top: 50px;
     width: 50%;
-    display: flex;
 }
 
-.lista_valores{
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10%;
+.lista_valores {
     margin-bottom: 80px;
 }
+
 .lista_valores li {
-    width: 40%;
-    float: right;
+    list-style: none;
     display: flex;
-    align-items: center;
-    padding-top: 20px;
 }
 
-.lista_valores li img {
-    width: 30px;
+.lista_valores .bi {
+    font-size: 30px;
+    color: var(--principal);
     margin-right: 20px;
 }
 
+.lista_valores li p {
+    margin-top: 12px;
+}
+
+#ultima-fila {
+    padding: 0;
+}
+
+ /*··························*\
+|*     SECCION OPINIONES      *|
+ \*··························*/
+
+.contenedor_opiniones {
+    margin-top: 25px;
+    max-width: 100%;
+    max-height: 250px;
+    max-height: 250px;
+    width: 80%;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    margin-left: 515px;
+}
+
+.nombre_usuario {
+    margin-top: 16px;
+    width: fit-content;
+    height: 20px;
+    font-size: 15px;
+}
+
+#foto-perfil {
+    width: auto;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--textoGeneral);
+    padding: 0;
+}
+
+/* Estilos para la calificación de la opinión */
+.calificacion div i {
+    font-size: 15px;
+    width: auto;
+    color: #FFD700;
+}
+
+.calificacion div {
+    margin-top: 16px;
+}
+
+.texto_opinion {
+    border-top: solid 1px var(--textoGeneral);
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    height: fit-content;
+    overflow: auto;
+}
+
+.vista_opinion {
+    border: 2px solid var(--textoGeneral);
+    object-fit: cover;
+    vertical-align: top;
+    transition: 2s;
+    margin-top: 25px;
+    margin: 30px auto;
+}
+
+#foto {
+    width: auto;
+}
+
+.vista_opinion .col-1 {
+    width: 5px;
+}
+
+#contenedor_opiniones .container {
+    display: flex;
+}
+
+
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 1200px) {
+    .vista_opinion {
+        width: 50%;
+    }
+
+    #contenedor_opiniones .container {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .vista_opinion {
+        width: 80%;
+        margin: 10px auto;
+    }
+}
+
+
+/* Estilos boton volver arriba */
 #boton-volver-arriba {
     display: block;
     margin: 0 auto;
     padding: 10px 20px;
-    background-color: #790050;
-    color: white;
+    background-color: var(--principal);
+    color: var(--textoBotones);
     border: none;
     border-radius: 20px;
     font-size: 1.2em;
@@ -119,13 +265,37 @@ h1,h2,h3,h4{
 }
 
 #boton_volver_arriba:hover {
-    background-color: #ff7eb9;
+    background-color: var(--hover);
 }
 
+/* animacion flecha bajar */
+@keyframes flecha_animada {
+    from {
+        transform: translateY(0);
+    }
 
-@media(max-width: 768px){
+    50% {
+        transform: translateY(20px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@media(max-width: 1446px) {}
+
+/* Estilos aplicados en dispositivos con un ancho máximo de 768px */
+@media(max-width: 768px) {
+
+    /* Estilos aplicados al elemento 'body' en dispositivos móviles */
+    body {
+        margin-top: 60px;
+    }
+
+    /* Estilos SECCION HERO */
     #container_hero {
-        padding-top: 0px ;
+        padding-top: 0px;
         margin-top: 0px;
         background-size: cover;
         height: 100vh;
@@ -134,9 +304,11 @@ h1,h2,h3,h4{
         align-items: center;
         flex-direction: column;
     }
-    #titulo_hero{
+
+    #titulo_hero {
         margin-top: 10px;
     }
+
     .overlay {
         background-color: rgba(255, 255, 255, 0.5);
         margin-top: -30px;
@@ -145,10 +317,11 @@ h1,h2,h3,h4{
         border-radius: 10px;
         text-align: center;
     }
+
     #button {
         margin-top: 10px;
-        background-color: #9D4179;
-        color: white;
+        background-color: var(--secundario);
+        color: var(--textoBotones);
         font-size: 25px;
         padding: 10px 20px;
         border: none;
@@ -160,34 +333,26 @@ h1,h2,h3,h4{
         font-size: 1.5rem;
         margin-bottom: 20px;
     }
-    #flecha{
-        margin-top: 20px;
+
+    /*···························*/
+    /* SECCION NUESTROS VALORES */
+    /*··························*/
+
+    #nuestros_valores ul {
+        margin-top: 50px;
+        width: 80%;
     }
 
-    #nuestros_valores ul{
-        margin-top: 50px;
-        width: 90%;
-        display: flex;
-    }
-    
-    .lista_valores{
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10%;
+    .lista_valores {
         margin-bottom: 80px;
     }
-    .lista_valores li {
-        width: 80%;
-        float: right;
-        display: flex;
-        align-items: center;
-        padding-top: 20px;
-    }
-    
+
     .lista_valores li img {
         width: 30px;
         margin-right: 20px;
+    }
+
+    .vista_imagen {
+        width: 60%;
     }
 }

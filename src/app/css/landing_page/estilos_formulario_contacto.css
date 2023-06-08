@@ -1,74 +1,159 @@
-#contact-form{
-    margin-top: 100px;
-
+h2 {
+    text-align: center; 
+    margin-bottom: 25px;
 }
+
+label {
+    display: block; 
+    margin-bottom: 5px; 
+}
+
+/* Estilos formulario */
 .form-group {
     margin-bottom: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto; 
+    width: 20em; 
 }
-#titulo_contacto{
-    font-size: 30px;
-    text-align: center;
+
+#name, 
+#apellidos, 
+#email, 
+#section, 
+#mensaje {
+    width: 100%;
 }
-label {
-    display: block;
-    margin-bottom: 5px;
+
+#mensaje {
+    margin-left: 1px; 
+    height: 20vh; 
 }
-#nombre {
-    width: 70%;
-}
-#apellidos {
-     width: 70%;
- }
-#email{
-    width: 70%;
-}
-#section{
-    width: 70%;
-}
-#mensaje{
-    margin-left: 1px;
-    width: 70%;
-    height: 20vh;
-}
+
 input[type="text"],
 input[type="email"],
 select {
     width: 100%;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid black;
-    margin-bottom: 15px;
+    padding: 5px; 
+    border-radius: 5px; 
+    border: 1px solid black; 
+    margin-bottom: 15px; 
 }
-input[type="submit"] {
-    background-color: #4CAF50;
+
+/* Estilos para el botón de envío */
+#boton_enviar_formulario{
+    background-color: #790050; 
     border: none;
     color: white;
-    padding: 10px 20px;
-    text-align: center;
+    padding: 10px 20px; 
+    text-align: center; 
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 16px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-top: 30px;
 }
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
-.required:after {
-    content: " *";
-    color: red;
-}
-#boton_enviar_formulario {
-    background-color: #9D4179;
-    color: #FFFFFF;
-    font-family: Arial, sans-serif;
-    text-transform: uppercase;
-    border: 0;
-    border-radius: 0.5em;
-    font-size: 16px;
+
+#boton_enviar_formulario:hover{
+    background-color:#9D4179;
     font-weight: bold;
-    padding: 1em;
-    margin-left: 58%;
+}
+
+input[type="submit"]:hover {
+    background-color: #790050; 
+}
+
+/* Estilos error de elemento requerido */
+.required:after {
+    content: " *"; 
+    color: red; 
+}
+
+/* Estilos para el contenedor del diálogo */
+#dialog-container {
+    display: flex;
+    position: absolute; 
+    bottom: 0; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+/* Estilos pop-up envio correcto */
+#dialog-correcto {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: #FFF6ED;
+    width: 30%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+/* Estilos para el párrafo del diálogo "¡Se ha enviado correctamente!" */
+
+#dialog-correcto p{
+    align-self: center;
+    margin-bottom: 2rem;
+}
+
+/* Estilos para el botón de cerrar el diálogo */
+.boton-cerrar-dialogo {
+    color: white;
+    background-color: var(--principal);
+    align-self: center;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/*Para que cuando se entre en el formulario en dialogo no se muestre*/
+#dialog-container {
+    display:none;
+}
+
+/* Estilos para el cuerpo de la página en pantallas pequeñas */
+@media (max-width: 768px) {
+    body {
+        margin-top: 80px; 
+    }
+
+    #dialog-correcto p{
+        margin: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 550px){
+    #dialog-correcto p{
+        margin: .2rem
+    }
+    .boton-cerrar-dialogo{
+        font-size: .8rem;
+        padding: .3rem;
+    }
+}
+
+@media (max-width: 400px){
+    #dialog-correcto{
+        padding:.1rem;
+    }
+    #dialog-correcto p{
+        margin: 0;
+    }
+    .boton-cerrar-dialogo{
+        font-size: .8rem;
+        padding: .2rem;
+        width: 50%;
+        height: 20%;
+
+    }
 }

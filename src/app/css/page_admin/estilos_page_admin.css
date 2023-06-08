@@ -1,3 +1,15 @@
+#seccion-administrar-usuarios {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+/* Estilos para los títulos de nivel h2 */
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Estilos para la imagen dentro del botón "añadir usuario" */
 #boton-añadir-usuario img {
     height: 1em;
     width: 1.2em;
@@ -5,35 +17,40 @@
     margin-left: .5em;
 }
 
+/* Estilos para la sección "administrar usuarios" */
 #seccion-administrar-usuarios {
     display: block;
 }
 
+/* Estilos para la sección "añadir usuario" */
 #seccion-añadir-usuario {
     display: none;
 }
 
+
+/* Estilos para la sección "hoja de usuario" */
 #seccion-hoja-usuario {
     display: none;
+    width: fit-content;
+    margin: 0 auto;
 }
 
+/* Estilos para la sección "opinión personal" */
 #seccion-opinion-personal {
     display: none;
-    border: 2px solid black;
+    border: 2px solid var(--textoGeneral);
     width: 70%;
-    margin-top: 2em;
     margin-left: 15%;
     margin-right: 15%;
-    background-color: white;
+    background-color: var(--textoBotones);
 }
 
-/* #region SECCION ADMINISTRAR USUARIOS */
-
+/* Estilos para el botón "añadir usuario" */
 #boton-añadir-usuario {
     border-radius: 5px;
-    background-color: #9D4179;
+    background-color: var(--secundario);
     border: 0;
-    color: #FFFFFF;
+    color: var(--textoBotones);
     height: 35px;
     width: 110px;
     align-items: center;
@@ -47,8 +64,11 @@
     margin-right: 5%;
 }
 
-/* #region TABLA USUARIOS */
+#boton-añadir-usuario:hover {
+    background-color:#9D4179
+}
 
+/* Estilos para la tabla de usuarios */
 table {
     max-width: 80%;
     margin: 0 auto;
@@ -56,21 +76,24 @@ table {
     border-collapse: collapse;
 }
 
+/* Estilos para las celdas de encabezado de la tabla */
 th {
-    background-color: gray;
-    color: white;
+    background-color: var(--fondoSecundario);
+    color: var(--textoBotones);
     text-transform: uppercase;
 }
 
+/* Estilos para las celdas de la tabla */
 th,
 td {
     width: 40%;
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     padding-left: .5em;
     padding-right: .5em;
     font-family: Arial, sans-serif;
 }
 
+/* Estilos para la última celda de cada fila y columna de la tabla */
 td:last-child,
 th:last-child {
     width: 20px;
@@ -78,43 +101,43 @@ th:last-child {
     background-color: transparent;
 }
 
-
+/* Estilos para el enlace "ver hoja de usuario" */
 #ver-hoja-usuario {
     border: 0;
     background-color: transparent;
 }
 
+/* Estilos para la imagen dentro del enlace "ver hoja de usuario" */
 #ver-hoja-usuario img {
     margin-top: .3em;
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     border-radius: 20%;
     padding: .15em;
-    background-color: gray;
+    background-color: var(--fondoSecundario);
 }
 
-/* #endregion FIN TABLA */
-
-/* #region INICIO HOJA DE USUARIO */
-
+/* Estilos para la sección "hoja de usuario" */
 #hoja-de-usuario {
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 2em;
 }
 
+/* Estilos para el formulario de la "hoja de usuario" */
 #formulario-hoja-usuario {
     width: 550px;
     margin: 0 auto;
     display: block;
 }
 
+/* Estilos para las etiquetas dentro del formulario de la "hoja de usuario" */
 #formulario-hoja-usuario label {
     display: inline-block;
     width: 40%;
     text-align: left;
 }
 
-
+/* Estilos para el icono de editar */
 #icono-editar {
     margin-left: 10px;
     padding: 0;
@@ -123,9 +146,10 @@ th:last-child {
     top: 6px;
 }
 
+/* Estilos para el botón "cancelar" */
 #boton-cancelar {
-    background-color: #555555;
-    color: #FFFFFF;
+    background-color: var(--fondoSecundario);
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;
@@ -135,9 +159,10 @@ th:last-child {
     font-weight: bold;
 }
 
+/* Estilos para el botón "guardar cambios" */
 #boton-guardar-cambios {
-    background-color: #9D4179;
-    color: #FFFFFF;
+    background-color: var(--secundario);
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;
@@ -147,6 +172,7 @@ th:last-child {
     padding: 1em;
 }
 
+/* Estilos para el contenedor de los botones en la "hoja de usuario" */
 #botones {
     margin-top: 2em;
     display: flex;
@@ -154,27 +180,27 @@ th:last-child {
     gap: 15%;
 }
 
-/* #endregion FIN HOJA DE USUARIO */
-
-/* #region AÑADIR USUARIO */
-
+/* Estilos para la sección "añadir usuario" */
 #nuevo-usuario {
     text-align: center;
     margin-bottom: 2em;
 }
 
+/* Estilos para el formulario de "añadir usuario" */
 #formulario-nuevo-usuario {
     width: 324px;
     margin: 0 auto;
     display: block;
 }
 
+/* Estilos para las etiquetas dentro del formulario de "añadir usuario" */
 #formulario-nuevo-usuario label {
     display: inline-block;
     width: 120px;
     text-align: left;
 }
 
+/* Estilos para los inputs de texto y select en el formulario de "añadir usuario" */
 input[type="text"],
 select {
     width: 180px;
@@ -183,9 +209,10 @@ select {
     margin-bottom: 10px;
 }
 
+/* Estilos para el botón "generar ID" */
 #boton-generar-id {
     background-color: #555555;
-    color: #FFFFFF;
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;
@@ -196,23 +223,26 @@ select {
     font-weight: bold;
 }
 
+/* Estilos para el contenedor del ID de usuario */
 #id-usuario {
     display: flex;
     gap: 1em;
     justify-content: center;
 }
 
+/* Estilos para la caja que muestra el ID de usuario */
 #caja-id {
     width: 6em;
     height: 1em;
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     background-color: #f0f0f0;
-    color: black;
+    color: var(--textoGeneral);
 }
 
+/* Estilos para el botón "dar de alta" */
 .boton-dar-de-alta {
-    background-color: #9D4179;
-    color: #FFFFFF;
+    background-color: var(--secundario);
+    color: var(--textoBotones);
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     border: 0;
@@ -225,97 +255,19 @@ select {
     font-weight: bold;
 }
 
-/* #endregion FIN AÑADIR USUARIO */
-
-/* #endregion FIN ADMINISTRAR USUARIOS */
-
-/* #region INICIO OPINION DEL PERSONAL */
-
-.desplegable-tecnicos {
-    width: 100%;
-    height: 2.5em;
-    background-color: #969898;
-    margin-bottom: 0;
-    border: 1px solid black;
-    font-size: 16px;
-}
-
-.desplebable-tecnicos option {
-    width: inherit;
-}
-
-.caja-opinion {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
-}
-
-.icono-opinion {
-    width: 4em;
-    height: 4.5em;
-    margin: auto 1em;
-}
-
-.datos-opinion {
-    width: 40%;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.fecha-instalacion {
-    font-size: 14px;
-    text-align: center;
-    width: auto;
-}
-
-.n-instalacion {
-    width: auto;
-    display: flex;
-    padding-bottom: 15px;
-    justify-content: center;
-}
-
-.estrellas {
-    display: flex;
-    justify-content: center;
-}
-
-.estrellas img {
-    width: 20px;
-    height: 20px;
-}
-
-#media-estrella {
-    width: 10px;
-}
-
-.opinion {
-    border: 1px solid black;
-    margin: .5em;
-    width: 40%;
-}
-
-/* #endregion FIN OPINION DEL PERSONAL */
-
-
-/*\ ---------------- MOVIL -----------------\*/
-
+/* Estilos específicos para pantallas de dispositivos móviles */
 @media (max-width: 768px) {
 
-    /* #region SECCION ADMINISTRAR USUARIOS */
+    /* Estilos para el botón "añadir usuario" en dispositivos móviles */
     #boton-añadir-usuario {
         width: auto;
         height: 30px;
         width: 90px;
     }
 
-    /* #region TABLA USUARIOS */
-
+    /* Estilos tabla */
     table {
-        max-width: 90%;
+        max-width: 80%;
         margin: 0 auto;
         margin-top: 1em;
         border-collapse: collapse;
@@ -323,7 +275,7 @@ select {
 
     th {
         background-color: gray;
-        color: white;
+        color: var(--textoBotones);
         text-transform: uppercase;
     }
 
@@ -332,63 +284,141 @@ select {
         padding-left: .25em;
         padding-right: .25em;
         font-family: Arial, sans-serif;
-
-    }
-
-    td {
-        font-size: 14px;
     }
 
     td:last-child,
     th:last-child {
+        width: 10px;
         border: none;
         background-color: transparent;
     }
 
-    /* #endregion */
+    /* SECCION HOJA DE USUARIO */
+    #hoja-de-usuario {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 2em;
+    }
 
+    /* Estilos formulario hoja de usuario */
     #formulario-hoja-usuario {
-        width: 400px;
+        width: auto;
         margin: 0 auto;
         display: block;
     }
 
+    #formulario-hoja-usuario label {
+        display: inline-block;
+        width: 40%;
+        text-align: left;
+    }
+
+    #icono-editar {
+        margin-left: 5px;
+        padding: 0;
+        border: 0;
+        position: relative;
+        top: 6px;
+    }
+
     #boton-cancelar {
         background-color: #555555;
-        color: #FFFFFF;
+        color: var(--textoBotones);
         font-family: Arial, sans-serif;
         text-transform: uppercase;
         border: 0;
-        padding: 1em;
+        padding: .5em;
         border-radius: .5em;
+        font-size: 12px;
         font-weight: bold;
     }
 
     #boton-guardar-cambios {
-        background-color: #9D4179;
-        color: #FFFFFF;
+        background-color: var(--secundario);
+        color: var(--textoBotones);
         font-family: Arial, sans-serif;
         text-transform: uppercase;
         border: 0;
         border-radius: .5em;
+        font-size: 12px;
         font-weight: bold;
-        padding: 1em;
+        padding: .5em;
     }
 
-    .desplegable-tecnicos {
+    #botones {
+        margin-top: 1em;
+        display: flex;
+        justify-content: center;
+        gap: 15%;
+    }
+
+    #nuevo-usuario {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    #formulario-nuevo-usuario {
         width: 100%;
-        height: 2.5em;
-        background-color: #969898;
-        margin-bottom: 0;
-        border: 1px solid black;
+        margin: 0 auto;
+        display: block;
+    }
+
+    #formulario-nuevo-usuario label {
+        display: inline-block;
+        width: 120px;
+        text-align: left;
+    }
+
+    input[type="text"],
+    select {
+        width: 180px;
+        box-sizing: border-box;
+        padding: 3px;
+        margin-bottom: 10px;
+    }
+
+    #boton-generar-id {
+        background-color: #555555;
+        color: var(--textoBotones);
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        border: 0;
+        padding: .5em;
+        display: block;
+        margin: 1em auto;
+        border-radius: .5em;
+        font-weight: bold;
         font-size: 12px;
     }
 
-    #seccion-opinion-personal {
-        width: 90%;
-        margin-top: 2em;
-        margin-left: 5%;
+    #id-usuario {
+        display: flex;
+        gap: 1em;
+        justify-content: center;
+    }
+
+    #caja-id {
+        width: 6em;
+        height: 1em;
+        border: 1px solid var(--textoGeneral);
+        background-color: #f0f0f0;
+        color: var(--textoGeneral);
+        font-size: 12px;
+    }
+
+    .boton-dar-de-alta {
+        background-color: var(--secundario);
+        color: var(--textoBotones);
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+        border: 0;
+        padding: .5em;
+        display: block;
+        margin-top: 1em;
+        margin-left: auto;
         margin-right: 5%;
-        background-color: white;
+        border-radius: .5em;
+        font-weight: bold;
+        font-size: 12px;
     }
 }

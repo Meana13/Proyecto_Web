@@ -1,15 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titulo</title>
+    <title>Page tecnico</title>
+    
+    <!-- carga de scripts -->
     <script src="../../scrips/page_tecnico/page_tecnico.js"></script>
+    -<!-- <script src="../../scrips/landing_page/control-acceso.js"></script>-->
+    <!-- carga hoja de estilos -->
     <link rel="stylesheet" href="../../css/page_tecnico/estilos_page_tecnico.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
-    <link rel="stylesheet" href="../../css/landing_page/footer.css" <link rel="stylesheet"
-        href="../../css/landing_page/estilos_index_menu_no_registrado.css" </head>
+    <link rel="stylesheet" href="../../css/landing_page/footer.css">
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css">
+</head>
 
 <body>
     <!-- HEADER -->
@@ -17,9 +23,10 @@
     <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
     <header class="header">
-        <a href="#" class="logo nav-link"><img class="logo nav-link" src="../../../../images/logoGTI.png" alt=""></a>
+        <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
         <div class="login-tab">
-            <a href="../../../index.html" class="login-tab-icon"><img src="../../../../images/icono-usuario.svg" alt=""></a>
+            <img src="../../../images/tecnico.png" alt="">
+            <label>Nicorom</label>
         </div>
 
 
@@ -33,19 +40,16 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <a href="../landing_page/quienes_somos.html" class="nav-menu-link nav-link">QUIENES SOMOS</a>
+                    <button class="boton_menu" id="boton-citas">citas</button>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../../../index.html#titulo_nuestros_productos" class="nav-menu-link nav-link">NUESTROS PRODUCTOS</a>
+                    <button class="boton_menu" id="boton-opiniones">Opiniones</button>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../landing_page/faqs.html" class="nav-menu-link nav-link">PREGUNTAS FRECUENTES</a>
+                    <button class="boton_menu" id="boton-administrar-huertos">Administracion de huertos</button>
                 </li>
                 <li class="nav-menu-item">
-                    <a href="../landing_page/formulario_contacto.html" class="nav-menu-link nav-link">PONTE EN CONTACTO</a>
-                </li>
-                <li class="nav-menu-item">
-                    <a href="../../../index.html" class="nav-menu-link nav-link">CERRAR SESIÓN</a>
+                    <button class="nav-menu-link nav-link" onclick="logout()">CERRAR SESIÓN</button>
                 </li>
             </ul>
         </nav>
@@ -53,36 +57,7 @@
     </header>
     <!------------>
 
-    <!-- INICIO DATOS TECNICO -->
-
-    <section class="perfil">
-        <img src="../../../../images/tecnico.png" alt="Foto tecnico" class="foto-perfil">
-
-        <p id="datos">
-            Nombre de usuario: Nicorom <br>
-            Nombre y apellidos: Nicolás Román <br>
-            E-mail: tecnic.nicorom@empresa.com <br>
-            Dirección: Carretera Sequia del Rei, 3, Bloque Y 2ª Planta Puerta 6
-        </p>
-    </section>
-
-    <!-- FIN DATOS TECNICO -->
-
-    <!-- BOTONES -->
-
-    <nav id="botones-perfil">
-        <button type="button" id="boton-citas" class="boton-perfil">Citas</button>
-        <button type="button" id="boton-opiniones" class="boton-perfil">opiniones</button>
-        <button type="button" id="boton-administrar-huertos" class="boton-perfil">Administrar huertos</button>
-    </nav>
-
-    <!------------->
-
-    <!-- LINEA SEPARATORIA -->
-
-    <div id="divisor"></div>
-
-    <!----------------------->
+    
 
     <!-- INICIO SECCION CITAS -->
     <section id="seccion-citas">
@@ -93,7 +68,6 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Fecha</th>
-                    <th>hora</th>
                     <th></th>
                 </tr>
             </thead>
@@ -101,45 +75,45 @@
                 <tr>
                     <td>Ricardo</td>
                     <td>03/02/2023</td>
-                    <td>8:00</td>
-                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    <td>
+                        <button id="boton-ver-cita">Ver ficha</button>
                     </td>
                 </tr>
                 <tr>
                     <td>Concepción</td>
                     <td>10/04/2023</td>
-                    <td>10:20</td>
-                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    <td>
+                        <button id="boton-ver-cita">Ver ficha</button>
                     </td>
                 </tr>
                 <tr>
                     <td>Victoria</td>
                     <td>16/04/2023</td>
-                    <td>11:30</td>
-                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    <td>
+                        <button id="boton-ver-cita">Ver ficha</button>
                     </td>
                     </td>
                 </tr>
                 <tr>
                     <td>Gloria</td>
                     <td>23/04/2023</td>
-                    <td>12:15</td>
-                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    <td>
+                        <button id="boton-ver-cita">Ver ficha</button>
                     </td>
                     </td>
                 </tr>
                 <tr>
                     <td>Julio</td>
                     <td>27/04/2023</td>
-                    <td>12:50</td>
-                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    <td>
+                        <button id="boton-ver-cita">Ver ficha</button>
                     </td>
                 </tr>
                 <tr>
                     <td>Pedro</td>
                     <td>04/05/2023</td>
-                    <td>13:30</td>
-                    <td><button id="boton-ver-cita">Ver ficha</button>
+                    <td>
+                        <button id="boton-ver-cita">Ver ficha</button>
                     </td>
                 </tr>
             </tbody>
@@ -156,7 +130,9 @@
             <br> <!---->
             <label><b>Direccion: </b></label>
             <input type="text" id="direccion" name="direccion">
-            <br> <!---->
+            <br>
+            <label><b>Hora: </b></label>
+            <input type="text" id="hora" name="hora">
             <br>
             <label><b>Productos vendidos: </b></label> <br>
             <input type="text" id="productos-vendidos" name="productos-vendidos">
@@ -174,21 +150,23 @@
 
     <!-- INICIO SECCION OPINIONES -->
     <section id="seccion-opiniones">
+        <h3>OPINIONES</h3>
+        
         <div id="opiniones">
             <!-- Opinion 1 -->
             <div class="caja-opinion" id="opinion1">
-                <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
+                <img src="../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
                 <div class="datos-opinion">
                     <label class="fecha-instalacion">Instalación: 04/04/2023 </label>
                     <!-- importar fecha no se como -->
                     <br>
                     <label class="n-instalacion">#01</label><!-- importar nº de instalacion -->
                     <div class="estrellas">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/media-estrella.svg" alt="Media estrella" id="media-estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/media-estrella.svg" alt="Media estrella" id="media-estrella">
                     </div>
                 </div>
                 <textarea readonly
@@ -196,17 +174,17 @@
             </div>
             <!-- Opinion 2 -->
             <div class="caja-opinion" id="opinion2">
-                <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
+                <img src="../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
                 <div class="datos-opinion">
                     <label class="fecha-instalacion">Instalación: 05/04/2023 </label>
                     <!-- importar fecha no se como -->
                     <br>
                     <label class="n-instalacion">#02</label><!-- importar nº de instalacion -->
                     <div class="estrellas">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
                     </div>
                 </div>
                 <textarea readonly
@@ -215,18 +193,18 @@
 
             <!-- Opinion 3 -->
             <div class="caja-opinion" id="opinion3">
-                <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
+                <img src="../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
                 <div class="datos-opinion">
                     <label class="fecha-instalacion">Instalación: 06/04/2023 </label>
                     <!-- importar fecha no se como -->
                     <br>
                     <label class="n-instalacion">#03</label><!-- importar nº de instalacion -->
                     <div class="estrellas">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/media-estrella.svg" alt="Media estrella" id="media-estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/media-estrella.svg" alt="Media estrella" id="media-estrella">
                     </div>
                 </div>
                 <textarea readonly
@@ -235,18 +213,18 @@
 
             <!-- Opinion 4 -->
             <div class="caja-opinion" id="opinion4">
-                <img src="../../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
+                <img src="../../../images/icono-opinion-usuario.svg" alt="Opinion de usuario" class="icono-opinion">
                 <div class="datos-opinion">
                     <label class="fecha-instalacion">Instalación: 07/04/2023 </label>
                     <!-- importar fecha no se como -->
                     <br>
                     <label class="n-instalacion">#04</label><!-- importar nº de instalacion -->
                     <div class="estrellas">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
-                        <img src="../../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
+                        <img src="../../../images/estrella.svg" alt="Estrella">
                     </div>
                 </div>
                 <textarea readonly
@@ -260,16 +238,15 @@
     <!-- INICIO SECCION ADMINISTRAR HUERTOS -->
 
     <section id="seccion-administrar-huertos">
-        <h3>ADMINISTRAR HUERTOS</h3>
+        <h3>ADMINISTRACIÓN DE HUERTOS</h3>
 
-        <button type="button" id="boton-añadir-huerto">AÑADIR</button>
+        
         <table id="tabla-huertos">
             <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Elegir huerto</th>
-                    <th>hora</th>
-                    <th></th>
+                    <th> </th>
                 </tr>
             </thead>
             <tbody>
@@ -282,9 +259,9 @@
                             <option value="huerto3">Huerto 3</option>
                         </select>
                     </td>
-                    <td>8:00</td>
-                    <td><button id="boton-ver-huerto">Ver huerto</button>
-                    </td>
+                    
+                    <td><button id="boton-ver-huerto">Ver huerto</button></td>
+                    <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                 </tr>
                 <tr>
                     <td>Concepción</td>
@@ -295,8 +272,9 @@
                             <option value="huerto3">Huerto 3</option>
                         </select>
                     </td>
-                    <td>10:20</td>
+                    
                     <td><button id="boton-ver-huerto">Ver huerto</button>
+                    <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                     </td>
                 </tr>
                 <tr>
@@ -308,8 +286,9 @@
                             <option value="huerto3">Huerto 3</option>
                         </select>
                     </td>
-                    <td>11:30</td>
+                    
                     <td><button id="boton-ver-huerto">Ver huerto</button>
+                    <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                     </td>
                     </td>
                 </tr>
@@ -322,8 +301,9 @@
                             <option value="huerto3">Huerto 3</option>
                         </select>
                     </td>
-                    <td>12:15</td>
+                    
                     <td><button id="boton-ver-huerto">Ver huerto</button>
+                    <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                     </td>
                     </td>
                 </tr>
@@ -336,8 +316,9 @@
                             <option value="huerto3">Huerto 3</option>
                         </select>
                     </td>
-                    <td>12:50</td>
+                    
                     <td><button id="boton-ver-huerto">Ver huerto</button>
+                    <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                     </td>
                 </tr>
                 <tr>
@@ -349,15 +330,16 @@
                             <option value="huerto3">Huerto 3</option>
                         </select>
                     </td>
-                    <td>13:30</td>
+                   
                     <td><button id="boton-ver-huerto">Ver huerto</button>
+                    <td><button type="button" id="boton-añadir-huerto">Añadir Huerto</button></td>
                     </td>
                 </tr>
             </tbody>
         </table>
     </section>
 
-    <!-- INICIO SECCOIN AÑadir HUERTO -->
+    <!-- INICIO SECCIÓN AÑADIR HUERTO -->
 
     <section id="seccion-añadir-huerto">
         <h3>AÑADIR NUEVO HUERTO</h3>
@@ -423,7 +405,7 @@
             <label>Nombre huerto </label>
             <input type="text" id="nombre-huerto" name="id-cliente">
             <button type="button" id="boton-editar">Editar</button>
-            <br> <!---->
+            <br>
             <label>Usuario: </label>
             <select class="desplegable-usuario" name="elegir-usuario">
                 <option value="pmeagon">pmeagon</option>
@@ -431,11 +413,11 @@
                 <option value="ricgon">ricgon</option>
             </select>
             <button type="button" id="boton-editar">Editar</button>
-            <br> <!---->
+            <br> 
             <label>Dirección</label>
             <input type="text" id="direccion" name="direccion">
             <button type="button" id="boton-editar">Editar</button>
-            <br> <!---->
+            <br> 
             <label id="label-lista-sensores">Lista de sensores: </label> <button type="button"
                 id="boton-editar">Editar</button>
             <ul id="lista-sensores">
@@ -469,7 +451,7 @@
                 <input type="text" id="Anchoo" name="Anchoo"> <label>X</label>
                 <input type="text" id="Largo" name="Largo">
             </div>
-            <br> <!---->
+            <br>
             <label>Notas: </label> <button type="button" id="boton-editar">Editar</button><br>
             <input type="text" id="notas" name="Notas"> <br>
             <label id="label-imagen">Imagen del huerto: </label> <br>
@@ -484,25 +466,20 @@
 
     <!-- FOOTER -->
     <footer>
-        <div id="columnas">
-            <div id="columna-conocenos">
-                <h3 id="conocenos">conocenos</h3>
-                <a href="#">Quiénes somos</a>
-                <a href="#">Politica de privacidad</a>
-                <a href="#">Aviso legal</a>
-            </div>
-            <div id="columna-ayuda">
-                <h3 id="ayuda">ayuda</h3>
-                <a href="#">Contacto</a>
-                <a href="#">Pedir presupuesto</a>
-                <a href="#">Preguntas frecuentes</a>
-            </div>
+        <div id="seccion-logo">
+            <div class="linea-logo"></div>
+            <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
+            <div class="linea-logo"></div>
         </div>
-        <img src="../../../../images/logoGTI.png" id="logo">
-        <p id="copyright">©2023 gti Todos los derechos reservados</p>
+    
+        <a href="../landing_page/formulario_contacto.html" id="contactanos"><span>contactanos</span></a>
+        <div id="legal">
+            <a href="#"><span>Politica de privacidad</span></a>
+            <div id="linea-separatoria"></div>
+            <a href="#"><span>Aviso legal</span></a>
+        </div>
     </footer>
     <!----------->
-
 </body>
 
 </html>

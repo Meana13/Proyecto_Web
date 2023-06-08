@@ -9,14 +9,20 @@ function validarFormulario(event) {
         usuario: "1234567890",
         comercial:"1234567890",
     };
+    
     if (usuario === "usuario" && usuariosGuardados[usuario] === contrasenya) {
-        window.location.href = "../../estilos_page_tecnico.css/src/app/html/page_usuario/page_usuario.html"; // redirecciona a la página de carga si el usuario y contraseña son correctos
+        // redirecciona a la página de carga si el usuario y contraseña son correctos
+        window.location.href = "../../app/html/page_usuario/page_usuario.html"; 
+        
     } else if (usuario === "admin" && contrasenya === usuariosGuardados[usuario]) {
-        window.location.href = "../../estilos_page_tecnico.css/src/app/html/page_admin/page_admin.html";
+        window.location.href = "../../app/html/page_admin/page_admin.html";
+        
     } else if (usuario === "tecnico" && contrasenya === usuariosGuardados[usuario]) {
-        window.location.href = "../../estilos_page_tecnico.css/src/app/html/page_tecnico/page_tecnico.html";
+        window.location.href = "../../app/html/page_tecnico/page_tecnico.html";
+
     } else if (usuario == "comercial" && contrasenya === usuariosGuardados[usuario]) {
-        window.location.href = "../../estilos_page_tecnico.css/src/app/html/page_comercial/page_comercial.html";
+        window.location.href = "../../app/html/page_comercial/page_comercial.html";
+
     } else {
         const popup = document.getElementById("popup");
         popup.style.display = "block"; // muestra el popup si el usuario y contraseña son incorrectos

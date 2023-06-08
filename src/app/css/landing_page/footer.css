@@ -1,89 +1,125 @@
+/* Estilos para el footer */
 footer {
-    background-color: black;
-    color: white;
+    background-color: var(--textoGeneral);
+    color: var(--textoBotones);
     text-align: center;
-    padding: 20px;
-    margin-top: 80px;
-    padding-top: 50px;
+    padding: 30px;
+    margin-top: 40vh;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Estilos para los enlaces */
 a {
-    color: white;
+    color: var(--textoBotones);
     text-decoration: none;
     margin: 5px;
 }
 
-#columnas {
+/* Estilos para la sección del logo */
+#seccion-logo {
     display: flex;
-}
-
-#columna-conocenos,
-#columna-ayuda {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-bottom: 20px;
+    flex-direction: row;
+    gap: 50px;
+    align-items: center;
     justify-content: center;
-    width: 170px;
+    margin-bottom: 50px;
 }
 
-#conocenos, #ayuda {
+/* Estilos para el logo del footer */
+#logoFooter {
+    width: 80%;
+}
+
+/* Estilos para la línea del logo */
+.linea-logo {
+    width: 35%;
+    height: 3px;
+    background-color: var(--textoBotones);
+    border: 0;
+}
+
+/* Estilos para el elemento "contactanos" */
+#contactanos {
+    border: 2px solid var(--textoBotones);
+    border-radius: 2em;
+    width: fit-content;
+    padding: 10px 60px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+/* Estilos para el texto dentro de "contactanos" */
+#contactanos span {
+    font-size: 25px;
     text-transform: uppercase;
-    margin-bottom: 1em;
 }
 
-#logo {
-    margin-top: 70px;
-    width: 30%;
+/* Estilos para el elemento "legal" */
+#legal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
-#copyright {
-    margin: 10px 0;
-    font-size: small;
+/* Estilos para el texto dentro de "legal" */
+#legal a span {
+    font-size: 18px;
 }
 
-/*\ ------------------------| MOVIL |------------------------ \*/
+/* Estilos para los enlaces dentro de "legal" */
+#legal a {
+    width: 100px;
+}
 
+/* Estilos para la línea separadora */
+#linea-separatoria {
+    background-color: var(--textoBotones);
+    width: 2px;
+    height: 2em;
+    margin: 0 10px;
+}
+
+/* Estilos para dispositivos mas pequeños */
 @media (max-width: 768px) {
     footer {
-        background-color: black;
-        color: white;
+        background-color: var(--textoGeneral);
+        color: var(--textoBotones);
         text-align: center;
         padding: 20px;
-        margin-top: 80px;
+        margin-top: 60vh; 
         padding-top: 50px;
     }
     
+    /* Estilos para los enlaces en dispositivos móviles */
     a {
-        color: white;
+        color: var(--textoBotones);
         text-decoration: none;
     }
     
-    #columnas {
-        display: block;
+    /* Estilos para la sección del logo en dispositivos móviles */
+    #seccion-logo {
+        gap: 10px;
     }
 
-    #columna-conocenos,
-    #columna-ayuda {
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 40px;
-    }
-    
-    #conocenos, #ayuda {
-        text-transform: uppercase;
-        margin-bottom: 1em;
-    }
-    
-    #logo {
-        margin-top: 70px;
+    /* Estilos para la línea del logo en dispositivos móviles */
+    .linea-logo {
         width: 50%;
+        height: 3px;
+        background-color: var(--textoBotones);
+        border: 0;
     }
 
-    #copyright {
-        margin: 10px 0;
-        font-size: small;
+    /* Estilos para el texto dentro de "contactanos" en dispositivos móviles */
+    #contactanos span {
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+
+    /* Estilos para el texto dentro de "legal" en dispositivos móviles */
+    #legal a span {
+        font-size: 14px;
     }
 }
