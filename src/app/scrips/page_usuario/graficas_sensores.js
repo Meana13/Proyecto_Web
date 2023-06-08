@@ -90,10 +90,9 @@ async function getDatoActual(){
 
     //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
     const idPrimerHuerto = idHuertos[0];
-    const respuesta = await fetch('../../../api/mediciones/' + '?idHuerto=' + idPrimerHuerto);
+    const respuesta = await fetch('../../../api/medicionesDatoActual/' + '?idHuerto=' + idPrimerHuerto);
     if(respuesta.ok) {
         const mediciones = await respuesta.json();
-        console.log(mediciones);
 
         //DATO ACTUAL SALINIDAD:
         let datoActualTabSalinidad = document.getElementById('dato_actual_tab_salinidad');
@@ -175,13 +174,11 @@ async function getDatoActual(){
     //conseguimos la id del huerto seleccionado
     selector.addEventListener('change', async function() {
         let idHuerto = selector.value;
-        console.log(idHuerto);
 
         //pasamos la id en la query del fetch
-        const respuesta = await fetch('../../../api/mediciones/' + '?idHuerto=' + idHuerto);
+        const respuesta = await fetch('../../../api/medicionesDatoActual/' + '?idHuerto=' + idHuerto);
         if(respuesta.ok) {
             const mediciones = await respuesta.json();
-            console.log(mediciones);
 
             //DATO ACTUAL SALINIDAD:
             let datoActualTabSalinidad = document.getElementById('dato_actual_tab_salinidad');
@@ -268,6 +265,32 @@ getDatoActual();
 
 /*-----------------------------------------------Aquí acaban las funciones para obtener el dato actual*/
 
+                /*
+                    =========================================================================
+                                               FILTRO DE FECHA: HOY
+                    =========================================================================
+                                                                                                */
+
+async function getDatosHoy(){
+
+    //los datos que se mostrarán por defecto son los de Hoy:
+
+    //conseguimos la id de los huertos del usuario y las metemos en un array:
+    let huertosDelUsuario = await getHuertosUsuario();
+    let idHuertos = huertosDelUsuario.map(function(huerto){
+        return huerto.id_huerto;
+    });
+
+    //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+    const idPrimerHuerto = idHuertos[0];
+    const respuesta = await fetch('../../../api/medicionesHoy/' + '?idHuerto=' + idPrimerHuerto);
+    if(respuesta.ok) {
+        const mediciones = await respuesta.json();
+        console.log(mediciones);
+    }
+}
+
+getDatosHoy();
 
                         /*
                             ========================
