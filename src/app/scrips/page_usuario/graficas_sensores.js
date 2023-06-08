@@ -357,27 +357,27 @@ let graficaAcordeonLuz = new Chart(ctxAcordeonLuz, {
                     =========================================================================
                                                                                                 */
 
-async function getDatosHoy(){
+async function getDatosHoy() {
 
-    //los datos que se mostrarán por defecto son los de Hoy:
+    //los datos que se mostrarán por defecto son los de Hoy: -----------------POR DEFECTO: SIN PULSAR NINGÚN BOTÓN
 
     //conseguimos la id de los huertos del usuario y las metemos en un array:
     let huertosDelUsuario = await getHuertosUsuario();
-    let idHuertos = huertosDelUsuario.map(function(huerto){
+    let idHuertos = huertosDelUsuario.map(function (huerto) {
         return huerto.id_huerto;
     });
 
     //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
     const idPrimerHuerto = idHuertos[0];
     const respuesta = await fetch('../../../api/medicionesHoy/' + '?idHuerto=' + idPrimerHuerto);
-    if(respuesta.ok) {
+    if (respuesta.ok) {
         const mediciones = await respuesta.json();
 
-        let horas = mediciones.map(function(medicion){
+        let horas = mediciones.map(function (medicion) {
             return medicion.hora + ":" + medicion.minutos;
         });
 
-        let dias = mediciones.map(function (medicion){
+        let dias = mediciones.map(function (medicion) {
             let fecha = medicion.fecha_medicion;
 
             let partes = fecha.split("-");
@@ -393,10 +393,10 @@ async function getDatosHoy(){
         //GRÁFICA SALINIDAD - DATOS HOY -----------------------------------------------------------------------
         let datosSalinidadHoy = {
             labels: [],
-            datasets:[
+            datasets: [
                 {
-                    label:"Salinidad (%)",
-                    data:[],
+                    label: "Salinidad (%)",
+                    data: [],
                     tension: 0.2,
                     fill: false,
                     backgroundColor: 'rgba(121,0,80,.8)',
@@ -428,10 +428,10 @@ async function getDatosHoy(){
                     text: 'Salinidad (%)',
                     position: 'top',
                     align: 'start',
-                    padding:{
+                    padding: {
                         bottom: 10
                     },
-                    font:{
+                    font: {
                         size: 15
                     }
                 },
@@ -448,7 +448,7 @@ async function getDatosHoy(){
             }//plugins
         }
 
-        for (let i =3; i>=0; i--){
+        for (let i = 3; i >= 0; i--) {
             datosSalinidadHoy.labels.push(horas[i]);
             datosSalinidadHoy.datasets[0].data.push(mediciones[i].mediaSalinidad);
         }
@@ -465,10 +465,10 @@ async function getDatosHoy(){
         //GRAFICA HUMEDAD - DATOS HOY ---------------------------------------------------------------------
         let datosHumedadHoy = {
             labels: [],
-            datasets:[
+            datasets: [
                 {
-                    label:"Humedad (%)",
-                    data:[],
+                    label: "Humedad (%)",
+                    data: [],
                     tension: 0.2,
                     fill: false,
                     backgroundColor: 'rgba(121,0,80,.8)',
@@ -500,10 +500,10 @@ async function getDatosHoy(){
                     text: 'Humedad (%)',
                     position: 'top',
                     align: 'start',
-                    padding:{
+                    padding: {
                         bottom: 10
                     },
-                    font:{
+                    font: {
                         size: 15
                     }
                 },
@@ -520,7 +520,7 @@ async function getDatosHoy(){
             }//plugins
         }
 
-        for (let i =3; i>=0; i--){
+        for (let i = 3; i >= 0; i--) {
             datosHumedadHoy.labels.push(horas[i]);
             datosHumedadHoy.datasets[0].data.push(mediciones[i].mediaHumedad);
         }
@@ -537,10 +537,10 @@ async function getDatosHoy(){
         //GRAFICA PH - DATOS HOY ---------------------------------------------------------------------
         let datosPhHoy = {
             labels: [],
-            datasets:[
+            datasets: [
                 {
-                    label:"pH",
-                    data:[],
+                    label: "pH",
+                    data: [],
                     tension: 0.2,
                     fill: false,
                     backgroundColor: 'rgba(121,0,80,.8)',
@@ -572,10 +572,10 @@ async function getDatosHoy(){
                     text: 'pH',
                     position: 'top',
                     align: 'start',
-                    padding:{
+                    padding: {
                         bottom: 10
                     },
-                    font:{
+                    font: {
                         size: 15
                     }
                 },
@@ -592,7 +592,7 @@ async function getDatosHoy(){
             }//plugins
         }
 
-        for (let i =3; i>=0; i--){
+        for (let i = 3; i >= 0; i--) {
             datosPhHoy.labels.push(horas[i]);
             datosPhHoy.datasets[0].data.push(mediciones[i].mediapH);
         }
@@ -609,10 +609,10 @@ async function getDatosHoy(){
         //GRAFICA TEMPERATURA - DATOS HOY ---------------------------------------------------------------------
         let datosTemperaturaHoy = {
             labels: [],
-            datasets:[
+            datasets: [
                 {
-                    label:"Temperatura (ºC)",
-                    data:[],
+                    label: "Temperatura (ºC)",
+                    data: [],
                     tension: 0.2,
                     fill: false,
                     backgroundColor: 'rgba(121,0,80,.8)',
@@ -644,10 +644,10 @@ async function getDatosHoy(){
                     text: 'Temperatura (ºC)',
                     position: 'top',
                     align: 'start',
-                    padding:{
+                    padding: {
                         bottom: 10
                     },
-                    font:{
+                    font: {
                         size: 15
                     }
                 },
@@ -664,7 +664,7 @@ async function getDatosHoy(){
             }//plugins
         }
 
-        for (let i =3; i>=0; i--){
+        for (let i = 3; i >= 0; i--) {
             datosTemperaturaHoy.labels.push(horas[i]);
             datosTemperaturaHoy.datasets[0].data.push(mediciones[i].mediaTemperatura);
         }
@@ -681,10 +681,10 @@ async function getDatosHoy(){
         //GRAFICA LUZ - DATOS HOY ---------------------------------------------------------------------
         let datosLuzHoy = {
             labels: [],
-            datasets:[
+            datasets: [
                 {
-                    label:"Luz",
-                    data:[],
+                    label: "Luz",
+                    data: [],
                     tension: 0.2,
                     fill: false,
                     backgroundColor: 'rgba(121,0,80,.8)',
@@ -716,10 +716,10 @@ async function getDatosHoy(){
                     text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
                     position: 'top',
                     align: 'start',
-                    padding:{
+                    padding: {
                         bottom: 10
                     },
-                    font:{
+                    font: {
                         size: 15
                     }
                 },
@@ -736,7 +736,7 @@ async function getDatosHoy(){
             }//plugins
         }
 
-        for (let i =3; i>=0; i--){
+        for (let i = 3; i >= 0; i--) {
             datosLuzHoy.labels.push(horas[i]);
             datosLuzHoy.datasets[0].data.push(mediciones[i].mediaLuminosidad);
         }
@@ -748,14 +748,391 @@ async function getDatosHoy(){
         graficaAcordeonLuz.options = opcionesLuzHoy;
         graficaAcordeonLuz.data = datosLuzHoy;
         graficaAcordeonLuz.update();
-
-
     }
+//------------------------------------------------------------------------------Aquí acaban los datos por defecto
+
+
+// ----------------Cuando se selecciona una opción del selector:----------------------------------SELECTOR
+
+    const selector = document.getElementById('seleccionar_huerto');
+
+    //conseguimos la id del huerto seleccionado
+    selector.addEventListener('change', async function () {
+        let idHuerto = selector.value;
+
+        //pasamos la id en la query del fetch
+        const respuesta = await fetch('../../../api/medicionesHoy/' + '?idHuerto=' + idHuerto);
+        if (respuesta.ok) {
+            const mediciones = await respuesta.json();
+
+            let horas = mediciones.map(function (medicion) {
+                return medicion.hora + ":" + medicion.minutos;
+            });
+
+
+            //GRÁFICA SALINIDAD - DATOS HOY -----------------------------------------------------------------------
+            let datosSalinidadHoy = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Salinidad (%)",
+                        data: [],
+                        tension: 0.2,
+                        fill: false,
+                        backgroundColor: 'rgba(121,0,80,.8)',
+                        borderColor: '#790050',
+                        pointStyle: 'circle',
+                        pointRadius: 7,
+                        borderWidth: 2,
+                    }
+                ]
+            };
+
+            let opcionesSalinidadHoy = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true
+                    }
+                },
+                plugins: {
+                    legend: false,
+                    title: {
+                        display: true,
+                        text: 'Salinidad (%)',
+                        position: 'top',
+                        align: 'start',
+                        padding: {
+                            bottom: 10
+                        },
+                        font: {
+                            size: 15
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#fff',
+                        titleColor: '#000',
+                        titleAlign: 'center',
+                        bodyColor: '#333',
+                        borderColor: '#666',
+                        borderWidth: 1,
+                        yAlign: 'top',
+                        displayColors: false,
+                    }
+                }//plugins
+            }
+
+            for (let i = 3; i >= 0; i--) {
+                datosSalinidadHoy.labels.push(horas[i]);
+                datosSalinidadHoy.datasets[0].data.push(mediciones[i].mediaSalinidad);
+            }
+
+            miGraficaSal.options = opcionesSalinidadHoy;
+            miGraficaSal.data = datosSalinidadHoy;
+            miGraficaSal.update();
+
+            graficaAcordeonSal.options = opcionesSalinidadHoy;
+            graficaAcordeonSal.data = datosSalinidadHoy;
+            graficaAcordeonSal.update();
+
+
+            //GRAFICA HUMEDAD - DATOS HOY ---------------------------------------------------------------------
+            let datosHumedadHoy = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Humedad (%)",
+                        data: [],
+                        tension: 0.2,
+                        fill: false,
+                        backgroundColor: 'rgba(121,0,80,.8)',
+                        borderColor: '#790050',
+                        pointStyle: 'circle',
+                        pointRadius: 7,
+                        borderWidth: 2,
+                    }
+                ]
+            };
+
+            let opcionesHumedadHoy = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true
+                    }
+                },
+                plugins: {
+                    legend: false,
+                    title: {
+                        display: true,
+                        text: 'Humedad (%)',
+                        position: 'top',
+                        align: 'start',
+                        padding: {
+                            bottom: 10
+                        },
+                        font: {
+                            size: 15
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#fff',
+                        titleColor: '#000',
+                        titleAlign: 'center',
+                        bodyColor: '#333',
+                        borderColor: '#666',
+                        borderWidth: 1,
+                        yAlign: 'top',
+                        displayColors: false,
+                    }
+                }//plugins
+            }
+
+            for (let i = 3; i >= 0; i--) {
+                datosHumedadHoy.labels.push(horas[i]);
+                datosHumedadHoy.datasets[0].data.push(mediciones[i].mediaHumedad);
+            }
+
+            miGraficaHumedad.options = opcionesHumedadHoy;
+            miGraficaHumedad.data = datosHumedadHoy;
+            miGraficaHumedad.update();
+
+            graficaAcordeonHumedad.options = opcionesHumedadHoy;
+            graficaAcordeonHumedad.data = datosHumedadHoy;
+            graficaAcordeonHumedad.update();
+
+
+            //GRAFICA PH - DATOS HOY ---------------------------------------------------------------------
+            let datosPhHoy = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "pH",
+                        data: [],
+                        tension: 0.2,
+                        fill: false,
+                        backgroundColor: 'rgba(121,0,80,.8)',
+                        borderColor: '#790050',
+                        pointStyle: 'circle',
+                        pointRadius: 7,
+                        borderWidth: 2,
+                    }
+                ]
+            };
+
+            let opcionesPhHoy = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true
+                    }
+                },
+                plugins: {
+                    legend: false,
+                    title: {
+                        display: true,
+                        text: 'pH',
+                        position: 'top',
+                        align: 'start',
+                        padding: {
+                            bottom: 10
+                        },
+                        font: {
+                            size: 15
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#fff',
+                        titleColor: '#000',
+                        titleAlign: 'center',
+                        bodyColor: '#333',
+                        borderColor: '#666',
+                        borderWidth: 1,
+                        yAlign: 'top',
+                        displayColors: false,
+                    }
+                }//plugins
+            }
+
+            for (let i = 3; i >= 0; i--) {
+                datosPhHoy.labels.push(horas[i]);
+                datosPhHoy.datasets[0].data.push(mediciones[i].mediapH);
+            }
+
+            miGraficapH.options = opcionesPhHoy;
+            miGraficapH.data = datosPhHoy;
+            miGraficapH.update();
+
+            graficaAcordeonPh.options = opcionesPhHoy;
+            graficaAcordeonPh.data = datosPhHoy;
+            graficaAcordeonPh.update();
+
+
+            //GRAFICA TEMPERATURA - DATOS HOY ---------------------------------------------------------------------
+            let datosTemperaturaHoy = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Temperatura (ºC)",
+                        data: [],
+                        tension: 0.2,
+                        fill: false,
+                        backgroundColor: 'rgba(121,0,80,.8)',
+                        borderColor: '#790050',
+                        pointStyle: 'circle',
+                        pointRadius: 7,
+                        borderWidth: 2,
+                    }
+                ]
+            };
+
+            let opcionesTemperaturaHoy = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true
+                    }
+                },
+                plugins: {
+                    legend: false,
+                    title: {
+                        display: true,
+                        text: 'Temperatura (ºC)',
+                        position: 'top',
+                        align: 'start',
+                        padding: {
+                            bottom: 10
+                        },
+                        font: {
+                            size: 15
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#fff',
+                        titleColor: '#000',
+                        titleAlign: 'center',
+                        bodyColor: '#333',
+                        borderColor: '#666',
+                        borderWidth: 1,
+                        yAlign: 'top',
+                        displayColors: false,
+                    }
+                }//plugins
+            }
+
+            for (let i = 3; i >= 0; i--) {
+                datosTemperaturaHoy.labels.push(horas[i]);
+                datosTemperaturaHoy.datasets[0].data.push(mediciones[i].mediaTemperatura);
+            }
+
+            miGraficaTemperatura.options = opcionesTemperaturaHoy;
+            miGraficaTemperatura.data = datosTemperaturaHoy;
+            miGraficaTemperatura.update();
+
+            graficaAcordeonTemperatura.options = opcionesTemperaturaHoy;
+            graficaAcordeonTemperatura.data = datosTemperaturaHoy;
+            graficaAcordeonTemperatura.update();
+
+
+            //GRAFICA LUZ - DATOS HOY ---------------------------------------------------------------------
+            let datosLuzHoy = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Luz",
+                        data: [],
+                        tension: 0.2,
+                        fill: false,
+                        backgroundColor: 'rgba(121,0,80,.8)',
+                        borderColor: '#790050',
+                        pointStyle: 'circle',
+                        pointRadius: 7,
+                        borderWidth: 2,
+                    }
+                ]
+            };
+
+            let opcionesLuzHoy = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    },
+                    y: {
+                        stacked: true
+                    }
+                },
+                plugins: {
+                    legend: false,
+                    title: {
+                        display: true,
+                        text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                        position: 'top',
+                        align: 'start',
+                        padding: {
+                            bottom: 10
+                        },
+                        font: {
+                            size: 15
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#fff',
+                        titleColor: '#000',
+                        titleAlign: 'center',
+                        bodyColor: '#333',
+                        borderColor: '#666',
+                        borderWidth: 1,
+                        yAlign: 'top',
+                        displayColors: false,
+                    }
+                }//plugins
+            }
+
+            for (let i = 3; i >= 0; i--) {
+                datosLuzHoy.labels.push(horas[i]);
+                datosLuzHoy.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+            }
+
+            miGraficaLuz.options = opcionesLuzHoy;
+            miGraficaLuz.data = datosLuzHoy;
+            miGraficaLuz.update();
+
+            graficaAcordeonLuz.options = opcionesLuzHoy;
+            graficaAcordeonLuz.data = datosLuzHoy;
+            graficaAcordeonLuz.update();
+
+        }
+    });
 
 }
-
-
-
 getDatosHoy();
 
 

@@ -28,7 +28,7 @@ $sql = "SELECT
         
         GROUP BY `mediciones`.`fecha_medicion`, `mediciones`.`hora_medicion`
         ORDER BY `mediciones`.`fecha_medicion` DESC, `mediciones`.`hora_medicion` DESC
-        LIMIT 1;";
+        LIMIT 1";
 
 $result = mysqli_query($connexion, $sql);
 while ($row = mysqli_fetch_assoc($result)) {

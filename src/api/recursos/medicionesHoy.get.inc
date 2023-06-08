@@ -26,11 +26,11 @@ $sql = "SELECT
         
         WHERE `huertos`.`id_huerto` = `sondas`.`id_huerto`
         AND `sondas`.`id_sonda` = `mediciones`.`id_sonda`
-        AND `huertos`.`id_huerto` = 18
+        AND `huertos`.`id_huerto` = $idHuerto
         
         GROUP BY `mediciones`.`fecha_medicion`, `mediciones`.`hora_medicion`
         ORDER BY `mediciones`.`fecha_medicion` DESC, `mediciones`.`hora_medicion` DESC
-        LIMIT 4;";
+        LIMIT 4";
 
 
 
