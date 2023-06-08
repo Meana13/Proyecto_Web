@@ -1,5 +1,153 @@
                         /*
                             ========================
+                              SELECTOR DE HUERTOS
+                            ========================
+                                                      */
+
+//funcion para conseguir la información de la sesión del usuario, para poder recoger el id
+//y así poder buscar los huertos del usuario.
+async function getSesionUsuario(){
+
+    const respuesta = await fetch('../../../api/sesion/');
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+
+//función para conseguir los huertos del usuario, llama a
+async function getHuertosUsuario(){
+    let datosDeUsuario = await getSesionUsuario();
+    let idUsuario = datosDeUsuario.id_usuario;
+
+    const respuesta = await fetch('../../../api/huertos/' + '?idUsuario=' + idUsuario);
+    if(respuesta.ok) {
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+
+async function getDatosHuertoPorIdHuerto(idHuerto){
+    const respuesta = await fetch('../../../api/huertos/' + '?idHuerto=' + idHuerto);
+    if(respuesta.ok) {
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+//función para modificar el html para que muestre los huertos del usuario en el selector
+//de huertos y que cambie el nombre del huerto.
+async function escribirNombreHuerto(){
+    let huertosDelUsuario = await getHuertosUsuario();
+    let nombreDeHuertos = huertosDelUsuario.map(function(huerto){
+        return huerto.nombre_huerto;
+    });
+
+    let idHuertos = huertosDelUsuario.map(function(huerto){
+        return huerto.id_huerto;
+    });
+
+    const selector = document.getElementById('seleccionar_huerto');
+    for(let i=0; i<nombreDeHuertos.length; i++){
+        const opcion = document.createElement('option');
+        opcion.value = idHuertos[i];
+        opcion.innerText = nombreDeHuertos[i];
+        selector.appendChild(opcion);
+    }
+
+    const nombreDeHuerto = document.getElementById('nombreDeHuerto');
+    nombreDeHuerto.innerText = "";
+    nombreDeHuerto.innerText = nombreDeHuertos[0];
+
+    selector.addEventListener('change', async function(){
+        let idHuerto = selector.value;
+
+        let datosHuerto = await getDatosHuertoPorIdHuerto(idHuerto);
+
+        nombreDeHuerto.innerText = "";
+        nombreDeHuerto.innerText = datosHuerto[0].nombre_huerto;
+    });
+}
+
+//llamada de la función para que se escriba el nombre en el selector.
+escribirNombreHuerto();
+
+/*-----------------------------------------------Aquí acaban las funciones para el selector de huertos*/
+
+
+                        /*
+                           ========================
+                                 DATO ACTUAL
+                           ========================
+                                                    */
+async function getDatoActual(){
+    //-------Cuando se abre la página por primera vez, está el primero huerto reflejado en la interfaz:-----//
+
+    //conseguimos la id de los huertos del usuario y las metemos en un array:
+    let huertosDelUsuario = await getHuertosUsuario();
+    let idHuertos = huertosDelUsuario.map(function(huerto){
+        return huerto.id_huerto;
+    });
+
+    //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+    const idPrimerHuerto = idHuertos[0];
+    const respuesta = await fetch('../../../api/mediciones/' + '?idHuerto=' + idPrimerHuerto);
+    if(respuesta.ok) {
+        const mediciones = await respuesta.json();
+        console.log(mediciones);
+
+        //DATO ACTUAL SALINIDAD:
+        let datoActualTabSalinidad = document.getElementById('dato_actual_tab_salinidad');
+        let datoActualSalinidad = document.getElementById('dato_actual_salinidad');
+
+        datoActualTabSalinidad.innerText = "";
+        datoActualTabSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+
+        datoActualSalinidad.innerText = "";
+        datoActualSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+
+    }
+
+
+    //----------------Cuando se selecciona una opción del selector:----------------------//
+
+    const selector = document.getElementById('seleccionar_huerto');
+
+    //conseguimos la id del huerto seleccionado
+    selector.addEventListener('change', async function() {
+        let idHuerto = selector.value;
+        console.log(idHuerto);
+
+        //pasamos la id en la query del fetch
+        const respuesta = await fetch('../../../api/mediciones/' + '?idHuerto=' + idHuerto);
+        if(respuesta.ok) {
+            const mediciones = await respuesta.json();
+            console.log(mediciones);
+
+            //DATO ACTUAL SALINIDAD:
+            let datoActualTabSalinidad = document.getElementById('dato_actual_tab_salinidad');
+            let datoActualSalinidad = document.getElementById('dato_actual_salinidad');
+
+            datoActualTabSalinidad.innerText = "";
+            datoActualTabSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+
+            datoActualSalinidad.innerText = "";
+            datoActualSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+        }
+    });
+
+
+}
+
+getDatoActual();
+
+
+
+
+/*-----------------------------------------------Aquí acaban las funciones para obtener el dato actual*/
+
+
+                        /*
+                            ========================
                               GRÁFICA DE SALINIDAD
                             ========================
                                                       */
@@ -55,8 +203,15 @@ let opcionesSal = {
 }//opciones
 
 let ctxSal = document.getElementById('chart-sal');
+let ctxAcordeonSal = document.getElementById('chart-acordeon-sal');
 
 let miGrafica = new Chart(ctxSal, {
+    type: 'line',
+    data: datosSal,
+    options: opcionesSal
+});
+
+let graficaAcordeonSal = new Chart(ctxAcordeonSal,{
     type: 'line',
     data: datosSal,
     options: opcionesSal
@@ -119,11 +274,18 @@ let opcionesHumedad = {
 }//opciones
 
 let ctxHumedad = document.getElementById('chart-humedad');
+let ctxAcordeonHumedad = document.getElementById('chart-acordeon-humedad');
 
 let miGraficaHumedad = new Chart(ctxHumedad, {
     type: 'line',
-    data: datosHumedad, //los datos
-    options: opcionesHumedad //las opciones
+    data: datosHumedad,
+    options: opcionesHumedad
+});
+
+let graficaAcordeonHumedad = new Chart(ctxAcordeonHumedad,{
+    type: 'line',
+    data: datosHumedad,
+    options: opcionesHumedad
 });
 
                         /*
@@ -183,12 +345,19 @@ let opcionesTemperatura = {
 }//opciones
 
 let ctxTemperatura = document.getElementById('chart-temperatura');
+let ctxAcordeonTemperatura = document.getElementById('chart-acordeon-temperatura');
 
 let miGraficaTemperatura = new Chart(ctxTemperatura, {
     type: 'line',
     data: datosTemperatura,
     options: opcionesTemperatura
 });
+
+let graficaAcordeonTemperatura = new Chart(ctxAcordeonTemperatura, {
+    type: 'line',
+    data: datosTemperatura,
+    options: opcionesTemperatura
+})
 
                         /*
                             ========================
@@ -247,11 +416,18 @@ let opcionespH = {
 }//opciones
 
 let ctxpH = document.getElementById('chart-pH');
+let ctxAcordeonPh = document.getElementById('chart-acordeon-pH')
 
 let miGraficapH = new Chart(ctxpH, {
     type: 'line',
-    data: datospH, //los datos
-    options: opcionespH //las opciones
+    data: datospH,
+    options: opcionespH
+});
+
+let graficaAcordeonPh = new Chart(ctxAcordeonPh, {
+    type: 'line',
+    data: datospH,
+    options: opcionespH
 });
 
                         /*
@@ -311,122 +487,16 @@ let opcionesLuz = {
 }//opciones
 
 let ctxLuz = document.getElementById('chart-luz');
+let ctxAcordeonLuz = document.getElementById('chart-acordeon-luz');
 
 let miGraficaLuz = new Chart(ctxLuz, {
     type: 'line',
-    data: datosLuz, //los datos
-    options: opcionesLuz //las opciones
+    data: datosLuz,
+    options: opcionesLuz
 });
 
-/*
-                ====================================================
-                FUNCIONES PARA BOTONES DE HISTORIAL Y DATOS ACTUALES
-                ====================================================
-                                                                                */
-
-/*Declaración de variables para realizar las funciones*/
-
-let botonDatosActualesHumedad = document.getElementById('boton-datos-actuales-humedad')
-let botonDatosActualesSal = document.getElementById('boton-datos-actuales-sal')
-let botonDatosActualesTemperatura = document.getElementById('boton-datos-actuales-temperatura')
-let botonDatosActualespH = document.getElementById('boton-datos-actuales-ph')
-let botonDatosActualesLuz = document.getElementById('boton-datos-actuales-luz')
-
-let botonHistorialHumedad = document.getElementById('boton-historial-humedad');
-let botonHistorialSal = document.getElementById('boton-historial-sal');
-let botonHistorialTemperatura = document.getElementById('boton-historial-temperatura');
-let botonHistorialpH = document.getElementById('boton-historial-ph');
-let botonHistorialLuz = document.getElementById('boton-historial-luz');
-
-let datosActualesHumedad = document.getElementById('Humedad');
-let datosActualesSal = document.getElementById('Sal');
-let datosActualesTemperatura = document.getElementById('Temperatura');
-let datosActualespH = document.getElementById('pH');
-let datosActualesLuz = document.getElementById('Luz');
-
-let graficaHumedad = document.getElementById('chart-container-humedad');
-let graficaSal = document.getElementById('chart-container-sal');
-let graficaTemperatura = document.getElementById('chart-container-temperatura');
-let graficapH = document.getElementById('chart-container-pH');
-let graficaLuz = document.getElementById('chart-container-luz');
-
-/*Funciones:*/
-function verDatosActualesHumedad() {
-    botonDatosActualesHumedad.classList.add('activo');
-    botonHistorialHumedad.classList.remove('activo');
-
-    datosActualesHumedad.style.display = 'block';
-    graficaHumedad.style.display = 'none';
-}
-
-function verGraficaHumedad(){
-    botonHistorialHumedad.classList.add('activo');
-    botonDatosActualesHumedad.classList.add('activo');
-
-    graficaHumedad.style.display = 'block';
-    datosActualesHumedad.style.display = 'none';
-}
-
-function verDatosActualesSalinidad() {
-    botonDatosActualesSal.classList.add('activo');
-    botonHistorialSal.classList.remove('activo');
-
-    datosActualesSal.style.display = 'block';
-    graficaSal.style.display = 'none';
-}
-
-function verGraficaSalinidad(){
-    botonHistorialSal.classList.add('activo');
-    botonDatosActualesSal.classList.add('activo');
-
-    graficaSal.style.display = 'block';
-    datosActualesSal.style.display = 'none';
-}
-
-function verDatosActualespH() {
-    botonDatosActualespH.classList.add('activo');
-    botonHistorialpH.classList.remove('activo');
-
-    datosActualespH.style.display = 'block';
-    graficapH.style.display = 'none';
-}
-
-function verGraficapH(){
-    botonHistorialpH.classList.add('activo');
-    botonDatosActualespH.classList.add('activo');
-
-    graficapH.style.display = 'block';
-    datosActualespH.style.display = 'none';
-}
-
-function verDatosActualesTemperatura() {
-    botonDatosActualesTemperatura.classList.add('activo');
-    botonHistorialTemperatura.classList.remove('activo');
-
-    datosActualesTemperatura.style.display = 'block';
-    graficaTemperatura.style.display = 'none';
-}
-
-function verGraficaTemperatura(){
-    botonHistorialTemperatura.classList.add('activo');
-    botonDatosActualesTemperatura.classList.add('activo');
-
-    graficaTemperatura.style.display = 'block';
-    datosActualesTemperatura.style.display = 'none';
-}
-
-function verDatosActualesLuz() {
-    botonDatosActualesLuz.classList.add('activo');
-    botonHistorialLuz.classList.remove('activo');
-
-    datosActualesLuz.style.display = 'block';
-    graficaLuz.style.display = 'none';
-}
-
-function verGraficaLuz(){
-    botonHistorialLuz.classList.add('activo');
-    botonDatosActualesLuz.classList.add('activo');
-
-    graficaLuz.style.display = 'block';
-    datosActualesLuz.style.display = 'none';
-}
+let graficaAcordeonLuz = new Chart(ctxAcordeonLuz, {
+    type: 'line',
+    data: datosLuz,
+    options: opcionesLuz
+});

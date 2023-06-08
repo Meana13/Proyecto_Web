@@ -1,9 +1,14 @@
-/* Estilos generales del cuerpo de la página */
-body {
-    margin-top: 120px;
+h2 {
+    text-align: center; 
+    margin-bottom: 25px;
 }
 
-/* Estilos para el grupo de formulario */
+label {
+    display: block; 
+    margin-bottom: 5px; 
+}
+
+/* Estilos formulario */
 .form-group {
     margin-bottom: 20px;
     display: flex;
@@ -13,46 +18,19 @@ body {
     width: 20em; 
 }
 
-/* Estilos para el encabezado h2 */
-h2 {
-    text-align: center; 
-    margin-bottom: 25px;
-}
-
-/* Estilos para las etiquetas */
-label {
-    display: block; 
-    margin-bottom: 5px; 
-}
-
-/* Estilos para el campo de nombre */
-#name {
+#name, 
+#apellidos, 
+#email, 
+#section, 
+#mensaje {
     width: 100%;
 }
 
-/* Estilos para el campo de apellidos */
-#apellidos {
-    width: 100%; 
-}
-
-/* Estilos para el campo de email */
-#email {
-    width: 100%; 
-}
-
-/* Estilos para el campo de sección */
-#section {
-    width: 100%; 
-}
-
-/* Estilos para el campo de mensaje */
 #mensaje {
     margin-left: 1px; 
-    width: 100%; 
     height: 20vh; 
 }
 
-/* Estilos para los campos de texto, email y select */
 input[type="text"],
 input[type="email"],
 select {
@@ -64,26 +42,30 @@ select {
 }
 
 /* Estilos para el botón de envío */
-input[type="submit"] {
-    background-color: #4CAF50; 
+#boton_enviar_formulario{
+    background-color: #790050; 
     border: none;
     color: white;
     padding: 10px 20px; 
     text-align: center; 
-    text-decoration: none; 
-    display: inline-block; 
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px; 
     border-radius: 5px; 
     cursor: pointer; 
-    margin-top: 30px; 
+    margin-top: 30px;
 }
 
-/* Estilos para el botón de envío al pasar el cursor sobre él */
+#boton_enviar_formulario:hover{
+    background-color:#9D4179;
+    font-weight: bold;
+}
+
 input[type="submit"]:hover {
-    background-color: #45a049; 
+    background-color: #790050; 
 }
 
-/* Estilos para los elementos requeridos */
+/* Estilos error de elemento requerido */
 .required:after {
     content: " *"; 
     color: red; 
@@ -101,37 +83,36 @@ input[type="submit"]:hover {
 
 }
 
-/* Estilos para el diálogo "¡Se ha enviado correctamente!" */
+/* Estilos pop-up envio correcto */
 #dialog-correcto {
     position: absolute; 
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
     background-color: #FFF6ED;
-    width: 40%;
+    width: 30%;
     height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 15px;
 }
 
 /* Estilos para el párrafo del diálogo "¡Se ha enviado correctamente!" */
 
 #dialog-correcto p{
     align-self: center;
+    margin-bottom: 2rem;
 }
 
 /* Estilos para el botón de cerrar el diálogo */
 .boton-cerrar-dialogo {
     color: white;
-    background-color: #790050;
-    height: 20%;
-    width: 30%;
+    background-color: var(--principal);
     align-self: center;
     text-align: center;
-    padding: .2rem;
+    padding: 1rem;
     border-radius: 5px;
-    margin-top: 1rem;
 }
 
 /*Para que cuando se entre en el formulario en dialogo no se muestre*/

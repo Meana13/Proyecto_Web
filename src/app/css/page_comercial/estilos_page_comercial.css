@@ -1,5 +1,5 @@
 #ver-venta,
-#ver-mas,
+#ver-mas,   
 #ventas,
 #solicitudes-en-proceso,
 #solicitudes-finalizadas,
@@ -8,6 +8,16 @@
 #chart-container-anio,
 #chart-container-dia {
     display: none;
+}
+
+h2{
+    margin-top: 7.5rem;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 80px;
+    }
 }
 
 h2 {
@@ -19,8 +29,7 @@ h2 {
 /*----------------------------------BOTONES DE NAVEGACIÓN------------------------------------*/
 
 /* Estilos para los botones de navegación */
-#botones-ventas,
-#botones-solicitudes {
+#botones-ventas {
     width: 90%;
     max-width: 2000px;
     display: flex;
@@ -30,30 +39,33 @@ h2 {
 
 #botones-ventas button,
 #botones-solicitudes button {
-    flex: 1 1 0;
+    width: 100%;
     font: 1em Arial, sans-serif;
-    color: #000000;
-    background-color: #D7D7D7;
+    color: var(--textoGeneral);
+    background-color: var(--fondoSecundario);
     border: 0;
     font-family: Arial, sans-serif;
     text-transform: uppercase;
     padding: 1.2em;
-    max-width: 300px;
+}
+
+.col-4 {
+    padding: 0 5px;
 }
 
 /* Estilos para los botones de navegación al pasar el cursor */
 #botones-ventas button:hover,
 #botones-solicitudes button:hover {
-    color: #FFFFFF;
-    background-color: #9D4179;
+    color: var(--textoBotones);
+    background-color: var(--secundario);
     font-weight: bold;
 }
 
 /* Estilos para los botones de navegación activos */
 #botones-ventas button.activo,
 #botones-solicitudes button.activo {
-    color: #FFFFFF;
-    background-color: #790050;
+    color: var(--textoBotones);
+    background-color: var(--principal);
     font-weight: bold;
 }
 
@@ -65,7 +77,7 @@ h2 {
 }
 
 /* Estilos para los botones de navegación en dispositivos móviles */
-@media(max-width: 400px) {
+@media(max-width: 500px) {
     #botones-ventas {
         justify-content: flex-start;
     }
@@ -84,20 +96,16 @@ h2 {
 
 /* Estilos para el buscador */
 .buscador {
-    width: 90%;
-    max-width: 2000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.buscador input {
-    flex: 2 1 0;
-    max-width: 500px;
     padding: 10px;
-    margin: 0 10px 5px 0;
     font-size: 1.2em;
 }
+
+.boton-buscar {
+    border-radius: .5em;
+    background-color: var(--fondoSecundario);
+    font-size: 1.2em;
+}
+
 
 .buscador button {
     flex: 1 1 0;
@@ -105,18 +113,18 @@ h2 {
     margin: 0 0 5px 0;
     font-size: 1.2em;
     border-radius: .5em;
-    background-color: #D7D7D7;
+    background-color: var(--fondoSecundario);
 }
 
 /* Estilos para el botón de búsqueda al pasar el cursor */
 .buscador button:hover {
-    color: #FFFFFF;
+    color: var(--textoBotones);
     font-weight: bold;
-    background-color: #790050;
+    background-color: var(--principal);
 }
 
 /* Estilos para el buscador en dispositivos móviles */
-@media(max-width: 400px) {
+@media(max-width: 500px) {
     .buscador input {
         padding: 2px;
         margin: 0 5px 2px 0;
@@ -145,14 +153,14 @@ h2 {
     margin: 0 5px 0 5px;
     font-size: 1.1em;
     border-radius: .3em;
-    background-color: #D7D7D7;
+    background-color: var(--fondoSecundario);
 }
 
 /* Estilos para el paginador al pasar el cursor */
 .paginador button:hover {
-    color: #FFFFFF;
+    color: var(--textoBotones);
     font-weight: bold;
-    background-color: #790050;
+    background-color: var(--principal);
 }
 
 /* Estilos adicionales para el paginador */
@@ -173,7 +181,7 @@ h2 {
 }
 
 /* Estilos adicionales para el paginador en dispositivos móviles */
-@media(max-width: 400px) {
+@media(max-width: 500px) {
     .paginador button,
     .paginador input {
         font-size: 0.9em;
@@ -202,8 +210,8 @@ table {
 
 th {
     padding: 10px;
-    background-color: #9D4179;
-    color: white;
+    background-color: var(--secundario);
+    color: var(--textoBotones);
     font-weight: normal;
 }
 
@@ -211,26 +219,18 @@ th:nth-of-type(4) {
     display: none;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #a7a7a7;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #D7D7D7;
-}
-
 td {
     padding: .2em 2em;
 }
 
 td:nth-of-type(4) {
-    background-color: #FFF6ED;
+    background-color: transparent;
     border: none;
     padding: 5px;
 }
 
 td:nth-of-type(4) button {
-    background-color: #9D4179;
+    background-color: var(--secundario);
     border-radius: 1em;
     border: none;
     padding: 15px 0;
@@ -238,38 +238,40 @@ td:nth-of-type(4) button {
     max-width: 200px;
     min-width: 150px;
     text-align: center;
-    color: white;
+    color: var(--textoBotones);
     font-size: 0.8em;
 }
 
 /* Estilos para los botones en las celdas de la tabla al pasar el cursor */
 td:nth-of-type(4) button:hover {
-    background-color: #790050;
+    background-color: var(--principal);
     font-weight: bold;
 }
 
 /* Estilos adicionales para los botones en las celdas de la tabla en dispositivos móviles */
 @media (max-width: 768px) {
     td:nth-of-type(4) button {
-        padding: 10px;
-        width: 65px;
-        min-width: 50px;
+        padding: 5px 0px;
+        min-width: 80px;
+        width: fit-content;
         font-size: .7em;
     }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 500px) {
     table {
         font-size: .7em;
     }
-    td {
+    th, td {
         padding: 0;
+        font-size: .8em;
     }
+
     td:nth-of-type(4) button {
-        padding: 10px 0;
+        padding: 5px 0;
         width: 65px;
         min-width: 40px;
-        font-size: .5em;
+        font-size: .6em;
     }
 }
 
@@ -277,13 +279,13 @@ td:nth-of-type(4) button:hover {
 
 /* Estilos para el selector de gráfica */
 #selector-opciones-graficas {
-    background-color: #D7D7D7;
+    background-color: var(--fondoSecundario);
     width: 90%;
     max-width: 2000px;
     padding: 0.8em;
     display: block;
     margin: 0 auto;
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     font-size: 1.1em;
 }
 
@@ -292,16 +294,16 @@ td:nth-of-type(4) button:hover {
 #chart-container-mes,
 #chart-container-dia,
 #chart-container-anio {
-    background-color: #FFFFFF;
+    background-color: var(--textoBotones);
     width: 89.8%;
     max-width: 2000px;
     margin: 0 auto;
     height: 60em;
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
 }
 
 /* Estilos adicionales para las gráficas en dispositivos móviles */
-@media(max-width: 400px) {
+@media(max-width: 500px) {
     #selector-opciones-graficas {
         padding: .3em;
         font-size: .9em;
@@ -338,14 +340,14 @@ td:nth-of-type(4) button:hover {
 }
 
 .contenedor-datos p span {
-    background-color: white;
-    border: 1px solid black;
+    background-color: var(--textoBotones);
+    border: 1px solid var(--textoGeneral);
     padding: 10px;
     margin: 40px;
 }
 
 .foco-de-detalle {
-    background-color: white;
+    background-color: var(--textoBotones);
     width: 80%;
     padding: 10px;
     min-height: 200px;
@@ -355,31 +357,31 @@ td:nth-of-type(4) button:hover {
 .foco-de-detalle li {
     padding: 10px;
     margin: 1px;
-    border: 1px solid black;
-    background-color: #D7D7D7;
+    border: 1px solid var(--textoGeneral);
+    background-color: var(--fondoSecundario);
     border-radius: .5em;
     font-size: 1.2em;
 }
 
 .contenedor-datos button {
-    background-color: #9D4179;
+    background-color: var(--secundario);
     max-width: 300px;
     align-self: flex-end;
     font-size: 1.2em;
     padding: 10px;
     margin: 40px;
     border-radius: .5em;
-    color: white;
+    color: var(--textoBotones);
 }
 
 /* Estilos para los botones en la pantalla de detalles al pasar el cursor */
 .contenedor-datos button:hover {
-    background-color: #790050;
+    background-color: var(--principal);
     font-weight: bold;
 }
 
 #productos-vendidos {
-    background-color: white;
+    background-color: var(--textoBotones);
     width: 80%;
     padding: 10px;
     min-height: 200px;
@@ -393,8 +395,8 @@ td:nth-of-type(4) button:hover {
 #productos-vendidos li {
     padding: 10px;
     margin: 1px;
-    border: 1px solid black;
-    background-color: #D7D7D7;
+    border: 1px solid var(--textoGeneral);
+    background-color: var(--fondoSecundario);
     border-radius: .5em;
     font-size: 1.2em;
     width: 40%;
@@ -402,7 +404,7 @@ td:nth-of-type(4) button:hover {
 }
 
 /* Estilos adicionales para la pantalla de detalles en dispositivos móviles */
-@media(max-width: 400px) {
+@media(max-width: 500px) {
     .contenedor-datos {
         width: 90%;
     }

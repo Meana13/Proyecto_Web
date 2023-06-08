@@ -18,6 +18,7 @@ body {
   top: 0;
   left: 0;
   display: flex;
+  z-index: 1000;
 }
 
 /* Estilos para la barra de navegación */
@@ -103,14 +104,14 @@ button.boton_menu {
 .login-tab {
   position: absolute;
   right: 10px;
-  margin-top: .80em;
   color: white;
   display: flex;
   flex-direction: column;
-  width: 40px;
   align-items: center;
+  width: 40px;
   right: 40px;
   height: 30px;
+  margin-top: 10px;
 }
 
 /* Estilos para la imagen de la pestaña de inicio de sesión */
@@ -119,7 +120,6 @@ button.boton_menu {
   height: 40px;
   border-radius: 100%;
   border: 2px solid white;
-  margin-bottom: .25em;
 }
 
 /* Estilos para el icono de usuario */
@@ -143,7 +143,7 @@ button.boton_menu {
 
 /* Estilos para el formulario de inicio de sesión */
 .fomulario_iniciar_sesion {
-  background-color: #fff;
+  background-color: var(--textoBotones);
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -171,7 +171,7 @@ button.boton_menu {
 
 /* Estilos para el botón de envío del formulario de inicio de sesión */
 .fomulario_iniciar_sesion input[type="submit"] {
-  background-color: #9D4179;
+  background-color: var(--secundario);
   color: #FFFFFF;
   font-family: Arial, sans-serif;
   text-transform: uppercase;
@@ -237,41 +237,64 @@ button.boton_menu {
   display: none;
 }
 
+@media (max-width: 1446px) {
+  body {
+    margin-top: 74px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    padding: 0;
+  }
+  
+  .logo {
+    margin: auto 15px;
+    height: 50px;
+
+  }
+
+  .login-tab {
+    display: flex;
+    align-items: center;
+  }
+}
+
 /* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
-  /* Estilos para el encabezado en dispositivos móviles */
+@media (max-width: 1060px) {
+  body {
+    margin-top: 80px;
+  }
+  
+  /* Estilos para encabezado */
   .header {
-    height: 60px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
   }
 
-  /* Estilos para el logo en dispositivos móviles */
+  /* Estilos logo*/
   .logo {
     padding: 5px;
     padding-bottom: 10px;
-    height: 45px;
+    height: 60px;
   }
 
-  /* Estilos para la barra de navegación en dispositivos móviles */
+  /* Estilos para la barra de navegación */
   nav.nav {
-    margin: 0;
+    margin: auto 0;
   }
 
-  /* Estilos para la pestaña de inicio de sesión en dispositivos móviles */
+  /* Estilos pop-up login */
   .login-tab {
     position: absolute;
-    right: 120px;
+    right: 60px;
     display: flex;
     flex-direction: row;
     width: fit-content;
-    align-items: center;
-    right: 60px;
-    height: 30px;
-    margin-top: 15px;
+    margin-top: 25px;
   }
 
-  /* Estilos para la imagen de la pestaña de inicio de sesión en dispositivos móviles */
+  /* Estilos imagen login */
   .login-tab img {
     width: 35px;
     height: 35px;
@@ -280,13 +303,13 @@ button.boton_menu {
     border: 2px solid white;
   }
 
-  /* Estilos para el icono de usuario en dispositivos móviles */
+  /* Estilos icono de usuario */
   #icono-usuario {
     margin-right: 0;
     margin-top: 10px;
   }
 
-  /* Estilos para el menú de navegación en dispositivos móviles */
+  /* Estilos menú de navegación */
   .nav-menu {
     flex-direction: column;
     float: left;
@@ -306,7 +329,6 @@ button.boton_menu {
     transition: right 0.3s;
   }
 
-  /* Estilos para los elementos del menú de navegación en dispositivos móviles */
   .nav-menu-item {
     text-align: center;
     width: 100%;
@@ -317,22 +339,17 @@ button.boton_menu {
     padding: 15px 0;
   }
 
-  /* Estilos para el enlace de "Ponte en contacto" en dispositivos móviles */
-  .ponte_en_contacto {
-    border: none;
-  }
-
-  /* Estilos para el enlace del menú en dispositivos móviles */
   .nav-menu-link {
     padding: 0px;
+    text-decoration: none;
   }
 
   /* Estilos para el botón de alternar menú de navegación en dispositivos móviles */
   .nav-toggle {
+    height: inherit;
     display: block;
   }
 
-  /* Estilos para el menú de navegación visible en dispositivos móviles */
   .nav-menu_visible {
     left: 0;
   }
