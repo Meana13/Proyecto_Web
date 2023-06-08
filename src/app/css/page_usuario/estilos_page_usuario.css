@@ -794,9 +794,6 @@ table td button.boton-aceptar-rechazar {
         margin-bottom: 1rem;
     }
 
-    .acordeon div.card div.collapse div form.seleccionar_fecha{
-        display: none;
-    }
 
     .acordeon div.card div.collapse div form .hasta{
         margin-left: 1rem;
