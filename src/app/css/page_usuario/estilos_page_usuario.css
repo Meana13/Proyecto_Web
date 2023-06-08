@@ -866,6 +866,10 @@ table td button.boton-aceptar-rechazar {
     .imagen_ajustes {
         margin-bottom: 2rem;
     }
+
+    #citas td:nth-last-child() {
+        width: fit-content;
+    }
 }
 
 
