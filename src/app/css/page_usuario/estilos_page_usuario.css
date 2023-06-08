@@ -526,11 +526,10 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 #citas td {
     width: 200px;
     max-height: 50px;
-    padding: 1rem;
 }
 
 #citas td:last-child {
-    width: 50px;
+    width: 160px;
 }
 
 table td button.boton-aceptar-rechazar {

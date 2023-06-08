@@ -41,26 +41,32 @@
     border: 0;
 }
 
+
 /* Estilos para las celdas de la tabla de citas */
-tr td:nth-child(1),
-tr td:nth-child(3) {
+#tabla-citas tr td:nth-child(1),
+#tabla-citas tr td:nth-child(3) {
     padding: 8px;
 }
 
 /* Estilos para las celdas de encabezado de la tabla de citas */
-tr th {
+#tabla-citas tr th {
     padding: 12px;
 }
 
 /* Estilos para alinear el contenido de ciertas celdas en la tabla de citas */
-tr td:nth-child(3),
+#tabla-citas tr td:nth-child(3),
 #tabla-citas tr td:nth-child(2) {
     text-align: center;
 }
 
+#tabla-citas td {
+    width: 40%;
+}
+
 /* Estilos para los botones "Ver cita" y "Ver huerto" */
 #boton-ver-cita,
-#boton-ver-huerto {
+#boton-ver-huerto,
+#boton-añadir-huerto {
     background-color: transparent;
     border: 0;
     background-color: var(--secundario);
@@ -70,8 +76,8 @@ tr td:nth-child(3),
     font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 13px;
-    padding: .5em;
-    width: 120px;
+    padding: .5em 1.5em;
+    width: fit-content;
     border-radius: 5px;
 }
 
@@ -231,31 +237,17 @@ select {
     padding: 0;
 }
 
+#tabla-huertos tr td:nth-child(3) {
+    background-color: transparent;
+    border: 0;
+}
+
 /* Estilos para el encabezado de la sección de administrar huertos */
 #seccion-administrar-huertos h3 {
     text-align: center;
 }
 
 /* Estilos para el botón "Añadir huerto" en la sección de administrar huertos */
-#boton-añadir-huerto {
-    background-color: var(--secundario);
-    border: 0;
-    border-radius: 5px;
-    color: var(--textoBotones);
-    height: 35px;
-    width: 110px;
-    align-items: center;
-    text-transform: uppercase;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    padding: 1em;
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: 11%;
-    margin-bottom: 20px;
-    margin-top: 30px;
-}
 
 #boton-añadir-huerto:hover {
     background-color: #9D4179;
@@ -446,15 +438,14 @@ input[type="file"] {
         display: none;
     }
 
-    #boton-ver-cita,
-    #boton-ver-huerto {
-        width: 70px;
+    #tabla-huertos td:nth-child(4) {
+        display: block;
+        margin: auto 0;
     }
 
+    #boton-ver-cita,
+    #boton-ver-huerto,
     #boton-añadir-huerto {
-        width: auto;
-        height: 30px;
-        font-size: 11px;
-        width: 90px;
+        width: fit-content;
     }
 }
