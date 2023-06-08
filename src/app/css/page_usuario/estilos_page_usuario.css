@@ -775,6 +775,30 @@ table td button.boton-aceptar-rechazar {
         border-bottom: 0;
     }
 
+    /*Estilos para el filtro de la gráfica*/
+    .acordeon div.card div.collapse div {
+        display:flex;
+        justify-content: flex-start;
+        align-items: baseline;
+    }
+
+    .acordeon div.card div.collapse div select {
+        width: 10%;
+        height: 1.8rem;
+        flex: .5 1 auto;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .acordeon div.card div.collapse div form.seleccionar_fecha{
+        display: none;
+    }
+
+    .acordeon div.card div.collapse div form .hasta{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
     /* Estilos para la sección de mediciones */
     #mediciones {
         margin-top: 50px;
@@ -866,10 +890,10 @@ table td button.boton-aceptar-rechazar {
     .imagen_ajustes {
         margin-bottom: 2rem;
     }
-
+/*
     #citas td:nth-last-child() {
         width: fit-content;
-    }
+    }*/
 }
 
 
