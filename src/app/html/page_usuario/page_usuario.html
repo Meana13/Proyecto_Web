@@ -142,7 +142,7 @@
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>Humedad</p>
-                    <p class="dato_actual_tab">Dato Actual</p>
+                    <p class="dato_actual_tab" id="dato_actual_tab_humedad">Dato Actual</p>
 
                 </button>
                 <button onclick="cambiarTab(3)" class="pH tab" id="tab_pH">
@@ -162,7 +162,7 @@
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>pH</p>
-                    <p class="dato_actual_tab">Dato Actual</p>
+                    <p class="dato_actual_tab" id="dato_actual_tab_pH">Dato Actual</p>
 
                 </button>
                 <button onclick="cambiarTab(4)" class="temperatura tab" id="tab_temperatura">
@@ -181,7 +181,7 @@
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>Temperatura</p>
-                    <p class="dato_actual_tab">Dato Actual</p>
+                    <p class="dato_actual_tab" id="dato_actual_tab_Temperatura">Dato Actual</p>
 
                 </button>
                 <button onclick="cambiarTab(5)" class="luz tab" id="tab_luz">
@@ -200,7 +200,7 @@
                     </div>
                     <!--Aquí acaba la sección de alertas-->
                     <p>Luz</p>
-                    <p class="dato_actual_tab">Dato Actual</p>
+                    <p class="dato_actual_tab" id="dato_actual_tab_luz">Dato Actual</p>
 
                 </button>
             </div>
@@ -214,7 +214,7 @@
 
                         <!--Filtro de tiempo para las gráficas-->
                         <div>
-                            <select class="filtro_graficas">
+                            <select class="filtro_graficas" id="filtro_salinidad">
                                 <option>Hoy</option>
                                 <option>Semana</option>
                                 <option>Seleccionar fecha</option>
@@ -265,7 +265,7 @@
 
                         <!--Filtro de tiempo para las gráficas-->
                         <div>
-                            <select class="filtro_graficas">
+                            <select class="filtro_graficas" id="filtro_humedad">
                                 <option>Hoy</option>
                                 <option>Semana</option>
                                 <option>Seleccionar fecha</option>
@@ -291,7 +291,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual</p>
+                            <p id="dato_actual_humedad">Dato actual</p>
                         </div>
 
                         <div class="alerta_descripcion">
@@ -316,7 +316,7 @@
 
                         <!--Filtro de tiempo para las gráficas-->
                         <div>
-                            <select class="filtro_graficas">
+                            <select class="filtro_graficas" id="filtro_pH">
                                 <option>Hoy</option>
                                 <option>Semana</option>
                                 <option>Seleccionar fecha</option>
@@ -342,7 +342,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual</p>
+                            <p id="dato_actual_pH">Dato actual</p>
                         </div>
 
                         <div class="alerta_descripcion">
@@ -368,7 +368,7 @@
 
                         <!--Filtro de tiempo para las gráficas-->
                         <div>
-                            <select class="filtro_graficas">
+                            <select class="filtro_graficas" id="filtro_temperatura">
                                 <option>Hoy</option>
                                 <option>Semana</option>
                                 <option>Seleccionar fecha</option>
@@ -394,7 +394,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual</p>
+                            <p id="dato_actual_temperatura">Dato actual</p>
                         </div>
 
                         <div class="alerta_descripcion">
@@ -421,7 +421,7 @@
 
                         <!--Filtro de tiempo para las gráficas-->
                         <div>
-                            <select class="filtro_graficas">
+                            <select class="filtro_graficas" id="filtro_luz">
                                 <option>Hoy</option>
                                 <option>Semana</option>
                                 <option>Seleccionar fecha</option>
@@ -447,7 +447,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual</p>
+                            <p id="dato_actual_luz">Dato actual</p>
                         </div>
 
                         <div class="alerta_descripcion">
@@ -524,13 +524,33 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>dato actual</p>
+                                <p id="dato_actual_acordeon_salinidad">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
                     </div>
 
                     <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div>
+                            <select class="filtro_graficas" id="filtro_acordeon_salinidad">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" action="#">
+                                <label for="desde-sal">
+                                    Desde: <input name="desde" id="desde-acordeon-sal" class="desde" type="date">
+                                </label>
+                                <label for="hasta-sal" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-acordeon-sal" type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
                         <!--Gráfica de salinidad-->
                         <div id="chart-container-acordeon-sal" class="card-body">
                             <canvas id="chart-acordeon-sal"></canvas>
@@ -565,13 +585,35 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>dato actual</p>
+                                <p id="dato_actual_acordeon_humedad">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
                     </div>
 
                     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div>
+                            <select class="filtro_graficas" id="filtro_acordeon_humedad">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" action="#">
+                                <label for="desde-humedad">
+                                    Desde: <input name="desde" id="desde-acordeon-humedad" class="desde" type="date">
+                                </label>
+                                <label for="hasta-humedad" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-acordeon-humedad" type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
                         <!--Gráfica de humedad-->
                         <div id="chart-container-acordeon-humedad" class="card-body">
 
@@ -608,15 +650,36 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>dato actual</p>
+                                <p id="dato_actual_acordeon_pH">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
                     </div>
 
                     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div>
+                            <select class="filtro_graficas" id="filtro_acordeon_pH">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" action="#">
+                                <label for="desde-ph">
+                                    Desde: <input name="desde" id="desde-acordeon-ph" class="desde" type="date">
+                                </label>
+                                <label for="hasta-ph" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-acordeon-ph" type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
                         <!--Gráfica de pH-->
-                        <div id="chart-container-acordeon-pH">
+                        <div id="chart-container-acordeon-pH" class="card-body">
 
                             <canvas id="chart-acordeon-pH"></canvas>
 
@@ -651,7 +714,7 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>dato actual</p>
+                                <p id="dato_actual_acordeon_temperatura">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
@@ -659,8 +722,30 @@
 
 
                     <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div>
+                            <select class="filtro_graficas" id="filtro_acordeon_temperatura">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" action="#">
+                                <label for="desde-temperatura">
+                                    Desde: <input name="desde" id="desde-acordeon-temperatura" class="desde" type="date">
+                                </label>
+                                <label for="hasta-temperatura" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-acordeon-temperatura" type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
                         <!--Gráfica de temperatura-->
-                        <div id="chart-container-acordeon-temperatura">
+                        <div id="chart-container-acordeon-temperatura"  class="card-body">
 
                             <canvas id="chart-acordeon-temperatura"></canvas>
 
@@ -695,15 +780,37 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>dato actual</p>
+                                <p id="dato_actual_acordeon_luz">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
                     </div>
 
                     <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div>
+                            <select class="filtro_graficas" id="filtro_acordeon_luz">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" action="#">
+                                <label for="desde-luz">
+                                    Desde: <input name="desde" id="desde-acordeon-luz" class="desde" type="date">
+                                </label>
+                                <label for="hasta-luz" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-acordeon-luz" type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
                         <!--Gráfica de luz-->
-                        <div id="chart-container-acordeon-luz">
+                        <div id="chart-container-acordeon-luz"  class="card-body">
 
                             <canvas id="chart-acordeon-luz"></canvas>
 
