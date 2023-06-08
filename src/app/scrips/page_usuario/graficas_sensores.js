@@ -1651,13 +1651,256 @@ getDatosSemana();
                                                                                             */
 async function getDatosPorFecha(){
 
+    //Cuando se selecciona "Seleccionar fecha" aparecen los inputs:
     let filtroSalinidad = document.getElementById('filtro_salinidad');
+    let formularioFechaSalinidad = document.getElementById('seleccionar_fecha_salinidad');
 
     filtroSalinidad.addEventListener('change', function(){
         if(filtroSalinidad.value === 'Seleccionar fecha'){
-            document.getElementById('seleccionar_fecha_salinidad').style.display = "block";
+            formularioFechaSalinidad.style.display = "block";
         }
-    })
+        if(filtroSalinidad.value !== 'Seleccionar fecha'){
+            formularioFechaSalinidad.style.display = "none";
+        }
+    });
+
+    formularioFechaSalinidad.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        let desde = document.getElementById('desde-sal').value;
+        let hasta = document.getElementById('hasta-sal').value;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+
+        let diferenciaMs = fechaHasta - fechaDesde;
+
+        let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+        console.log(diferenciaDias);
+
+        if (diferenciaDias <= 3) {
+            console.log('3 o menos días');
+
+            //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            const idHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                '?idHuerto=' + idHuerto +
+                '&desde=' + desde +
+                '&hasta=' + hasta +
+                '&senyal=' + 1);
+
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let horas = mediciones.map(function (medicion) {
+                    return medicion.hora + ":" + medicion.minutos;
+                });
+
+                //GRÁFICA SALINIDAD - DATOS HOY -----------------------------------------------------------------------
+                let datosSalinidadFecha = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Salinidad (%)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesSalinidadFecha = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Salinidad (%)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = horas.length-1; i >= 0; i--) {
+                    datosSalinidadFecha.labels.push(horas[i]);
+                    datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                }
+
+
+                miGraficaSal.options = opcionesSalinidadFecha;
+                miGraficaSal.data = datosSalinidadFecha;
+                miGraficaSal.update();
+            }
+
+
+
+            //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+
+
+        }//si son 3 o menos días
+        else{
+            console.log('4 o más días');
+
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            const idHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                '?idHuerto=' + idHuerto +
+                '&desde=' + desde +
+                '&hasta=' + hasta +
+                '&senyal=' + 0);
+
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
+                let datosSalinidadFecha = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Salinidad (%)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesSalinidadFecha = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Salinidad (%)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = dias.length-1; i >= 0; i--) {
+                    datosSalinidadFecha.labels.push(dias[i]);
+                    datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                }
+
+                miGraficaSal.options = opcionesSalinidadFecha;
+                miGraficaSal.data = datosSalinidadFecha;
+                miGraficaSal.update();
+
+
+            }
+        }//si son 4 o más días
+
+    });
+/*
+
+
+
+  // Ejemplo de cómo utilizar las fechas en una consulta
+  var consulta = "SELECT * FROM tu_tabla WHERE fecha >= '" + desde + "' AND fecha <= '" + hasta + "'";
+  console.log("Consulta:", consulta);
+
+
+});
+*/
+
+
+    //Recogemos los valores que ha dado el usuario:
+
+
+
 }
 
 getDatosPorFecha();
