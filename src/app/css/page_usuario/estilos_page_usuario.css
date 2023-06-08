@@ -195,6 +195,10 @@ h2 {
     display: flex;
 }
 
+#filtro_graficas {
+    margin-bottom: 100px;
+}
+
 /*Estilos para el contenedor de la gráfica su filtro*/
 .cuerpo_del_visualizador article .grafica-container {
     width: 70%;
