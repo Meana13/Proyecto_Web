@@ -11,7 +11,6 @@ async function getSesionUsuario(){
     const respuesta = await fetch('../../../api/sesion/');
     if(respuesta.ok){
         const datos = await respuesta.json();
-        console.log(datos);
         return datos;
     }
 }
@@ -21,23 +20,130 @@ async function getHuertosUsuario(){
     let datosDeUsuario = await getSesionUsuario();
     let idUsuario = datosDeUsuario.id_usuario;
 
-    const respuesta = await fetch('../../../api/huertos/');
+    const respuesta = await fetch('../../../api/huertos/' + '?idUsuario=' + idUsuario);
     if(respuesta.ok) {
         const datos = await respuesta.json();
-        console.log(datos);
+        return datos;
     }
 }
 
+async function getDatosHuertoPorIdHuerto(idHuerto){
+    const respuesta = await fetch('../../../api/huertos/' + '?idHuerto=' + idHuerto);
+    if(respuesta.ok) {
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
 //función para modificar el html para que muestre los huertos del usuario en el selector
-//de huertos y que cambie el nombre del huerto.?????????
+//de huertos y que cambie el nombre del huerto.
 async function escribirNombreHuerto(){
-    getHuertosUsuario();
+    let huertosDelUsuario = await getHuertosUsuario();
+    let nombreDeHuertos = huertosDelUsuario.map(function(huerto){
+        return huerto.nombre_huerto;
+    });
+
+    let idHuertos = huertosDelUsuario.map(function(huerto){
+        return huerto.id_huerto;
+    });
+
+    const selector = document.getElementById('seleccionar_huerto');
+    for(let i=0; i<nombreDeHuertos.length; i++){
+        const opcion = document.createElement('option');
+        opcion.value = idHuertos[i];
+        opcion.innerText = nombreDeHuertos[i];
+        selector.appendChild(opcion);
+    }
+
+    const nombreDeHuerto = document.getElementById('nombreDeHuerto');
+    nombreDeHuerto.innerText = "";
+    nombreDeHuerto.innerText = nombreDeHuertos[0];
+
+    selector.addEventListener('change', async function(){
+        let idHuerto = selector.value;
+
+        let datosHuerto = await getDatosHuertoPorIdHuerto(idHuerto);
+
+        nombreDeHuerto.innerText = "";
+        nombreDeHuerto.innerText = datosHuerto[0].nombre_huerto;
+    });
+}
+
+//llamada de la función para que se escriba el nombre en el selector.
+escribirNombreHuerto();
+
+/*-----------------------------------------------Aquí acaban las funciones para el selector de huertos*/
+
+
+                        /*
+                           ========================
+                                 DATO ACTUAL
+                           ========================
+                                                    */
+async function getDatoActual(){
+    //-------Cuando se abre la página por primera vez, está el primero huerto reflejado en la interfaz:-----//
+
+    //conseguimos la id de los huertos del usuario y las metemos en un array:
+    let huertosDelUsuario = await getHuertosUsuario();
+    let idHuertos = huertosDelUsuario.map(function(huerto){
+        return huerto.id_huerto;
+    });
+
+    //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+    const idPrimerHuerto = idHuertos[0];
+    const respuesta = await fetch('../../../api/mediciones/' + '?idHuerto=' + idPrimerHuerto);
+    if(respuesta.ok) {
+        const mediciones = await respuesta.json();
+        console.log(mediciones);
+
+        //DATO ACTUAL SALINIDAD:
+        let datoActualTabSalinidad = document.getElementById('dato_actual_tab_salinidad');
+        let datoActualSalinidad = document.getElementById('dato_actual_salinidad');
+
+        datoActualTabSalinidad.innerText = "";
+        datoActualTabSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+
+        datoActualSalinidad.innerText = "";
+        datoActualSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+
+    }
+
+
+    //----------------Cuando se selecciona una opción del selector:----------------------//
+
+    const selector = document.getElementById('seleccionar_huerto');
+
+    //conseguimos la id del huerto seleccionado
+    selector.addEventListener('change', async function() {
+        let idHuerto = selector.value;
+        console.log(idHuerto);
+
+        //pasamos la id en la query del fetch
+        const respuesta = await fetch('../../../api/mediciones/' + '?idHuerto=' + idHuerto);
+        if(respuesta.ok) {
+            const mediciones = await respuesta.json();
+            console.log(mediciones);
+
+            //DATO ACTUAL SALINIDAD:
+            let datoActualTabSalinidad = document.getElementById('dato_actual_tab_salinidad');
+            let datoActualSalinidad = document.getElementById('dato_actual_salinidad');
+
+            datoActualTabSalinidad.innerText = "";
+            datoActualTabSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+
+            datoActualSalinidad.innerText = "";
+            datoActualSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+        }
+    });
+
 
 }
 
-escribirNombreHuerto();
+getDatoActual();
 
 
+
+
+/*-----------------------------------------------Aquí acaban las funciones para obtener el dato actual*/
 
 
                         /*
