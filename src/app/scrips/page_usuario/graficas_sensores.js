@@ -98,12 +98,72 @@ async function getDatoActual(){
         //DATO ACTUAL SALINIDAD:
         let datoActualTabSalinidad = document.getElementById('dato_actual_tab_salinidad');
         let datoActualSalinidad = document.getElementById('dato_actual_salinidad');
+        let datoActualAcordeonSalinidad = document.getElementById('dato_actual_acordeon_salinidad');
 
         datoActualTabSalinidad.innerText = "";
         datoActualTabSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
 
         datoActualSalinidad.innerText = "";
         datoActualSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+
+        datoActualAcordeonSalinidad.innerText = "";
+        datoActualAcordeonSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+
+        //DATO ACTUAL HUMEDAD:
+        let datoActualTabHumedad = document.getElementById('dato_actual_tab_humedad');
+        let datoActualHumedad = document.getElementById('dato_actual_humedad');
+        let datoActualAcordeonHumedad = document.getElementById('dato_actual_acordeon_humedad');
+
+        datoActualTabHumedad.innerText = "";
+        datoActualTabHumedad.innerText = mediciones[0].mediaHumedad + "%";
+
+        datoActualHumedad.innerText = "";
+        datoActualHumedad.innerText = mediciones[0].mediaHumedad + "%";
+
+        datoActualAcordeonHumedad.innerText = "";
+        datoActualAcordeonHumedad.innerText = mediciones[0].mediaHumedad + "%";
+
+        //DATO ACTUAL PH:
+        let datoActualTabPh = document.getElementById('dato_actual_tab_pH');
+        let datoActualPh = document.getElementById('dato_actual_pH');
+        let datoActualAcordeonPh = document.getElementById('dato_actual_acordeon_pH');
+
+        datoActualTabPh.innerText = "";
+        datoActualTabPh.innerText = mediciones[0].mediapH;
+
+        datoActualPh.innerText = "";
+        datoActualPh.innerText = mediciones[0].mediapH;
+
+        datoActualAcordeonPh.innerText = "";
+        datoActualAcordeonPh.innerText = mediciones[0].mediapH;
+
+        //DATO ACTUAL TEMPERATURA:
+        let datoActualTabTemperatura = document.getElementById('dato_actual_tab_Temperatura');
+        let datoActualTemperatura = document.getElementById('dato_actual_temperatura');
+        let datoActualAcordeonTemperatura = document.getElementById('dato_actual_acordeon_temperatura');
+
+        datoActualTabTemperatura.innerText = "";
+        datoActualTabTemperatura.innerText = mediciones[0].mediaTemperatura + "ºC";
+
+        datoActualTemperatura.innerText = "";
+        datoActualTemperatura.innerText = mediciones[0].mediaTemperatura + "ºC";
+
+        datoActualAcordeonTemperatura.innerText = "";
+        datoActualAcordeonTemperatura.innerText = mediciones[0].mediaTemperatura + "ºC";
+
+        //DATO ACTUAL LUZ:
+        let datoActualTabLuz = document.getElementById('dato_actual_tab_luz');
+        let datoActualLuz = document.getElementById('dato_actual_luz');
+        let datoActualAcordeonLuz = document.getElementById('dato_actual_acordeon_luz');
+
+        datoActualTabLuz.innerText = "";
+        datoActualTabLuz.innerText = mediciones[0].mediaLuminosidad;
+
+        datoActualLuz.innerText = "";
+        datoActualLuz.innerText = mediciones[0].mediaLuminosidad;
+
+        datoActualAcordeonLuz.innerText = "";
+        datoActualAcordeonLuz.innerText = mediciones[0].mediaLuminosidad;
 
     }
 
@@ -126,21 +186,84 @@ async function getDatoActual(){
             //DATO ACTUAL SALINIDAD:
             let datoActualTabSalinidad = document.getElementById('dato_actual_tab_salinidad');
             let datoActualSalinidad = document.getElementById('dato_actual_salinidad');
+            let datoActualAcordeonSalinidad = document.getElementById('dato_actual_acordeon_salinidad');
 
             datoActualTabSalinidad.innerText = "";
             datoActualTabSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
 
             datoActualSalinidad.innerText = "";
             datoActualSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+
+            datoActualAcordeonSalinidad.innerText = "";
+            datoActualAcordeonSalinidad.innerText = mediciones[0].mediaSalinidad + "%";
+
+            //DATO ACTUAL HUMEDAD:
+            let datoActualTabHumedad = document.getElementById('dato_actual_tab_humedad');
+            let datoActualHumedad = document.getElementById('dato_actual_humedad');
+            let datoActualAcordeonHumedad = document.getElementById('dato_actual_acordeon_humedad');
+
+
+            datoActualTabHumedad.innerText = "";
+            datoActualTabHumedad.innerText = mediciones[0].mediaHumedad + "%";
+
+            datoActualHumedad.innerText = "";
+            datoActualHumedad.innerText = mediciones[0].mediaHumedad + "%";
+
+            datoActualAcordeonHumedad.innerText = "";
+            datoActualAcordeonHumedad.innerText = mediciones[0].mediaHumedad + "%";
+
+
+            //DATO ACTUAL PH:
+            let datoActualTabPh = document.getElementById('dato_actual_tab_pH');
+            let datoActualPh = document.getElementById('dato_actual_pH');
+            let datoActualAcordeonPh = document.getElementById('dato_actual_acordeon_pH');
+
+
+            datoActualTabPh.innerText = "";
+            datoActualTabPh.innerText = mediciones[0].mediapH;
+
+            datoActualPh.innerText = "";
+            datoActualPh.innerText = mediciones[0].mediapH;
+
+            datoActualAcordeonPh.innerText = "";
+            datoActualAcordeonPh.innerText = mediciones[0].mediapH;
+
+
+            //DATO ACTUAL TEMPERATURA:
+            let datoActualTabTemperatura = document.getElementById('dato_actual_tab_Temperatura');
+            let datoActualTemperatura = document.getElementById('dato_actual_temperatura');
+            let datoActualAcordeonTemperatura = document.getElementById('dato_actual_acordeon_temperatura');
+
+
+            datoActualTabTemperatura.innerText = "";
+            datoActualTabTemperatura.innerText = mediciones[0].mediaTemperatura + "ºC";
+
+            datoActualTemperatura.innerText = "";
+            datoActualTemperatura.innerText = mediciones[0].mediaTemperatura + "ºC";
+
+            datoActualAcordeonTemperatura.innerText = "";
+            datoActualAcordeonTemperatura.innerText = mediciones[0].mediaTemperatura + "ºC";
+
+
+            //DATO ACTUAL LUZ:
+            let datoActualTabLuz = document.getElementById('dato_actual_tab_luz');
+            let datoActualLuz = document.getElementById('dato_actual_luz');
+            let datoActualAcordeonLuz = document.getElementById('dato_actual_acordeon_luz');
+
+
+            datoActualTabLuz.innerText = "";
+            datoActualTabLuz.innerText = mediciones[0].mediaLuminosidad;
+
+            datoActualLuz.innerText = "";
+            datoActualLuz.innerText = mediciones[0].mediaLuminosidad;
+
+            datoActualAcordeonLuz.innerText = "";
+            datoActualAcordeonLuz.innerText = mediciones[0].mediaLuminosidad;
         }
     });
-
-
 }
 
 getDatoActual();
-
-
 
 
 /*-----------------------------------------------Aquí acaban las funciones para obtener el dato actual*/
