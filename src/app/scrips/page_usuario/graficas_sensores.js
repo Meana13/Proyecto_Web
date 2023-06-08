@@ -1641,6 +1641,27 @@ async function getDatosSemana() {
 
 getDatosSemana();
 
+//-----------------------------------------------------Aquí acaban las funciones de los datos de hoy de la gráfica.
+
+
+            /*
+                =========================================================================
+                                   FILTRO DE FECHA: SELECCIONAR FECHA
+                =========================================================================
+                                                                                            */
+async function getDatosPorFecha(){
+
+    let filtroSalinidad = document.getElementById('filtro_salinidad');
+
+    filtroSalinidad.addEventListener('change', function(){
+        if(filtroSalinidad.value === 'Seleccionar fecha'){
+            document.getElementById('seleccionar_fecha_salinidad').style.display = "block";
+        }
+    })
+}
+
+getDatosPorFecha();
+
 
 
 
