@@ -18,17 +18,21 @@ $sql = "SELECT
         ROUND(AVG(`medicion_humedad`),1) as `mediaHumedad`, 
         ROUND(AVG(`medicion_luminosidad`),1) as `mediaLuminosidad`, 
         ROUND(AVG(`medicion_ph`),1) as `mediapH`, 
-        ROUND(AVG(`medicion_temperatura`),1) as `mediaTemperatura`
+        ROUND(AVG(`medicion_temperatura`),1) as `mediaTemperatura`,
+       	SUBSTRING( `mediciones`.`hora_medicion`, 1, 2) AS hora, 
+        SUBSTRING(`mediciones`.`hora_medicion`, 4, 2) AS minutos 
 
         FROM `huertos`,`sondas`, `mediciones`
         
         WHERE `huertos`.`id_huerto` = `sondas`.`id_huerto`
         AND `sondas`.`id_sonda` = `mediciones`.`id_sonda`
-        AND `huertos`.`id_huerto` = $idHuerto
+        AND `huertos`.`id_huerto` = 18
         
         GROUP BY `mediciones`.`fecha_medicion`, `mediciones`.`hora_medicion`
         ORDER BY `mediciones`.`fecha_medicion` DESC, `mediciones`.`hora_medicion` DESC
-        LIMIT 4";
+        LIMIT 4;";
+
+
 
 $result = mysqli_query($connexion, $sql);
 while ($row = mysqli_fetch_assoc($result)) {

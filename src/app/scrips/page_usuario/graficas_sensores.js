@@ -265,6 +265,82 @@ getDatoActual();
 
 /*-----------------------------------------------Aquí acaban las funciones para obtener el dato actual*/
 
+
+                        /*
+                             ========================
+                               GRÁFICA DE SALINIDAD
+                             ========================
+                                                       */
+                        let datosSal = {
+                            labels: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes','sábado','domingo'],
+
+                            datasets: [
+                                {
+                                    label: 'datosSal',
+                                    data: [50, 55, 40, 45, 50, 55, 50],
+                                    fill: false,
+                                    backgroundColor: 'rgba(255,69,34,.5)',
+                                    borderColor: 'rgb(255,110,86)',
+                                    borderDash: [2,3],
+                                    tension: 0.2,
+                                    pointStyle: 'rectRot',
+                                    pointRadius: 10,
+                                },
+                            ]
+                        };
+
+                        let opcionesSal = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+
+                                title: {
+                                    display: true,
+                                    text: 'Salinidad (%)',
+                                    position: 'left',
+                                    align: 'start',
+                                    padding:{
+                                        right: 10
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+
+                                }
+
+                            }//plugins
+
+                        }//opciones
+
+                        let ctxSal = document.getElementById('chart-sal');
+                        let ctxAcordeonSal = document.getElementById('chart-acordeon-sal');
+
+                        let miGrafica = new Chart(ctxSal, {
+                            type: 'line',
+                            data: datosSal,
+                            options: opcionesSal
+                        });
+
+                        let graficaAcordeonSal = new Chart(ctxAcordeonSal,{
+                            type: 'line',
+                            data: datosSal,
+                            options: opcionesSal
+                        });
+
+
                 /*
                     =========================================================================
                                                FILTRO DE FECHA: HOY
@@ -287,81 +363,104 @@ async function getDatosHoy(){
     if(respuesta.ok) {
         const mediciones = await respuesta.json();
         console.log(mediciones);
+
+        let horas = mediciones.map(function(medicion){
+            return medicion.hora + ":" + medicion.minutos;
+        });
+
+        console.log(horas);
+
+        let dias = mediciones.map(function (medicion){
+            let fecha = medicion.fecha_medicion;
+
+            let partes = fecha.split("-");
+            var anio = partes[0];
+            var mes = partes[1];
+            var dia = partes[2];
+
+            var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+            return fechaFormateada;
+        });
+
+        console.log(dias);
+
+        let datosSalinidadHoy = {
+            labels: [],
+            datasets:[
+                {
+                    label:"Salinidad (%)",
+                    data:[],
+                    tension: 0.2,
+                    fill: false,
+                    backgroundColor: 'rgba(121,0,80,.8)',
+                    borderColor: '#790050',
+                    pointStyle: 'circle',
+                    pointRadius: 7,
+                    borderWidth: 2,
+                }
+            ]
+        };
+
+        let opcionesSalinidadHoy = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    grid: {
+                        drawOnChartArea: false
+                    }
+                },
+                y: {
+                    stacked: true
+                }
+            },
+            plugins: {
+                legend: false,
+                title: {
+                    display: true,
+                    text: 'Salinidad (%)',
+                    position: 'top',
+                    align: 'start',
+                    padding:{
+                        bottom: 10
+                    },
+                    font:{
+                        size: 15
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#fff',
+                    titleColor: '#000',
+                    titleAlign: 'center',
+                    bodyColor: '#333',
+                    borderColor: '#666',
+                    borderWidth: 1,
+                    yAlign: 'top',
+                    displayColors: false,
+                }
+
+            }//plugins
+
+
+        }
+
+        for (let i =3; i>=0; i--){
+            datosSalinidadHoy.labels.push(horas[i]);
+            datosSalinidadHoy.datasets[0].data.push(mediciones[i].mediaSalinidad);
+        }
+
+        miGrafica.options = opcionesSalinidadHoy;
+        miGrafica.data = datosSalinidadHoy;
+        miGrafica.update();
+
+        console.log(datosSalinidadHoy);
     }
 }
 
 getDatosHoy();
 
-                        /*
-                            ========================
-                              GRÁFICA DE SALINIDAD
-                            ========================
-                                                      */
-let datosSal = {
-    labels: ['lunes', 'martes', 'miércoles', 'jueves', 'viernes','sábado','domingo'],
 
-    datasets: [
-        {
-            label: 'datosSal',
-            data: [50, 55, 40, 45, 50, 55, 50],
-            fill: false,
-            backgroundColor: 'rgba(255,69,34,.5)',
-            borderColor: 'rgb(255,110,86)',
-            borderDash: [2,3],
-            tension: 0,
-            pointStyle: 'rectRot',
-            pointRadius: 10,
-        },
-    ]
-};
-
-let opcionesSal = {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-        y: {
-            stacked: true
-        }
-    },
-    plugins: {
-        legend: false,
-
-        title: {
-            display: true,
-            text: 'Datos de salinidad',
-            position: 'left',
-            align: 'start',
-            padding:{
-                right: 10
-            }
-        },
-        tooltip: {
-            backgroundColor: '#fff',
-            titleColor: '#000',
-            titleAlign: 'center',
-            bodyColor: '#333',
-            borderColor: '#666',
-            borderWidth: 1,
-        }
-
-    }//plugins
-
-}//opciones
-
-let ctxSal = document.getElementById('chart-sal');
-let ctxAcordeonSal = document.getElementById('chart-acordeon-sal');
-
-let miGrafica = new Chart(ctxSal, {
-    type: 'line',
-    data: datosSal,
-    options: opcionesSal
-});
-
-let graficaAcordeonSal = new Chart(ctxAcordeonSal,{
-    type: 'line',
-    data: datosSal,
-    options: opcionesSal
-});
 
                         /*
                             ========================
