@@ -3,6 +3,9 @@
      * URL a la que se hacen las peticiones
      */
     const url= '../../../api/ajustes/';
+    /**
+     * Variables vacias
+     */
     var ajustesusuario=[];
     var ajusteshuertos=[];
 
