@@ -15,7 +15,7 @@
      * @returns ajustesusuario
      */
     async function getAjustesUsuario(id){
-        const respuesta= await fetch(url+ '?idUsuario='+ id_huerto );
+        const respuesta= await fetch(url+ '?idUsuario='+ id );
         if(!respuesta.ok){
             return false;
         }
