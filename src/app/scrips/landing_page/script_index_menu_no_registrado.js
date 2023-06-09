@@ -29,6 +29,8 @@ const enlacesMenu = document.querySelectorAll(".boton_menu");
 enlacesMenu.forEach((enlace) => {
   enlace.addEventListener("click", () => {
     // Ocultar el menú desplegable al hacer clic en un enlace
-    desplegarMenu();
+    if (navMenu.classList.contains("nav-menu_visible")) {
+      desplegarMenu();
+    }
   });
 });

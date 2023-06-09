@@ -1,10 +1,10 @@
-/* Estilos generales para el cuerpo de la página */
-body {
-    margin-top: 120px;
-}
-
 .header{
     z-index: 1000;
+}
+
+h2 {
+    margin-top: 7.5rem;
+    margin-bottom: 3rem;
 }
 
 /*
@@ -17,6 +17,12 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 1rem 2.5rem;
+    margin-top: 7.5rem;
+}
+
+.cabecera_huertos h2 {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /*Estilos para el selector de huertos*/
@@ -73,6 +79,7 @@ body {
 .acordeon{
     display:none;
 }
+
 /*Estilos del visualizador de datos de los sensores*/
 .visualizador_de_datos{
     width: 90%;
@@ -124,7 +131,7 @@ body {
     display:none;
 }
 
-/*Estilo de los iconos de alerta*/
+/*Estilo iconos de alerta*/
 .alertas-container{
     display: flex;
     flex: 1 1 100%;
@@ -188,6 +195,10 @@ body {
     display: flex;
 }
 
+#filtro_graficas {
+    margin-bottom: 100px;
+}
+
 /*Estilos para el contenedor de la gráfica su filtro*/
 .cuerpo_del_visualizador article .grafica-container {
     width: 70%;
@@ -235,8 +246,8 @@ body {
 .cuerpo_del_visualizador article .dato_actual {
     margin: 0 auto;
     background-color: var(--fondoSecundario);
-    height: 50%;
-    width: 60%;
+    height: 350px;
+    width: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -412,9 +423,6 @@ dialog.ajustes_de_huerto h3{
     padding-bottom: 2rem;
 }
 
-.imagen_ajustes{
-}
-
 .imagen_ajustes img {
     margin-bottom: 5px;
 }
@@ -515,22 +523,23 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     display:none;
 }
 
-@media(max-width: 2300px){
-    /*Estilos del dato actual*/
-    .cuerpo_del_visualizador article .dato_actual {
-        height: 50%;
-        width: 60%;
-        border-radius: 60%;
-    }
+  /*************************************/
+ /*      ESTILOS SECCION CITAS        */
+/*************************************/
+
+#citas td {
+    width: 200px;
+    max-height: 50px;
 }
 
-@media(max-width: 2200px){
-    /*Estilos del dato actual*/
-    .cuerpo_del_visualizador article .dato_actual {
-        height: 45%;
-        width: 60%;
-        border-radius: 50%;
-    }
+#citas td:last-child {
+    width: 160px;
+}
+
+table td button.boton-aceptar-rechazar {
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
 }
 
 @media(max-width: 2000px){
@@ -542,12 +551,12 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
         height: 35rem;
     }
 
-    /*Estilos del dato actual*/
+    /* Estilos del dato actual */
     .cuerpo_del_visualizador article .dato_actual {
-        height: 50%;
-        width: 70%;
+        height: 300px;
+        width: 300px;
         border-radius: 50%;
-    }
+    } 
 
 }
 
@@ -559,10 +568,10 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 
     /*Estilos del dato actual*/
     .cuerpo_del_visualizador article .dato_actual {
-        height: 50%;
-        width: 70%;
+        height: 270px;
+        width: 270px;
         border-radius: 50%;
-    }
+    } 
 
 }
 
@@ -574,8 +583,8 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 
     /*Estilos del dato actual*/
     .cuerpo_del_visualizador article .dato_actual {
-        height: 50%;
-        width: 70%;
+        height: 220px;
+        width:  220px;
         border-radius: 50%;
     }
 
@@ -608,10 +617,10 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 
     /*Estilos del dato actual*/
     .cuerpo_del_visualizador article .dato_actual {
-        height: 40%;
-        width: 60%;
+        height: 200px;
+        width: 200px;
         border-radius: 50%;
-    }
+    } 
 
     .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
         font-size: 1.5rem;
@@ -640,11 +649,11 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     }
 
     /*Estilos del dato actual*/
-    .cuerpo_del_visualizador article .dato_actual {
+    /* .cuerpo_del_visualizador article .dato_actual {
         height: 40%;
-        width: 60%;
+        width: 40%;
         border-radius: 50%;
-    }
+    } */
 
     .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
         font-size: 1.5rem;
@@ -668,16 +677,16 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     }
 
     .cuerpo_del_visualizador article .dato_actual {
-        height: 40%;
-        width: 70%;
+        height: 200px;
+        width: 200px;
         border-radius: 50%;
     }
 
     .cuerpo_del_visualizador article.grafica_luz .dato_actual {
-        height: 40%;
-        width: 60%;
+        height: 200px;
+        width: 200px;
         border-radius: 50%;
-    }
+    } 
     /*Estilos para los títulos de las pestañas del visualizador de datos*/
     .tabs button p{
         font-size: 1rem;
@@ -770,6 +779,30 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
         border-bottom: 0;
     }
 
+    /*Estilos para el filtro de la gráfica*/
+    .acordeon div.card div.collapse div {
+        display:flex;
+        justify-content: flex-start;
+        align-items: baseline;
+    }
+
+    .acordeon div.card div.collapse div select {
+        width: 10%;
+        height: 1.8rem;
+        flex: .5 1 auto;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .acordeon div.card div.collapse div form.seleccionar_fecha{
+        display: none;
+    }
+
+    .acordeon div.card div.collapse div form .hasta{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
     /* Estilos para la sección de mediciones */
     #mediciones {
         margin-top: 50px;
@@ -796,7 +829,7 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
+        background-color: var(--textoBotones);
         font-size: 30px;
     }
 
@@ -861,11 +894,14 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     .imagen_ajustes {
         margin-bottom: 2rem;
     }
+/*
+    #citas td:nth-last-child() {
+        width: fit-content;
+    }*/
 }
 
 
 /*Estilos para los Ajustes de perfil*/
-/* Configuración de la sección de la ficha de la cita */
 #ajustes-usuario h2 {
     text-align: center;
     margin-bottom: 2em;
@@ -898,8 +934,6 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     display: block;
 }
 
-
-/* Estilos para los campos de texto y select del formulario de la ficha de la cita */
 input[type="text"],
 select {
     width: 199px;
@@ -907,14 +941,12 @@ select {
     margin-bottom: 10px;
 }
 
-/* Estilos para el campo "productos vendidos" del formulario de la ficha de la cita */
 #nombre {
     width: 100%;
     margin: 0 auto;
     display: block;
 }
 
-/* Estilos para el campo "incidencias" del formulario de la ficha de la cita */
 #apellidos {
     width: 100%;
 }
@@ -927,15 +959,15 @@ select {
 
 .contenedor2 {
     display: flex;
-    justify-content: left; /* Alineación horizontal */
-    align-items: center; /* Alineación vertical */
+    justify-content: left; 
+    align-items: center; 
     height: 50px;
 }
 
 .cambiar_contraseña {
     padding: 10px 20px;
     margin-right: 10px; 
-    background-color: #790050; 
+    background-color: var(--principal); 
     border: none;
     cursor: pointer;
     color: #fff; 
@@ -943,29 +975,29 @@ select {
 
 .contenedor5 {
     display: flex;
-    justify-content: center; /* Alineación horizontal */
-    align-items: center; /* Alineación vertical */
+    justify-content: center; 
+    align-items: center; 
     height: 85px;
 }
 
 .boton-editar-ajustes {
     padding: 10px 20px;
   margin-right: 10px; 
-  background-color: #790050; 
+  background-color: var(--principal); 
   border: none;
   cursor: pointer;
-  color: #fff; 
+  color: var(--textoBotones); 
 }
 
 
 .cambios_perfil {
     padding: 10px 20px;
     margin-right: 10px; 
-    background-color: #D7D7D7; 
+    background-color: var(--fondoSecundario); 
     border: none;
     cursor: pointer;
-    color: #000000;
-    border: 2px solid #000000;
+    color: var(--textoGeneral);
+    border: 2px solid var(--textoGeneral);
     
 }
 
@@ -973,9 +1005,9 @@ select {
 .boton-cancelar-ajustes {
     padding: 10px 20px;
     margin-right: 10px; 
-    background-color: #D7D7D7; 
-    border: 2px solid #000000; 
+    background-color: var(--fondoSecundario); 
+    border: 2px solid var(--textoGeneral); 
     cursor: pointer;
-    color: #000000;
+    color: var(--textoGeneral);
 }
 

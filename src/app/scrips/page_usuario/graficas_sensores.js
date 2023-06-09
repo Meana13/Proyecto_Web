@@ -752,7 +752,7 @@ async function getDatosHoy() {
 //------------------------------------------------------------------------------Aquí acaban los datos por defecto
 
 
-// ----------------Cuando se selecciona una opción del selector:----------------------------------SELECTOR
+// ----------------Cuando se selecciona una opción del selector de huerto:----------------------------------SELECTOR HUERTO
 
     const selector = document.getElementById('seleccionar_huerto');
 
@@ -1130,12 +1130,2985 @@ async function getDatosHoy() {
             graficaAcordeonLuz.update();
 
         }
+        //-----------------------------------------------------Aquí acaban los datos cuando se usa el selector de huerto
+
+    });
+}
+
+
+getDatosHoy(); //llamada de la función para que se ejecute por defecto cuando cargue la página
+
+//Para que se ejecute la anterior función cuando se pulse la opción de "Hoy" en el filtro de la gráfica:
+function filtroHoyPulsado() {
+
+    //--------------------------------------------------------------------------------------------FILTROS VISUALIZADOR
+    let filtroSalinidad = document.getElementById('filtro_salinidad');
+    let filtroHumedad = document.getElementById('filtro_humedad');
+    let filtroPh = document.getElementById('filtro_pH');
+    let filtroTemperatura = document.getElementById('filtro_temperatura');
+    let filtroLuz = document.getElementById('filtro_luz');
+
+
+    filtroSalinidad.addEventListener('change', async function () {
+        if (filtroSalinidad.value === 'Hoy') {
+            getDatosHoy();
+        }
+    });
+
+    filtroHumedad.addEventListener('change', async function () {
+        if (filtroHumedad.value === 'Hoy') {
+            getDatosHoy();
+        }
+    });
+
+    filtroPh.addEventListener('change', async function () {
+        if (filtroPh.value === 'Hoy') {
+            getDatosHoy();
+        }
+    });
+
+    filtroTemperatura.addEventListener('change', async function () {
+        if (filtroTemperatura.value === 'Hoy') {
+            getDatosHoy();
+        }
+    });
+
+    filtroLuz.addEventListener('change', async function () {
+        if (filtroLuz.value === 'Hoy') {
+            getDatosHoy();
+        }
+    });
+
+
+    //--------------------------------------------------------------------------------------------FILTROS ACORDEON
+    let filtroAcordeonSalinidad = document.getElementById('filtro_acordeon_salinidad');
+    let filtroAcordeonHumedad = document.getElementById('filtro_acordeon_humedad');
+    let filtroAcordeonPh = document.getElementById('filtro_acordeon_pH');
+    let filtroAcordeonTemperatura = document.getElementById('filtro_acordeon_temperatura');
+    let filtroAcordeonLuz = document.getElementById('filtro_acordeon_luz');
+
+    filtroAcordeonSalinidad.addEventListener('change', async function () {
+        if (filtroAcordeonSalinidad.value === 'Hoy') {
+            getDatosHoy();
+        }
+    });
+
+    filtroAcordeonHumedad.addEventListener('change', async function () {
+        if (filtroAcordeonHumedad.value === 'Hoy') {
+            getDatosHoy();
+        }
+    });
+
+    filtroAcordeonPh.addEventListener('change', async function () {
+        if (filtroAcordeonPh.value === 'Hoy') {
+            getDatosHoy();
+        }
+    });
+
+    filtroAcordeonTemperatura.addEventListener('change', async function () {
+        if (filtroAcordeonTemperatura.value === 'Hoy') {
+            getDatosHoy();
+        }
+    });
+
+    filtroAcordeonLuz.addEventListener('change', async function () {
+        if (filtroAcordeonLuz.value === 'Hoy') {
+            getDatosHoy();
+        }
     });
 
 }
-getDatosHoy();
+
+filtroHoyPulsado();
+
+//-----------------------------------------------------Aquí acaban las funciones de los datos de hoy de la gráfica.
 
 
+                        /*
+                            =========================================================================
+                                                       FILTRO DE FECHA: SEMANA
+                            =========================================================================
+                                                                                                        */
+
+/*Los datos de la semana no se mostrarán por defecto, por tanto solo se mostrarán cuando se escoja la opción del selector:*/
+async function getDatosSemana() {
+
+
+    //Para que se carguen los datos del huerto que se muestre por defecto:
+
+    //---------------------------------------------------------------------------GRAFICA SALINIDAD
+
+    let filtroSalinidad = document.getElementById('filtro_salinidad');
+    let filtroAcordeonSalinidad = document.getElementById('filtro_acordeon_salinidad');
+
+    filtroSalinidad.addEventListener('change', async function () {
+
+        if (filtroSalinidad.value === 'Semana') {
+
+            //conseguimos la id de los huertos del usuario y las metemos en un array:
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+            const idPrimerHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idPrimerHuerto);
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosSalinidadSemana = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Salinidad (%)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesSalinidadSemana = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Salinidad (%)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = 6; i >= 0; i--) {
+                    datosSalinidadSemana.labels.push(dias[i]);
+                    datosSalinidadSemana.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                }
+
+                miGraficaSal.options = opcionesSalinidadSemana;
+                miGraficaSal.data = datosSalinidadSemana;
+                miGraficaSal.update();
+
+
+            }
+//------------------------------------------------------------------------------------------SELECTOR DE HUERTO
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                //pasamos la id en la query del fetch
+                const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+
+                    console.log(mediciones);
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
+                    let datosSalinidadSemana = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Salinidad (%)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesSalinidadSemana = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Salinidad (%)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = 6; i >= 0; i--) {
+                        datosSalinidadSemana.labels.push(dias[i]);
+                        datosSalinidadSemana.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                    }
+
+                    miGraficaSal.options = opcionesSalinidadSemana;
+                    miGraficaSal.data = datosSalinidadSemana;
+                    miGraficaSal.update();
+                }
+
+            });
+        }
+    });
+
+    filtroAcordeonSalinidad.addEventListener('change', async function () {
+
+        if (filtroAcordeonSalinidad.value === 'Semana') {
+            //conseguimos la id de los huertos del usuario y las metemos en un array:
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+            const idPrimerHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idPrimerHuerto);
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
+                let datosSalinidadSemana = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Salinidad (%)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesSalinidadSemana = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Salinidad (%)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = 6; i >= 0; i--) {
+                    datosSalinidadSemana.labels.push(dias[i]);
+                    datosSalinidadSemana.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                }
+
+                graficaAcordeonSal.options = opcionesSalinidadSemana;
+                graficaAcordeonSal.data = datosSalinidadSemana;
+                graficaAcordeonSal.update();
+            }
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                //pasamos la id en la query del fetch
+                const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+
+                    console.log(mediciones);
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
+                    let datosSalinidadSemana = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Salinidad (%)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesSalinidadSemana = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Salinidad (%)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = 6; i >= 0; i--) {
+                        datosSalinidadSemana.labels.push(dias[i]);
+                        datosSalinidadSemana.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                    }
+
+                    graficaAcordeonSal.options = opcionesSalinidadSemana;
+                    graficaAcordeonSal.data = datosSalinidadSemana;
+                    graficaAcordeonSal.update();
+                }
+
+            });
+        }
+    });
+
+
+
+
+    //-----------------------------------------------------------------------SEMANA----GRAFICA PH
+
+    //-------------------------------------------------------------------------------VISUALIZADOR
+    let filtroPh = document.getElementById('filtro_pH');
+    let filtroAcordeonPh = document.getElementById('filtro_acordeon_pH');
+
+    filtroPh.addEventListener('change', async function () {
+
+        if (filtroPh.value === 'Semana') {
+
+            //-----------------------------------------------------------------------------HUERTO POR DEFECTO
+            //conseguimos la id de los huertos del usuario y las metemos en un array:
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+            const idPrimerHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idPrimerHuerto);
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosPhSemana = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "pH",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesPhSemana = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'pH',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = 6; i >= 0; i--) {
+                    datosPhSemana.labels.push(dias[i]);
+                    datosPhSemana.datasets[0].data.push(mediciones[i].mediapH);
+                }
+
+                miGraficapH.options = opcionesPhSemana;
+                miGraficapH.data = datosPhSemana;
+                miGraficapH.update();
+
+
+            }
+//------------------------------------------------------------------------------------------SELECTOR DE HUERTO
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                //pasamos la id en la query del fetch
+                const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosPhSemana = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "pH",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesPhSemana = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'pH',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = 6; i >= 0; i--) {
+                        datosPhSemana.labels.push(dias[i]);
+                        datosPhSemana.datasets[0].data.push(mediciones[i].mediapH);
+                    }
+
+                    miGraficapH.options = opcionesPhSemana;
+                    miGraficapH.data = datosPhSemana;
+                    miGraficapH.update();
+                }
+
+            });
+        }
+    });
+
+    //------------------------------------------------------------------------------------ACORDEÓN
+
+    filtroAcordeonPh.addEventListener('change', async function () {
+
+        if (filtroAcordeonPh.value === 'Semana') {
+            //----------------------------------------------------------------------------HUERTO POR DEFECTO
+            //conseguimos la id de los huertos del usuario y las metemos en un array:
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+            const idPrimerHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idPrimerHuerto);
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosPhSemana = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "pH",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesPhSemana = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'pH',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = 6; i >= 0; i--) {
+                    datosPhSemana.labels.push(dias[i]);
+                    datosPhSemana.datasets[0].data.push(mediciones[i].mediapH);
+                }
+
+                graficaAcordeonPh.options = opcionesPhSemana;
+                graficaAcordeonPh.data = datosPhSemana;
+                graficaAcordeonPh.update();
+            }
+
+            //--------------------------------------------------------------------------------------SELECTOR
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                //pasamos la id en la query del fetch
+                const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datospHSemana = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "pH",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesPhSemana = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'pH',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = 6; i >= 0; i--) {
+                        datospHSemana.labels.push(dias[i]);
+                        datospHSemana.datasets[0].data.push(mediciones[i].mediapH);
+                    }
+
+                    graficaAcordeonPh.options = opcionesPhSemana;
+                    graficaAcordeonPh.data = datospHSemana;
+                    graficaAcordeonPh.update();
+                }
+
+            });
+        }
+    });
+
+
+    //---------------------------------------------------------------------------GRAFICA HUMEDAD
+
+    let filtroHumedad = document.getElementById('filtro_humedad');
+    let filtroAcordeonHumedad = document.getElementById('filtro_acordeon_humedad');
+
+    filtroHumedad.addEventListener('change', async function () {
+
+        if (filtroHumedad.value === 'Semana') {
+
+            //conseguimos la id de los huertos del usuario y las metemos en un array:
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+            const idPrimerHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idPrimerHuerto);
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosHumedadSemana = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Humedad (%)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesHumedadSemana = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Humedad (%)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = 6; i >= 0; i--) {
+                    datosHumedadSemana.labels.push(dias[i]);
+                    datosHumedadSemana.datasets[0].data.push(mediciones[i].mediaHumedad);
+                }
+
+                miGraficaHumedad.options = opcionesHumedadSemana;
+                miGraficaHumedad.data = datosHumedadSemana;
+                miGraficaHumedad.update();
+
+
+            }
+//------------------------------------------------------------------------------------------SELECTOR DE HUERTO
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                //pasamos la id en la query del fetch
+                const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosHumedadSemana = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Humedad (%)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesHumedadSemana = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Humedad (%)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = 6; i >= 0; i--) {
+                        datosHumedadSemana.labels.push(dias[i]);
+                        datosHumedadSemana.datasets[0].data.push(mediciones[i].mediaHumedad);
+                    }
+
+                    miGraficaHumedad.options = opcionesHumedadSemana;
+                    miGraficaHumedad.data = datosHumedadSemana;
+                    miGraficaHumedad.update();
+                }
+
+            });
+        }
+    });
+
+    filtroAcordeonHumedad.addEventListener('change', async function () {
+
+        if (filtroAcordeonHumedad.value === 'Semana') {
+            //conseguimos la id de los huertos del usuario y las metemos en un array:
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+            const idPrimerHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idPrimerHuerto);
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosHumedadSemana = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Humedad (%)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesHumedadSemana = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Humedad (%)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = 6; i >= 0; i--) {
+                    datosHumedadSemana.labels.push(dias[i]);
+                    datosHumedadSemana.datasets[0].data.push(mediciones[i].mediaHumedad);
+                }
+
+                graficaAcordeonHumedad.options = opcionesHumedadSemana;
+                graficaAcordeonHumedad.data = datosHumedadSemana;
+                graficaAcordeonHumedad.update();
+            }
+
+            //--------------------------------------------------------------------------------------SELECTOR
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                //pasamos la id en la query del fetch
+                const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+
+                    console.log(mediciones);
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosHumedadSemana = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Humedad (%)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesHumedadSemana = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Humedad (%)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = 6; i >= 0; i--) {
+                        datosHumedadSemana.labels.push(dias[i]);
+                        datosHumedadSemana.datasets[0].data.push(mediciones[i].mediaHumedad);
+                    }
+
+                    graficaAcordeonHumedad.options = opcionesHumedadSemana;
+                    graficaAcordeonHumedad.data = datosHumedadSemana;
+                    graficaAcordeonHumedad.update();
+                }
+
+            });
+        }
+    });
+
+    //-----------------------------------------------------------------------SEMANA----GRAFICA TEMPERATURA
+
+    //-------------------------------------------------------------------------------VISUALIZADOR
+    let filtroTemperatura = document.getElementById('filtro_temperatura');
+    let filtroAcordeonTemperatura = document.getElementById('filtro_acordeon_temperatura');
+
+    filtroTemperatura.addEventListener('change', async function () {
+
+        if (filtroTemperatura.value === 'Semana') {
+
+            //-----------------------------------------------------------------------------HUERTO POR DEFECTO
+            //conseguimos la id de los huertos del usuario y las metemos en un array:
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+            const idPrimerHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idPrimerHuerto);
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosTemperaturaSemana = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Temperatura (ºC)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesTemperaturaSemana = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Temperatura (ºC)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = 6; i >= 0; i--) {
+                    datosTemperaturaSemana.labels.push(dias[i]);
+                    datosTemperaturaSemana.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                }
+
+                miGraficaTemperatura.options = opcionesTemperaturaSemana;
+                miGraficaTemperatura.data = datosTemperaturaSemana;
+                miGraficaTemperatura.update();
+
+
+            }
+//------------------------------------------------------------------------------------------SELECTOR DE HUERTO
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                //pasamos la id en la query del fetch
+                const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosTemperaturaSemana = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Temperatura (ºC)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesTemperaturaSemana = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Temperatura (ºC)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = 6; i >= 0; i--) {
+                        datosTemperaturaSemana.labels.push(dias[i]);
+                        datosTemperaturaSemana.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                    }
+
+                    miGraficaTemperatura.options = opcionesTemperaturaSemana;
+                    miGraficaTemperatura.data = datosTemperaturaSemana;
+                    miGraficaTemperatura.update();
+                }
+
+            });
+        }
+    });
+
+    //------------------------------------------------------------------------------------ACORDEÓN
+
+    filtroAcordeonTemperatura.addEventListener('change', async function () {
+
+        if (filtroAcordeonTemperatura.value === 'Semana') {
+            //----------------------------------------------------------------------------HUERTO POR DEFECTO
+            //conseguimos la id de los huertos del usuario y las metemos en un array:
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+            const idPrimerHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idPrimerHuerto);
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosTemperaturaSemana = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Temperatura (ºC)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesTemperaturaSemana = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Temperatura (ºC)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = 6; i >= 0; i--) {
+                    datosTemperaturaSemana.labels.push(dias[i]);
+                    datosTemperaturaSemana.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                }
+
+                graficaAcordeonTemperatura.options = opcionesTemperaturaSemana;
+                graficaAcordeonTemperatura.data = datosTemperaturaSemana;
+                graficaAcordeonTemperatura.update();
+            }
+
+            //--------------------------------------------------------------------------------------SELECTOR
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                //pasamos la id en la query del fetch
+                const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosTemperaturaSemana = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Temperatura (ºC)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesTemperaturaSemana = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Temperatura (ºC)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = 6; i >= 0; i--) {
+                        datosTemperaturaSemana.labels.push(dias[i]);
+                        datosTemperaturaSemana.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                    }
+
+                    graficaAcordeonTemperatura.options = opcionesTemperaturaSemana;
+                    graficaAcordeonTemperatura.data = datosTemperaturaSemana;
+                    graficaAcordeonTemperatura.update();
+                }
+
+            });
+        }
+    });
+
+
+    //-----------------------------------------------------------------------SEMANA----GRAFICA LUZ
+
+    //-------------------------------------------------------------------------------VISUALIZADOR
+    let filtroLuz = document.getElementById('filtro_luz');
+    let filtroAcordeonLuz = document.getElementById('filtro_acordeon_luz');
+
+    filtroLuz.addEventListener('change', async function () {
+
+        if (filtroLuz.value === 'Semana') {
+
+            //-----------------------------------------------------------------------------HUERTO POR DEFECTO
+            //conseguimos la id de los huertos del usuario y las metemos en un array:
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+            const idPrimerHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idPrimerHuerto);
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosLuzSemana = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Luz",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesLuzSemana = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = 6; i >= 0; i--) {
+                    datosLuzSemana.labels.push(dias[i]);
+                    datosLuzSemana.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                }
+
+                miGraficaLuz.options = opcionesLuzSemana;
+                miGraficaLuz.data = datosLuzSemana;
+                miGraficaLuz.update();
+
+
+            }
+//------------------------------------------------------------------------------------------SELECTOR DE HUERTO
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                //pasamos la id en la query del fetch
+                const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosLuzSemana = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Luz",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesLuzSemana = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = 6; i >= 0; i--) {
+                        datosLuzSemana.labels.push(dias[i]);
+                        datosLuzSemana.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                    }
+
+                    miGraficaLuz.options = opcionesLuzSemana;
+                    miGraficaLuz.data = datosLuzSemana;
+                    miGraficaLuz.update();
+                }
+
+            });
+        }
+    });
+
+    //------------------------------------------------------------------------------------ACORDEÓN
+
+    filtroAcordeonLuz.addEventListener('change', async function () {
+
+        if (filtroAcordeonLuz.value === 'Semana') {
+            //----------------------------------------------------------------------------HUERTO POR DEFECTO
+            //conseguimos la id de los huertos del usuario y las metemos en un array:
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            //la primera casilla contendrá la id del primer huerto, el que aparecerá por defecto:
+            const idPrimerHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idPrimerHuerto);
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosLuzSemana = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Luz",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesLuzSemana = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = 6; i >= 0; i--) {
+                    datosLuzSemana.labels.push(dias[i]);
+                    datosLuzSemana.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                }
+
+                graficaAcordeonLuz.options = opcionesLuzSemana;
+                graficaAcordeonLuz.data = datosLuzSemana;
+                graficaAcordeonLuz.update();
+            }
+
+            //--------------------------------------------------------------------------------------SELECTOR
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                //pasamos la id en la query del fetch
+                const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosLuzSemana = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Luz",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesLuzSemana = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = 6; i >= 0; i--) {
+                        datosLuzSemana.labels.push(dias[i]);
+                        datosLuzSemana.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                    }
+
+                    graficaAcordeonLuz.options = opcionesLuzSemana;
+                    graficaAcordeonLuz.data = datosLuzSemana;
+                    graficaAcordeonLuz.update();
+                }
+
+            });
+        }
+    });
+
+}
+
+
+getDatosSemana();
+
+//-----------------------------------------------------Aquí acaban las funciones de los datos de hoy de la gráfica.
+
+
+            /*
+                =========================================================================
+                                   FILTRO DE FECHA: SELECCIONAR FECHA
+                =========================================================================
+                                                                                            */
+async function getDatosPorFecha(){
+
+    //Cuando se selecciona "Seleccionar fecha" aparecen los inputs:
+    let filtroSalinidad = document.getElementById('filtro_salinidad');
+    let formularioFechaSalinidad = document.getElementById('seleccionar_fecha_salinidad');
+
+    let filtroAcordeonSalinidad = document.getElementById('filtro_acordeon_salinidad');
+    let formularioFechaAcordeonSalinidad = document.getElementById('seleccionar_fecha_acordeon_salinidad')
+
+    filtroSalinidad.addEventListener('change', function(){
+        if(filtroSalinidad.value === 'Seleccionar fecha'){
+            formularioFechaSalinidad.style.display = "block";
+        }
+        if(filtroSalinidad.value !== 'Seleccionar fecha'){
+            formularioFechaSalinidad.style.display = "none";
+        }
+    });
+
+    filtroAcordeonSalinidad.addEventListener('change', function(){
+        if(filtroAcordeonSalinidad.value ==='Seleccionar fecha'){
+            formularioFechaAcordeonSalinidad.style.display = "block";
+        }
+        if(filtroAcordeonSalinidad.value !=='Seleccionar fecha'){
+            formularioFechaAcordeonSalinidad.style.display = "none";
+        }
+    });
+
+//-------------------------------------VISUALIZADOR DE HUERTOS--------------------------------------------------
+    formularioFechaSalinidad.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        let desde = document.getElementById('desde-sal').value;
+        let hasta = document.getElementById('hasta-sal').value;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+
+        let diferenciaMs = fechaHasta - fechaDesde;
+
+        let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+        console.log(diferenciaDias);
+
+        if (diferenciaDias <= 3) {
+            console.log('3 o menos días');
+
+            //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            const idHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                '?idHuerto=' + idHuerto +
+                '&desde=' + desde +
+                '&hasta=' + hasta +
+                '&senyal=' + 1);
+
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let horas = mediciones.map(function (medicion) {
+                    return medicion.hora + ":" + medicion.minutos;
+                });
+
+                //GRÁFICA SALINIDAD - DATOS HOY -----------------------------------------------------------------------
+                let datosSalinidadFecha = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Salinidad (%)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesSalinidadFecha = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Salinidad (%)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = horas.length-1; i >= 0; i--) {
+                    datosSalinidadFecha.labels.push(horas[i]);
+                    datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                }
+
+
+                miGraficaSal.options = opcionesSalinidadFecha;
+                miGraficaSal.data = datosSalinidadFecha;
+                miGraficaSal.update();
+            }
+
+
+
+            //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 1);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+                    console.log(mediciones);
+
+                    let horas = mediciones.map(function (medicion) {
+                        return medicion.hora + ":" + medicion.minutos;
+                    });
+
+                    //GRÁFICA SALINIDAD - DATOS HOY -----------------------------------------------------------------------
+                    let datosSalinidadFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Salinidad (%)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesSalinidadFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Salinidad (%)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = horas.length-1; i >= 0; i--) {
+                        datosSalinidadFecha.labels.push(horas[i]);
+                        datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                    }
+
+
+                    miGraficaSal.options = opcionesSalinidadFecha;
+                    miGraficaSal.data = datosSalinidadFecha;
+                    miGraficaSal.update();
+                }
+            });
+
+
+
+        }//si son 3 o menos días
+        else{
+            console.log('4 o más días');
+
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            const idHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                '?idHuerto=' + idHuerto +
+                '&desde=' + desde +
+                '&hasta=' + hasta +
+                '&senyal=' + 0);
+
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
+                let datosSalinidadFecha = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Salinidad (%)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesSalinidadFecha = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Salinidad (%)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = dias.length-1; i >= 0; i--) {
+                    datosSalinidadFecha.labels.push(dias[i]);
+                    datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                }
+
+                miGraficaSal.options = opcionesSalinidadFecha;
+                miGraficaSal.data = datosSalinidadFecha;
+                miGraficaSal.update();
+
+                //------------------------------------------------------------------------SELECTOR
+                const selector = document.getElementById('seleccionar_huerto');
+
+                //conseguimos la id del huerto seleccionado
+                selector.addEventListener('change', async function () {
+                    let idHuerto = selector.value;
+
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 0);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+                        console.log(mediciones);
+
+                        let dias = mediciones.map(function (medicion) {
+                            let fecha = medicion.fecha_medicion;
+
+                            let partes = fecha.split("-");
+                            var anio = partes[0];
+                            var mes = partes[1];
+                            var dia = partes[2];
+
+                            var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                            return fechaFormateada;
+                        });
+
+
+                        //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
+                        let datosSalinidadFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "Salinidad (%)",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesSalinidadFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'Salinidad (%)',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = dias.length - 1; i >= 0; i--) {
+                            datosSalinidadFecha.labels.push(dias[i]);
+                            datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                        }
+
+                        miGraficaSal.options = opcionesSalinidadFecha;
+                        miGraficaSal.data = datosSalinidadFecha;
+                        miGraficaSal.update();
+
+                    }
+
+                });
+            }
+        }//si son 4 o más días
+
+//--------------------------------------------ACORDEÓN--------------------------------------------------
+
+
+        formularioFechaAcordeonSalinidad.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            let desde = document.getElementById('desde-acordeon-sal').value;
+            let hasta = document.getElementById('hasta-acordeon-sal').value;
+
+            let fechaDesde = new Date(desde);
+            let fechaHasta = new Date(hasta);
+
+            let diferenciaMs = fechaHasta - fechaDesde;
+
+            let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+            console.log(diferenciaDias);
+
+            if (diferenciaDias <= 3) {
+                console.log('3 o menos días');
+
+                //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+                let huertosDelUsuario = await getHuertosUsuario();
+                let idHuertos = huertosDelUsuario.map(function (huerto) {
+                    return huerto.id_huerto;
+                });
+
+                const idHuerto = idHuertos[0];
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 1);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+                    console.log(mediciones);
+
+                    let horas = mediciones.map(function (medicion) {
+                        return medicion.hora + ":" + medicion.minutos;
+                    });
+
+                    //GRÁFICA SALINIDAD - DATOS HOY -----------------------------------------------------------------------
+                    let datosSalinidadFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Salinidad (%)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesSalinidadFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Salinidad (%)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = horas.length-1; i >= 0; i--) {
+                        datosSalinidadFecha.labels.push(horas[i]);
+                        datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                    }
+
+
+                    graficaAcordeonSal.options = opcionesSalinidadFecha;
+                    graficaAcordeonSal.data = datosSalinidadFecha;
+                    graficaAcordeonSal.update();
+                }
+
+
+
+                //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+                const selector = document.getElementById('seleccionar_huerto');
+
+                //conseguimos la id del huerto seleccionado
+                selector.addEventListener('change', async function () {
+                    let idHuerto = selector.value;
+
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 1);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+                        console.log(mediciones);
+
+                        let horas = mediciones.map(function (medicion) {
+                            return medicion.hora + ":" + medicion.minutos;
+                        });
+
+                        //GRÁFICA SALINIDAD - DATOS HOY -----------------------------------------------------------------------
+                        let datosSalinidadFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "Salinidad (%)",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesSalinidadFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'Salinidad (%)',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = horas.length-1; i >= 0; i--) {
+                            datosSalinidadFecha.labels.push(horas[i]);
+                            datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                        }
+
+
+                        graficaAcordeonSal.options = opcionesSalinidadFecha;
+                        graficaAcordeonSal.data = datosSalinidadFecha;
+                        graficaAcordeonSal.update();
+                    }
+                });
+
+
+
+            }//si son 3 o menos días
+            else{
+                console.log('4 o más días');
+
+                let huertosDelUsuario = await getHuertosUsuario();
+                let idHuertos = huertosDelUsuario.map(function (huerto) {
+                    return huerto.id_huerto;
+                });
+
+                const idHuerto = idHuertos[0];
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 0);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+                    console.log(mediciones);
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
+                    let datosSalinidadFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Salinidad (%)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesSalinidadFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Salinidad (%)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = dias.length-1; i >= 0; i--) {
+                        datosSalinidadFecha.labels.push(dias[i]);
+                        datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                    }
+
+                    graficaAcordeonSal.options = opcionesSalinidadFecha;
+                    graficaAcordeonSal.data = datosSalinidadFecha;
+                    graficaAcordeonSal.update();
+
+                    //------------------------------------------------------------------------SELECTOR
+                    const selector = document.getElementById('seleccionar_huerto');
+
+                    //conseguimos la id del huerto seleccionado
+                    selector.addEventListener('change', async function () {
+                        let idHuerto = selector.value;
+
+                        const respuesta = await fetch('../../../api/medicionesFecha/' +
+                            '?idHuerto=' + idHuerto +
+                            '&desde=' + desde +
+                            '&hasta=' + hasta +
+                            '&senyal=' + 0);
+
+                        if (respuesta.ok) {
+                            const mediciones = await respuesta.json();
+                            console.log(mediciones);
+
+                            let dias = mediciones.map(function (medicion) {
+                                let fecha = medicion.fecha_medicion;
+
+                                let partes = fecha.split("-");
+                                var anio = partes[0];
+                                var mes = partes[1];
+                                var dia = partes[2];
+
+                                var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                                return fechaFormateada;
+                            });
+
+
+                            //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
+                            let datosSalinidadFecha = {
+                                labels: [],
+                                datasets: [
+                                    {
+                                        label: "Salinidad (%)",
+                                        data: [],
+                                        tension: 0.2,
+                                        fill: false,
+                                        backgroundColor: 'rgba(121,0,80,.8)',
+                                        borderColor: '#790050',
+                                        pointStyle: 'circle',
+                                        pointRadius: 7,
+                                        borderWidth: 2,
+                                    }
+                                ]
+                            };
+
+                            let opcionesSalinidadFecha = {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    x: {
+                                        grid: {
+                                            drawOnChartArea: false
+                                        }
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                },
+                                plugins: {
+                                    legend: false,
+                                    title: {
+                                        display: true,
+                                        text: 'Salinidad (%)',
+                                        position: 'top',
+                                        align: 'start',
+                                        padding: {
+                                            bottom: 10
+                                        },
+                                        font: {
+                                            size: 15
+                                        }
+                                    },
+                                    tooltip: {
+                                        backgroundColor: '#fff',
+                                        titleColor: '#000',
+                                        titleAlign: 'center',
+                                        bodyColor: '#333',
+                                        borderColor: '#666',
+                                        borderWidth: 1,
+                                        yAlign: 'top',
+                                        displayColors: false,
+                                    }
+                                }//plugins
+                            }
+
+                            for (let i = dias.length - 1; i >= 0; i--) {
+                                datosSalinidadFecha.labels.push(dias[i]);
+                                datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                            }
+
+                            graficaAcordeonSal.options = opcionesSalinidadFecha;
+                            graficaAcordeonSal.data = datosSalinidadFecha;
+                            graficaAcordeonSal.update();
+
+                        }
+
+                    });
+                }
+            }//si son 4 o más días
+        });
+    });
+}
+
+getDatosPorFecha();
 
 
 
