@@ -134,11 +134,10 @@ h2 {
 
 /*Estilo iconos de alerta*/
 .alertas-container{
-    display: none;
     flex: 1 1 100%;
     justify-content: flex-start;
     align-items: center;
-
+    display: none;
 }
 
 .alerta_grave {
