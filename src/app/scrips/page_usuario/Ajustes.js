@@ -1,8 +1,37 @@
 
+document.getElementById('boton_perfil').addEventListener('click', function(){
     /**
      * URL a la que se hacen las peticiones
      */
     const url= '../../../api/ajustes/';
+
+    async function getSesionUsuario(){
+
+        const respuesta = await fetch('../../../api/sesion/');
+        if(respuesta.ok){
+            const datos = await respuesta.json();
+            return datos;
+        }
+    }
+
+    //función para conseguir los huertos del usuario, llama a
+    async function getDatosUsuario(){
+        let datosDeUsuario = await getSesionUsuario();
+        let idUsuario = datosDeUsuario.id_usuario;
+
+        const respuesta = await fetch('../../../api/ajustes/' + '?idUsuario=' + idUsuario);
+        if(respuesta.ok) {
+            const datos = await respuesta.json();
+
+            console.log(datos);
+        }
+    }
+
+
+    getDatosUsuario();
+
+})
+
     /**
      * Variables vacias
      */
