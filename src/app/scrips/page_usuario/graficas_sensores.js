@@ -3248,7 +3248,7 @@ async function getDatosSemana() {
 
 getDatosSemana();
 
-//-----------------------------------------------------Aquí acaban las funciones de los datos de hoy de la gráfica.
+//-----------------------------------------------------Aquí acaban las funciones de los datos de semana de la gráfica.
 
 
             /*
@@ -3258,6 +3258,7 @@ getDatosSemana();
                                                                                             */
 async function getDatosPorFecha(){
 
+    //------------------------------------------------------------SELECCIONAR FECHA-------------GRÁFICA SALINIDAD
     //Cuando se selecciona "Seleccionar fecha" aparecen los inputs:
     let filtroSalinidad = document.getElementById('filtro_salinidad');
     let formularioFechaSalinidad = document.getElementById('seleccionar_fecha_salinidad');
@@ -3901,6 +3902,7 @@ async function getDatosPorFecha(){
 
 
             }//si son 3 o menos días
+
             else{
                 console.log('4 o más días');
 
@@ -3934,7 +3936,6 @@ async function getDatosPorFecha(){
                     });
 
 
-                    //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
                     let datosSalinidadFecha = {
                         labels: [],
                         datasets: [
@@ -4031,8 +4032,6 @@ async function getDatosPorFecha(){
                                 return fechaFormateada;
                             });
 
-
-                            //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
                             let datosSalinidadFecha = {
                                 labels: [],
                                 datasets: [
@@ -4098,6 +4097,3364 @@ async function getDatosPorFecha(){
                             graficaAcordeonSal.options = opcionesSalinidadFecha;
                             graficaAcordeonSal.data = datosSalinidadFecha;
                             graficaAcordeonSal.update();
+
+                        }
+
+                    });
+                }
+            }//si son 4 o más días
+        });
+    });
+
+
+        //------------------------------------------------------------SELECCIONAR FECHA-------------GRÁFICA HUMEDAD
+        //Cuando se selecciona "Seleccionar fecha" aparecen los inputs:
+        let filtroHumedad = document.getElementById('filtro_humedad');
+        let formularioFechaHumedad = document.getElementById('seleccionar_fecha_humedad');
+
+        let filtroAcordeonHumedad = document.getElementById('filtro_acordeon_humedad');
+        let formularioFechaAcordeonHumedad = document.getElementById('seleccionar_fecha_acordeon_humedad')
+
+        filtroHumedad.addEventListener('change', function(){
+            if(filtroHumedad.value === 'Seleccionar fecha'){
+                formularioFechaHumedad.style.display = "block";
+            }
+            if(filtroHumedad.value !== 'Seleccionar fecha'){
+                formularioFechaHumedad.style.display = "none";
+            }
+        });
+
+        filtroAcordeonHumedad.addEventListener('change', function(){
+            if(filtroAcordeonHumedad.value ==='Seleccionar fecha'){
+                formularioFechaAcordeonHumedad.style.display = "block";
+            }
+            if(filtroAcordeonHumedad.value !=='Seleccionar fecha'){
+                formularioFechaAcordeonHumedad.style.display = "none";
+            }
+        });
+
+//-------------------------------------VISUALIZADOR DE HUERTOS--------------------------------------------------
+        formularioFechaHumedad.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            let desde = document.getElementById('desde-humedad').value;
+            let hasta = document.getElementById('hasta-humedad').value;
+
+            let fechaDesde = new Date(desde);
+            let fechaHasta = new Date(hasta);
+
+            let diferenciaMs = fechaHasta - fechaDesde;
+
+            let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+            console.log(diferenciaDias);
+
+            if (diferenciaDias <= 3) {
+                console.log('3 o menos días');
+
+                //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+                let huertosDelUsuario = await getHuertosUsuario();
+                let idHuertos = huertosDelUsuario.map(function (huerto) {
+                    return huerto.id_huerto;
+                });
+
+                const idHuerto = idHuertos[0];
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 1);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+                    console.log(mediciones);
+
+                    let horas = mediciones.map(function (medicion) {
+                        return medicion.hora + ":" + medicion.minutos;
+                    });
+
+                    let datosHumedadFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Humedad (%)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesHumedadFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Humedad (%)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = horas.length-1; i >= 0; i--) {
+                        datosHumedadFecha.labels.push(horas[i]);
+                        datosHumedadFecha.datasets[0].data.push(mediciones[i].mediaHumedad);
+                    }
+
+
+                    miGraficaHumedad.options = opcionesHumedadFecha;
+                    miGraficaHumedad.data = datosHumedadFecha;
+                    miGraficaHumedad.update();
+                }
+
+
+
+                //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+                const selector = document.getElementById('seleccionar_huerto');
+
+                //conseguimos la id del huerto seleccionado
+                selector.addEventListener('change', async function () {
+                    let idHuerto = selector.value;
+
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 1);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+                        console.log(mediciones);
+
+                        let horas = mediciones.map(function (medicion) {
+                            return medicion.hora + ":" + medicion.minutos;
+                        });
+
+                        let datosHumedadFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "Humedad (%)",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesHumedadFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'Humedad (%)',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = horas.length-1; i >= 0; i--) {
+                            datosHumedadFecha.labels.push(horas[i]);
+                            datosHumedadFecha.datasets[0].data.push(mediciones[i].mediaHumedad);
+                        }
+
+
+                        miGraficaHumedad.options = opcionesHumedadFecha;
+                        miGraficaHumedad.data = datosHumedadFecha;
+                        miGraficaHumedad.update();
+                    }
+                });
+
+
+
+            }//si son 3 o menos días
+            else{
+                console.log('4 o más días');
+
+                let huertosDelUsuario = await getHuertosUsuario();
+                let idHuertos = huertosDelUsuario.map(function (huerto) {
+                    return huerto.id_huerto;
+                });
+
+                const idHuerto = idHuertos[0];
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 0);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+                    console.log(mediciones);
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosHumedadFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Humedad (%)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesHumedadFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Humedad (%)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = dias.length-1; i >= 0; i--) {
+                        datosHumedadFecha.labels.push(dias[i]);
+                        datosHumedadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                    }
+
+                    miGraficaHumedad.options = opcionesHumedadFecha;
+                    miGraficaHumedad.data = datosHumedadFecha;
+                    miGraficaHumedad.update();
+
+                    //------------------------------------------------------------------------SELECTOR
+                    const selector = document.getElementById('seleccionar_huerto');
+
+                    //conseguimos la id del huerto seleccionado
+                    selector.addEventListener('change', async function () {
+                        let idHuerto = selector.value;
+
+                        const respuesta = await fetch('../../../api/medicionesFecha/' +
+                            '?idHuerto=' + idHuerto +
+                            '&desde=' + desde +
+                            '&hasta=' + hasta +
+                            '&senyal=' + 0);
+
+                        if (respuesta.ok) {
+                            const mediciones = await respuesta.json();
+                            console.log(mediciones);
+
+                            let dias = mediciones.map(function (medicion) {
+                                let fecha = medicion.fecha_medicion;
+
+                                let partes = fecha.split("-");
+                                var anio = partes[0];
+                                var mes = partes[1];
+                                var dia = partes[2];
+
+                                var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                                return fechaFormateada;
+                            });
+
+
+                            let datosHumedadFecha = {
+                                labels: [],
+                                datasets: [
+                                    {
+                                        label: "Humedad (%)",
+                                        data: [],
+                                        tension: 0.2,
+                                        fill: false,
+                                        backgroundColor: 'rgba(121,0,80,.8)',
+                                        borderColor: '#790050',
+                                        pointStyle: 'circle',
+                                        pointRadius: 7,
+                                        borderWidth: 2,
+                                    }
+                                ]
+                            };
+
+                            let opcionesHumedadFecha = {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    x: {
+                                        grid: {
+                                            drawOnChartArea: false
+                                        }
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                },
+                                plugins: {
+                                    legend: false,
+                                    title: {
+                                        display: true,
+                                        text: 'Humedad (%)',
+                                        position: 'top',
+                                        align: 'start',
+                                        padding: {
+                                            bottom: 10
+                                        },
+                                        font: {
+                                            size: 15
+                                        }
+                                    },
+                                    tooltip: {
+                                        backgroundColor: '#fff',
+                                        titleColor: '#000',
+                                        titleAlign: 'center',
+                                        bodyColor: '#333',
+                                        borderColor: '#666',
+                                        borderWidth: 1,
+                                        yAlign: 'top',
+                                        displayColors: false,
+                                    }
+                                }//plugins
+                            }
+
+                            for (let i = dias.length - 1; i >= 0; i--) {
+                                datosSalinidadFecha.labels.push(dias[i]);
+                                datosSalinidadFecha.datasets[0].data.push(mediciones[i].mediaSalinidad);
+                            }
+
+                            miGraficaHumedad.options = opcionesHumedadFecha;
+                            miGraficaHumedad.data = datosHumedadFecha;
+                            miGraficaHumedad.update();
+
+                        }
+
+                    });
+                }
+            }//si son 4 o más días
+
+//--------------------------------------------ACORDEÓN--------------------------------------------------
+
+
+            formularioFechaAcordeonHumedad.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                let desde = document.getElementById('desde-acordeon-humedad').value;
+                let hasta = document.getElementById('hasta-acordeon-humedad').value;
+
+                let fechaDesde = new Date(desde);
+                let fechaHasta = new Date(hasta);
+
+                let diferenciaMs = fechaHasta - fechaDesde;
+
+                let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+                console.log(diferenciaDias);
+
+                if (diferenciaDias <= 3) {
+                    console.log('3 o menos días');
+
+                    //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+                    let huertosDelUsuario = await getHuertosUsuario();
+                    let idHuertos = huertosDelUsuario.map(function (huerto) {
+                        return huerto.id_huerto;
+                    });
+
+                    const idHuerto = idHuertos[0];
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 1);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+
+                        let horas = mediciones.map(function (medicion) {
+                            return medicion.hora + ":" + medicion.minutos;
+                        });
+
+                        let datosHumedadFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "Humedad (%)",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesHumedadFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'Humedad (%)',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = horas.length-1; i >= 0; i--) {
+                            datosHumedadFecha.labels.push(horas[i]);
+                            datosHumedadFecha.datasets[0].data.push(mediciones[i].mediaHumedad);
+                        }
+
+
+                        graficaAcordeonHumedad.options = opcionesHumedadFecha;
+                        graficaAcordeonHumedad.data = datosHumedadFecha;
+                        graficaAcordeonHumedad.update();
+                    }
+
+
+
+                    //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+                    const selector = document.getElementById('seleccionar_huerto');
+
+                    //conseguimos la id del huerto seleccionado
+                    selector.addEventListener('change', async function () {
+                        let idHuerto = selector.value;
+
+                        const respuesta = await fetch('../../../api/medicionesFecha/' +
+                            '?idHuerto=' + idHuerto +
+                            '&desde=' + desde +
+                            '&hasta=' + hasta +
+                            '&senyal=' + 1);
+
+                        if (respuesta.ok) {
+                            const mediciones = await respuesta.json();
+                            console.log(mediciones);
+
+                            let horas = mediciones.map(function (medicion) {
+                                return medicion.hora + ":" + medicion.minutos;
+                            });
+
+                            let datosHumedadFecha = {
+                                labels: [],
+                                datasets: [
+                                    {
+                                        label: "Humedad (%)",
+                                        data: [],
+                                        tension: 0.2,
+                                        fill: false,
+                                        backgroundColor: 'rgba(121,0,80,.8)',
+                                        borderColor: '#790050',
+                                        pointStyle: 'circle',
+                                        pointRadius: 7,
+                                        borderWidth: 2,
+                                    }
+                                ]
+                            };
+
+                            let opcionesHumedadFecha = {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    x: {
+                                        grid: {
+                                            drawOnChartArea: false
+                                        }
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                },
+                                plugins: {
+                                    legend: false,
+                                    title: {
+                                        display: true,
+                                        text: 'Humedad (%)',
+                                        position: 'top',
+                                        align: 'start',
+                                        padding: {
+                                            bottom: 10
+                                        },
+                                        font: {
+                                            size: 15
+                                        }
+                                    },
+                                    tooltip: {
+                                        backgroundColor: '#fff',
+                                        titleColor: '#000',
+                                        titleAlign: 'center',
+                                        bodyColor: '#333',
+                                        borderColor: '#666',
+                                        borderWidth: 1,
+                                        yAlign: 'top',
+                                        displayColors: false,
+                                    }
+                                }//plugins
+                            }
+
+                            for (let i = horas.length-1; i >= 0; i--) {
+                                datosHumedadFecha.labels.push(horas[i]);
+                                datosHumedadFecha.datasets[0].data.push(mediciones[i].mediaHumedad);
+                            }
+
+
+                            graficaAcordeonHumedad.options = opcionesHumedadFecha;
+                            graficaAcordeonHumedad.data = datosHumedadFecha;
+                            graficaAcordeonHumedad.update();
+                        }
+                    });
+
+
+
+                }//si son 3 o menos días
+
+                else{
+                    console.log('4 o más días');
+
+                    let huertosDelUsuario = await getHuertosUsuario();
+                    let idHuertos = huertosDelUsuario.map(function (huerto) {
+                        return huerto.id_huerto;
+                    });
+
+                    const idHuerto = idHuertos[0];
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 0);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+
+                        let dias = mediciones.map(function (medicion) {
+                            let fecha = medicion.fecha_medicion;
+
+                            let partes = fecha.split("-");
+                            var anio = partes[0];
+                            var mes = partes[1];
+                            var dia = partes[2];
+
+                            var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                            return fechaFormateada;
+                        });
+
+
+                        let datosHumedadFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "Humedad (%)",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesHumedadFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'Humedad (%)',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = dias.length-1; i >= 0; i--) {
+                            datosHumedadFecha.labels.push(dias[i]);
+                            datosHumedadFecha.datasets[0].data.push(mediciones[i].mediaHumedad);
+                        }
+
+                        graficaAcordeonHumedad.options = opcionesHumedadFecha;
+                        graficaAcordeonHumedad.data = datosHumedadFecha;
+                        graficaAcordeonHumedad.update();
+
+                        //------------------------------------------------------------------------SELECTOR
+                        const selector = document.getElementById('seleccionar_huerto');
+
+                        //conseguimos la id del huerto seleccionado
+                        selector.addEventListener('change', async function () {
+                            let idHuerto = selector.value;
+
+                            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                                '?idHuerto=' + idHuerto +
+                                '&desde=' + desde +
+                                '&hasta=' + hasta +
+                                '&senyal=' + 0);
+
+                            if (respuesta.ok) {
+                                const mediciones = await respuesta.json();
+
+                                let dias = mediciones.map(function (medicion) {
+                                    let fecha = medicion.fecha_medicion;
+
+                                    let partes = fecha.split("-");
+                                    var anio = partes[0];
+                                    var mes = partes[1];
+                                    var dia = partes[2];
+
+                                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                                    return fechaFormateada;
+                                });
+
+                                let datosHumedadFecha = {
+                                    labels: [],
+                                    datasets: [
+                                        {
+                                            label: "Humedad (%)",
+                                            data: [],
+                                            tension: 0.2,
+                                            fill: false,
+                                            backgroundColor: 'rgba(121,0,80,.8)',
+                                            borderColor: '#790050',
+                                            pointStyle: 'circle',
+                                            pointRadius: 7,
+                                            borderWidth: 2,
+                                        }
+                                    ]
+                                };
+
+                                let opcionesHumedadFecha = {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    scales: {
+                                        x: {
+                                            grid: {
+                                                drawOnChartArea: false
+                                            }
+                                        },
+                                        y: {
+                                            stacked: true
+                                        }
+                                    },
+                                    plugins: {
+                                        legend: false,
+                                        title: {
+                                            display: true,
+                                            text: 'Humedad (%)',
+                                            position: 'top',
+                                            align: 'start',
+                                            padding: {
+                                                bottom: 10
+                                            },
+                                            font: {
+                                                size: 15
+                                            }
+                                        },
+                                        tooltip: {
+                                            backgroundColor: '#fff',
+                                            titleColor: '#000',
+                                            titleAlign: 'center',
+                                            bodyColor: '#333',
+                                            borderColor: '#666',
+                                            borderWidth: 1,
+                                            yAlign: 'top',
+                                            displayColors: false,
+                                        }
+                                    }//plugins
+                                }
+
+                                for (let i = dias.length - 1; i >= 0; i--) {
+                                    datosHumedadFecha.labels.push(dias[i]);
+                                    datosHumedadFecha.datasets[0].data.push(mediciones[i].mediaHumedad);
+                                }
+
+                                graficaAcordeonHumedad.options = opcionesHumedadFecha;
+                                graficaAcordeonHumedad.data = datosHumedadFecha;
+                                graficaAcordeonHumedad.update();
+
+                            }
+
+                        });
+                    }
+                }//si son 4 o más días
+            });
+        });
+
+
+
+
+    //------------------------------------------------------------SELECCIONAR FECHA-------------GRÁFICA PH
+    //Cuando se selecciona "Seleccionar fecha" aparecen los inputs:
+    let filtroPh = document.getElementById('filtro_pH');
+    let formularioFechaPh = document.getElementById('seleccionar_fecha_pH');
+
+    let filtroAcordeonPh = document.getElementById('filtro_acordeon_pH');
+    let formularioFechaAcordeonPh = document.getElementById('seleccionar_fecha_acordeon_pH')
+
+    filtroPh.addEventListener('change', function(){
+        if(filtroPh.value === 'Seleccionar fecha'){
+            formularioFechaPh.style.display = "block";
+        }
+        if(filtroPh.value !== 'Seleccionar fecha'){
+            formularioFechaPh.style.display = "none";
+        }
+    });
+
+    filtroAcordeonPh.addEventListener('change', function(){
+        if(filtroAcordeonPh.value ==='Seleccionar fecha'){
+            formularioFechaAcordeonPh.style.display = "block";
+        }
+        if(filtroAcordeonPh.value !=='Seleccionar fecha'){
+            formularioFechaAcordeonPh.style.display = "none";
+        }
+    });
+
+//-------------------------------------VISUALIZADOR DE HUERTOS--------------------------------------------------
+    formularioFechaPh.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        let desde = document.getElementById('desde-ph').value;
+        let hasta = document.getElementById('hasta-ph').value;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+
+        let diferenciaMs = fechaHasta - fechaDesde;
+
+        let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+        console.log(diferenciaDias);
+
+        if (diferenciaDias <= 3) {
+            console.log('3 o menos días');
+
+            //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            const idHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                '?idHuerto=' + idHuerto +
+                '&desde=' + desde +
+                '&hasta=' + hasta +
+                '&senyal=' + 1);
+
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let horas = mediciones.map(function (medicion) {
+                    return medicion.hora + ":" + medicion.minutos;
+                });
+
+                let datosPhFecha = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "pH",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesPhFecha = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'pH',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = horas.length-1; i >= 0; i--) {
+                    datosPhFecha.labels.push(horas[i]);
+                    datosPhFecha.datasets[0].data.push(mediciones[i].mediapH);
+                }
+
+
+                miGraficapH.options = opcionesPhFecha;
+                miGraficapH.data = datosPhFecha;
+                miGraficapH.update();
+            }
+
+
+
+            //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 1);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+                    console.log(mediciones);
+
+                    let horas = mediciones.map(function (medicion) {
+                        return medicion.hora + ":" + medicion.minutos;
+                    });
+
+                    let datosPhFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "pH",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesPhFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'pH',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = horas.length-1; i >= 0; i--) {
+                        datosPhFecha.labels.push(horas[i]);
+                        datosPhFecha.datasets[0].data.push(mediciones[i].mediapH);
+                    }
+
+
+                    miGraficapH.options = opcionesPhFecha;
+                    miGraficapH.data = datosPhFecha;
+                    miGraficapH.update();
+                }
+            });
+
+
+
+        }//si son 3 o menos días
+        else{
+            console.log('4 o más días');
+
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            const idHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                '?idHuerto=' + idHuerto +
+                '&desde=' + desde +
+                '&hasta=' + hasta +
+                '&senyal=' + 0);
+
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosPhFecha = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "pH",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesPhFecha = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'pH',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = dias.length-1; i >= 0; i--) {
+                    datosPhFecha.labels.push(dias[i]);
+                    datosPhFecha.datasets[0].data.push(mediciones[i].mediapH);
+                }
+
+                miGraficapH.options = opcionesPhFecha;
+                miGraficapH.data = datosPhFecha;
+                miGraficapH.update();
+
+                //------------------------------------------------------------------------SELECTOR
+                const selector = document.getElementById('seleccionar_huerto');
+
+                //conseguimos la id del huerto seleccionado
+                selector.addEventListener('change', async function () {
+                    let idHuerto = selector.value;
+
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 0);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+                        console.log(mediciones);
+
+                        let dias = mediciones.map(function (medicion) {
+                            let fecha = medicion.fecha_medicion;
+
+                            let partes = fecha.split("-");
+                            var anio = partes[0];
+                            var mes = partes[1];
+                            var dia = partes[2];
+
+                            var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                            return fechaFormateada;
+                        });
+
+
+                        let datosPhFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "pH",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesPhFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'pH',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = dias.length - 1; i >= 0; i--) {
+                            datosPhFecha.labels.push(dias[i]);
+                            datosPhFecha.datasets[0].data.push(mediciones[i].mediapH);
+                        }
+
+                        miGraficapH.options = opcionesPhFecha;
+                        miGraficapH.data = datosPhFecha;
+                        miGraficapH.update();
+
+                    }
+
+                });
+            }
+        }//si son 4 o más días
+
+//--------------------------------------------ACORDEÓN--------------------------------------------------
+
+
+        formularioFechaAcordeonPh.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            let desde = document.getElementById('desde-acordeon-ph').value;
+            let hasta = document.getElementById('hasta-acordeon-ph').value;
+
+            let fechaDesde = new Date(desde);
+            let fechaHasta = new Date(hasta);
+
+            let diferenciaMs = fechaHasta - fechaDesde;
+
+            let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+            console.log(diferenciaDias);
+
+            if (diferenciaDias <= 3) {
+                console.log('3 o menos días');
+
+                //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+                let huertosDelUsuario = await getHuertosUsuario();
+                let idHuertos = huertosDelUsuario.map(function (huerto) {
+                    return huerto.id_huerto;
+                });
+
+                const idHuerto = idHuertos[0];
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 1);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+                    let horas = mediciones.map(function (medicion) {
+                        return medicion.hora + ":" + medicion.minutos;
+                    });
+
+                    let datosPhFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "pH",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesPhFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'pH',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = horas.length-1; i >= 0; i--) {
+                        datosPhFecha.labels.push(horas[i]);
+                        datosPhFecha.datasets[0].data.push(mediciones[i].mediapH);
+                    }
+
+
+                    graficaAcordeonPh.options = opcionesPhFecha;
+                    graficaAcordeonPh.data = datosPhFecha;
+                    graficaAcordeonPh.update();
+                }
+
+
+
+                //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+                const selector = document.getElementById('seleccionar_huerto');
+
+                //conseguimos la id del huerto seleccionado
+                selector.addEventListener('change', async function () {
+                    let idHuerto = selector.value;
+
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 1);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+
+                        let horas = mediciones.map(function (medicion) {
+                            return medicion.hora + ":" + medicion.minutos;
+                        });
+
+                        let datosPhFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "pH",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesPhFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'pH',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = horas.length-1; i >= 0; i--) {
+                            datosPhFecha.labels.push(horas[i]);
+                            datosPhFecha.datasets[0].data.push(mediciones[i].mediapH);
+                        }
+
+
+                        graficaAcordeonPh.options = opcionesPhFecha;
+                        graficaAcordeonPh.data = datosPhFecha;
+                        graficaAcordeonPh.update();
+                    }
+                });
+
+
+
+            }//si son 3 o menos días
+
+            else{
+                console.log('4 o más días');
+
+                let huertosDelUsuario = await getHuertosUsuario();
+                let idHuertos = huertosDelUsuario.map(function (huerto) {
+                    return huerto.id_huerto;
+                });
+
+                const idHuerto = idHuertos[0];
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 0);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosPhFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "pH",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesPhFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'pH',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = dias.length-1; i >= 0; i--) {
+                        datosPhFecha.labels.push(dias[i]);
+                        datosPhFecha.datasets[0].data.push(mediciones[i].mediapH);
+                    }
+
+                    graficaAcordeonPh.options = opcionesPhFecha;
+                    graficaAcordeonPh.data = datosPhFecha;
+                    graficaAcordeonPh.update();
+
+                    //------------------------------------------------------------------------SELECTOR
+                    const selector = document.getElementById('seleccionar_huerto');
+
+                    //conseguimos la id del huerto seleccionado
+                    selector.addEventListener('change', async function () {
+                        let idHuerto = selector.value;
+
+                        const respuesta = await fetch('../../../api/medicionesFecha/' +
+                            '?idHuerto=' + idHuerto +
+                            '&desde=' + desde +
+                            '&hasta=' + hasta +
+                            '&senyal=' + 0);
+
+                        if (respuesta.ok) {
+                            const mediciones = await respuesta.json();
+
+                            let dias = mediciones.map(function (medicion) {
+                                let fecha = medicion.fecha_medicion;
+
+                                let partes = fecha.split("-");
+                                var anio = partes[0];
+                                var mes = partes[1];
+                                var dia = partes[2];
+
+                                var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                                return fechaFormateada;
+                            });
+
+                            let datosPhFecha = {
+                                labels: [],
+                                datasets: [
+                                    {
+                                        label: "pH",
+                                        data: [],
+                                        tension: 0.2,
+                                        fill: false,
+                                        backgroundColor: 'rgba(121,0,80,.8)',
+                                        borderColor: '#790050',
+                                        pointStyle: 'circle',
+                                        pointRadius: 7,
+                                        borderWidth: 2,
+                                    }
+                                ]
+                            };
+
+                            let opcionesPhFecha = {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    x: {
+                                        grid: {
+                                            drawOnChartArea: false
+                                        }
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                },
+                                plugins: {
+                                    legend: false,
+                                    title: {
+                                        display: true,
+                                        text: 'pH',
+                                        position: 'top',
+                                        align: 'start',
+                                        padding: {
+                                            bottom: 10
+                                        },
+                                        font: {
+                                            size: 15
+                                        }
+                                    },
+                                    tooltip: {
+                                        backgroundColor: '#fff',
+                                        titleColor: '#000',
+                                        titleAlign: 'center',
+                                        bodyColor: '#333',
+                                        borderColor: '#666',
+                                        borderWidth: 1,
+                                        yAlign: 'top',
+                                        displayColors: false,
+                                    }
+                                }//plugins
+                            }
+
+                            for (let i = dias.length - 1; i >= 0; i--) {
+                                datosPhFecha.labels.push(dias[i]);
+                                datosPhFecha.datasets[0].data.push(mediciones[i].mediapH);
+                            }
+
+                            graficaAcordeonPh.options = opcionesPhFecha;
+                            graficaAcordeonPh.data = datosPhFecha;
+                            graficaAcordeonPh.update();
+
+                        }
+
+                    });
+                }
+            }//si son 4 o más días
+        });
+    });
+
+
+
+    //------------------------------------------------------------SELECCIONAR FECHA----------GRÁFICA TEMPERATURA
+    //Cuando se selecciona "Seleccionar fecha" aparecen los inputs:
+    let filtroTemperatura = document.getElementById('filtro_temperatura');
+    let formularioFechaTemperatura = document.getElementById('seleccionar_fecha_temperatura');
+
+    let filtroAcordeonTemperatura = document.getElementById('filtro_acordeon_temperatura');
+    let formularioFechaAcordeonTemperatura = document.getElementById('seleccionar_fecha_acordeon_temperatura')
+
+    filtroTemperatura.addEventListener('change', function(){
+        if(filtroTemperatura.value === 'Seleccionar fecha'){
+            formularioFechaTemperatura.style.display = "block";
+        }
+        if(filtroTemperatura.value !== 'Seleccionar fecha'){
+            formularioFechaTemperatura.style.display = "none";
+        }
+    });
+
+    filtroAcordeonTemperatura.addEventListener('change', function(){
+        if(filtroAcordeonTemperatura.value ==='Seleccionar fecha'){
+            formularioFechaAcordeonTemperatura.style.display = "block";
+        }
+        if(filtroAcordeonTemperatura.value !=='Seleccionar fecha'){
+            formularioFechaAcordeonTemperatura.style.display = "none";
+        }
+    });
+
+//-------------------------------------VISUALIZADOR DE HUERTOS--------------------------------------------------
+    formularioFechaTemperatura.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        let desde = document.getElementById('desde-temperatura').value;
+        let hasta = document.getElementById('hasta-temperatura').value;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+
+        let diferenciaMs = fechaHasta - fechaDesde;
+
+        let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+        console.log(diferenciaDias);
+
+        if (diferenciaDias <= 3) {
+            console.log('3 o menos días');
+
+            //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            const idHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                '?idHuerto=' + idHuerto +
+                '&desde=' + desde +
+                '&hasta=' + hasta +
+                '&senyal=' + 1);
+
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let horas = mediciones.map(function (medicion) {
+                    return medicion.hora + ":" + medicion.minutos;
+                });
+
+                let datosTemperaturaFecha = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Temperatura (ºC)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesTemperaturaFecha = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Temperatura (ºC)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = horas.length-1; i >= 0; i--) {
+                    datosTemperaturaFecha.labels.push(horas[i]);
+                    datosTemperaturaFecha.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                }
+
+
+                miGraficaTemperatura.options = opcionesTemperaturaFecha;
+                miGraficaTemperatura.data = datosTemperaturaFecha;
+                miGraficaTemperatura.update();
+            }
+
+
+
+            //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 1);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+                    let horas = mediciones.map(function (medicion) {
+                        return medicion.hora + ":" + medicion.minutos;
+                    });
+
+                    let datosTemperaturaFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Temperatura (ºC)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesTemperaturaFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Temperatura (ºC)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = horas.length-1; i >= 0; i--) {
+                        datosTemperaturaFecha.labels.push(horas[i]);
+                        datosTemperaturaFecha.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                    }
+
+
+                    miGraficaTemperatura.options = opcionesTemperaturaFecha;
+                    miGraficaTemperatura.data = datosTemperaturaFecha;
+                    miGraficaTemperatura.update();
+                }
+            });
+
+
+
+        }//si son 3 o menos días
+        else{
+            console.log('4 o más días');
+
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            const idHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                '?idHuerto=' + idHuerto +
+                '&desde=' + desde +
+                '&hasta=' + hasta +
+                '&senyal=' + 0);
+
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosTemperaturaFecha = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Temperatura (ºC)",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesTemperaturaFecha = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Temperatura (ºC)',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = dias.length-1; i >= 0; i--) {
+                    datosTemperaturaFecha.labels.push(dias[i]);
+                    datosTemperaturaFecha.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                }
+
+                miGraficaTemperatura.options = opcionesTemperaturaFecha;
+                miGraficaTemperatura.data = datosTemperaturaFecha;
+                miGraficaTemperatura.update();
+
+                //------------------------------------------------------------------------SELECTOR
+                const selector = document.getElementById('seleccionar_huerto');
+
+                //conseguimos la id del huerto seleccionado
+                selector.addEventListener('change', async function () {
+                    let idHuerto = selector.value;
+
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 0);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+
+                        let dias = mediciones.map(function (medicion) {
+                            let fecha = medicion.fecha_medicion;
+
+                            let partes = fecha.split("-");
+                            var anio = partes[0];
+                            var mes = partes[1];
+                            var dia = partes[2];
+
+                            var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                            return fechaFormateada;
+                        });
+
+
+                        let datosTemperaturaFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "Temperatura (ºC)",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesTemperaturaFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'Temperatura (ºC)',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = dias.length - 1; i >= 0; i--) {
+                            datosTemperaturaFecha.labels.push(dias[i]);
+                            datosTemperaturaFecha.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                        }
+
+                        miGraficaTemperatura.options = opcionesTemperaturaFecha;
+                        miGraficaTemperatura.data = datosTemperaturaFecha;
+                        miGraficaTemperatura.update();
+
+                    }
+
+                });
+            }
+        }//si son 4 o más días
+
+//--------------------------------------------ACORDEÓN--------------------------------------------------
+
+
+        formularioFechaAcordeonTemperatura.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            let desde = document.getElementById('desde-acordeon-temperatura').value;
+            let hasta = document.getElementById('hasta-acordeon-temperatura').value;
+
+            let fechaDesde = new Date(desde);
+            let fechaHasta = new Date(hasta);
+
+            let diferenciaMs = fechaHasta - fechaDesde;
+
+            let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+            console.log(diferenciaDias);
+
+            if (diferenciaDias <= 3) {
+                console.log('3 o menos días');
+
+                //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+                let huertosDelUsuario = await getHuertosUsuario();
+                let idHuertos = huertosDelUsuario.map(function (huerto) {
+                    return huerto.id_huerto;
+                });
+
+                const idHuerto = idHuertos[0];
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 1);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+                    let horas = mediciones.map(function (medicion) {
+                        return medicion.hora + ":" + medicion.minutos;
+                    });
+
+                    let datosTemperaturaFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Temperatura (ºC)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesTemperaturaFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Temperatura (ºC)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = horas.length-1; i >= 0; i--) {
+                        datosTemperaturaFecha.labels.push(horas[i]);
+                        datosTemperaturaFecha.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                    }
+
+
+                    graficaAcordeonTemperatura.options = opcionesTemperaturaFecha;
+                    graficaAcordeonTemperatura.data = datosTemperaturaFecha;
+                    graficaAcordeonTemperatura.update();
+                }
+
+
+
+                //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+                const selector = document.getElementById('seleccionar_huerto');
+
+                //conseguimos la id del huerto seleccionado
+                selector.addEventListener('change', async function () {
+                    let idHuerto = selector.value;
+
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 1);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+
+                        let horas = mediciones.map(function (medicion) {
+                            return medicion.hora + ":" + medicion.minutos;
+                        });
+
+                        let datosTemperaturaFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "Temperatura (ºC)",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesTemperaturaFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'Temperatura (ºC)',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = horas.length-1; i >= 0; i--) {
+                            datosTemperaturaFecha.labels.push(horas[i]);
+                            datosTemperaturaFecha.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                        }
+
+
+                        graficaAcordeonTemperatura.options = opcionesTemperaturaFecha;
+                        graficaAcordeonTemperatura.data = datosTemperaturaFecha;
+                        graficaAcordeonTemperatura.update();
+                    }
+                });
+
+
+
+            }//si son 3 o menos días
+
+            else{
+                console.log('4 o más días');
+
+                let huertosDelUsuario = await getHuertosUsuario();
+                let idHuertos = huertosDelUsuario.map(function (huerto) {
+                    return huerto.id_huerto;
+                });
+
+                const idHuerto = idHuertos[0];
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 0);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosTemperaturaFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Temperatura (ºC)",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesTemperaturaFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Temperatura (ºC)',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = dias.length-1; i >= 0; i--) {
+                        datosTemperaturaFecha.labels.push(dias[i]);
+                        datosTemperaturaFecha.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                    }
+
+                    graficaAcordeonTemperatura.options = opcionesTemperaturaFecha;
+                    graficaAcordeonTemperatura.data = datosTemperaturaFecha;
+                    graficaAcordeonTemperatura.update();
+
+                    //------------------------------------------------------------------------SELECTOR
+                    const selector = document.getElementById('seleccionar_huerto');
+
+                    //conseguimos la id del huerto seleccionado
+                    selector.addEventListener('change', async function () {
+                        let idHuerto = selector.value;
+
+                        const respuesta = await fetch('../../../api/medicionesFecha/' +
+                            '?idHuerto=' + idHuerto +
+                            '&desde=' + desde +
+                            '&hasta=' + hasta +
+                            '&senyal=' + 0);
+
+                        if (respuesta.ok) {
+                            const mediciones = await respuesta.json();
+
+                            let dias = mediciones.map(function (medicion) {
+                                let fecha = medicion.fecha_medicion;
+
+                                let partes = fecha.split("-");
+                                var anio = partes[0];
+                                var mes = partes[1];
+                                var dia = partes[2];
+
+                                var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                                return fechaFormateada;
+                            });
+
+                            let datosTemperaturaFecha = {
+                                labels: [],
+                                datasets: [
+                                    {
+                                        label: "Temperatura (ºC)",
+                                        data: [],
+                                        tension: 0.2,
+                                        fill: false,
+                                        backgroundColor: 'rgba(121,0,80,.8)',
+                                        borderColor: '#790050',
+                                        pointStyle: 'circle',
+                                        pointRadius: 7,
+                                        borderWidth: 2,
+                                    }
+                                ]
+                            };
+
+                            let opcionesTemperaturaFecha = {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    x: {
+                                        grid: {
+                                            drawOnChartArea: false
+                                        }
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                },
+                                plugins: {
+                                    legend: false,
+                                    title: {
+                                        display: true,
+                                        text: 'Temperatura (ºC)',
+                                        position: 'top',
+                                        align: 'start',
+                                        padding: {
+                                            bottom: 10
+                                        },
+                                        font: {
+                                            size: 15
+                                        }
+                                    },
+                                    tooltip: {
+                                        backgroundColor: '#fff',
+                                        titleColor: '#000',
+                                        titleAlign: 'center',
+                                        bodyColor: '#333',
+                                        borderColor: '#666',
+                                        borderWidth: 1,
+                                        yAlign: 'top',
+                                        displayColors: false,
+                                    }
+                                }//plugins
+                            }
+
+                            for (let i = dias.length - 1; i >= 0; i--) {
+                                datosTemperaturaFecha.labels.push(dias[i]);
+                                datosTemperaturaFecha.datasets[0].data.push(mediciones[i].mediaTemperatura);
+                            }
+
+                            graficaAcordeonTemperatura.options = opcionesTemperaturaFecha;
+                            graficaAcordeonTemperatura.data = datosTemperaturaFecha;
+                            graficaAcordeonTemperatura.update();
+
+                        }
+
+                    });
+                }
+            }//si son 4 o más días
+        });
+    });
+
+
+
+
+
+    //------------------------------------------------------------SELECCIONAR FECHA-------------GRÁFICA LUZ
+    //Cuando se selecciona "Seleccionar fecha" aparecen los inputs:
+    let filtroLuz = document.getElementById('filtro_luz');
+    let formularioFechaLuz = document.getElementById('seleccionar_fecha_luz');
+
+    let filtroAcordeonLuz = document.getElementById('filtro_acordeon_luz');
+    let formularioFechaAcordeonLuz = document.getElementById('seleccionar_fecha_acordeon_luz')
+
+    filtroLuz.addEventListener('change', function(){
+        if(filtroLuz.value === 'Seleccionar fecha'){
+            formularioFechaLuz.style.display = "block";
+        }
+        if(filtroLuz.value !== 'Seleccionar fecha'){
+            formularioFechaLuz.style.display = "none";
+        }
+    });
+
+    filtroAcordeonLuz.addEventListener('change', function(){
+        if(filtroAcordeonLuz.value ==='Seleccionar fecha'){
+            formularioFechaAcordeonLuz.style.display = "block";
+        }
+        if(filtroAcordeonLuz.value !=='Seleccionar fecha'){
+            formularioFechaAcordeonLuz.style.display = "none";
+        }
+    });
+
+//-------------------------------------VISUALIZADOR DE HUERTOS--------------------------------------------------
+    formularioFechaLuz.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        let desde = document.getElementById('desde-luz').value;
+        let hasta = document.getElementById('hasta-luz').value;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+
+        let diferenciaMs = fechaHasta - fechaDesde;
+
+        let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+        console.log(diferenciaDias);
+
+        if (diferenciaDias <= 3) {
+            console.log('3 o menos días');
+
+            //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            const idHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                '?idHuerto=' + idHuerto +
+                '&desde=' + desde +
+                '&hasta=' + hasta +
+                '&senyal=' + 1);
+
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+                console.log(mediciones);
+
+                let horas = mediciones.map(function (medicion) {
+                    return medicion.hora + ":" + medicion.minutos;
+                });
+
+                let datosLuzFecha = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Luz",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesLuzFecha = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = horas.length-1; i >= 0; i--) {
+                    datosLuzFecha.labels.push(horas[i]);
+                    datosLuzFecha.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                }
+
+
+                miGraficaLuz.options = opcionesLuzFecha;
+                miGraficaLuz.data = datosLuzFecha;
+                miGraficaLuz.update();
+            }
+
+
+
+            //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+            const selector = document.getElementById('seleccionar_huerto');
+
+            //conseguimos la id del huerto seleccionado
+            selector.addEventListener('change', async function () {
+                let idHuerto = selector.value;
+
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 1);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+                    console.log(mediciones);
+
+                    let horas = mediciones.map(function (medicion) {
+                        return medicion.hora + ":" + medicion.minutos;
+                    });
+
+                    let datosLuzFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Luz",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesLuzFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = horas.length-1; i >= 0; i--) {
+                        datosLuzFecha.labels.push(horas[i]);
+                        datosLuzFecha.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                    }
+
+
+                    miGraficaLuz.options = opcionesLuzFecha;
+                    miGraficaLuz.data = datosLuzFecha;
+                    miGraficaLuz.update();
+                }
+            });
+
+
+
+        }//si son 3 o menos días
+        else{
+            console.log('4 o más días');
+
+            let huertosDelUsuario = await getHuertosUsuario();
+            let idHuertos = huertosDelUsuario.map(function (huerto) {
+                return huerto.id_huerto;
+            });
+
+            const idHuerto = idHuertos[0];
+            const respuesta = await fetch('../../../api/medicionesFecha/' +
+                '?idHuerto=' + idHuerto +
+                '&desde=' + desde +
+                '&hasta=' + hasta +
+                '&senyal=' + 0);
+
+            if (respuesta.ok) {
+                const mediciones = await respuesta.json();
+
+                let dias = mediciones.map(function (medicion) {
+                    let fecha = medicion.fecha_medicion;
+
+                    let partes = fecha.split("-");
+                    var anio = partes[0];
+                    var mes = partes[1];
+                    var dia = partes[2];
+
+                    var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                    return fechaFormateada;
+                });
+
+
+                let datosLuzFecha = {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: "Luz",
+                            data: [],
+                            tension: 0.2,
+                            fill: false,
+                            backgroundColor: 'rgba(121,0,80,.8)',
+                            borderColor: '#790050',
+                            pointStyle: 'circle',
+                            pointRadius: 7,
+                            borderWidth: 2,
+                        }
+                    ]
+                };
+
+                let opcionesLuzFecha = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        },
+                        y: {
+                            stacked: true
+                        }
+                    },
+                    plugins: {
+                        legend: false,
+                        title: {
+                            display: true,
+                            text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                            position: 'top',
+                            align: 'start',
+                            padding: {
+                                bottom: 10
+                            },
+                            font: {
+                                size: 15
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#000',
+                            titleAlign: 'center',
+                            bodyColor: '#333',
+                            borderColor: '#666',
+                            borderWidth: 1,
+                            yAlign: 'top',
+                            displayColors: false,
+                        }
+                    }//plugins
+                }
+
+                for (let i = dias.length-1; i >= 0; i--) {
+                    datosLuzFecha.labels.push(dias[i]);
+                    datosLuzFecha.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                }
+
+                miGraficaLuz.options = opcionesLuzFecha;
+                miGraficaLuz.data = datosLuzFecha;
+                miGraficaLuz.update();
+
+                //------------------------------------------------------------------------SELECTOR
+                const selector = document.getElementById('seleccionar_huerto');
+
+                //conseguimos la id del huerto seleccionado
+                selector.addEventListener('change', async function () {
+                    let idHuerto = selector.value;
+
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 0);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+
+                        let dias = mediciones.map(function (medicion) {
+                            let fecha = medicion.fecha_medicion;
+
+                            let partes = fecha.split("-");
+                            var anio = partes[0];
+                            var mes = partes[1];
+                            var dia = partes[2];
+
+                            var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                            return fechaFormateada;
+                        });
+
+
+                        let datosLuzFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "Luz",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesLuzFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = dias.length - 1; i >= 0; i--) {
+                            datosLuzFecha.labels.push(dias[i]);
+                            datosLuzFecha.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                        }
+
+                        miGraficaLuz.options = opcionesLuzFecha;
+                        miGraficaLuz.data = datosLuzFecha;
+                        miGraficaLuz.update();
+
+                    }
+
+                });
+            }
+        }//si son 4 o más días
+
+//--------------------------------------------ACORDEÓN--------------------------------------------------
+
+
+        formularioFechaAcordeonLuz.addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            let desde = document.getElementById('desde-acordeon-luz').value;
+            let hasta = document.getElementById('hasta-acordeon-luz').value;
+
+            let fechaDesde = new Date(desde);
+            let fechaHasta = new Date(hasta);
+
+            let diferenciaMs = fechaHasta - fechaDesde;
+
+            let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+            console.log(diferenciaDias);
+
+            if (diferenciaDias <= 3) {
+                console.log('3 o menos días');
+
+                //---------------------------------------------------------------HUERTO CARGADO POR DEFECTO
+                let huertosDelUsuario = await getHuertosUsuario();
+                let idHuertos = huertosDelUsuario.map(function (huerto) {
+                    return huerto.id_huerto;
+                });
+
+                const idHuerto = idHuertos[0];
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 1);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+                    let horas = mediciones.map(function (medicion) {
+                        return medicion.hora + ":" + medicion.minutos;
+                    });
+
+                    let datosLuzFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Luz",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesLuzFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = horas.length-1; i >= 0; i--) {
+                        datosLuzFecha.labels.push(horas[i]);
+                        datosLuzFecha.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                    }
+
+
+                    graficaAcordeonLuz.options = opcionesLuzFecha;
+                    graficaAcordeonLuz.data = datosLuzFecha;
+                    graficaAcordeonLuz.update();
+                }
+
+
+
+                //---------------------------------------------------------------SELECTOR DE HUERTOS
+
+                const selector = document.getElementById('seleccionar_huerto');
+
+                //conseguimos la id del huerto seleccionado
+                selector.addEventListener('change', async function () {
+                    let idHuerto = selector.value;
+
+                    const respuesta = await fetch('../../../api/medicionesFecha/' +
+                        '?idHuerto=' + idHuerto +
+                        '&desde=' + desde +
+                        '&hasta=' + hasta +
+                        '&senyal=' + 1);
+
+                    if (respuesta.ok) {
+                        const mediciones = await respuesta.json();
+
+                        let horas = mediciones.map(function (medicion) {
+                            return medicion.hora + ":" + medicion.minutos;
+                        });
+
+                        let datosLuzFecha = {
+                            labels: [],
+                            datasets: [
+                                {
+                                    label: "Luz",
+                                    data: [],
+                                    tension: 0.2,
+                                    fill: false,
+                                    backgroundColor: 'rgba(121,0,80,.8)',
+                                    borderColor: '#790050',
+                                    pointStyle: 'circle',
+                                    pointRadius: 7,
+                                    borderWidth: 2,
+                                }
+                            ]
+                        };
+
+                        let opcionesLuzFecha = {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                x: {
+                                    grid: {
+                                        drawOnChartArea: false
+                                    }
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            },
+                            plugins: {
+                                legend: false,
+                                title: {
+                                    display: true,
+                                    text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                                    position: 'top',
+                                    align: 'start',
+                                    padding: {
+                                        bottom: 10
+                                    },
+                                    font: {
+                                        size: 15
+                                    }
+                                },
+                                tooltip: {
+                                    backgroundColor: '#fff',
+                                    titleColor: '#000',
+                                    titleAlign: 'center',
+                                    bodyColor: '#333',
+                                    borderColor: '#666',
+                                    borderWidth: 1,
+                                    yAlign: 'top',
+                                    displayColors: false,
+                                }
+                            }//plugins
+                        }
+
+                        for (let i = horas.length-1; i >= 0; i--) {
+                            datosLuzFecha.labels.push(horas[i]);
+                            datosLuzFecha.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                        }
+
+
+                        graficaAcordeonLuz.options = opcionesLuzFecha;
+                        graficaAcordeonLuz.data = datosLuzFecha;
+                        graficaAcordeonLuz.update();
+                    }
+                });
+
+
+
+            }//si son 3 o menos días
+
+            else{
+                console.log('4 o más días');
+
+                let huertosDelUsuario = await getHuertosUsuario();
+                let idHuertos = huertosDelUsuario.map(function (huerto) {
+                    return huerto.id_huerto;
+                });
+
+                const idHuerto = idHuertos[0];
+                const respuesta = await fetch('../../../api/medicionesFecha/' +
+                    '?idHuerto=' + idHuerto +
+                    '&desde=' + desde +
+                    '&hasta=' + hasta +
+                    '&senyal=' + 0);
+
+                if (respuesta.ok) {
+                    const mediciones = await respuesta.json();
+
+                    let dias = mediciones.map(function (medicion) {
+                        let fecha = medicion.fecha_medicion;
+
+                        let partes = fecha.split("-");
+                        var anio = partes[0];
+                        var mes = partes[1];
+                        var dia = partes[2];
+
+                        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                        return fechaFormateada;
+                    });
+
+
+                    let datosLuzFecha = {
+                        labels: [],
+                        datasets: [
+                            {
+                                label: "Luz",
+                                data: [],
+                                tension: 0.2,
+                                fill: false,
+                                backgroundColor: 'rgba(121,0,80,.8)',
+                                borderColor: '#790050',
+                                pointStyle: 'circle',
+                                pointRadius: 7,
+                                borderWidth: 2,
+                            }
+                        ]
+                    };
+
+                    let opcionesLuzFecha = {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                grid: {
+                                    drawOnChartArea: false
+                                }
+                            },
+                            y: {
+                                stacked: true
+                            }
+                        },
+                        plugins: {
+                            legend: false,
+                            title: {
+                                display: true,
+                                text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                                position: 'top',
+                                align: 'start',
+                                padding: {
+                                    bottom: 10
+                                },
+                                font: {
+                                    size: 15
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#fff',
+                                titleColor: '#000',
+                                titleAlign: 'center',
+                                bodyColor: '#333',
+                                borderColor: '#666',
+                                borderWidth: 1,
+                                yAlign: 'top',
+                                displayColors: false,
+                            }
+                        }//plugins
+                    }
+
+                    for (let i = dias.length-1; i >= 0; i--) {
+                        datosLuzFecha.labels.push(dias[i]);
+                        datosLuzFecha.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                    }
+
+                    graficaAcordeonLuz.options = opcionesLuzFecha;
+                    graficaAcordeonLuz.data = datosLuzFecha;
+                    graficaAcordeonLuz.update();
+
+                    //------------------------------------------------------------------------SELECTOR
+                    const selector = document.getElementById('seleccionar_huerto');
+
+                    //conseguimos la id del huerto seleccionado
+                    selector.addEventListener('change', async function () {
+                        let idHuerto = selector.value;
+
+                        const respuesta = await fetch('../../../api/medicionesFecha/' +
+                            '?idHuerto=' + idHuerto +
+                            '&desde=' + desde +
+                            '&hasta=' + hasta +
+                            '&senyal=' + 0);
+
+                        if (respuesta.ok) {
+                            const mediciones = await respuesta.json();
+
+                            let dias = mediciones.map(function (medicion) {
+                                let fecha = medicion.fecha_medicion;
+
+                                let partes = fecha.split("-");
+                                var anio = partes[0];
+                                var mes = partes[1];
+                                var dia = partes[2];
+
+                                var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+                                return fechaFormateada;
+                            });
+
+                            let datosLuzFecha = {
+                                labels: [],
+                                datasets: [
+                                    {
+                                        label: "Luz",
+                                        data: [],
+                                        tension: 0.2,
+                                        fill: false,
+                                        backgroundColor: 'rgba(121,0,80,.8)',
+                                        borderColor: '#790050',
+                                        pointStyle: 'circle',
+                                        pointRadius: 7,
+                                        borderWidth: 2,
+                                    }
+                                ]
+                            };
+
+                            let opcionesLuzFecha = {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    x: {
+                                        grid: {
+                                            drawOnChartArea: false
+                                        }
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                },
+                                plugins: {
+                                    legend: false,
+                                    title: {
+                                        display: true,
+                                        text: 'Luz: 0 - Oscuridad, 1 - Poco iluminado, 2 - Sombra, 3 - Luz directa',
+                                        position: 'top',
+                                        align: 'start',
+                                        padding: {
+                                            bottom: 10
+                                        },
+                                        font: {
+                                            size: 15
+                                        }
+                                    },
+                                    tooltip: {
+                                        backgroundColor: '#fff',
+                                        titleColor: '#000',
+                                        titleAlign: 'center',
+                                        bodyColor: '#333',
+                                        borderColor: '#666',
+                                        borderWidth: 1,
+                                        yAlign: 'top',
+                                        displayColors: false,
+                                    }
+                                }//plugins
+                            }
+
+                            for (let i = dias.length - 1; i >= 0; i--) {
+                                datosLuzFecha.labels.push(dias[i]);
+                                datosLuzFecha.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+                            }
+
+                            graficaAcordeonLuz.options = opcionesLuzFecha;
+                            graficaAcordeonLuz.data = datosLuzFecha;
+                            graficaAcordeonLuz.update();
 
                         }
 
