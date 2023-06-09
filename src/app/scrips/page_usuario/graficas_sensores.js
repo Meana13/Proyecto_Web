@@ -7466,9 +7466,3 @@ async function getDatosPorFecha(){
 }
 
 getDatosPorFecha();
-
-
-
-
-
-
