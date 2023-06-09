@@ -9,14 +9,26 @@
     var ajustesusuario=[];
     var ajusteshuertos=[];
 
+    /**
+     * Carga los datos del ajuste del usuario
+     * @param id
+     * @returns ajustesusuario
+     */
     async function getAjustesUsuario(id){
         const respuesta= await fetch(url+ '?idUsuario='+ id_huerto );
         if(!respuesta.ok){
             return false;
         }
         ajustesusuario=await respuesta.json();
-        return this.ajustesusuario;
+        return ajustesusuario;
     }
+
+    /**
+     * Carga los datos del huerto del usuario
+     * @param id_usuario
+     * @param id_huerto
+     * @returns ajusteshuertos
+     */
     async function getAjustesHuerto(id_usuario,id_huerto){
         const respuesta= await fetch(url + '?idUsuario='+ id_huerto );
         if(!respuesta.ok){
@@ -25,6 +37,12 @@
         ajusteshuertos=await respuesta.json();
         return ajusteshuertos;
     }
+
+    /**
+     * Envia los datos del usuario
+     * @param id_usuario
+     *
+     */
     async function enviarEditarUsuario(id_usuario){
 // Obtén una referencia al formulario por su ID
         const formulario = document.getElementById('formulario-ajustes');
@@ -41,7 +59,11 @@
             updateUsuario(usuario);
         });
     }
-    //Funcion encargada de enviar los datos a la base de datos
+
+    /**
+     * Envia los datos a la base de datos
+     * @param id_usuario
+     */
     async function enviarEditarUsuario(id_usuario){
 // Obtén una referencia al formulario por su ID
         const formulario = document.getElementById('formulario-huerto');
@@ -58,7 +80,12 @@
             updateHuerto(usuario);
         });
     }
-    //Sub-funcion complementaria de la funcion EnviarDatos
+
+    /**
+     * Actualiza los datos del usuario
+     * @param datos
+     * @returns respuesta
+     */
     async function updateUsuario(datos) {
         const respuesta = await fetch(url + datos.id, {
             method: 'put',
@@ -66,6 +93,11 @@
         })
         return await respuesta.ok;
     }
+    /**
+     * Actualiza los datos del huerto del usuario
+     * @param datos
+     * @returns respuesta
+     */
     async function updateHuerto(datos) {
         const respuesta = await fetch(url + datos.id, {
             method: 'put',
