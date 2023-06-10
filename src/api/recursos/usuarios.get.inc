@@ -6,11 +6,12 @@ if (!isset($peticion)) {
 
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
-
+$limite= $peticion->parametrosQuery()['cantidad'];
+$pagina = $peticion->parametrosQuery()['pagina'] * $limite;
 $sql = "SELECT clientes.id_cliente, clientes.id_usuario, clientes.nombre, apellidos, email, direccion
         FROM clientes
         JOIN usuarios ON clientes.id_usuario = usuarios.id_usuario
-        LIMIT 5";
+        LIMIT $pagina,$limite";
 
 $result = mysqli_query($connexion, $sql);
 $salida = array();

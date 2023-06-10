@@ -24,8 +24,9 @@ async function getSesionUsuario(){
  * Cargar Usuarios (limitados a 15 por página)
  */
 
-async function getUsuarios(){
-    const respuesta=await fetch("../../../api/usuarios/");
+async function getUsuarios(nºpag=2,limite=15){
+    const respuesta=await fetch(url + '?cantidad='
+        + limite + '&pagina=' + nºpag);
     if (respuesta.ok){
         const DatosUsuario = await respuesta.json();
         console.log(DatosUsuario);
@@ -41,9 +42,12 @@ async function generarTablas() {
             <td>${usuario.nombre}</td>
             <td>${usuario.apellidos}</td>
             <td>${usuario.email}</td>
+            <td><button id="ver-hoja-usuario"><img src="../../../images/ver-perfil.svg"
+                                alt="Hoja de usuario"></button>
+            </td>
         </tr>`;
     });
     };
-getSesionUsuario();
-getUsuarios();
-generarTablas();
+window.addEventListener("DOMContentLoaded", () => {
+    generarTablas();
+});
