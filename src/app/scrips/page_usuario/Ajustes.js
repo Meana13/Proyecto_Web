@@ -14,7 +14,26 @@
      * @param id
      * @returns ajustesusuario
      */
-    async function getAjustesUsuario(id){
+    async function getSesionUsuario(){
+       const respuesta=await fetch("../../../api/sesion/");
+       if (respuesta.ok){
+           const DatosUsuario = await respuesta.json();
+           console.log(DatosUsuario);
+           return DatosUsuario;
+       }
+    }
+    async function getHuertosUsuario(){
+        let datosDeUsuario = await getSesionUsuario();
+        let idUsuario = datosDeUsuario.id_usuario;
+
+        const respuesta = await fetch('../../../api/huertos/' + '?idUsuario=' + idUsuario);
+        if(respuesta.ok) {
+            const datos = await respuesta.json();
+            console.log(datos);
+            return datos;
+        }
+    }
+    async function getAjustesUsuario(){
         const respuesta= await fetch(url+ '?idUsuario='+ id_huerto );
         if(!respuesta.ok){
             return false;
@@ -30,7 +49,7 @@
      * @returns ajusteshuertos
      */
     async function getAjustesHuerto(id_usuario,id_huerto){
-        const respuesta= await fetch(url + '?idUsuario='+ id_huerto );
+        const respuesta= await fetch(url + '?idUsuario='+ id_huerto+"&idHuerto="+id_huerto);
         if(!respuesta.ok){
             return false;
         }
@@ -105,3 +124,4 @@
         })
         return await respuesta.ok;
     }
+    getHuertosUsuario();
