@@ -11,8 +11,15 @@ if (!isset($connexion)) die();
 if(isset($peticion->parametrosQuery()['idUsuario'])){
     $idUsuario = $peticion->parametrosQuery()['idUsuario'];
 
-    $sql = "SELECT `huertos`.`id_huerto`, `huertos`.`nombre_huerto`, `huertos`.`imagen` 
+    $sql = "SELECT 
+            `huertos`.`id_huerto`, 
+            `huertos`.`nombre_huerto`, 
+            `huertos`.`imagen`, 
+            `huertos`.notas, 
+            `huertos`.notificaciones
+            
             FROM `huertos`, `usuarios`, `clientes` 
+            
             WHERE `usuarios`.`id_usuario`=`clientes`.`id_usuario` 
             AND `clientes`.`id_cliente`=`huertos`.`id_cliente` 
             AND `usuarios`.`id_usuario`= $idUsuario";

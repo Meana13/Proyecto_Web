@@ -414,6 +414,7 @@ dialog.ajustes_de_huerto h3{
     margin-bottom: 1rem;
     margin-top: 0;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 /*Estilos para cambiar la foto y el nombre del huerto*/
@@ -443,10 +444,15 @@ dialog.ajustes_de_huerto h3{
     margin-bottom: 5px;
 }
 
+.nombre_ajustes div input{
+    display:none;
+}
+
 #notas_huerto {
     width: 95%;
     height: 5rem;
     margin: 0 15px;
+    display:none;
 }
 
 
@@ -519,9 +525,12 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     background-color: #9D4179;
 }
 
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"],
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"]
+{
     display:none;
 }
+
 
   /*************************************/
  /*      ESTILOS SECCION CITAS        */
