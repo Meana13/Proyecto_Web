@@ -36,13 +36,14 @@ async function generarTablas() {
     const datos = await getUsuarios();
     let tabla = document.getElementById("body-usuarios");
     tabla.innerHTML = "";
-    datos.forEach(() => {
+    datos.forEach((usuario) => {
         tabla.innerHTML += `<tr>
-            <td>${datos.nombre}</td>
-            <td>${datos.apellidos}</td>
-            <td>${datos.email}</td>
+            <td>${usuario.nombre}</td>
+            <td>${usuario.apellidos}</td>
+            <td>${usuario.email}</td>
         </tr>`;
     });
     };
 getSesionUsuario();
 getUsuarios();
+generarTablas();
