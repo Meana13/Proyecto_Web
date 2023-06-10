@@ -25,8 +25,12 @@ async function getSesionUsuario(){
  */
 
 async function getUsuarios(){
-    const respuesta=await fetch(url);
-    return respuesta;
+    const respuesta=await fetch("../../../api/usuarios/");
+    if (respuesta.ok){
+        const DatosUsuario = await respuesta.json();
+        console.log(DatosUsuario);
+        return DatosUsuario;
+    }
 }
 async function generarTablas() {
     const datos = await getUsuarios();
@@ -40,4 +44,5 @@ async function generarTablas() {
         </tr>`;
     });
     };
-generarTablas();
+getSesionUsuario();
+getUsuarios();
