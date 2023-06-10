@@ -6,6 +6,19 @@
 
 //funcion para conseguir la información de la sesión del usuario, para poder recoger el id
 //y así poder buscar los huertos del usuario.
+//------------------------------------------
+/*
+getSesionUsuario() --> datos
+
+____datos____
+id_usuario: N
+nombre: txt
+idRol: N
+rol: txt
+_____________
+
+*/
+//------------------------------------------
 async function getSesionUsuario(){
 
     const respuesta = await fetch('../../../api/sesion/');
@@ -15,7 +28,19 @@ async function getSesionUsuario(){
     }
 }
 
-//función para conseguir los huertos del usuario, llama a
+//------------------------------------------
+/*
+getHuertosUsuario() --> [datos]
+
+____datos____
+id_huerto: N
+imagen: txt
+nombre_huerto: txt
+notas: txt
+notificaciones: VoF
+_____________
+*/
+//------------------------------------------
 async function getHuertosUsuario(){
     let datosDeUsuario = await getSesionUsuario();
     let idUsuario = datosDeUsuario.id_usuario;
