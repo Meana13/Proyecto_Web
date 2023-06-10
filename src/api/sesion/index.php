@@ -16,7 +16,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
     case 'POST':
         $bbdd_servidor = 'localhost';
-        $bbdd_nombre = 'pruebaproyectoweb';
+        $bbdd_nombre = 'proyecto_web';
         $bbdd_user = 'root';
         $bbdd_password = '';
         //$bbdd_servidor = 'pmeagon.upv.edu.es';
