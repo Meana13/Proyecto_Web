@@ -428,18 +428,8 @@ dialog.ajustes_de_huerto h3{
     margin-bottom: 5px;
 }
 
-.imagen_ajustes img#foto-huerto,
-.imagen_ajustes img#vista-previa{
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-}
-
-.imagen_ajustes img#vista-previa,
-.imagen_ajustes input,
-.imagen_ajustes button#confirmar-foto-huerto,
-.imagen_ajustes button#cancelar-foto-huerto{
-    display:none;
+.imagen_ajustes input {
+    width: 172px;
 }
 
 .nombre_ajustes {

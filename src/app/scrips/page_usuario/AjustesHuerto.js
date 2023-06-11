@@ -8,14 +8,6 @@ let notas = document.getElementById('notas_huerto_ajustes');
 let nombreHuerto = document.getElementById('nombre_huerto_ajustes');
 let nombreHuertoEditable = document.getElementById('nombre_huerto');
 let selector = document.getElementById('seleccionar_huerto');
-let inputSubirFotoHuerto = document.getElementById('subir-foto-huerto');
-let fotoHuerto = document.getElementById('foto-huerto');
-let botonSubirFotoHuerto = document.getElementById('boton-subir-foto-huerto');
-let vistaPrevia = document.getElementById('vista-previa');
-let botonConfirmarFotoHuerto = document.getElementById('confirmar-foto-huerto');
-let botonCancelarFotoHuerto = document.getElementById('cancelar-foto-huerto');
-
-
 
 
 /*Estas funciones se ejecutarán cuando se pulse el botón de "Ajustes de huerto"*/
@@ -121,47 +113,6 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
         location.reload();
     })
 
-    //------------------------------------------
-    /*
-              CAMBIAR FOTO DE HUERTO:
-    */
-    //------------------------------------------
-    botonSubirFotoHuerto.addEventListener('click', function (){
-
-        const fotoPorDefecto = '../../../images/foto_base.jpeg';
-
-        inputSubirFotoHuerto.click();
-        //cuando se vaya a elegir una foto, mostramos la vistra previa y escondemos la foto real:
-        vistaPrevia.style.display = "block";
-        fotoHuerto.style.display = "none";
-
-        //y mostramos los botones de cancelar y confirmar:
-        botonConfirmarFotoHuerto.style.display = 'block';
-        botonCancelarFotoHuerto.style.display = 'block';
-
-        //escondemos el boton de cambiar foto:
-        botonSubirFotoHuerto.style.display = 'none';
-
-        inputSubirFotoHuerto.addEventListener('change', function(event){
-            let fotoNueva = event.target.files[0];
-            console.log(fotoNueva);
-
-            if(fotoNueva){
-                const reader = new FileReader();
-                reader.onload = function(event){
-                    vistaPrevia.src = event.target.result;
-                }
-                reader.readAsDataURL(fotoNueva);
-            }
-            else{
-                vistaPrevia.src = fotoPorDefecto;
-            }
-
-
-
-        });
-
-    });
 
 //llamadas de las funciones (main):
     escribirDatosHuerto();
