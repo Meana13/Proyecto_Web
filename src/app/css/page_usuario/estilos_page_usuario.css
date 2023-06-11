@@ -97,7 +97,7 @@ h2 {
 .tabs button {
     border: .5px solid var(--textoBotones);
     border-bottom: none;
-    padding: 2rem;
+    padding: 2rem 1rem;
     border-radius: .3rem .3rem 0 0;
     flex: 1 1 auto;
     background-color: var(--fondoSecundario);
@@ -125,6 +125,7 @@ h2 {
 /*Estilos para los títulos de las pestañas del visualizador de datos*/
 .tabs button p{
     font-size: 1.5rem;
+    margin:0;
 }
 
 .tabs button.activo p.dato_actual_tab{
@@ -133,11 +134,10 @@ h2 {
 
 /*Estilo iconos de alerta*/
 .alertas-container{
-    display: flex;
     flex: 1 1 100%;
     justify-content: flex-start;
     align-items: center;
-
+    display: none;
 }
 
 .alerta_grave {
@@ -264,7 +264,7 @@ h2 {
     height:auto;
     margin-top: 2rem;
     flex: 0 1 auto;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
@@ -414,6 +414,7 @@ dialog.ajustes_de_huerto h3{
     margin-bottom: 1rem;
     margin-top: 0;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 /*Estilos para cambiar la foto y el nombre del huerto*/
@@ -443,10 +444,15 @@ dialog.ajustes_de_huerto h3{
     margin-bottom: 5px;
 }
 
+.nombre_ajustes div input{
+    display:none;
+}
+
 #notas_huerto {
     width: 95%;
     height: 5rem;
     margin: 0 15px;
+    display:none;
 }
 
 
@@ -519,9 +525,12 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     background-color: #9D4179;
 }
 
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"],
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"]
+{
     display:none;
 }
+
 
   /*************************************/
  /*      ESTILOS SECCION CITAS        */
@@ -563,7 +572,7 @@ table td button.boton-aceptar-rechazar {
 @media(max-width: 1800px){
 
     .tabs button {
-        padding: 1rem;
+        padding: 2rem 1rem;
     }
 
     /*Estilos del dato actual*/
@@ -596,7 +605,7 @@ table td button.boton-aceptar-rechazar {
 
 @media(max-width: 1550px) {
     .tabs button {
-        padding: 0.5rem;
+        padding: 2rem 1rem;
     }
 }
 

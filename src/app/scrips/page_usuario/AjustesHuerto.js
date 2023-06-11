@@ -1,0 +1,238 @@
+//obtención de referencias
+let tituloSeccion = document.getElementById('titulo_ajustes_huerto');
+let botonGuardar = document.getElementById('boton_guardar_ajustes_huerto');
+let botonCancelar = document.getElementById('boton-cancelar-ajustes-huerto');
+let botonEditar = document.getElementById('boton_editar_ajustes_huerto');
+let notasEditable = document.getElementById('notas_huerto');
+let notas = document.getElementById('notas_huerto_ajustes');
+let nombreHuerto = document.getElementById('nombre_huerto_ajustes');
+let nombreHuertoEditable = document.getElementById('nombre_huerto');
+let selector = document.getElementById('seleccionar_huerto');
+
+
+/*Estas funciones se ejecutarán cuando se pulse el botón de "Ajustes de huerto"*/
+document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', function() {
+
+    //---------------------------------------------
+    /*
+    getDatosHuertoPorIdHuerto() --> datos
+
+    ____datos____
+    id_huerto: N
+    imagen: txt
+    nombre_huerto: txt
+    notas: txt
+    notificaciones: VoF
+    _____________
+    */
+    //------------------------------------------
+    async function getDatosHuertoPorIdHuerto(idHuerto){
+        const respuesta = await fetch('../../../api/huertos/' + '?idHuerto=' + idHuerto);
+        if(respuesta.ok) {
+            const datos = await respuesta.json();
+            return datos;
+        }
+    }
+
+    //---------------------------------------------
+    /*
+                escribirNombreHuerto()
+    */
+    //------------------------------------------
+
+    async function escribirDatosHuerto(){
+
+        let idHuerto = selector.value;
+        let datosHuerto = await getDatosHuertoPorIdHuerto(idHuerto);
+
+            tituloSeccion.innerText = "";
+            tituloSeccion.innerText = "AJUSTES DE " + datosHuerto[0].nombre_huerto;
+
+            nombreHuerto.innerText = "";
+            nombreHuerto.innerText = datosHuerto[0].nombre_huerto;
+
+            notas.innerText = "";
+            notas.innerText = datosHuerto[0].notas;
+    }
+
+    //---------------------------------------------
+    /*
+                    BOTÓN EDITAR:
+    */
+    //------------------------------------------
+
+    //al clicar en el botón de editar:
+    botonEditar.addEventListener('click', function(){
+        //lo que mostramos:
+        botonGuardar.style.display = "block";
+        botonCancelar.style.display = "block";
+        notasEditable.style.display = "block";
+        nombreHuertoEditable.style.display = "block";
+
+        //lo que escondemos:
+        botonEditar.style.display = "none";
+        nombreHuerto.style.display = "none";
+        notas.style.display = "none";
+
+        //Asignamos el valor antiguo al input de texto que el usuario puede editar,
+        // por si no lo edita, que se quede el nombre original:
+        let nombreAntiguo = nombreHuerto.textContent;
+        nombreHuertoEditable.value = nombreAntiguo;
+
+        let notasAntiguas = notas.textContent;
+        notasEditable.value = notasAntiguas;
+    });
+
+    //---------------------------------------------
+    /*
+                    BOTÓN GUARDAR:
+    */
+    //------------------------------------------
+
+    //al clicar en el boton de guardar:
+    botonGuardar.addEventListener('click', async function(){
+        let idHuerto = selector.value;
+        let nombreNuevo = nombreHuertoEditable.value;
+        let notasNuevas = notasEditable.value;
+
+        let datos = {
+            nombreNuevo: nombreNuevo,
+            idHuerto: idHuerto,
+            notasNuevas: notasNuevas
+        }
+        const respuesta = await fetch('../../../api/ajustesHuerto', {
+            method: 'put',
+            body: JSON.stringify(datos)
+        });
+        if(respuesta.ok){
+           console.log("se ha cambiado el nombre");
+        }
+        else{
+            console.log("ha habido un error");
+        }
+        location.reload();
+    })
+
+
+//llamadas de las funciones (main):
+    escribirDatosHuerto();
+
+});
+
+
+/*
+
+document.getElementById('boton_perfil').addEventListener('click', function(){
+    /!**
+     * URL a la que se hacen las peticiones
+     *!/
+    const url= '../../../api/ajustes/';
+
+
+
+    /!**
+     * Variables vacias
+     *!/
+    var ajustesusuario=[];
+    var ajusteshuertos=[];
+
+    /!**
+     * Carga los datos del ajuste del usuario
+     * @param id
+     * @returns ajustesusuario
+     *!/
+    async function getAjustesUsuario(id){
+        const respuesta= await fetch(url+ '?idUsuario='+ id );
+        if(!respuesta.ok){
+            return false;
+        }
+        ajustesusuario=await respuesta.json();
+        return ajustesusuario;
+    }
+
+    /!**
+     * Carga los datos del huerto del usuario
+     * @param id_usuario
+     * @param id_huerto
+     * @returns ajusteshuertos
+     *!/
+    async function getAjustesHuerto(id_usuario,id_huerto){
+        const respuesta= await fetch(url + '?idUsuario='+ id_huerto );
+        if(!respuesta.ok){
+            return false;
+        }
+        ajusteshuertos=await respuesta.json();
+        return ajusteshuertos;
+    }
+
+    /!**
+     * Envia los datos del usuario
+     * @param id_usuario
+     *
+     *!/
+    async function enviarEditarUsuario(id_usuario){
+// Obtén una referencia al formulario por su ID
+        const formulario = document.getElementById('formulario-ajustes');
+// Añade el event listener para el evento 'submit'
+        formulario.addEventListener('submit', async function(event) {
+            event.preventDefault();
+        const formData = new FormData(event.target);
+        const usuario = {
+            usuario: formData.get('usuario'),
+            nombre: formData.get('nombre'),
+            apellidos: formData.get('apellidos'),
+            email: formData.get('email'),
+        };
+            updateUsuario(usuario);
+        });
+    }
+*/
+/*
+
+    /!**
+     * Envia los datos a la base de datos
+     * @param id_usuario
+     *!/
+    async function enviarEditarUsuario(id_usuario){
+// Obtén una referencia al formulario por su ID
+        const formulario = document.getElementById('formulario-huerto');
+// Añade el event listener para el evento 'submit'
+        formulario.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const usuario = {
+                usuario: formData.get('usuario'),
+                nombre: formData.get('nombre'),
+                apellidos: formData.get('apellidos'),
+                email: formData.get('email'),
+            };
+            updateHuerto(usuario);
+        });
+    }
+
+    /!**
+     * Actualiza los datos del usuario
+     * @param datos
+     * @returns respuesta
+     *!/
+    async function updateUsuario(datos) {
+        const respuesta = await fetch(url + datos.id, {
+            method: 'put',
+            body: JSON.stringify(datos)
+        })
+        return await respuesta.ok;
+    }
+    /!**
+     * Actualiza los datos del huerto del usuario
+     * @param datos
+     * @returns respuesta
+     *!/
+    async function updateHuerto(datos) {
+        const respuesta = await fetch(url + datos.id, {
+            method: 'put',
+            body: JSON.stringify(datos)
+        })
+        return await respuesta.ok;
+    }
+
+*/
