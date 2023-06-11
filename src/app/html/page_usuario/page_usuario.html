@@ -835,7 +835,7 @@
         </button>
 
         <!--Título de la sección-->
-        <h3>AJUSTES DE HUERTO COCINA</h3>
+        <h3 id="titulo_ajustes_huerto">AJUSTES DE HUERTO COCINA</h3>
 
         <!--Cambiar nombre del huerto y la foto-->
         <div class="container container-nombre-imagen">
@@ -850,9 +850,11 @@
                     <div class="row">
                         <div class="col-12">
                             <label for="nombre_huerto">Nombre del huerto:</label>
+                            <p id="nombre_huerto_ajustes"></p>
                             <input type="text" id="nombre_huerto">
                         </div>
                         <p>Notas:</p>
+                        <p id="notas_huerto_ajustes">Aquí van las notas</p>
                         <textarea id="notas_huerto" rows="10" cols="50"></textarea>
                     </div>
                 </div>
@@ -934,10 +936,13 @@
         </section>
 
         <div class="botones_editar_y_guardar">
-            <button class="boton_editar_ajustes">Editar</button>
+            <button class="boton_editar_ajustes" id="boton_editar_ajustes_huerto">Editar</button>
 
             <input type="submit" value="Guardar cambios" id="boton_guardar_ajustes_huerto"
                 class="boton_guardar_ajustes_huerto">
+
+            <input type="reset" value="Cancelar" id="boton-cancelar-ajustes-huerto"
+                   class="boton_guardar_ajustes_huerto">
         </div>
     </dialog>
     <!--Aqui finaliza la seccion de ajustes de huerto-->
@@ -1103,7 +1108,7 @@
 
     <script src="../../scrips/page_usuario/page_usuario.js"></script>
     <script src="../../scrips/page_usuario/graficas_sensores.js"></script>
-    <script src="../../scrips/page_usuario/Ajustes.js"></script>
+    <script src="../../scrips/page_usuario/AjustesHuerto.js"></script>
     <script src="../../scrips/page_usuario/citas.js"></script>
 
 </body>

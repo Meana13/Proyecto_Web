@@ -8,7 +8,8 @@
 
     <!-- carga de scripts-->
     <script src="../../scrips/page_admin/page_admin.js"></script>
-    <script src="../../scrips/landing_page/control-acceso.js"></script>
+    <script src="../../scrips/page_admin/Tablas.js"></script>
+    <!--<script src="../../scrips/landing_page/control-acceso.js"></script>-->
     <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
     
     <!-- carga de hoja de estilos-->
@@ -57,7 +58,7 @@
             Añadir</button>
 
         <!-- TABLA USUARIOS -->
-        <table>
+        <table id="tabla-usuarios">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -66,7 +67,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="body-usuarios">
                 <tr>
                     <td>Ricardo</td>
                     <td>Marquez</td>
