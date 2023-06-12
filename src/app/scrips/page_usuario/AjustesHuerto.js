@@ -1,4 +1,5 @@
 //obtención de referencias
+let dialogo = document.getElementById('ajustes_de_huerto');
 let tituloSeccion = document.getElementById('titulo_ajustes_huerto');
 let botonGuardar = document.getElementById('boton_guardar_ajustes_huerto');
 let botonCancelar = document.getElementById('boton-cancelar-ajustes-huerto');
@@ -17,6 +18,7 @@ let botonCancelarFotoHuerto = document.getElementById('cancelar-foto-huerto');
 let formulario = document.getElementById('formulario-subir-foto');
 let contador = document.getElementById('contador-notas-huerto');
 let notificacionesBoton = document.getElementById('customSwitch3');
+let formularioNotificaciones = document.getElementById('limites_medidas');
 
 
 /*Estas funciones se ejecutarán cuando se pulse el botón de "Ajustes de huerto"*/
@@ -66,9 +68,14 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
 
             if(datosHuerto[0].notificaciones === "1"){
                 notificacionesBoton.checked = true;
+                formularioNotificaciones.style.display = 'block';
+                escribirValoresLimitesMedida();
+
             }
             else{
                 notificacionesBoton.checked = false;
+                formularioNotificaciones.style.display = 'none';
+
             }
     }
 
@@ -143,7 +150,7 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
 
     //------------------------------------------
     /*
-             ACTIVAR LAS NOTIFICACIONES:
+        ACTIVAR Y DESACTIVAR LAS NOTIFICACIONES:
     */
     //------------------------------------------
     notificacionesBoton.addEventListener('change', async function(){
@@ -159,9 +166,12 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                 method: 'put',
                 body: JSON.stringify(datos)
             });
+            if(respuesta.ok){
+                dialogo.close();
+                botonAbrirAjustesHuerto.click();
+            }
         }
         else{
-            console.log('notificaciones desactivadas');
             let idHuerto = selector.value;
 
             datos = {
@@ -172,8 +182,28 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                 method: 'put',
                 body: JSON.stringify(datos)
             });
+            if(respuesta.ok){
+                dialogo.close();
+                botonAbrirAjustesHuerto.click();
+            }
         }
     });
+
+    //------------------------------------------
+    /*
+        ESCRIBIR VALORES DE LÍMITES DE MEDIDA:
+    */
+    //------------------------------------------
+    async function escribirValoresLimitesMedida(){
+        let idHuerto = selector.value;
+        const respuesta = await fetch('../../../api/notificaciones/' + '?idHuerto=' + idHuerto);
+        if(respuesta.ok){
+            let datos = await respuesta.json();
+            console.log(datos);
+        }
+
+
+    }
 
     //------------------------------------------
     /*

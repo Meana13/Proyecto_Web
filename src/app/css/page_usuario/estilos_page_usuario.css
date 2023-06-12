@@ -498,6 +498,10 @@ dialog.ajustes_de_huerto h3 {
 }
 
 /*Estilos para los campos de poner los límites de las medidas*/
+dialog.ajustes_de_huerto form.limites_medidas{
+    display:none;
+}
+
 dialog.ajustes_de_huerto form.limites_medidas,
 dialog.ajustes_de_huerto form.limites_medidas p {
     font-size: 1.1rem;
