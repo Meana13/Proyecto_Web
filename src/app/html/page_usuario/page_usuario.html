@@ -844,7 +844,9 @@
                     <img id="vista-previa" class="text-center" src="../../../images/foto_base.jpeg" alt="Vista previa de la foto del huerto">
                     <img id="foto-huerto" class="text-center" src="../../../images/foto_base.jpeg" alt="Foto del huerto">
                     <div>
+                        <form id="formulario-subir-foto" enctype="multipart/form-data">
                         <input type="file" id="subir-foto-huerto">
+                        </form>
                         <button id="boton-subir-foto-huerto">Cambiar foto</button>
                         <button id="confirmar-foto-huerto">Confirmar</button>
                         <button id="cancelar-foto-huerto">Cancelar</button>
@@ -860,6 +862,7 @@
                         <p>Notas:</p>
                         <p id="notas_huerto_ajustes">Aquí van las notas</p>
                         <textarea id="notas_huerto" rows="10" cols="50"></textarea>
+                        <div id="contador-notas-huerto"></div>
                     </div>
                 </div>
             </div>

@@ -13,8 +13,7 @@ if(isset($peticion->parametrosQuery()['idUsuario'])){
 
     $sql = "SELECT 
             `huertos`.`id_huerto`, 
-            `huertos`.`nombre_huerto`, 
-            `huertos`.`imagen`, 
+            `huertos`.`nombre_huerto`,  
             `huertos`.notas, 
             `huertos`.notificaciones
             
@@ -33,7 +32,11 @@ if(isset($peticion->parametrosQuery()['idUsuario'])){
 else if(isset($peticion->parametrosQuery()['idHuerto'])){
     $idHuerto = $peticion->parametrosQuery()['idHuerto'];
 
-    $sql = "SELECT *
+    $sql = "SELECT `huertos`.`id_huerto`, 
+            `huertos`.`nombre_huerto`,  
+            `huertos`.notas, 
+            `huertos`.notificaciones
+
             FROM `huertos`
             WHERE `huertos`.`id_huerto` = $idHuerto";
 

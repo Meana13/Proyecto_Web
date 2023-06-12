@@ -24,6 +24,7 @@ async function getSesionUsuario(){
     const respuesta = await fetch('../../../api/sesion/');
     if(respuesta.ok){
         const datos = await respuesta.json();
+        console.log('error datos'+ datos);
         return datos;
     }
 }
@@ -48,6 +49,7 @@ async function getHuertosUsuario(){
     const respuesta = await fetch('../../../api/huertos/' + '?idUsuario=' + idUsuario);
     if(respuesta.ok) {
         const datos = await respuesta.json();
+
         return datos;
     }
 }
