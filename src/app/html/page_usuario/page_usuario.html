@@ -55,13 +55,13 @@
             <!--Menú propio de usuario registrado-->
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <button class="boton_menu" id="boton_huertos">ver huertos</button>
+                    <button class="boton_menu" id="boton_huertos">Ver huertos</button>
                 </li>
                 <li class="nav-menu-item">
-                    <button class="boton_menu" id="boton_citas">citas</button>
+                    <button class="boton_menu" id="boton_citas">Citas</button>
                 </li>
                 <li class="nav-menu-item">
-                    <button class="boton_menu" id="boton_perfil">ajustes perfil</button>
+                    <button class="boton_menu" id="boton_perfil" >Ajustes perfil</button>
                 </li>
                 <li class="nav-menu-item">
                     <button class="boton_menu" onclick="logout()">CERRAR SESIÓN</button>
@@ -835,7 +835,7 @@
         </button>
 
         <!--Título de la sección-->
-        <h3>AJUSTES DE HUERTO COCINA</h3>
+        <h3 id="titulo_ajustes_huerto">AJUSTES DE HUERTO COCINA</h3>
 
         <!--Cambiar nombre del huerto y la foto-->
         <div class="container container-nombre-imagen">
@@ -850,9 +850,11 @@
                     <div class="row">
                         <div class="col-12">
                             <label for="nombre_huerto">Nombre del huerto:</label>
+                            <p id="nombre_huerto_ajustes"></p>
                             <input type="text" id="nombre_huerto">
                         </div>
                         <p>Notas:</p>
+                        <p id="notas_huerto_ajustes">Aquí van las notas</p>
                         <textarea id="notas_huerto" rows="10" cols="50"></textarea>
                     </div>
                 </div>
@@ -934,10 +936,13 @@
         </section>
 
         <div class="botones_editar_y_guardar">
-            <button class="boton_editar_ajustes">Editar</button>
+            <button class="boton_editar_ajustes" id="boton_editar_ajustes_huerto">Editar</button>
 
             <input type="submit" value="Guardar cambios" id="boton_guardar_ajustes_huerto"
                 class="boton_guardar_ajustes_huerto">
+
+            <input type="reset" value="Cancelar" id="boton-cancelar-ajustes-huerto"
+                   class="boton_guardar_ajustes_huerto">
         </div>
     </dialog>
     <!--Aqui finaliza la seccion de ajustes de huerto-->
@@ -999,28 +1004,28 @@
     <section id="ajustes-usuario">
         <h2>AJUSTES DE PERFIL</h2>
             <section class="datos_usuario">
-              <form action="#" method="post">
+              <form action="#" id="formulario-ajustes"   method="post">
                 <!--Datos personales:-->
                 <div class="campo">
                   <label for="nombre_usuario">Usuario:</label>
-                  <input type="text" id="nombre_usuario">
+                  <input type="text" id="nombre_usuario" name="usuario">
                 </div>
           
                 <div class="campo">
                   <label for="nombre">Nombre:</label>
-                  <input type="text" id="nombre">
+                  <input type="text" id="nombre" name="nombre">
                 </div>
           
                 <div class="campo">
                   <label for="apellidos">Apellidos:</label>
-                  <input type="text" id="apellidos">
+                  <input type="text" id="apellidos" name="apellidos">
                 </div>
               </form>
 
                 <!--E-mail y contraseña-->
                 <div class="campo">
                 <label for="email">Email:</label>
-                <input type="email" id="email">
+                <input type="email" id="email" name="email">
                 </div>
 
 
@@ -1040,14 +1045,14 @@
                         <label for="repetir_contrasenya">Repetir nueva contraseña:</label>
                         <input type=password id="repetir_contrasenya">
 
-                        <input type="submit" value="Validar">
+                        <input type="submit" id="btn-enviar" value="Validar">
                     </form>
                 </dialog>
 
 
                 <div class="contenedor5">
                     <button class="boton-editar-ajustes">Editar</button>
-                    <button class="cambios_perfil">Aplicar cambios</button>
+                    <button class="cambios_perfil" id="aplicar_cambios">Aplicar cambios</button>
                     <button class="boton-cancelar-ajustes">Cancelar</button>
                   </div>
                   
@@ -1103,6 +1108,8 @@
 
     <script src="../../scrips/page_usuario/page_usuario.js"></script>
     <script src="../../scrips/page_usuario/graficas_sensores.js"></script>
+    <script src="../../scrips/page_usuario/AjustesHuerto.js"></script>
+    <script src="../../scrips/page_usuario/citas.js"></script>
 
 </body>
 
