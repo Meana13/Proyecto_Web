@@ -16,7 +16,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
     case 'POST':
         $bbdd_servidor = 'localhost';
-        $bbdd_nombre = 'test_login';
+        $bbdd_nombre = 'proyecto_web';
         $bbdd_user = 'root';
         $bbdd_password = '';
         //$bbdd_servidor = 'pmeagon.upv.edu.es';
@@ -35,13 +35,21 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $usuario = $_POST['nombre'];
         $password = $_POST['password'];
 
-        $sql = "SELECT `usuarios`.`id`, 
+       /* $sql = "SELECT `usuarios`.`id`,
        `usuarios`.`nombre`, 
        `roles`.`id` as `idRol`, 
        `roles`.`rol` 
 	FROM `usuarios` 
 		INNER JOIN `roles` ON `usuarios`.`rol` = `roles`.`id`
 	WHERE `usuarios`.`nombre` = '$usuario' AND `usuarios`.`password` = '$password'";
+        */
+
+        $sql = "SELECT `usuarios`.`id_usuario`, `usuarios`.`nombre`, `roles`.`id` as idRol, `roles`.rol 
+                FROM `usuarios`, `roles` 
+                WHERE `usuarios`.rol = `roles`.id 
+                AND `usuarios`.nombre = '$usuario' 
+                AND `usuarios`.`password` = '$password'";
+
 
 
         $resultado = mysqli_query($connexion, $sql);
@@ -53,7 +61,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             $_SESSION['user'] = $registro;
 
             $salida = [];
-            $salida['id'] = $registro['id'];
+            $salida['id'] = $registro['id_usuario'];
             $salida['nombre'] = $registro['nombre'];
             $salida['rol'] = $registro['rol'];
 

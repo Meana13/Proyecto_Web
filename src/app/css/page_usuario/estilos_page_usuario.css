@@ -1,10 +1,10 @@
-/* Estilos generales para el cuerpo de la página */
-body {
-    margin-top: 120px;
-}
-
 .header{
     z-index: 1000;
+}
+
+h2 {
+    margin-top: 7.5rem;
+    margin-bottom: 3rem;
 }
 
 /*
@@ -17,6 +17,12 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 1rem 2.5rem;
+    margin-top: 7.5rem;
+}
+
+.cabecera_huertos h2 {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /*Estilos para el selector de huertos*/
@@ -45,6 +51,10 @@ body {
     align-self: start;
 }
 
+.boton_abrir_ajustes_huerto:hover {
+    background-color: #9D4179;
+}
+
 /*Estilo del contenedor de nombre + foto del huerto*/
 .nombre-huerto-container {
     display: flex;
@@ -69,6 +79,7 @@ body {
 .acordeon{
     display:none;
 }
+
 /*Estilos del visualizador de datos de los sensores*/
 .visualizador_de_datos{
     width: 90%;
@@ -86,7 +97,7 @@ body {
 .tabs button {
     border: .5px solid var(--textoBotones);
     border-bottom: none;
-    padding: 2rem;
+    padding: 2rem 1rem;
     border-radius: .3rem .3rem 0 0;
     flex: 1 1 auto;
     background-color: var(--fondoSecundario);
@@ -114,19 +125,19 @@ body {
 /*Estilos para los títulos de las pestañas del visualizador de datos*/
 .tabs button p{
     font-size: 1.5rem;
+    margin:0;
 }
 
 .tabs button.activo p.dato_actual_tab{
     display:none;
 }
 
-/*Estilo de los iconos de alerta*/
+/*Estilo iconos de alerta*/
 .alertas-container{
-    display: flex;
     flex: 1 1 100%;
     justify-content: flex-start;
     align-items: center;
-
+    display: none;
 }
 
 .alerta_grave {
@@ -184,6 +195,10 @@ body {
     display: flex;
 }
 
+#filtro_graficas {
+    margin-bottom: 100px;
+}
+
 /*Estilos para el contenedor de la gráfica su filtro*/
 .cuerpo_del_visualizador article .grafica-container {
     width: 70%;
@@ -231,8 +246,8 @@ body {
 .cuerpo_del_visualizador article .dato_actual {
     margin: 0 auto;
     background-color: var(--fondoSecundario);
-    height: 50%;
-    width: 60%;
+    height: 350px;
+    width: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,7 +264,7 @@ body {
     height:auto;
     margin-top: 2rem;
     flex: 0 1 auto;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
@@ -399,6 +414,7 @@ dialog.ajustes_de_huerto h3{
     margin-bottom: 1rem;
     margin-top: 0;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 /*Estilos para cambiar la foto y el nombre del huerto*/
@@ -406,9 +422,6 @@ dialog.ajustes_de_huerto h3{
     font-size: 1.1rem;
     border-bottom: 2px solid var(--textoGeneral);
     padding-bottom: 2rem;
-}
-
-.imagen_ajustes{
 }
 
 .imagen_ajustes img {
@@ -431,10 +444,15 @@ dialog.ajustes_de_huerto h3{
     margin-bottom: 5px;
 }
 
+.nombre_ajustes div input{
+    display:none;
+}
+
 #notas_huerto {
     width: 95%;
     height: 5rem;
     margin: 0 15px;
+    display:none;
 }
 
 
@@ -503,27 +521,34 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     padding: 1rem;
     width: 30%;
 }
+.boton_editar_ajustes:hover {
+    background-color: #9D4179;
+}
 
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"],
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"]
+{
     display:none;
 }
 
-@media(max-width: 2300px){
-    /*Estilos del dato actual*/
-    .cuerpo_del_visualizador article .dato_actual {
-        height: 50%;
-        width: 60%;
-        border-radius: 60%;
-    }
+
+  /*************************************/
+ /*      ESTILOS SECCION CITAS        */
+/*************************************/
+
+#citas td {
+    width: 200px;
+    max-height: 50px;
 }
 
-@media(max-width: 2200px){
-    /*Estilos del dato actual*/
-    .cuerpo_del_visualizador article .dato_actual {
-        height: 45%;
-        width: 60%;
-        border-radius: 50%;
-    }
+#citas td:last-child {
+    width: 160px;
+}
+
+table td button.boton-aceptar-rechazar {
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
 }
 
 @media(max-width: 2000px){
@@ -535,27 +560,27 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
         height: 35rem;
     }
 
-    /*Estilos del dato actual*/
+    /* Estilos del dato actual */
     .cuerpo_del_visualizador article .dato_actual {
-        height: 50%;
-        width: 70%;
+        height: 300px;
+        width: 300px;
         border-radius: 50%;
-    }
+    } 
 
 }
 
 @media(max-width: 1800px){
 
     .tabs button {
-        padding: 1rem;
+        padding: 2rem 1rem;
     }
 
     /*Estilos del dato actual*/
     .cuerpo_del_visualizador article .dato_actual {
-        height: 50%;
-        width: 70%;
+        height: 270px;
+        width: 270px;
         border-radius: 50%;
-    }
+    } 
 
 }
 
@@ -567,8 +592,8 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 
     /*Estilos del dato actual*/
     .cuerpo_del_visualizador article .dato_actual {
-        height: 50%;
-        width: 70%;
+        height: 220px;
+        width:  220px;
         border-radius: 50%;
     }
 
@@ -580,7 +605,7 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 
 @media(max-width: 1550px) {
     .tabs button {
-        padding: 0.5rem;
+        padding: 2rem 1rem;
     }
 }
 
@@ -601,10 +626,10 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
 
     /*Estilos del dato actual*/
     .cuerpo_del_visualizador article .dato_actual {
-        height: 40%;
-        width: 60%;
+        height: 200px;
+        width: 200px;
         border-radius: 50%;
-    }
+    } 
 
     .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
         font-size: 1.5rem;
@@ -633,11 +658,11 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     }
 
     /*Estilos del dato actual*/
-    .cuerpo_del_visualizador article .dato_actual {
+    /* .cuerpo_del_visualizador article .dato_actual {
         height: 40%;
-        width: 60%;
+        width: 40%;
         border-radius: 50%;
-    }
+    } */
 
     .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
         font-size: 1.5rem;
@@ -661,16 +686,16 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     }
 
     .cuerpo_del_visualizador article .dato_actual {
-        height: 40%;
-        width: 70%;
+        height: 200px;
+        width: 200px;
         border-radius: 50%;
     }
 
     .cuerpo_del_visualizador article.grafica_luz .dato_actual {
-        height: 40%;
-        width: 60%;
+        height: 200px;
+        width: 200px;
         border-radius: 50%;
-    }
+    } 
     /*Estilos para los títulos de las pestañas del visualizador de datos*/
     .tabs button p{
         font-size: 1rem;
@@ -763,6 +788,30 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
         border-bottom: 0;
     }
 
+    /*Estilos para el filtro de la gráfica*/
+    .acordeon div.card div.collapse div {
+        display:flex;
+        justify-content: flex-start;
+        align-items: baseline;
+    }
+
+    .acordeon div.card div.collapse div select {
+        width: 10%;
+        height: 1.8rem;
+        flex: .5 1 auto;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .acordeon div.card div.collapse div form.seleccionar_fecha{
+        display: none;
+    }
+
+    .acordeon div.card div.collapse div form .hasta{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
     /* Estilos para la sección de mediciones */
     #mediciones {
         margin-top: 50px;
@@ -789,7 +838,7 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
+        background-color: var(--textoBotones);
         font-size: 30px;
     }
 
@@ -854,4 +903,120 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
     .imagen_ajustes {
         margin-bottom: 2rem;
     }
+/*
+    #citas td:nth-last-child() {
+        width: fit-content;
+    }*/
 }
+
+
+/*Estilos para los Ajustes de perfil*/
+#ajustes-usuario h2 {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+#ajustes-usuario {
+    padding-left: 20px;
+}
+
+.datos_usuario form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .campo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .campo label {
+    width: 150px;
+    margin-right: 10px;
+  }
+
+/* Estilos para el formulario de la ficha de la cita */
+#nombre_usuario {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+input[type="text"],
+select {
+    width: 199px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#nombre {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+#apellidos {
+    width: 100%;
+}
+
+#email {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.contenedor2 {
+    display: flex;
+    justify-content: left; 
+    align-items: center; 
+    height: 50px;
+}
+
+.cambiar_contraseña {
+    padding: 10px 20px;
+    margin-right: 10px; 
+    background-color: var(--principal); 
+    border: none;
+    cursor: pointer;
+    color: #fff; 
+}
+
+.contenedor5 {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 85px;
+}
+
+.boton-editar-ajustes {
+    padding: 10px 20px;
+  margin-right: 10px; 
+  background-color: var(--principal); 
+  border: none;
+  cursor: pointer;
+  color: var(--textoBotones); 
+}
+
+
+.cambios_perfil {
+    padding: 10px 20px;
+    margin-right: 10px; 
+    background-color: var(--fondoSecundario); 
+    border: none;
+    cursor: pointer;
+    color: var(--textoGeneral);
+    border: 2px solid var(--textoGeneral);
+    
+}
+
+
+.boton-cancelar-ajustes {
+    padding: 10px 20px;
+    margin-right: 10px; 
+    background-color: var(--fondoSecundario); 
+    border: 2px solid var(--textoGeneral); 
+    cursor: pointer;
+    color: var(--textoGeneral);
+}
+
