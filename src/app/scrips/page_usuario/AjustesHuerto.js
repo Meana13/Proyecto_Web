@@ -8,6 +8,14 @@ let notas = document.getElementById('notas_huerto_ajustes');
 let nombreHuerto = document.getElementById('nombre_huerto_ajustes');
 let nombreHuertoEditable = document.getElementById('nombre_huerto');
 let selector = document.getElementById('seleccionar_huerto');
+let inputSubirFotoHuerto = document.getElementById('subir-foto-huerto');
+let fotoHuerto = document.getElementById('foto-huerto');
+let botonSubirFotoHuerto = document.getElementById('boton-subir-foto-huerto');
+let vistaPrevia = document.getElementById('vista-previa');
+let botonConfirmarFotoHuerto = document.getElementById('confirmar-foto-huerto');
+let botonCancelarFotoHuerto = document.getElementById('cancelar-foto-huerto');
+let formulario = document.getElementById('formulario-subir-foto');
+let contador = document.getElementById('contador-notas-huerto');
 
 
 /*Estas funciones se ejecutarán cuando se pulse el botón de "Ajustes de huerto"*/
@@ -36,7 +44,7 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
 
     //---------------------------------------------
     /*
-                escribirNombreHuerto()
+                escribirDatosHuerto()
     */
     //------------------------------------------
 
@@ -104,20 +112,119 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
             method: 'put',
             body: JSON.stringify(datos)
         });
-        if(respuesta.ok){
-           console.log("se ha cambiado el nombre");
-        }
-        else{
-            console.log("ha habido un error");
-        }
+
         location.reload();
     })
+    //------------------------------------------
+    /*
+             CONTADOR DE CARACTERES DE NOTAS:
+    */
+    //------------------------------------------
+    notasEditable.addEventListener('input', function(){
+        const contarCaracteres = notasEditable.value.length;
+        contador.textContent = `Caracteres: ${contarCaracteres}`;
+    });
 
+    /*// Obtener el elemento del textarea y el elemento donde se mostrará el contador
+const textarea = document.getElementById("myTextarea");
+const counter = document.getElementById("characterCount");
+
+// Añadir un evento de entrada al textarea
+textarea.addEventListener("input", function() {
+  // Obtener el número de caracteres ingresados
+  const charCount = textarea.value.length;
+
+  // Actualizar el contador de caracteres
+  counter.textContent = `Caracteres: ${charCount}`;
+});
+*/
+
+
+    //------------------------------------------
+    /*
+              CAMBIAR FOTO DE HUERTO:
+    */
+    //------------------------------------------
+    /*
+    botonSubirFotoHuerto.addEventListener('click', function (){
+
+        const fotoPorDefecto = '../../../images/foto_base.jpeg';
+
+        inputSubirFotoHuerto.click();
+        //cuando se vaya a elegir una foto, mostramos la vistra previa y escondemos la foto real:
+        vistaPrevia.style.display = "block";
+        fotoHuerto.style.display = "none";
+
+        //y mostramos los botones de cancelar y confirmar:
+        botonConfirmarFotoHuerto.style.display = 'block';
+        botonCancelarFotoHuerto.style.display = 'block';
+
+        //escondemos el boton de cambiar foto:
+        botonSubirFotoHuerto.style.display = 'none';
+        inputSubirFotoHuerto.addEventListener('change', function(event) {
+            let fotoNueva = event.target.files[0];
+            console.log(fotoNueva);
+
+            if (fotoNueva) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    vistaPrevia.src = event.target.result;
+                }
+                reader.readAsDataURL(fotoNueva);
+            } else {
+                vistaPrevia.src = fotoPorDefecto;
+            }
+
+            botonCancelarFotoHuerto.addEventListener('click', function () {
+                vistaPrevia.style.display = 'none';
+                fotoHuerto.style.display = 'block';
+
+                botonCancelarFotoHuerto.style.display = 'none';
+                botonConfirmarFotoHuerto.style.display = 'none';
+                botonSubirFotoHuerto.style.display = 'block';
+            });
+
+            botonConfirmarFotoHuerto.addEventListener('click', async function () {
+                let idHuerto = selector.value;
+
+                let formData = new FormData(formulario);
+                formData.append('imagen', fotoNueva, fotoNueva.name);
+                formData.append('idHuerto', idHuerto);
+
+                const respuesta = await fetch('../../../api/cambiarFotoHuerto', {
+                    method: 'put',
+                    body: formData
+                });
+
+                if (respuesta.ok) {
+                    console.log('se ha actualizado la imagen');
+                    /*
+                    const respuesta = await fetch('../../../api/cambiarFotoHuerto/' + '?idHuerto=' + idHuerto);
+                        if (respuesta.ok) {
+                            const datos = await respuesta.blob();
+                            const urlImagen = URL.createObjectURL(datos);
+                            vistaPrevia.src = urlImagen;
+                            fotoHuerto.src=urlImagen;
+                        }
+                        */
+
+               // }
+
+            //});
+       // });
+    //});
 
 //llamadas de las funciones (main):
     escribirDatosHuerto();
 
 });
+
+
+
+
+
+
+
 
 
 /*

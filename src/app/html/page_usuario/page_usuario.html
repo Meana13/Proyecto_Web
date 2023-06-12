@@ -843,7 +843,12 @@
                 <div class="imagen_ajustes col-sm-12 col-md-3 text-center">
                     <img class="text-center" src="../../../images/huerto_cocina.svg" alt="Foto del huerto">
                     <div>
-                        <input type="file">
+                        <form id="formulario-subir-foto" enctype="multipart/form-data">
+                        <input type="file" id="subir-foto-huerto">
+                        </form>
+                        <button id="boton-subir-foto-huerto">Cambiar foto</button>
+                        <button id="confirmar-foto-huerto">Confirmar</button>
+                        <button id="cancelar-foto-huerto">Cancelar</button>
                     </div>
                 </div>
                 <div class="nombre_ajustes col-sm-12 col-md-7">
@@ -856,6 +861,7 @@
                         <p>Notas:</p>
                         <p id="notas_huerto_ajustes">Aquí van las notas</p>
                         <textarea id="notas_huerto" rows="10" cols="50"></textarea>
+                        <div id="contador-notas-huerto"></div>
                     </div>
                 </div>
             </div>

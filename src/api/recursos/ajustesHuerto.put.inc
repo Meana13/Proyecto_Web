@@ -21,6 +21,5 @@ try {
     http_response_code(200);
 } catch (Exception $exception) {
     http_response_code(500);
-    // podemos usar mysqli_errno para concretar el código de respuesta
     die(mysqli_errno($connexion));
 }
