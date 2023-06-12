@@ -230,9 +230,10 @@ select {
 
 /* Estilos para el cuadro de la opinión */
 .opinion {
-    border: 1px solid var(--textoGeneral);
+    border: 0;
     margin: .5em;
     width: 40%;
+    font-family: Arial, sans-serif;
 }
 /* #endregion */
 
