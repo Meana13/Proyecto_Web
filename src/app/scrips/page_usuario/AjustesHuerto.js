@@ -18,8 +18,6 @@ let formulario = document.getElementById('formulario-subir-foto');
 let contador = document.getElementById('contador-notas-huerto');
 
 
-
-
 /*Estas funciones se ejecutarán cuando se pulse el botón de "Ajustes de huerto"*/
 document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', function() {
 
