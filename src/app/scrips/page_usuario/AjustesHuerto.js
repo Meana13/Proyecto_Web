@@ -122,7 +122,12 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
     //------------------------------------------
     notasEditable.addEventListener('input', function(){
         const contarCaracteres = notasEditable.value.length;
-        contador.textContent = `Caracteres: ${contarCaracteres}`;
+
+        if (contarCaracteres > 1000) {
+            notasEditable.value = notasEditable.value.substring(0, 1000);
+        }
+
+        contador.textContent = `${contarCaracteres}/1000`;
     });
 
     /*// Obtener el elemento del textarea y el elemento donde se mostrará el contador
