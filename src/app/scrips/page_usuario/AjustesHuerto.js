@@ -16,6 +16,7 @@ let botonConfirmarFotoHuerto = document.getElementById('confirmar-foto-huerto');
 let botonCancelarFotoHuerto = document.getElementById('cancelar-foto-huerto');
 let formulario = document.getElementById('formulario-subir-foto');
 let contador = document.getElementById('contador-notas-huerto');
+let notificacionesBoton = document.getElementById('customSwitch3 notificaciones');
 
 
 /*Estas funciones se ejecutarán cuando se pulse el botón de "Ajustes de huerto"*/
@@ -121,14 +122,64 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
     */
     //------------------------------------------
     notasEditable.addEventListener('input', function(){
+        //contamos los caracteres que va escribiendo el usuario
         const contarCaracteres = notasEditable.value.length;
 
+        //si son más de 1000, no lo guardamos en la nota
         if (contarCaracteres > 1000) {
             notasEditable.value = notasEditable.value.substring(0, 1000);
         }
 
         contador.textContent = `${contarCaracteres}/1000`;
     });
+
+    //------------------------------------------
+    /*
+             ACTIVAR LAS NOTIFICACIONES:
+    */
+    //------------------------------------------
+    notificacionesBoton.addEventListener('change', async function(){
+        if (notificacionesBoton.checked){
+            console.log('notificaciones activadas');
+
+            let idHuerto = selector.value;
+
+            datos = {
+                notificaciones: 1
+            }
+            console.log(datos);
+
+            const respuesta = await fetch('../../../api/huertos/' + idHuerto, {
+                method: 'put',
+                body: JSON.stringify(datos)
+            });
+
+            if(respuesta.ok){
+                const getDatos = await fetch('../../../api/huertos' + '?idHuerto=' + idHuerto);
+                if(getDatos.ok){
+                    let datosNotificaciones = await getDatos.json();
+                    console.log(datosNotificaciones);
+                }
+            }
+        }
+        else{
+            console.log('notificaciones desactivadas');
+        }
+    });
+/*const checkbox = document.getElementById("notificationCheckbox");
+
+checkbox.addEventListener("change", function() {
+  if (checkbox.checked) {
+    // Checkbox activado
+    console.log("Se ha activado el checkbox de notificaciones.");
+    // Puedes realizar acciones específicas aquí cuando se activa el checkbox
+  } else {
+    // Checkbox desactivado
+    console.log("Se ha desactivado el checkbox de notificaciones.");
+    // Puedes realizar acciones específicas aquí cuando se desactiva el checkbox
+  }
+});
+*/
 
     /*// Obtener el elemento del textarea y el elemento donde se mostrará el contador
 const textarea = document.getElementById("myTextarea");

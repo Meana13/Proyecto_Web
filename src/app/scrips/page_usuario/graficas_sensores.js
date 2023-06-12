@@ -24,7 +24,6 @@ async function getSesionUsuario(){
     const respuesta = await fetch('../../../api/sesion/');
     if(respuesta.ok){
         const datos = await respuesta.json();
-        console.log('error datos'+ datos);
         return datos;
     }
 }
