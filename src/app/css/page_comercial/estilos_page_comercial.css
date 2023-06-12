@@ -201,6 +201,10 @@ table {
     text-align: center;
 }
 
+td:nth-child(odd) {
+    background-color: #D7D7D7;
+}
+
 th {
     padding: 10px;
     background-color: #9D4179;

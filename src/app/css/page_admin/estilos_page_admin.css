@@ -75,12 +75,19 @@ h2 {
 }
 
 /* Estilos para la tabla de usuarios */
-table {
-    max-width: 80%;
-    margin: 0 auto;
-    margin-top: 1em;
-    border-collapse: collapse;
-}
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #D7D7D7;
+    }
 
 /* Estilos para las celdas de encabezado de la tabla */
 th {
@@ -99,13 +106,9 @@ td {
     font-family: Arial, sans-serif;
 }
 
-/* Estilos para la última celda de cada fila y columna de la tabla */
-td:last-child,
-th:last-child {
-    width: 20px;
-    border: none;
-    background-color: transparent;
-}
+
+
+
 
 /* Estilos para el enlace "ver hoja de usuario" */
 #ver-hoja-usuario {
@@ -380,6 +383,7 @@ select {
         background-color: transparent;
     }
 
+    
     /* Estilos para la sección "hoja de usuario" en dispositivos móviles */
     #hoja-de-usuario {
         text-align: center;

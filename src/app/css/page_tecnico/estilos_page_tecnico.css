@@ -55,6 +55,15 @@ tr td:nth-child(3),
     text-align: center;
 }
 
+
+#tabla-citas tbody tr:nth-child(even) td {
+    background-color: #f2f2f2;
+  }
+  
+  #tabla-citas tbody tr:nth-child(odd) td {
+    background-color: #D7D7D7;
+  }
+
 /* Estilos para los botones "Ver cita" y "Ver huerto" */
 #boton-ver-cita,
 #boton-ver-huerto {
@@ -151,6 +160,10 @@ select {
     margin: 0 auto;
     background-color: #FFFFFF;
 }
+
+.caja-opinion:nth-child(even) {
+    background-color: #D7D7D7;
+  }
 
 /* Estilos para el encabezado de la sección de opiniones */
 #seccion-opiniones h3 {
@@ -257,6 +270,8 @@ select {
 #boton-añadir-huerto:hover {
     background-color: #9D4179;
 }
+
+
 
 /*  SECCION AÑADIR NUEVO HUERTO */
 /* Configuración de la sección de añadir nuevo huerto */
