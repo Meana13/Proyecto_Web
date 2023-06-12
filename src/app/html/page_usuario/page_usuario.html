@@ -886,59 +886,79 @@
                 <h3>Personaliza las notificaciones</h3>
 
                 <p>Salinidad</p>
-                <label for="salinidad-minima">Mínima:</label>
-                <input type="number" id="salinidad-minima"><br>
-                <label for="salinidad-maxima">Máxima:</label>
-                <input type="number" id="salinidad-maxima"><br>
+                <label for="salinidad-minima-editable">Mínima:</label>
+                <input type="number" id="salinidad-minima-editable"><br>
+                <p id="salinidad-minima">salinidad mínima</p>
+
+                <label for="salinidad-maxima-editable">Máxima:</label>
+                <input type="number" id="salinidad-maxima-editable"><br>
+                <p id="salinidad-maxima">salinidad máxima</p>
                 <label>Valores posibles: 0 - 100%</label>
+
 
                 <p>Humedad</p>
-                <label for="humedad-minima">Mínima:</label>
-                <input type="number" id="humedad-minima"><br>
-                <label for="humedad-maxima">Máxima:</label>
-                <input type="number" id="humedad-maxima"><br>
+                <label for="humedad-minima-editable">Mínima:</label>
+                <input type="number" id="humedad-minima-editable"><br>
+                <p id="humedad-minima">humedad mínima</p>
+
+                <label for="humedad-maxima-editable">Máxima:</label>
+                <input type="number" id="humedad-maxima-editable"><br>
+                <p id="humedad-maxima">humedad máxima</p>
+
                 <label>Valores posibles: 0 - 100%</label>
 
+
                 <p>pH</p>
-                <label for="pH-minimo">Mínimo:</label>
-                <input type="number" id="pH-minimo"><br>
-                <label for="pH-maximo">Máximo:</label>
-                <input type="number" id="pH-maximo"><br>
+                <label for="pH-minimo-editable">Mínimo:</label>
+                <input type="number" id="pH-minimo-editable"><br>
+                <p id="pH-minimo">pH mínimo</p>
+
+                <label for="pH-maximo-editable">Máximo:</label>
+                <input type="number" id="pH-maximo-editable"><br>
+                <p id="pH-maximo">pH máximo</p>
+
                 <label>Valores posibles: 0 - 14</label>
 
+
                 <p>Temperatura</p>
-                <label for="temperatura-minima">Mínima:</label>
-                <input type="number" id="temperatura-minima"><br>
-                <label for="temperatura-maxima">Máxima:</label>
-                <input type="number" id="temperatura-maxima"><br>   
+                <label for="temperatura-minima-editable">Mínima:</label>
+                <input type="number" id="temperatura-minima-editable"><br>
+                <p id="temperatura-minima">temperatura mínima</p>
+
+                <label for="temperatura-maxima-editable">Máxima:</label>
+                <input type="number" id="temperatura-maxima-editable"><br>
+                <p id="temperatura-maxima">temperatura máxima</p>
+
                 <label>Valores posibles: -30 - 50ºC</label>
 
                 <p>Luz</p>
                 <label>Nivel de luz:</label>
-                <select>
-                    <option>0 - Oscuridad</option>
-                    <option>1 - Poco iluminado</option>
-                    <option>2 - Sombra</option>
-                    <option>3 - Luz directa</option>
+                <select id="luz-minimo-editable">
+                    <option value="0">0 - Oscuridad</option>
+                    <option value="1">1 - Poco iluminado</option>
+                    <option value="2">2 - Sombra</option>
+                    <option value="3">3 - Luz directa</option>
                 </select>
+                <p id="luz-minimo">luz minimo</p>
                 <br>
                 <label>Durante </label>
-                <input type="number">
+                <input type="number" id="luz-minimo-dias-editable">
+                <p id="luz-minimo-dias">días</p>
                 <label>días</label>
                 <br>
                 <label>Nivel de luz:</label>
-                <select>
-                    <option>0 - Oscuridad</option>
-                    <option>1 - Poco iluminado</option>
-                    <option>2 - Sombra</option>
-                    <option>3 - Luz directa</option>
-                </select><br>
+                <select id="luz-maximo-editable">
+                    <option value="0">0 - Oscuridad</option>
+                    <option value="1">1 - Poco iluminado</option>
+                    <option value="2">2 - Sombra</option>
+                    <option value="3">3 - Luz directa</option>
+                </select>
+                <p id="luz-maximo">luz maxima</p><br>
                 <label>Durante </label>
-                <input type="number">
+                <input type="number" id="luz-maximo-dias-editable">
+                <p id="luz-maximo-dias">días</p>
                 <label>días</label>
-                <br>
-                <input type="checkbox">
-                <label>Quiero recibir un correo cuando se emita una notificación.</label>
+
             </form>
 
         </section>

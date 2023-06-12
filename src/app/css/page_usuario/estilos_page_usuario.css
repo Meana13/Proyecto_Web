@@ -512,15 +512,21 @@ dialog.ajustes_de_huerto form.limites_medidas p {
     font-weight: bold;
 }
 
+dialog.ajustes_de_huerto form.limites_medidas input,
+dialog.ajustes_de_huerto form.limites_medidas select{
+    display:none;
+}
+/*
 dialog.ajustes_de_huerto form.limites_medidas input[type="checkbox"] {
     margin: 2rem .5rem 2rem 2rem;
     transform: scale(1.5);
     /* Ajusta el valor según el tamaño deseado */
-    -ms-transform: scale(1.5);
+    /*-ms-transform: scale(1.5);
     /* Para compatibilidad con navegadores antiguos */
-    -webkit-transform: scale(1.5);
+    /*-webkit-transform: scale(1.5);
     /* Para compatibilidad con navegadores basados en webkit*/
-}
+/*}*/
+
 
 /*Estilos para los botones de editar y guardar*/
 dialog.ajustes_de_huerto div.botones_editar_y_guardar {
