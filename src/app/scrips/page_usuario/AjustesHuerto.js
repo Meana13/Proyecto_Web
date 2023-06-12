@@ -16,11 +16,12 @@ let botonConfirmarFotoHuerto = document.getElementById('confirmar-foto-huerto');
 let botonCancelarFotoHuerto = document.getElementById('cancelar-foto-huerto');
 let formulario = document.getElementById('formulario-subir-foto');
 let contador = document.getElementById('contador-notas-huerto');
-let notificacionesBoton = document.getElementById('customSwitch3 notificaciones');
+let notificacionesBoton = document.getElementById('customSwitch3');
 
 
 /*Estas funciones se ejecutarán cuando se pulse el botón de "Ajustes de huerto"*/
 document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', function() {
+
 
     //---------------------------------------------
     /*
@@ -62,6 +63,13 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
 
             notas.innerText = "";
             notas.innerText = datosHuerto[0].notas;
+
+            if(datosHuerto[0].notificaciones === "1"){
+                notificacionesBoton.checked = true;
+            }
+            else{
+                notificacionesBoton.checked = false;
+            }
     }
 
     //---------------------------------------------
@@ -140,61 +148,32 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
     //------------------------------------------
     notificacionesBoton.addEventListener('change', async function(){
         if (notificacionesBoton.checked){
-            console.log('notificaciones activadas');
 
             let idHuerto = selector.value;
 
             datos = {
-                notificaciones: 1
+                notif: 1
             }
-            console.log(datos);
 
             const respuesta = await fetch('../../../api/huertos/' + idHuerto, {
                 method: 'put',
                 body: JSON.stringify(datos)
             });
-
-            if(respuesta.ok){
-                const getDatos = await fetch('../../../api/huertos' + '?idHuerto=' + idHuerto);
-                if(getDatos.ok){
-                    let datosNotificaciones = await getDatos.json();
-                    console.log(datosNotificaciones);
-                }
-            }
         }
         else{
             console.log('notificaciones desactivadas');
+            let idHuerto = selector.value;
+
+            datos = {
+                notif: 0
+            }
+
+            const respuesta = await fetch('../../../api/huertos/' + idHuerto, {
+                method: 'put',
+                body: JSON.stringify(datos)
+            });
         }
     });
-/*const checkbox = document.getElementById("notificationCheckbox");
-
-checkbox.addEventListener("change", function() {
-  if (checkbox.checked) {
-    // Checkbox activado
-    console.log("Se ha activado el checkbox de notificaciones.");
-    // Puedes realizar acciones específicas aquí cuando se activa el checkbox
-  } else {
-    // Checkbox desactivado
-    console.log("Se ha desactivado el checkbox de notificaciones.");
-    // Puedes realizar acciones específicas aquí cuando se desactiva el checkbox
-  }
-});
-*/
-
-    /*// Obtener el elemento del textarea y el elemento donde se mostrará el contador
-const textarea = document.getElementById("myTextarea");
-const counter = document.getElementById("characterCount");
-
-// Añadir un evento de entrada al textarea
-textarea.addEventListener("input", function() {
-  // Obtener el número de caracteres ingresados
-  const charCount = textarea.value.length;
-
-  // Actualizar el contador de caracteres
-  counter.textContent = `Caracteres: ${charCount}`;
-});
-*/
-
 
     //------------------------------------------
     /*

@@ -8,7 +8,7 @@ if(!isset($peticion)) {
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
-$notificaciones = intval($peticion->parametrosBody()->notificaciones);
+$notificaciones = intval($peticion->parametrosBody()->notif);
 $idHuerto = intval($peticion->parametrosPath()[0]);
 
 $sql = "
