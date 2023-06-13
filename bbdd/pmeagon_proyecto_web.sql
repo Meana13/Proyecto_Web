@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 13-06-2023 a las 17:23:47
+-- Tiempo de generación: 13-06-2023 a las 17:36:33
 -- Versión del servidor: 5.7.42-0ubuntu0.18.04.1
 -- Versión de PHP: 8.0.28
 
@@ -519,7 +519,7 @@ INSERT INTO `huertos` (`id_huerto`, `id_cliente`, `nombre_huerto`, `ubicacion`, 
 
 CREATE TABLE `mediciones` (
   `id_medicion` int(11) NOT NULL,
-  `id_sonda` int(11) NOT NULL,
+  `id_huerto` int(11) NOT NULL,
   `fecha_medicion` date NOT NULL,
   `hora_medicion` time(6) NOT NULL,
   `medicion_salinidad` int(11) NOT NULL,
@@ -533,7 +533,7 @@ CREATE TABLE `mediciones` (
 -- Volcado de datos para la tabla `mediciones`
 --
 
-INSERT INTO `mediciones` (`id_medicion`, `id_sonda`, `fecha_medicion`, `hora_medicion`, `medicion_salinidad`, `medicion_humedad`, `medicion_luminosidad`, `medicion_ph`, `medicion_temperatura`) VALUES
+INSERT INTO `mediciones` (`id_medicion`, `id_huerto`, `fecha_medicion`, `hora_medicion`, `medicion_salinidad`, `medicion_humedad`, `medicion_luminosidad`, `medicion_ph`, `medicion_temperatura`) VALUES
 (1, 1, '2023-05-30', '00:00:00.000000', 75, 93, 2, 10, 18),
 (2, 2, '2023-05-30', '00:00:00.000000', 78, 92, 3, 11, 17),
 (3, 3, '2023-05-30', '00:00:00.000000', 75, 94, 2, 10, 18),
@@ -1360,7 +1360,7 @@ INSERT INTO `mediciones` (`id_medicion`, `id_sonda`, `fecha_medicion`, `hora_med
 (825, 50, '2023-06-01', '12:00:00.000000', 27, 47, 1, 6, 10),
 (826, 51, '2023-06-01', '12:00:00.000000', 25, 46, 1, 6, 10),
 (827, 52, '2023-06-01', '12:00:00.000000', 79, 85, 3, 10, 16);
-INSERT INTO `mediciones` (`id_medicion`, `id_sonda`, `fecha_medicion`, `hora_medicion`, `medicion_salinidad`, `medicion_humedad`, `medicion_luminosidad`, `medicion_ph`, `medicion_temperatura`) VALUES
+INSERT INTO `mediciones` (`id_medicion`, `id_huerto`, `fecha_medicion`, `hora_medicion`, `medicion_salinidad`, `medicion_humedad`, `medicion_luminosidad`, `medicion_ph`, `medicion_temperatura`) VALUES
 (828, 53, '2023-06-01', '12:00:00.000000', 79, 82, 2, 10, 16),
 (829, 54, '2023-06-01', '12:00:00.000000', 77, 84, 3, 10, 16),
 (830, 55, '2023-06-01', '12:00:00.000000', 76, 81, 2, 10, 16),
@@ -2188,7 +2188,7 @@ INSERT INTO `mediciones` (`id_medicion`, `id_sonda`, `fecha_medicion`, `hora_med
 (1762, 2, '2023-06-23', '12:00:00.000000', 80, 72, 3, 10, 26),
 (1763, 3, '2023-06-23', '12:00:00.000000', 92, 87, 4, 11, 19),
 (1764, 4, '2023-06-23', '12:00:00.000000', 78, 75, 2, 12, 23);
-INSERT INTO `mediciones` (`id_medicion`, `id_sonda`, `fecha_medicion`, `hora_medicion`, `medicion_salinidad`, `medicion_humedad`, `medicion_luminosidad`, `medicion_ph`, `medicion_temperatura`) VALUES
+INSERT INTO `mediciones` (`id_medicion`, `id_huerto`, `fecha_medicion`, `hora_medicion`, `medicion_salinidad`, `medicion_humedad`, `medicion_luminosidad`, `medicion_ph`, `medicion_temperatura`) VALUES
 (1765, 5, '2023-06-23', '12:00:00.000000', 89, 90, 3, 8, 26),
 (1766, 6, '2023-06-23', '12:00:00.000000', 71, 73, 4, 9, 20),
 (1767, 7, '2023-06-23', '12:00:00.000000', 94, 92, 2, 10, 24),
@@ -3009,7 +3009,7 @@ INSERT INTO `mediciones` (`id_medicion`, `id_sonda`, `fecha_medicion`, `hora_med
 (2582, 2, '2023-07-14', '00:00:00.000000', 76, 93, 4, 13, 16),
 (2583, 3, '2023-07-14', '00:00:00.000000', 87, 75, 2, 8, 30),
 (2584, 4, '2023-07-14', '00:00:00.000000', 75, 90, 3, 12, 18);
-INSERT INTO `mediciones` (`id_medicion`, `id_sonda`, `fecha_medicion`, `hora_medicion`, `medicion_salinidad`, `medicion_humedad`, `medicion_luminosidad`, `medicion_ph`, `medicion_temperatura`) VALUES
+INSERT INTO `mediciones` (`id_medicion`, `id_huerto`, `fecha_medicion`, `hora_medicion`, `medicion_salinidad`, `medicion_humedad`, `medicion_luminosidad`, `medicion_ph`, `medicion_temperatura`) VALUES
 (2585, 5, '2023-07-14', '00:00:00.000000', 92, 76, 4, 9, 23),
 (2586, 6, '2023-07-14', '00:00:00.000000', 79, 87, 2, 11, 31),
 (2587, 7, '2023-07-14', '00:00:00.000000', 76, 74, 3, 8, 20),
@@ -3829,7 +3829,7 @@ INSERT INTO `mediciones` (`id_medicion`, `id_sonda`, `fecha_medicion`, `hora_med
 (3501, 1, '2023-08-03', '18:00:00.000000', 87, 73, 4, 13, 22),
 (3502, 2, '2023-08-03', '18:00:00.000000', 78, 75, 3, 8, 30),
 (3503, 3, '2023-08-03', '18:00:00.000000', 80, 76, 2, 9, 23);
-INSERT INTO `mediciones` (`id_medicion`, `id_sonda`, `fecha_medicion`, `hora_medicion`, `medicion_salinidad`, `medicion_humedad`, `medicion_luminosidad`, `medicion_ph`, `medicion_temperatura`) VALUES
+INSERT INTO `mediciones` (`id_medicion`, `id_huerto`, `fecha_medicion`, `hora_medicion`, `medicion_salinidad`, `medicion_humedad`, `medicion_luminosidad`, `medicion_ph`, `medicion_temperatura`) VALUES
 (3504, 4, '2023-08-03', '18:00:00.000000', 73, 80, 4, 10, 21),
 (3505, 5, '2023-08-03', '18:00:00.000000', 89, 77, 3, 11, 29),
 (3506, 6, '2023-08-03', '18:00:00.000000', 79, 79, 2, 12, 31),
@@ -4705,7 +4705,7 @@ ALTER TABLE `huertos`
 --
 ALTER TABLE `mediciones`
   ADD PRIMARY KEY (`id_medicion`),
-  ADD KEY `fk_sonda2` (`id_sonda`);
+  ADD KEY `fk_huerto_mediciones` (`id_huerto`);
 
 --
 -- Indices de la tabla `notificaciones`
@@ -4864,7 +4864,7 @@ ALTER TABLE `huertos`
 -- Filtros para la tabla `mediciones`
 --
 ALTER TABLE `mediciones`
-  ADD CONSTRAINT `fk_sonda2` FOREIGN KEY (`id_sonda`) REFERENCES `notificaciones` (`id_notificaciones`);
+  ADD CONSTRAINT `fk_huerto_mediciones` FOREIGN KEY (`id_huerto`) REFERENCES `huertos` (`id_huerto`);
 
 --
 -- Filtros para la tabla `notificaciones`
