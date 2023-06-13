@@ -48,6 +48,7 @@ async function getHuertosUsuario(){
     const respuesta = await fetch('../../../api/huertos/' + '?idUsuario=' + idUsuario);
     if(respuesta.ok) {
         const datos = await respuesta.json();
+
         return datos;
     }
 }

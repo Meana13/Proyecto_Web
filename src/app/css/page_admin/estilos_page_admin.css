@@ -10,14 +10,6 @@ h2 {
     margin-top: 7.5rem;
 }
 
-/* Estilos para la imagen dentro del botón "añadir usuario" */
-#boton-añadir-usuario img {
-    height: 1em;
-    width: 1.2em;
-    margin-right: .25em;
-    margin-left: .5em;
-}
-
 /* Estilos para la sección "administrar usuarios" */
 #seccion-administrar-usuarios {
     display: block;
@@ -67,17 +59,28 @@ h2 {
     margin-right: 5%;
 }
 
+.bi-plus-circle-fill::before {
+    margin-right: 10px;
+}
+
 #boton-añadir-usuario:hover {
     background-color:#9D4179
 }
 
 /* Estilos para la tabla de usuarios */
-table {
-    max-width: 80%;
-    margin: 0 auto;
-    margin-top: 1em;
-    border-collapse: collapse;
-}
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #D7D7D7;
+    }
 
 /* Estilos para las celdas de encabezado de la tabla */
 th {
@@ -96,13 +99,9 @@ td {
     font-family: Arial, sans-serif;
 }
 
-/* Estilos para la última celda de cada fila y columna de la tabla */
-td:last-child,
-th:last-child {
-    width: 20px;
-    border: none;
-    background-color: transparent;
-}
+
+
+
 
 /* Estilos para el enlace "ver hoja de usuario" */
 #ver-hoja-usuario {
@@ -212,36 +211,6 @@ select {
     margin-bottom: 10px;
 }
 
-/* Estilos para el botón "generar ID" */
-#boton-generar-id {
-    background-color: #555555;
-    color: var(--textoBotones);
-    font-family: Arial, sans-serif;
-    text-transform: uppercase;
-    border: 0;
-    padding: 1em;
-    display: block;
-    margin: 1em auto;
-    border-radius: .5em;
-    font-weight: bold;
-}
-
-/* Estilos para el contenedor del ID de usuario */
-#id-usuario {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-}
-
-/* Estilos para la caja que muestra el ID de usuario */
-#caja-id {
-    width: 6em;
-    height: 1em;
-    border: 1px solid var(--textoGeneral);
-    background-color: #f0f0f0;
-    color: var(--textoGeneral);
-}
-
 /* Estilos para el botón "dar de alta" */
 .boton-dar-de-alta {
     background-color: var(--secundario);
@@ -251,9 +220,7 @@ select {
     border: 0;
     padding: 1em;
     display: block;
-    margin-top: 2em;
-    margin-left: auto;
-    margin-right: 5%;
+    margin: 2em auto;
     border-radius: .5em;
     font-weight: bold;
 }
@@ -361,7 +328,7 @@ select {
     }
 
     #formulario-nuevo-usuario {
-        width: 100%;
+        width: 324px;
         margin: 0 auto;
         display: block;
     }
@@ -415,11 +382,9 @@ select {
         font-family: Arial, sans-serif;
         text-transform: uppercase;
         border: 0;
-        padding: .5em;
+        padding: 1em;
         display: block;
-        margin-top: 1em;
-        margin-left: auto;
-        margin-right: 5%;
+        margin: 1rem auto;
         border-radius: .5em;
         font-weight: bold;
         font-size: 12px;
