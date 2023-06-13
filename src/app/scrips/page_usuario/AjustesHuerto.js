@@ -411,12 +411,13 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
               CAMBIAR FOTO DE HUERTO:
     */
     //------------------------------------------
-    /*
+
     botonSubirFotoHuerto.addEventListener('click', function (){
 
         const fotoPorDefecto = '../../../images/foto_base.jpeg';
 
         inputSubirFotoHuerto.click();
+
         //cuando se vaya a elegir una foto, mostramos la vistra previa y escondemos la foto real:
         vistaPrevia.style.display = "block";
         fotoHuerto.style.display = "none";
@@ -464,7 +465,7 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
 
                 if (respuesta.ok) {
                     console.log('se ha actualizado la imagen');
-                    /*
+
                     const respuesta = await fetch('../../../api/cambiarFotoHuerto/' + '?idHuerto=' + idHuerto);
                         if (respuesta.ok) {
                             const datos = await respuesta.blob();
@@ -472,13 +473,11 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                             vistaPrevia.src = urlImagen;
                             fotoHuerto.src=urlImagen;
                         }
-                        */
+                }
 
-               // }
-
-            //});
-       // });
-    //});
+            });
+        });
+    });
 
 //llamadas de las funciones (main):
     escribirDatosHuerto();

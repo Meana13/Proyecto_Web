@@ -441,7 +441,7 @@ dialog.ajustes_de_huerto h3 {
 }
 
 .imagen_ajustes input {
-    width: 172px;
+    display:none;
 }
 
 .nombre_ajustes {
