@@ -972,6 +972,7 @@ table td button.boton-aceptar-rechazar {
     width: 100%;
     margin: 0 auto;
     display: block;
+    margin-right: 4em;
 }
 
 input[type="text"],
@@ -985,15 +986,21 @@ select {
     width: 100%;
     margin: 0 auto;
     display: block;
+    margin-right: 4em;
+
 }
 
 #apellidos {
     width: 100%;
+    margin-right: 4em;
+
 }
 
 #email {
     width: 100%;
     margin: 0 auto;
+    margin-right: 4em;
+
 }
 
 
@@ -1027,6 +1034,7 @@ select {
     border: none;
     cursor: pointer;
     color: var(--textoBotones);
+  border-radius: 5px;
 }
 
 
@@ -1036,6 +1044,7 @@ select {
     background-color: var(--fondoSecundario);
     border: none;
     cursor: pointer;
+    border-radius: 5px;
     color: var(--textoGeneral);
     border: 2px solid var(--textoGeneral);
 
@@ -1048,5 +1057,58 @@ select {
     background-color: var(--fondoSecundario);
     border: 2px solid var(--textoGeneral);
     cursor: pointer;
-    color: var(--textoGeneral);
+    border-radius: 5px;
 }
+
+
+
+
+/*Estilo apartado CITAS*/
+#citas {
+    text-align: center;
+}
+
+/* Estilos para la tabla de citas */
+#citas table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #citas th,
+  #citas td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  #citas th {
+    background-color: #790050;
+  }
+  
+  #citas tbody tr:nth-child(even) td {
+    background-color: #f2f2f2;
+  }
+  
+  #citas tbody tr:nth-child(odd) td {
+    background-color: #fff;
+  }
+  
+  #citas .boton-aceptar-rechazar {
+    padding: 6px 12px;
+    background-color: #D7D7D7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #citas .boton-aceptar-rechazar:hover {
+    background-color: #5D5C5C;
+  }
+  
+  #citas .boton-aceptar-rechazar img {
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  
+  

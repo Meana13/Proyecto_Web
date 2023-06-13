@@ -64,9 +64,14 @@
     text-align: center;
 }
 
-#tabla-citas td {
-    width: 40%;
-}
+
+#tabla-citas tbody tr:nth-child(even) td {
+    background-color: #f2f2f2;
+  }
+  
+  #tabla-citas tbody tr:nth-child(odd) td {
+    background-color: #D7D7D7;
+  }
 
 /* Estilos para los botones "Ver cita" y "Ver huerto" */
 #boton-ver-cita,
@@ -166,6 +171,10 @@ select {
     background-color: var(--textoBotones);
 }
 
+.caja-opinion:nth-child(even) {
+    background-color: #D7D7D7;
+  }
+
 /* Estilos para el encabezado de la sección de opiniones */
 #seccion-opiniones h3 {
     text-align: center;
@@ -237,9 +246,9 @@ select {
 }
 /* #endregion */
 
-/* #region SECCION ADMINISTRAR HUERTOS */
+/* SECCION ADMINISTRAR HUERTOS */
 /* Configuración de la sección de administrar huertos */
-#tabla-huertos tr td:nth-child(2) {
+#tabla-huertos tr td:nth-child(1) {
     padding: 0;
 }
 
@@ -258,6 +267,8 @@ select {
 #boton-añadir-huerto:hover {
     background-color: #9D4179;
 }
+
+
 
 /*  SECCION AÑADIR NUEVO HUERTO */
 /* Configuración de la sección de añadir nuevo huerto */

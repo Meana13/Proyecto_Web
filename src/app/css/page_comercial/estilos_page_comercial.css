@@ -208,6 +208,10 @@ table {
     background-color: #D7D7D7;
 	}
 
+td:nth-child(odd) {
+    background-color: #D7D7D7;
+}
+
 th {
     padding: 10px;
     background-color: var(--secundario);
