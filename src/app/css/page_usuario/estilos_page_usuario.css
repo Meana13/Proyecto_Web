@@ -498,6 +498,10 @@ dialog.ajustes_de_huerto h3 {
 }
 
 /*Estilos para los campos de poner los límites de las medidas*/
+dialog.ajustes_de_huerto form.limites_medidas{
+    display:none;
+}
+
 dialog.ajustes_de_huerto form.limites_medidas,
 dialog.ajustes_de_huerto form.limites_medidas p {
     font-size: 1.1rem;
@@ -508,15 +512,21 @@ dialog.ajustes_de_huerto form.limites_medidas p {
     font-weight: bold;
 }
 
+dialog.ajustes_de_huerto form.limites_medidas input,
+dialog.ajustes_de_huerto form.limites_medidas select{
+    display:none;
+}
+/*
 dialog.ajustes_de_huerto form.limites_medidas input[type="checkbox"] {
     margin: 2rem .5rem 2rem 2rem;
     transform: scale(1.5);
     /* Ajusta el valor según el tamaño deseado */
-    -ms-transform: scale(1.5);
+    /*-ms-transform: scale(1.5);
     /* Para compatibilidad con navegadores antiguos */
-    -webkit-transform: scale(1.5);
+    /*-webkit-transform: scale(1.5);
     /* Para compatibilidad con navegadores basados en webkit*/
-}
+/*}*/
+
 
 /*Estilos para los botones de editar y guardar*/
 dialog.ajustes_de_huerto div.botones_editar_y_guardar {
@@ -962,6 +972,7 @@ table td button.boton-aceptar-rechazar {
     width: 100%;
     margin: 0 auto;
     display: block;
+    margin-right: 4em;
 }
 
 input[type="text"],
@@ -975,15 +986,21 @@ select {
     width: 100%;
     margin: 0 auto;
     display: block;
+    margin-right: 4em;
+
 }
 
 #apellidos {
     width: 100%;
+    margin-right: 4em;
+
 }
 
 #email {
     width: 100%;
     margin: 0 auto;
+    margin-right: 4em;
+
 }
 
 
@@ -1017,6 +1034,7 @@ select {
     border: none;
     cursor: pointer;
     color: var(--textoBotones);
+  border-radius: 5px;
 }
 
 
@@ -1026,6 +1044,7 @@ select {
     background-color: var(--fondoSecundario);
     border: none;
     cursor: pointer;
+    border-radius: 5px;
     color: var(--textoGeneral);
     border: 2px solid var(--textoGeneral);
 
@@ -1038,5 +1057,58 @@ select {
     background-color: var(--fondoSecundario);
     border: 2px solid var(--textoGeneral);
     cursor: pointer;
-    color: var(--textoGeneral);
+    border-radius: 5px;
 }
+
+
+
+
+/*Estilo apartado CITAS*/
+#citas {
+    text-align: center;
+}
+
+/* Estilos para la tabla de citas */
+#citas table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #citas th,
+  #citas td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  #citas th {
+    background-color: #790050;
+  }
+  
+  #citas tbody tr:nth-child(even) td {
+    background-color: #f2f2f2;
+  }
+  
+  #citas tbody tr:nth-child(odd) td {
+    background-color: #fff;
+  }
+  
+  #citas .boton-aceptar-rechazar {
+    padding: 6px 12px;
+    background-color: #D7D7D7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #citas .boton-aceptar-rechazar:hover {
+    background-color: #5D5C5C;
+  }
+  
+  #citas .boton-aceptar-rechazar img {
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  
+  

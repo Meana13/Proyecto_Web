@@ -9,6 +9,7 @@
     <!-- carga de scripts-->
     <script src="../../scrips/page_admin/page_admin.js"></script>
     <script src="../../scrips/page_admin/Tablas.js"></script>
+    <script src="../../scrips/page_admin/Administrar_usuarios.js"></script>
     <!--<script src="../../scrips/landing_page/control-acceso.js"></script>-->
     <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
@@ -19,7 +20,7 @@
     <link rel="stylesheet" href="../../css/page_admin/estilos_page_admin.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
-    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css"/>
 </head>
 
 <body>
@@ -59,6 +60,22 @@
 
         <button type="button" id="boton-añadir-usuario"> <i class="bi bi-plus-circle-fill"></i>Añadir</button>
 
+        <select name="selector_rol" id="selector_rol" onclick="generarTablas()">
+            <option value="1">Administrador</option>
+            <option value="2">Comercial</option>
+            <option value="3">Técnico</option>
+            <option value="4"selected>Usuario</option>
+            <option value="5">No registrado</option>
+        </select>
+        <div id="paginadorAdmin" onclick="generarTablas()">
+            <button value="1">1</button>
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <button>n</button>
+        </div>
+        <div id="buscador">
+            <input type="text" id="buscador-admin"  placeholder="Busqueda por nombre,apellidos o email" onsubmit="generarTablasFiltrada()">
+        </div>
         <!-- TABLA USUARIOS -->
         <table id="tabla-usuarios">
             <thead>
@@ -165,6 +182,8 @@
     <section id="seccion-hoja-usuario">
         <h3 id="hoja-de-usuario">Hoja de usuario</h3>
         <div id="formulario-hoja-usuario">
+         <form id="editar-usuario">
+             <div id="selector-tipo-usuario">
             <label>Tipo de usuario: </label>
             <select id="tipo-usuario" name="usuarios" disabled>
                 <option value="usuario">Usuario</option>
@@ -172,38 +191,40 @@
                 <option value="comercial">Comercial</option>
                 <option value="tecnico">Técnico</option>
             </select>
-            <button id="icono-editar"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
+            <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
+            </div>
             <br>
             <label>Nombre de usuario: </label>
-            <input type="text" id="nombre-usuario" name="nombre-usuario" disabled>
-            <button id="icono-editar"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
+            <input type="text" id="usuario" name="usuario">
+            <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
             <br>
             <label>Contraseña: </label>
             <input type="text" id="contraseña" name="contraseña" disabled>
-            <button id="icono-editar"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
+            <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
             <br>
             <label>Nombre: </label>
             <input type="text" id="nombre" name="nombre" disabled>
-            <button id="icono-editar"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
+            <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
             <br>
             <label>Apellidos: </label>
             <input type="text" id="apellidos" name="apellidos" disabled>
-            <button id="icono-editar"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
+            <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
             <br>
             <label>E-mail: </label>
-            <input type="text" id="e-mail" name="e-mail" disabled>
-            <button id="icono-editar"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
+            <input type="text" id="email" name="email" disabled>
+            <button id="icono-editar" type="button" ><img src="../../../images/icono-editar.svg" alt="Editar"></button>
             <br>
             <label>Direccion: </label>
             <input type="text" id="direccion" name="direccion" disabled>
-            <button id="icono-editar"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
+            <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
             <br>
             <label>Datos bancarios: </label>
             <input type="text" id="direccion" name="direccion" disabled>
             <button id="icono-editar"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
             <div id="botones">
                 <button id="boton-cancelar">Cancelar</button>
-                <button id="boton-guardar-cambios">guardar cambios</button>
+                <button id="boton-guardar-cambios" type="submit" onclick="Editar_usuario(event)">guardar cambios</button>
+         </form>
             </div>
         </div>
     </section>
