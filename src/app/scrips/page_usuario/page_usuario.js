@@ -47,7 +47,6 @@ btn_ajustesperfil.addEventListener("click", function () {
 
 const botonAbrirAjustesHuerto = document.getElementById('boton_abrir_ajustes_huerto');
 const dialogoAjustesHuerto = document.getElementById('ajustes_de_huerto');
-const botonGuardarAjustesHuerto = document.getElementById('boton_guardar_ajustes_huerto');
 const botonCerrarAjustesHuerto = document.getElementById('cerrar_ajustes_huerto');
 botonAbrirAjustesHuerto.addEventListener("click", ()=>{
     dialogoAjustesHuerto.classList.add('activo');
@@ -59,7 +58,6 @@ function cerrarAjustesHuerto(){
     dialogoAjustesHuerto.close();
 }
 
-botonGuardarAjustesHuerto.addEventListener("click", cerrarAjustesHuerto);
 botonCerrarAjustesHuerto.addEventListener("click", cerrarAjustesHuerto);
 
 /*-----------------------------------------------Aquí acaban las funciones para los ajustes del huerto*/

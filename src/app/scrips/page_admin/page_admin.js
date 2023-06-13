@@ -89,3 +89,10 @@ function crearTablaUsuarios(solicitud) {
 
     fila.append(celdaNombre, celdaApellidos, celdaEmail, celdaBoton);
 }
+function quitarDisable(elemento) {
+
+    var inputSelect = elemento.previousElementSibling;
+    if (inputSelect && (inputSelect.tagName === "INPUT" || inputSelect.tagName === "SELECT")) {
+        inputSelect.removeAttribute("disabled");
+    }
+}
