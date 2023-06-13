@@ -1,6 +1,6 @@
 
 
-url="";
+url="../../../api/usuarios/";
 async function Conseguir_usuario(id_usuario){
     //TODO:A partir del usuario devuelve los datos del usuario para editarlos
     const datos = await fetch(url + id_usuario)
