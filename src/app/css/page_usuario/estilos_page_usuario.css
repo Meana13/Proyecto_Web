@@ -1,4 +1,4 @@
-.header{
+.header {
     z-index: 1000;
 }
 
@@ -76,20 +76,20 @@ h2 {
     margin: 0 2rem;
 }
 
-.acordeon{
-    display:none;
+.acordeon {
+    display: none;
 }
 
 /*Estilos del visualizador de datos de los sensores*/
-.visualizador_de_datos{
+.visualizador_de_datos {
     width: 90%;
     height: 50%;
     margin: 2rem auto;
 }
 
 /*Estilo para las pestañas del visualizador de datos*/
-.tabs{
-    display:flex;
+.tabs {
+    display: flex;
     width: 80%;
     margin: 0 auto;
 }
@@ -101,14 +101,14 @@ h2 {
     border-radius: .3rem .3rem 0 0;
     flex: 1 1 auto;
     background-color: var(--fondoSecundario);
-    display:flex;
+    display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.tabs button.activo{
-    display:flex;
+.tabs button.activo {
+    display: flex;
     flex: 2 1 auto;
     justify-content: center;
     background: var(--principal);
@@ -117,23 +117,23 @@ h2 {
 }
 
 .tabs button:hover,
-.tabs button.activo:hover{
+.tabs button.activo:hover {
     background-color: #9D4179;
     color: var(--textoBotones);
 }
 
 /*Estilos para los títulos de las pestañas del visualizador de datos*/
-.tabs button p{
+.tabs button p {
     font-size: 1.5rem;
-    margin:0;
+    margin: 0;
 }
 
-.tabs button.activo p.dato_actual_tab{
-    display:none;
+.tabs button.activo p.dato_actual_tab {
+    display: none;
 }
 
 /*Estilo iconos de alerta*/
-.alertas-container{
+.alertas-container {
     flex: 1 1 100%;
     justify-content: flex-start;
     align-items: center;
@@ -145,19 +145,20 @@ h2 {
     background-color: transparent;
     border: none;
     color: #cd0404;
-    margin:0;
+    margin: 0;
+    border: 1px solid var(--textoBotones);
 }
 
 .alerta_grave:hover,
 .alerta_grave:focus,
 .alerta_grave:active,
 .alerta_grave span,
-.alerta_grave:focus-visible{
+.alerta_grave:focus-visible {
     background-color: transparent !important;
     border: none;
     color: #c05353 !important;
     outline: none;
-    box-shadow: none!important;
+    box-shadow: none !important;
 }
 
 .alerta_media {
@@ -165,14 +166,15 @@ h2 {
     background-color: transparent;
     border: none;
     color: #cd6904;
-    margin:0;
+    margin: 0;
+    border: 1px solid var(--textoBotones);
 }
 
 .alerta_media:hover,
 .alerta_media:focus,
 .alerta_media:active,
 .alerta_media span,
-.alerta_media:focus-visible{
+.alerta_media:focus-visible {
     background-color: transparent !important;
     border: none;
     color: #be894d !important;
@@ -181,7 +183,7 @@ h2 {
 }
 
 /*Estilos para la zona de los datos, donde está la gráfica y los datos actuales*/
-.cuerpo_del_visualizador article{
+.cuerpo_del_visualizador article {
     border: 0;
     width: 80%;
     height: 40rem;
@@ -204,28 +206,37 @@ h2 {
     width: 70%;
     height: 100%;
 }
+
 /*Estilos para el filtro de la gráfica*/
 .cuerpo_del_visualizador article .grafica-container div {
-    display:flex;
+    display: flex;
     justify-content: flex-start;
     align-items: baseline;
 }
 
 .cuerpo_del_visualizador article .grafica-container div select {
-    width: 10%;
     height: 1.8rem;
     flex: .5 1 auto;
     margin-right: 1rem;
     margin-bottom: 1rem;
 }
 
-.cuerpo_del_visualizador article .grafica-container div form.seleccionar_fecha{
+.cuerpo_del_visualizador article .grafica-container div form.seleccionar_fecha {
     display: none;
 }
 
-.cuerpo_del_visualizador article .grafica-container div form .hasta{
+.cuerpo_del_visualizador article .grafica-container div form .hasta {
     margin-left: 1rem;
     margin-right: 1rem;
+}
+
+.container_filtro  {
+    display: flex;
+    flex-direction: column;
+}
+
+.filtro_graficas {
+    width: 60%;
 }
 
 /*Estilos de la gráfica*/
@@ -235,7 +246,7 @@ h2 {
 }
 
 .cuerpo_del_visualizador article section.datos_y_descripcion_alerta_container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -254,14 +265,14 @@ h2 {
     border-radius: 50%;
 }
 
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p {
     font-size: 2.5rem;
 }
 
 /*Estilos de la descripción de la alerta*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion{
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion {
     width: 100%;
-    height:auto;
+    height: auto;
     margin-top: 2rem;
     flex: 0 1 auto;
     display: none;
@@ -288,12 +299,12 @@ h2 {
 
 /*Estilos para el dialogo de cambiar limites de medidas, que se pulsa desde el visualizador de datos*/
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas {
-    display:none;
+    display: none;
 }
 
 /*Estilos para cuando abramos el dialogo*/
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.activo {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: baseline;
     border-radius: 1rem;
@@ -307,12 +318,12 @@ h2 {
 
 /*Estilos del fondo del diálogo*/
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog::backdrop {
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
 }
 
 /*Estilos del párrafo del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog p{
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog p {
     font-size: 1.1rem;
 }
 
@@ -325,14 +336,14 @@ h2 {
 }
 
 /*Estilos del botón guardar y cancelar del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button{
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button {
     background-color: var(--principal);
     color: var(--textoBotones);
     text-transform: uppercase;
     font-size: .9rem;
 }
 
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button:hover{
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button:hover {
     background-color: #9D4179;
     font-weight: bold;
 }
@@ -359,10 +370,11 @@ h2 {
 
 /*Estilos del botón guardar y cancelar del diálogo de luz*/
 .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz div.botones_editar_guardar_luz {
-    display:flex;
+    display: flex;
     justify-content: flex-end;
 }
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz button{
+
+.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz button {
     background-color: var(--principal);
     color: var(--textoBotones);
     text-transform: uppercase;
@@ -378,38 +390,38 @@ h2 {
 
 /*Estilos del diálogo*/
 dialog.ajustes_de_huerto {
-    display:none;
+    display: none;
 }
 
-dialog.ajustes_de_huerto.activo{
+dialog.ajustes_de_huerto.activo {
     margin: auto auto;
     width: 90%;
     background-color: var(--fondo);
-    border:none;
+    border: none;
     border-radius: 5px;
     padding: .5rem 2rem 2rem 2rem;
     display: flex;
     flex-direction: column;
 }
 
-dialog.ajustes_de_huerto::backdrop{
-    background-color: rgba(0,0,0,0.3);
+dialog.ajustes_de_huerto::backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
 }
 
 /*Estilos del botón de cerrar*/
-dialog.ajustes_de_huerto button.boton_cerrar_ajustes_huerto{
+dialog.ajustes_de_huerto button.boton_cerrar_ajustes_huerto {
     font-size: 2rem;
     font-weight: bold;
     background-color: transparent;
-    border:none;
+    border: none;
     text-align: end;
     width: 5%;
-    margin-left:auto;
+    margin-left: auto;
 }
 
 /*Estilos para el título de ajustes de huerto*/
-dialog.ajustes_de_huerto h3{
+dialog.ajustes_de_huerto h3 {
     text-align: center;
     margin-bottom: 1rem;
     margin-top: 0;
@@ -418,7 +430,7 @@ dialog.ajustes_de_huerto h3{
 }
 
 /*Estilos para cambiar la foto y el nombre del huerto*/
-.container-nombre-imagen{
+.container-nombre-imagen {
     font-size: 1.1rem;
     border-bottom: 2px solid var(--textoGeneral);
     padding-bottom: 2rem;
@@ -440,25 +452,25 @@ dialog.ajustes_de_huerto h3{
 /*Estilos para las notas*/
 
 .nombre_ajustes div p {
-    margin: 0 15px; 
+    margin: 0 15px;
     margin-bottom: 5px;
 }
 
-.nombre_ajustes div input{
-    display:none;
+.nombre_ajustes div input {
+    display: none;
 }
 
 #notas_huerto {
     width: 95%;
     height: 5rem;
     margin: 0 15px;
-    display:none;
+    display: none;
 }
 
 
 /*Estilos para el switch de las notificaciones*/
-.notificaciones div{
-    display:flex;
+.notificaciones div {
+    display: flex;
     justify-content: flex-end;
     margin: 1rem;
 }
@@ -481,13 +493,17 @@ dialog.ajustes_de_huerto h3{
     border-radius: calc(2rem - (1.5rem / 2));
 }
 
-.custom-switch.custom-switch-md .custom-control-input:checked ~ .custom-control-label::after {
+.custom-switch.custom-switch-md .custom-control-input:checked~.custom-control-label::after {
     transform: translateX(calc(1.5rem - 0.25rem));
 }
 
 /*Estilos para los campos de poner los límites de las medidas*/
+dialog.ajustes_de_huerto form.limites_medidas{
+    display:none;
+}
+
 dialog.ajustes_de_huerto form.limites_medidas,
-dialog.ajustes_de_huerto form.limites_medidas p{
+dialog.ajustes_de_huerto form.limites_medidas p {
     font-size: 1.1rem;
 }
 
@@ -496,44 +512,53 @@ dialog.ajustes_de_huerto form.limites_medidas p {
     font-weight: bold;
 }
 
-dialog.ajustes_de_huerto form.limites_medidas input[type="checkbox"] {
-    margin:2rem .5rem 2rem 2rem;
-    transform: scale(1.5); /* Ajusta el valor según el tamaño deseado */
-    -ms-transform: scale(1.5); /* Para compatibilidad con navegadores antiguos */
-    -webkit-transform: scale(1.5); /* Para compatibilidad con navegadores basados en webkit*/
+dialog.ajustes_de_huerto form.limites_medidas input,
+dialog.ajustes_de_huerto form.limites_medidas select{
+    display:none;
 }
+/*
+dialog.ajustes_de_huerto form.limites_medidas input[type="checkbox"] {
+    margin: 2rem .5rem 2rem 2rem;
+    transform: scale(1.5);
+    /* Ajusta el valor según el tamaño deseado */
+    /*-ms-transform: scale(1.5);
+    /* Para compatibilidad con navegadores antiguos */
+    /*-webkit-transform: scale(1.5);
+    /* Para compatibilidad con navegadores basados en webkit*/
+/*}*/
+
 
 /*Estilos para los botones de editar y guardar*/
-dialog.ajustes_de_huerto div.botones_editar_y_guardar{
-    display:flex;
+dialog.ajustes_de_huerto div.botones_editar_y_guardar {
+    display: flex;
     justify-content: flex-end;
 }
 
 dialog.ajustes_de_huerto div.botones_editar_y_guardar button.boton_editar_ajustes,
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"]{
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"] {
     background-color: var(--principal);
     color: var(--textoBotones);
     border-radius: 5px;
-    border:none;
+    border: none;
     text-transform: uppercase;
     font-size: 1.1rem;
     font-weight: bold;
     padding: 1rem;
     width: 30%;
 }
+
 .boton_editar_ajustes:hover {
     background-color: #9D4179;
 }
 
 dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"],
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"]
-{
-    display:none;
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"] {
+    display: none;
 }
 
 
-  /*************************************/
- /*      ESTILOS SECCION CITAS        */
+/*************************************/
+/*      ESTILOS SECCION CITAS        */
 /*************************************/
 
 #citas td {
@@ -551,12 +576,13 @@ table td button.boton-aceptar-rechazar {
     height: 50px;
 }
 
-@media(max-width: 2000px){
-    .tabs button p{
+@media(max-width: 2000px) {
+    .tabs button p {
         font-size: 1.3rem;
     }
+
     /*Estilos para el visualizador de datos*/
-    .cuerpo_del_visualizador article{
+    .cuerpo_del_visualizador article {
         height: 35rem;
     }
 
@@ -565,11 +591,11 @@ table td button.boton-aceptar-rechazar {
         height: 300px;
         width: 300px;
         border-radius: 50%;
-    } 
+    }
 
 }
 
-@media(max-width: 1800px){
+@media(max-width: 1800px) {
 
     .tabs button {
         padding: 2rem 1rem;
@@ -580,7 +606,7 @@ table td button.boton-aceptar-rechazar {
         height: 270px;
         width: 270px;
         border-radius: 50%;
-    } 
+    }
 
 }
 
@@ -593,11 +619,11 @@ table td button.boton-aceptar-rechazar {
     /*Estilos del dato actual*/
     .cuerpo_del_visualizador article .dato_actual {
         height: 220px;
-        width:  220px;
+        width: 220px;
         border-radius: 50%;
     }
 
-    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
+    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p {
         font-size: 2rem;
     }
 
@@ -616,11 +642,12 @@ table td button.boton-aceptar-rechazar {
     }
 
     /*Estilo para las pestañas del visualizador de datos*/
-    .tabs{
+    .tabs {
         width: 80%;
     }
+
     /*Estilos para los títulos de las pestañas del visualizador de datos*/
-    .tabs button p{
+    .tabs button p {
         font-size: 1.1rem;
     }
 
@@ -629,9 +656,9 @@ table td button.boton-aceptar-rechazar {
         height: 200px;
         width: 200px;
         border-radius: 50%;
-    } 
+    }
 
-    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
+    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p {
         font-size: 1.5rem;
     }
 
@@ -643,17 +670,19 @@ table td button.boton-aceptar-rechazar {
 @media(max-width: 1200px) {
 
     /*Estilos para la zona de los datos, donde está la gráfica y los datos actuales*/
-    .cuerpo_del_visualizador article{
+    .cuerpo_del_visualizador article {
         width: 90%;
         height: 30rem;
         padding: 1rem;
     }
+
     /*Estilo para las pestañas del visualizador de datos*/
-    .tabs{
+    .tabs {
         width: 90%;
     }
+
     /*Estilos para los títulos de las pestañas del visualizador de datos*/
-    .tabs button p{
+    .tabs button p {
         font-size: 1.1rem;
     }
 
@@ -664,7 +693,7 @@ table td button.boton-aceptar-rechazar {
         border-radius: 50%;
     } */
 
-    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p{
+    .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .dato_actual p {
         font-size: 1.5rem;
     }
 
@@ -673,15 +702,16 @@ table td button.boton-aceptar-rechazar {
     }
 }
 
-@media(max-width: 1100px){
+@media(max-width: 1100px) {
 
-    .cuerpo_del_visualizador article{
+    .cuerpo_del_visualizador article {
         width: 95%;
         height: 30rem;
         padding: 1rem;
     }
+
     /*Estilo para las pestañas del visualizador de datos*/
-    .tabs{
+    .tabs {
         width: 95%;
     }
 
@@ -695,9 +725,10 @@ table td button.boton-aceptar-rechazar {
         height: 200px;
         width: 200px;
         border-radius: 50%;
-    } 
+    }
+
     /*Estilos para los títulos de las pestañas del visualizador de datos*/
-    .tabs button p{
+    .tabs button p {
         font-size: 1rem;
     }
 
@@ -709,35 +740,35 @@ table td button.boton-aceptar-rechazar {
 
 
 /*Con esta medida cambiamos de formato de visualizar los datos y lo hacemos con acordeón*/
-@media(max-width: 900px){
-    .visualizador_de_datos{
-        display:none;
+@media(max-width: 900px) {
+    .visualizador_de_datos {
+        display: none;
     }
 
     .acordeon {
-        display:block;
+        display: block;
         margin-top: 2rem;
 
     }
 
     .enlaces_a_flecha {
-        display:flex;
+        display: flex;
         justify-content: space-between;
         width: 100%;
         font-size: 2rem;
         align-items: center;
-        border:none;
+        border: none;
         background-color: transparent;
         color: var(--textoBotones);
         padding: .5rem;
     }
 
-    .enlaces_a_flecha:hover{
+    .enlaces_a_flecha:hover {
         color: var(--textoBotones);
         text-decoration: none;
     }
 
-    .enlaces_a_flecha .alertas-container{
+    .enlaces_a_flecha .alertas-container {
         flex: 1 1 auto;
     }
 
@@ -757,20 +788,20 @@ table td button.boton-aceptar-rechazar {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding:0 1rem;
+        padding: 0 1rem;
     }
 
-    .card-header:hover{
+    .card-header:hover {
         background-color: var(--secundario);
     }
 
-    .triangulo{
+    .triangulo {
         display: flex;
         align-items: center;
     }
 
-    .triangulo p{
-        margin:0;
+    .triangulo p {
+        margin: 0;
         font-size: 1.2rem;
         margin-right: 1rem;
     }
@@ -790,24 +821,23 @@ table td button.boton-aceptar-rechazar {
 
     /*Estilos para el filtro de la gráfica*/
     .acordeon div.card div.collapse div {
-        display:flex;
+        display: flex;
         justify-content: flex-start;
         align-items: baseline;
     }
 
     .acordeon div.card div.collapse div select {
-        width: 10%;
         height: 1.8rem;
         flex: .5 1 auto;
         margin-right: 1rem;
         margin-bottom: 1rem;
     }
 
-    .acordeon div.card div.collapse div form.seleccionar_fecha{
+    .acordeon div.card div.collapse div form.seleccionar_fecha {
         display: none;
     }
 
-    .acordeon div.card div.collapse div form .hasta{
+    .acordeon div.card div.collapse div form .hasta {
         margin-left: 1rem;
         margin-right: 1rem;
     }
@@ -903,7 +933,8 @@ table td button.boton-aceptar-rechazar {
     .imagen_ajustes {
         margin-bottom: 2rem;
     }
-/*
+
+    /*
     #citas td:nth-last-child() {
         width: fit-content;
     }*/
@@ -923,24 +954,25 @@ table td button.boton-aceptar-rechazar {
 .datos_usuario form {
     display: flex;
     flex-direction: column;
-  }
-  
-  .campo {
+}
+
+.campo {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-  }
-  
-  .campo label {
+}
+
+.campo label {
     width: 150px;
     margin-right: 10px;
-  }
+}
 
 /* Estilos para el formulario de la ficha de la cita */
 #nombre_usuario {
     width: 100%;
     margin: 0 auto;
     display: block;
+    margin-right: 4em;
 }
 
 input[type="text"],
@@ -954,69 +986,129 @@ select {
     width: 100%;
     margin: 0 auto;
     display: block;
+    margin-right: 4em;
+
 }
 
 #apellidos {
     width: 100%;
+    margin-right: 4em;
+
 }
 
 #email {
     width: 100%;
     margin: 0 auto;
+    margin-right: 4em;
+
 }
 
 
 .contenedor2 {
     display: flex;
-    justify-content: left; 
-    align-items: center; 
+    justify-content: left;
+    align-items: center;
     height: 50px;
 }
 
 .cambiar_contraseña {
     padding: 10px 20px;
-    margin-right: 10px; 
-    background-color: var(--principal); 
+    margin-right: 10px;
+    background-color: var(--principal);
     border: none;
     cursor: pointer;
-    color: #fff; 
+    color: #fff;
 }
 
 .contenedor5 {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     height: 85px;
 }
 
 .boton-editar-ajustes {
     padding: 10px 20px;
-  margin-right: 10px; 
-  background-color: var(--principal); 
-  border: none;
-  cursor: pointer;
-  color: var(--textoBotones); 
+    margin-right: 10px;
+    background-color: var(--principal);
+    border: none;
+    cursor: pointer;
+    color: var(--textoBotones);
+  border-radius: 5px;
 }
 
 
 .cambios_perfil {
     padding: 10px 20px;
-    margin-right: 10px; 
-    background-color: var(--fondoSecundario); 
+    margin-right: 10px;
+    background-color: var(--fondoSecundario);
     border: none;
     cursor: pointer;
+    border-radius: 5px;
     color: var(--textoGeneral);
     border: 2px solid var(--textoGeneral);
-    
+
 }
 
 
 .boton-cancelar-ajustes {
     padding: 10px 20px;
-    margin-right: 10px; 
-    background-color: var(--fondoSecundario); 
-    border: 2px solid var(--textoGeneral); 
+    margin-right: 10px;
+    background-color: var(--fondoSecundario);
+    border: 2px solid var(--textoGeneral);
     cursor: pointer;
-    color: var(--textoGeneral);
+    border-radius: 5px;
 }
 
+
+
+
+/*Estilo apartado CITAS*/
+#citas {
+    text-align: center;
+}
+
+/* Estilos para la tabla de citas */
+#citas table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #citas th,
+  #citas td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  #citas th {
+    background-color: #790050;
+  }
+  
+  #citas tbody tr:nth-child(even) td {
+    background-color: #f2f2f2;
+  }
+  
+  #citas tbody tr:nth-child(odd) td {
+    background-color: #fff;
+  }
+  
+  #citas .boton-aceptar-rechazar {
+    padding: 6px 12px;
+    background-color: #D7D7D7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #citas .boton-aceptar-rechazar:hover {
+    background-color: #5D5C5C;
+  }
+  
+  #citas .boton-aceptar-rechazar img {
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  
+  

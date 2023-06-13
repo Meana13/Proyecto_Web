@@ -1,4 +1,5 @@
 <?php
+
 if(!isset($peticion)) {
     http_response_code(500);
     die();
@@ -7,13 +8,12 @@ if(!isset($peticion)) {
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
-$nombreNuevo = $peticion->parametrosBody()->nombreNuevo;
-$idHuerto = intval($peticion->parametrosBody()->idHuerto);
-$notasNuevas = $peticion->parametrosBody()->notasNuevas;
+$notificaciones = intval($peticion->parametrosBody()->notif);
+$idHuerto = intval($peticion->parametrosPath()[0]);
 
 $sql = "
 UPDATE `huertos` 
-SET `huertos`.`nombre_huerto` = '$nombreNuevo', `huertos`.`notas` = '$notasNuevas'
+SET  `huertos`.`notificaciones` = $notificaciones
 WHERE `huertos`.`id_huerto` = $idHuerto";
 
 try {
