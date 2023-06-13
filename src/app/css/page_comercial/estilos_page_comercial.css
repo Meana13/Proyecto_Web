@@ -94,102 +94,6 @@ h2 {
 
 /*----------------------------SECCIÓN TABLAS (SOLICITUDES Y VENTAS)------------------------------*/
 
-/* Estilos para el buscador */
-.buscador {
-    padding: 10px;
-    font-size: 1.2em;
-}
-
-.boton-buscar {
-    border-radius: .5em;
-    background-color: var(--fondoSecundario);
-    font-size: 1.2em;
-}
-
-
-.buscador button {
-    flex: 1 1 0;
-    max-width: 200px;
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-    border-radius: .5em;
-    background-color: var(--fondoSecundario);
-}
-
-/* Estilos para el botón de búsqueda al pasar el cursor */
-.buscador button:hover {
-    color: var(--textoBotones);
-    font-weight: bold;
-    background-color: var(--principal);
-}
-
-/* Estilos para el buscador en dispositivos móviles */
-@media(max-width: 500px) {
-    .buscador input {
-        padding: 2px;
-        margin: 0 5px 2px 0;
-        font-size: 0.9em;
-    }
-
-    .buscador button {
-        margin: 0 0 2px 0;
-        font-size: 0.9em;
-        border-radius: .5em;
-    }
-}
-
-/* Estilos para el paginador */
-.paginador {
-    width: 90%;
-    max-width: 2000px;
-    margin: 10px auto;
-    display: flex;
-    justify-content: center;
-}
-
-.paginador button,
-.paginador input {
-    padding: 10px;
-    margin: 0 5px 0 5px;
-    font-size: 1.1em;
-    border-radius: .3em;
-    background-color: var(--fondoSecundario);
-}
-
-/* Estilos para el paginador al pasar el cursor */
-.paginador button:hover {
-    color: var(--textoBotones);
-    font-weight: bold;
-    background-color: var(--principal);
-}
-
-/* Estilos adicionales para el paginador */
-.btn-input input {
-    max-width: 3em;
-    text-align: center;
-    display: none;
-}
-
-/* Estilos para el paginador activo */
-.btn-input.activo button {
-    display: none;
-}
-
-/* Estilos para el paginador activo al mostrar el campo de entrada */
-.btn-input.activo input {
-    display: initial;
-}
-
-/* Estilos adicionales para el paginador en dispositivos móviles */
-@media(max-width: 500px) {
-    .paginador button,
-    .paginador input {
-        font-size: 0.9em;
-        padding: 7px;
-        margin: 0 6px 0 6px;
-    }
-}
-
 /*Tablas:*/
 
 table {
@@ -443,4 +347,5 @@ td:nth-of-type(4) button:hover {
         font-size: 0.9em;
         width: 90%;
     }
+}
 }
