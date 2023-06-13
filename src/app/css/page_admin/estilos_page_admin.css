@@ -56,7 +56,7 @@ h2 {
     display: flex;
     justify-content: center;
     margin-left: auto;
-    margin-right: 5%;
+    margin-right: 11.5%;
 }
 
 .bi-plus-circle-fill::before {
@@ -65,6 +65,14 @@ h2 {
 
 #boton-añadir-usuario:hover {
     background-color:#9D4179
+}
+
+.container {
+    width: 80%;
+}
+
+.container {
+    max-width: 80%;
 }
 
 /* Estilos para la tabla de usuarios */
@@ -202,6 +210,11 @@ td {
     text-align: left;
 }
 
+input[type="text"].buscador {
+    width: 100%;
+    padding: 10px;
+}
+
 /* Estilos para los inputs de texto y select en el formulario de "añadir usuario" */
 input[type="text"],
 select {
@@ -209,6 +222,16 @@ select {
     box-sizing: border-box;
     padding: 3px;
     margin-bottom: 10px;
+}
+
+#selector_rol {
+    width: 180px;
+    margin-left: 10%;
+}
+
+#select-anyadir {
+    display: flex;
+    margin-top: 30px;
 }
 
 /* Estilos para el botón "dar de alta" */
@@ -224,6 +247,7 @@ select {
     border-radius: .5em;
     font-weight: bold;
 }
+
 
 /* Estilos específicos para pantallas de dispositivos móviles */
 @media (max-width: 768px) {
@@ -337,14 +361,6 @@ select {
         display: inline-block;
         width: 120px;
         text-align: left;
-    }
-
-    input[type="text"],
-    select {
-        width: 180px;
-        box-sizing: border-box;
-        padding: 3px;
-        margin-bottom: 10px;
     }
 
     #boton-generar-id {

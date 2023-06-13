@@ -37,23 +37,23 @@ p {
 
 /* Estilos aplicados al encabezado de nivel 1 'h1' */
 h1 {
-    text-align: center;
-    font-family: Arial, sans-serif;
     font-size: 32px;
     color: #FFFFFF;
+    text-align: center;
+    font-family: Arial, sans-serif;
     text-transform: uppercase;
 }
 
 /* Estilos aplicados al encabezado de nivel 2 'h2' */
 h2 {
-    font-family: Arial, sans-serif;
     font-size: 25px;
+    font-family: Arial, sans-serif;
 }
 
 /* Estilos aplicados al encabezado de nivel 3 'h3' */
 h3 {
-    font-family: Arial, sans-serif;
     font-size: 20px;
+    font-family: Arial, sans-serif;
 }
 
 /* Estilos aplicados a las tablas */
@@ -95,14 +95,19 @@ td:last-child {
 
 /* Estilos para el buscador */
 .buscador {
-    padding: 10px;
-    font-size: 1.2em;
+    padding: 5px;
+    font-size: 1em;
+    border-top-left-radius: .5em;
+    border-bottom-left-radius: .5em;
 }
 
 .boton-buscar {
-    border-radius: .5em;
+    border-top-right-radius: .5em;
+    border-bottom-right-radius: .5em;
     background-color: var(--fondoSecundario);
     font-size: 1.2em;
+    padding: 0;
+    width: 180px;
 }
 
 
@@ -142,14 +147,15 @@ td:last-child {
     width: 90%;
     max-width: 2000px;
     margin: 10px auto;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
 
 .paginador button,
 .paginador input {
-    padding: 10px;
-    margin: 0 5px 0 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
     font-size: 1.1em;
     border-radius: .3em;
     background-color: var(--fondoSecundario);
