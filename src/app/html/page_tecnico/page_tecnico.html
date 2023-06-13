@@ -9,6 +9,7 @@
     
     <!-- carga de scripts -->
     <script src="../../scrips/page_tecnico/page_tecnico.js"></script>
+
     -<!-- <script src="../../scrips/landing_page/control-acceso.js"></script>-->
     <!-- carga hoja de estilos -->
     <link rel="stylesheet" href="../../css/page_tecnico/estilos_page_tecnico.css">
@@ -63,6 +64,15 @@
     <section id="seccion-citas">
         <h3>CALENDARIO DE CITAS</h3>
 
+        <div id="paginadorCitasTecnico" onclick="generarTablas()">
+            <button value="1">1</button>
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <button>n</button>
+        </div>
+        <div id="buscador">
+            <input type="text" id="buscadorCitasTecnico"  placeholder="Busqueda por nombre,apellidos o email" onsubmit="generarTablasFiltrada()">
+        </div>
         <table id="tabla-citas">
             <thead>
                 <tr>
@@ -71,7 +81,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="body-citas-tecnico">
                 <tr>
                     <td>Ricardo</td>
                     <td>03/02/2023</td>
@@ -480,6 +490,11 @@
         </div>
     </footer>
     <!----------->
+
+<!-- Scripts de funcionalidad -->
+
+    <script src="../../scrips/page_tecnico/TablaCitasTecnico.js"></script>
+
 </body>
 
 </html>

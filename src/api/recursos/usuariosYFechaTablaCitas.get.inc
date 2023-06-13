@@ -29,14 +29,14 @@ if ($pagina>1){
         LIMIT $pagina,$limite";
 };
 
-if ($filtro != "") {
+/**  if ($filtro != "") {
     $sql = "SELECT clientes.id_cliente, clientes.id_usuario, clientes.nombre, apellidos, email, direccion
             FROM clientes
             JOIN usuarios ON clientes.id_usuario = usuarios.id_usuario
             WHERE usuarios.rol = $rol
             AND CONCAT(clientes.id_cliente, clientes.id_usuario, clientes.nombre, apellidos, email, direccion) LIKE '%$filtro%'
             LIMIT $limite";
-}
+}*/
 
 $result = mysqli_query($connexion, $sql);
 $salida = array();

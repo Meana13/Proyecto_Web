@@ -1,103 +1,102 @@
 /**
  * URL a la que se hacen las peticiones
  */
-const urlClientes = "../../../api/clientes/";
-const urlCitas = "../../../api/citas/";
-
+const url= "../../../api/usuarios/";
 /**
- * Variables vacías
+ * Variables vacias
  */
-let limite = 15;
+let datosusuario=[];
+let limite=15;
 
 /**
  * Carga los datos del ajuste del usuario
  * @returns ajustesusuario
  */
-async function getSesionUsuario() {
-    const respuesta = await fetch("../../../api/sesion/");
-    if (respuesta.ok) {
-        const datosUsuario = await respuesta.json();
-        console.log(datosUsuario);
-        return datosUsuario;
+async function getSesionUsuario(){
+    const respuesta=await fetch("../../../api/sesion/");
+    if (respuesta.ok){
+        const DatosUsuario = await respuesta.json();
+        console.log(DatosUsuario);
+        return DatosUsuario;
     }
 }
 
 /**
- * Cargar Clientes (limitados a 15 por página)
+ * Cargar Usuarios (limitados a 15 por página)
  */
-async function getClientes(npag, limite, filtro) {
-    const respuesta = await fetch(urlClientes + "?cantidad=" + limite + "&pagina=" + npag + "&filtro=" + filtro);
-    if (respuesta.ok) {
-        const datosClientes = await respuesta.json();
-        console.log(datosClientes);
-        return datosClientes;
+
+async function getUsuarios(npag,limite){
+    const respuesta=await fetch(url + '?cantidad='
+        + limite + '&pagina=' +npag);
+    if (respuesta.ok){
+        console.log("Ha entrado en el if")
+        const DatosUsuario = await respuesta.json();
+        console.log(DatosUsuario)
+        return DatosUsuario;
     }
 }
 
 /**
- * Recibe el filtro introducido en el campo de búsqueda
+ * Filtra la lista de usuarios y la devuelve
  */
-async function conseguirFiltro() {
-    let campoBusqueda = document.getElementById('//');
-    let filtro = campoBusqueda.value;
-    console.log(filtro);
-    return filtro;
-};
+async function getUsuariosFiltrados(npag,limite,filtro){
+    console.log("Llega al get filtrados");
+    const respuesta=await fetch(url + '?cantidad='
+        + limite + '&pagina=' +npag+'&filtro='+filtro);
+    if (respuesta.ok){
+        const DatosUsuario = await respuesta.json();
+        console.log(DatosUsuario);
+        return DatosUsuario;
+    }
+}
 
 /**
- * Recibe la página seleccionada en el paginador
+ * Recibe la pagina seleccionada en el paginador
  */
-async function conseguirPagina() {
-    let paginador = document.getElementById('//');
-    let pagina = paginador.value;
+async function conseguirPagina(){
+    let paginador= document.getElementById('paginadorCitasTecnico');
+    let pagina=paginador.value;
     console.log(pagina);
     return pagina;
 };
 
 /**
- * Genera la tabla de citas basada en la página, límite y filtro
+ *Genera tablas basadas en tres parametros:paginador,limite de usuario por pagina ;
  */
-async function generarTablaClientes() {
-    let filtro = await conseguirFiltro();
-    let pag = await conseguirPagina();
-    const datos = await getClientes(pag, limite, filtro);
-    console.log(datos);
-    let tabla = document.getElementById("//");
+async function generarTablas() {
+    let pag= 1;
+    const datos = await getUsuarios(pag,limite);
+    console.log("Ha recibido los datos")
+    let tabla = document.getElementById("body-citas-tecnico");
     tabla.innerHTML = "";
-    datos.forEach((cliente) => {
+    datos.forEach((usuario) => {
         tabla.innerHTML += `<tr>
-            <td>${cliente.nombre}</td>
-            <td>${cliente.fecha_cita}</td>
+            <td>${usuario.nombre}</td>
+            <td>${usuario.fechas}</td>
+            <td><button id="boton-ver-cita">Ver ficha</button></td>
         </tr>`;
     });
 }
 
 /**
- * Filtra la tabla de citas  y la muestra
+ *Filtra la tabla y la muestra
  */
-async function generarTablaClientesFiltrada() {
-    let filtro = await conseguirFiltro();
-    let pag = await conseguirPagina();
-    const datos = await getClientes(pag, limite, filtro);
+async function generarTablasFiltrada() {
+    let filtro= document.getElementById("buscadorCitasTecnico")
+    let pag= await conseguirPagina();
+    const datos = await getUsuariosFiltrados(pag,limite,filtro);
     console.log(datos);
-    let tabla = document.getElementById("//");
+    let tabla = document.getElementById("body-citas-tecnico");
     tabla.innerHTML = "";
-    datos.forEach((cliente) => {
+    datos.forEach((usuario) => {
         tabla.innerHTML += `<tr>
-            <td>${cliente.nombre}</td>
-            <td>${cliente.fecha_cita}</td>
+            <td>${usuario.nombre}</td>
+            <td>${usuario.fechas}</td>
+            <td><button id="boton-ver-cita">Ver ficha</button></td>
+            </td>
         </tr>`;
     });
 }
-
-/**
- * Función para ver la cita de un cliente
- * @param {number} idCliente - ID del cliente
- */
-async function verCita(idCliente) {
-    // Aquí puedes implementar la lógica para ver la cita del cliente
-}
-
 window.addEventListener("DOMContentLoaded", () => {
-    generarTablaClientes();
+    generarTablas();
 });
