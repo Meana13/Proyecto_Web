@@ -22,10 +22,9 @@ $sql = "SELECT
        	SUBSTRING( `mediciones`.`hora_medicion`, 1, 2) AS hora, 
         SUBSTRING(`mediciones`.`hora_medicion`, 4, 2) AS minutos 
 
-        FROM `huertos`,`sondas`, `mediciones`
+        FROM `huertos`, `mediciones`
         
-        WHERE `huertos`.`id_huerto` = `sondas`.`id_huerto`
-        AND `sondas`.`id_sonda` = `mediciones`.`id_sonda`
+        WHERE `huertos`.`id_huerto` = `mediciones`.`id_huerto`
         AND `huertos`.`id_huerto` = $idHuerto
         
         GROUP BY `mediciones`.`fecha_medicion`, `mediciones`.`hora_medicion`

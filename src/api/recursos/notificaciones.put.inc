@@ -21,20 +21,20 @@ $luzMinNueva = intval($peticion->parametrosBody()->luzMinNueva);
 $luzMaxNueva = intval($peticion->parametrosBody()->luzMaxNueva);
 
 $sql = "
-UPDATE `sondas` 
+UPDATE `notificaciones` 
 SET  
-    `sondas`.`medicion_min_salinidad` = $salinidadMinNueva, 
-    `sondas`.medicion_max_salinidad = $salinidadMaxNueva,
-    `sondas`.medicion_min_humedad = $humedadMinNueva,
-    `sondas`.medicion_max_humedad = $humedadMaxNueva,
-    `sondas`.medicion_min_ph = $phMinNuevo,
-    `sondas`.medicion_max_ph = $phMaxNuevo,
-    `sondas`.medicion_min_temperatura = $temperaturaMinNueva,
-    `sondas`.medicion_max_temperatura = $temperaturaMaxNueva,
-    `sondas`.medicion_min_luminosidad = $luzMinNueva,
-    `sondas`.medicion_max_luminosidad = $luzMaxNueva
+    medicion_min_salinidad = $salinidadMinNueva, 
+    medicion_max_salinidad = $salinidadMaxNueva,
+    medicion_min_humedad = $humedadMinNueva,
+    medicion_max_humedad = $humedadMaxNueva,
+    medicion_min_ph = $phMinNuevo,
+    medicion_max_ph = $phMaxNuevo,
+    medicion_min_temperatura = $temperaturaMinNueva,
+    medicion_max_temperatura = $temperaturaMaxNueva,
+    medicion_min_luminosidad = $luzMinNueva,
+    medicion_max_luminosidad = $luzMaxNueva
     
-WHERE `sondas`.`id_huerto` = $idHuerto";
+WHERE `notificaciones`.`id_huerto` = $idHuerto";
 
 try {
     mysqli_query($connexion, $sql);

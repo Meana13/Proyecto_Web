@@ -373,7 +373,7 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                 notif: 1
             }
 
-            const respuesta = await fetch('../../../api/huertos/' + idHuerto, {
+            const respuesta = await fetch('../../../api/estadoNotificaciones/' + idHuerto, {
                 method: 'put',
                 body: JSON.stringify(datos)
             });
@@ -389,7 +389,7 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                 notif: 0
             }
 
-            const respuesta = await fetch('../../../api/huertos/' + idHuerto, {
+            const respuesta = await fetch('../../../api/estadoNotificaciones/' + idHuerto, {
                 method: 'put',
                 body: JSON.stringify(datos)
             });
