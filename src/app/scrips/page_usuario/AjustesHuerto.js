@@ -6,6 +6,9 @@ let botonGuardar = document.getElementById('boton_guardar_ajustes_huerto');
 let botonCancelar = document.getElementById('boton-cancelar-ajustes-huerto');
 let botonEditar = document.getElementById('boton_editar_ajustes_huerto');
 let selector = document.getElementById('seleccionar_huerto');
+let dialogoMensaje = document.getElementById('dialogo-mensaje-usuario-ajustes-huerto');
+let mensajeUsuario = document.getElementById('mensaje-usuario-ajustes-huerto');
+let botonAceptarMensaje = document.getElementById('boton-aceptar-mensaje-ajustes-huerto');
 
 //VARIABLES EDITAR LOS CAMPOS:
 let notasEditable = document.getElementById('notas_huerto');
@@ -51,11 +54,28 @@ let diasLuzMinimaEditable = document.getElementById('luz-minimo-dias-editable');
 let luzMaximaEditable = document.getElementById('luz-maximo-editable');
 let diasLuzMaximaEditable = document.getElementById('luz-maximo-dias-editable');
 
+//VARIABLES DE MENSAJES DE ERROR:
+//Nombre:
+let errorNombreHuerto = document.getElementById('errorNombreHuerto');
+//Salinidad:
+let errorSalinidadMinMax = document.getElementById('salinidadMinMayorQueMax');
+let errorSalMenorCero = document.getElementById('ValorSalMenorQueCero');
+let errorSalMayorCien = document.getElementById('ValorSalMayorQueCien');
+//Humedad:
+let errorHumedadMinMax = document.getElementById('humedadMinMayorQueMax');
+let errorHumedadMenorCero = document.getElementById('ValorHumedadMenorQueCero');
+let errorHumedadMayorCien = document.getElementById('ValorHumedadMayorQueCien');
+//pH
+let errorPhMinMax = document.getElementById('pHMinMayorQueMax');
+let errorPhMenorCero = document.getElementById('ValorPhMenorQueCero');
+let errorPhMayorCien = document.getElementById('ValorPhMayorQueCien');
+
 
 
 
 /*Estas funciones se ejecutarán cuando se pulse el botón de "Ajustes de huerto"*/
 document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', function() {
+
 
     dialogo.addEventListener('close', function(){
         location.reload();
@@ -205,16 +225,23 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                   EDITAR NOMBRE Y NOTAS:
         */
         //------------------------------------------
+        let senyal = 0;
+
         let idHuerto = selector.value;
         let nombreNuevo = nombreHuertoEditable.value;
         let notasNuevas = notasEditable.value;
+
+        if(nombreNuevo.length === 0){
+            senyal = 1;
+            errorNombreHuerto.style.display = "block";
+        }
 
         let datos = {
             nombreNuevo: nombreNuevo,
             idHuerto: idHuerto,
             notasNuevas: notasNuevas
         }
-        const respuesta = await fetch('../../../api/ajustesHuerto', {
+        await fetch('../../../api/ajustesHuerto', {
             method: 'put',
             body: JSON.stringify(datos)
         });
@@ -224,20 +251,29 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                  EDITAR LIMITES DE MEDIDA:
         */
         //------------------------------------------
-        let salinidadMinNueva = salinidadMinimaEditable.value;
-        let salinidadMaxNueva = salinidadMaximaEditable.value;
+        let salinidadMinNueva = parseInt(salinidadMinimaEditable.value);
+        let salinidadMaxNueva = parseInt(salinidadMaximaEditable.value);
+
         if(salinidadMinNueva > salinidadMaxNueva){
-            alert("El valor de salinidad mínimo no puede ser mayor que el valor de salinidad máximo");
-            salinidadMinNueva = 0;
-            salinidadMaxNueva = 0;
+            senyal = 1;
+            errorSalinidadMinMax.style.display = "block";
         }
+
+        if(salinidadMinNueva < 0 || salinidadMaxNueva < 0){
+            senyal = 1;
+            errorSalMenorCero.style.display="block";
+        }
+
+        if(salinidadMinNueva > 100 || salinidadMaxNueva > 100){
+            senyal = 1;
+            errorSalMayorCien.style.display="block";
+        }
+
 
         let humedadMinNueva = humedadMinimaEditable.value;
         let humedadMaxNueva = humedadMaximaEditable.value;
         if(humedadMinNueva > humedadMaxNueva){
-            alert("El valor de humedad mínimo no puede ser mayor que el valor de humedad máximo");
-            humedadMinNueva = 0;
-            humedadMaxNueva = 0;
+            senyal = 1
         }
 
         let phMinNuevo = phMinimoEditable.value;
@@ -248,31 +284,62 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
         let luzMaxNueva = luzMaximaEditable.value;
 
 
+        if(senyal === 1){
+            console.log(senyal);
 
-        let datosLimitesNuevos = {
-            salinidadMinNueva: salinidadMinNueva,
-            salinidadMaxNueva: salinidadMaxNueva,
-            humedadMinNueva: humedadMinNueva,
-            humedadMaxNueva: humedadMaxNueva,
-            phMinNuevo: phMinNuevo,
-            phMaxNuevo: phMaxNuevo,
-            temperaturaMinNueva: temperaturaMinNueva,
-            temperaturaMaxNueva: temperaturaMaxNueva,
-            luzMinNueva: luzMinNueva,
-            luzMaxNueva: luzMaxNueva
+            dialogoMensaje.showModal();
+            mensajeUsuario.innerText = "";
+            mensajeUsuario.innerText = "Hay datos que son incorrectos, por favor revísalos antes de continuar"
+            botonAceptarMensaje.addEventListener('click', function(){
+                dialogoMensaje.close();
+            })
+
         }
 
-        await fetch('../../../api/notificaciones/' + idHuerto, {
-            method: 'put',
-            body: JSON.stringify(datosLimitesNuevos)
-        });
+        if(senyal === 0){
+            console.log(senyal);
+            //ocultamos los mensajes de error:
+            errorNombreHuerto.style.display="none";
+            errorSalinidadMinMax.style.display = "none";
+            errorSalMenorCero.style.display = "none";
+            errorSalMayorCien.style.display = "none";
+
+            let datosLimitesNuevos = {
+                salinidadMinNueva: salinidadMinNueva,
+                salinidadMaxNueva: salinidadMaxNueva,
+                humedadMinNueva: humedadMinNueva,
+                humedadMaxNueva: humedadMaxNueva,
+                phMinNuevo: phMinNuevo,
+                phMaxNuevo: phMaxNuevo,
+                temperaturaMinNueva: temperaturaMinNueva,
+                temperaturaMaxNueva: temperaturaMaxNueva,
+                luzMinNueva: luzMinNueva,
+                luzMaxNueva: luzMaxNueva
+            }
+
+            await fetch('../../../api/notificaciones/' + idHuerto, {
+                method: 'put',
+                body: JSON.stringify(datosLimitesNuevos)
+            });
+
+            dialogoMensaje.showModal();
+            mensajeUsuario.innerText = "";
+            mensajeUsuario.innerText = "Se han editado los campos con éxito."
+            botonAceptarMensaje.addEventListener('click', async function(){
+                dialogoMensaje.close();
+                await escribirDatosHuerto();
+                await escribirValoresLimitesMedida();
+                botonGuardar.style.display = "none";
+                botonEditar.style.display = "block";
+                botonCancelar.style.display = "none";
+            })
 
 
-        await escribirDatosHuerto();
-        await escribirValoresLimitesMedida();
-        botonGuardar.style.display = "none";
-        botonEditar.style.display = "block";
-        botonCancelar.style.display = "none";
+
+
+        }
+
+
     });
 
     //------------------------------------------
@@ -404,12 +471,13 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
     }
 
 
+/*
 
 
     //------------------------------------------
-    /*
+    /!*
               CAMBIAR FOTO DE HUERTO:
-    */
+    *!/
     //------------------------------------------
 
     botonSubirFotoHuerto.addEventListener('click', function () {
@@ -446,10 +514,10 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                             imagenNueva: event.target.result
                         }
 
-                        /*
+                        /!*
                         let formData = new FormData(formulario);
                         formData.append('imagen', fotoNueva, fotoNueva.name);
-        */
+        *!/
                         const respuesta = await fetch('../../../api/cambiarFotoHuerto' + idHuerto, {
                             method: 'put',
                             body: imagen
@@ -479,6 +547,8 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
             });
         });
     });
+*/
+
                 /*
                 let imagen = {
                     imagenNueva: fotoNueva
