@@ -68,9 +68,11 @@ let errorHumedadMayorCien = document.getElementById('ValorHumedadMayorQueCien');
 //pH
 let errorPhMinMax = document.getElementById('pHMinMayorQueMax');
 let errorPhMenorCero = document.getElementById('ValorPhMenorQueCero');
-let errorPhMayorCien = document.getElementById('ValorPhMayorQueCien');
-
-
+let errorPhMayorCien = document.getElementById('ValorPhMayorQueCatorce');
+//temperatura
+let errorTemperaturaMinMax = document.getElementById('temperaturaMinMayorQueMax');
+let errorTemperaturaMenorTreinta = document.getElementById('ValorTemperaturaMenorQueTreinta');
+let errorTemperaturaMayorCincuenta = document.getElementById('ValorTemperaturaMayorQueCincuenta');
 
 
 /*Estas funciones se ejecutarán cuando se pulse el botón de "Ajustes de huerto"*/
@@ -128,18 +130,6 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
 
 
 
-
-            if(datosHuerto[0].notificaciones === "1"){
-                notificacionesBoton.checked = true;
-                formularioNotificaciones.style.display = 'block';
-                escribirValoresLimitesMedida();
-
-            }
-            else{
-                notificacionesBoton.checked = false;
-                formularioNotificaciones.style.display = 'none';
-
-            }
     }
 
     //---------------------------------------------
@@ -253,27 +243,49 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
         //------------------------------------------
         let salinidadMinNueva = parseInt(salinidadMinimaEditable.value);
         let salinidadMaxNueva = parseInt(salinidadMaximaEditable.value);
-
+        //mensajes de error:
         if(salinidadMinNueva > salinidadMaxNueva){
             senyal = 1;
             errorSalinidadMinMax.style.display = "block";
+        }
+        else{
+            senyal = 0;
+            errorSalinidadMinMax.style.display = "none";
         }
 
         if(salinidadMinNueva < 0 || salinidadMaxNueva < 0){
             senyal = 1;
             errorSalMenorCero.style.display="block";
+        } else if(salinidadMinNueva >= 0 && salinidadMaxNueva >=0 ){
+            senyal = 0;
+            errorSalMenorCero.style.display = "none";
         }
 
         if(salinidadMinNueva > 100 || salinidadMaxNueva > 100){
             senyal = 1;
             errorSalMayorCien.style.display="block";
+        } else if(salinidadMinNueva <= 100 && salinidadMaxNueva <= 100 ){
+            senyal = 0;
+            errorSalMayorCien.style.display = "none";
         }
 
 
-        let humedadMinNueva = humedadMinimaEditable.value;
-        let humedadMaxNueva = humedadMaximaEditable.value;
+        let humedadMinNueva = parseInt(humedadMinimaEditable.value);
+        let humedadMaxNueva = parseInt(humedadMaximaEditable.value);
+        //mensajes de error:
         if(humedadMinNueva > humedadMaxNueva){
             senyal = 1
+            errorHumedadMinMax.style.display = "block";
+        }
+
+        if(humedadMinNueva < 0 || humedadMaxNueva < 0){
+            senyal = 1;
+            errorHumedadMenorCero.style.display="block";
+        }
+
+        if(humedadMinNueva > 100 || humedadMaxNueva > 100){
+            senyal = 1;
+            errorHumedadMayorCien.style.display="block";
         }
 
         let phMinNuevo = phMinimoEditable.value;
@@ -303,6 +315,9 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
             errorSalinidadMinMax.style.display = "none";
             errorSalMenorCero.style.display = "none";
             errorSalMayorCien.style.display = "none";
+            errorHumedadMinMax.style.display = "none";
+            errorHumedadMenorCero.style.display="none";
+            errorHumedadMayorCien.style.display="none";
 
             let datosLimitesNuevos = {
                 salinidadMinNueva: salinidadMinNueva,
@@ -411,62 +426,72 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
         if(respuesta.ok){
             let datos = await respuesta.json();
 
-            salinidadMinima.innerText = "";
-            salinidadMinima.innerText = datos[0].medicion_min_salinidad;
-            salinidadMinimaEditable.style.display = "none";
-            salinidadMinima.style.display = "block";
+            if(datos[0].notificaciones === "1"){
+                notificacionesBoton.checked = true;
+                formularioNotificaciones.style.display = 'block';
 
-            salinidadMaxima.innerText = "";
-            salinidadMaxima.innerText = datos[0].medicion_max_salinidad;
-            salinidadMaximaEditable.style.display = "none";
-            salinidadMaxima.style.display = "block";
+                salinidadMinima.innerText = "";
+                salinidadMinima.innerText = datos[0].medicion_min_salinidad;
+                salinidadMinimaEditable.style.display = "none";
+                salinidadMinima.style.display = "block";
 
-            humedadMinima.innerText = "";
-            humedadMinima.innerText = datos[0].medicion_min_humedad;
-            humedadMinimaEditable.style.display = "none";
-            humedadMinima.style.display = "block";
+                salinidadMaxima.innerText = "";
+                salinidadMaxima.innerText = datos[0].medicion_max_salinidad;
+                salinidadMaximaEditable.style.display = "none";
+                salinidadMaxima.style.display = "block";
+
+                humedadMinima.innerText = "";
+                humedadMinima.innerText = datos[0].medicion_min_humedad;
+                humedadMinimaEditable.style.display = "none";
+                humedadMinima.style.display = "block";
 
 
-            humedadMaxima.innerText = "";
-            humedadMaxima.innerText = datos[0].medicion_max_humedad;
-            humedadMaximaEditable.style.display = "none";
-            humedadMaxima.style.display = "block";
+                humedadMaxima.innerText = "";
+                humedadMaxima.innerText = datos[0].medicion_max_humedad;
+                humedadMaximaEditable.style.display = "none";
+                humedadMaxima.style.display = "block";
 
-            temperaturaMinima.innerText = "";
-            temperaturaMinima.innerText = datos[0].medicion_min_temperatura;
-            temperaturaMinimaEditable.style.display = "none";
-            temperaturaMinima.style.display = "block";
+                temperaturaMinima.innerText = "";
+                temperaturaMinima.innerText = datos[0].medicion_min_temperatura;
+                temperaturaMinimaEditable.style.display = "none";
+                temperaturaMinima.style.display = "block";
 
-            temperaturaMaxima.innerText = "";
-            temperaturaMaxima.innerText = datos[0].medicion_max_temperatura;
-            temperaturaMaximaEditable.style.display = "none";
-            temperaturaMaxima.style.display = "block";
+                temperaturaMaxima.innerText = "";
+                temperaturaMaxima.innerText = datos[0].medicion_max_temperatura;
+                temperaturaMaximaEditable.style.display = "none";
+                temperaturaMaxima.style.display = "block";
 
-            phMinimo.innerText = "";
-            phMinimo.innerText = datos[0].medicion_min_ph;
-            phMinimoEditable.style.display = "none";
-            phMinimo.style.display = "block";
+                phMinimo.innerText = "";
+                phMinimo.innerText = datos[0].medicion_min_ph;
+                phMinimoEditable.style.display = "none";
+                phMinimo.style.display = "block";
 
-            phMaximo.innerText = "";
-            phMaximo.innerText = datos[0].medicion_max_ph;
-            phMaximoEditable.style.display = "none";
-            phMaximo.style.display = "block";
+                phMaximo.innerText = "";
+                phMaximo.innerText = datos[0].medicion_max_ph;
+                phMaximoEditable.style.display = "none";
+                phMaximo.style.display = "block";
 
-            luzMinima.innerText = "";
-            luzMinima.innerText = datos[0].medicion_min_luminosidad;
-            luzMinimaEditable.style.display = "none";
-            luzMinima.style.display = "block";
+                luzMinima.innerText = "";
+                luzMinima.innerText = datos[0].medicion_min_luminosidad;
+                luzMinimaEditable.style.display = "none";
+                luzMinima.style.display = "block";
 
-            luzMaxima.innerText = "";
-            luzMaxima.innerText = datos[0].medicion_max_luminosidad;
-            luzMaximaEditable.style.display = "none";
-            luzMaxima.style.display = "block";
+                luzMaxima.innerText = "";
+                luzMaxima.innerText = datos[0].medicion_max_luminosidad;
+                luzMaximaEditable.style.display = "none";
+                luzMaxima.style.display = "block";
 
-            diasLuzMinimaEditable.style.display = "none";
-            diasLuzMinima.style.display = "block";
+                diasLuzMinimaEditable.style.display = "none";
+                diasLuzMinima.style.display = "block";
 
-            diasLuzMaximaEditable.style.display = "none";
-            diasLuzMaxima.style.display = "block";
+                diasLuzMaximaEditable.style.display = "none";
+                diasLuzMaxima.style.display = "block";
+
+            }
+            else{
+                notificacionesBoton.checked = false;
+                formularioNotificaciones.style.display = 'none';
+            }
         }
     }
 
@@ -582,6 +607,7 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
 */
 //llamadas de las funciones (main):
     escribirDatosHuerto();
+    escribirValoresLimitesMedida();
 
 });
 
