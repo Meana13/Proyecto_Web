@@ -8,8 +8,9 @@ if(!isset($peticion)) {
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
-$idHuerto = intval($peticion->parametrosBody()->idHuerto);
+$idHuerto = intval($peticion->parametrosPath()[0]);
 $imagenNueva = file_get_contents($_FILES['imagen']['tmp_name']);
+
 /*$imagenError = $_FILES['imagen']['error'];
 
 

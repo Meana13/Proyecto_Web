@@ -411,12 +411,13 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
               CAMBIAR FOTO DE HUERTO:
     */
     //------------------------------------------
-    /*
-    botonSubirFotoHuerto.addEventListener('click', function (){
+
+    botonSubirFotoHuerto.addEventListener('click', function () {
 
         const fotoPorDefecto = '../../../images/foto_base.jpeg';
 
         inputSubirFotoHuerto.click();
+
         //cuando se vaya a elegir una foto, mostramos la vistra previa y escondemos la foto real:
         vistaPrevia.style.display = "block";
         fotoHuerto.style.display = "none";
@@ -427,16 +428,36 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
 
         //escondemos el boton de cambiar foto:
         botonSubirFotoHuerto.style.display = 'none';
-        inputSubirFotoHuerto.addEventListener('change', function(event) {
+
+
+        inputSubirFotoHuerto.addEventListener('change', function (event) {
             let fotoNueva = event.target.files[0];
-            console.log(fotoNueva);
 
             if (fotoNueva) {
                 const reader = new FileReader();
                 reader.onload = function (event) {
                     vistaPrevia.src = event.target.result;
+                    console.log(event.target.result);
+
+                    botonConfirmarFotoHuerto.addEventListener('click', async function () {
+                        let idHuerto = selector.value;
+
+                        let imagen = {
+                            imagenNueva: event.target.result
+                        }
+
+                        /*
+                        let formData = new FormData(formulario);
+                        formData.append('imagen', fotoNueva, fotoNueva.name);
+        */
+                        const respuesta = await fetch('../../../api/cambiarFotoHuerto' + idHuerto, {
+                            method: 'put',
+                            body: imagen
+                        });
+                    });
                 }
                 reader.readAsDataURL(fotoNueva);
+
             } else {
                 vistaPrevia.src = fotoPorDefecto;
             }
@@ -453,18 +474,29 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
             botonConfirmarFotoHuerto.addEventListener('click', async function () {
                 let idHuerto = selector.value;
 
+
+
+            });
+        });
+    });
+                /*
+                let imagen = {
+                    imagenNueva: fotoNueva
+                }
+                /*
                 let formData = new FormData(formulario);
                 formData.append('imagen', fotoNueva, fotoNueva.name);
-                formData.append('idHuerto', idHuerto);
-
-                const respuesta = await fetch('../../../api/cambiarFotoHuerto', {
+*//*
+                const respuesta = await fetch('../../../api/cambiarFotoHuerto' + idHuerto, {
                     method: 'put',
-                    body: formData
+                    body: imagen.blob()
+                    //body: formData
                 });
+
 
                 if (respuesta.ok) {
                     console.log('se ha actualizado la imagen');
-                    /*
+
                     const respuesta = await fetch('../../../api/cambiarFotoHuerto/' + '?idHuerto=' + idHuerto);
                         if (respuesta.ok) {
                             const datos = await respuesta.blob();
@@ -472,14 +504,12 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                             vistaPrevia.src = urlImagen;
                             fotoHuerto.src=urlImagen;
                         }
-                        */
+                }
 
-               // }
-
-            //});
-       // });
-    //});
-
+            });
+        });
+    });
+*/
 //llamadas de las funciones (main):
     escribirDatosHuerto();
 
