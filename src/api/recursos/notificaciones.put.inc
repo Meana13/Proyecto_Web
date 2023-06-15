@@ -19,6 +19,8 @@ $temperaturaMinNueva = intval($peticion->parametrosBody()->temperaturaMinNueva);
 $temperaturaMaxNueva = intval($peticion->parametrosBody()->temperaturaMaxNueva);
 $luzMinNueva = intval($peticion->parametrosBody()->luzMinNueva);
 $luzMaxNueva = intval($peticion->parametrosBody()->luzMaxNueva);
+$diasLuzMinNueva = intval($peticion->parametrosBody()->diasLuzMinNueva);
+$diasLuzMaxNueva = intval($peticion->parametrosBody()->diasLuzMaxNueva);
 
 $sql = "
 UPDATE `notificaciones` 
@@ -32,7 +34,9 @@ SET
     medicion_min_temperatura = $temperaturaMinNueva,
     medicion_max_temperatura = $temperaturaMaxNueva,
     medicion_min_luminosidad = $luzMinNueva,
-    medicion_max_luminosidad = $luzMaxNueva
+    medicion_max_luminosidad = $luzMaxNueva,
+    mediciones_continuas_minimos = $diasLuzMinNueva,
+    mediciones_continuas_maximos = $diasLuzMaxNueva
     
 WHERE `notificaciones`.`id_huerto` = $idHuerto";
 

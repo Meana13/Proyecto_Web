@@ -958,9 +958,11 @@
                 <p id="luz-minimo">luz minimo</p>
                 <br>
                 <label>Durante </label>
-                <input type="number" id="luz-minimo-dias-editable">
+                <input type="number" id="luz-minimo-dias-editable" min="0">
                 <p id="luz-minimo-dias">días</p>
                 <label>días</label>
+                <p class="mensaje-error" id="ValorDiaMinMenorQueCero">¡No puede haber menos de 0 días!</p>
+
                 <br>
                 <label>Nivel de luz:</label>
                 <select id="luz-maximo-editable">
@@ -971,9 +973,11 @@
                 </select>
                 <p id="luz-maximo">luz maxima</p><br>
                 <label>Durante </label>
-                <input type="number" id="luz-maximo-dias-editable">
+                <input type="number" id="luz-maximo-dias-editable" min="0">
                 <p id="luz-maximo-dias">días</p>
                 <label>días</label>
+                <p class="mensaje-error" id="ValorDiaMaxMenorQueCero">¡No puede haber menos de 0 días!</p>
+
 
             </form>
 
