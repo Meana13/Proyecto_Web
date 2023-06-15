@@ -11,8 +11,8 @@ if (!isset($connexion)) die();
 $idHuerto = $peticion->parametrosQuery()['idHuerto'];
 
 $sql = "SELECT * 
-        FROM `sondas`
-        WHERE `sondas`.`id_huerto` = $idHuerto";
+        FROM `notificaciones`
+        WHERE `notificaciones`.`id_huerto` = $idHuerto";
 
 $result = mysqli_query($connexion, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
