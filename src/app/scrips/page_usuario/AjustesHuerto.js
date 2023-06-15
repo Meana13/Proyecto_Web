@@ -227,7 +227,7 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
         if(luzMaxima.textContent === "3 - Luz directa"){
             luzMaximaEditable.value = 3;
         }
-        
+
         diasLuzMinimaEditable.value = diasLuzMinima.textContent;
         diasLuzMaximaEditable.value = diasLuzMaxima.textContent;
     });
