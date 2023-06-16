@@ -1,0 +1,293 @@
+//......................................................................................................................
+/*                                       SECCIÓN AJUSTES USUARIO REGISTRADO                                           */
+//......................................................................................................................
+//......................................................................................................................
+//......................................................................................................................
+//DECLARACIÓN DE VARIABLES:
+//Campos:
+let nombreUsuarioEditable = document.getElementById('nombre');
+let nombreUsuarioAjustes = document.getElementById('nombre-usuario-ajustes');
+let apellidosUsuarioEditable = document.getElementById('apellidos');
+let apellidosUsuario = document.getElementById('apellidos-usuario-ajustes');
+let emailUsuarioEditable = document.getElementById('email');
+let emailUsuario = document.getElementById('email-usuario-ajustes');
+let passEditable = document.getElementById('password-ajustes');
+let pass = document.getElementById('pass-usuario-ajustes');
+//Botones:
+let botonEditarPerfil = document.getElementById('boton-editar-ajustes-perfil');
+let botonAplicarCambiosPerfil = document.getElementById('aplicar_cambios-ajustes-perfil');
+let botonCancelarPerfil = document.getElementById('boton-cancelar-ajustes-perfil');
+//mensajes de error
+let errorNombreVacio = document.getElementById('error-nombre-usuario-vacio');
+let errorApellidosVacio = document.getElementById('error-apellidos-usuario-vacio');
+let errorEmailVacio = document.getElementById('error-email-usuario-vacio');
+let errorFormatoEmail = document.getElementById('error-formato-email');
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+            getSesionUsuario() --> datos
+                                            ____datos____
+                                            id_usuario: N
+                                            nombre: txt
+                                            idRol: N
+                                            rol: txt
+                                            _____________
+*/
+//.......................................................
+async function getSesionUsuario(){
+    const respuesta = await fetch('../../../api/sesion/');
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+            getDatosCliente() --> datos
+                                            ____datos____
+                                            id_usuario: N
+                                            id_cliente: N
+                                            nombre: txt
+                                            apellidos: txt
+                                            email: txt
+                                            direccion: txt
+                                            _____________
+*/
+//.......................................................
+async function getDatosCliente(){
+    let datosSesion = await getSesionUsuario();
+    let idUsuario = datosSesion.id_usuario;
+
+    const respuesta = await fetch('../../../api/clientes/' + '?idUsuario=' + idUsuario);
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+            getDatosUsuario() --> datos
+                                            ____datos____
+                                            id_usuario: N
+                                            rol: N
+                                            nombre: txt
+                                            password: txt
+                                            _____________
+*/
+//.......................................................
+async function getDatosUsuario(){
+    let datosSesion = await getSesionUsuario();
+    let idUsuario = datosSesion.id_usuario;
+
+    const respuesta = await fetch('../../../api/usuario/' + '?idUsuario=' + idUsuario);
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+                    escribirDatos()
+*/
+//.......................................................
+
+async function escribirDatos(){
+    let datosCliente = await getDatosCliente();
+    let datosUsuario = await getDatosUsuario();
+
+    nombreUsuarioAjustes.innerText = "";
+    nombreUsuarioAjustes.innerText = datosCliente[0].nombre;
+    nombreUsuarioEditable.style.display = "none";
+    nombreUsuarioAjustes.style.display = "block";
+
+    apellidosUsuario.innerText = "";
+    apellidosUsuario.innerText = datosCliente[0].apellidos;
+    apellidosUsuarioEditable.style.display = "none";
+    apellidosUsuario.style.display = "block";
+
+    emailUsuario.innerText = "";
+    emailUsuario.innerText = datosCliente[0].email;
+    emailUsuarioEditable.style.display = "none";
+    emailUsuario.style.display = "block";
+
+    //contraseña:
+    let textoOculto = textoParaOcultar(datosUsuario[0].password);
+
+    pass.innerText = "";
+    pass.innerText = textoOculto;
+    passEditable.style.display = "none";
+    pass.style.display = "block";
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+    palabra: txt -->  textoParaOcultar() --> txt
+*/
+//.......................................................
+function textoParaOcultar(palabra) {
+    var cadena = "";
+
+    for (var i = 0; i < palabra.length; i++) {
+        cadena += "*";
+    }
+
+    return cadena;
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+                       BOTON DE EDITAR
+*/
+//.......................................................
+botonEditarPerfil.addEventListener('click', function(){
+    //ocultamos los campos fijos y mostramos los campos editables:
+    nombreUsuarioAjustes.style.display = "none";
+    nombreUsuarioEditable.style.display = "block";
+
+    apellidosUsuario.style.display = "none";
+    apellidosUsuarioEditable.style.display = "block";
+
+    emailUsuario.style.display = "none";
+    emailUsuarioEditable.style.display = "block";
+    //mostramos los botones de cancelar y aplicar cambios y ocultamos el de editar.
+    botonCancelarPerfil.style.display = "block";
+    botonAplicarCambiosPerfil.style.display = "block";
+    botonEditarPerfil.style.display = "none";
+
+    //Asignamos el valor antiguo al input de texto que el usuario puede editar,
+    // por si no lo edita, que se quede el valor original:
+    nombreUsuarioEditable.value = nombreUsuarioAjustes.textContent;
+    apellidosUsuarioEditable.value = apellidosUsuario.textContent;
+    emailUsuarioEditable.value = emailUsuario.textContent;
+
+    nombreUsuarioEditable.addEventListener('input', detectarErrores);
+    apellidosUsuarioEditable.addEventListener('input', detectarErrores);
+    emailUsuarioEditable.addEventListener('input', detectarErrores);
+});
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+                  detectarErrores() --> VoF
+
+que detecte error si algún cambio está vacío o no cumple con el formato del campo:
+*/
+//.......................................................
+
+function detectarErrores(){
+
+    const formatoValidoEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(emailUsuarioEditable.value);
+
+    //para mostrar los mensajes de error:
+    if(nombreUsuarioEditable.value.length === 0){
+        errorNombreVacio.style.display = "block";
+    }
+    else{
+        errorNombreVacio.style.display = "none";
+    }
+
+    if(apellidosUsuarioEditable.value.length === 0){
+        errorApellidosVacio.style.display = "block";
+    }
+    else{
+        errorApellidosVacio.style.display = "none";
+    }
+
+    if(emailUsuarioEditable.value.length === 0){
+        errorEmailVacio.style.display = "block";
+    }
+    else{
+        errorEmailVacio.style.display = "none";
+    }
+
+    if(!formatoValidoEmail){
+        errorFormatoEmail.style.display = "block";
+    }
+    else{
+        errorFormatoEmail.style.display = "none";
+    }
+
+    //para deshabilitar el botón de aplicar cambios:
+    if(
+        nombreUsuarioEditable.value.length === 0 ||
+        apellidosUsuarioEditable.value.length === 0 ||
+        emailUsuarioEditable.value.length === 0 ||
+        !formatoValidoEmail
+    ){
+        botonAplicarCambiosPerfil.disabled = true;
+        return true;
+    }
+    else if(
+        nombreUsuarioEditable.value.length > 0 &&
+        apellidosUsuarioEditable.value.length > 0 &&
+        emailUsuarioEditable.value.length > 0 &&
+        formatoValidoEmail
+    ){
+        botonAplicarCambiosPerfil.disabled = false;
+        return false;
+    }
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+               BOTON DE APLICAR CAMBIOS
+*/
+//.......................................................
+botonAplicarCambiosPerfil.addEventListener('click', function(){
+    //mostramos los campos fijos y ocultamos los campos editables:
+    nombreUsuarioAjustes.style.display = "block";
+    nombreUsuarioEditable.style.display = "none";
+
+    apellidosUsuario.style.display = "block";
+    apellidosUsuarioEditable.style.display = "none";
+
+    emailUsuario.style.display = "block";
+    emailUsuarioEditable.style.display = "none";
+    //ocultamos los botones de cancelar y aplicar cambios y mostramos el de editar.
+    botonCancelarPerfil.style.display = "none";
+    botonAplicarCambiosPerfil.style.display = "none";
+    botonEditarPerfil.style.display = "block";
+
+
+
+
+
+});
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+               BOTON DE CANCELAR
+*/
+//.......................................................
+botonCancelarPerfil.addEventListener('click', function(){
+    //mostramos los campos fijos y ocultamos los campos editables:
+    nombreUsuarioAjustes.style.display = "block";
+    nombreUsuarioEditable.style.display = "none";
+
+    apellidosUsuario.style.display = "block";
+    apellidosUsuarioEditable.style.display = "none";
+
+    emailUsuario.style.display = "block";
+    emailUsuarioEditable.style.display = "none";
+    //ocultamos los botones de cancelar y aplicar cambios y mostramos el de editar.
+    botonCancelarPerfil.style.display = "none";
+    botonAplicarCambiosPerfil.style.display = "none";
+    botonEditarPerfil.style.display = "block";
+});
+
+//......................................................................................................................
+//......................................................................................................................
+//LLAMADAS DE FUNCIONES:
+escribirDatos();

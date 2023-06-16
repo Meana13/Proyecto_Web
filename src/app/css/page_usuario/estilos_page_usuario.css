@@ -1064,6 +1064,10 @@ select {
     border-radius: 5px;
 }
 
+.boton-cancelar-ajustes,
+.cambios_perfil {
+    display: none;
+}
 
 
 

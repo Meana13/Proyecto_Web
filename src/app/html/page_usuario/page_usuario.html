@@ -1076,27 +1076,35 @@
               <form action="#" id="formulario-ajustes"   method="post">
                 <!--Datos personales:-->
                 <div class="campo">
-                  <label for="nombre_usuario">Usuario:</label>
-                  <input type="text" id="nombre_usuario" name="usuario">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <p id="nombre-usuario-ajustes">nombre</p>
+                    <p id="error-nombre-usuario-vacio" class="mensaje-error">¡El nombre no puede estar vacío!</p>
                 </div>
           
                 <div class="campo">
-                  <label for="nombre">Nombre:</label>
-                  <input type="text" id="nombre" name="nombre">
-                </div>
-          
-                <div class="campo">
-                  <label for="apellidos">Apellidos:</label>
-                  <input type="text" id="apellidos" name="apellidos">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" name="apellidos" required>
+                    <p id="apellidos-usuario-ajustes">apellidos</p>
+                    <p id="error-apellidos-usuario-vacio" class="mensaje-error">¡Los apellidos no pueden estar vacíos!</p>
                 </div>
               </form>
 
                 <!--E-mail y contraseña-->
                 <div class="campo">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <p id="email-usuario-ajustes">email</p>
+                    <p id="error-email-usuario-vacio" class="mensaje-error">¡El e-mail no puede estar vacío!</p>
+                    <p id="error-formato-email" class="mensaje-error">El formato del e-mail ha de ser así: ejemplo@ejemplo.com</p>
                 </div>
 
+                <!--E-mail y contraseña-->
+                <div class="campo">
+                    <label for="password-ajustes">Contraseña:</label>
+                    <input type="password" id="password-ajustes" name="password">
+                    <p id="pass-usuario-ajustes">contraseña</p>
+                </div>
 
                 <div class="contenedor2">
                 <button id="cambiar_contraseña">Cambiar contraseña</button>
@@ -1120,9 +1128,9 @@
 
 
                 <div class="contenedor5">
-                    <button class="boton-editar-ajustes">Editar</button>
-                    <button class="cambios_perfil" id="aplicar_cambios">Aplicar cambios</button>
-                    <button class="boton-cancelar-ajustes">Cancelar</button>
+                    <button class="boton-editar-ajustes" id="boton-editar-ajustes-perfil">Editar</button>
+                    <input type="submit" class="cambios_perfil" id="aplicar_cambios-ajustes-perfil" value="Aplicar cambios">
+                    <button class="boton-cancelar-ajustes" id="boton-cancelar-ajustes-perfil">Cancelar</button>
                   </div>
                   
 
@@ -1179,6 +1187,7 @@
     <script src="../../scrips/page_usuario/graficas_sensores.js"></script>
     <script src="../../scrips/page_usuario/AjustesHuerto.js"></script>
     <script src="../../scrips/page_usuario/citas.js"></script>
+    <script src="../../scrips/page_usuario/ajustes_perfil.js"></script>
 
 </body>
 
