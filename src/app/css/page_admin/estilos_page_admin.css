@@ -210,11 +210,6 @@ td {
     text-align: left;
 }
 
-input[type="text"].buscador {
-    width: 100%;
-    padding: 10px;
-}
-
 /* Estilos para los inputs de texto y select en el formulario de "añadir usuario" */
 input[type="text"],
 select {

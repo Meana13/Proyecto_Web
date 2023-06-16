@@ -8,13 +8,12 @@ if(!isset($peticion)) {
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
-$notificaciones = intval($peticion->parametrosBody()->notif);
-$idHuerto = intval($peticion->parametrosPath()[0]);
+$estado = intval($peticion->parametrosBody()->estado);
+$idCita = intval($peticion->parametrosBody()->idCita);
 
-$sql = "
-UPDATE `huertos` 
-SET  `huertos`.`notificaciones` = $notificaciones
-WHERE `huertos`.`id_huerto` = $idHuerto";
+$sql = "UPDATE `citas`
+        SET estado = $estado
+        WHERE id_cita = $idCita";
 
 try {
     mysqli_query($connexion, $sql);
