@@ -5,27 +5,22 @@
 
 #seccion-hoja-cita {
     display: none;
-	margin-top:100px;
 }
 
 #seccion-opiniones {
     display: none;
-	margin-top:100px;
 }
 
 #seccion-administrar-huertos {
     display: none;
-	margin-top:100px;
 }
 
 #seccion-añadir-huerto {
     display: none;
-	margin-top:100px;
 }
 
 #seccion-ver-huerto {
     display: none;
-	margin-top:100px;
 }
 
 /**************************/
@@ -67,11 +62,15 @@
 
 #tabla-citas tbody tr:nth-child(even) td {
     background-color: #f2f2f2;
-  }
-  
-  #tabla-citas tbody tr:nth-child(odd) td {
+}
+
+#tabla-citas tbody tr:nth-child(odd) td {
     background-color: #D7D7D7;
-  }
+}
+
+#tabla-citas tbody tr td:last-child {
+    background-color: transparent;
+}
 
 /* Estilos para los botones "Ver cita" y "Ver huerto" */
 #boton-ver-cita,
@@ -157,9 +156,10 @@ select {
     font-weight: bold;
 }
 
-#boton-volver-atras:hover{
-    background-color:#9D4179;
+#boton-volver-atras:hover {
+    background-color: #9D4179;
 }
+
 /* #endregion */
 
 /* #region SECCION OPINION */
@@ -172,8 +172,8 @@ select {
 }
 
 .caja-opinion:nth-child(even) {
-    background-color: #D7D7D7;
-  }
+    background-color: var(--fondoSecundario);
+}
 
 /* Estilos para el encabezado de la sección de opiniones */
 #seccion-opiniones h3 {
@@ -244,11 +244,12 @@ select {
     width: 40%;
     font-family: Arial, sans-serif;
 }
+
 /* #endregion */
 
 /* SECCION ADMINISTRAR HUERTOS */
 /* Configuración de la sección de administrar huertos */
-#tabla-huertos tr td:nth-child(1) {
+#tabla-huertos tr td:nth-child(2) {
     padding: 0;
 }
 
@@ -265,7 +266,7 @@ select {
 /* Estilos para el botón "Añadir huerto" en la sección de administrar huertos */
 
 #boton-añadir-huerto:hover {
-    background-color: #9D4179;
+    background-color: var(--secundario);
 }
 
 
@@ -363,7 +364,7 @@ input[type="file"] {
 }
 
 #boton-guardar:hover {
-    background-color: #9D4179;
+    background-color: var(--secundario);
 }
 
 
@@ -389,8 +390,8 @@ input[type="file"] {
     margin-bottom: 20px;
 }
 
-#boton-editar:hover{
-    background-color: #9D4179;
+#boton-editar:hover {
+    background-color: var(--secundario);
 }
 
 /* Estilos para la imagen del huerto en la sección de ver huerto */
@@ -431,8 +432,9 @@ input[type="file"] {
     font-weight: bold;
     padding: 1em;
 }
-#boton-guardar2:hover{
-    background-color: #9D4179;
+
+#boton-guardar2:hover {
+    background-color: var(--secundario);
 }
 
 /* #endregion */
