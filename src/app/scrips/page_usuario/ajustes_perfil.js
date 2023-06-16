@@ -13,10 +13,12 @@ let emailUsuarioEditable = document.getElementById('email');
 let emailUsuario = document.getElementById('email-usuario-ajustes');
 let passEditable = document.getElementById('password-ajustes');
 let pass = document.getElementById('pass-usuario-ajustes');
+let nombreUsuarioHeader = document.getElementById('nombreUsuarioRegistrado');
 //Botones:
 let botonEditarPerfil = document.getElementById('boton-editar-ajustes-perfil');
 let botonAplicarCambiosPerfil = document.getElementById('aplicar_cambios-ajustes-perfil');
 let botonCancelarPerfil = document.getElementById('boton-cancelar-ajustes-perfil');
+let botonCambiarPass = document.getElementById('cambiar_pass');
 //mensajes de error
 let errorNombreVacio = document.getElementById('error-nombre-usuario-vacio');
 let errorApellidosVacio = document.getElementById('error-apellidos-usuario-vacio');
@@ -25,6 +27,13 @@ let errorFormatoEmail = document.getElementById('error-formato-email');
 //dialogo de mensaje de éxito
 let dialogoMensajeExito = document.getElementById('dialogo_cambios_perfil');
 let botonAceptarDialogoExito = document.getElementById('boton_aceptar-dialogo-exito-perfil');
+//cambio de contraseña:
+let dialogoCambiarPass = document.getElementById('dialogo-cambio-pass');
+let campoAntiguaPass = document.getElementById('antigua_contrasenya');
+let campoNuevaPass = document.getElementById('nueva_contrasenya');
+let campoRepetirPass = document.getElementById('repetir_contrasenya');
+let botonEnviarNuevaPass = document.getElementById('btn-enviar');
+let botonCancelarNuevaPass = document.getElementById('btn-cancelar');
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -105,6 +114,9 @@ async function getDatosUsuario(){
 async function escribirDatos(){
     let datosCliente = await getDatosCliente();
     let datosUsuario = await getDatosUsuario();
+
+    nombreUsuarioHeader.innerText = "";
+    nombreUsuarioHeader.innerText = datosUsuario[0].nombre;
 
     nombreUsuarioAjustes.innerText = "";
     nombreUsuarioAjustes.innerText = datosCliente[0].nombre;
@@ -263,9 +275,11 @@ botonAplicarCambiosPerfil.addEventListener('click', async function(){
     botonEditarPerfil.style.display = "block";
 
     let datosCliente = await getDatosCliente();
+    let datosUsuario = await getDatosUsuario();
     let idCliente = datosCliente[0].id_cliente;
+    let idUsuario = datosUsuario[0].id_usuario;
 
-    let datos = {
+    let datosACliente = {
         nombre: nombreUsuarioEditable.value,
         apellidos: apellidosUsuarioEditable.value,
         email: emailUsuarioEditable.value
@@ -273,16 +287,24 @@ botonAplicarCambiosPerfil.addEventListener('click', async function(){
 
     await fetch('../../../api/clientes/' + idCliente, {
         method: 'put',
-        body: JSON.stringify(datos)
+        body: JSON.stringify(datosACliente)
+    });
+
+    let datosAUsuario = {
+        nombre: nombreUsuarioEditable.value + " " + apellidosUsuarioEditable.value
+    }
+
+    await fetch('../../../api/usuario/' + idUsuario, {
+        method: 'put',
+        body: JSON.stringify(datosAUsuario)
     });
 
     dialogoMensajeExito.showModal();
-    botonAceptarDialogoExito.addEventListener('click', async function(){
-        dialogoMensajeExito.close();
-        await escribirDatos();
-    })
+    await escribirDatos();
 
-
+});
+botonAceptarDialogoExito.addEventListener('click', async function() {
+    dialogoMensajeExito.close();
 });
 //......................................................................................................................
 //......................................................................................................................
@@ -311,6 +333,92 @@ botonCancelarPerfil.addEventListener('click', function(){
     errorEmailVacio.style.display = "none";
     errorFormatoEmail.style.display = "none";
 });
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+               BOTÓN CAMBIAR CONTRASEÑA
+*/
+//.......................................................
+botonCambiarPass.addEventListener('click', async function(){
+    dialogoCambiarPass.showModal();
+    //para que no deje validar si los campos están en blanco:
+    validarCamposPass();
+    campoAntiguaPass.addEventListener('input', validarCamposPass);
+    campoNuevaPass.addEventListener('input', validarCamposPass);
+    campoRepetirPass.addEventListener('input', validarCamposPass);
+})
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+               BOTÓN CANCELAR CAMBIO CONTRASEÑA
+*/
+//.......................................................
+botonCancelarNuevaPass.addEventListener('click', function(){
+   dialogoCambiarPass.close();
+   campoAntiguaPass.value="";
+   campoNuevaPass.value = "";
+   campoRepetirPass.value = "";
+});
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+               BOTÓN VALIDAR CAMBIO CONTRASEÑA
+*/
+//.......................................................
+botonEnviarNuevaPass.addEventListener('click', async function(){
+    let datosUsuario = await getDatosUsuario();
+    let idUsuario = datosUsuario[0].id_usuario
+
+    let datos = {
+        password : campoNuevaPass.value
+    }
+
+    await fetch('../../../api/usuario/' + idUsuario, {
+        method: 'put',
+        body: JSON.stringify(datos)
+    });
+
+
+    dialogoMensajeExito.showModal();
+    dialogoCambiarPass.close();
+    campoAntiguaPass.value="";
+    campoNuevaPass.value = "";
+    campoRepetirPass.value = "";
+})
+
+
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+               validarCamposPass()
+*/
+//.......................................................
+async function validarCamposPass(){
+    let datos = await getDatosUsuario();
+    let passAntigua = datos[0].password;
+
+    if(
+        campoAntiguaPass.value === passAntigua &&
+        campoNuevaPass.value === campoRepetirPass.value &&
+        campoNuevaPass.value.length > 5 &&
+        campoRepetirPass.value.length > 5
+    ){
+        botonEnviarNuevaPass.disabled = false;
+    }
+    else if (
+        campoAntiguaPass.value !== passAntigua ||
+        campoNuevaPass.value !== campoRepetirPass.value ||
+        campoNuevaPass.value.length <=5  ||
+        campoRepetirPass.value.length <= 5
+    ){
+        botonEnviarNuevaPass.disabled = true;
+    }
+}
+
 
 //......................................................................................................................
 //......................................................................................................................
