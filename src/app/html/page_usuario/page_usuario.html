@@ -17,13 +17,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Carga de estilos -->
-    <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
     <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/page_usuario/estilos_page_usuario.css" />
+    <link rel="stylesheet" href="../../css/estilos_general.css">
+    <link rel="stylesheet" href="../../css/page_usuario/estilos_page_usuario.css" />
 
     <!-- Carga de script -->
-    <!--<script src="../../scrips/landing_page/control-acceso.js"></script>-->
+    <script src="../../scrips/landing_page/control-acceso.js"></script>
 </head>
 
 <body>
@@ -55,13 +55,13 @@
             <!--Menú propio de usuario registrado-->
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <button class="boton_menu" id="boton_huertos">ver huertos</button>
+                    <button class="boton_menu" id="boton_huertos">Ver huertos</button>
                 </li>
                 <li class="nav-menu-item">
-                    <button class="boton_menu" id="boton_citas">citas</button>
+                    <button class="boton_menu" id="boton_citas">Citas</button>
                 </li>
                 <li class="nav-menu-item">
-                    <button class="boton_menu" id="boton_perfil">ajustes perfil</button>
+                    <button class="boton_menu" id="boton_perfil" >Ajustes perfil</button>
                 </li>
                 <li class="nav-menu-item">
                     <button class="boton_menu" onclick="logout()">CERRAR SESIÓN</button>
@@ -71,36 +71,33 @@
     </header>
     <!--Aquí finaliza el header-->
 
-<!---------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------->
 
     <!--Aquí comienza la zona de huertos-->
     <section id="huertos">
         <section class="cabecera_huertos">
-        <h2>MIS HUERTOS</h2>
+            <h2>MIS HUERTOS</h2>
 
-        <!--Aquí empieza la sección de cabecera de la sección huertos-->
-        <section id="botones_añadir_selección"> <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
+            <!--Aquí empieza la sección de cabecera de la sección huertos-->
+            <section id="botones_añadir_selección">
 
                 <!-- desplegable con los huertos-->
-                <select id="seleccionar_huerto" class="selector_de_huertos">            <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
-                    <option value="1">Huerto cocina</option>
-                    <option value="2">Huerto terraza</option>
-                    <option value="3">Huerto salón</option>
-                </select>
+                <select id="seleccionar_huerto" class="selector_de_huertos"></select>
 
-                <button id="boton_abrir_ajustes_huerto" class="boton_abrir_ajustes_huerto">AJUSTES</button> <!--añlkwgjlkñasdjkñlghajñlkjhgñlakjh-->
+                <button id="boton_abrir_ajustes_huerto" class="boton_abrir_ajustes_huerto">AJUSTES</button>
+
+            </section>
         </section>
-        </section>
-            <!--Aquí empieza la sección de nombre y foto del huerto-->
+        <!--Aquí empieza la sección de nombre y foto del huerto-->
         <section class="nombre-huerto-container">
             <img src="../../../images/huerto_cocina.svg" alt="foto huerto hidropónico en cocina">
-            <h3 class="nombre-huerto">Huerto cocina</h3>
+            <h3 class="nombre-huerto" id="nombreDeHuerto">Huerto cocina</h3>
         </section>
-            <!--Aquí acaba la sección de nombre y foto del huerto-->
+        <!--Aquí acaba la sección de nombre y foto del huerto-->
 
         <!--Aquí acaba la sección de cabecera de la sección huertos-->
 
-<!---------------------------------------------------------------------------------------->
+        <!---------------------------------------------------------------------------------------->
 
         <!--Aquí empieza el visualizador de datos de sensores (formato pestañas, para pantallas más grandes)-->
         <section class="visualizador_de_datos">
@@ -111,21 +108,19 @@
                     <!--Aquí empieza la sección de alertas-->
                     <div class="alertas-container">
                         <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                           data-toggle="popover" data-placement="bottom"
-                           data-content="Temperatura alta">
+                            data-toggle="popover" data-placement="bottom" data-content="Temperatura alta">
                             <i class="bi bi-exclamation-circle-fill"></i>
                         </a>
 
                         <a type="button" class="btn btn-secondary alerta_media" data-container="body"
-                           data-toggle="popover" data-placement="bottom"
-                           data-content="La temperatura está aumentando">
+                            data-toggle="popover" data-placement="bottom" data-content="La temperatura está aumentando">
                             <i class="bi bi-exclamation-circle-fill"></i>
                         </a>
                     </div>
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>Salinidad</p>
-                    <p class="dato_actual_tab">Dato Actual</p>
+                    <p class="dato_actual_tab" id="dato_actual_tab_salinidad">Dato Actual</p>
 
 
 
@@ -135,21 +130,19 @@
                     <!--Aquí empieza la sección de alertas-->
                     <div class="alertas-container">
                         <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                           data-toggle="popover" data-placement="bottom"
-                           data-content="Temperatura alta">
+                            data-toggle="popover" data-placement="bottom" data-content="Temperatura alta">
                             <i class="bi bi-exclamation-circle-fill"></i>
                         </a>
 
                         <a type="button" class="btn btn-secondary alerta_media" data-container="body"
-                           data-toggle="popover" data-placement="bottom"
-                           data-content="La temperatura está aumentando">
+                            data-toggle="popover" data-placement="bottom" data-content="La temperatura está aumentando">
                             <i class="bi bi-exclamation-circle-fill"></i>
                         </a>
                     </div>
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>Humedad</p>
-                    <p class="dato_actual_tab">Dato Actual</p>
+                    <p class="dato_actual_tab" id="dato_actual_tab_humedad">Dato Actual</p>
 
                 </button>
                 <button onclick="cambiarTab(3)" class="pH tab" id="tab_pH">
@@ -157,42 +150,38 @@
                     <!--Aquí empieza la sección de alertas-->
                     <div class="alertas-container">
                         <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                           data-toggle="popover" data-placement="bottom"
-                           data-content="Temperatura alta">
+                            data-toggle="popover" data-placement="bottom" data-content="Temperatura alta">
                             <i class="bi bi-exclamation-circle-fill"></i>
                         </a>
 
                         <a type="button" class="btn btn-secondary alerta_media" data-container="body"
-                           data-toggle="popover" data-placement="bottom"
-                           data-content="La temperatura está aumentando">
+                            data-toggle="popover" data-placement="bottom" data-content="La temperatura está aumentando">
                             <i class="bi bi-exclamation-circle-fill"></i>
                         </a>
                     </div>
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>pH</p>
-                    <p class="dato_actual_tab">Dato Actual</p>
+                    <p class="dato_actual_tab" id="dato_actual_tab_pH">Dato Actual</p>
 
                 </button>
                 <button onclick="cambiarTab(4)" class="temperatura tab" id="tab_temperatura">
                     <!--Aquí empieza la sección de alertas-->
                     <div class="alertas-container">
                         <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                           data-toggle="popover" data-placement="bottom"
-                           data-content="Temperatura alta">
+                            data-toggle="popover" data-placement="bottom" data-content="Temperatura alta">
                             <i class="bi bi-exclamation-circle-fill"></i>
                         </a>
 
                         <a type="button" class="btn btn-secondary alerta_media" data-container="body"
-                           data-toggle="popover" data-placement="bottom"
-                           data-content="La temperatura está aumentando">
+                            data-toggle="popover" data-placement="bottom" data-content="La temperatura está aumentando">
                             <i class="bi bi-exclamation-circle-fill"></i>
                         </a>
                     </div>
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>Temperatura</p>
-                    <p class="dato_actual_tab">Dato Actual</p>
+                    <p class="dato_actual_tab" id="dato_actual_tab_Temperatura">Dato Actual</p>
 
                 </button>
                 <button onclick="cambiarTab(5)" class="luz tab" id="tab_luz">
@@ -200,20 +189,18 @@
                     <!--Aquí empieza la sección de alertas-->
                     <div class="alertas-container">
                         <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                           data-toggle="popover" data-placement="bottom"
-                           data-content="Temperatura alta">
+                            data-toggle="popover" data-placement="bottom" data-content="Temperatura alta">
                             <i class="bi bi-exclamation-circle-fill"></i>
                         </a>
 
                         <a type="button" class="btn btn-secondary alerta_media" data-container="body"
-                           data-toggle="popover" data-placement="bottom"
-                           data-content="La temperatura está aumentando">
+                            data-toggle="popover" data-placement="bottom" data-content="La temperatura está aumentando">
                             <i class="bi bi-exclamation-circle-fill"></i>
                         </a>
                     </div>
                     <!--Aquí acaba la sección de alertas-->
                     <p>Luz</p>
-                    <p class="dato_actual_tab">Dato Actual</p>
+                    <p class="dato_actual_tab" id="dato_actual_tab_luz">Dato Actual</p>
 
                 </button>
             </div>
@@ -222,24 +209,24 @@
             <div class="cuerpo_del_visualizador">
 
                 <!--DATOS DE SALINIDAD-->
-                <article class="grafica_salinidad grafica activo" >
+                <article class="grafica_salinidad grafica activo">
                     <section class="grafica-container">
 
                         <!--Filtro de tiempo para las gráficas-->
                         <div>
-                            <select class="filtro_graficas">
+                            <select class="filtro_graficas" id="filtro_salinidad">
                                 <option>Hoy</option>
                                 <option>Semana</option>
                                 <option>Seleccionar fecha</option>
                             </select>
 
                             <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
-                            <form class="seleccionar_fecha" action="#">
+                            <form class="seleccionar_fecha" id="seleccionar_fecha_salinidad" action="#">
                                 <label for="desde-sal">
                                     Desde: <input name="desde" id="desde-sal" class="desde" type="date">
                                 </label>
                                 <label for="hasta-sal" class="hasta">
-                                    Hasta: <input name="hasta" id="hasta-sal"  type="date">
+                                    Hasta: <input name="hasta" id="hasta-sal" type="date">
                                 </label>
 
                                 <input type="submit">
@@ -253,7 +240,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual</p>
+                            <p id="dato_actual_salinidad">Dato actual</p>
                         </div>
 
                         <div class="alerta_descripcion">
@@ -278,19 +265,19 @@
 
                         <!--Filtro de tiempo para las gráficas-->
                         <div>
-                            <select class="filtro_graficas">
+                            <select class="filtro_graficas" id="filtro_humedad">
                                 <option>Hoy</option>
                                 <option>Semana</option>
                                 <option>Seleccionar fecha</option>
                             </select>
 
                             <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
-                            <form class="seleccionar_fecha" action="#">
+                            <form class="seleccionar_fecha" id="seleccionar_fecha_humedad" action="#">
                                 <label for="desde-humedad">
                                     Desde: <input name="desde" id="desde-humedad" class="desde" type="date">
                                 </label>
                                 <label for="hasta-humedad" class="hasta">
-                                    Hasta: <input name="hasta" id="hasta-humedad"  type="date">
+                                    Hasta: <input name="hasta" id="hasta-humedad" type="date">
                                 </label>
 
                                 <input type="submit">
@@ -304,7 +291,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual</p>
+                            <p id="dato_actual_humedad">Dato actual</p>
                         </div>
 
                         <div class="alerta_descripcion">
@@ -329,19 +316,19 @@
 
                         <!--Filtro de tiempo para las gráficas-->
                         <div>
-                            <select class="filtro_graficas">
+                            <select class="filtro_graficas" id="filtro_pH">
                                 <option>Hoy</option>
                                 <option>Semana</option>
                                 <option>Seleccionar fecha</option>
                             </select>
 
                             <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
-                            <form class="seleccionar_fecha" action="#">
+                            <form class="seleccionar_fecha" id="seleccionar_fecha_pH" action="#">
                                 <label for="desde-ph">
                                     Desde: <input name="desde" id="desde-ph" class="desde" type="date">
                                 </label>
                                 <label for="hasta-ph" class="hasta">
-                                    Hasta: <input name="hasta" id="hasta-ph"  type="date">
+                                    Hasta: <input name="hasta" id="hasta-ph" type="date">
                                 </label>
 
                                 <input type="submit">
@@ -355,7 +342,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual</p>
+                            <p id="dato_actual_pH">Dato actual</p>
                         </div>
 
                         <div class="alerta_descripcion">
@@ -381,19 +368,19 @@
 
                         <!--Filtro de tiempo para las gráficas-->
                         <div>
-                            <select class="filtro_graficas">
+                            <select class="filtro_graficas" id="filtro_temperatura">
                                 <option>Hoy</option>
                                 <option>Semana</option>
                                 <option>Seleccionar fecha</option>
                             </select>
 
                             <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
-                            <form class="seleccionar_fecha" action="#">
+                            <form class="seleccionar_fecha" id="seleccionar_fecha_temperatura" action="#">
                                 <label for="desde-temperatura">
                                     Desde: <input name="desde" id="desde-temperatura" class="desde" type="date">
                                 </label>
                                 <label for="hasta-temperatura" class="hasta">
-                                    Hasta: <input name="hasta" id="hasta-temperatura"  type="date">
+                                    Hasta: <input name="hasta" id="hasta-temperatura" type="date">
                                 </label>
 
                                 <input type="submit">
@@ -407,7 +394,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual</p>
+                            <p id="dato_actual_temperatura">Dato actual</p>
                         </div>
 
                         <div class="alerta_descripcion">
@@ -434,19 +421,19 @@
 
                         <!--Filtro de tiempo para las gráficas-->
                         <div>
-                            <select class="filtro_graficas">
+                            <select class="filtro_graficas" id="filtro_luz">
                                 <option>Hoy</option>
                                 <option>Semana</option>
                                 <option>Seleccionar fecha</option>
                             </select>
 
                             <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
-                            <form class="seleccionar_fecha" action="#">
+                            <form class="seleccionar_fecha" id="seleccionar_fecha_luz" action="#">
                                 <label for="desde-luz">
                                     Desde: <input name="desde" id="desde-luz" class="desde" type="date">
                                 </label>
                                 <label for="hasta-luz" class="hasta">
-                                    Hasta: <input name="hasta" id="hasta-luz"  type="date">
+                                    Hasta: <input name="hasta" id="hasta-luz" type="date">
                                 </label>
 
                                 <input type="submit">
@@ -460,7 +447,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual</p>
+                            <p id="dato_actual_luz">Dato actual</p>
                         </div>
 
                         <div class="alerta_descripcion">
@@ -516,35 +503,54 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="headingOne">
                         <button data-toggle="collapse" href="#collapseOne" aria-expanded="true"
-                           aria-controls="collapseOne" class="enlaces_a_flecha">
+                            aria-controls="collapseOne" class="enlaces_a_flecha">
                             <h5 class="mb-0">
 
-                                    Salinidad
+                                Salinidad
 
                             </h5>
                             <!--Aquí empieza la sección de alertas-->
                             <div class="alertas-container">
                                 <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                                   data-toggle="popover" data-placement="bottom"
-                                   data-content="Temperatura alta">
+                                    data-toggle="popover" data-placement="bottom" data-content="Temperatura alta">
                                     <i class="bi bi-exclamation-circle-fill"></i>
                                 </a>
 
                                 <a type="button" class="btn btn-secondary alerta_media" data-container="body"
-                                   data-toggle="popover" data-placement="bottom"
-                                   data-content="La temperatura está aumentando">
+                                    data-toggle="popover" data-placement="bottom"
+                                    data-content="La temperatura está aumentando">
                                     <i class="bi bi-exclamation-circle-fill"></i>
                                 </a>
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>dato actual</p>
+                                <p id="dato_actual_acordeon_salinidad">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
                     </div>
 
                     <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div class="container_filtro">
+                            <select class="filtro_graficas" id="filtro_acordeon_salinidad">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" id="seleccionar_fecha_acordeon_salinidad" action="#">
+                                <label for="desde-sal">
+                                    Desde: <input name="desde" id="desde-acordeon-sal" class="desde" type="date">
+                                </label>
+                                <label for="hasta-sal" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-acordeon-sal" type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
                         <!--Gráfica de salinidad-->
                         <div id="chart-container-acordeon-sal" class="card-body">
                             <canvas id="chart-acordeon-sal"></canvas>
@@ -558,35 +564,56 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="headingTwo">
                         <button data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
-                           aria-controls="collapseTwo" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
+                            aria-controls="collapseTwo" class="enlaces_a_flecha">
+                            <h5 class="mb-0">
 
                                 Humedad
 
-                        </h5>
+                            </h5>
                             <!--Aquí empieza la sección de alertas-->
                             <div class="alertas-container">
                                 <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                                   data-toggle="popover" data-placement="bottom"
-                                   data-content="Temperatura alta">
+                                    data-toggle="popover" data-placement="bottom" data-content="Temperatura alta">
                                     <i class="bi bi-exclamation-circle-fill"></i>
                                 </a>
 
                                 <a type="button" class="btn btn-secondary alerta_media" data-container="body"
-                                   data-toggle="popover" data-placement="bottom"
-                                   data-content="La temperatura está aumentando">
+                                    data-toggle="popover" data-placement="bottom"
+                                    data-content="La temperatura está aumentando">
                                     <i class="bi bi-exclamation-circle-fill"></i>
                                 </a>
                             </div>
                             <!--Aquí acaba la sección de alertas-->
-                        <div class="triangulo">
-                            <p>dato actual</p>
-                            <i class="bi bi-caret-down-fill"></i>
-                        </div>
+                            <div class="triangulo">
+                                <p id="dato_actual_acordeon_humedad">dato actual</p>
+                                <i class="bi bi-caret-down-fill"></i>
+                            </div>
                         </button>
                     </div>
 
                     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div class="container_filtro">
+                            <select class="filtro_graficas" id="filtro_acordeon_humedad">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" id="seleccionar_fecha_acordeon_humedad" action="#">
+                                <label for="desde-humedad">
+                                    Desde: <input name="desde" id="desde-acordeon-humedad" class="desde" type="date">
+                                </label>
+                                <label for="hasta-humedad" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-acordeon-humedad" type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
                         <!--Gráfica de humedad-->
                         <div id="chart-container-acordeon-humedad" class="card-body">
 
@@ -602,37 +629,57 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="headingThree">
                         <button data-toggle="collapse" href="#collapseThree" aria-expanded="true"
-                           aria-controls="collapseThree" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
+                            aria-controls="collapseThree" class="enlaces_a_flecha">
+                            <h5 class="mb-0">
 
                                 pH
 
-                        </h5>
+                            </h5>
                             <!--Aquí empieza la sección de alertas-->
                             <div class="alertas-container">
                                 <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                                   data-toggle="popover" data-placement="bottom"
-                                   data-content="Temperatura alta">
+                                    data-toggle="popover" data-placement="bottom" data-content="Temperatura alta">
                                     <i class="bi bi-exclamation-circle-fill"></i>
                                 </a>
 
                                 <a type="button" class="btn btn-secondary alerta_media" data-container="body"
-                                   data-toggle="popover" data-placement="bottom"
-                                   data-content="La temperatura está aumentando">
+                                    data-toggle="popover" data-placement="bottom"
+                                    data-content="La temperatura está aumentando">
                                     <i class="bi bi-exclamation-circle-fill"></i>
                                 </a>
                             </div>
                             <!--Aquí acaba la sección de alertas-->
-                        <div class="triangulo">
-                            <p>dato actual</p>
-                            <i class="bi bi-caret-down-fill"></i>
-                        </div>
+                            <div class="triangulo">
+                                <p id="dato_actual_acordeon_pH">dato actual</p>
+                                <i class="bi bi-caret-down-fill"></i>
+                            </div>
                         </button>
                     </div>
 
                     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div class="container_filtro">
+                            <select class="filtro_graficas" id="filtro_acordeon_pH">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" id="seleccionar_fecha_acordeon_pH" action="#">
+                                <label for="desde-ph">
+                                    Desde: <input name="desde" id="desde-acordeon-ph" class="desde" type="date">
+                                </label>
+                                <label for="hasta-ph" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-acordeon-ph" type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
                         <!--Gráfica de pH-->
-                        <div id="chart-container-acordeon-pH">
+                        <div id="chart-container-acordeon-pH" class="card-body">
 
                             <canvas id="chart-acordeon-pH"></canvas>
 
@@ -647,37 +694,58 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="headingFour">
                         <button data-toggle="collapse" href="#collapseFour" aria-expanded="true"
-                           aria-controls="collapseFour" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
+                            aria-controls="collapseFour" class="enlaces_a_flecha">
+                            <h5 class="mb-0">
 
                                 Temperatura
-                        </h5>
+                            </h5>
                             <!--Aquí empieza la sección de alertas-->
                             <div class="alertas-container">
                                 <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                                   data-toggle="popover" data-placement="bottom"
-                                   data-content="Temperatura alta">
+                                    data-toggle="popover" data-placement="bottom" data-content="Temperatura alta">
                                     <i class="bi bi-exclamation-circle-fill"></i>
                                 </a>
 
                                 <a type="button" class="btn btn-secondary alerta_media" data-container="body"
-                                   data-toggle="popover" data-placement="bottom"
-                                   data-content="La temperatura está aumentando">
+                                    data-toggle="popover" data-placement="bottom"
+                                    data-content="La temperatura está aumentando">
                                     <i class="bi bi-exclamation-circle-fill"></i>
                                 </a>
                             </div>
                             <!--Aquí acaba la sección de alertas-->
-                        <div class="triangulo">
-                            <p>dato actual</p>
-                            <i class="bi bi-caret-down-fill"></i>
-                        </div>
+                            <div class="triangulo">
+                                <p id="dato_actual_acordeon_temperatura">dato actual</p>
+                                <i class="bi bi-caret-down-fill"></i>
+                            </div>
                         </button>
                     </div>
 
 
                     <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div class="container_filtro">
+                            <select class="filtro_graficas" id="filtro_acordeon_temperatura">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" id="seleccionar_fecha_acordeon_temperatura" action="#">
+                                <label for="desde-temperatura">
+                                    Desde: <input name="desde" id="desde-acordeon-temperatura" class="desde" type="date">
+                                </label>
+                                <label for="hasta-temperatura" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-acordeon-temperatura" type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
                         <!--Gráfica de temperatura-->
-                        <div id="chart-container-acordeon-temperatura">
+                        <div id="chart-container-acordeon-temperatura"  class="card-body">
 
                             <canvas id="chart-acordeon-temperatura"></canvas>
 
@@ -691,37 +759,58 @@
                 <div class="card">
                     <div class="card-header" role="tab" id="headingFive">
                         <button data-toggle="collapse" href="#collapseFive" aria-expanded="true"
-                           aria-controls="collapseFive" class="enlaces_a_flecha">
-                        <h5 class="mb-0">
+                            aria-controls="collapseFive" class="enlaces_a_flecha">
+                            <h5 class="mb-0">
 
                                 Luz
 
-                        </h5>
+                            </h5>
                             <!--Aquí empieza la sección de alertas-->
                             <div class="alertas-container">
                                 <a type="button" class="btn btn-secondary alerta_grave" data-container="body"
-                                   data-toggle="popover" data-placement="bottom"
-                                   data-content="Temperatura alta">
+                                    data-toggle="popover" data-placement="bottom" data-content="Temperatura alta">
                                     <i class="bi bi-exclamation-circle-fill"></i>
                                 </a>
 
                                 <a type="button" class="btn btn-secondary alerta_media" data-container="body"
-                                   data-toggle="popover" data-placement="bottom"
-                                   data-content="La temperatura está aumentando">
+                                    data-toggle="popover" data-placement="bottom"
+                                    data-content="La temperatura está aumentando">
                                     <i class="bi bi-exclamation-circle-fill"></i>
                                 </a>
                             </div>
                             <!--Aquí acaba la sección de alertas-->
-                        <div class="triangulo">
-                            <p>dato actual</p>
-                            <i class="bi bi-caret-down-fill"></i>
-                        </div>
+                            <div class="triangulo">
+                                <p id="dato_actual_acordeon_luz">dato actual</p>
+                                <i class="bi bi-caret-down-fill"></i>
+                            </div>
                         </button>
                     </div>
 
                     <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+
+                        <!--Filtro de tiempo para las gráficas-->
+                        <div class="container_filtro">
+                            <select class="filtro_graficas" id="filtro_acordeon_luz">
+                                <option>Hoy</option>
+                                <option>Semana</option>
+                                <option>Seleccionar fecha</option>
+                            </select>
+
+                            <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
+                            <form class="seleccionar_fecha" id="seleccionar_fecha_acordeon_luz" action="#">
+                                <label for="desde-luz">
+                                    Desde: <input name="desde" id="desde-acordeon-luz" class="desde" type="date">
+                                </label>
+                                <label for="hasta-luz" class="hasta">
+                                    Hasta: <input name="hasta" id="hasta-acordeon-luz" type="date">
+                                </label>
+
+                                <input type="submit">
+                            </form>
+                        </div>
+
                         <!--Gráfica de luz-->
-                        <div id="chart-container-acordeon-luz">
+                        <div id="chart-container-acordeon-luz"  class="card-body">
 
                             <canvas id="chart-acordeon-luz"></canvas>
 
@@ -735,125 +824,163 @@
     </section>
     <!--Aqui finaliza la seccion de huertos-->
 
-<!---------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------->
 
-        <!--Aquí comienza el diálogo de ajustes de huerto-->
-        <dialog class="ajustes_de_huerto" id="ajustes_de_huerto">
+    <!--Aquí comienza el diálogo de ajustes de huerto-->
+    <dialog class="ajustes_de_huerto" id="ajustes_de_huerto">
 
-            <!--Botón de cerrar-->
-            <button id="cerrar_ajustes_huerto" class="boton_cerrar_ajustes_huerto">
-                <i class="bi bi-x-lg"></i>
-            </button>
+        <!--Botón de cerrar-->
+        <button id="cerrar_ajustes_huerto" class="boton_cerrar_ajustes_huerto">
+            <i class="bi bi-x-lg"></i>
+        </button>
 
-            <!--Título de la sección-->
-            <h3>AJUSTES DE HUERTO COCINA</h3>
+        <!--Título de la sección-->
+        <h3 id="titulo_ajustes_huerto">AJUSTES DE HUERTO COCINA</h3>
 
-            <!--Cambiar nombre del huerto y la foto-->
-            <div class="container-nombre-imagen">
-                <div class="imagen_ajustes">
-                    <img src="../../../images/huerto_cocina.svg" alt="Foto del huerto">
-
-                    <input type="file">
+        <!--Cambiar nombre del huerto y la foto-->
+        <div class="container container-nombre-imagen">
+            <div class="row justify-content-between">
+                <div class="imagen_ajustes col-sm-12 col-md-3 text-center">
+                    <img class="text-center" src="../../../images/huerto_cocina.svg" alt="Foto del huerto">
+                    <div>
+                        <form id="formulario-subir-foto" enctype="multipart/form-data">
+                        <input type="file" id="subir-foto-huerto">
+                        </form>
+                        <button id="boton-subir-foto-huerto">Cambiar foto</button>
+                        <button id="confirmar-foto-huerto">Confirmar</button>
+                        <button id="cancelar-foto-huerto">Cancelar</button>
+                    </div>
                 </div>
-                <div class="nombre_ajustes">
-                    <label for="nombre_huerto">Nombre del huerto:</label>
-                    <input type="text" id="nombre_huerto">
+                <div class="nombre_ajustes col-sm-12 col-md-7">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="nombre_huerto">Nombre del huerto:</label>
+                            <p id="nombre_huerto_ajustes"></p>
+                            <input type="text" id="nombre_huerto">
+                        </div>
+                        <p>Notas:</p>
+                        <p id="notas_huerto_ajustes">Aquí van las notas</p>
+                        <textarea id="notas_huerto" rows="10" cols="50" maxlength="1000"></textarea>
+                        <div id="contador-notas-huerto"></div>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!--Notas del huerto-->
-            <div class="notas">
-                <label for="notas_huerto">Notas:</label>
-                <textarea id="notas_huerto" rows="10" cols="50"></textarea>
+        <!--Notas del huerto-->
+
+
+        <!--Aquí empieza la sección de notificaciones-->
+        <section class="notificaciones">
+
+            <!--Switch para activar o desactivar las notificaciones-->
+            <div class="custom-control custom-switch custom-switch-md">
+                <input type="checkbox" class="custom-control-input" id="customSwitch3" >
+                <label class="custom-control-label" for="customSwitch3">Notificaciones</label>
             </div>
 
-            <!--Aquí empieza la sección de notificaciones-->
-            <section class="notificaciones">
 
-                <!--Switch para activar o desactivar las notificaciones-->
-                <div class="custom-control custom-switch custom-switch-md">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch3">
-                    <label class="custom-control-label" for="customSwitch3">Notificaciones</label>
-                </div>
+            <!--Para que el usuario personalice las notificaciones-->
+            <form action="#" class="limites_medidas" id="limites_medidas">
 
                 <h3>Personaliza las notificaciones</h3>
-                <!--Para que el usuario personalice las notificaciones-->
-                <form action="#" class="limites_medidas">
 
-                    <p>Salinidad</p>
-                    <label for="salinidad-minima">Mínima:</label>
-                    <input type="number" id="salinidad-minima">
-                    <label for="salinidad-maxima">Máxima:</label>
-                    <input type="number" id="salinidad-maxima">
-                    <label>Valores posibles: 0 - 100%</label>
+                <p>Salinidad</p>
+                <label for="salinidad-minima-editable">Mínima:</label>
+                <input type="number" id="salinidad-minima-editable"><br>
+                <p id="salinidad-minima">salinidad mínima</p>
 
-                    <p>Humedad</p>
-                    <label for="humedad-minima">Mínima:</label>
-                    <input type="number" id="humedad-minima">
-                    <label for="humedad-maxima">Máxima:</label>
-                    <input type="number" id="humedad-maxima">
-                    <label>Valores posibles: 0 - 100%</label>
-
-                    <p>pH</p>
-                    <label for="pH-minimo">Mínimo:</label>
-                    <input type="number" id="pH-minimo">
-                    <label for="pH-maximo">Máximo:</label>
-                    <input type="number" id="pH-maximo">
-                    <label>Valores posibles: 0 - 14</label>
-
-                    <p>Temperatura</p>
-                    <label for="temperatura-minima">Mínima:</label>
-                    <input type="number" id="temperatura-minima">
-                    <label for="temperatura-maxima">Máxima:</label>
-                    <input type="number" id="temperatura-maxima">
-                    <label>Valores posibles: -30 - 50ºC</label>
-
-                    <p>Luz</p>
-                    <label>Nivel de luz:</label>
-                    <select>
-                        <option>0 - Oscuridad</option>
-                        <option>1 - Poco iluminado</option>
-                        <option>2 - Sombra</option>
-                        <option>3 - Luz directa</option>
-                    </select>
-                    <label>Durante </label>
-                    <input type="number">
-                    <label>días</label>
-                    <br>
-                    <label>Nivel de luz:</label>
-                    <select>
-                        <option>0 - Oscuridad</option>
-                        <option>1 - Poco iluminado</option>
-                        <option>2 - Sombra</option>
-                        <option>3 - Luz directa</option>
-                    </select>
-                    <label>Durante </label>
-                    <input type="number">
-                    <label>días</label>
-                    <br>
-                    <input type="checkbox">
-                    <label>quiero recibir un correo cuando se emita una notificación.</label>
-                </form>
-
-            </section>
-
-            <div class="botones_editar_y_guardar">
-                <button class="boton_editar_ajustes">Editar</button>
-
-                <input type="submit"
-                       value="Guardar cambios"
-                       id="boton_guardar_ajustes_huerto"
-                       class="boton_guardar_ajustes_huerto">
-            </div>
-        </dialog>
-        <!--Aqui finaliza la seccion de ajustes de huerto-->
+                <label for="salinidad-maxima-editable">Máxima:</label>
+                <input type="number" id="salinidad-maxima-editable"><br>
+                <p id="salinidad-maxima">salinidad máxima</p>
+                <label>Valores posibles: 0 - 100%</label>
 
 
-<!---------------------------------------------------------------------------------------->
+                <p>Humedad</p>
+                <label for="humedad-minima-editable">Mínima:</label>
+                <input type="number" id="humedad-minima-editable"><br>
+                <p id="humedad-minima">humedad mínima</p>
+
+                <label for="humedad-maxima-editable">Máxima:</label>
+                <input type="number" id="humedad-maxima-editable"><br>
+                <p id="humedad-maxima">humedad máxima</p>
+
+                <label>Valores posibles: 0 - 100%</label>
+
+
+                <p>pH</p>
+                <label for="pH-minimo-editable">Mínimo:</label>
+                <input type="number" id="pH-minimo-editable"><br>
+                <p id="pH-minimo">pH mínimo</p>
+
+                <label for="pH-maximo-editable">Máximo:</label>
+                <input type="number" id="pH-maximo-editable"><br>
+                <p id="pH-maximo">pH máximo</p>
+
+                <label>Valores posibles: 0 - 14</label>
+
+
+                <p>Temperatura</p>
+                <label for="temperatura-minima-editable">Mínima:</label>
+                <input type="number" id="temperatura-minima-editable"><br>
+                <p id="temperatura-minima">temperatura mínima</p>
+
+                <label for="temperatura-maxima-editable">Máxima:</label>
+                <input type="number" id="temperatura-maxima-editable"><br>
+                <p id="temperatura-maxima">temperatura máxima</p>
+
+                <label>Valores posibles: -30 - 50ºC</label>
+
+                <p>Luz</p>
+                <label>Nivel de luz:</label>
+                <select id="luz-minimo-editable">
+                    <option value="0">0 - Oscuridad</option>
+                    <option value="1">1 - Poco iluminado</option>
+                    <option value="2">2 - Sombra</option>
+                    <option value="3">3 - Luz directa</option>
+                </select>
+                <p id="luz-minimo">luz minimo</p>
+                <br>
+                <label>Durante </label>
+                <input type="number" id="luz-minimo-dias-editable">
+                <p id="luz-minimo-dias">días</p>
+                <label>días</label>
+                <br>
+                <label>Nivel de luz:</label>
+                <select id="luz-maximo-editable">
+                    <option value="0">0 - Oscuridad</option>
+                    <option value="1">1 - Poco iluminado</option>
+                    <option value="2">2 - Sombra</option>
+                    <option value="3">3 - Luz directa</option>
+                </select>
+                <p id="luz-maximo">luz maxima</p><br>
+                <label>Durante </label>
+                <input type="number" id="luz-maximo-dias-editable">
+                <p id="luz-maximo-dias">días</p>
+                <label>días</label>
+
+            </form>
+
+        </section>
+
+        <div class="botones_editar_y_guardar">
+            <button class="boton_editar_ajustes" id="boton_editar_ajustes_huerto">Editar</button>
+
+            <input type="submit" value="Guardar cambios" id="boton_guardar_ajustes_huerto"
+                class="boton_guardar_ajustes_huerto">
+
+            <input type="reset" value="Cancelar" id="boton-cancelar-ajustes-huerto"
+                   class="boton_guardar_ajustes_huerto">
+        </div>
+    </dialog>
+    <!--Aqui finaliza la seccion de ajustes de huerto-->
+
+
+    <!---------------------------------------------------------------------------------------->
 
     <!--Aqui comienza la seccion de citas-->
     <section id="citas">
-        <h2>CITAS</h2>
+        <h2 class="text-center">CITAS</h2>
 
         <!--Tabla de citas-->
         <table>
@@ -862,6 +989,7 @@
                 <th>Fecha disponibles</th>
                 <th>Hora</th>
                 <th>Técnico</th>
+                <th>Motivo</th>
                 <th></th>
             </tr>
             </thead>
@@ -871,10 +999,8 @@
                 <td>14:30</td>
                 <td>Nicolás García </td>
                 <td>
-                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                                                alt="Aceptar">Aceptar</button>
-                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                                                alt="Rechazar">Rechazar</button>
+                    <button class="boton-aceptar-rechazar"><i class="bi bi-check-lg"></i></button>
+                    <button class="boton-aceptar-rechazar">X</button>
                 </td>
             </tr>
             <tr>
@@ -882,10 +1008,8 @@
                 <td>10:00</td>
                 <td>Leonardo Messi</td>
                 <td>
-                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                                                alt="Aceptar">Aceptar</button>
-                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                                                alt="Rechazar">Rechazar</button>
+                    <button class="boton-aceptar-rechazar"><i class="bi bi-check-lg"></i></button>
+                    <button class="boton-aceptar-rechazar">X</button>
                 </td>
             </tr>
             <tr>
@@ -893,10 +1017,8 @@
                 <td>16:45</td>
                 <td>Mario Luís Mesero</td>
                 <td>
-                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-aceptar.svg"
-                                                                alt="Aceptar">Aceptar</button>
-                    <button class="boton-aceptar-rechazar"><img src="../../../images/icono-rechazar.svg"
-                                                                alt="Rechazar">Rechazar</button>
+                    <button class="boton-aceptar-rechazar"><i class="bi bi-check-lg"></i></button>
+                    <button class="boton-aceptar-rechazar">X</button>
                 </td>
             </tr>
             </tbody>
@@ -904,34 +1026,34 @@
     </section>
     <!--Aqui finaliza la seccion de citas-->
 
-<!---------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------->
 
     <!--Aquí comienza la seccion de ajustes de perfil -->
     <section id="ajustes-usuario">
         <h2>AJUSTES DE PERFIL</h2>
             <section class="datos_usuario">
-              <form action="#" method="post">
+              <form action="#" id="formulario-ajustes"   method="post">
                 <!--Datos personales:-->
                 <div class="campo">
                   <label for="nombre_usuario">Usuario:</label>
-                  <input type="text" id="nombre_usuario">
+                  <input type="text" id="nombre_usuario" name="usuario">
                 </div>
           
                 <div class="campo">
                   <label for="nombre">Nombre:</label>
-                  <input type="text" id="nombre">
+                  <input type="text" id="nombre" name="nombre">
                 </div>
           
                 <div class="campo">
                   <label for="apellidos">Apellidos:</label>
-                  <input type="text" id="apellidos">
+                  <input type="text" id="apellidos" name="apellidos">
                 </div>
               </form>
 
                 <!--E-mail y contraseña-->
                 <div class="campo">
                 <label for="email">Email:</label>
-                <input type="email" id="email">
+                <input type="email" id="email" name="email">
                 </div>
 
 
@@ -951,14 +1073,14 @@
                         <label for="repetir_contrasenya">Repetir nueva contraseña:</label>
                         <input type=password id="repetir_contrasenya">
 
-                        <input type="submit" value="Validar">
+                        <input type="submit" id="btn-enviar" value="Validar">
                     </form>
                 </dialog>
 
 
                 <div class="contenedor5">
                     <button class="boton-editar-ajustes">Editar</button>
-                    <button class="cambios_perfil">Aplicar cambios</button>
+                    <button class="cambios_perfil" id="aplicar_cambios">Aplicar cambios</button>
                     <button class="boton-cancelar-ajustes">Cancelar</button>
                   </div>
                   
@@ -1014,6 +1136,9 @@
 
     <script src="../../scrips/page_usuario/page_usuario.js"></script>
     <script src="../../scrips/page_usuario/graficas_sensores.js"></script>
+    <script src="../../scrips/page_usuario/AjustesHuerto.js"></script>
+    <script src="../../scrips/page_usuario/citas.js"></script>
 
 </body>
+
 </html>

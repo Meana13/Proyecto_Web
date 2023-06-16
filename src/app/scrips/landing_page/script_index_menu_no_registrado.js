@@ -21,3 +21,16 @@ function desplegarMenu() {
     navToggle.setAttribute("aria-label", "Abrir menú");
   }
 }
+
+// Obtener referencias a los enlaces del menú
+const enlacesMenu = document.querySelectorAll(".boton_menu");
+
+// Agregar evento 'click' a cada enlace del menú
+enlacesMenu.forEach((enlace) => {
+  enlace.addEventListener("click", () => {
+    // Ocultar el menú desplegable al hacer clic en un enlace
+    if (navMenu.classList.contains("nav-menu_visible")) {
+      desplegarMenu();
+    }
+  });
+});
