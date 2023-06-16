@@ -93,6 +93,16 @@ th {
     padding: .25em;
 }
 
+tr:nth-child(even) {
+    background-color: var(--fondoSecundario);
+}
+
+th:last-child,
+td:last-child {
+    background-color: transparent;
+    border: none;
+}
+
 td {
     background-color: #FFFFFF;
 }
@@ -105,11 +115,7 @@ td {
     font-family: Arial, sans-serif;
 }
 
-th:last-child,
-td:last-child {
-    background-color: transparent;
-    border: none;
-}
+
 
 /* Estilos aplicados a las tablas en dispositivos móviles */
 @media (max-width: 768px) {
