@@ -88,22 +88,21 @@ async function escribirTablaCitas(){
 
     let datos = await getCitas();
 
-    console.log(datos);
-
     tablaCitas.innerHTML = "";
 
+    //Si la cita tiene el estado de rechazada, no la mostraremos en la tabla
     datos.forEach(function(cita){
         if(cita.estado !== "3"){
             tablaCitas.innerHTML += `<tr>
-        <td>${cita.fecha_cita}</td>
-        <td>${cita.hora_cita}</td>
-        <td>Técnico</td>
-        <td>${cita.asunto}</td>
-        <td><button class="boton-aceptar-rechazar" onclick='aceptarCita(${JSON.stringify(cita)})'><i class="bi bi-check-lg"></i></button>
-        <button class="boton-aceptar-rechazar" onclick='rechazarCita(${JSON.stringify(cita)})'>X</button></td>
-    </tr>`;
+                <td>${cita.fecha_cita}</td>
+                <td>${cita.hora_cita}</td>
+                <td>Técnico</td>
+                <td>${cita.asunto}</td>
+                <td><button class="boton-aceptar-rechazar" onclick='aceptarCita(${JSON.stringify(cita)})'><i class="bi bi-check-lg"></i></button>
+                <button class="boton-aceptar-rechazar" onclick='rechazarCita(${JSON.stringify(cita)})'>X</button></td>
+            </tr>`;
         }
-        });
+    });
 }
 //......................................................................................................................
 //......................................................................................................................
@@ -142,8 +141,6 @@ async function aceptarCita(citaAceptada) {
 
     //para actualizar el servidor con las citas aceptadas y rechazadas:
     let datos = await getCitas();//recibimos todas las citas del usuario.
-
-    console.log(datos);
 
     for (let i = 0; i < datos.length; i++) {
         let cita = datos[i];
