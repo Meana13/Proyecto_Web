@@ -135,11 +135,17 @@ h2 {
 .tabs .dato_actual_tab {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 40px;
+    
 }
 
 .tabs .dato_actual_tab p {
     margin: auto 0;
+}
+
+.tabs .valor_dato_actual_tab {
+    color: var(--textoBotones);
+    padding-top: 10px;
 }
 
 .tabs .circulo_dato_actual_tab {
@@ -151,13 +157,9 @@ h2 {
     margin-right: 12%;
 }
 
-.tabs .valor_dato_actual_tab {
-    color: var(--textoBotones);
-    margin-top: 10px;
-}
-
 .tabs .txt_dato_actual_tab {
     font-size: smaller;
+    padding-bottom: 5px;
 }
 
 
