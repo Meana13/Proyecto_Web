@@ -461,10 +461,4 @@ input[type="file"] {
         display: block;
         margin: auto 0;
     }
-
-    #boton-ver-cita,
-    #boton-ver-huerto,
-    #boton-añadir-huerto {
-        width: fit-content;
-    }
 }
