@@ -33,7 +33,7 @@ body {
 
 h1 {
     font-size: 60px;
-    color: #FFFFFF;
+    color: var(--textoBotones);
     text-align: center;
     font-family: Arial, sans-serif;
     text-transform: uppercase;
@@ -87,9 +87,9 @@ table {
 }
 
 th {
-    background-color: #9D4179;
+    background-color: var(--secundario);
     text-transform: uppercase;
-    color: white;
+    color: var(--textoBotones);
     padding: .25em;
 }
 
@@ -99,7 +99,7 @@ td {
 
 th,
 td {
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     padding-left: .5em;
     padding-right: .5em;
     font-family: Arial, sans-serif;
