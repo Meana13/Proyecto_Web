@@ -114,26 +114,26 @@ async function getDatosUsuario(){
 async function escribirDatos(){
     let datosCliente = await getDatosCliente();
     let datosUsuario = await getDatosUsuario();
-
+    //nombreusuario del header, para que se cambie sin tener que recargar la página:
     nombreUsuarioHeader.innerText = "";
     nombreUsuarioHeader.innerText = datosUsuario[0].nombre;
-
+    //nombre:
     nombreUsuarioAjustes.innerText = "";
     nombreUsuarioAjustes.innerText = datosCliente[0].nombre;
     nombreUsuarioEditable.style.display = "none";
     nombreUsuarioAjustes.style.display = "block";
-
+    //apellidos:
     apellidosUsuario.innerText = "";
     apellidosUsuario.innerText = datosCliente[0].apellidos;
     apellidosUsuarioEditable.style.display = "none";
     apellidosUsuario.style.display = "block";
-
+    //e-mail:
     emailUsuario.innerText = "";
     emailUsuario.innerText = datosCliente[0].email;
     emailUsuarioEditable.style.display = "none";
     emailUsuario.style.display = "block";
 
-    //contraseña:
+    //contraseña, la mostramos oculta:
     let textoOculto = textoParaOcultar(datosUsuario[0].password);
 
     pass.innerText = "";
@@ -146,6 +146,8 @@ async function escribirDatos(){
 //.......................................................
 /*
     palabra: txt -->  textoParaOcultar() --> txt
+
+Para construir una cadena de "*" según el length de una palabra
 */
 //.......................................................
 function textoParaOcultar(palabra) {
@@ -185,6 +187,7 @@ botonEditarPerfil.addEventListener('click', function(){
     apellidosUsuarioEditable.value = apellidosUsuario.textContent;
     emailUsuarioEditable.value = emailUsuario.textContent;
 
+    //llamamo a detectarErrores para no poder enviar la información si hay algún error:
     nombreUsuarioEditable.addEventListener('input', detectarErrores);
     apellidosUsuarioEditable.addEventListener('input', detectarErrores);
     emailUsuarioEditable.addEventListener('input', detectarErrores);
@@ -195,29 +198,29 @@ botonEditarPerfil.addEventListener('click', function(){
 /*
                   detectarErrores() --> VoF
 
-que detecte error si algún cambio está vacío o no cumple con el formato del campo:
+que detecte error si algún campo está vacío o no cumple con el formato del campo:
 */
 //.......................................................
-
 function detectarErrores(){
 
     const formatoValidoEmail = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(emailUsuarioEditable.value);
 
     //para mostrar los mensajes de error:
+    //nombre:
     if(nombreUsuarioEditable.value.length === 0){
         errorNombreVacio.style.display = "block";
     }
     else{
         errorNombreVacio.style.display = "none";
     }
-
+    //apellidos:
     if(apellidosUsuarioEditable.value.length === 0){
         errorApellidosVacio.style.display = "block";
     }
     else{
         errorApellidosVacio.style.display = "none";
     }
-
+    //e-mail:
     if(emailUsuarioEditable.value.length === 0){
         errorEmailVacio.style.display = "block";
     }
@@ -274,6 +277,8 @@ botonAplicarCambiosPerfil.addEventListener('click', async function(){
     botonAplicarCambiosPerfil.style.display = "none";
     botonEditarPerfil.style.display = "block";
 
+    //Si podemos pulsar el botón de validar, es que no hay ningún error, por tanto,
+    //podemos hacer el fetch al servidor:
     let datosCliente = await getDatosCliente();
     let datosUsuario = await getDatosUsuario();
     let idCliente = datosCliente[0].id_cliente;
@@ -299,10 +304,18 @@ botonAplicarCambiosPerfil.addEventListener('click', async function(){
         body: JSON.stringify(datosAUsuario)
     });
 
+    //se muestra el mensaje de éxito y se rellenan los campos con los datos nuevos:
     dialogoMensajeExito.showModal();
     await escribirDatos();
 
 });
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+         BOTON DE ACEPTAR DIÁLOGO MENSAJE
+*/
+//.......................................................
 botonAceptarDialogoExito.addEventListener('click', async function() {
     dialogoMensajeExito.close();
 });
@@ -381,15 +394,12 @@ botonEnviarNuevaPass.addEventListener('click', async function(){
         body: JSON.stringify(datos)
     });
 
-
     dialogoMensajeExito.showModal();
     dialogoCambiarPass.close();
     campoAntiguaPass.value="";
     campoNuevaPass.value = "";
     campoRepetirPass.value = "";
 })
-
-
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -400,7 +410,9 @@ botonEnviarNuevaPass.addEventListener('click', async function(){
 async function validarCamposPass(){
     let datos = await getDatosUsuario();
     let passAntigua = datos[0].password;
-
+    //El campo de contraseña antigua ha de coincidir con la contraseña de la sesión actual.
+    //El campo de nueva contraseña y el de repetir contraseña han de coincidir.
+    //La constraseña nueva ha de tener 6 caracteres o más.
     if(
         campoAntiguaPass.value === passAntigua &&
         campoNuevaPass.value === campoRepetirPass.value &&
@@ -418,8 +430,6 @@ async function validarCamposPass(){
         botonEnviarNuevaPass.disabled = true;
     }
 }
-
-
 //......................................................................................................................
 //......................................................................................................................
 //LLAMADAS DE FUNCIONES:
