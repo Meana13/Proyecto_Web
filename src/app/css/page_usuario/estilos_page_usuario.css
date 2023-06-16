@@ -144,13 +144,13 @@ h2 {
 
 .tabs .valor_dato_actual_tab {
     color: var(--textoBotones);
-    padding-top: 10px;
+    padding-top: 12px;
 }
 
 .tabs .circulo_dato_actual_tab {
     background-color: var(--secundario);
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     margin: 0 auto;
     margin-right: 12%;
