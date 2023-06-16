@@ -136,37 +136,13 @@ td:last-child {
     background-color: var(--fondoSecundario);
     font-size: 1.2em;
     padding: 0;
-    width: 180px;
+    width: 25%;
 }
 
-.buscador button {
-    flex: 1 1 0;
-    max-width: 200px;
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-    border-radius: .5em;
-    background-color: var(--fondoSecundario);
-}
-
-.buscador button:hover {
+.boton-buscar:hover {
     color: var(--textoBotones);
     font-weight: bold;
     background-color: var(--principal);
-}
-
-/* Estilos para el buscador en dispositivos móviles */
-@media(max-width: 500px) {
-    .buscador input {
-        padding: 2px;
-        margin: 0 5px 2px 0;
-        font-size: 0.9em;
-    }
-
-    .buscador button {
-        margin: 0 0 2px 0;
-        font-size: 0.9em;
-        border-radius: .5em;
-    }
 }
 
 /* Estilos para el paginador */
