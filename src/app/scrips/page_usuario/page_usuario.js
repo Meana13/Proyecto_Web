@@ -1,5 +1,51 @@
 /*
     =========================================================================
+                             NOMBRE USUARIO HEADER
+    =========================================================================
+                                                                                */
+let nombreUsuario = document.getElementById('nombreUsuarioRegistrado');
+
+//------------------------------------------
+/*
+getSesionUsuario() --> datos
+                                    ____datos____
+                                    id_usuario: N
+                                    nombre: txt
+                                    idRol: N
+                                    rol: txt
+                                    _____________
+*/
+//------------------------------------------
+async function getSesionUsuario(){
+
+    const respuesta = await fetch('../../../api/sesion/');
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+//------------------------------------------
+/*
+            escribirNombreUsuario()
+*/
+//------------------------------------------
+
+async function escribirNombreUsuario(){
+    let datosUsuario = await getSesionUsuario();
+    let nombre = datosUsuario.nombre;
+
+    nombreUsuario.innerText = "";
+    nombreUsuario.innerText = nombre;
+}
+
+//llamada:
+escribirNombreUsuario();
+
+/*-----------------------------------------------Aquí acaban las funciones para el nombre de usuario del header*/
+
+
+/*
+    =========================================================================
                                 BOTONES MENÚ
     =========================================================================
                                                                                 */
