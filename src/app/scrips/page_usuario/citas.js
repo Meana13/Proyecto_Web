@@ -5,7 +5,6 @@
 //......................................................................................................................
 //DECLARACIÓN DE VARIABLES:
 let tablaCitas = document.getElementById('tabla_citas');
-let filas = tablaCitas.getElementsByTagName('tr');
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -55,7 +54,7 @@ async function getDatosCliente(){
 //......................................................................................................................
 //.......................................................
 /*
-                    getCitas() --> datos        ____datos____
+                    getCitas() --> [datos]        ____datos____
                                                 anotaciones: txt
                                                 asunto: N
                                                 estado: N
@@ -66,7 +65,6 @@ async function getDatosCliente(){
                                                 id_cliente: N
                                                 productos: N
                                                 _____________
-
 */
 //.......................................................
 async function getCitas(){
@@ -90,18 +88,20 @@ async function escribirTablaCitas(){
 
     let datos = await getCitas();
 
-
     tablaCitas.innerHTML = "";
 
+    //Si la cita tiene el estado de rechazada, no la mostraremos en la tabla
     datos.forEach(function(cita){
-        tablaCitas.innerHTML += `<tr>
-        <td>${cita.fecha_cita}</td>
-        <td>${cita.hora_cita}</td>
-        <td>Técnico</td>
-        <td>${cita.asunto}</td>
-        <td><button class="boton-aceptar-rechazar" onclick='aceptarCita(${JSON.stringify(cita)})'><i class="bi bi-check-lg"></i></button>
-        <button class="boton-aceptar-rechazar" onclick='rechazarCita(${JSON.stringify(cita)})'>X</button></td>
-    </tr>`;
+        if(cita.estado !== "3"){
+            tablaCitas.innerHTML += `<tr>
+                <td>${cita.fecha_cita}</td>
+                <td>${cita.hora_cita}</td>
+                <td>Técnico</td>
+                <td>${cita.asunto}</td>
+                <td><button class="boton-aceptar-rechazar" onclick='aceptarCita(${JSON.stringify(cita)})'><i class="bi bi-check-lg"></i></button>
+                <button class="boton-aceptar-rechazar" onclick='rechazarCita(${JSON.stringify(cita)})'>X</button></td>
+            </tr>`;
+        }
     });
 }
 //......................................................................................................................
@@ -122,47 +122,103 @@ async function escribirTablaCitas(){
 Queremos que cuando se acepte una cita, se eliminen las demás filas que coincidan con el motivo.
 */
 //.......................................................
-function aceptarCita(cita){
-    console.log(cita);
+async function aceptarCita(citaAceptada) {
+
+    let filas = tablaCitas.getElementsByTagName('tr');
+    console.log(citaAceptada);
     //Recorremos las filas de la tabla empezando desde el final
     // (para asegurar que eliminamos de manera correcta las filas que no queremos)
     for (let i = filas.length - 1; i >= 0; i--) {
         let fila = filas[i];
 
-        //let motivo = fila.getElementsByTagName('td')[3].innerText;
-
-        if (fila.innerHTML.includes(cita.fecha_cita) && fila.innerHTML.includes(cita.hora_cita) && fila.innerHTML.includes(cita.asunto)) {
-            // No hacer nada, ya que esta es la fila que se acepta y se desea conservar
-        } else if(fila.innerHTML.includes(cita.asunto)) {
-            // Eliminar la fila de la tabla
+        if (fila.innerHTML.includes(citaAceptada.fecha_cita) && fila.innerHTML.includes(citaAceptada.hora_cita) && fila.innerHTML.includes(citaAceptada.asunto)) {
+            //si todos los datos coinciden, esta es la fila que se ha aceptado.
+        } else if (fila.innerHTML.includes(citaAceptada.asunto)) {
+            //Si coincide solo el asunto, la eliminamos:
             fila.remove();
         }
+    }
 
+    //para actualizar el servidor con las citas aceptadas y rechazadas:
+    let datos = await getCitas();//recibimos todas las citas del usuario.
+
+    for (let i = 0; i < datos.length; i++) {
+        let cita = datos[i];
+
+        if (cita.fecha_cita === citaAceptada.fecha_cita && cita.hora_cita === citaAceptada.hora_cita && cita.asunto === citaAceptada.asunto) {
+            //Si todos los datos coinciden, esta es la cita que se ha aceptado. Le asignaremos el estado de aceptada:
+            let datos = {
+                estado: 2,
+                idCita: cita.id_cita
+            }
+
+            await fetch('../../../api/citas', {
+                method: 'put',
+                body: JSON.stringify(datos)
+            });
+
+        }
+        else if(cita.asunto === citaAceptada.asunto){
+            //Si coincide solo el asunto, significa que la hemos rechazado,
+            // y, por tanto, le asignamos el estado de rechazada:
+            let datos = {
+                estado: 3,
+                idCita: cita.id_cita
+            }
+
+            await fetch('../../../api/citas', {
+                method: 'put',
+                body: JSON.stringify(datos)
+            });//fetch
+        }//else
+    }//for
+}//aceptarCita()
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+           cita --> rechazarCita()               ____cita____
+                                                anotaciones: txt
+                                                asunto: N
+                                                estado: N
+                                                fecha_cita: txt
+                                                hora_cita: txt
+                                                direccion_cita: txt
+                                                id_cita: N
+                                                id_cliente: N
+                                                productos: N
+                                                _____________
+*/
+//.......................................................
+async function rechazarCita(citaRechazada){
+    let filas = tablaCitas.getElementsByTagName('tr');
+
+    for (let i = filas.length - 1; i >= 0; i--) {
+        let fila = filas[i];
+
+        if (fila.innerHTML.includes(citaRechazada.fecha_cita) && fila.innerHTML.includes(citaRechazada.hora_cita) && fila.innerHTML.includes(citaRechazada.asunto)) {
+            //si todos los datos coinciden, esta es la fila que se ha rechazado.
+            fila.remove()
+
+            let datos = {
+                estado: 3,
+                idCita: citaRechazada.id_cita
+            }
+
+            await fetch('../../../api/citas', {
+                method: 'put',
+                body: JSON.stringify(datos)
+            });
+        }
     }
 }
-
-
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
 //llamadas de funciones:
 escribirTablaCitas();
 
 
-/*function aceptarCita(cita) {
-
-
-
-    // Recorrer las filas de la tabla (empezando desde el final)
-
-
-        // Verificar si la fila contiene la cita aceptada
-        if (fila.innerHTML.includes(cita.fecha_cita) && fila.innerHTML.includes(cita.hora_cita) && fila.innerHTML.includes(cita.asunto)) {
-            // No hacer nada, ya que esta es la fila que se acepta y se desea conservar
-        } else {
-            // Eliminar la fila de la tabla
-            fila.remove();
-        }
-    }
-}
-*/
 
 
 
@@ -172,17 +228,5 @@ escribirTablaCitas();
 
 
 
-/*
-/!*FUNCION PARA GENERAR LAS TABLAS DE CITAS DEL USUARIO*!/
 
-async function generarTablasCitasUsuario(){
 
-    let respuesta = await fetch('../../../api/generarTablaDeCitasUsuario/');
-    if(respuesta.ok){
-        const datos = await respuesta.json();
-        console.log(datos);
-    }
-
-}
-
-//generarTablasCitasUsuario();*/
