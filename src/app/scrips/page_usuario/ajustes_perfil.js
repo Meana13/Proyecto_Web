@@ -22,6 +22,9 @@ let errorNombreVacio = document.getElementById('error-nombre-usuario-vacio');
 let errorApellidosVacio = document.getElementById('error-apellidos-usuario-vacio');
 let errorEmailVacio = document.getElementById('error-email-usuario-vacio');
 let errorFormatoEmail = document.getElementById('error-formato-email');
+//dialogo de mensaje de éxito
+let dialogoMensajeExito = document.getElementById('dialogo_cambios_perfil');
+let botonAceptarDialogoExito = document.getElementById('boton_aceptar-dialogo-exito-perfil');
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -244,7 +247,7 @@ function detectarErrores(){
                BOTON DE APLICAR CAMBIOS
 */
 //.......................................................
-botonAplicarCambiosPerfil.addEventListener('click', function(){
+botonAplicarCambiosPerfil.addEventListener('click', async function(){
     //mostramos los campos fijos y ocultamos los campos editables:
     nombreUsuarioAjustes.style.display = "block";
     nombreUsuarioEditable.style.display = "none";
@@ -259,8 +262,25 @@ botonAplicarCambiosPerfil.addEventListener('click', function(){
     botonAplicarCambiosPerfil.style.display = "none";
     botonEditarPerfil.style.display = "block";
 
+    let datosCliente = await getDatosCliente();
+    let idCliente = datosCliente[0].id_cliente;
 
+    let datos = {
+        nombre: nombreUsuarioEditable.value,
+        apellidos: apellidosUsuarioEditable.value,
+        email: emailUsuarioEditable.value
+    }
 
+    await fetch('../../../api/clientes/' + idCliente, {
+        method: 'put',
+        body: JSON.stringify(datos)
+    });
+
+    dialogoMensajeExito.showModal();
+    botonAceptarDialogoExito.addEventListener('click', async function(){
+        dialogoMensajeExito.close();
+        await escribirDatos();
+    })
 
 
 });
@@ -285,6 +305,11 @@ botonCancelarPerfil.addEventListener('click', function(){
     botonCancelarPerfil.style.display = "none";
     botonAplicarCambiosPerfil.style.display = "none";
     botonEditarPerfil.style.display = "block";
+    //ocultamos todos los mensajes de error:
+    errorNombreVacio.style.display = "none";
+    errorApellidosVacio.style.display = "none";
+    errorEmailVacio.style.display = "none";
+    errorFormatoEmail.style.display = "none";
 });
 
 //......................................................................................................................
