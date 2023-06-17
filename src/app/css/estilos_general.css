@@ -8,7 +8,7 @@
     --fondoSecundario: #D7D7D7;
     --hover: #ff7eb9;
 }
-/* Estilos HTML */
+
 html {
     background-color: #FFF6ED;
     font-family: "Arial", "Arial Helvetica", sans-serif;
@@ -19,41 +19,66 @@ body {
     margin-top: 120px;
 }
 
-/* Estilos aplicados a los elementos de etiqueta 'label' */
 label {
     font-family: Arial, sans-serif;
 }
 
-/* Estilos aplicados al elemento 'body' */
 body {
     background-color: transparent;
 }
 
-/* Estilos aplicados a los elementos de párrafo 'p' */
-p {
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-}
+/*************************/
+/* Estilos de los textos */
+/*************************/
 
-/* Estilos aplicados al encabezado de nivel 1 'h1' */
 h1 {
+    font-size: 60px;
+    color: var(--textoBotones);
     text-align: center;
     font-family: Arial, sans-serif;
-    font-size: 32px;
-    color: #FFFFFF;
     text-transform: uppercase;
 }
 
 /* Estilos aplicados al encabezado de nivel 2 'h2' */
 h2 {
+    font-size: 40px;
     font-family: Arial, sans-serif;
-    font-size: 25px;
 }
 
 /* Estilos aplicados al encabezado de nivel 3 'h3' */
 h3 {
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+}
+
+p {
     font-family: Arial, sans-serif;
     font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}
+
+button:disabled {
+    background-color: var(--fondoSecundario);
+    color: rgba(0, 0, 0, 0.6);
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 /* Estilos aplicados a las tablas */
@@ -64,77 +89,70 @@ table {
     border-collapse: collapse;
 }
 
-/* Estilos aplicados a las celdas de encabezado 'th' */
 th {
-    background-color: #9D4179;
+    background-color: var(--secundario);
     text-transform: uppercase;
-    color: white;
+    color: var(--textoBotones);
     padding: .25em;
 }
 
-/* Estilos aplicados a las celdas de datos 'td' */
-td {
+th:last-child,
+td:last-child {
+    background-color: var(--fondo);
+    border: none;
+}
+
+tr:nth-child(even) {
+    background-color: var(--fondoSecundario);
+}
+
+
+tr:nth-child(odd) {
     background-color: #FFFFFF;
 }
 
-/* Estilos compartidos entre encabezados y celdas de tabla */
+
 th,
 td {
-    border: 1px solid black;
+    border: 1px solid var(--textoGeneral);
     padding-left: .5em;
     padding-right: .5em;
     font-family: Arial, sans-serif;
 }
 
-/* Estilos aplicados a la última celda de encabezado y datos */
-th:last-child,
-td:last-child {
-    background-color: transparent;
-    border: none;
+
+/* Estilos aplicados a las tablas en dispositivos móviles */
+@media (max-width: 768px) {
+    table {
+        max-width: 90%;
+        margin: 0 auto;
+        margin-top: 1em;
+        border-collapse: collapse;
+        font-size: 1em;
+    }
 }
 
 /* Estilos para el buscador */
 .buscador {
-    padding: 10px;
-    font-size: 1.2em;
+    padding: 5px;
+    font-size: 1em;
+    border-top-left-radius: .5em;
+    border-bottom-left-radius: .5em;
 }
 
 .boton-buscar {
-    border-radius: .5em;
+    border-top-right-radius: .5em;
+    border-bottom-right-radius: .5em;
     background-color: var(--fondoSecundario);
     font-size: 1.2em;
+    padding: 0;
+    width: 25%;
 }
 
-
-.buscador button {
-    flex: 1 1 0;
-    max-width: 200px;
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-    border-radius: .5em;
-    background-color: var(--fondoSecundario);
-}
-
-/* Estilos para el botón de búsqueda al pasar el cursor */
-.buscador button:hover {
+.boton-buscar:hover {
     color: var(--textoBotones);
     font-weight: bold;
     background-color: var(--principal);
-}
-
-/* Estilos para el buscador en dispositivos móviles */
-@media(max-width: 500px) {
-    .buscador input {
-        padding: 2px;
-        margin: 0 5px 2px 0;
-        font-size: 0.9em;
-    }
-
-    .buscador button {
-        margin: 0 0 2px 0;
-        font-size: 0.9em;
-        border-radius: .5em;
-    }
 }
 
 /* Estilos para el paginador */
@@ -142,93 +160,47 @@ td:last-child {
     width: 90%;
     max-width: 2000px;
     margin: 10px auto;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
 
 .paginador button,
 .paginador input {
-    padding: 10px;
-    margin: 0 5px 0 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
     font-size: 1.1em;
     border-radius: .3em;
     background-color: var(--fondoSecundario);
 }
 
-/* Estilos para el paginador al pasar el cursor */
 .paginador button:hover {
     color: var(--textoBotones);
     font-weight: bold;
     background-color: var(--principal);
 }
 
-/* Estilos adicionales para el paginador */
 .btn-input input {
     max-width: 3em;
     text-align: center;
     display: none;
 }
 
-/* Estilos para el paginador activo */
 .btn-input.activo button {
     display: none;
 }
 
-/* Estilos para el paginador activo al mostrar el campo de entrada */
 .btn-input.activo input {
     display: initial;
 }
 
 /* Estilos adicionales para el paginador en dispositivos móviles */
 @media(max-width: 500px) {
+
     .paginador button,
     .paginador input {
         font-size: 0.9em;
         padding: 7px;
         margin: 0 6px 0 6px;
-    }
-}
-
-/* Estilos aplicados en la media query para dispositivos móviles */
-@media (max-width: 768px) {
-
-    /* Estilos aplicados a los elementos de etiqueta 'label' en dispositivos móviles */
-    label {
-        font-family: Arial, sans-serif;
-    }
-
-    /* Estilos aplicados a los elementos de párrafo 'p' en dispositivos móviles */
-    p {
-        font-family: Arial, sans-serif;
-        font-size: 13px;
-    }
-
-    /* Estilos aplicados al encabezado de nivel 1 'h1' en dispositivos móviles */
-    h1 {
-        font-family: Arial, sans-serif;
-        font-size: 32px;
-        color: #FFFFFF;
-        text-transform: uppercase;
-    }
-
-    /* Estilos aplicados al encabezado de nivel 2 'h2' en dispositivos móviles */
-    h2 {
-        font-family: Arial, sans-serif;
-        font-size: 25px;
-    }
-
-    /* Estilos aplicados al encabezado de nivel 3 'h3' en dispositivos móviles */
-    h3 {
-        font-family: Arial, sans-serif;
-        font-size: 20px;
-    }
-
-    /* Estilos aplicados a las tablas en dispositivos móviles */
-    table {
-        max-width: 90%;
-        margin: 0 auto;
-        margin-top: 1em;
-        border-collapse: collapse;
-        font-size: 1em;
     }
 }

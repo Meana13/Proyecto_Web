@@ -112,6 +112,7 @@ button.boton_menu {
   right: 40px;
   height: 30px;
   margin-top: 10px;
+  width: fit-content;
 }
 
 /* Estilos para la imagen de la pestaña de inicio de sesión */
