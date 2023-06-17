@@ -61,7 +61,7 @@
                     <button class="boton_menu" id="boton_citas">Citas</button>
                 </li>
                 <li class="nav-menu-item">
-                    <button class="boton_menu" id="boton_perfil" >Ajustes perfil</button>
+                    <button class="boton_menu" id="boton_perfil">Ajustes perfil</button>
                 </li>
                 <li class="nav-menu-item">
                     <button class="boton_menu" onclick="logout()">CERRAR SESIÓN</button>
@@ -119,9 +119,15 @@
                     </div>
                     <!--Aquí acaba la sección de alertas-->
 
-                    <p>Salinidad</p>
-                    <p class="dato_actual_tab">Dato actual:</p>
-                    <p class="dato_actual_tab" id="dato_actual_tab_salinidad">Dato Actual</p>
+                    <div class="dato_actual_tab">
+                        <p>Salinidad</p>
+                        <div>
+                            <p class="txt_dato_actual_tab">Dato actual:</p>
+                            <div class="circulo_dato_actual_tab">
+                                <p class="valor_dato_actual_tab" id="dato_actual_tab_salinidad">12</p>
+                            </div>
+                        </div>
+                    </div>
 
 
 
@@ -141,11 +147,15 @@
                         </a>
                     </div>
                     <!--Aquí acaba la sección de alertas-->
-
-                    <p>Humedad</p>
-                    <p class="dato_actual_tab">Dato actual:</p>
-                    <p class="dato_actual_tab" id="dato_actual_tab_humedad">Dato Actual</p>
-
+                    <div class="dato_actual_tab">
+                        <p>Humedad</p>
+                        <div>
+                            <p class="txt_dato_actual_tab">Dato actual:</p>
+                            <div class="circulo_dato_actual_tab">
+                                <p class="valor_dato_actual_tab" id="dato_actual_tab_humedad">12</p>
+                            </div>
+                        </div>
+                    </div>
                 </button>
                 <button onclick="cambiarTab(3)" class="pH tab" id="tab_pH">
 
@@ -163,9 +173,15 @@
                     </div>
                     <!--Aquí acaba la sección de alertas-->
 
-                    <p>pH</p>
-                    <p class="dato_actual_tab">Dato actual:</p>
-                    <p class="dato_actual_tab" id="dato_actual_tab_pH">Dato Actual</p>
+                    <div class="dato_actual_tab">
+                        <p>pH</p>
+                        <div>
+                            <p class="txt_dato_actual_tab">Dato actual:</p>
+                            <div class="circulo_dato_actual_tab">
+                                <p class="valor_dato_actual_tab" id="dato_actual_tab_pH">12</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </button>
                 <button onclick="cambiarTab(4)" class="temperatura tab" id="tab_temperatura">
@@ -183,9 +199,15 @@
                     </div>
                     <!--Aquí acaba la sección de alertas-->
 
-                    <p>Temperatura</p>
-                    <p class="dato_actual_tab">Dato actual:</p>
-                    <p class="dato_actual_tab" id="dato_actual_tab_Temperatura">Dato Actual</p>
+                    <div class="dato_actual_tab">
+                        <p>Temperatura</p>
+                        <div>
+                            <p class="txt_dato_actual_tab">Dato actual:</p>
+                            <div class="circulo_dato_actual_tab">
+                                <p class="valor_dato_actual_tab" id="dato_actual_tab_Temperatura">12</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </button>
                 <button onclick="cambiarTab(5)" class="luz tab" id="tab_luz">
@@ -203,9 +225,15 @@
                         </a>
                     </div>
                     <!--Aquí acaba la sección de alertas-->
-                    <p>Luz</p>
-                    <p class="dato_actual_tab">Dato actual:</p>
-                    <p class="dato_actual_tab" id="dato_actual_tab_luz">Dato Actual</p>
+                    <div class="dato_actual_tab">
+                        <p>Luz</p>
+                        <div>
+                            <p class="txt_dato_actual_tab">Dato actual:</p>
+                            <div class="circulo_dato_actual_tab">
+                                <p class="valor_dato_actual_tab" id="dato_actual_tab_luz">12</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </button>
             </div>
@@ -245,7 +273,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual:</p>
+                            <p class="txt_dato_actual_grafica">Dato actual:</p>
                             <p id="dato_actual_salinidad">Dato actual</p>
                         </div>
 
@@ -297,7 +325,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual:</p>
+                            <p class="txt_dato_actual_grafica">Dato actual:</p>
                             <p id="dato_actual_humedad">Dato actual</p>
                         </div>
 
@@ -349,7 +377,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual:</p>
+                            <p class="txt_dato_actual_grafica">Dato actual:</p>
                             <p id="dato_actual_pH">Dato actual</p>
                         </div>
 
@@ -402,7 +430,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual:</p>
+                            <p class="txt_dato_actual_grafica">Dato actual:</p>
                             <p id="dato_actual_temperatura">Dato actual</p>
                         </div>
 
@@ -456,7 +484,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
-                            <p>Dato actual:</p>
+                            <p class="txt_dato_actual_grafica">Dato actual:</p>
                             <p id="dato_actual_luz">Dato actual</p>
                         </div>
 
@@ -534,8 +562,8 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>Dato actual:</p>
-                                <p id="dato_actual_acordeon_salinidad">dato actual</p>
+                                <p class="txt_dato_actual_acordeon">Dato actual:</p>
+                                <p class="dato_actual_acordeon" id="dato_actual_acordeon_salinidad">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
@@ -596,8 +624,8 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>Dato actual:</p>
-                                <p id="dato_actual_acordeon_humedad">dato actual</p>
+                                <p class="txt_dato_actual_acordeon">Dato actual:</p>
+                                <p class="dato_actual_acordeon" id="dato_actual_acordeon_humedad">50%</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
@@ -662,8 +690,8 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>Dato actual:</p>
-                                <p id="dato_actual_acordeon_pH">dato actual</p>
+                                <p class="txt_dato_actual_acordeon">Dato actual:</p>
+                                <p class="dato_actual_acordeon" id="dato_actual_acordeon_pH">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
@@ -727,8 +755,8 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>Dato actual:</p>
-                                <p id="dato_actual_acordeon_temperatura">dato actual</p>
+                                <p class="txt_dato_actual_acordeon">Dato actual:</p>
+                                <p class="dato_actual_acordeon" id="dato_actual_acordeon_temperatura">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
@@ -748,7 +776,8 @@
                             <!--Seleccionar fecha, aparece cuando se selecciona la opción de "seleccionar fecha"-->
                             <form class="seleccionar_fecha" id="seleccionar_fecha_acordeon_temperatura" action="#">
                                 <label for="desde-temperatura">
-                                    Desde: <input name="desde" id="desde-acordeon-temperatura" class="desde" type="date">
+                                    Desde: <input name="desde" id="desde-acordeon-temperatura" class="desde"
+                                        type="date">
                                 </label>
                                 <label for="hasta-temperatura" class="hasta">
                                     Hasta: <input name="hasta" id="hasta-acordeon-temperatura" type="date">
@@ -759,7 +788,7 @@
                         </div>
 
                         <!--Gráfica de temperatura-->
-                        <div id="chart-container-acordeon-temperatura"  class="card-body">
+                        <div id="chart-container-acordeon-temperatura" class="card-body">
 
                             <canvas id="chart-acordeon-temperatura"></canvas>
 
@@ -794,8 +823,8 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
-                                <p>Dato actual:</p>
-                                <p id="dato_actual_acordeon_luz">dato actual</p>
+                                <p class="txt_dato_actual_acordeon">Dato actual:</p>
+                                <p class="dato_actual_acordeon" id="dato_actual_acordeon_luz">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
                         </button>
@@ -825,7 +854,7 @@
                         </div>
 
                         <!--Gráfica de luz-->
-                        <div id="chart-container-acordeon-luz"  class="card-body">
+                        <div id="chart-container-acordeon-luz" class="card-body">
 
                             <canvas id="chart-acordeon-luz"></canvas>
 
@@ -856,10 +885,13 @@
         <div class="container container-nombre-imagen">
             <div class="row justify-content-between">
                 <div class="imagen_ajustes col-sm-12 col-md-3 text-center">
-                    <img id="vista-previa" class="text-center" src="../../../images/foto_base.jpeg" alt="Vista previa de la foto del huerto">
-                    <img id="foto-huerto" class="text-center" src="../../../images/foto_base.jpeg" alt="Foto del huerto">                    <div>
+                    <img id="vista-previa" class="text-center" src="../../../images/foto_base.jpeg"
+                        alt="Vista previa de la foto del huerto">
+                    <img id="foto-huerto" class="text-center" src="../../../images/foto_base.jpeg"
+                        alt="Foto del huerto">
+                    <div>
                         <form id="formulario-subir-foto" enctype="multipart/form-data">
-                        <input type="file" id="subir-foto-huerto">
+                            <input type="file" id="subir-foto-huerto">
                         </form>
                         <button id="boton-subir-foto-huerto">Cambiar foto</button>
                         <button id="confirmar-foto-huerto">Confirmar</button>
@@ -891,7 +923,7 @@
 
             <!--Switch para activar o desactivar las notificaciones-->
             <div class="custom-control custom-switch custom-switch-md">
-                <input type="checkbox" class="custom-control-input" id="customSwitch3" >
+                <input type="checkbox" class="custom-control-input" id="customSwitch3">
                 <label class="custom-control-label" for="customSwitch3">Notificaciones</label>
             </div>
 
@@ -912,8 +944,10 @@
                 <label>Valores posibles: 0 - 100%</label>
                 <!--Mensajes de error:-->
                 <p class="mensaje-error" id="salinidadMinMayorQueMax">¡La salinidad mínima es mayor que la máxima!</p>
-                <p class="mensaje-error" id="ValorSalMenorQueCero">Hay un valor menor que 0, solo se admiten valores entre 0 y 100.</p>
-                <p class="mensaje-error" id="ValorSalMayorQueCien">Hay un valor mayor que 100, solo se admiten valores entre 0 y 100.</p>
+                <p class="mensaje-error" id="ValorSalMenorQueCero">Hay un valor menor que 0, solo se admiten valores
+                    entre 0 y 100.</p>
+                <p class="mensaje-error" id="ValorSalMayorQueCien">Hay un valor mayor que 100, solo se admiten valores
+                    entre 0 y 100.</p>
 
                 <p>Humedad</p>
                 <label for="humedad-minima-editable">Mínima:</label>
@@ -926,8 +960,10 @@
                 <label>Valores posibles: 0 - 100%</label>
                 <!--Mensajes de error:-->
                 <p class="mensaje-error" id="humedadMinMayorQueMax">¡La humedad mínima es mayor que la máxima!</p>
-                <p class="mensaje-error" id="ValorHumedadMenorQueCero">Hay un valor menor que 0, solo se admiten valores entre 0 y 100.</p>
-                <p class="mensaje-error" id="ValorHumedadMayorQueCien">Hay un valor mayor que 100, solo se admiten valores entre 0 y 100.</p>
+                <p class="mensaje-error" id="ValorHumedadMenorQueCero">Hay un valor menor que 0, solo se admiten valores
+                    entre 0 y 100.</p>
+                <p class="mensaje-error" id="ValorHumedadMayorQueCien">Hay un valor mayor que 100, solo se admiten
+                    valores entre 0 y 100.</p>
 
 
                 <p>pH</p>
@@ -941,8 +977,10 @@
                 <label>Valores posibles: 0 - 14</label>
                 <!--Mensajes de error:-->
                 <p class="mensaje-error" id="pHMinMayorQueMax">¡El pH mínimo es mayor que el máximo!</p>
-                <p class="mensaje-error" id="ValorPhMenorQueCero">Hay un valor menor que 0, solo se admiten valores entre 0 y 14.</p>
-                <p class="mensaje-error" id="ValorPhMayorQueCatorce">Hay un valor mayor que 14, solo se admiten valores entre 0 y 14.</p>
+                <p class="mensaje-error" id="ValorPhMenorQueCero">Hay un valor menor que 0, solo se admiten valores
+                    entre 0 y 14.</p>
+                <p class="mensaje-error" id="ValorPhMayorQueCatorce">Hay un valor mayor que 14, solo se admiten valores
+                    entre 0 y 14.</p>
 
 
 
@@ -957,9 +995,12 @@
 
                 <label>Valores posibles: -30 - 50ºC</label>
                 <!--Mensajes de error:-->
-                <p class="mensaje-error" id="temperaturaMinMayorQueMax">¡La temperatura mínima es mayor que la máxima!</p>
-                <p class="mensaje-error" id="ValorTemperaturaMenorQueTreinta">Hay un valor menor que -30, solo se admiten valores entre -30 y 50.</p>
-                <p class="mensaje-error" id="ValorTemperaturaMayorQueCincuenta">Hay un valor mayor que 50, solo se admiten valores entre -30 y 50.</p>
+                <p class="mensaje-error" id="temperaturaMinMayorQueMax">¡La temperatura mínima es mayor que la máxima!
+                </p>
+                <p class="mensaje-error" id="ValorTemperaturaMenorQueTreinta">Hay un valor menor que -30, solo se
+                    admiten valores entre -30 y 50.</p>
+                <p class="mensaje-error" id="ValorTemperaturaMayorQueCincuenta">Hay un valor mayor que 50, solo se
+                    admiten valores entre -30 y 50.</p>
 
 
                 <p>Luz</p>
@@ -1005,7 +1046,7 @@
                 class="boton_guardar_ajustes_huerto">
 
             <input type="reset" value="Cancelar" id="boton-cancelar-ajustes-huerto"
-                   class="boton_guardar_ajustes_huerto">
+                class="boton_guardar_ajustes_huerto">
         </div>
 
         <dialog id="dialogo-mensaje-usuario-ajustes-huerto">
@@ -1026,42 +1067,42 @@
         <!--Tabla de citas-->
         <table>
             <thead>
-            <tr>
-                <th>Fecha disponibles</th>
-                <th>Hora</th>
-                <th>Técnico</th>
-                <th>Motivo</th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th>Fecha disponibles</th>
+                    <th>Hora</th>
+                    <th>Técnico</th>
+                    <th>Motivo</th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody id="tabla_citas">
-            <tr>
-                <td>1 de mayo, 2023</td>
-                <td>14:30</td>
-                <td>Nicolás García </td>
-                <td>
-                    <button class="boton-aceptar-rechazar"><i class="bi bi-check-lg"></i></button>
-                    <button class="boton-aceptar-rechazar">X</button>
-                </td>
-            </tr>
-            <tr>
-                <td>2 de mayo, 2023</td>
-                <td>10:00</td>
-                <td>Leonardo Messi</td>
-                <td>
-                    <button class="boton-aceptar-rechazar"><i class="bi bi-check-lg"></i></button>
-                    <button class="boton-aceptar-rechazar">X</button>
-                </td>
-            </tr>
-            <tr>
-                <td>3 de mayo, 2023</td>
-                <td>16:45</td>
-                <td>Mario Luís Mesero</td>
-                <td>
-                    <button class="boton-aceptar-rechazar"><i class="bi bi-check-lg"></i></button>
-                    <button class="boton-aceptar-rechazar">X</button>
-                </td>
-            </tr>
+                <tr>
+                    <td>1 de mayo, 2023</td>
+                    <td>14:30</td>
+                    <td>Nicolás García </td>
+                    <td>
+                        <button class="boton-aceptar-rechazar"><i class="bi bi-check-lg"></i></button>
+                        <button class="boton-aceptar-rechazar">X</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2 de mayo, 2023</td>
+                    <td>10:00</td>
+                    <td>Leonardo Messi</td>
+                    <td>
+                        <button class="boton-aceptar-rechazar"><i class="bi bi-check-lg"></i></button>
+                        <button class="boton-aceptar-rechazar">X</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3 de mayo, 2023</td>
+                    <td>16:45</td>
+                    <td>Mario Luís Mesero</td>
+                    <td>
+                        <button class="boton-aceptar-rechazar"><i class="bi bi-check-lg"></i></button>
+                        <button class="boton-aceptar-rechazar">X</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </section>
@@ -1072,66 +1113,66 @@
     <!--Aquí comienza la seccion de ajustes de perfil -->
     <section id="ajustes-usuario">
         <h2>AJUSTES DE PERFIL</h2>
-            <section class="datos_usuario">
-              <form action="#" id="formulario-ajustes"   method="post">
+        <section class="datos_usuario">
+            <form action="#" id="formulario-ajustes" method="post">
                 <!--Datos personales:-->
                 <div class="campo">
-                  <label for="nombre_usuario">Usuario:</label>
-                  <input type="text" id="nombre_usuario" name="usuario">
+                    <label for="nombre_usuario">Usuario:</label>
+                    <input type="text" id="nombre_usuario" name="usuario">
                 </div>
-          
-                <div class="campo">
-                  <label for="nombre">Nombre:</label>
-                  <input type="text" id="nombre" name="nombre">
-                </div>
-          
-                <div class="campo">
-                  <label for="apellidos">Apellidos:</label>
-                  <input type="text" id="apellidos" name="apellidos">
-                </div>
-              </form>
 
-                <!--E-mail y contraseña-->
                 <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre">
+                </div>
+
+                <div class="campo">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" name="apellidos">
+                </div>
+            </form>
+
+            <!--E-mail y contraseña-->
+            <div class="campo">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email">
-                </div>
+            </div>
 
 
-                <div class="contenedor2">
+            <div class="contenedor2">
                 <button id="cambiar_contraseña">Cambiar contraseña</button>
-                </div>    
+            </div>
 
-                <!--Diálogo para cambiar la contraseña-->
-                <dialog>
-                    <form action="#">
-                        <label for="antigua_contrasenya">Antigua contraseña:</label>
-                        <input type=password id="antigua_contrasenya">
+            <!--Diálogo para cambiar la contraseña-->
+            <dialog>
+                <form action="#">
+                    <label for="antigua_contrasenya">Antigua contraseña:</label>
+                    <input type=password id="antigua_contrasenya">
 
-                        <label for="nueva_contrasenya">Nueva contraseña:</label>
-                        <input type=password id="nueva_contrasenya">
+                    <label for="nueva_contrasenya">Nueva contraseña:</label>
+                    <input type=password id="nueva_contrasenya">
 
-                        <label for="repetir_contrasenya">Repetir nueva contraseña:</label>
-                        <input type=password id="repetir_contrasenya">
+                    <label for="repetir_contrasenya">Repetir nueva contraseña:</label>
+                    <input type=password id="repetir_contrasenya">
 
-                        <input type="submit" id="btn-enviar" value="Validar">
-                    </form>
-                </dialog>
-
-
-                <div class="contenedor5">
-                    <button class="boton-editar-ajustes">Editar</button>
-                    <button class="cambios_perfil" id="aplicar_cambios">Aplicar cambios</button>
-                    <button class="boton-cancelar-ajustes">Cancelar</button>
-                  </div>
-                  
+                    <input type="submit" id="btn-enviar" value="Validar">
+                </form>
+            </dialog>
 
 
-                <!--Mensaje de cambios realizados correctamente-->
-                <dialog id="dialogo_cambios_perfil">
-                    <p>Cambios realizados correctamente.</p>
-                    <button id="boton_aceptar">Aceptar</button>
-                </dialog>
+            <div class="contenedor5">
+                <button class="boton-editar-ajustes">Editar</button>
+                <button class="cambios_perfil" id="aplicar_cambios">Aplicar cambios</button>
+                <button class="boton-cancelar-ajustes">Cancelar</button>
+            </div>
+
+
+
+            <!--Mensaje de cambios realizados correctamente-->
+            <dialog id="dialogo_cambios_perfil">
+                <p>Cambios realizados correctamente.</p>
+                <button id="boton_aceptar">Aceptar</button>
+            </dialog>
 
 
             </form>
@@ -1142,7 +1183,7 @@
 
 
 
-<!--  <button type="button" id="boton-volver-atras">VOLVER ATRÁS</button>
+    <!--  <button type="button" id="boton-volver-atras">VOLVER ATRÁS</button>
 -->
 
 
