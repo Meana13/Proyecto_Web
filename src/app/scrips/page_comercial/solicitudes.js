@@ -17,6 +17,17 @@ let botonSolicitudesFinalizadas = document.getElementById('boton-solicitudes-fin
 const tablaPendientes = document.getElementById("tabla-solicitudes-pendientes");
 const tablaProceso = document.getElementById("tabla-solicitudes-proceso");
 const tablaFinalizadas = document.getElementById("tabla-solicitudes-finalizadas");
+//Ver más:
+let verMasNombre = document.getElementById('nombre-solicitud');
+let verMasApellido = document.getElementById('apellidos-solicitud');
+let verMasEmail = document.getElementById('email-solicitud');
+let verMasAsunto = document.getElementById('asunto-solicitud');
+let verMasMensaje = document.getElementById('mensaje-solicitud');
+let botonPasarPte = document.getElementById('boton-pasar-a-pendientes');
+let botonPasarProceso = document.getElementById('boton-pasar-a-proceso');
+let botonPasarFin = document.getElementById('boton-pasar-a-finalizada');
+let botonVolverASolicitudes = document.getElementById('boton-volver-a-lista-solicitudes');
+
 
 
 
@@ -161,7 +172,7 @@ async function escribirTablaProceso() {
             <td>${solicitud.email}</td>
             <td>${solicitud.asunto_formulario_contacto}</td>
             <td>fecha</td>
-            <td><button>VER MÁS</button></td> 
+            <td><button onclick='verMasDeSolicitud(${JSON.stringify(solicitud)})'>VER MÁS</button></td> 
             </tr>`
     });
 }
@@ -182,7 +193,7 @@ async function escribirTablaFinalizadas() {
             <td>${solicitud.email}</td>
             <td>${solicitud.asunto_formulario_contacto}</td>
             <td>fecha</td>
-            <td><button>VER MÁS</button></td> 
+            <td><button onclick='verMasDeSolicitud(${JSON.stringify(solicitud)})'>VER MÁS</button></td> 
             </tr>`
     });
 }
@@ -202,6 +213,13 @@ async function verMasDeSolicitud(solicitud) {
     let datos = await getDatosCliente(solicitud.id_usuario);
     console.log(datos);
     console.log(solicitud);
+
+    verMasNombre.innerText = datos[0].nombre;
+    verMasApellido.innerText = datos[0].apellidos;
+    verMasEmail.innerText = solicitud.email;
+    verMasAsunto.innerText = solicitud.asunto_formulario_contacto;
+    verMasMensaje.innerText = solicitud.mensaje;
+
 }
 
 //......................................................................................................................
