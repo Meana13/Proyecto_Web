@@ -92,20 +92,21 @@ th {
     color: var(--textoBotones);
     padding: .25em;
 }
-
-tr:nth-child(even) {
-    background-color: var(--fondoSecundario);
-}
-
 th:last-child,
 td:last-child {
     background-color: transparent;
     border: none;
 }
 
-td {
+tr:nth-child(even) {
+    background-color: var(--fondoSecundario);
+}
+
+
+tr:nth-child(odd) {
     background-color: #FFFFFF;
 }
+
 
 th,
 td {
