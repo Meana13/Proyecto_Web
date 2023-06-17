@@ -24,6 +24,28 @@ async function getSesionUsuario(){
         return datos;
     }
 }
+//.......................................................
+/*
+            getDatosUsuario() --> datos
+                                            ____datos____
+                                            id_usuario: N
+                                            rol: N
+                                            nombre: txt
+                                            password: txt
+                                            _____________
+*/
+//.......................................................
+async function getDatosUsuario(){
+    let datosSesion = await getSesionUsuario();
+    let idUsuario = datosSesion.id_usuario;
+
+    const respuesta = await fetch('../../../api/usuario/' + '?idUsuario=' + idUsuario);
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+
 //------------------------------------------
 /*
             escribirNombreUsuario()
@@ -31,8 +53,8 @@ async function getSesionUsuario(){
 //------------------------------------------
 
 async function escribirNombreUsuario(){
-    let datosUsuario = await getSesionUsuario();
-    let nombre = datosUsuario.nombre;
+    let datosUsuario = await getDatosUsuario();
+    let nombre = datosUsuario[0].nombre;
 
     nombreUsuario.innerText = "";
     nombreUsuario.innerText = nombre;
