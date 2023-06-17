@@ -55,7 +55,6 @@ let graficaBase = new Chart (grafica, {
 //.......................................................
 async function crearGraficaSemana(){
     let datos = await getVentasParaGrafica();
-    console.log(datos);
 
     let datosSemana = {
         labels: [],
@@ -91,15 +90,7 @@ async function crearGraficaSemana(){
             },
         },
         plugins: {
-            legend: {
-                position: 'bottom',
-                align: 'end',
-                labels: {
-                    font: {
-                        size: 15
-                    }
-                }
-            },
+            legend: false,
             title: {
                 display: true,
                 text: 'Ventas semanales',
@@ -122,8 +113,6 @@ async function crearGraficaSemana(){
         }//plugins
     }//opciones
 
-
-
     let fechasParaGrafica = datos.map(function(dato){
         return formatearFecha(dato.fecha);
     });
@@ -139,20 +128,86 @@ async function crearGraficaSemana(){
     graficaBase.options = opcionesSemana;
     graficaBase.data = datosSemana;
     graficaBase.update();
-
-
-
 }//()
 
-   /*
-        for (let i = 3; i >= 0; i--) {
-            datosSalinidadHoy.labels.push(horas[i]);
-            datosSalinidadHoy.datasets[0].data.push(mediciones[i].mediaSalinidad);
-        }
+async function crearGraficaMes(){
+    let datos = await getVentasParaGrafica();
 
-        miGraficaSal.options = opcionesSalinidadHoy;
-        miGraficaSal.data = datosSalinidadHoy;
-        miGraficaSal.update();*/
+
+    let datosMes = {
+        labels: [],
+        datasets: [
+            {
+                label: "Importe",
+                data: [],
+                backgroundColor: ' #790050',
+            }
+        ]
+    } //datos
+
+    let opcionesMes = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                grid: {
+                    drawOnChartArea: false
+                },
+                ticks: {
+                    font: {
+                        size: 15
+                    }
+                }
+            },
+            y: {
+                ticks: {
+                    font: {
+                        size: 15
+                    }
+                }
+            },
+        },
+        plugins: {
+            legend: false,
+            title: {
+                display: true,
+                text: 'Ventas del mes',
+                position: 'top',
+                align: 'center',
+                font: {
+                    size: 15
+                }
+            },
+            tooltip: {
+                backgroundColor: '#fff',
+                titleColor: '#000',
+                titleAlign: 'center',
+                bodyColor: '#333',
+                borderColor: '#666',
+                borderWidth: 1,
+            }
+
+
+        }//plugins
+    }//opciones
+
+    let fechasParaGrafica = datos.map(function(dato){
+        return formatearFecha(dato.fecha);
+    });
+
+    for (let i = 29; i >= 0; i--) {
+        datosMes.labels.push(fechasParaGrafica[i]);
+        datosMes.datasets[0].data.push(datos[i].total);
+    }
+
+    console.log(datosMes.labels);
+    console.log(datosMes.datasets[0].data);
+
+    graficaBase.options = opcionesMes;
+    graficaBase.data = datosMes;
+    graficaBase.update();
+}//()
+
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -180,6 +235,18 @@ function formatearFecha(fechaMal) {
 selector.addEventListener('change', function(){
     if(selector.value === "semana"){
         crearGraficaSemana();
+    }
+})
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+                    SELECTOR: MES
+*/
+//.......................................................
+selector.addEventListener('change', function(){
+    if(selector.value === "mes"){
+        crearGraficaMes();
     }
 })
 
