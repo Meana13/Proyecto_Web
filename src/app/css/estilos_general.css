@@ -74,9 +74,12 @@ p {
     }
 }
 
-
-
-
+button:disabled {
+    background-color: var(--fondoSecundario);
+    color: rgba(0, 0, 0, 0.6);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 
 /* Estilos aplicados a las tablas */
 table {
@@ -92,6 +95,7 @@ th {
     color: var(--textoBotones);
     padding: .25em;
 }
+
 th:last-child,
 td:last-child {
     background-color: var(--fondo);
@@ -128,7 +132,7 @@ td {
     }
 }
 
-    /* Estilos para el buscador */
+/* Estilos para el buscador */
 .buscador {
     padding: 5px;
     font-size: 1em;
@@ -192,6 +196,7 @@ td {
 
 /* Estilos adicionales para el paginador en dispositivos móviles */
 @media(max-width: 500px) {
+
     .paginador button,
     .paginador input {
         font-size: 0.9em;
