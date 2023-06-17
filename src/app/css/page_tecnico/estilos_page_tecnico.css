@@ -59,16 +59,7 @@
     text-align: center;
 }
 
-
-#tabla-citas tbody tr:nth-child(even) td {
-    background-color: #f2f2f2;
-}
-
-#tabla-citas tbody tr:nth-child(odd) td {
-    background-color: #D7D7D7;
-}
-
-#tabla-citas tbody tr td:last-child {
+#tabla-citas tr td:last-child {
     background-color: transparent;
 }
 

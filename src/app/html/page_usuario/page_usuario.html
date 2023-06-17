@@ -1042,7 +1042,7 @@
         <div class="botones_editar_y_guardar">
             <button class="boton_editar_ajustes" id="boton_editar_ajustes_huerto">Editar</button>
 
-            <input type="submit" value="Guardar cambios" id="boton_guardar_ajustes_huerto"
+            <input type="submit" value="Guardar" id="boton_guardar_ajustes_huerto"
                 class="boton_guardar_ajustes_huerto">
 
             <input type="reset" value="Cancelar" id="boton-cancelar-ajustes-huerto"
@@ -1117,56 +1117,70 @@
             <form action="#" id="formulario-ajustes" method="post">
                 <!--Datos personales:-->
                 <div class="campo">
-                    <label for="nombre_usuario">Usuario:</label>
-                    <input type="text" id="nombre_usuario" name="usuario">
-                </div>
-
-                <div class="campo">
+                    <p id="nombre-usuario-ajustes">nombre</p>
+                    <p id="error-nombre-usuario-vacio" class="mensaje-error">¡El nombre no puede estar vacío!</p>
+                    <input type="text" id="nombre" name="nombre" required>
                     <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre">
                 </div>
 
                 <div class="campo">
                     <label for="apellidos">Apellidos:</label>
-                    <input type="text" id="apellidos" name="apellidos">
+                    <input type="text" id="apellidos" name="apellidos" required>
+                    <p id="apellidos-usuario-ajustes">apellidos</p>
+                    <p id="error-apellidos-usuario-vacio" class="mensaje-error">¡Los apellidos no pueden estar vacíos!</p>
                 </div>
-            </form>
+              </form>
 
-            <!--E-mail y contraseña-->
-            <div class="campo">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-            </div>
+                <!--E-mail y contraseña-->
+                <div class="campo">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <p id="email-usuario-ajustes">email</p>
+                    <p id="error-email-usuario-vacio" class="mensaje-error">¡El e-mail no puede estar vacío!</p>
+                    <p id="error-formato-email" class="mensaje-error">El formato del e-mail ha de ser así: ejemplo@ejemplo.com</p>
+                </div>
 
+                <!--E-mail y contraseña-->
+                <div class="campo">
+                    <label for="password-ajustes">Contraseña:</label>
+                    <input type="password" id="password-ajustes" name="password">
+                    <p id="pass-usuario-ajustes">contraseña</p>
+                </div>
 
-            <div class="contenedor2">
-                <button id="cambiar_contraseña">Cambiar contraseña</button>
-            </div>
+                <div class="contenedor2">
+                <button id="cambiar_pass">Cambiar contraseña</button>
+                </div>    
 
-            <!--Diálogo para cambiar la contraseña-->
-            <dialog>
-                <form action="#">
-                    <label for="antigua_contrasenya">Antigua contraseña:</label>
-                    <input type=password id="antigua_contrasenya">
-
-                    <label for="nueva_contrasenya">Nueva contraseña:</label>
-                    <input type=password id="nueva_contrasenya">
+                <!--Diálogo para cambiar la contraseña-->
+                <dialog id="dialogo-cambio-pass">
+                    <form action="#">
+                        <label for="antigua_contrasenya">Antigua contraseña:</label>
+                        <input type=password id="antigua_contrasenya">
+                        <p>La nueva contraseña ha de tener 6 caracteres o más</p>
+                        <label for="nueva_contrasenya">Nueva contraseña:</label>
+                        <input type=password id="nueva_contrasenya">
 
                     <label for="repetir_contrasenya">Repetir nueva contraseña:</label>
                     <input type=password id="repetir_contrasenya">
 
-                    <input type="submit" id="btn-enviar" value="Validar">
-                </form>
-            </dialog>
+                        <input type="submit" id="btn-enviar" value="Validar">
+                        <button id="btn-cancelar">Cancelar</button>
+                    </form>
+                </dialog>
 
 
-            <div class="contenedor5">
-                <button class="boton-editar-ajustes">Editar</button>
-                <button class="cambios_perfil" id="aplicar_cambios">Aplicar cambios</button>
-                <button class="boton-cancelar-ajustes">Cancelar</button>
-            </div>
+                <div class="contenedor5">
+                    <button class="boton-editar-ajustes" id="boton-editar-ajustes-perfil">Editar</button>
+                    <input type="submit" class="cambios_perfil" id="aplicar_cambios-ajustes-perfil" value="Aplicar cambios">
+                    <button class="boton-cancelar-ajustes" id="boton-cancelar-ajustes-perfil">Cancelar</button>
+                  </div>
+                  
 
-
+                <!--Mensaje de cambios realizados correctamente-->
+                <dialog id="dialogo_cambios_perfil">
+                    <p>Cambios realizados correctamente.</p>
+                    <button id="boton_aceptar-dialogo-exito-perfil">Aceptar</button>
+                </dialog>
 
             <!--Mensaje de cambios realizados correctamente-->
             <dialog id="dialogo_cambios_perfil">
@@ -1220,6 +1234,7 @@
     <script src="../../scrips/page_usuario/graficas_sensores.js"></script>
     <script src="../../scrips/page_usuario/AjustesHuerto.js"></script>
     <script src="../../scrips/page_usuario/citas.js"></script>
+    <script src="../../scrips/page_usuario/ajustes_perfil.js"></script>
 
 </body>
 
