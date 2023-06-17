@@ -8,7 +8,7 @@ if (!isset($peticion)) {
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
-$idCliente = $peticion->parametrosQuery()['idCliente'] ?? null;
+$idCliente = $peticion->parametrosQuery()['idCliente'];
 
 $sql = "SELECT *
         FROM `clientes`
