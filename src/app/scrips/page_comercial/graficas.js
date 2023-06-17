@@ -33,7 +33,8 @@ async function getVentasParaGrafica(){
     const respuesta = await fetch('../../../api/ventas/' + '?senyal=' + 1);
     if(respuesta.ok){
         const datos = await respuesta.json();
-        return datos;
+        let datosCorrectos = generarDatosQueFaltan(datos);
+        return datosCorrectos;
     }
 }
 //......................................................................................................................
@@ -122,14 +123,17 @@ async function crearGraficaSemana(){
         datosSemana.datasets[0].data.push(datos[i].total);
     }
 
-    console.log(datosSemana.labels);
-    console.log(datosSemana.datasets[0].data);
-
     graficaBase.options = opcionesSemana;
     graficaBase.data = datosSemana;
     graficaBase.update();
 }//()
-
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+               crearGraficaSemana()
+*/
+//.......................................................
 async function crearGraficaMes(){
     let datos = await getVentasParaGrafica();
 
@@ -200,9 +204,6 @@ async function crearGraficaMes(){
         datosMes.datasets[0].data.push(datos[i].total);
     }
 
-    console.log(datosMes.labels);
-    console.log(datosMes.datasets[0].data);
-
     graficaBase.options = opcionesMes;
     graficaBase.data = datosMes;
     graficaBase.update();
@@ -223,6 +224,84 @@ function formatearFecha(fechaMal) {
 
     var fechaBien = dia + "/" + mes + "/" + anio;
     return fechaBien;
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+         datos --> generarDatosQueFaltan() --> datos
+
+queremos que en las fechas donde no haya registro de ventas, es decir, que las ventas de ese día son 0,
+se representen en la gráfica. Por ello hemos de coger los datos y mirar si faltan fechas, si faltan, hemos
+de mostrar el importe de ese día como 0.
+*/
+//.......................................................
+function generarDatosQueFaltan(datos) {
+    let fechasGeneradas = [];
+
+    let fechaInicial = new Date(datos[datos.length - 1].fecha);
+    let fechaFinal = new Date(datos[0].fecha);
+    let fechaActual = new Date(fechaInicial);
+    fechaActual.setDate(fechaActual.getDate() + 1);
+
+    fechasGeneradas.push(new Date(fechaInicial), new Date(fechaActual));
+
+    while (fechaActual < fechaFinal) {
+        fechaActual.setDate(fechaActual.getDate() + 1);
+        if(fechaActual < fechaFinal){
+            fechasGeneradas.push(new Date(fechaActual));
+        }
+    }
+
+    let fechasDeDatos = datos.map(function(dato){
+        return dato.fecha;
+    })
+
+    for(let i = 0; i<fechasGeneradas.length; i++){
+
+        if(!fechasDeDatos.includes(convertirFechaAFormatoString(fechasGeneradas[i]))){
+            datos.push({
+                fecha: convertirFechaAFormatoString(fechasGeneradas[i]),
+                total: 0
+            })
+        }
+    }
+
+    let datosOrdenados = ordenarPorFechaDescendente(datos);
+    return datosOrdenados;
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+         fecha: Date --> convertirFechaAFormatoString() --> txt
+*/
+//.......................................................
+
+function convertirFechaAFormatoString(fecha) {
+    const anio = fecha.getFullYear();
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0'); // Agrega un cero al mes si es necesario
+    const dia = String(fecha.getDate()).padStart(2, '0'); // Agrega un cero al día si es necesario
+
+    const fechaString = `${anio}-${mes}-${dia}`;
+
+    return fechaString;
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+         datos --> ordenarPorFechaDescendente() --> datos
+*/
+//.......................................................
+
+function ordenarPorFechaDescendente(datos) {
+    return datos.sort((a, b) => {
+        const fechaA = new Date(a.fecha);
+        const fechaB = new Date(b.fecha);
+
+        return fechaB - fechaA;
+    });
 }
 
 //......................................................................................................................
