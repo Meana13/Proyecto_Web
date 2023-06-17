@@ -21,8 +21,7 @@ if(isset($peticion->parametrosQuery()['senyal'])){
                         SUM(`productos`.`precio`) as total
                 FROM `ventas`, `productos`
                 GROUP BY `fecha`
-                ORDER BY fecha DESC
-                LIMIT 7";
+                ORDER BY fecha DESC";
 
         $result = mysqli_query($connexion, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
