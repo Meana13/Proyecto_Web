@@ -1,102 +1,112 @@
-/**
- * URL a la que se hacen las peticiones
- */
-const url= "../../../api/usuarios/";
-/**
- * Variables vacias
- */
-let datosusuario=[];
-let limite=15;
+//......................................................................................................................
+/* SECCIÓN CITAS USUARIO REGISTRADO */
+//......................................................................................................................
 
-/**
- * Carga los datos del ajuste del usuario
- * @returns ajustesusuario
- */
-async function getSesionUsuario(){
-    const respuesta=await fetch("../../../api/sesion/");
-    if (respuesta.ok){
-        const DatosUsuario = await respuesta.json();
-        console.log(DatosUsuario);
-        return DatosUsuario;
+// DECLARACIÓN DE VARIABLES:
+let tablaCitasTecnico = document.getElementById('tablaCitasTecnico');
+let filas= document.getElementsByTagName('tr')
+//......................................................................................................................
+/* getSesionUsuario() --> datos */
+// .....................................................................................................................
+
+async function getSesionUsuario() {
+    const respuesta = await fetch('../../../api/sesion/');
+    if (respuesta.ok) {
+        const datos = await respuesta.json();
+        return datos;
     }
 }
 
-/**
- * Cargar Usuarios (limitados a 15 por página)
- */
+//......................................................................................................................
+/* getDatosCliente() --> datos */
+// .....................................................................................................................
 
-async function getUsuarios(npag,limite){
-    const respuesta=await fetch(url + '?cantidad='
-        + limite + '&pagina=' +npag);
-    if (respuesta.ok){
-        console.log("Ha entrado en el if")
-        const DatosUsuario = await respuesta.json();
-        console.log(DatosUsuario)
-        return DatosUsuario;
+async function getDatosCliente() {
+    let datosSesion = await getSesionUsuario();
+    let idUsuario = datosSesion.id_usuario;
+
+    const respuesta = await fetch('../../../api/clientes/' + '?idUsuario=' + idUsuario);
+    if (respuesta.ok) {
+        const datos = await respuesta.json();
+        return datos;
     }
 }
 
-/**
- * Filtra la lista de usuarios y la devuelve
- */
-async function getUsuariosFiltrados(npag,limite,filtro){
-    console.log("Llega al get filtrados");
-    const respuesta=await fetch(url + '?cantidad='
-        + limite + '&pagina=' +npag+'&filtro='+filtro);
-    if (respuesta.ok){
-        const DatosUsuario = await respuesta.json();
-        console.log(DatosUsuario);
-        return DatosUsuario;
+//......................................................................................................................
+/* getCitas() --> [datos] */
+// .....................................................................................................................
+
+async function getCitas() {
+    let datosCliente = await getDatosCliente();
+    let idCliente = datosCliente[0].id_cliente;
+
+    const respuesta = await fetch('../../../api/citas/' + '?idCliente=' + idCliente);
+    if (respuesta.ok) {
+        const datos = await respuesta.json();
+        return datos;
     }
 }
 
-/**
- * Recibe la pagina seleccionada en el paginador
- */
-async function conseguirPagina(){
-    let paginador= document.getElementById('paginadorCitasTecnico');
-    let pagina=paginador.value;
-    console.log(pagina);
-    return pagina;
-};
+//......................................................................................................................
+/* escribirTablaCitas() */
+// .....................................................................................................................
 
-/**
- *Genera tablas basadas en tres parametros:paginador,limite de usuario por pagina ;
- */
-async function generarTablas() {
-    let pag= 1;
-    const datos = await getUsuarios(pag,limite);
-    console.log("Ha recibido los datos")
-    let tabla = document.getElementById("body-citas-tecnico");
-    tabla.innerHTML = "";
-    datos.forEach((usuario) => {
-        tabla.innerHTML += `<tr>
-            <td>${usuario.nombre}</td>
-            <td>${usuario.fechas}</td>
-            <td><button id="boton-ver-cita">Ver ficha</button></td>
-        </tr>`;
+async function escribirTablaCitasTecnico() {
+
+    let datos = await getCitas();
+
+    tablaCitasTecnico.innerHTML = "";
+
+    // Si la cita tiene el estado de rechazada, no la mostraremos en la tabla
+    datos.forEach(function (cita, index) {
+        if (cita.estado !== "3") {
+            tablaCitasTecnico.innerHTML += `<tr>
+        <td>${cita.clientes.nombre}</td>
+        <td>${cita.fecha_cita}</td>
+        <td>${cita.estado}</td>
+        <td><button id="boton-ver-cita">Ver ficha</button></td>
+        <td> <button class="boton-eliminar-cita" onclick='eliminarCita(${JSON.stringify(cita)})'></button></td>
+      </tr>`;
+        }
     });
 }
 
-/**
- *Filtra la tabla y la muestra
- */
-async function generarTablasFiltrada() {
-    let filtro= document.getElementById("buscadorCitasTecnico")
-    let pag= await conseguirPagina();
-    const datos = await getUsuariosFiltrados(pag,limite,filtro);
-    console.log(datos);
-    let tabla = document.getElementById("body-citas-tecnico");
-    tabla.innerHTML = "";
-    datos.forEach((usuario) => {
-        tabla.innerHTML += `<tr>
-            <td>${usuario.nombre}</td>
-            <td>${usuario.fechas}</td>
-            <td><button id="boton-ver-cita">Ver ficha</button></td>
-            </td>
-        </tr>`;
-    });
+
+
+//......................................................................................................................
+/* rechazarCita(citaRechazada) */
+// .....................................................................................................................
+
+async function eliminarCita(citaEliminada) {
+    let filas = tablaCitasTecnico.getElementsByTagName('tr');
+
+    for (let i = filas.length - 1; i >= 0; i--) {
+        let fila = filas[i];
+
+        if (
+            fila.innerHTML.includes(citaEliminada.nombre) &&
+            fila.innerHTML.includes(citaEliminada.fecha_cita)
+        ) {
+            // Si todos los datos coinciden, esta es la fila que se ha eliminado.
+            fila.remove();
+
+            let datos = {
+                estado: 3,
+                idCita: citaEliminada.id_cita,
+            };
+
+            await fetch('../../../api/citas', {
+                method: 'delete',
+                body: JSON.stringify(datos),
+            });
+
+            break; // Rompemos el bucle ya que se ha eliminado la cita.
+        }
+    }
 }
-window.addEventListener("DOMContentLoaded", () => {
-    generarTablas();
-});
+
+//......................................................................................................................
+//......................................................................................................................
+
+// Llamadas de funciones:
+escribirTablaCitasTecnico();
