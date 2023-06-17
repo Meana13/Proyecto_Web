@@ -549,7 +549,7 @@ dialog.ajustes_de_huerto h3 {
     transform: translateX(calc(1.5rem - 0.25rem));
 }
 
-/*Estilos para los campos de poner los límites de las medidas*/
+/* Segunda columna */
 dialog.ajustes_de_huerto form.limites_medidas {
     display: none;
 }
@@ -568,6 +568,19 @@ dialog.ajustes_de_huerto form.limites_medidas input,
 dialog.ajustes_de_huerto form.limites_medidas select {
     display: none;
 }
+
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.column {
+    width: 50%;
+    float: left;
+}
+
 
 
 /*Estilos para los botones de editar y guardar*/
@@ -1154,8 +1167,8 @@ select {
 .boton-cancelar-ajustes {
     padding: 10px 20px;
     margin-right: 10px;
-    background-color: var(--fondoSecundario);
-    border: 2px solid var(--textoGeneral);
+    background-color: #eaeaea;
+    border: none;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -1226,11 +1239,12 @@ select {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    margin:auto;
+    border: none;
   }
   
   .boton-editar-ajustes,
-  .cambios_perfil,
-  .boton-cancelar-ajustes {
+  .cambios_perfil {
     background-color: #790050;
     color: #fff;
     border: none;
