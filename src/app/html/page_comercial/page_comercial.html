@@ -178,9 +178,9 @@
                 <!--Aquí empieza la cabecera de la tabla de solicitudes en proceso-->
                 <thead id="cabecera-tabla-solicitudes-proceso">
                     <tr>
-                        <th>NOMBRE</th>
-                        <th>APELLIDOS</th>
-                        <th id="fecha-pendientes">FECHA</th>
+                        <th>E-MAIL</th>
+                        <th>ASUNTO</th>
+                        <th>FECHA</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -231,8 +231,8 @@
                 <!--Aquí empieza la cabecera de la tabla de solicitudes finalizadas-->
                 <thead id="cabecera-tabla-solicitudes-finalizadas">
                     <tr>
-                        <th>NOMBRE</th>
-                        <th>APELLIDOS</th>
+                        <th>E-MAIL</th>
+                        <th>ASUNTO</th>
                         <th>FECHA</th>
                         <th></th>
                     </tr>
@@ -398,14 +398,13 @@
             <p><b>Nombre:</b> <span id="nombre-solicitud"></span></p>
             <p><b>Apellidos:</b> <span id="apellidos-solicitud"></span></p>
             <p><b>E-mail:</b><span id="email-solicitud"></span></p>
-            <p><b>Dirección:</b><span id="direccion-solicitud"></span></p>
-            <p><b>Solicitudes:</b></p>
-            <ul class="foco-de-detalle">
-                <li>E-mail 1</li>
-                <li>E-mail 2</li>
-                <li>E-mail 3</li>
-            </ul>
+            <p><b>Asunto:</b><span id="asunto-solicitud"></span></p>
+            <p><b>Mensaje:</b><span id="mensaje-solicitud"></span></p>
             <button id="boton-volver-a-lista-solicitudes">VOLVER ATRÁS</button>
+            <button id="boton-pasar-a-pendientes">PASAR A "PENDIENTE"</button>
+            <button id="boton-pasar-a-proceso">PASAR A "EN PROCESO"</button>
+            <button id="boton-pasar-a-finalizada">PASAR A "FINALIZADA"</button>
+
         </div>
 
     </section>

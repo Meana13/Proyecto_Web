@@ -5,10 +5,10 @@
 //......................................................................................................................
 //DECLARACIÓN DE VARIABLES:
 //Secciones:
-const seccionSolicitudes = document.getElementById("solicitudes");
 let seccionPendientes = document.getElementById('solicitudes-pendientes');
 let seccionProceso = document.getElementById('solicitudes-en-proceso');
 let seccionFinalizadas = document.getElementById('solicitudes-finalizadas');
+const seccionVerMas = document.getElementById("ver-mas");
 //Navegación por la sección:
 let botonSolicitudesPendientes = document.getElementById('boton-solicitudes-pendientes');
 let botonSolicitudesProceso = document.getElementById('boton-solicitudes-proceso');
@@ -17,10 +17,8 @@ let botonSolicitudesFinalizadas = document.getElementById('boton-solicitudes-fin
 const tablaPendientes = document.getElementById("tabla-solicitudes-pendientes");
 const tablaProceso = document.getElementById("tabla-solicitudes-proceso");
 const tablaFinalizadas = document.getElementById("tabla-solicitudes-finalizadas");
-const tablaVentas = document.getElementById("tabla-ventas");
-//Botones:
-const verVenta = document.getElementById("ver-venta");
-const verMas = document.getElementById("ver-mas");
+
+
 
 //......................................................................................................................
 //......................................................................................................................
@@ -31,9 +29,14 @@ const verMas = document.getElementById("ver-mas");
 //.......................................................
 botonSolicitudesPendientes.addEventListener('click', function (){
     escribirTablaPendientes();
+    botonSolicitudesPendientes.classList.add('activo');
+    botonSolicitudesProceso.classList.remove('activo');
+    botonSolicitudesFinalizadas.classList.remove('activo');
+
     seccionPendientes.style.display = "block";
     seccionProceso.style.display = "none";
     seccionFinalizadas.style.display = "none";
+    seccionVerMas.style.display ="none";
 });
 //......................................................................................................................
 //......................................................................................................................
@@ -44,9 +47,14 @@ botonSolicitudesPendientes.addEventListener('click', function (){
 //.......................................................
 botonSolicitudesProceso.addEventListener('click', function (){
     escribirTablaProceso();
+    botonSolicitudesProceso.classList.add('activo');
+    botonSolicitudesPendientes.classList.remove('activo');
+    botonSolicitudesFinalizadas.classList.remove('activo');
+
     seccionProceso.style.display = "block";
     seccionPendientes.style.display = "none";
     seccionFinalizadas.style.display = "none";
+    seccionVerMas.style.display = "none";
 });
 //......................................................................................................................
 //......................................................................................................................
@@ -57,10 +65,14 @@ botonSolicitudesProceso.addEventListener('click', function (){
 //.......................................................
 botonSolicitudesFinalizadas.addEventListener('click', function (){
     escribirTablaFinalizadas();
+    botonSolicitudesFinalizadas.classList.add("activo");
+    botonSolicitudesProceso.classList.remove("activo");
+    botonSolicitudesPendientes.classList.remove("activo");
+
     seccionFinalizadas.style.display = "block";
     seccionPendientes.style.display = "none";
     seccionProceso.style.display = "none";
-
+    seccionVerMas.style.display = "none";
 });
 
 //......................................................................................................................
@@ -91,6 +103,30 @@ async function getSolicitudesPorEstado(estado){
 //......................................................................................................................
 //.......................................................
 /*
+   idUsuario --> getDatosCliente() --> datos
+                                            ____datos____
+                                            id_usuario: N
+                                            id_cliente: N
+                                            nombre: txt
+                                            apellidos: txt
+                                            email: txt
+                                            direccion: txt
+                                            _____________
+*/
+//.......................................................
+async function getDatosCliente(idUsuario){
+
+    const respuesta = await fetch('../../../api/clientes/' + '?idUsuario=' + idUsuario);
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
                 escribirTablaPendientes()
 */
 //.......................................................
@@ -104,7 +140,7 @@ async function escribirTablaPendientes() {
             <td>${solicitud.email}</td>
             <td>${solicitud.asunto_formulario_contacto}</td>
             <td>fecha</td>
-            <td><button>VER MÁS</button></td> 
+            <td><button onclick='verMasDeSolicitud(${JSON.stringify(solicitud)})'>VER MÁS</button></td> 
             </tr>`
     });
 }
@@ -149,6 +185,23 @@ async function escribirTablaFinalizadas() {
             <td><button>VER MÁS</button></td> 
             </tr>`
     });
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+        solicitud --> verMasDeSolicitud()
+*/
+//.......................................................
+async function verMasDeSolicitud(solicitud) {
+    seccionVerMas.style.display = "block";
+    seccionProceso.style.display = "none";
+    seccionPendientes.style.display = "none";
+    seccionFinalizadas.style.display = "none";
+
+    let datos = await getDatosCliente(solicitud.id_usuario);
+    console.log(datos);
+    console.log(solicitud);
 }
 
 //......................................................................................................................
