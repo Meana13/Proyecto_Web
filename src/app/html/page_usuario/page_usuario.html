@@ -1039,6 +1039,8 @@
 
         </section>
 
+    <!-- Botones de editar, cancelar y guardar -->    
+
         <div class="botones_editar_y_guardar">
             <button class="boton_editar_ajustes" id="boton_editar_ajustes_huerto">Editar</button>
 
@@ -1049,7 +1051,7 @@
                 class="boton_guardar_ajustes_huerto">
         </div>
 
-        <dialog id="dialogo-mensaje-usuario-ajustes-huerto">
+        <dialog class="guardar_ajustes_huerto" id="dialogo-mensaje-usuario-ajustes-huerto">
             <p id="mensaje-usuario-ajustes-huerto">Mensaje para el usuario</p>
             <button id="boton-aceptar-mensaje-ajustes-huerto">Aceptar</button>
         </dialog>
@@ -1071,7 +1073,6 @@
                     <th>Fecha disponibles</th>
                     <th>Hora</th>
                     <th>Técnico</th>
-                    <th>Motivo</th>
                     <th></th>
                 </tr>
             </thead>
@@ -1117,10 +1118,10 @@
             <form action="#" id="formulario-ajustes" method="post">
                 <!--Datos personales:-->
                 <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
                     <p id="nombre-usuario-ajustes">nombre</p>
                     <p id="error-nombre-usuario-vacio" class="mensaje-error">¡El nombre no puede estar vacío!</p>
-                    <input type="text" id="nombre" name="nombre" required>
-                    <label for="nombre">Nombre:</label>
                 </div>
 
                 <div class="campo">
@@ -1182,11 +1183,6 @@
                     <button id="boton_aceptar-dialogo-exito-perfil">Aceptar</button>
                 </dialog>
 
-            <!--Mensaje de cambios realizados correctamente-->
-            <dialog id="dialogo_cambios_perfil">
-                <p>Cambios realizados correctamente.</p>
-                <button id="boton_aceptar">Aceptar</button>
-            </dialog>
 
 
             </form>

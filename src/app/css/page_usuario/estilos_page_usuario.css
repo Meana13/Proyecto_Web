@@ -576,6 +576,7 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar {
     justify-content: flex-end;
 }
 
+
 dialog.ajustes_de_huerto div.botones_editar_y_guardar button.boton_editar_ajustes,
 dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"] {
     background-color: var(--principal);
@@ -593,6 +594,37 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"],
 dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"] {
     display: none;
 }
+
+
+.guardar_ajustes_huerto {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background-color: #eaeaea;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  #mensaje-usuario-ajustes-huerto {
+    text-align: center;
+  }
+  
+  #boton-aceptar-mensaje-ajustes-huerto {
+    display: block;
+    margin: 0 auto;
+    background-color: #790050;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #boton-aceptar-mensaje-ajustes-huerto:hover {
+    background-color: #9D4179;
+  }
 
 
 /*************************************/
@@ -1134,6 +1166,125 @@ select {
 }
 
 
+/*Estilos cambiar contraseña*/
+.guardar_ajustes_huerto {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background-color: #eaeaea;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  
+  #dialogo-cambio-pass label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  #dialogo-cambio-pass input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  #dialogo-cambio-pass p {
+    margin-bottom: 15px;
+  }
+  
+  #dialogo-cambio-pass input[type="submit"],
+  #dialogo-cambio-pass button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  #dialogo-cambio-pass input[type="submit"] {
+    background-color: #790050;
+  }
+  
+  #dialogo-cambio-pass button {
+    background-color: #aaa;
+    margin-top: 10px;
+  }
+  
+  #dialogo-cambio-pass input[type="submit"]:hover,
+  #dialogo-cambio-pass button:hover {
+    opacity: 0.8;
+  }
+  
+  .contenedor5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .boton-editar-ajustes,
+  .cambios_perfil,
+  .boton-cancelar-ajustes {
+    background-color: #790050;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .boton-editar-ajustes:hover,
+  .cambios_perfil:hover,
+  .boton-cancelar-ajustes:hover {
+    opacity: 0.8;
+  }
+  
+  
+  
+/* Estilos dialogo cambios de perfil*/
+
+  #dialogo_cambios_perfil {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background-color: #eaeaea;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  
+  #dialogo_cambios_perfil p {
+    margin-bottom: 15px;
+  }
+  
+  #dialogo_cambios_perfil button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #790050;
+    color: #fff;
+  }
+  
+  #dialogo_cambios_perfil button:hover {
+    opacity: 0.8;
+  }
+  
+
+
+
+
+  
 
 /*Estilo apartado CITAS*/
 #citas {
