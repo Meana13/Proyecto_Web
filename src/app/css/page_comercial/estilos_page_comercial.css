@@ -123,11 +123,11 @@ th {
     color: var(--textoBotones);
     font-weight: normal;
 }
-
+/*
 th:nth-of-type(4) {
     display: none;
 }
-
+*/
 td {
     padding: .2em 2em;
 }

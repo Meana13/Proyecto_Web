@@ -306,8 +306,9 @@
                 <!--Aquí empieza la cabecera de la tabla de ventas-->
                 <thead id="cabecera-tabla-ventas">
                     <tr>
-                        <th>NOMBRE</th>
-                        <th>APELLIDOS</th>
+                        <th>E-MAIL</th>
+                        <th>PRODUCTO</th>
+                        <th>IMPORTE</th>
                         <th>FECHA</th>
                         <th></th>
                     </tr>
@@ -369,18 +370,14 @@
 
         <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
         <div class="contenedor-datos">
-            <h3>Detalles de la venta</h3>
-            <p><b>Nombre:</b><span id="id-venta"></span></p>
-            <p><b>Apellidos:</b><span id="email-venta"></span></p>
-            <p><b>E-mail:</b><span id="nombre-venta"></span></p>
-            <p><b>Dirección:</b><span id="direccion-venta"></span></p>
-            <p><b>Productos vendidos:</b></p>
-            <ul id="productos-vendidos">
-                <li>Producto 1</li>
-                <li>Producto 2</li>
-                <li>Producto 3</li>
-            </ul>
             <button id="boton-volver-a-lista-ventas">VOLVER ATRÁS</button>
+            <h3>Detalles de la venta</h3>
+            <p><b>Fecha:</b><span id="fecha-venta"></span></p>
+            <p><b>Nombre:</b><span id="nombre-venta"></span></p>
+            <p><b>Apellidos:</b><span id="apellidos-venta"></span></p>
+            <p><b>E-mail:</b><span id="email-venta"></span></p>
+            <p><b>Producto:</b><span id="producto-venta"></span></p>
+            <p><b>Importe:</b><span id="importe-venta"></span></p>
         </div>
 
     </section>
@@ -434,6 +431,7 @@
     <!--Aquí acaba el footer-->
     <!----------------------------------------------------------------------------------------------->
     <script src="../../scrips/page_comercial/solicitudes.js"></script>
+    <script src="../../scrips/page_comercial/ventas.js"></script>
 </body>
 
 </html>
