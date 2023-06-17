@@ -173,13 +173,21 @@ h2 {
     align-self: flex-start;
     font-size: 1.5em;
     margin: 20px;
+    
 }
 
-.contenedor-datos p span {
+.contenedor-datos div {
+    display: flex;
+}
+
+.ver-mas-dato {
     background-color: var(--textoBotones);
     border: 1px solid var(--textoGeneral);
-    padding: 10px;
+    padding: 3px 10px;
     margin: 40px;
+    word-wrap: break-word;
+    max-width: 60%;
+    min-height: 40px;
 }
 
 .foco-de-detalle {
@@ -238,6 +246,7 @@ h2 {
     width: 40%;
     text-align: center;
 }
+
 
 /* Estilos adicionales para la pantalla de detalles en dispositivos móviles */
 @media(max-width: 500px) {
