@@ -94,7 +94,7 @@ th {
 }
 th:last-child,
 td:last-child {
-    background-color: transparent;
+    background-color: var(--fondo);
     border: none;
 }
 
@@ -115,7 +115,6 @@ td {
     padding-right: .5em;
     font-family: Arial, sans-serif;
 }
-
 
 
 /* Estilos aplicados a las tablas en dispositivos móviles */

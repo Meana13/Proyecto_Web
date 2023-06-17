@@ -23,6 +23,10 @@
     display: none;
 }
 
+h3 {
+    margin-top: 120px;
+}
+
 /**************************/
 /* SECCION CITAS */
 /*************************/
@@ -53,24 +57,18 @@
     padding: 12px;
 }
 
-/* Estilos para alinear el contenido de ciertas celdas en la tabla de citas */
-#tabla-citas tr td:nth-child(3),
-#tabla-citas tr td:nth-child(2) {
-    text-align: center;
-}
-
-#tabla-citas tr td:last-child {
-    background-color: transparent;
+#tabla-citas td:nth-child(4),
+#tabla-citas th:nth-child(4) {
+    background-color: var(--fondo);
+    border: 0;
 }
 
 /* Estilos para los botones "Ver cita" y "Ver huerto" */
 #boton-ver-cita,
 #boton-ver-huerto,
 #boton-añadir-huerto {
-    background-color: transparent;
     border: 0;
     background-color: var(--secundario);
-    border: 0;
     color: var(--textoBotones);
     text-transform: uppercase;
     font-family: Arial, sans-serif;
@@ -78,6 +76,31 @@
     font-size: 13px;
     padding: .5em 1.5em;
     width: fit-content;
+    border-radius: 5px;
+}
+
+#boton-crear-cita {
+    border-radius: 5px;
+    background-color: var(--secundario);
+    border: 0;
+    color: var(--textoBotones);
+    height: 35px;
+    width: 110px;
+    align-items: center;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.boton-eliminar-cita {
+    border: 0;
+    background-color: var(--fondoSecundario);
+    color: var(--textoGeneral);
+    padding: 5px 10px;
     border-radius: 5px;
 }
 
@@ -245,7 +268,7 @@ select {
 }
 
 #tabla-huertos tr td:nth-child(3) {
-    background-color: transparent;
+    background-color: var(--fondo);
     border: 0;
 }
 
