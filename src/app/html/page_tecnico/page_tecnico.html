@@ -6,16 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page tecnico</title>
-    
-    <!-- carga de scripts -->
-    <script src="../../scrips/page_tecnico/page_tecnico.js"></script>
-    -<!-- <script src="../../scrips/landing_page/control-acceso.js"></script>-->
+
     <!-- carga hoja de estilos -->
     <link rel="stylesheet" href="../../css/page_tecnico/estilos_page_tecnico.css">
     <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
     <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css">
-</head>
+
+    <!-- Carga de script -->
+    <!--<script src="../../scrips/landing_page/control-acceso.js"></script> -->
+
+    </head>
 
 <body>
     <!-- HEADER -->
@@ -63,59 +64,100 @@
     <section id="seccion-citas">
         <h3>CALENDARIO DE CITAS</h3>
 
-        <table id="tabla-citas">
+        <!-- <div id="paginadorCitasTecnico" onclick="generarTablas()">
+            <button value="1">1</button>
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <button>n</button>
+        </div>
+        <div id="buscador">
+            <input type="text" id="buscadorCitasTecnico"  placeholder="Busqueda por nombre,apellidos o email" onsubmit="generarTablasFiltrada()">
+        </div>-->
+
+        <table>
             <thead>
+            <button id="boton-crear-cita">CREAR CITA</button>
                 <tr>
                     <th>Nombre</th>
                     <th>Fecha</th>
+                    <th>Motivo</th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Ricardo</td>
-                    <td>03/02/2023</td>
-                    <td>
-                        <button id="boton-ver-cita">Ver ficha</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Concepción</td>
-                    <td>10/04/2023</td>
-                    <td>
-                        <button id="boton-ver-cita">Ver ficha</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Victoria</td>
-                    <td>16/04/2023</td>
-                    <td>
-                        <button id="boton-ver-cita">Ver ficha</button>
-                    </td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Gloria</td>
-                    <td>23/04/2023</td>
-                    <td>
-                        <button id="boton-ver-cita">Ver ficha</button>
-                    </td>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Julio</td>
-                    <td>27/04/2023</td>
-                    <td>
-                        <button id="boton-ver-cita">Ver ficha</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pedro</td>
-                    <td>04/05/2023</td>
-                    <td>
-                        <button id="boton-ver-cita">Ver ficha</button>
-                    </td>
-                </tr>
+            <tbody id="tablaCitasTecnico">
+            <tr>
+                <td>Ricardo</td>
+                <td>03/02/2023</td>
+                <td>Motivo1</td>
+                <td>
+                    <button id="boton-ver-cita">Ver ficha</button>
+                </td>
+
+                <td>
+                    <button class="boton-eliminar-cita"></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Concepción</td>
+                <td>10/04/2023</td>
+                <td>Motivo2</td>
+                <td>
+                    <button id="boton-ver-cita">Ver ficha</button>
+                </td>
+
+                <td>
+                    <button class="boton-eliminar-cita"></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Victoria</td>
+                <td>16/04/2023</td>
+                <td>Motivo3</td>
+                <td>
+                    <button id="boton-ver-cita">Ver ficha</button>
+                </td>
+
+                <td>
+                    <button class="boton-eliminar-cita"></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Gloria</td>
+                <td>23/04/2023</td>
+                <td>Motivo4</td>
+                <td>
+                    <button id="boton-ver-cita">Ver ficha</button>
+                </td>
+
+                <td>
+                    <button class="boton-eliminar-cita"></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Julio</td>
+                <td>27/04/2023</td>
+                <td>Motivo5</td>
+                <td>
+                    <button id="boton-ver-cita">Ver ficha</button>
+                </td>
+
+                <td>
+                    <button class="boton-eliminar-cita"></button>
+                </td>
+            </tr>
+            <tr>
+                <td>Pedro</td>
+                <td>04/05/2023</td>
+                <td>Motivo6</td>
+                <td>
+                    <button id="boton-ver-cita">Ver ficha</button>
+                </td>
+
+                <td>
+                    <button class="boton-eliminar-cita"></button>
+                </td>
+            </tr>
             </tbody>
         </table>
     </section>
@@ -480,6 +522,12 @@
         </div>
     </footer>
     <!----------->
+
+<!-- Scripts de funcionalidad -->
+
+    <script src="../../scrips/page_tecnico/page_tecnico.js"></script>
+    <script src="../../scrips/page_tecnico/TablaCitasTecnico.js"></script>
+
 </body>
 
 </html>

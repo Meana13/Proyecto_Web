@@ -440,13 +440,27 @@ dialog.ajustes_de_huerto h3 {
     margin-bottom: 5px;
 }
 
-.imagen_ajustes input {
-    width: 172px;
+.imagen_ajustes img#foto-huerto,
+.imagen_ajustes img#vista-previa{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.imagen_ajustes img#vista-previa,
+.imagen_ajustes input,
+.imagen_ajustes button#confirmar-foto-huerto,
+.imagen_ajustes button#cancelar-foto-huerto{
+    display:none;
 }
 
 .nombre_ajustes {
     display: flex;
     align-items: center;
+}
+
+.mensaje-error{
+    display: none;
 }
 
 /*Estilos para las notas*/
@@ -516,16 +530,6 @@ dialog.ajustes_de_huerto form.limites_medidas input,
 dialog.ajustes_de_huerto form.limites_medidas select{
     display:none;
 }
-/*
-dialog.ajustes_de_huerto form.limites_medidas input[type="checkbox"] {
-    margin: 2rem .5rem 2rem 2rem;
-    transform: scale(1.5);
-    /* Ajusta el valor según el tamaño deseado */
-    /*-ms-transform: scale(1.5);
-    /* Para compatibilidad con navegadores antiguos */
-    /*-webkit-transform: scale(1.5);
-    /* Para compatibilidad con navegadores basados en webkit*/
-/*}*/
 
 
 /*Estilos para los botones de editar y guardar*/

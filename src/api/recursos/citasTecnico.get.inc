@@ -1,0 +1,22 @@
+<?php
+
+if (!isset($peticion)) {
+    http_response_code(500);
+    die();
+}
+
+require_once 'includes/connexion.php';
+if (!isset($connexion)) die();
+
+$idCliente = $peticion->parametrosQuery()['idCliente'] ?? null;
+
+$sql = "SELECT *
+        FROM `clientes`
+        JOIN `citas` ON `clientes`.id_cliente = `citas`.id_cliente 
+        JOIN `asuntos_citas` ON `citas`.asunto = `asuntos_citas`.id_asunto
+        WHERE `clientes`.id_cliente = $idCliente";
+
+$result = mysqli_query($connexion, $sql);
+while ($row = mysqli_fetch_assoc($result)) {
+    $salida[] = $row;
+}

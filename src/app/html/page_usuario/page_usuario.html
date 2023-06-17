@@ -40,7 +40,7 @@
         <!--Imagen de perfil de usuario + nombre de usuario-->
         <div class="login-tab">
             <img src="../../../images/victoria.png" alt=""></a>
-            <label>VictoriaGue</label>
+            <label id="nombreUsuarioRegistrado">VictoriaGue</label>
         </div>
 
         <!-- Menú hamburguesa (en pantallas pequeñas)-->
@@ -120,6 +120,7 @@
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>Salinidad</p>
+                    <p class="dato_actual_tab">Dato actual:</p>
                     <p class="dato_actual_tab" id="dato_actual_tab_salinidad">Dato Actual</p>
 
 
@@ -142,6 +143,7 @@
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>Humedad</p>
+                    <p class="dato_actual_tab">Dato actual:</p>
                     <p class="dato_actual_tab" id="dato_actual_tab_humedad">Dato Actual</p>
 
                 </button>
@@ -162,6 +164,7 @@
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>pH</p>
+                    <p class="dato_actual_tab">Dato actual:</p>
                     <p class="dato_actual_tab" id="dato_actual_tab_pH">Dato Actual</p>
 
                 </button>
@@ -181,6 +184,7 @@
                     <!--Aquí acaba la sección de alertas-->
 
                     <p>Temperatura</p>
+                    <p class="dato_actual_tab">Dato actual:</p>
                     <p class="dato_actual_tab" id="dato_actual_tab_Temperatura">Dato Actual</p>
 
                 </button>
@@ -200,6 +204,7 @@
                     </div>
                     <!--Aquí acaba la sección de alertas-->
                     <p>Luz</p>
+                    <p class="dato_actual_tab">Dato actual:</p>
                     <p class="dato_actual_tab" id="dato_actual_tab_luz">Dato Actual</p>
 
                 </button>
@@ -229,7 +234,7 @@
                                     Hasta: <input name="hasta" id="hasta-sal" type="date">
                                 </label>
 
-                                <input type="submit">
+                                <input type="submit" id="botonEnviarFiltroFechaSalinidad">
                             </form>
                         </div>
 
@@ -240,6 +245,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
+                            <p>Dato actual:</p>
                             <p id="dato_actual_salinidad">Dato actual</p>
                         </div>
 
@@ -291,6 +297,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
+                            <p>Dato actual:</p>
                             <p id="dato_actual_humedad">Dato actual</p>
                         </div>
 
@@ -342,6 +349,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
+                            <p>Dato actual:</p>
                             <p id="dato_actual_pH">Dato actual</p>
                         </div>
 
@@ -394,6 +402,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
+                            <p>Dato actual:</p>
                             <p id="dato_actual_temperatura">Dato actual</p>
                         </div>
 
@@ -447,6 +456,7 @@
                     </section>
                     <section class="datos_y_descripcion_alerta_container">
                         <div class="dato_actual">
+                            <p>Dato actual:</p>
                             <p id="dato_actual_luz">Dato actual</p>
                         </div>
 
@@ -524,6 +534,7 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
+                                <p>Dato actual:</p>
                                 <p id="dato_actual_acordeon_salinidad">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
@@ -585,6 +596,7 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
+                                <p>Dato actual:</p>
                                 <p id="dato_actual_acordeon_humedad">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
@@ -650,6 +662,7 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
+                                <p>Dato actual:</p>
                                 <p id="dato_actual_acordeon_pH">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
@@ -714,6 +727,7 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
+                                <p>Dato actual:</p>
                                 <p id="dato_actual_acordeon_temperatura">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
@@ -780,6 +794,7 @@
                             </div>
                             <!--Aquí acaba la sección de alertas-->
                             <div class="triangulo">
+                                <p>Dato actual:</p>
                                 <p id="dato_actual_acordeon_luz">dato actual</p>
                                 <i class="bi bi-caret-down-fill"></i>
                             </div>
@@ -841,8 +856,8 @@
         <div class="container container-nombre-imagen">
             <div class="row justify-content-between">
                 <div class="imagen_ajustes col-sm-12 col-md-3 text-center">
-                    <img class="text-center" src="../../../images/huerto_cocina.svg" alt="Foto del huerto">
-                    <div>
+                    <img id="vista-previa" class="text-center" src="../../../images/foto_base.jpeg" alt="Vista previa de la foto del huerto">
+                    <img id="foto-huerto" class="text-center" src="../../../images/foto_base.jpeg" alt="Foto del huerto">                    <div>
                         <form id="formulario-subir-foto" enctype="multipart/form-data">
                         <input type="file" id="subir-foto-huerto">
                         </form>
@@ -857,6 +872,7 @@
                             <label for="nombre_huerto">Nombre del huerto:</label>
                             <p id="nombre_huerto_ajustes"></p>
                             <input type="text" id="nombre_huerto">
+                            <p class="mensaje-error" id="errorNombreHuerto">¡El huerto ha de tener un nombre!</p>
                         </div>
                         <p>Notas:</p>
                         <p id="notas_huerto_ajustes">Aquí van las notas</p>
@@ -887,49 +903,64 @@
 
                 <p>Salinidad</p>
                 <label for="salinidad-minima-editable">Mínima:</label>
-                <input type="number" id="salinidad-minima-editable"><br>
+                <input type="number" id="salinidad-minima-editable" min="0" max="100"><br>
                 <p id="salinidad-minima">salinidad mínima</p>
 
                 <label for="salinidad-maxima-editable">Máxima:</label>
-                <input type="number" id="salinidad-maxima-editable"><br>
+                <input type="number" id="salinidad-maxima-editable" min="0" max="100"><br>
                 <p id="salinidad-maxima">salinidad máxima</p>
                 <label>Valores posibles: 0 - 100%</label>
-
+                <!--Mensajes de error:-->
+                <p class="mensaje-error" id="salinidadMinMayorQueMax">¡La salinidad mínima es mayor que la máxima!</p>
+                <p class="mensaje-error" id="ValorSalMenorQueCero">Hay un valor menor que 0, solo se admiten valores entre 0 y 100.</p>
+                <p class="mensaje-error" id="ValorSalMayorQueCien">Hay un valor mayor que 100, solo se admiten valores entre 0 y 100.</p>
 
                 <p>Humedad</p>
                 <label for="humedad-minima-editable">Mínima:</label>
-                <input type="number" id="humedad-minima-editable"><br>
+                <input type="number" id="humedad-minima-editable" min="0" max="100"><br>
                 <p id="humedad-minima">humedad mínima</p>
 
                 <label for="humedad-maxima-editable">Máxima:</label>
-                <input type="number" id="humedad-maxima-editable"><br>
+                <input type="number" id="humedad-maxima-editable" min="0" max="100"><br>
                 <p id="humedad-maxima">humedad máxima</p>
-
                 <label>Valores posibles: 0 - 100%</label>
+                <!--Mensajes de error:-->
+                <p class="mensaje-error" id="humedadMinMayorQueMax">¡La humedad mínima es mayor que la máxima!</p>
+                <p class="mensaje-error" id="ValorHumedadMenorQueCero">Hay un valor menor que 0, solo se admiten valores entre 0 y 100.</p>
+                <p class="mensaje-error" id="ValorHumedadMayorQueCien">Hay un valor mayor que 100, solo se admiten valores entre 0 y 100.</p>
 
 
                 <p>pH</p>
                 <label for="pH-minimo-editable">Mínimo:</label>
-                <input type="number" id="pH-minimo-editable"><br>
+                <input type="number" id="pH-minimo-editable" min="0" max="14"><br>
                 <p id="pH-minimo">pH mínimo</p>
 
                 <label for="pH-maximo-editable">Máximo:</label>
-                <input type="number" id="pH-maximo-editable"><br>
+                <input type="number" id="pH-maximo-editable" min="0" max="14"><br>
                 <p id="pH-maximo">pH máximo</p>
-
                 <label>Valores posibles: 0 - 14</label>
+                <!--Mensajes de error:-->
+                <p class="mensaje-error" id="pHMinMayorQueMax">¡El pH mínimo es mayor que el máximo!</p>
+                <p class="mensaje-error" id="ValorPhMenorQueCero">Hay un valor menor que 0, solo se admiten valores entre 0 y 14.</p>
+                <p class="mensaje-error" id="ValorPhMayorQueCatorce">Hay un valor mayor que 14, solo se admiten valores entre 0 y 14.</p>
+
 
 
                 <p>Temperatura</p>
                 <label for="temperatura-minima-editable">Mínima:</label>
-                <input type="number" id="temperatura-minima-editable"><br>
+                <input type="number" id="temperatura-minima-editable" min="-30" max="50"><br>
                 <p id="temperatura-minima">temperatura mínima</p>
 
                 <label for="temperatura-maxima-editable">Máxima:</label>
-                <input type="number" id="temperatura-maxima-editable"><br>
+                <input type="number" id="temperatura-maxima-editable" min="-30" max="50"><br>
                 <p id="temperatura-maxima">temperatura máxima</p>
 
                 <label>Valores posibles: -30 - 50ºC</label>
+                <!--Mensajes de error:-->
+                <p class="mensaje-error" id="temperaturaMinMayorQueMax">¡La temperatura mínima es mayor que la máxima!</p>
+                <p class="mensaje-error" id="ValorTemperaturaMenorQueTreinta">Hay un valor menor que -30, solo se admiten valores entre -30 y 50.</p>
+                <p class="mensaje-error" id="ValorTemperaturaMayorQueCincuenta">Hay un valor mayor que 50, solo se admiten valores entre -30 y 50.</p>
+
 
                 <p>Luz</p>
                 <label>Nivel de luz:</label>
@@ -942,9 +973,11 @@
                 <p id="luz-minimo">luz minimo</p>
                 <br>
                 <label>Durante </label>
-                <input type="number" id="luz-minimo-dias-editable">
+                <input type="number" id="luz-minimo-dias-editable" min="0">
                 <p id="luz-minimo-dias">días</p>
                 <label>días</label>
+                <p class="mensaje-error" id="ValorDiaMinMenorQueCero">¡No puede haber menos de 0 días!</p>
+
                 <br>
                 <label>Nivel de luz:</label>
                 <select id="luz-maximo-editable">
@@ -955,9 +988,11 @@
                 </select>
                 <p id="luz-maximo">luz maxima</p><br>
                 <label>Durante </label>
-                <input type="number" id="luz-maximo-dias-editable">
+                <input type="number" id="luz-maximo-dias-editable" min="0">
                 <p id="luz-maximo-dias">días</p>
                 <label>días</label>
+                <p class="mensaje-error" id="ValorDiaMaxMenorQueCero">¡No puede haber menos de 0 días!</p>
+
 
             </form>
 
@@ -972,6 +1007,12 @@
             <input type="reset" value="Cancelar" id="boton-cancelar-ajustes-huerto"
                    class="boton_guardar_ajustes_huerto">
         </div>
+
+        <dialog id="dialogo-mensaje-usuario-ajustes-huerto">
+            <p id="mensaje-usuario-ajustes-huerto">Mensaje para el usuario</p>
+            <button id="boton-aceptar-mensaje-ajustes-huerto">Aceptar</button>
+        </dialog>
+
     </dialog>
     <!--Aqui finaliza la seccion de ajustes de huerto-->
 
@@ -993,7 +1034,7 @@
                 <th></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="tabla_citas">
             <tr>
                 <td>1 de mayo, 2023</td>
                 <td>14:30</td>

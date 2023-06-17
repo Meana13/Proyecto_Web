@@ -3311,11 +3311,35 @@ async function getDatosPorFecha(){
     });
 
 //-------------------------------------VISUALIZADOR DE HUERTOS--------------------------------------------------
+    let desdeInput = document.getElementById('desde-sal');
+    let hastaInput = document.getElementById('hasta-sal');
+    let botonEnviar = document.getElementById('botonEnviarFiltroFechaSalinidad');
+
+    function verificarFechas(){
+        let desde = desdeInput.value;
+        let hasta = hastaInput.value;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+
+        if(fechaDesde > fechaHasta){
+            alert('la fecha de "desde" no puede ser superior a la de "hasta"');
+            botonEnviar.disabled = true;
+        }
+        else{
+            botonEnviar.disabled = false;
+        }
+    }
+
+    desdeInput.onchange = verificarFechas;
+    hastaInput.onchange = verificarFechas;
+
+
     formularioFechaSalinidad.addEventListener('submit', async function(event) {
         event.preventDefault();
 
-        let desde = document.getElementById('desde-sal').value;
-        let hasta = document.getElementById('hasta-sal').value;
+        let desde = desdeInput.value;
+        let hasta = hastaInput.value;
 
         let fechaDesde = new Date(desde);
         let fechaHasta = new Date(hasta);
@@ -3324,7 +3348,6 @@ async function getDatosPorFecha(){
 
         let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
 
-        console.log(diferenciaDias);
 
         if (diferenciaDias <= 3) {
             console.log('3 o menos días');
@@ -3350,7 +3373,6 @@ async function getDatosPorFecha(){
                     return medicion.hora + ":" + medicion.minutos;
                 });
 
-                //GRÁFICA SALINIDAD - DATOS HOY -----------------------------------------------------------------------
                 let datosSalinidadFecha = {
                     labels: [],
                     datasets: [
@@ -3443,7 +3465,6 @@ async function getDatosPorFecha(){
                         return medicion.hora + ":" + medicion.minutos;
                     });
 
-                    //GRÁFICA SALINIDAD - DATOS HOY -----------------------------------------------------------------------
                     let datosSalinidadFecha = {
                         labels: [],
                         datasets: [
@@ -3549,7 +3570,6 @@ async function getDatosPorFecha(){
                 });
 
 
-                //GRÁFICA SALINIDAD - DATOS SEMANA -----------------------------------------------------------------------
                 let datosSalinidadFecha = {
                     labels: [],
                     datasets: [
@@ -5854,8 +5874,6 @@ async function getDatosPorFecha(){
         let diferenciaMs = fechaHasta - fechaDesde;
 
         let diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
-
-        console.log(diferenciaDias);
 
         if (diferenciaDias <= 3) {
             console.log('3 o menos días');
