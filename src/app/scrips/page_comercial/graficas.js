@@ -109,8 +109,6 @@ async function crearGraficaSemana(){
                 borderColor: '#666',
                 borderWidth: 1,
             }
-
-
         }//plugins
     }//opciones
 
@@ -131,12 +129,11 @@ async function crearGraficaSemana(){
 //......................................................................................................................
 //.......................................................
 /*
-               crearGraficaSemana()
+               crearGraficaMes()
 */
 //.......................................................
 async function crearGraficaMes(){
     let datos = await getVentasParaGrafica();
-
 
     let datosMes = {
         labels: [],
@@ -190,8 +187,6 @@ async function crearGraficaMes(){
                 borderColor: '#666',
                 borderWidth: 1,
             }
-
-
         }//plugins
     }//opciones
 
@@ -208,7 +203,206 @@ async function crearGraficaMes(){
     graficaBase.data = datosMes;
     graficaBase.update();
 }//()
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+               crearGraficaMeses()
+*/
+//.......................................................
+async function crearGraficaMeses(){
+    let datos = await getVentasParaGrafica();
 
+    let arrayImporte = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+    datos.forEach(function(venta){
+        if (venta.fecha[5] == 0 && venta.fecha[6] == 1) {
+            arrayImporte[0] = arrayImporte[0] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 0 && venta.fecha[6] == 2) {
+            arrayImporte[1] = arrayImporte[1] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 0 && venta.fecha[6] == 3) {
+            arrayImporte[2] = arrayImporte[2] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 0 && venta.fecha[6] == 4) {
+            arrayImporte[3] = arrayImporte[3] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 0 && venta.fecha[6] == 5) {
+            arrayImporte[4] = arrayImporte[4] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 0 && venta.fecha[6] == 6) {
+            arrayImporte[5] = arrayImporte[5] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 0 && venta.fecha[6] == 7) {
+            arrayImporte[6] = arrayImporte[6] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 0 && venta.fecha[6] == 8) {
+            arrayImporte[7] = arrayImporte[7] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 0 && venta.fecha[6] == 9) {
+            arrayImporte[8] = arrayImporte[8] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 1 && venta.fecha[6] == 0) {
+            arrayImporte[9] = arrayImporte[9] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 1 && venta.fecha[6] == 1) {
+            arrayImporte[10] = arrayImporte[10] + parseInt(venta.total);
+        }
+        if (venta.fecha[5] == 1 && venta.fecha[6] == 2) {
+            arrayImporte[11] = arrayImporte[11] + parseInt(venta.total);
+        }
+    })
+
+    let datosMes = {
+        labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        datasets: [
+            {
+                label: "Importe",
+                data: arrayImporte,
+                backgroundColor: ' #790050',
+            }
+        ]
+    } //datos
+
+    let opcionesMes = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                grid: {
+                    drawOnChartArea: false
+                },
+                ticks: {
+                    font: {
+                        size: 15
+                    }
+                }
+            },
+            y: {
+                ticks: {
+                    font: {
+                        size: 15
+                    }
+                }
+            },
+        },
+        plugins: {
+            legend: false,
+            title: {
+                display: true,
+                text: 'Ventas del año',
+                position: 'top',
+                align: 'center',
+                font: {
+                    size: 15
+                }
+            },
+            tooltip: {
+                backgroundColor: '#fff',
+                titleColor: '#000',
+                titleAlign: 'center',
+                bodyColor: '#333',
+                borderColor: '#666',
+                borderWidth: 1,
+            }
+        }//plugins
+    }//opciones
+
+    graficaBase.options = opcionesMes;
+    graficaBase.data = datosMes;
+    graficaBase.update();
+}//()
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+               crearGraficaAnios()
+*/
+//.......................................................
+async function crearGraficaAnios(){
+    let datos = await getVentasParaGrafica();
+
+    let arrayImporte = [0, 0, 0, 0, 0];
+
+    datos.forEach(function(venta){
+
+        if (venta.fecha[3] == 0) {
+            arrayImporte[0] = arrayImporte[0] + parseInt(venta.total);
+        }
+        if (venta.fecha[3] == 1) {
+            arrayImporte[1] = arrayImporte[1] + parseInt(venta.total);
+        }
+        if (venta.fecha[3] == 2) {
+            arrayImporte[2] = arrayImporte[2] + parseInt(venta.total);
+        }
+        if (venta.fecha[3] == 3) {
+            arrayImporte[3] = arrayImporte[3] + parseInt(venta.total);
+        }
+        if (venta.fecha[3] == 4) {
+            arrayImporte[4] = arrayImporte[4] + parseInt(venta.total);
+        }
+    })
+
+    let datosAnios = {
+        labels: ["2020", "2021", "2022", "2023", "2024"],
+        datasets: [
+            {
+                label: "Importe",
+                data: arrayImporte,
+                backgroundColor: ' #790050',
+            }
+        ]
+    } //datos
+
+    let opcionesAnios = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                grid: {
+                    drawOnChartArea: false
+                },
+                ticks: {
+                    font: {
+                        size: 15
+                    }
+                }
+            },
+            y: {
+                ticks: {
+                    font: {
+                        size: 15
+                    }
+                }
+            },
+        },
+        plugins: {
+            legend: false,
+            title: {
+                display: true,
+                text: 'Ventas anuales',
+                position: 'top',
+                align: 'center',
+                font: {
+                    size: 15
+                }
+            },
+            tooltip: {
+                backgroundColor: '#fff',
+                titleColor: '#000',
+                titleAlign: 'center',
+                bodyColor: '#333',
+                borderColor: '#666',
+                borderWidth: 1,
+            }
+        }//plugins
+    }//opciones
+
+    graficaBase.options = opcionesAnios;
+    graficaBase.data = datosAnios;
+    graficaBase.update();
+}//()
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -294,7 +488,6 @@ function convertirFechaAFormatoString(fecha) {
          datos --> ordenarPorFechaDescendente() --> datos
 */
 //.......................................................
-
 function ordenarPorFechaDescendente(datos) {
     return datos.sort((a, b) => {
         const fechaA = new Date(a.fecha);
@@ -303,7 +496,6 @@ function ordenarPorFechaDescendente(datos) {
         return fechaB - fechaA;
     });
 }
-
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -328,7 +520,30 @@ selector.addEventListener('change', function(){
         crearGraficaMes();
     }
 })
-
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+                    SELECTOR: AÑO
+*/
+//.......................................................
+selector.addEventListener('change', function(){
+    if(selector.value === "anio"){
+        crearGraficaMeses();
+    }
+})
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+                    SELECTOR: AÑOS
+*/
+//.......................................................
+selector.addEventListener('change', function(){
+    if(selector.value === "anios"){
+        crearGraficaAnios();
+    }
+})
 //......................................................................................................................
 //......................................................................................................................
 //LLAMADA DE FUNCIONES:
