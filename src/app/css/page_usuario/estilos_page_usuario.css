@@ -179,7 +179,12 @@ h2 {
     border: none;
     color: #cd0404;
     margin: 0;
-    border: 1px solid var(--textoBotones);
+}
+
+.alerta_grave i::before,
+.alerta_media i::before {
+    border: 3px solid var(--textoBotones);
+    border-radius: 50%;
 }
 
 .alerta_grave:hover,
