@@ -11,6 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
+    <!--Carga de iconos de bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     <!-- Carga de scripts -->
     <script src="../../scrips/page_comercial/grafica.js"></script>
     <script src="../../scrips/landing_page/control-acceso.js"></script>
@@ -376,8 +379,8 @@
 
         <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
         <div class="contenedor-datos">
+            <button id="boton-volver-a-lista-solicitudes"><i class="bi bi-x"></i></button>
             <h3>Detalles de la solicitud</h3>
-            <button id="boton-volver-a-lista-solicitudes"></button>
             <div>
                 <p><b>Nombre:</b></p>
                 <p class="ver-mas-dato" id="nombre-solicitud"></p>
@@ -399,9 +402,11 @@
                 <p class="ver-mas-dato" id="mensaje-solicitud"></p>
             </div>
 
-            <button id="boton-pasar-a-pendientes">PASAR A "PENDIENTE"</button>
-            <button id="boton-pasar-a-proceso">PASAR A "EN PROCESO"</button>
-            <button id="boton-pasar-a-finalizada">PASAR A "FINALIZADA"</button>
+            <div id="botones-pasar-solicitud">
+                <button id="boton-pasar-a-pendientes">PASAR A "PENDIENTE"</button>
+                <button id="boton-pasar-a-proceso">PASAR A "EN PROCESO"</button>
+                <button id="boton-pasar-a-finalizada">PASAR A "FINALIZADA"</button>
+            </div>
 
         </div>
 
