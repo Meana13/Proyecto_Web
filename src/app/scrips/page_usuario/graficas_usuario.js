@@ -580,8 +580,20 @@ async function getMedicionesSeleccionarFecha(idHuerto, desde, hasta, senyal) {
 */
 //------------------------------------------
 async function limitesFechas(){
+    let respuesta = await fetch('../../../api/fechasMediciones/');
+    if(respuesta.ok){
+        let datos = await respuesta.json();
 
+        desdeInput.setAttribute("max", `${datos[0].fecha_medicion}`);
+        desdeInput.setAttribute('min',`${datos[datos.length-1].fecha_medicion}`)
+
+        hastaInput.setAttribute("max", `${datos[0].fecha_medicion}`);
+        hastaInput.setAttribute('min',`${datos[datos.length-1].fecha_medicion}`)
+
+    }
 }
+
+limitesFechas();
 //......................................................................................................................
 //......................................................................................................................
 //------------------------------------------
