@@ -1,5 +1,5 @@
 #ver-venta,
-#ver-mas,   
+#ver-mas,
 #ventas,
 #solicitudes-en-proceso,
 #solicitudes-finalizadas,
@@ -10,7 +10,7 @@
     display: none;
 }
 
-h2{
+h2 {
     margin-top: 7.5rem;
 }
 
@@ -24,21 +24,16 @@ h2 {
     text-align: center;
     margin-bottom: 30px;
 }
-#solicitudes{
-	margin-top:100px;
+
+#solicitudes {
+    margin-top: 100px;
+}
+
 /*----------------------------------BOTONES DE NAVEGACIÓN------------------------------------*/
 
 /* Estilos para los botones de navegación */
-#botones-ventas {
-    width: 90%;
-    max-width: 2000px;
-    display: flex;
-    margin: 0 auto;
-    justify-content: flex-start;
-}
-
-#botones-ventas button,
-#botones-solicitudes button {
+#botones-solicitudes button,
+#botones-ventas button  {
     width: 100%;
     font: 1em Arial, sans-serif;
     color: var(--textoGeneral);
@@ -69,92 +64,23 @@ h2 {
     font-weight: bold;
 }
 
-/* Estilos adicionales para el botón "lista de ventas", "gráficas" y los botones de solicitudes */
-#botones-lista-ventas,
-#botones-graficas,
+#botones-ventas button,
 #botones-solicitudes button {
     border-radius: .5em .5em 0em 0em;
 }
 
+
+
 /* Estilos para los botones de navegación en dispositivos móviles */
 @media(max-width: 500px) {
-    #botones-ventas {
-        justify-content: flex-start;
-    }
 
-    #botones-ventas button {
-        max-width: 100px;
-        font-size: 0.8em;
-    }
-
+    #botones-ventas button,
     #botones-solicitudes button {
         font-size: 0.7em;
     }
 }
 
 /*----------------------------SECCIÓN TABLAS (SOLICITUDES Y VENTAS)------------------------------*/
-
-/*Tablas:*/
-
-table {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 2000px;
-    font-size: 1.3em;
-    text-align: center;
-}
-	
-	#tabla-ventas button {
-		padding: 10px;
-    margin: 0 5px 0 5px;
-    font-size: 1.1em;
-    border-radius: .3em;
-    background-color: #D7D7D7;
-	}
-
-td:nth-child(odd) {
-    background-color: #D7D7D7;
-}
-
-th {
-    padding: 10px;
-    background-color: var(--secundario);
-    color: var(--textoBotones);
-    font-weight: normal;
-}
-
-th:nth-of-type(4) {
-    display: none;
-}
-
-td {
-    padding: .2em 2em;
-}
-
-td:nth-of-type(4) {
-    background-color: transparent;
-    border: none;
-    padding: 5px;
-}
-
-td:nth-of-type(4) button {
-    background-color: var(--secundario);
-    border-radius: 1em;
-    border: none;
-    padding: 15px 0;
-    width: 100%;
-    max-width: 200px;
-    min-width: 150px;
-    text-align: center;
-    color: var(--textoBotones);
-    font-size: 0.8em;
-}
-
-/* Estilos para los botones en las celdas de la tabla al pasar el cursor */
-td:nth-of-type(4) button:hover {
-    background-color: var(--principal);
-    font-weight: bold;
-}
 
 /* Estilos adicionales para los botones en las celdas de la tabla en dispositivos móviles */
 @media (max-width: 768px) {
@@ -170,7 +96,9 @@ td:nth-of-type(4) button:hover {
     table {
         font-size: .7em;
     }
-    th, td {
+
+    th,
+    td {
         padding: 0;
         font-size: .8em;
     }
@@ -188,7 +116,7 @@ td:nth-of-type(4) button:hover {
 /* Estilos para el selector de gráfica */
 #selector-opciones-graficas {
     background-color: var(--fondoSecundario);
-    width: 90%;
+    width: 10px;
     max-width: 2000px;
     padding: 0.8em;
     display: block;
@@ -198,16 +126,13 @@ td:nth-of-type(4) button:hover {
 }
 
 /* Estilos para los contenedores de las gráficas */
-#chart-container-semana,
-#chart-container-mes,
-#chart-container-dia,
-#chart-container-anio {
-    background-color: var(--textoBotones);
-    width: 89.8%;
-    max-width: 2000px;
-    margin: 0 auto;
-    height: 60em;
-    border: 1px solid var(--textoGeneral);
+#chart-container {
+    width: 90%;
+    background-color: white;
+}
+
+#chart {
+    width: 95%;
 }
 
 /* Estilos adicionales para las gráficas en dispositivos móviles */
@@ -245,13 +170,21 @@ td:nth-of-type(4) button:hover {
     align-self: flex-start;
     font-size: 1.5em;
     margin: 20px;
+    
 }
 
-.contenedor-datos p span {
+.contenedor-datos div {
+    display: flex;
+}
+
+.ver-mas-dato {
     background-color: var(--textoBotones);
     border: 1px solid var(--textoGeneral);
-    padding: 10px;
+    padding: 3px 10px;
     margin: 40px;
+    word-wrap: break-word;
+    max-width: 60%;
+    min-height: 40px;
 }
 
 .foco-de-detalle {
@@ -311,6 +244,7 @@ td:nth-of-type(4) button:hover {
     text-align: center;
 }
 
+
 /* Estilos adicionales para la pantalla de detalles en dispositivos móviles */
 @media(max-width: 500px) {
     .contenedor-datos {
@@ -347,5 +281,4 @@ td:nth-of-type(4) button:hover {
         font-size: 0.9em;
         width: 90%;
     }
-}
 }

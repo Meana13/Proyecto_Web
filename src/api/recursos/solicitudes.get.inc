@@ -8,11 +8,13 @@ if (!isset($peticion)) {
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
-$idHuerto = $peticion->parametrosQuery()['idHuerto'];
+$estado = $peticion->parametrosQuery()['estado'];
 
 $sql = "SELECT * 
-        FROM `notificaciones`
-        WHERE `notificaciones`.`id_huerto` = $idHuerto";
+        FROM `consultas`, `asuntos_formulario_contacto`
+        WHERE estado_consulta = $estado
+        AND `consultas`.asunto = `asuntos_formulario_contacto`.id_asunto_formulario_contacto";
+
 
 $result = mysqli_query($connexion, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
