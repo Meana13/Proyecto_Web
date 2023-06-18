@@ -65,6 +65,5 @@ async function getSesionIniciada(){
         }
 }
 
-getSesionIniciada();
 
 

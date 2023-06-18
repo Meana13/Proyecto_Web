@@ -28,6 +28,35 @@ if(isset($peticion->parametrosQuery()['senyal'])){
             $salida[] = $row;
         }
     }
+    elseif($senyal === "2") {
+        $cantidad = $peticion->parametrosQuery()['cantidad'];
+
+        $sql = "SELECT COUNT(`id_venta`) AS `total` 
+                FROM `ventas`";
+
+        $result = mysqli_query($connexion, $sql);
+
+        $total = mysqli_fetch_assoc($result)['total'];
+        $paginas =ceil($total/$cantidad);
+        $salida['paginas'] = $paginas;
+    }
+    elseif ($senyal === "3"){
+        $cantidad = intval($peticion->parametrosQuery()['cantidad']);
+        $auxiliar = intval($peticion->parametrosQuery()['pagina']);
+        $pagina = $auxiliar * $cantidad;
+
+        $sql = "SELECT * 
+        FROM `ventas`, `productos`, `clientes`
+        WHERE ventas.id_cliente = clientes.id_cliente
+        AND `ventas`.productos = `productos`.id_producto
+        ORDER BY `ventas`.fecha DESC
+        LIMIT $pagina, $cantidad";
+
+        $result = mysqli_query($connexion, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+            $salida[] = $row;
+        }
+    }
 }
 else if(count($peticion->parametrosPath()) == 0){
     $sql = "SELECT * 
