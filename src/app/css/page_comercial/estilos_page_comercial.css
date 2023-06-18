@@ -1,6 +1,5 @@
 #ver-venta,
-/*#ver-mas,
-*/
+#ver-mas,
 #ventas,
 #solicitudes-en-proceso,
 #solicitudes-finalizadas,
@@ -70,6 +69,19 @@ h2 {
     border-radius: .5em .5em 0em 0em;
 }
 
+#paginadorVentas {
+    width: 200px;
+    border-radius: 5px;
+    border: 0;
+    color: var(--textoBotones);
+    background-color: var(--secundario);
+}
+
+#container-paginador-ventas {
+    width: fit-content;
+    margin: 10px auto;
+    margin-top: 40px;
+}
 
 
 /* Estilos para los botones de navegación en dispositivos móviles */
@@ -174,7 +186,7 @@ h2 {
     display: flex;
 }
 
-#tabla-pendientes tr:last-child button {
+#tabla-pendientes button {
     border: 0;
     background-color: var(--principal);
     border-radius: 5px;

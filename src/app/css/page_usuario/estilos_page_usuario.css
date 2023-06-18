@@ -282,6 +282,9 @@ h2 {
     margin-bottom: 1rem;
 }
 
+
+
+
 form.seleccionar_fecha {
     display: none;
 }
@@ -314,6 +317,7 @@ form.seleccionar_fecha {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
   }
   
   #botonEnviarFiltroFecha:hover {
