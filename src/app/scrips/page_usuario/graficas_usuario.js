@@ -33,6 +33,10 @@ let errorFechas = document.getElementById('error-fechas');
 //BOTONES
 let tabSalinidad = document.getElementById('tab_salinidad');
 let tabHumedad = document.getElementById('tab_humedad')
+//ALERTAS
+let alertasContainer = document.getElementById('alertas-container');
+let alertaRojaSal = document.getElementById('alerta-roja-sal');
+let alertaNaranjaSal = document.getElementById('alerta-naranja-sal');
 
 //ACORDEON
 let seccionAcordeon = document.getElementById('acordeon');
@@ -56,9 +60,6 @@ let enviarFechasAcordeon = document.getElementById('enviar-fechas-acordeon');
 let desdeInputAcordeon = document.getElementById('desde-acordeon-sal');
 let hastaInputAcordeon = document.getElementById('hasta-acordeon-sal');
 let errorFechasAcordeon = document.getElementById('error-fechas-acordeon');
-
-
-
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -106,30 +107,6 @@ async function getHuertosUsuario(){
 }
 //......................................................................................................................
 //......................................................................................................................
-//------------------------------------------
-/*
-idHuerto: N --> getDatosHuertoPorIdHuerto() --> [datos]
-
-____datos____
-id_huerto: N
-imagen: txt
-nombre_huerto: txt
-notas: txt
-notificaciones: VoF
-_____________
-*/
-//------------------------------------------
-//......................................................................................................................
-//......................................................................................................................
-async function getDatosHuertoPorIdHuerto(idHuerto){
-    const respuesta = await fetch('../../../api/huertos/' + '?idHuerto=' + idHuerto);
-    if(respuesta.ok) {
-        const datos = await respuesta.json();
-        return datos;
-    }
-}
-//......................................................................................................................
-//......................................................................................................................
 //.......................................................
 /*
                Grafica base
@@ -158,13 +135,6 @@ let graficaAcordeonSal = new Chart (graficaAcordeonSalinidad, {
 let graficaAcordeonHumedad = new Chart (graficaAcordeonHum, {
     type: 'line'
 })
-
-
-                                        /*
-                                           ========================
-                                                 DATO ACTUAL
-                                           ========================
-                                                                    */
 //......................................................................................................................
 //......................................................................................................................
 //------------------------------------------
@@ -259,8 +229,83 @@ async function cargarDatoActualTabs(idHuerto) {
                             //datoActualLuz.innerText = "Luz directa";
             datoActualAcordeonLuz.innerText = "Luz directa";
         }
+
+        buscarAlertas(mediciones, idHuerto);
     }
 
+
+
+}
+//......................................................................................................................
+//......................................................................................................................
+//------------------------------------------
+/*
+           mediciones, idHuerto --> buscarAlertas() --> [notificaciones]
+
+                                                        ______notificaciones______
+                                                        id_huerto: N
+                                                        id_notificaciones: N
+                                                        medicion_max_humedad: N
+                                                        medicion_max_luminosidad: N
+                                                        medicion_max_ph: N
+                                                        medicion_max_salinidad: N
+                                                        medicion_max_temperatura: N
+                                                        medicion_min_humedad: N
+                                                        medicion_min_luminosidad: N
+                                                        medicion_min_ph: N
+                                                        medicion_min_salinidad: N
+                                                        medicion_min_temperatura: N
+                                                        mediciones_continuas_maximos: N
+                                                        mediciones_continuas_minimos: N
+                                                        notificaciones: N
+                                                        _______________________________
+*/
+//------------------------------------------
+async function buscarAlertas(mediciones, idHuerto){
+    const respuesta = await fetch('../../../api/notificaciones/' + '?idHuerto=' + idHuerto);
+    if (respuesta.ok) {
+        const notificaciones = await respuesta.json();
+        console.log(mediciones);
+        //si el usuario tiene las notificaciones activadas:
+        if(notificaciones[0].notificaciones === "1"){
+            //ALERTAS QUE SUPERAN LAS MÁXIMAS:
+            if(parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_max_salinidad)){
+                alertasContainer.style.display = "block";
+                alertaRojaSal.style.display = "block";
+                alertaNaranjaSal.style.display = "none";
+                alertaRojaSal.setAttribute("data-content", "¡Salinidad alta!");
+            }
+            else{
+                alertasContainer.style.display = "none";
+                alertaRojaSal.style.display = "none";
+                alertaNaranjaSal.style.display = "none";
+                alertaRojaSal.setAttribute("data-content", "¡Salinidad alta!");
+            }
+
+            //ALERTAS NARANJAS
+            if(parseInt(mediciones[0].mediaSalinidad) === parseInt(notificaciones[0].medicion_max_salinidad - 1)){
+                alertasContainer.style.display = "block";
+                alertaRojaSal.style.display = "none";
+                alertaNaranjaSal.style.display = "block";
+                alertaNaranjaSal.setAttribute("data-content", "¡Cuidado, la salinidad está aumentando!");
+            }
+            if(mediciones[0].mediaSalinidad === (notificaciones[0].medicion_min_salinidad + 1)){
+                alertasContainer.style.display = "block";
+                alertaRojaSal.style.display = "none";
+                alertaNaranjaSal.style.display = "block";
+                alertaNaranjaSal.setAttribute("data-content", "¡Cuidado, la salinidad está disminuyendo!");
+            }
+
+            //ALERTAS POR DEBAJO DE LAS MÍNIMAS:
+            if(mediciones[0].mediaSalinidad <= notificaciones[0].medicion_min_salinidad){
+                alertasContainer.style.display = "block";
+                alertaRojaSal.style.display = "block";
+                alertaNaranjaSal.style.display = "none";
+                alertaRojaSal.setAttribute("data-content", "¡Salinidad baja!");
+            }
+        }
+
+    }
 }
 
 //......................................................................................................................
@@ -443,20 +488,23 @@ selectorDeHuertos.addEventListener('change', function () {
 */
 //------------------------------------------
 tabSalinidad.addEventListener('click',function () {
-    let idHuerto = selectorDeHuertos.value;
-    if(filtro.value === "Hoy"){
-        construirGraficaSalinidad(idHuerto, "Hoy");
+    if(!tabSalinidad.classList.contains('activo')){
+        let idHuerto = selectorDeHuertos.value;
+        if(filtro.value === "Hoy"){
+            construirGraficaSalinidad(idHuerto, "Hoy");
+        }
+        if(filtro.value === "Semana"){
+            construirGraficaSalinidad(idHuerto, "Semana");
+        }
+        if(filtro.value === "Seleccionar fecha"){
+            construirGraficaSalinidad(idHuerto,"Fecha");
+            console.log("sal");
+        }
+        cargarDatoActualSalinidad(idHuerto);
+        tabSalinidad.classList.add("activo");
+        tabHumedad.classList.remove("activo");
     }
-    if(filtro.value === "Semana"){
-        construirGraficaSalinidad(idHuerto, "Semana");
-    }
-    if(filtro.value === "Seleccionar fecha"){
-        construirGraficaSalinidad(idHuerto,"Fecha");
-        console.log("sal");
-    }
-    cargarDatoActualSalinidad(idHuerto);
-    tabSalinidad.classList.add("activo");
-    tabHumedad.classList.remove("activo");
+
 });
 //......................................................................................................................
 //......................................................................................................................
