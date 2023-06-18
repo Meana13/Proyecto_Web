@@ -283,12 +283,17 @@ form.seleccionar_fecha {
 
 .container_filtro {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .filtro_graficas {
     width: 60%;
+    font-size: 16px;
+    padding: 5px 10px;
 }
+
 
 /*Estilos de la gráfica*/
 .cuerpo_del_visualizador article .grafica-container div.chart-container {
@@ -406,22 +411,32 @@ dialog.ajustes_de_huerto h3 {
     display: none;
 }
 
-/*Estilos para las notas*/
 
+
+/*Estilos para las notas*/
 .nombre_ajustes div p {
     margin: 0 15px;
     margin-bottom: 5px;
+    font-size: 16px;
 }
 
 .nombre_ajustes div input {
     display: none;
 }
 
+
 #notas_huerto {
-    width: 95%;
-    height: 5rem;
-    margin: 0 15px;
-    display: none;
+    font-size: 16px;
+    width: 100%;
+    height: 130px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#contador-notas-huerto {
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 
@@ -486,6 +501,8 @@ dialog.ajustes_de_huerto form.limites_medidas select {
     width: 50%;
     float: left;
 }
+
+
 
 
 
@@ -658,11 +675,47 @@ table td button.boton-aceptar-rechazar {
     #dato_actual_luz {
         font-size: 1.5rem;
     }
-
+    
     .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion p {
         font-size: 1rem;
     }
 }
+
+
+/* BOTÓN ENVIAR FEHCA PARA FILTRO DATOS HUERTOS*/
+button#botonEnviarFiltroFecha {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #790050;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button#botonEnviarFiltroFecha:hover {
+    background-color: #9D4179;
+  }
+  
+  button#botonEnviarFiltroFecha:active {
+    background-color: #790050;
+  }
+  
+
+
+
+/*RECUADRO GRÁFICAS*/
+.chart-container {
+    width: 100%;
+    height: 350px; 
+  }
+  
+  #chart {
+    width: 100%;
+    height: 100%;
+  }
+  
+  
 
 @media(max-width: 1200px) {
 
