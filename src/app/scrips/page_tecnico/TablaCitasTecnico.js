@@ -4,51 +4,26 @@
 
 // DECLARACIÓN DE VARIABLES:
 let tablaCitasTecnico = document.getElementById('tablaCitasTecnico');
-let filas= document.getElementsByTagName('tr')
-//......................................................................................................................
-/* getSesionUsuario() --> datos */
-// .....................................................................................................................
 
-async function getSesionUsuario() {
-    const respuesta = await fetch('../../../api/sesion/');
-    if (respuesta.ok) {
-        const datos = await respuesta.json();
-        return datos;
-    }
-}
 
-//......................................................................................................................
-/* getDatosCliente() --> datos */
-// .....................................................................................................................
-
-async function getDatosCliente() {
-    let datosSesion = await getSesionUsuario();
-    let idUsuario = datosSesion.id_usuario;
-
-    const respuesta = await fetch('../../../api/clientes/' + '?idUsuario=' + idUsuario);
-    if (respuesta.ok) {
-        const datos = await respuesta.json();
-        return datos;
-    }
-}
 
 //......................................................................................................................
 /* getCitas() --> [datos] */
 // .....................................................................................................................
 
 async function getCitas() {
-    let datosCliente = await getDatosCliente();
-    let idCliente = datosCliente[0].id_cliente;
-
-    const respuesta = await fetch('../../../api/citas/' + '?idCliente=' + idCliente);
+    const respuesta = await fetch('../../../api/citasTecnico/');
     if (respuesta.ok) {
         const datos = await respuesta.json();
+        console.log('Prueba'+datos);
         return datos;
     }
 }
 
+
+
 //......................................................................................................................
-/* escribirTablaCitas() */
+// escribirTablaCitas() //
 // .....................................................................................................................
 
 async function escribirTablaCitasTecnico() {
@@ -58,23 +33,23 @@ async function escribirTablaCitasTecnico() {
     tablaCitasTecnico.innerHTML = "";
 
     // Si la cita tiene el estado de rechazada, no la mostraremos en la tabla
-    datos.forEach(function (cita, index) {
-        if (cita.estado !== "3") {
+    datos.forEach(function (cita) {
+
             tablaCitasTecnico.innerHTML += `<tr>
-        <td>${cita.clientes.nombre}</td>
+        <td>${cita.nombre}</td>
         <td>${cita.fecha_cita}</td>
         <td>${cita.estado}</td>
         <td><button id="boton-ver-cita">Ver ficha</button></td>
         <td> <button class="boton-eliminar-cita" onclick='eliminarCita(${JSON.stringify(cita)})'></button></td>
       </tr>`;
-        }
+
     });
 }
 
 
 
 //......................................................................................................................
-/* rechazarCita(citaRechazada) */
+// rechazarCita(citaRechazada) //
 // .....................................................................................................................
 
 async function eliminarCita(citaEliminada) {
@@ -90,14 +65,9 @@ async function eliminarCita(citaEliminada) {
             // Si todos los datos coinciden, esta es la fila que se ha eliminado.
             fila.remove();
 
-            let datos = {
-                estado: 3,
-                idCita: citaEliminada.id_cita,
-            };
+            await fetch('../../../api/citasTecnico'+'?idCita='+ citaEliminada.id_cita, {
+                method: 'delete'
 
-            await fetch('../../../api/citas', {
-                method: 'delete',
-                body: JSON.stringify(datos),
             });
 
             break; // Rompemos el bucle ya que se ha eliminado la cita.
@@ -108,5 +78,5 @@ async function eliminarCita(citaEliminada) {
 //......................................................................................................................
 //......................................................................................................................
 
-// Llamadas de funciones:
+// Llamadas de funciones
 escribirTablaCitasTecnico();

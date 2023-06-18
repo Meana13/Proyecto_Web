@@ -126,16 +126,13 @@ h2 {
 }
 
 /* Estilos para los contenedores de las gráficas */
-#graficas-venta #chart-container-semana,
-#graficas-venta #chart-container-mes,
-#graficas-venta #chart-container-dia,
-#graficas-venta #chart-container-anio {
-    background-color: var(--textoBotones);
-    width: 89.8%;
-    max-width: 2000px;
-    margin: 0 auto;
-    height: 60em;
-    border: 1px solid var(--textoGeneral);
+#chart-container {
+    width: 90%;
+    background-color: white;
+}
+
+#chart {
+    width: 95%;
 }
 
 /* Estilos adicionales para las gráficas en dispositivos móviles */
