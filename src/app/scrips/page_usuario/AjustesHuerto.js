@@ -15,12 +15,6 @@ let notasEditable = document.getElementById('notas_huerto');
 let notas = document.getElementById('notas_huerto_ajustes');
 let nombreHuerto = document.getElementById('nombre_huerto_ajustes');
 let nombreHuertoEditable = document.getElementById('nombre_huerto');
-let inputSubirFotoHuerto = document.getElementById('subir-foto-huerto');
-let fotoHuerto = document.getElementById('foto-huerto');
-let botonSubirFotoHuerto = document.getElementById('boton-subir-foto-huerto');
-let vistaPrevia = document.getElementById('vista-previa');
-let botonConfirmarFotoHuerto = document.getElementById('confirmar-foto-huerto');
-let botonCancelarFotoHuerto = document.getElementById('cancelar-foto-huerto');
 let formulario = document.getElementById('formulario-subir-foto');
 let contador = document.getElementById('contador-notas-huerto');
 
@@ -105,13 +99,11 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
             return datos;
         }
     }
-
     //---------------------------------------------
     /*
                 escribirDatosHuerto()
     */
     //------------------------------------------
-
     async function escribirDatosHuerto(){
 
         let idHuerto = selector.value;
@@ -130,9 +122,6 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
             notasEditable.style.display = "none";
             notas.style.display = "block";
             contador.style.display = "none";
-
-
-
     }
 
     //---------------------------------------------
@@ -349,8 +338,6 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
             senyalMayor = 0;
         }
 
-
-
         //para mostrar u ocultar los mensajes de error de cada sensor:
         //SALINIDAD
         //si el valor mínimo es mayor que el máximo:
@@ -542,13 +529,7 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                 botonEditar.style.display = "block";
                 botonCancelar.style.display = "none";
             })
-
-
-
-
         }
-
-
     });
 
     //------------------------------------------
@@ -613,14 +594,14 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
         ESCRIBIR VALORES DE LÍMITES DE MEDIDA:
     */
     //------------------------------------------
-    async function escribirValoresLimitesMedida(){
+    async function escribirValoresLimitesMedida() {
 
         let idHuerto = selector.value;
         const respuesta = await fetch('../../../api/notificaciones/' + '?idHuerto=' + idHuerto);
-        if(respuesta.ok){
+        if (respuesta.ok) {
             let datos = await respuesta.json();
 
-            if(datos[0].notificaciones === "1"){
+            if (datos[0].notificaciones === "1") {
                 notificacionesBoton.checked = true;
                 formularioNotificaciones.style.display = 'block';
 
@@ -666,16 +647,16 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                 phMaximo.style.display = "block";
 
                 luzMinima.innerText = "";
-                if(datos[0].medicion_min_luminosidad === "0"){
+                if (datos[0].medicion_min_luminosidad === "0") {
                     luzMinima.innerText = "0 - Oscuridad";
                 }
-                if(datos[0].medicion_min_luminosidad === "1"){
+                if (datos[0].medicion_min_luminosidad === "1") {
                     luzMinima.innerText = "1 - Poco iluminado";
                 }
-                if(datos[0].medicion_min_luminosidad === "2"){
+                if (datos[0].medicion_min_luminosidad === "2") {
                     luzMinima.innerText = "2 - Sombra";
                 }
-                if(datos[0].medicion_min_luminosidad === "3"){
+                if (datos[0].medicion_min_luminosidad === "3") {
                     luzMinima.innerText = "3 - Luz directa";
                 }
                 luzMinimaEditable.style.display = "none";
@@ -683,16 +664,16 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
 
 
                 luzMaxima.innerText = "";
-                if(datos[0].medicion_max_luminosidad === "0"){
+                if (datos[0].medicion_max_luminosidad === "0") {
                     luzMaxima.innerText = "0 - Oscuridad";
                 }
-                if(datos[0].medicion_max_luminosidad === "1"){
+                if (datos[0].medicion_max_luminosidad === "1") {
                     luzMaxima.innerText = "1 - Poco iluminado";
                 }
-                if(datos[0].medicion_max_luminosidad === "2"){
+                if (datos[0].medicion_max_luminosidad === "2") {
                     luzMaxima.innerText = "2 - Sombra";
                 }
-                if(datos[0].medicion_max_luminosidad === "3"){
+                if (datos[0].medicion_max_luminosidad === "3") {
                     luzMaxima.innerText = "3 - Luz directa";
                 }
                 luzMaximaEditable.style.display = "none";
@@ -707,251 +688,61 @@ document.getElementById('boton_abrir_ajustes_huerto').addEventListener('click', 
                 diasLuzMaxima.innerText = datos[0].mediciones_continuas_maximos;
                 diasLuzMaximaEditable.style.display = "none";
                 diasLuzMaxima.style.display = "block";
-            }
-            else{
+            } else {
                 notificacionesBoton.checked = false;
                 formularioNotificaciones.style.display = 'none';
             }
         }
     }
-
-
-/*
-
-
     //------------------------------------------
-    /!*
-              CAMBIAR FOTO DE HUERTO:
-    *!/
+    /*
+                    BOTÓN CANCELAR:
+    */
     //------------------------------------------
+    botonCancelar.addEventListener('click', function(){
+        //ocultamos los campos editables:
+        nombreHuertoEditable.style.display = "none";
+        notasEditable.style.display = "none";
+        salinidadMinimaEditable.style.display = "none";
+        salinidadMaximaEditable.style.display = "none";
+        humedadMinimaEditable.style.display = "none";
+        humedadMaximaEditable.style.display = "none";
+        phMinimoEditable.style.display = "none";
+        phMaximoEditable.style.display = "none";
+        temperaturaMinimaEditable.style.display = "none";
+        temperaturaMaximaEditable.style.display = "none";
+        luzMinimaEditable.style.display = "none";
+        luzMaximaEditable.style.display = "none";
+        diasLuzMinimaEditable.style.display = "none";
+        diasLuzMaximaEditable.style.display = "none";
+        //y los botones de guardar y cancelar:
+        botonCancelar.style.display = "none";
+        botonGuardar.style.display = "none";
 
-    botonSubirFotoHuerto.addEventListener('click', function () {
-
-        const fotoPorDefecto = '../../../images/foto_base.jpeg';
-
-        inputSubirFotoHuerto.click();
-
-        //cuando se vaya a elegir una foto, mostramos la vistra previa y escondemos la foto real:
-        vistaPrevia.style.display = "block";
-        fotoHuerto.style.display = "none";
-
-        //y mostramos los botones de cancelar y confirmar:
-        botonConfirmarFotoHuerto.style.display = 'block';
-        botonCancelarFotoHuerto.style.display = 'block';
-
-        //escondemos el boton de cambiar foto:
-        botonSubirFotoHuerto.style.display = 'none';
-
-
-        inputSubirFotoHuerto.addEventListener('change', function (event) {
-            let fotoNueva = event.target.files[0];
-
-            if (fotoNueva) {
-                const reader = new FileReader();
-                reader.onload = function (event) {
-                    vistaPrevia.src = event.target.result;
-                    console.log(event.target.result);
-
-                    botonConfirmarFotoHuerto.addEventListener('click', async function () {
-                        let idHuerto = selector.value;
-
-                        let imagen = {
-                            imagenNueva: event.target.result
-                        }
-
-                        /!*
-                        let formData = new FormData(formulario);
-                        formData.append('imagen', fotoNueva, fotoNueva.name);
-        *!/
-                        const respuesta = await fetch('../../../api/cambiarFotoHuerto' + idHuerto, {
-                            method: 'put',
-                            body: imagen
-                        });
-                    });
-                }
-                reader.readAsDataURL(fotoNueva);
-
-            } else {
-                vistaPrevia.src = fotoPorDefecto;
-            }
-
-            botonCancelarFotoHuerto.addEventListener('click', function () {
-                vistaPrevia.style.display = 'none';
-                fotoHuerto.style.display = 'block';
-
-                botonCancelarFotoHuerto.style.display = 'none';
-                botonConfirmarFotoHuerto.style.display = 'none';
-                botonSubirFotoHuerto.style.display = 'block';
-            });
-
-            botonConfirmarFotoHuerto.addEventListener('click', async function () {
-                let idHuerto = selector.value;
+        botonEditar.style.display = "block";
+        //--Elementos de texto:
+        nombreHuerto.style.display = "block";
+        notas.style.display = "block";
+        //--Notificaciones:
+        salinidadMinima.style.display = "block";
+        salinidadMaxima.style.display = "block";
+        humedadMinima.style.display = "block";
+        humedadMaxima.style.display = "block";
+        phMinimo.style.display ="block";
+        phMaximo.style.display = "block";
+        temperaturaMinima.style.display = "block";
+        temperaturaMaxima.style.display = "block";
+        luzMinima.style.display = "block";
+        luzMaxima.style.display = "block";
+        diasLuzMinima.style.display = "block";
+        diasLuzMaxima.style.display = "block";
+    })
 
 
 
-            });
-        });
-    });
-*/
 
-                /*
-                let imagen = {
-                    imagenNueva: fotoNueva
-                }
-                /*
-                let formData = new FormData(formulario);
-                formData.append('imagen', fotoNueva, fotoNueva.name);
-*//*
-                const respuesta = await fetch('../../../api/cambiarFotoHuerto' + idHuerto, {
-                    method: 'put',
-                    body: imagen.blob()
-                    //body: formData
-                });
-
-
-                if (respuesta.ok) {
-                    console.log('se ha actualizado la imagen');
-
-                    const respuesta = await fetch('../../../api/cambiarFotoHuerto/' + '?idHuerto=' + idHuerto);
-                        if (respuesta.ok) {
-                            const datos = await respuesta.blob();
-                            const urlImagen = URL.createObjectURL(datos);
-                            vistaPrevia.src = urlImagen;
-                            fotoHuerto.src=urlImagen;
-                        }
-                }
-
-            });
-        });
-    });
-*/
 //llamadas de las funciones (main):
     escribirDatosHuerto();
     escribirValoresLimitesMedida();
 
 });
-
-
-
-
-
-
-
-
-
-/*
-
-document.getElementById('boton_perfil').addEventListener('click', function(){
-    /!**
-     * URL a la que se hacen las peticiones
-     *!/
-    const url= '../../../api/ajustes/';
-
-
-
-    /!**
-     * Variables vacias
-     *!/
-    var ajustesusuario=[];
-    var ajusteshuertos=[];
-
-    /!**
-     * Carga los datos del ajuste del usuario
-     * @param id
-     * @returns ajustesusuario
-     *!/
-    async function getAjustesUsuario(id){
-        const respuesta= await fetch(url+ '?idUsuario='+ id );
-        if(!respuesta.ok){
-            return false;
-        }
-        ajustesusuario=await respuesta.json();
-        return ajustesusuario;
-    }
-
-    /!**
-     * Carga los datos del huerto del usuario
-     * @param id_usuario
-     * @param id_huerto
-     * @returns ajusteshuertos
-     *!/
-    async function getAjustesHuerto(id_usuario,id_huerto){
-        const respuesta= await fetch(url + '?idUsuario='+ id_huerto );
-        if(!respuesta.ok){
-            return false;
-        }
-        ajusteshuertos=await respuesta.json();
-        return ajusteshuertos;
-    }
-
-    /!**
-     * Envia los datos del usuario
-     * @param id_usuario
-     *
-     *!/
-    async function enviarEditarUsuario(id_usuario){
-// Obtén una referencia al formulario por su ID
-        const formulario = document.getElementById('formulario-ajustes');
-// Añade el event listener para el evento 'submit'
-        formulario.addEventListener('submit', async function(event) {
-            event.preventDefault();
-        const formData = new FormData(event.target);
-        const usuario = {
-            usuario: formData.get('usuario'),
-            nombre: formData.get('nombre'),
-            apellidos: formData.get('apellidos'),
-            email: formData.get('email'),
-        };
-            updateUsuario(usuario);
-        });
-    }
-*/
-/*
-
-    /!**
-     * Envia los datos a la base de datos
-     * @param id_usuario
-     *!/
-    async function enviarEditarUsuario(id_usuario){
-// Obtén una referencia al formulario por su ID
-        const formulario = document.getElementById('formulario-huerto');
-// Añade el event listener para el evento 'submit'
-        formulario.addEventListener('submit', async function(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const usuario = {
-                usuario: formData.get('usuario'),
-                nombre: formData.get('nombre'),
-                apellidos: formData.get('apellidos'),
-                email: formData.get('email'),
-            };
-            updateHuerto(usuario);
-        });
-    }
-
-    /!**
-     * Actualiza los datos del usuario
-     * @param datos
-     * @returns respuesta
-     *!/
-    async function updateUsuario(datos) {
-        const respuesta = await fetch(url + datos.id, {
-            method: 'put',
-            body: JSON.stringify(datos)
-        })
-        return await respuesta.ok;
-    }
-    /!**
-     * Actualiza los datos del huerto del usuario
-     * @param datos
-     * @returns respuesta
-     *!/
-    async function updateHuerto(datos) {
-        const respuesta = await fetch(url + datos.id, {
-            method: 'put',
-            body: JSON.stringify(datos)
-        })
-        return await respuesta.ok;
-    }
-
-*/

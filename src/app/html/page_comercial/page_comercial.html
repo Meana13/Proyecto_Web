@@ -11,6 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
+    <!--Carga de iconos de bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     <!-- Carga de scripts -->
     <script src="../../scrips/page_comercial/grafica.js"></script>
     <script src="../../scrips/landing_page/control-acceso.js"></script>
@@ -32,7 +35,7 @@
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png"
                 alt=""></a>
         <div class="login-tab">
-            <img src="../../../images/comercial.png" alt="">
+            <p><i class="bi bi-person-circle"></i></p>
             <label>Ferser</label>
         </div>
 
@@ -62,15 +65,7 @@
 
 
     <!----------------------------------------------------------------------------------------------->
-    <!--Aquí empieza la sección de usuario-comercial-->
-    <section id="usuario-comercial">
 
-
-    </section>
-    <!--Aquí acaba la sección de usuario-comercial-->
-    <!----------------------------------------------------------------------------------------------->
-
-    <!----------------------------------------------------------------------------------------------->
     <!--Aquí empieza la sección de solicitudes-->
     <section id="solicitudes">
         <h2>SOLICITUDES</h2>
@@ -334,20 +329,22 @@
 
         <!--Aquí empieza la sección de graficas-ventas-->
         <section id="graficas-ventas">
-
-            <select id="selector-opciones-graficas">
-                <option id="opcion-semana" value="semana">Última Semana</option>
-                <option id="opcion-mes" value="mes">Último Mes</option>
-                <option id="opcion-meses" value="anio">Meses del último año</option>
-                <option id="opcion-anios" value="anios">Años</option>
-            </select>
-
-            <div id="chart-container">
-
-                <canvas id="chart"></canvas>
-
+            <div class="container">
+                <div class="row">
+                    <select class="col-12" id="selector-opciones-graficas">
+                        <option id="opcion-semana" value="semana">Última Semana</option>
+                        <option id="opcion-mes" value="mes">Último Mes</option>
+                        <option id="opcion-meses" value="anio">Meses del último año</option>
+                        <option id="opcion-anios" value="anios">Años</option>
+                    </select>
+        
+                    <div class="col-12" id="chart-container">
+        
+                        <canvas id="chart"></canvas>
+        
+                    </div>
+                </div>
             </div>
-
         </section>
         <!--Aquí acaba la sección de graficas-ventas-->
 
@@ -382,8 +379,8 @@
 
         <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
         <div class="contenedor-datos">
+            <button id="boton-volver-a-lista-solicitudes"><i class="bi bi-x"></i></button>
             <h3>Detalles de la solicitud</h3>
-            <button id="boton-volver-a-lista-solicitudes"></button>
             <div>
                 <p><b>Nombre:</b></p>
                 <p class="ver-mas-dato" id="nombre-solicitud"></p>
@@ -405,9 +402,11 @@
                 <p class="ver-mas-dato" id="mensaje-solicitud"></p>
             </div>
 
-            <button id="boton-pasar-a-pendientes">PASAR A "PENDIENTE"</button>
-            <button id="boton-pasar-a-proceso">PASAR A "EN PROCESO"</button>
-            <button id="boton-pasar-a-finalizada">PASAR A "FINALIZADA"</button>
+            <div id="botones-pasar-solicitud">
+                <button id="boton-pasar-a-pendientes">PASAR A "PENDIENTE"</button>
+                <button id="boton-pasar-a-proceso">PASAR A "EN PROCESO"</button>
+                <button id="boton-pasar-a-finalizada">PASAR A "FINALIZADA"</button>
+            </div>
 
         </div>
 
