@@ -9,13 +9,12 @@ if (!isset($connexion)) die();
 
 $id =$peticion->parametrosBody()->id;
 $nombre = $peticion->parametrosBody()->nombre;
-$apellidos = intval($peticion->parametrosBody()->idRol);
+$apellidos =$peticion->parametrosBody()->apellidos;
 $email =$peticion->parametrosBody()->email;
 $direccion =$peticion->parametrosBody()->direccion;
-$sql="UPDATE `clientes`
-      SET `nombre`=$nombre,`apellidos`= $apellidos,`email` = $email,`direccion`=$direccion;
-      WHERE `id_usuario`= $id";
-
+ $sql = "UPDATE clientes
+             SET nombre = '$nombre', apellidos = '$apellidos', email = '$email', direccion = '$direccion'
+             WHERE id_usuario = $id";
 try {
     mysqli_query($connexion, $sql);
     http_response_code(200);

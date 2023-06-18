@@ -3,20 +3,19 @@
 SCRIPT PARA ENVIAR FORMULARIO Y PARA MOSTRAR DIÁLOGO DE ENVÍO
 */
 //-----------------------------------
+var url="../../../api/email/"
+async function Comprobaremail() {
+    var email = document.getElementById('email').value;
 
-const form = document.getElementById('contact-form');
+    const respuesta = await fetch(url + '?email=' + email);
+    const data = await respuesta.text();
 
-/*Para que cuando se envíe el formulario, se muestre el diálogo: ¡Se ha enviado el formulario correctamente!*/
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
-
-    // Validar los campos antes de mostrar el diálogo
-    var nombre = document.getElementById('name').value;
-
-
-    if (nombre.trim() !== '' ) {
-        // Si los campos están completos, mostrar el diálogo
-        document.getElementById('dialog-container').style.display = 'block';
+    if (data !== "") {
+        // Redirigir a otra página con la variable 'email' como parámetro de consulta
+        window.location.href = 'otra_pagina.html?email=' + encodeURIComponent(email);
+    } else {
+        // Mostrar un alert
+        alert('No se encontró ninguna respuesta');
     }
-});
+}
 
