@@ -3303,10 +3303,10 @@ async function getDatosPorFecha(){
 
     filtroAcordeonSalinidad.addEventListener('change', function(){
         if(filtroAcordeonSalinidad.value ==='Seleccionar fecha'){
-            formularioFechaAcordeonSalinidad.style.display = "block";
+            // formularioFechaAcordeonSalinidad.style.display = "block";
         }
         if(filtroAcordeonSalinidad.value !=='Seleccionar fecha'){
-            formularioFechaAcordeonSalinidad.style.display = "none";
+            // formularioFechaAcordeonSalinidad.style.display = "none";
         }
     });
 
@@ -3741,10 +3741,8 @@ async function getDatosPorFecha(){
         }//si son 4 o más días
 
 //--------------------------------------------ACORDEÓN--------------------------------------------------
-
-
-        formularioFechaAcordeonSalinidad.addEventListener('submit', async function(event) {
-            event.preventDefault();
+        let botonEnviarFiltroSal = document.getElementById('boton-enviar-filtro-acordeon-sal')
+        botonEnviarFiltroSal.addEventListener('click', async function() {
 
             let desde = document.getElementById('desde-acordeon-sal').value;
             let hasta = document.getElementById('hasta-acordeon-sal').value;

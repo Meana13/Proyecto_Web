@@ -14,7 +14,7 @@ $sql = "SELECT
         `mediciones`.`id_medicion`, 
         `mediciones`.`fecha_medicion`, 
         `mediciones`.`hora_medicion`, 
-        ROUND(AVG(`medicion_salinidad`),1) as `mediaSalinidad`, 
+        AVG(`medicion_salinidad`) as `mediaSalinidad`, 
         ROUND(AVG(`medicion_humedad`),1) as `mediaHumedad`, 
         ROUND(AVG(`medicion_luminosidad`),1) as `mediaLuminosidad`, 
         ROUND(AVG(`medicion_ph`),1) as `mediapH`, 
