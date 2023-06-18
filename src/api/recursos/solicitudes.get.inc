@@ -9,15 +9,48 @@ require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
 $estado = $peticion->parametrosQuery()['estado'];
+$senyal = $peticion->parametrosQuery()['senyal'];
 
-$sql = "SELECT * 
-        FROM `consultas`, `asuntos_formulario_contacto`
-        WHERE estado_consulta = $estado
-        AND `consultas`.asunto = `asuntos_formulario_contacto`.id_asunto_formulario_contacto";
+if($senyal === "1"){
+    $sql = "SELECT *
+            FROM `consultas`, `asuntos_formulario_contacto`
+            WHERE estado_consulta = $estado
+            AND `consultas`.asunto = `asuntos_formulario_contacto`.id_asunto_formulario_contacto
+            ORDER BY fecha DESC";
 
-
-$result = mysqli_query($connexion, $sql);
-while ($row = mysqli_fetch_assoc($result)) {
-    $salida[] = $row;
+    $result = mysqli_query($connexion, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $salida[] = $row;
+    }
 }
+elseif($senyal === "2") {
+    $cantidad = $peticion->parametrosQuery()['cantidad'];
+
+        $sql = "SELECT COUNT(`id_consulta`) AS `total`
+                FROM `consultas`
+                WHERE `estado_consulta` = $estado";
+
+        $result = mysqli_query($connexion, $sql);
+
+        $total = mysqli_fetch_assoc($result)['total'];
+        $paginas =ceil($total/$cantidad);
+        $salida['paginas'] = $paginas;
+    }
+    elseif ($senyal === "3"){
+        $cantidad = intval($peticion->parametrosQuery()['cantidad']);
+        $auxiliar = intval($peticion->parametrosQuery()['pagina']);
+        $pagina = $auxiliar * $cantidad;
+
+        $sql = "SELECT *
+                FROM `consultas`, `asuntos_formulario_contacto`
+                WHERE estado_consulta = $estado
+                AND `consultas`.asunto = `asuntos_formulario_contacto`.id_asunto_formulario_contacto
+                ORDER BY fecha DESC
+                LIMIT $pagina, $cantidad";
+
+        $result = mysqli_query($connexion, $sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+            $salida[] = $row;
+        }
+    }
 

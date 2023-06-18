@@ -129,16 +129,9 @@
             <!--Aquí acaba la tabla de solicitudes pendientes-->
 
             <!--Aquí empieza el paginador de solicitudes pendientes-->
-            <!--<div id="paginadorPendientes" class="paginador">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <span class="btn-input">
-                    <button>...</button>
-                    <input type="number" value="1" />
-                </span>
-                <button>n</button>
-            </div>-->
+            <div>
+                <select id="paginadorPtes"></select>
+            </div>
 
             <!--Aquí acaba el paginador de solicitudes pendientes-->
 
@@ -183,15 +176,8 @@
             <!--Aquí acaba la tabla de solicitudes en proceso-->
 
             <!--Aquí empieza el paginador de solicitudes en proceso-->
-            <div id="paginadorProceso" class="paginador">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <span class="btn-input">
-                    <button>...</button>
-                    <input type="number" value="1" />
-                </span>
-                <button>n</button>
+            <div>
+                <select id="paginadorProceso"></select>
             </div>
             <!--Aquí acaba el paginador de solicitudes en proceso-->
 
@@ -237,15 +223,8 @@
             <!--Aquí acaba la tabla de solicitudes finalizadas-->
 
             <!--Aquí empieza el paginador de solicitudes finalizadas-->
-            <div id="paginadorFinalizadas" class="paginador">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <span class="btn-input">
-                    <button>...</button>
-                    <input type="number" value="1" />
-                </span>
-                <button>n</button>
+            <div>
+                <select id="paginadorFinalizadas"></select>
             </div>
             <!--Aquí acaba el paginador de solicitudes finalizadas-->
 
@@ -293,16 +272,6 @@
             <div id="container-paginador-ventas">
                 <select id="paginadorVentas"></select>
             </div>
-            <!--<div id="paginadorVentas" class="paginador">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <span class="btn-input">
-                    <button>...</button>
-                    <input type="number" value="1" />
-                </span>
-                <button>n</button>
-            </div>-->
             <!--Aquí acaba el paginador de ventas-->
 
             <!--Aquí empieza la tabla de ventas-->
@@ -385,6 +354,10 @@
         <div class="contenedor-datos">
             <button id="boton-volver-a-lista-solicitudes"><i class="bi bi-x"></i></button>
             <h3>Detalles de la solicitud</h3>
+            <div>
+                <p><b>Fecha:</b></p>
+                <p class="ver-mas-dato" id="fecha-solicitud"></p>
+            </div>
             <div>
                 <p><b>Nombre:</b></p>
                 <p class="ver-mas-dato" id="nombre-solicitud"></p>

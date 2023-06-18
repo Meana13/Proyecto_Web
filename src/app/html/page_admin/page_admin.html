@@ -11,7 +11,6 @@
     <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
     <script src="../../scrips/page_admin/page_admin.js"></script>
     <script src="../../scrips/page_admin/Tablas.js"></script>
-    <script src="../../scrips/page_admin/Administrar_usuarios.js"></script>
     <script src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
     <!--Carga de iconos de bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -34,7 +33,7 @@
                 alt=""></a>
         <div class="login-tab">
             <i class="bi bi-person-circle"></i>
-            <label>HectorAdmin</label>
+            <label id="Nombre_usuario">Usuario</label>
         </div>
         <!--- menu --->
         <nav class="nav">
@@ -69,18 +68,12 @@
                 <button class="col-3 boton-buscar" onclick="generarTablasFiltrada()">Buscar</button>
             </div>
         </div>
-
-        <div id="select-anyadir">
-            <select name="selector_rol" id="selector_rol" onclick="generarTablas()">
-                <option value="1">Administrador</option>
-                <option value="2">Comercial</option>
-                <option value="3">Técnico</option>
-                <option value="4" selected>Usuario</option>
-                <option value="5">No registrado</option>
-            </select>
-    
-            <button type="button" id="boton-añadir-usuario"> <i class="bi bi-plus-circle-fill"></i>Añadir</button>
-        </div>
+        <select name="selector_rol" id="selector_rol" onchange="generarTablas()">
+            <option value="1">Administrador</option>
+            <option value="2">Comercial</option>
+            <option value="3">Técnico</option>
+            <option value="4"selected>Usuario</option>
+        </select>
         <!-- TABLA USUARIOS -->
         <table id="tabla-usuarios">
             <thead>
@@ -147,7 +140,7 @@
         </table>
         <!------------------->
         
-        <div id="paginadorAdmin" class="paginador" onclick="generarTablas()">
+        <!--<div id="paginadorAdmin" class="paginador" onclick="generarTablas()">
             <button value="1">1</button>
             <button value="2">2</button>
             <button value="3">3</button>
@@ -156,7 +149,7 @@
                 <input type="number" value="1" onchange="cambiarPaginaPaginadorPendientes(this.value)"
                     onblur="ocultarInput(this)" />
             </span>
-            <button>n</button>
+            <button>n</button>-->
         </div>
 
     </section>
@@ -206,13 +199,9 @@
         <div id="formulario-hoja-usuario">
          <form id="editar-usuario">
             <br>
-             <div id="id_usuario""display: none" value:id></div>;
-            <label>Nombre de usuario: </label>
-            <input type="text" id="usuario" name="usuario" value="Usuario" disabled>
+             <div id="id_usuario""display: none" value:id></div>
             <button id="icono-editar" type="button" onclick="Permitir_editar()"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
             <br>
-            <label>Contraseña: </label>
-            <input type="text" id="contraseña" name="contraseña" disabled>
 
             <br>
             <label>Nombre: </label>
