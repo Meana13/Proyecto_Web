@@ -123,9 +123,14 @@ botonSolicitudesFinalizadas.addEventListener('click', function (){
                                                        _______________
 */
 //.......................................................
-async function getSolicitudesPorEstado(estado){
+async function getSolicitudesPorEstado(estado, pagina, senyal){
 
-    const respuesta = await fetch('../../../api/solicitudes/' + '?estado=' + estado);
+    const respuesta = await fetch('../../../api/solicitudes/'
+        +'?cantidad=' + 10
+        + '&estado=' + estado
+        + '&senyal=' + senyal
+        + '&pagina=' + pagina);
+
     if(respuesta.ok){
         const datos = await respuesta.json();
         return datos;
