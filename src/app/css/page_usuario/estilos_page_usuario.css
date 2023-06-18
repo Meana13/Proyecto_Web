@@ -178,6 +178,9 @@ h2 {
     font-size: 16px;
 }
 
+
+
+
 /*Estilo iconos de alerta*/
 .alertas-container {
     flex: 1 1 100%;
@@ -259,6 +262,13 @@ h2 {
 }
 
 /*Estilos para el filtro de la gráfica*/
+
+.filtros_graficas {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
 .cuerpo_del_visualizador article .grafica-container div {
     display: flex;
     justify-content: flex-start;
