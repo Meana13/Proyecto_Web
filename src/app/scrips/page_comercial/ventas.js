@@ -111,7 +111,8 @@ botonGraficas.addEventListener('click', function(){
                                                        _______________
 */
 //.......................................................
-async function getVentas(pagina){
+async function getVentas(pagina ){
+    console.log("pagina:" + pagina)
     const respuesta = await fetch('../../../api/ventas/'
         + '?senyal=' + 3
         + '&pagina=' + pagina
@@ -138,7 +139,7 @@ async function getPaginadorVentas(){
 
     if(respuesta.ok){
         const datos = await respuesta.json();
-        console.log(datos);
+        console.log("paginadorVentas: " + datos);
         for (let i = 1; i <= datos.paginas; i++) {
             const opt = document.createElement('option');
             opt.value = i;
@@ -146,16 +147,14 @@ async function getPaginadorVentas(){
             paginadorVentas.appendChild(opt);
         }
     }
-    paginadorVentas.addEventListener('change', () => {
-        cargarPaginaVentas(paginadorVentas.value);
+    paginadorVentas.addEventListener('change', async () => {
+        let datos = await getVentas(paginadorVentas.value);
+        console.log(datos);
+
     })
 }
 
-async function cargarPaginaVentas(pagina) {
-    console.log(pagina);
-    const v = await getVentas(pagina);
-    console.log(v);
-}
+
 
 
 getPaginadorVentas();
@@ -168,7 +167,8 @@ getPaginadorVentas();
 */
 //.......................................................
 async function escribirTablaVentas() {
-    let datos = await getVentas();
+    let pagina = 1;
+    let datos = await getVentas(pagina);
 
     tablaVentas.innerHTML = "";
 

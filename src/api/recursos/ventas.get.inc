@@ -41,8 +41,9 @@ if(isset($peticion->parametrosQuery()['senyal'])){
         $salida['paginas'] = $paginas;
     }
     elseif ($senyal === "3"){
-        $cantidad = $peticion->parametrosQuery()['cantidad'];
-        $pagina = $peticion->parametrosQuery()['pagina'] * $cantidad;
+        $cantidad = intval($peticion->parametrosQuery()['cantidad']);
+        $auxiliar = intval($peticion->parametrosQuery()['pagina']);
+        $pagina = $auxiliar * $cantidad;
 
         $sql = "SELECT * 
                 FROM `ventas` 
