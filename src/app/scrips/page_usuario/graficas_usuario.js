@@ -24,6 +24,11 @@ let datoActualLuz = document.getElementById('dato_actual_luz');
 //GRAFICAS
 let grafica = document.getElementById('chart-sal');
 let filtro = document.getElementById('filtro_salinidad');
+let seleccionarFecha = document.getElementById('seleccionar_fecha_salinidad');
+let desdeInput = document.getElementById('desde-sal');
+let hastaInput = document.getElementById('hasta-sal');
+let enviarInput = document.getElementById('botonEnviarFiltroFechaSalinidad');
+let errorFechas = document.getElementById('error-fechas');
 //BOTONES
 let tabSalinidad = document.getElementById('tab_salinidad');
 let tabHumedad = document.getElementById('tab_humedad')
@@ -45,7 +50,7 @@ let datoActualAcordeonLuz = document.getElementById('dato_actual_acordeon_luz');
 let filtroAcordeon = document.getElementById('filtro_acordeon_salinidad');
 let graficaAcordeonSalinidad = document.getElementById('chart-acordeon-sal');
 let graficaAcordeonHum = document.getElementById('chart-acordeon-humedad');
-
+let seleccionarFechaAcordeon = document.getElementById('seleccionar_fecha_acordeon_salinidad');
 
 
 
@@ -166,8 +171,6 @@ async function cargarDatoActualTabs(idHuerto) {
     const respuesta = await fetch('../../../api/medicionesDatoActual/' + '?idHuerto=' + idHuerto);
     if (respuesta.ok) {
         const mediciones = await respuesta.json();
-
-        console.log(mediciones);
 
         //para quitarle los decimales a la medida si los decimales son "0":
         mediciones.forEach(function (objeto) {
@@ -416,7 +419,7 @@ selectorDeHuertos.addEventListener('change', function () {
     let idHuerto = selectorDeHuertos.value; //conseguimos la id del huerto seleccionado
     cargarDatoActualTabs(idHuerto);
     tabSalinidad.click();
-    
+
     if (getComputedStyle(seccionAcordeon).display !== "none") {
         construirGraficaSalinidad(idHuerto, "Hoy");
         construirGraficaHumedad(idHuerto, "Hoy");
@@ -483,6 +486,12 @@ filtro.addEventListener('change',function () {
     if(filtro.value === 'Semana' && tabHumedad.classList.contains('activo')){
         construirGraficaHumedad(idHuerto, "Semana");
     }
+    if(filtro.value === "Seleccionar fecha"){
+        seleccionarFecha.style.display = "block";
+    }
+    else{
+        seleccionarFecha.style.display = "none";
+    }
 
 });
 //......................................................................................................................
@@ -506,12 +515,19 @@ filtroAcordeon.addEventListener('change', function(){
         construirGraficaHumedad(idHuerto, "Semana");
     }
 
+    if(filtroAcordeon.value === "Seleccionar fecha"){
+        seleccionarFechaAcordeon.style.display = "block";
+    }
+    else{
+        seleccionarFechaAcordeon.style.display = "none";
+    }
+
 })
 //......................................................................................................................
 //......................................................................................................................
 //------------------------------------------
 /*
-        idHuerto --> getMedicionesHoy()
+        idHuerto --> getMedicionesHoy() --> [datos]
 */
 //------------------------------------------
 async function getMedicionesHoy(idHuerto) {
@@ -525,7 +541,7 @@ async function getMedicionesHoy(idHuerto) {
 //......................................................................................................................
 //------------------------------------------
 /*
-        idHuerto --> getMedicionesSemana()
+        idHuerto --> getMedicionesSemana() -->[datos]
 */
 //------------------------------------------
 async function getMedicionesSemana(idHuerto) {
@@ -536,6 +552,88 @@ async function getMedicionesSemana(idHuerto) {
         return mediciones;
     }
 }
+//......................................................................................................................
+//......................................................................................................................
+//------------------------------------------
+/*
+   idHuerto, desde:txt, hasta:txt --> getMedicionesSeleccionarFecha() --> [datos]
+*/
+//------------------------------------------
+async function getMedicionesSeleccionarFecha(idHuerto, desde, hasta, senyal) {
+    const respuesta = await fetch('../../../api/medicionesFecha/' +
+        '?idHuerto=' + idHuerto +
+        '&desde=' + desde +
+        '&hasta=' + hasta +
+        '&senyal=' + senyal);
+
+    if (respuesta.ok) {
+        const mediciones = await respuesta.json();
+        console.log(mediciones);
+        return mediciones;
+    }
+}
+//......................................................................................................................
+//......................................................................................................................
+//------------------------------------------
+/*
+        limitesFechas()
+*/
+//------------------------------------------
+async function limitesFechas(){
+
+}
+//......................................................................................................................
+//......................................................................................................................
+//------------------------------------------
+/*
+        verificarFechas()
+*/
+//------------------------------------------
+function verificarFechas() {
+    let desde = desdeInput.value;
+    let hasta = hastaInput.value;
+
+    let fechaDesde = new Date(desde);
+    let fechaHasta = new Date(hasta);
+
+    if(fechaDesde > fechaHasta){
+        errorFechas.style.display = "block";
+        enviarInput.disabled = true;
+    }
+    else{
+        errorFechas.style.display = "none";
+        enviarInput.disabled = false;
+    }
+}
+
+desdeInput.onchange = verificarFechas;
+hastaInput.onchange = verificarFechas;
+//......................................................................................................................
+//......................................................................................................................
+//------------------------------------------
+/*
+            obtenerFechas();
+*/
+//------------------------------------------
+function obtenerFechas(){
+    let desde = desdeInput.value;
+    let hasta = hastaInput.value;
+    return {
+        desde: desde,
+        hasta: hasta
+    }
+}
+//......................................................................................................................
+//......................................................................................................................
+//------------------------------------------
+/*
+       BOTON ENVIAR FECHAS()
+*/
+//------------------------------------------
+enviarInput.addEventListener('click', function (){
+    let idHuerto = selectorDeHuertos.value;
+    construirGraficaSalinidad(idHuerto,"Fecha");
+})
 
 //......................................................................................................................
 //......................................................................................................................
@@ -547,6 +645,7 @@ async function getMedicionesSemana(idHuerto) {
 async function construirGraficaSalinidad(idHuerto, senyal){
 
     let mediciones;
+    let diferenciaDias = 0;
 
     if(senyal === "Hoy"){
         mediciones = await getMedicionesHoy(idHuerto);
@@ -554,6 +653,28 @@ async function construirGraficaSalinidad(idHuerto, senyal){
 
     if(senyal === "Semana"){
         mediciones = await getMedicionesSemana(idHuerto);
+    }
+
+    if(senyal === "Fecha"){
+        let desde = obtenerFechas().desde;
+        let hasta = obtenerFechas().hasta;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+
+        let diferenciaMs = fechaHasta - fechaDesde;
+
+        diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+
+        if (diferenciaDias <= 3) {
+            console.log('3 o menos días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 1);
+
+        }
+        else{
+            console.log('4 o más días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 0);
+        }
     }
 
     let horas = mediciones.map(function (medicion) {
@@ -642,6 +763,19 @@ async function construirGraficaSalinidad(idHuerto, senyal){
             datos.labels.push(dias[i]);
             datos.datasets[0].data.push(mediciones[i].mediaSalinidad);
         }
+    }
+
+    if(senyal === "Fecha" && diferenciaDias <= 3) {
+        for (let i = horas.length - 1; i >= 0; i--) {
+            datos.labels.push(horas[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaSalinidad);
+        }
+    }
+
+    if(senyal === "Fecha" && diferenciaDias > 4)
+    for (let i = dias.length-1; i >= 0; i--) {
+        datos.labels.push(dias[i]);
+        datos.datasets[0].data.push(mediciones[i].mediaSalinidad);
     }
 
     graficaBase.options = opciones;

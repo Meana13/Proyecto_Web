@@ -254,7 +254,7 @@ h2 {
     margin-bottom: 1rem;
 }
 
-.cuerpo_del_visualizador article .grafica-container div form.seleccionar_fecha {
+ form.seleccionar_fecha {
     display: none;
 }
 

@@ -259,8 +259,8 @@
                             <label for="hasta-sal" class="hasta">
                                 Hasta: <input name="hasta" id="hasta-sal" type="date">
                             </label>
-
-                            <input type="submit" id="botonEnviarFiltroFechaSalinidad">
+                            <p class="mensaje-error" id="error-fechas">¡La fecha de "desde" no puede ser superior a la de "hasta"!</p>
+                            <button type="button" id="botonEnviarFiltroFechaSalinidad">Enviar</button>
                         </form>
                     </div>
 
@@ -549,7 +549,7 @@
                     Hasta: <input name="hasta" id="hasta-acordeon-sal" type="date">
                 </label>
 
-                <input type="submit">
+                <input type="submit" id="enviar-fechas">
             </form>
         </div>
         <!--SALINIDAD-->
