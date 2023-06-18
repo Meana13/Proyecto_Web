@@ -46,13 +46,11 @@ h2 {
     background-color: var(--secundario);
     border: 0;
     color: var(--textoBotones);
-    height: 35px;
-    width: 110px;
     align-items: center;
     text-transform: uppercase;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    padding: 1em;
+    padding: 5px 15px;
     display: flex;
     justify-content: center;
     margin-left: auto;

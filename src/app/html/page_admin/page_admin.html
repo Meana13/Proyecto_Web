@@ -63,20 +63,24 @@
     <section id="seccion-administrar-usuarios">
 
         <h2>ADMINISTRACIÓN DE USUARIOS</h2>
-        <button id="boton-añadir-usuario">Añadir Usuario</button>
         <div class="container">
             <div class="row">
                 <input class="col-9 buscador" id="buscador-admin" placeholder="Busqueda por nombre, apellidos o email">
                 <button class="col-3 boton-buscar" onclick="generarTablasFiltrada()">Buscar</button>
             </div>
         </div>
-        <select name="selector_rol" id="selector_rol" onchange="generarTablas()">
-            <option value="1">Administrador</option>
-            <option value="2">Comercial</option>
-            <option value="3">Técnico</option>
-            <option value="4"selected>Usuario</option>
-            <option value="5">No registrado</option>
-        </select>
+
+        <div id="select-anyadir">
+            <select name="selector_rol" id="selector_rol" onclick="generarTablas()">
+                <option value="1">Administrador</option>
+                <option value="2">Comercial</option>
+                <option value="3">Técnico</option>
+                <option value="4" selected>Usuario</option>
+                <option value="5">No registrado</option>
+            </select>
+    
+            <button type="button" id="boton-añadir-usuario"> <i class="bi bi-plus-circle-fill"></i>Añadir</button>
+        </div>
         <!-- TABLA USUARIOS -->
         <table id="tabla-usuarios">
             <thead>
