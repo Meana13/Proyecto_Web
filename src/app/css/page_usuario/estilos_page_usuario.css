@@ -295,6 +295,28 @@ form.seleccionar_fecha {
 }
 
 
+
+#botonEnviarFiltroFecha {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #790050;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #botonEnviarFiltroFecha:hover {
+    background-color: #9D4179;
+  }
+  
+  #botonEnviarFiltroFecha:active {
+    background-color: #790050;
+  }
+
+
+
+
 /*Estilos de la gráfica*/
 .cuerpo_del_visualizador article .grafica-container div.chart-container {
     width: 100%;
