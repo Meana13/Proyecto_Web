@@ -1,4 +1,24 @@
+/**
+ *Consigue los datos del usuario que ha hecho sesion
+ */
+async function getSesionUsuario(){
+    const respuesta = await fetch('../../../api/sesion/');
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
 
+/**
+ *Cambia el nombre del usuario arriba
+ */
+async function cambiarNombre(){
+    const nombre=await getSesionUsuario();
+    const label=document.getElementById("Nombre_usuario");
+    console.log(nombre)
+    label.textContent=nombre.nombre;
+
+}
 document.addEventListener('DOMContentLoaded', function () {
     const botonAdminUsuarios = document.getElementById("boton-administrar-usuarios");
     const secAdminUsuarios = document.getElementById("seccion-administrar-usuarios");
@@ -60,25 +80,6 @@ let datosUsuario = {
     direccion:"",
 }
 
-function crearTablaUsuarios(solicitud) {
-    let fila = document.createElement('tr');
-
-    let celdaNombre = document.createElement('td');
-    celdaNombre.textContent = solicitud.nombre;
-
-    let celdaApellidos = document.createElement('td');
-    celdaApellidos.textContent = solicitud.apellidos;
-
-    let celdaEmail = document.createElement('td');
-    celdaEmail.textContent = solicitud.email;
-
-    let celdaDireccion
-
-    let celdaBoton = document.createElement("td");
-    let botonHojaUsuario = document.createElement("button");
-
-    celdaBoton.appendChild(botonHojaUsuario);
-
-
-    fila.append(celdaNombre, celdaApellidos, celdaEmail, celdaBoton);
-}
+window.addEventListener("DOMContentLoaded", () => {
+    cambiarNombre();
+});
