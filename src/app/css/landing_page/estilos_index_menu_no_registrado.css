@@ -116,11 +116,11 @@ button.boton_menu {
 }
 
 /* Estilos para la imagen de la pestaña de inicio de sesión */
-.login-tab img {
-  width: 40px;
-  height: 40px;
+.login-tab p {
+  font-size: 35px;
   border-radius: 100%;
-  border: 2px solid white;
+  margin-right: 10px;
+  margin-top: 10px; 
 }
 
 /* Estilos para el icono de usuario */
