@@ -55,8 +55,10 @@ h2 {
     justify-content: center;
     margin-left: auto;
     margin-right: 11.5%;
-}
-
+    margin-bottom: 10px; /* Ajusta el valor de margin-bottom según tus necesidades */
+    white-space: nowrap;
+  }
+  
 .bi-plus-circle-fill::before {
     margin-right: 10px;
 }
@@ -250,6 +252,7 @@ select {
         width: auto;
         height: 30px;
         width: 90px;
+        padding: 5px 15px;
     }
 
     /* Estilos tabla */
