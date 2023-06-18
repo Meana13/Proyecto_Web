@@ -16,6 +16,7 @@ let botonGraficas = document.getElementById('boton-graficas');
 let botonListaVentas = document.getElementById('boton-lista-ventas');
 //Tablas:
 let tablaVentas = document.getElementById('tabla-ventas');
+let paginadorVentas = document.getElementById('paginadorVentas');
 //Sección ver Venta:
 let botonVolverAVentas = document.getElementById('boton-volver-a-lista-ventas');
 let verVentaFecha = document.getElementById('fecha-venta');
@@ -29,11 +30,41 @@ let verVentaImporte = document.getElementById('importe-venta');
 //......................................................................................................................
 //.......................................................
 /*
+            getSesionComercial()
+*/
+//.......................................................
+async function getSesionComercial(){
+    const respuesta = await fetch('../../../api/sesion/');
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        console.log(datos);
+        return datos;
+    }
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+            escribirNombreComercial()
+*/
+//.......................................................
+async function escribirNombreComercial(){
+   let datos = await getSesionComercial();
+   document.getElementById('nombre_comercial_header').innerText = "";
+   document.getElementById('nombre_comercial_header').innerText = datos.nombre;
+}
+escribirNombreComercial();
+
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
           BOTÓN VENTAS HEADER
 */
 //.......................................................
 botonVentasHeader.addEventListener('click', function(){
-    escribirTablaVentas();
+    getPaginadorVentas();
+    escribirTablaVentas(1);
     seccionSolicitudesGnral.style.display = "none";
     seccionVentasGnral.style.display = "block";
 })
@@ -45,7 +76,8 @@ botonVentasHeader.addEventListener('click', function(){
 */
 //.......................................................
 botonListaVentas.addEventListener('click', function(){
-    escribirTablaVentas();
+    getPaginadorVentas();
+    escribirTablaVentas(1);
     seccionListaVentas.style.display = "block";
     seccionGraficas.style.display = "none";
 })
@@ -81,9 +113,13 @@ botonGraficas.addEventListener('click', function(){
                                                        _______________
 */
 //.......................................................
-async function getVentas(){
+async function getVentas(pagina){
+    console.log("pagina:" + pagina)
+    const respuesta = await fetch('../../../api/ventas/'
+        + '?senyal=' + 3
+        + '&pagina=' + pagina
+        + '&cantidad=' + 10);
 
-    const respuesta = await fetch('../../../api/ventas/');
     if(respuesta.ok){
         const datos = await respuesta.json();
         return datos;
@@ -93,11 +129,41 @@ async function getVentas(){
 //......................................................................................................................
 //.......................................................
 /*
+                getPaginadorVentas()
+
+*/
+//.......................................................
+async function getPaginadorVentas(){
+    const respuesta = await fetch('../../../api/ventas/'
+        + '?senyal=' + 2
+        + '&cantidad=' + 10);
+
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        console.log("paginadorVentas: " + datos);
+        for (let i = 1; i <= datos.paginas; i++) {
+            const opt = document.createElement('option');
+            opt.value = i;
+            opt.innerText = i;
+            paginadorVentas.appendChild(opt);
+        }
+    }
+
+}
+paginadorVentas.addEventListener('change', async () => {
+    escribirTablaVentas(paginadorVentas.value);
+})
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
                 escribirTablaVentas()
 */
 //.......................................................
-async function escribirTablaVentas() {
-    let datos = await getVentas();
+async function escribirTablaVentas(pagina) {
+    console.log(pagina);
+    let datos = await getVentas(pagina);
+    console.log('Tabla' + datos);
 
     tablaVentas.innerHTML = "";
 

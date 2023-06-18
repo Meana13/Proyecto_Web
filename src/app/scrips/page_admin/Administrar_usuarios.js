@@ -81,7 +81,7 @@ async function Editar_usuario(){
     console.log(usuario);
    const respuesta = await fetch(url, {
         method: 'put',
-        body: JSON.stringify(datos)
+        body: JSON.stringify(usuario)
     })
     return await respuesta.ok;
 };
