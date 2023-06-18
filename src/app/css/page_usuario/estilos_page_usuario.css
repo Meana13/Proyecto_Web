@@ -178,6 +178,9 @@ h2 {
     font-size: 16px;
 }
 
+
+
+
 /*Estilo iconos de alerta*/
 .alertas-container {
     flex: 1 1 100%;
@@ -259,6 +262,13 @@ h2 {
 }
 
 /*Estilos para el filtro de la gráfica*/
+
+.filtros_graficas {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
 .cuerpo_del_visualizador article .grafica-container div {
     display: flex;
     justify-content: flex-start;
@@ -272,6 +282,9 @@ h2 {
     margin-bottom: 1rem;
 }
 
+
+
+
 form.seleccionar_fecha {
     display: none;
 }
@@ -283,12 +296,40 @@ form.seleccionar_fecha {
 
 .container_filtro {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .filtro_graficas {
     width: 60%;
+    font-size: 16px;
+    padding: 5px 10px;
 }
+
+
+
+#botonEnviarFiltroFecha {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #790050;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #botonEnviarFiltroFecha:hover {
+    background-color: #9D4179;
+  }
+  
+  #botonEnviarFiltroFecha:active {
+    background-color: #790050;
+  }
+
+
+
 
 /*Estilos de la gráfica*/
 .cuerpo_del_visualizador article .grafica-container div.chart-container {
@@ -323,119 +364,6 @@ form.seleccionar_fecha {
 #dato_actual_pH,
 #dato_actual_luz {
     font-size: 2.5rem;
-}
-
-/*Estilos de la descripción de la alerta*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion {
-    width: 100%;
-    height: auto;
-    margin-top: 2rem;
-    flex: 0 1 auto;
-    display: none;
-    flex-direction: column;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion p {
-    text-align: center;
-    font-size: 1.2rem;
-    margin: 0;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion button {
-    width: 50%;
-    align-self: center;
-    border: none;
-    background-color: transparent;
-    color: var(--principal);
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion button:hover {
-    color: #9D4179;
-}
-
-/*Estilos para el dialogo de cambiar limites de medidas, que se pulsa desde el visualizador de datos*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas {
-    display: none;
-}
-
-/*Estilos para cuando abramos el dialogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.activo {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-radius: 1rem;
-    border: none;
-    background-color: var(--fondo);
-    padding: 2rem;
-    margin: auto auto;
-    height: fit-content;
-    width: 40%;
-}
-
-/*Estilos del fondo del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
-}
-
-/*Estilos del párrafo del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog p {
-    font-size: 1.1rem;
-}
-
-/*Estilos de los inputs del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog input,
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button {
-    padding: .5rem;
-    border-radius: 5px;
-    border: 1px solid var(--fondoSecundario);
-}
-
-/*Estilos del botón guardar y cancelar del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button {
-    background-color: var(--principal);
-    color: var(--textoBotones);
-    text-transform: uppercase;
-    font-size: .9rem;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button:hover {
-    background-color: #9D4179;
-    font-weight: bold;
-}
-
-
-/*Estilos para cuando abramos el dialogo de luz*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz.activo {
-    border-radius: 1rem;
-    border: none;
-    background-color: #FFF6ED;
-    padding: 2rem;
-    margin: auto auto;
-    display: block;
-    width: 40%;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz input {
-    margin: .5rem 0;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz select {
-    margin: 0 .5rem;
-}
-
-/*Estilos del botón guardar y cancelar del diálogo de luz*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz div.botones_editar_guardar_luz {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz button {
-    background-color: var(--principal);
-    color: var(--textoBotones);
-    text-transform: uppercase;
-    font-size: .9rem;
-    margin: 0 .5rem;
 }
 
 /*
@@ -519,30 +447,32 @@ dialog.ajustes_de_huerto h3 {
     display: none;
 }
 
-/*Estilos para las notas*/
 
+
+/*Estilos para las notas*/
 .nombre_ajustes div p {
     margin: 0 15px;
     margin-bottom: 5px;
+    font-size: 16px;
 }
 
 .nombre_ajustes div input {
     display: none;
 }
 
+
 #notas_huerto {
-    width: 95%;
-    height: 5rem;
-    margin: 0 15px;
-    display: none;
+    font-size: 16px;
+    width: 100%;
+    height: 130px;
+    display: inline-block;
+    vertical-align: top;
 }
 
-
-/*Estilos para el switch de las notificaciones*/
-.notificaciones div {
-    display: flex;
-    justify-content: flex-end;
-    margin: 1rem;
+#contador-notas-huerto {
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .custom-switch.custom-switch-md .custom-control-label {
@@ -600,8 +530,6 @@ dialog.ajustes_de_huerto form.limites_medidas select {
     float: left;
 }
 
-
-
 /*Estilos para los botones de editar y guardar*/
 dialog.ajustes_de_huerto div.botones_editar_y_guardar {
     display: flex;
@@ -609,8 +537,8 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar {
 }
 
 
-dialog.ajustes_de_huerto div.botones_editar_y_guardar button.boton_editar_ajustes,
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"] {
+dialog.ajustes_de_huerto div.botones_editar_y_guardar button,
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input.boton_guardar_ajustes_huerto{
     background-color: var(--principal);
     color: var(--textoBotones);
     border-radius: 5px;
@@ -622,8 +550,8 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"] {
     margin-right: 1rem;
 }
 
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"],
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"] {
+dialog.ajustes_de_huerto div.botones_editar_y_guardar button.boton_guardar_ajustes_huerto,
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input.boton_guardar_ajustes_huerto{
     display: none;
 }
 
@@ -668,8 +596,59 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"] {
     max-height: 50px;
 }
 
-#citas td:last-child {
-    width: 160px;
+
+/*Estilo apartado CITAS*/
+#citas {
+    text-align: center;
+}
+
+/* Estilos para la tabla de citas */
+#citas table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#citas th,
+#citas td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+#citas th {
+    background-color: #790050;
+}
+
+#citas te:last-child {
+    width: 120px;
+    background-color: var(--fondo);
+    border: 0;
+}
+
+#citas tbody tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+#citas tbody tr:nth-child(odd) td {
+    background-color: #fff;
+}
+
+#citas .boton-aceptar-rechazar {
+    padding: 6px 12px;
+    background-color: #D7D7D7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#citas .boton-aceptar-rechazar:hover {
+    background-color: #5D5C5C;
+}
+
+#citas .boton-aceptar-rechazar img {
+    vertical-align: middle;
+    margin-right: 6px;
 }
 
 table td button.boton-aceptar-rechazar {
@@ -771,11 +750,47 @@ table td button.boton-aceptar-rechazar {
     #dato_actual_luz {
         font-size: 1.5rem;
     }
-
+    
     .cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion p {
         font-size: 1rem;
     }
 }
+
+
+/* BOTÓN ENVIAR FEHCA PARA FILTRO DATOS HUERTOS*/
+button#botonEnviarFiltroFecha {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #790050;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button#botonEnviarFiltroFecha:hover {
+    background-color: #9D4179;
+  }
+  
+  button#botonEnviarFiltroFecha:active {
+    background-color: #790050;
+  }
+  
+
+
+
+/*RECUADRO GRÁFICAS*/
+.chart-container {
+    width: 100%;
+    height: 350px; 
+  }
+  
+  #chart {
+    width: 100%;
+    height: 100%;
+  }
+  
+  
 
 @media(max-width: 1200px) {
 
@@ -1270,7 +1285,12 @@ dialog::backdrop {
 #dialogo-cambio-pass button:hover {
     opacity: 0.8;
 }
-
+input:disabled {
+    background-color: var(--fondoSecundario);
+    color: rgba(0, 0, 0, 0.6);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 .contenedor5 {
     display: flex;
     justify-content: center;
@@ -1329,58 +1349,4 @@ dialog::backdrop {
 
 #dialogo_cambios_perfil button:hover {
     opacity: 0.8;
-}
-
-
-
-
-
-
-
-/*Estilo apartado CITAS*/
-#citas {
-    text-align: center;
-}
-
-/* Estilos para la tabla de citas */
-#citas table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#citas th,
-#citas td {
-    padding: 8px;
-    border: 1px solid #ddd;
-}
-
-#citas th {
-    background-color: #790050;
-}
-
-#citas tbody tr:nth-child(even) td {
-    background-color: #f2f2f2;
-}
-
-#citas tbody tr:nth-child(odd) td {
-    background-color: #fff;
-}
-
-#citas .boton-aceptar-rechazar {
-    padding: 6px 12px;
-    background-color: #D7D7D7;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#citas .boton-aceptar-rechazar:hover {
-    background-color: #5D5C5C;
-}
-
-#citas .boton-aceptar-rechazar img {
-    vertical-align: middle;
-    margin-right: 6px;
 }

@@ -7,11 +7,11 @@ if (!isset($peticion)) {
 }
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
-$id = $peticion->parametrosQuery()['id'];
+$idUsuario = $peticion->parametrosQuery()['idUsuario'];
 
 $sql = "SELECT *
-        FROM clientes
-        WHERE id_usuario=$id";
+        FROM `usuarios`
+        WHERE id_usuario=$idUsuario";
 
 $result = mysqli_query($connexion, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
