@@ -5,24 +5,12 @@ const url= "../../../api/usuarios/";
 const urlUNICA= "../../../api/usuario/";
 const urlPaginador= "../../../api/paginador/";
 const urlfiltro= "../../../api/filtro/";
+const urlClientes= "../../../api/cliente/";
 
 /**
  * Variables vacias
  */
 let limite=15;
-
-/**
- * Carga los datos del ajuste del usuario
- * @returns ajustesusuario
- */
-async function getSesionUsuario(){
-    const respuesta=await fetch("../../../api/sesion/");
-    if (respuesta.ok){
-        const DatosUsuario = await respuesta.json();
-        console.log(DatosUsuario);
-        return DatosUsuario;
-    }
-}
 
 /**
  * Cargar Usuarios (limitados a 15 por página)
@@ -106,20 +94,29 @@ async function conseguirRol(){
         console.log(pagina);
         return pagina;
 }
+
+/**
+ * Recibe el id del usuario y muestra los datos de su perfil
+ */
  async function Abrir_ventana(id){
+    /////Seccion para mostrar la zona y ocultar el resto
     const datos=await getunUsuario(id)
     const seccionHojaUsuario = document.getElementById("seccion-hoja-usuario");
     const seccionTablas=document.getElementById("seccion-administrar-usuarios");
     seccionHojaUsuario.style.display = "block";
     seccionTablas.style.display="none";
+    ////////////////////////////////////
+    //////////Seccion para mostrar los datos del usuario
     const Nombre = document.getElementById('nombre_hoja');
     const Apellidos = document.getElementById('apellidos_hoja');
     const Email = document.getElementById('email');
     const Direccion = document.getElementById('direccion_hoja');
+    const ID=document.getElementById('id_usuario');
     Nombre.value=datos[0].nombre;
     Apellidos.value=datos[0].apellidos;
     Email.value=datos[0].email;
     Direccion.value=datos[0].direccion;
+    ID.value=id;
 }
 /**
  *Genera tablas basadas en tres parametros:paginador,limite de usuario por pagina y rol;
@@ -153,7 +150,7 @@ async function generarTablasFiltrada() {
     let rol= await conseguirRol();
     let pag= 0;
     console.log(filtro)
-    if (filtro!="") {
+    if (filtro!=="") {
         const datos = await getUsuariosFiltrados(pag, limite, rol, filtro);
         console.log(datos);
         let tabla = document.getElementById("body-usuarios");
@@ -165,15 +162,101 @@ async function generarTablasFiltrada() {
             <td>${usuario.nombre}</td>
             <td>${usuario.apellidos}</td>
             <td>${usuario.email}</td>
-            <td><button><img src="../../../images/ver-perfil.svg" alt="Boton ver perfil"
+            <td><button id="ver-hoja-usuario" onclick="Abrir_ventana(${usuario.id_usuario})"><img src="../../../images/ver-perfil.svg" alt="Boton ver perfil"
                                 ></button>
-            </td>
         </tr>`;
         });
     }else{
         generarTablas();
     }
 }
+////////////////////////////////////////////
+async function getunCliente(id_cliente){
+    const respuesta=await fetch(urlClientes + '?id='
+        + id);
+    if (respuesta.ok){
+        const DatosUsuario = await respuesta.json();
+        console.log(DatosUsuario)
+        return DatosUsuario;
+    }
+}
+
+async function Anyadir_usuario_manual(){
+    //TODO Abre la ventana de añadir usuario y tras poner los datos crea un usuario
+    // Obtener los valores de los campos del formulario
+    event.preventDefault();
+    var tipoUsuario = document.getElementById("tipo-usuario").value;
+    var nombre = document.getElementById("nombre").value;
+    var apellidos = document.getElementById("apellidos").value;
+    var email = document.getElementById("e-mail").value;
+    var direccion = document.getElementById("direccion").value;
+    var contrasenya=document.getElementById("contrasenya").value;
+    const datos= {
+        usuario: nombre +""+ apellidos,
+        rol:tipoUsuario,
+        nombre:nombre,
+        apellidos:apellidos,
+        email:email,
+        direccion:direccion,
+        clave:contrasenya
+    };
+    console.log(datos)
+    const respuesta = await fetch(urlClientes, {
+        method: 'post',
+        body: JSON.stringify(datos)
+    })
+    console.log(datos)
+    return await respuesta.ok;
+
+}
+async function Permitir_editar() {
+    const Nombre = document.getElementById('nombre_hoja');
+    const Apellidos = document.getElementById('apellidos_hoja');
+    const Email = document.getElementById('email');
+    const Direccion = document.getElementById('direccion_hoja');
+    const Usuario= document.getElementById('usuario');
+    Usuario.disabled=false;
+    Nombre.disabled = false;
+    Apellidos.disabled = false;
+    Email.disabled = false;
+    Direccion.disabled = false;
+}
+
+async function Anyadir_usuario_de_la_tabla(id_cliente){
+    //TODO Al pulsar el boton de aceptar añade automaticamente al cliente como usuario;
+    const datos=await getunCliente(id)
+}
+async function Borrar_usuario(id_usuario){
+    //TODO Abre la ventana de editar usuario y al pulsar el boton de eliminar lo elimina de la base de datos
+    const respuesta = await fetch(urlClientes + id_usuario, {
+        method: 'delete',
+    })
+    return await respuesta.ok;
+
+}
+async function Editar_usuario(){
+    //TODO:AL pulsar el boton de guardar cambios actualiza la base de datos
+    event.preventDefault();
+    const nombre = document.getElementById('nombre_hoja').value;
+    const id = document.getElementById('id_usuario').value;
+    const apellidos = document.getElementById('apellidos_hoja').value;
+    const email = document.getElementById('email').value;
+    const direccion = document.getElementById('direccion_hoja').value;
+    const usuario = {
+        id:id,
+        nombre:nombre,
+        apellidos:apellidos,
+        email:email,
+        direccion:direccion
+    };
+    console.log(usuario);
+    const respuesta = await fetch(urlClientes, {
+        method: 'put',
+        body: JSON.stringify(usuario)
+    })
+    return await respuesta.ok;
+};
+//////////////////////////////////////////
 window.addEventListener("DOMContentLoaded", () => {
     generarTablas();
 });

@@ -7,18 +7,13 @@ if (!isset($peticion)) {
 }
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
-$idUsuario = $peticion->parametrosQuery()['idUsuario'];
-
-$sql = "SELECT *
-        FROM `usuarios`
-        WHERE id_usuario=$idUsuario";
+$email = $peticion->parametrosQuery()['cantidad'];
+$sql = "SELECT clientes.email
+        FROM clientes  
+        WHERE clientes.email='%$email'";
 
 $result = mysqli_query($connexion, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $salida[] = $row;
 }
-
-
-
-
 
