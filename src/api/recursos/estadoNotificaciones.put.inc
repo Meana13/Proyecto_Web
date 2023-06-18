@@ -11,9 +11,10 @@ if (!isset($connexion)) die();
 $notificaciones = intval($peticion->parametrosBody()->notif);
 $idHuerto = intval($peticion->parametrosPath()[0]);
 
-$sql = "UPDATE `huertos` 
-SET  `huertos`.`notificaciones` = $notificaciones
-WHERE `huertos`.`id_huerto` = $idHuerto";
+$sql = "
+UPDATE `notificaciones` 
+SET  notificaciones = $notificaciones
+WHERE `notificaciones`.`id_huerto` = $idHuerto";
 
 try {
     mysqli_query($connexion, $sql);

@@ -19,10 +19,9 @@ $sql = "SELECT
         ROUND(AVG(`medicion_ph`),1) as `mediapH`, 
         ROUND(AVG(`medicion_temperatura`),1) as `mediaTemperatura`
 
-        FROM `huertos`,`sondas`, `mediciones`
+        FROM `huertos`, `mediciones`
         
-        WHERE `huertos`.`id_huerto` = `sondas`.`id_huerto`
-        AND `sondas`.`id_sonda` = `mediciones`.`id_sonda`
+        WHERE `huertos`.`id_huerto` = `mediciones`.`id_huerto`
         AND `huertos`.`id_huerto` = $idHuerto
                 
         GROUP BY `mediciones`.`fecha_medicion`

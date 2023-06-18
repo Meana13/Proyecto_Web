@@ -15,18 +15,23 @@
 
     <!--Carga de iconos de bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    
+
+    <!-- Carga de bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
     <!-- carga de hoja de estilos-->
     <link rel="stylesheet" href="../../css/page_admin/estilos_page_admin.css">
-    <link rel="stylesheet" href="../../css/estilos_general.css">
     <link rel="stylesheet" href="../../css/landing_page/footer.css">
-    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css"/>
+    <link rel="stylesheet" href="../../css/landing_page/estilos_index_menu_no_registrado.css" />
+    <link rel="stylesheet" href="../../css/estilos_general.css">
 </head>
 
 <body>
     <!-- inicio de header -->
     <header class="header">
-        <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
+        <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png"
+                alt=""></a>
         <div class="login-tab">
             <img src="../../../images/admin.png" alt="">
             <label>HectorAdmin</label>
@@ -41,10 +46,11 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <button type="button" class="boton_menu" id="boton-administrar-usuarios">administrar usuarios</button>    
+                    <button type="button" class="boton_menu" id="boton-administrar-usuarios">administrar
+                        usuarios</button>
                 </li>
                 <li class="nav-menu-item">
-                    <button class="nav-menu-link nav-link" onclick="logout()">CERRAR SESIÓN</button>
+                    <button class="boton_menu" onclick="logout()">CERRAR SESIÓN</button>
                 </li>
             </ul>
         </nav>
@@ -58,7 +64,12 @@
 
         <h2>ADMINISTRACIÓN DE USUARIOS</h2>
 
-        <button type="button" id="boton-añadir-usuario"> <i class="bi bi-plus-circle-fill"></i>Añadir</button>
+        <div class="container">
+            <div class="row">
+                <input class="col-9 buscador" id="buscador-admin" placeholder="Busqueda por nombre, apellidos o email">
+                <button class="col-3 boton-buscar" onclick="generarTablasFiltrada()">Buscar</button>
+            </div>
+        </div>
 
         <select name="selector_rol" id="selector_rol" onchange="generarTablas()">
             <option value="1">Administrador</option>
@@ -67,6 +78,7 @@
             <option value="4"selected>Usuario</option>
             <option value="5">No registrado</option>
         </select>
+        <div id="paginadorCitasTecnico" onclick="generarTablas()">
         <div id="paginadorAdmin" onclick="GenerarPaginador()">
             <button value="1">1</button>
             <button value="2">2</button>
@@ -74,7 +86,7 @@
             <button>n</button>
         </div>
         <div id="buscador">
-            <input type="text" id="buscador-admin"  placeholder="Busqueda por nombre,apellidos o email" onsubmit="generarTablasFiltrada()">
+            <input type="text" id="buscadorCitasTecnico"  placeholder="Busqueda por nombre,apellidos o email" onsubmit="generarTablasFiltrada()">
         </div>
         <!-- TABLA USUARIOS -->
         <table id="tabla-usuarios">
@@ -141,6 +153,19 @@
             </tbody>
         </table>
         <!------------------->
+        
+        <div id="paginadorAdmin" class="paginador" onclick="generarTablas()">
+            <button value="1">1</button>
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <span class="btn-input">
+                <button onclick="mostrarInput(this)">...</button>
+                <input type="number" value="1" onchange="cambiarPaginaPaginadorPendientes(this.value)"
+                    onblur="ocultarInput(this)" />
+            </span>
+            <button>n</button>
+        </div>
+
     </section>
 
     <!-- FIN SECCION ADMINISTRAR USUARIOS-->
@@ -216,6 +241,7 @@
          </form>
             </div>
         </div>
+        </div>
     </section>
 
     <!-- FIN SECCION HOJA DE USUARIO-->
@@ -227,7 +253,7 @@
             <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
             <div class="linea-logo"></div>
         </div>
-    
+
         <a href="../landing_page/formulario_contacto.html" id="contactanos"><span>contactanos</span></a>
         <div id="legal">
             <a href="#"><span>Politica de privacidad</span></a>
@@ -238,6 +264,6 @@
 
 
     <script src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
-    </body>
+</body>
 
 </html>

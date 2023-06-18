@@ -543,7 +543,6 @@ function volverAListaVentas() {
     document.getElementById("ver-venta").style.display = "none";
     document.getElementById("ventas").style.display = "block";
 }
-
 //----------------------------------
 /*
 funcion mostrarVentas()
