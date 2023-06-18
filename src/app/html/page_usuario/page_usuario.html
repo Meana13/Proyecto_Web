@@ -100,7 +100,7 @@
     <!---------------------------------------------------------------------------------------->
 
     <!--Aquí empieza el visualizador de datos de sensores (formato pestañas, para pantallas más grandes)-->
-    <section class="visualizador_de_datos">
+    <section class="visualizador_de_datos" id="visualizador">
 
         <!--Estas son las pestañas-->
         <div class="tabs" id="tabs">
@@ -548,8 +548,8 @@
                 <label for="hasta-sal" class="hasta">
                     Hasta: <input name="hasta" id="hasta-acordeon-sal" type="date">
                 </label>
-
-                <input type="submit" id="enviar-fechas">
+                <p class="mensaje-error" id="error-fechas-acordeon">¡La fecha de "desde" no puede ser superior a la de "hasta"!</p>
+                <button type="button" id="enviar-fechas-acordeon">Enviar</button>
             </form>
         </div>
         <!--SALINIDAD-->

@@ -5,6 +5,7 @@
 //......................................................................................................................
 //DECLARACIÓN DE VARIABLES:
 //VISUALIZADOR DE HUERTOS
+let visualizador = document.getElementById('visualizador');
 //--Dato Actual
 //----Salinidad
 let datoActualTabSalinidad = document.getElementById('dato_actual_tab_salinidad');
@@ -51,6 +52,10 @@ let filtroAcordeon = document.getElementById('filtro_acordeon_salinidad');
 let graficaAcordeonSalinidad = document.getElementById('chart-acordeon-sal');
 let graficaAcordeonHum = document.getElementById('chart-acordeon-humedad');
 let seleccionarFechaAcordeon = document.getElementById('seleccionar_fecha_acordeon_salinidad');
+let enviarFechasAcordeon = document.getElementById('enviar-fechas-acordeon');
+let desdeInputAcordeon = document.getElementById('desde-acordeon-sal');
+let hastaInputAcordeon = document.getElementById('hasta-acordeon-sal');
+let errorFechasAcordeon = document.getElementById('error-fechas-acordeon');
 
 
 
@@ -399,6 +404,11 @@ async function getHuertoPorDefecto() {
     cargarDatoActualTabs(idHuertos[0]);
     construirGraficaSalinidad(idHuertos[0], "Hoy");
 
+    if (getComputedStyle(seccionAcordeon).display !== "none") {
+        construirGraficaSalinidad(idHuertos[0], "Hoy");
+        construirGraficaHumedad(idHuertos[0], "Hoy");
+    }
+
     window.addEventListener('resize', function(){
         if (getComputedStyle(seccionAcordeon).display !== "none") {
             construirGraficaSalinidad(idHuertos[0], "Hoy");
@@ -440,6 +450,10 @@ tabSalinidad.addEventListener('click',function () {
     if(filtro.value === "Semana"){
         construirGraficaSalinidad(idHuerto, "Semana");
     }
+    if(filtro.value === "Seleccionar fecha"){
+        construirGraficaSalinidad(idHuerto,"Fecha");
+        console.log("sal");
+    }
     cargarDatoActualSalinidad(idHuerto);
     tabSalinidad.classList.add("activo");
     tabHumedad.classList.remove("activo");
@@ -458,6 +472,10 @@ tabHumedad.addEventListener('click',function(){
     }
     if(filtro.value === "Semana"){
         construirGraficaHumedad(idHuerto, "Semana");
+    }
+    if(filtro.value === "Seleccionar fecha"){
+        construirGraficaHumedad(idHuerto,"Fecha");
+        console.log("hum")
     }
     cargarDatoActualHumedad(idHuerto);
     tabSalinidad.classList.remove("activo");
@@ -548,7 +566,6 @@ async function getMedicionesSemana(idHuerto) {
     const respuesta = await fetch('../../../api/medicionesSemana/' + '?idHuerto=' + idHuerto);
     if (respuesta.ok) {
         const mediciones = await respuesta.json();
-        console.log(mediciones);
         return mediciones;
     }
 }
@@ -568,7 +585,6 @@ async function getMedicionesSeleccionarFecha(idHuerto, desde, hasta, senyal) {
 
     if (respuesta.ok) {
         const mediciones = await respuesta.json();
-        console.log(mediciones);
         return mediciones;
     }
 }
@@ -590,6 +606,12 @@ async function limitesFechas(){
         hastaInput.setAttribute("max", `${datos[0].fecha_medicion}`);
         hastaInput.setAttribute('min',`${datos[datos.length-1].fecha_medicion}`)
 
+        desdeInputAcordeon.setAttribute("max", `${datos[0].fecha_medicion}`);
+        desdeInputAcordeon.setAttribute('min',`${datos[datos.length-1].fecha_medicion}`)
+
+        hastaInputAcordeon.setAttribute("max", `${datos[0].fecha_medicion}`);
+        hastaInputAcordeon.setAttribute('min',`${datos[datos.length-1].fecha_medicion}`)
+
     }
 }
 
@@ -608,18 +630,50 @@ function verificarFechas() {
     let fechaDesde = new Date(desde);
     let fechaHasta = new Date(hasta);
 
-    if(fechaDesde > fechaHasta){
-        errorFechas.style.display = "block";
-        enviarInput.disabled = true;
-    }
-    else{
-        errorFechas.style.display = "none";
-        enviarInput.disabled = false;
+    if (fechaDesde > fechaHasta) {
+        if (getComputedStyle(visualizador).display !== "none") {
+            errorFechas.style.display = "block";
+            enviarInput.disabled = true;
+        }
+    } else {
+        if (getComputedStyle(visualizador).display !== "none") {
+            errorFechas.style.display = "none";
+            enviarInput.disabled = false;
+        }
     }
 }
 
 desdeInput.onchange = verificarFechas;
 hastaInput.onchange = verificarFechas;
+//......................................................................................................................
+//......................................................................................................................
+//------------------------------------------
+/*
+        verificarFechasAcordeon()
+*/
+//------------------------------------------
+function verificarFechasAcordeon() {
+    let desde = desdeInputAcordeon.value;
+    let hasta = hastaInputAcordeon.value;
+
+    let fechaDesde = new Date(desde);
+    let fechaHasta = new Date(hasta);
+
+    if (fechaDesde > fechaHasta) {
+        if (getComputedStyle(seccionAcordeon).display !== "none") {
+            errorFechasAcordeon.style.display = "block";
+            enviarFechasAcordeon.disabled = true;
+        }
+    } else {
+        if (getComputedStyle(seccionAcordeon).display !== "none") {
+            errorFechasAcordeon.style.display = "none";
+            enviarFechasAcordeon.disabled = false;
+        }
+    }
+}
+
+desdeInputAcordeon.onchange = verificarFechasAcordeon;
+hastaInputAcordeon.onchange = verificarFechasAcordeon;
 //......................................................................................................................
 //......................................................................................................................
 //------------------------------------------
@@ -630,9 +684,14 @@ hastaInput.onchange = verificarFechas;
 function obtenerFechas(){
     let desde = desdeInput.value;
     let hasta = hastaInput.value;
+    let desdeAcordeon = desdeInputAcordeon.value;
+    let hastaAcordeon = hastaInputAcordeon.value;
+
     return {
         desde: desde,
-        hasta: hasta
+        hasta: hasta,
+        desdeAcordeon: desdeAcordeon,
+        hastaAcordeon: hastaAcordeon
     }
 }
 //......................................................................................................................
@@ -642,10 +701,24 @@ function obtenerFechas(){
        BOTON ENVIAR FECHAS()
 */
 //------------------------------------------
-enviarInput.addEventListener('click', function (){
+function enviarFechas(){
     let idHuerto = selectorDeHuertos.value;
-    construirGraficaSalinidad(idHuerto,"Fecha");
-})
+
+    if(tabSalinidad.classList.contains('activo')){
+        construirGraficaSalinidad(idHuerto,"Fecha");
+    }
+    if(tabHumedad.classList.contains('activo')){
+        construirGraficaHumedad(idHuerto, "Fecha");
+    }
+    if (getComputedStyle(seccionAcordeon).display !== "none") {
+        construirGraficaSalinidad(idHuerto, "Fecha");
+        construirGraficaHumedad(idHuerto, "Fecha");
+    }
+
+}
+
+enviarInput.addEventListener('click', enviarFechas);
+enviarFechasAcordeon.addEventListener('click', enviarFechas);
 
 //......................................................................................................................
 //......................................................................................................................
@@ -658,6 +731,7 @@ async function construirGraficaSalinidad(idHuerto, senyal){
 
     let mediciones;
     let diferenciaDias = 0;
+    let diferenciaDiasAcordeon = 0;
 
     if(senyal === "Hoy"){
         mediciones = await getMedicionesHoy(idHuerto);
@@ -670,22 +744,38 @@ async function construirGraficaSalinidad(idHuerto, senyal){
     if(senyal === "Fecha"){
         let desde = obtenerFechas().desde;
         let hasta = obtenerFechas().hasta;
+        let desdeAcordeon = obtenerFechas().desdeAcordeon;
+        let hastaAcordeon = obtenerFechas().hastaAcordeon;
 
         let fechaDesde = new Date(desde);
         let fechaHasta = new Date(hasta);
+        let fechaDesdeAcordeon = new Date(desdeAcordeon);
+        let fechaHastaAcordeon = new Date(hastaAcordeon);
 
         let diferenciaMs = fechaHasta - fechaDesde;
+        let diferenciaMsAcordeon = fechaHastaAcordeon - fechaDesdeAcordeon;
 
         diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+        diferenciaDiasAcordeon = Math.floor(diferenciaMsAcordeon / (1000 * 60 * 60 * 24));
 
-        if (diferenciaDias <= 3) {
+        if (diferenciaDias <= 3 && getComputedStyle(visualizador).display !== "none") {
             console.log('3 o menos días');
+            console.log(desde);
             mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 1);
 
         }
-        else{
+        else if(diferenciaDias > 4 && getComputedStyle(visualizador).display !== "none"){
             console.log('4 o más días');
             mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 0);
+        }
+        if (diferenciaDiasAcordeon <= 3 && getComputedStyle(seccionAcordeon).display !== "none") {
+            console.log('3 o menos días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desdeAcordeon, hastaAcordeon, 1);
+
+        }
+        else if(diferenciaDiasAcordeon > 4 && getComputedStyle(seccionAcordeon).display !== "none"){
+            console.log('4 o más días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desdeAcordeon, hastaAcordeon, 0);
         }
     }
 
@@ -777,14 +867,14 @@ async function construirGraficaSalinidad(idHuerto, senyal){
         }
     }
 
-    if(senyal === "Fecha" && diferenciaDias <= 3) {
+    if(senyal === "Fecha" && (diferenciaDias <= 3 || diferenciaDiasAcordeon <= 3)) {
         for (let i = horas.length - 1; i >= 0; i--) {
             datos.labels.push(horas[i]);
             datos.datasets[0].data.push(mediciones[i].mediaSalinidad);
         }
     }
 
-    if(senyal === "Fecha" && diferenciaDias > 4)
+    if(senyal === "Fecha" && (diferenciaDias > 4 || diferenciaDiasAcordeon > 4))
     for (let i = dias.length-1; i >= 0; i--) {
         datos.labels.push(dias[i]);
         datos.datasets[0].data.push(mediciones[i].mediaSalinidad);
@@ -797,8 +887,6 @@ async function construirGraficaSalinidad(idHuerto, senyal){
     graficaAcordeonSal.options = opciones;
     graficaAcordeonSal.data = datos;
     graficaAcordeonSal.update();
-
-
 }
 //......................................................................................................................
 //......................................................................................................................
@@ -808,13 +896,55 @@ async function construirGraficaSalinidad(idHuerto, senyal){
 */
 //------------------------------------------
 async function construirGraficaHumedad(idHuerto, senyal) {
+
     let mediciones;
+    let diferenciaDias = 0;
+    let diferenciaDiasAcordeon = 0;
 
     if(senyal === "Hoy"){
         mediciones = await getMedicionesHoy(idHuerto);
     }
+
     if(senyal === "Semana"){
         mediciones = await getMedicionesSemana(idHuerto);
+    }
+
+    if(senyal === "Fecha"){
+        let desde = obtenerFechas().desde;
+        let hasta = obtenerFechas().hasta;
+        let desdeAcordeon = obtenerFechas().desdeAcordeon;
+        let hastaAcordeon = obtenerFechas().hastaAcordeon;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+        let fechaDesdeAcordeon = new Date(desdeAcordeon);
+        let fechaHastaAcordeon = new Date(hastaAcordeon);
+
+        let diferenciaMs = fechaHasta - fechaDesde;
+        let diferenciaMsAcordeon = fechaHastaAcordeon - fechaDesdeAcordeon;
+
+        diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+        diferenciaDiasAcordeon = Math.floor(diferenciaMsAcordeon / (1000 * 60 * 60 * 24));
+
+        if (diferenciaDias <= 3 && getComputedStyle(visualizador).display !== "none") {
+            console.log('3 o menos días');
+            console.log(desde);
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 1);
+
+        }
+        else if(diferenciaDias > 4 && getComputedStyle(visualizador).display !== "none"){
+            console.log('4 o más días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 0);
+        }
+        if (diferenciaDiasAcordeon <= 3 && getComputedStyle(seccionAcordeon).display !== "none") {
+            console.log('3 o menos días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desdeAcordeon, hastaAcordeon, 1);
+
+        }
+        else if(diferenciaDiasAcordeon > 4 && getComputedStyle(seccionAcordeon).display !== "none"){
+            console.log('4 o más días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desdeAcordeon, hastaAcordeon, 0);
+        }
     }
 
     let horas = mediciones.map(function (medicion) {
@@ -833,7 +963,6 @@ async function construirGraficaHumedad(idHuerto, senyal) {
 
         return fechaFormateada;
     });
-
 
     let datos = {
         labels: [],
@@ -899,13 +1028,25 @@ async function construirGraficaHumedad(idHuerto, senyal) {
         }
     }
 
-
     if(senyal === "Semana") {
         for (let i = 6; i >= 0; i--) {
             datos.labels.push(dias[i]);
-            datos.datasets[0].data.push(mediciones[i].mediaSalinidad);
+            datos.datasets[0].data.push(mediciones[i].mediaHumedad);
         }
     }
+
+    if(senyal === "Fecha" && (diferenciaDias <= 3 || diferenciaDiasAcordeon <= 3)) {
+        for (let i = horas.length - 1; i >= 0; i--) {
+            datos.labels.push(horas[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaHumedad);
+        }
+    }
+
+    if(senyal === "Fecha" && (diferenciaDias > 4 || diferenciaDiasAcordeon > 4))
+        for (let i = dias.length-1; i >= 0; i--) {
+            datos.labels.push(dias[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaHumedad);
+        }
 
     graficaBase.options = opciones;
     graficaBase.data = datos;
