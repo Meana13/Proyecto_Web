@@ -8,13 +8,10 @@ if (!isset($peticion)) {
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
-$idCliente = $peticion->parametrosQuery()['idCliente'];
-
-$sql = "SELECT *
-        FROM `clientes`
-        JOIN `citas` ON `clientes`.id_cliente = `citas`.id_cliente 
-        JOIN `asuntos_citas` ON `citas`.asunto = `asuntos_citas`.id_asunto
-        WHERE `clientes`.id_cliente = $idCliente";
+$sql = "SELECT clientes.*, citas.*, asuntos_citas.asunto
+        FROM clientes
+        JOIN citas ON clientes.id_cliente = citas.id_cliente 
+        JOIN asuntos_citas ON citas.asunto = asuntos_citas.id_asunto";
 
 $result = mysqli_query($connexion, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
