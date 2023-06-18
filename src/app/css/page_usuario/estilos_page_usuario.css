@@ -149,6 +149,7 @@ h2 {
 
 #tab_luz .valor_dato_actual_tab {
     padding-top: 0;
+    font-size: 14px;
 }
 
 .tabs .circulo_dato_actual_tab {
@@ -271,7 +272,7 @@ h2 {
     margin-bottom: 1rem;
 }
 
- form.seleccionar_fecha {
+form.seleccionar_fecha {
     display: none;
 }
 
@@ -636,13 +637,13 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"] {
     background-color: #eaeaea;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  #mensaje-usuario-ajustes-huerto {
+}
+
+#mensaje-usuario-ajustes-huerto {
     text-align: center;
-  }
-  
-  #boton-aceptar-mensaje-ajustes-huerto {
+}
+
+#boton-aceptar-mensaje-ajustes-huerto {
     display: block;
     margin: 0 auto;
     background-color: #790050;
@@ -651,11 +652,11 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"] {
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  #boton-aceptar-mensaje-ajustes-huerto:hover {
+}
+
+#boton-aceptar-mensaje-ajustes-huerto:hover {
     background-color: #9D4179;
-  }
+}
 
 
 /*************************************/
@@ -1090,6 +1091,11 @@ table td button.boton-aceptar-rechazar {
     padding-left: 20px;
 }
 
+.datos_usuario {
+    width: fit-content;
+    margin: 0 auto;
+}
+
 .datos_usuario form {
     display: flex;
     flex-direction: column;
@@ -1102,7 +1108,7 @@ table td button.boton-aceptar-rechazar {
 }
 
 .campo label {
-    width: 150px;
+    min-width: 120px;
     margin-right: 10px;
 }
 
@@ -1121,33 +1127,19 @@ select {
     margin-bottom: 10px;
 }
 
-#nombre {
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    margin-right: 4em;
-
-}
-
-#apellidos {
-    width: 100%;
-    margin-right: 4em;
-
-}
-
+#nombre,
+#apellidos,
 #email {
     width: 100%;
-    margin: 0 auto;
     margin-right: 4em;
-
+    max-width: 250px;
 }
-
 
 .contenedor2 {
     display: flex;
     justify-content: left;
     align-items: center;
-    height: 50px;
+    margin-bottom: 60px;
 }
 
 .cambiar_contraseña {
@@ -1204,6 +1196,14 @@ select {
     display: none;
 }
 
+#cambiar_pass {
+    background-color: var(--principal);
+    font-size: 13px;
+    color: var(--textoBotones);
+    border: 0;
+    border-radius: 5px;
+}
+
 
 /*Estilos cambiar contraseña*/
 .guardar_ajustes_huerto {
@@ -1215,28 +1215,39 @@ select {
     background-color: #eaeaea;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  
-  #dialogo-cambio-pass label {
+}
+
+#dialogo-cambio-pass {
+    margin: auto;
+    border: 0;
+    border-radius: 10px;
+    background-color: var(--fondo);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+}
+
+#dialogo-cambio-pass label {
     display: block;
     margin-bottom: 10px;
-  }
-  
-  #dialogo-cambio-pass input[type="password"] {
+}
+
+#dialogo-cambio-pass input[type="password"] {
     width: 100%;
     padding: 5px;
     margin-bottom: 15px;
     border-radius: 4px;
     border: 1px solid #ccc;
-  }
-  
-  #dialogo-cambio-pass p {
+}
+
+#dialogo-cambio-pass p {
     margin-bottom: 15px;
-  }
-  
-  #dialogo-cambio-pass input[type="submit"],
-  #dialogo-cambio-pass button {
+}
+
+#dialogo-cambio-pass input[type="submit"],
+#dialogo-cambio-pass button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -1244,52 +1255,52 @@ select {
     border-radius: 4px;
     cursor: pointer;
     color: #fff;
-  }
-  
-  #dialogo-cambio-pass input[type="submit"] {
+}
+
+#dialogo-cambio-pass input[type="submit"] {
     background-color: #790050;
-  }
-  
-  #dialogo-cambio-pass button {
+}
+
+#dialogo-cambio-pass button {
     background-color: #aaa;
     margin-top: 10px;
-  }
-  
-  #dialogo-cambio-pass input[type="submit"]:hover,
-  #dialogo-cambio-pass button:hover {
+}
+
+#dialogo-cambio-pass input[type="submit"]:hover,
+#dialogo-cambio-pass button:hover {
     opacity: 0.8;
-  }
-  
-  .contenedor5 {
+}
+
+.contenedor5 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    margin:auto;
+    margin: auto;
     border: none;
-  }
-  
-  .boton-editar-ajustes,
-  .cambios_perfil {
+}
+
+.boton-editar-ajustes,
+.cambios_perfil {
     background-color: #790050;
     color: #fff;
     border: none;
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .boton-editar-ajustes:hover,
-  .cambios_perfil:hover,
-  .boton-cancelar-ajustes:hover {
+}
+
+.boton-editar-ajustes:hover,
+.cambios_perfil:hover,
+.boton-cancelar-ajustes:hover {
     opacity: 0.8;
-  }
-  
-  
-  
+}
+
+
+
 /* Estilos dialogo cambios de perfil*/
 
-  #dialogo_cambios_perfil {
+#dialogo_cambios_perfil {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -1299,13 +1310,13 @@ select {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
-  }
-  
-  #dialogo_cambios_perfil p {
+}
+
+#dialogo_cambios_perfil p {
     margin-bottom: 15px;
-  }
-  
-  #dialogo_cambios_perfil button {
+}
+
+#dialogo_cambios_perfil button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -1314,17 +1325,17 @@ select {
     cursor: pointer;
     background-color: #790050;
     color: #fff;
-  }
-  
-  #dialogo_cambios_perfil button:hover {
+}
+
+#dialogo_cambios_perfil button:hover {
     opacity: 0.8;
-  }
-  
+}
 
 
 
 
-  
+
+
 
 /*Estilo apartado CITAS*/
 #citas {
