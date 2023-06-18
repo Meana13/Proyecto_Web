@@ -1676,6 +1676,512 @@ async function construirGraficaHumedad(idHuerto, senyal) {
     graficaAcordeonHumedad.data = datos;
     graficaAcordeonHumedad.update();
 }
+//......................................................................................................................
+//......................................................................................................................
+//------------------------------------------
+/*
+       idHuerto --> ConstruirGraficaPh()
+*/
+//------------------------------------------
+async function construirGraficaPh(idHuerto, senyal){
+
+    let mediciones;
+    let diferenciaDias = 0;
+    let diferenciaDiasAcordeon = 0;
+
+    if(senyal === "Hoy"){
+        mediciones = await getMedicionesHoy(idHuerto);
+    }
+
+    if(senyal === "Semana"){
+        mediciones = await getMedicionesSemana(idHuerto);
+    }
+
+    if(senyal === "Fecha"){
+        let desde = obtenerFechas().desde;
+        let hasta = obtenerFechas().hasta;
+        let desdeAcordeon = obtenerFechas().desdeAcordeon;
+        let hastaAcordeon = obtenerFechas().hastaAcordeon;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+        let fechaDesdeAcordeon = new Date(desdeAcordeon);
+        let fechaHastaAcordeon = new Date(hastaAcordeon);
+
+        let diferenciaMs = fechaHasta - fechaDesde;
+        let diferenciaMsAcordeon = fechaHastaAcordeon - fechaDesdeAcordeon;
+
+        diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+        diferenciaDiasAcordeon = Math.floor(diferenciaMsAcordeon / (1000 * 60 * 60 * 24));
+
+        if (diferenciaDias <= 3 && getComputedStyle(visualizador).display !== "none") {
+            console.log('3 o menos días');
+            console.log(desde);
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 1);
+
+        }
+        else if(diferenciaDias > 4 && getComputedStyle(visualizador).display !== "none"){
+            console.log('4 o más días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 0);
+        }
+        if (diferenciaDiasAcordeon <= 3 && getComputedStyle(seccionAcordeon).display !== "none") {
+            console.log('3 o menos días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desdeAcordeon, hastaAcordeon, 1);
+
+        }
+        else if(diferenciaDiasAcordeon > 4 && getComputedStyle(seccionAcordeon).display !== "none"){
+            console.log('4 o más días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desdeAcordeon, hastaAcordeon, 0);
+        }
+    }
+
+    let horas = mediciones.map(function (medicion) {
+        return medicion.hora + ":" + medicion.minutos;
+    });
+
+    let dias = mediciones.map(function (medicion) {
+        let fecha = medicion.fecha_medicion;
+
+        let partes = fecha.split("-");
+        var anio = partes[0];
+        var mes = partes[1];
+        var dia = partes[2];
+
+        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+        return fechaFormateada;
+    });
+
+    let datos = {
+        labels: [],
+        datasets: [
+            {
+                label: "Nivel de pH",
+                data: [],
+                tension: 0.2,
+                fill: false,
+                backgroundColor: 'rgba(121,0,80,.8)',
+                borderColor: '#790050',
+                pointStyle: 'circle',
+                pointRadius: 7,
+                borderWidth: 2,
+            }
+        ]
+    };
+
+    let opciones = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                grid: {
+                    drawOnChartArea: false
+                }
+            },
+            y: {
+                stacked: true
+            }
+        },
+        plugins: {
+            legend: false,
+            title: {
+                display: true,
+                text: 'Nivel de pH',
+                position: 'top',
+                align: 'start',
+                padding: {
+                    bottom: 10
+                },
+                font: {
+                    size: 15
+                }
+            },
+            tooltip: {
+                backgroundColor: '#fff',
+                titleColor: '#000',
+                titleAlign: 'center',
+                bodyColor: '#333',
+                borderColor: '#666',
+                borderWidth: 1,
+                yAlign: 'top',
+                displayColors: false,
+            }
+        }//plugins
+    }
+
+    if(senyal === "Hoy"){
+        for (let i = 3; i >= 0; i--) {
+            datos.labels.push(horas[i]);
+            datos.datasets[0].data.push(mediciones[i].mediapH);
+        }
+    }
+
+    if(senyal === "Semana") {
+        for (let i = 6; i >= 0; i--) {
+            datos.labels.push(dias[i]);
+            datos.datasets[0].data.push(mediciones[i].mediapH);
+        }
+    }
+
+    if(senyal === "Fecha" && (diferenciaDias <= 3 || diferenciaDiasAcordeon <= 3)) {
+        for (let i = horas.length - 1; i >= 0; i--) {
+            datos.labels.push(horas[i]);
+            datos.datasets[0].data.push(mediciones[i].mediapH);
+        }
+    }
+
+    if(senyal === "Fecha" && (diferenciaDias > 4 || diferenciaDiasAcordeon > 4))
+        for (let i = dias.length-1; i >= 0; i--) {
+            datos.labels.push(dias[i]);
+            datos.datasets[0].data.push(mediciones[i].mediapH);
+        }
+
+    graficaBase.options = opciones;
+    graficaBase.data = datos;
+    graficaBase.update();
+
+    graficaAcordeonPh.options = opciones;
+    graficaAcordeonPh.data = datos;
+    graficaAcordeonPh.update();
+}
+//......................................................................................................................
+//......................................................................................................................
+//------------------------------------------
+/*
+       idHuerto --> ConstruirGraficaTemperatura()
+*/
+//------------------------------------------
+async function construirGraficaTemperatura(idHuerto, senyal){
+
+    let mediciones;
+    let diferenciaDias = 0;
+    let diferenciaDiasAcordeon = 0;
+
+    if(senyal === "Hoy"){
+        mediciones = await getMedicionesHoy(idHuerto);
+    }
+
+    if(senyal === "Semana"){
+        mediciones = await getMedicionesSemana(idHuerto);
+    }
+
+    if(senyal === "Fecha"){
+        let desde = obtenerFechas().desde;
+        let hasta = obtenerFechas().hasta;
+        let desdeAcordeon = obtenerFechas().desdeAcordeon;
+        let hastaAcordeon = obtenerFechas().hastaAcordeon;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+        let fechaDesdeAcordeon = new Date(desdeAcordeon);
+        let fechaHastaAcordeon = new Date(hastaAcordeon);
+
+        let diferenciaMs = fechaHasta - fechaDesde;
+        let diferenciaMsAcordeon = fechaHastaAcordeon - fechaDesdeAcordeon;
+
+        diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+        diferenciaDiasAcordeon = Math.floor(diferenciaMsAcordeon / (1000 * 60 * 60 * 24));
+
+        if (diferenciaDias <= 3 && getComputedStyle(visualizador).display !== "none") {
+            console.log('3 o menos días');
+            console.log(desde);
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 1);
+
+        }
+        else if(diferenciaDias > 4 && getComputedStyle(visualizador).display !== "none"){
+            console.log('4 o más días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 0);
+        }
+        if (diferenciaDiasAcordeon <= 3 && getComputedStyle(seccionAcordeon).display !== "none") {
+            console.log('3 o menos días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desdeAcordeon, hastaAcordeon, 1);
+
+        }
+        else if(diferenciaDiasAcordeon > 4 && getComputedStyle(seccionAcordeon).display !== "none"){
+            console.log('4 o más días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desdeAcordeon, hastaAcordeon, 0);
+        }
+    }
+
+    let horas = mediciones.map(function (medicion) {
+        return medicion.hora + ":" + medicion.minutos;
+    });
+
+    let dias = mediciones.map(function (medicion) {
+        let fecha = medicion.fecha_medicion;
+
+        let partes = fecha.split("-");
+        var anio = partes[0];
+        var mes = partes[1];
+        var dia = partes[2];
+
+        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+        return fechaFormateada;
+    });
+
+    let datos = {
+        labels: [],
+        datasets: [
+            {
+                label: "Temperatura (ºC)",
+                data: [],
+                tension: 0.2,
+                fill: false,
+                backgroundColor: 'rgba(121,0,80,.8)',
+                borderColor: '#790050',
+                pointStyle: 'circle',
+                pointRadius: 7,
+                borderWidth: 2,
+            }
+        ]
+    };
+
+    let opciones = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                grid: {
+                    drawOnChartArea: false
+                }
+            },
+            y: {
+                stacked: true
+            }
+        },
+        plugins: {
+            legend: false,
+            title: {
+                display: true,
+                text: 'Temperatura (ºC)',
+                position: 'top',
+                align: 'start',
+                padding: {
+                    bottom: 10
+                },
+                font: {
+                    size: 15
+                }
+            },
+            tooltip: {
+                backgroundColor: '#fff',
+                titleColor: '#000',
+                titleAlign: 'center',
+                bodyColor: '#333',
+                borderColor: '#666',
+                borderWidth: 1,
+                yAlign: 'top',
+                displayColors: false,
+            }
+        }//plugins
+    }
+
+    if(senyal === "Hoy"){
+        for (let i = 3; i >= 0; i--) {
+            datos.labels.push(horas[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaTemperatura);
+        }
+    }
+
+    if(senyal === "Semana") {
+        for (let i = 6; i >= 0; i--) {
+            datos.labels.push(dias[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaTemperatura);
+        }
+    }
+
+    if(senyal === "Fecha" && (diferenciaDias <= 3 || diferenciaDiasAcordeon <= 3)) {
+        for (let i = horas.length - 1; i >= 0; i--) {
+            datos.labels.push(horas[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaTemperatura);
+        }
+    }
+
+    if(senyal === "Fecha" && (diferenciaDias > 4 || diferenciaDiasAcordeon > 4))
+        for (let i = dias.length-1; i >= 0; i--) {
+            datos.labels.push(dias[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaTemperatura);
+        }
+
+    graficaBase.options = opciones;
+    graficaBase.data = datos;
+    graficaBase.update();
+
+    graficaAcordeonTemperatura.options = opciones;
+    graficaAcordeonTemperatura.data = datos;
+    graficaAcordeonTemperatura.update();
+}
+//......................................................................................................................
+//......................................................................................................................
+//------------------------------------------
+/*
+       idHuerto --> ConstruirGraficaLuz()
+*/
+//------------------------------------------
+async function construirGraficaLuz(idHuerto, senyal){
+
+    let mediciones;
+    let diferenciaDias = 0;
+    let diferenciaDiasAcordeon = 0;
+
+    if(senyal === "Hoy"){
+        mediciones = await getMedicionesHoy(idHuerto);
+    }
+
+    if(senyal === "Semana"){
+        mediciones = await getMedicionesSemana(idHuerto);
+    }
+
+    if(senyal === "Fecha"){
+        let desde = obtenerFechas().desde;
+        let hasta = obtenerFechas().hasta;
+        let desdeAcordeon = obtenerFechas().desdeAcordeon;
+        let hastaAcordeon = obtenerFechas().hastaAcordeon;
+
+        let fechaDesde = new Date(desde);
+        let fechaHasta = new Date(hasta);
+        let fechaDesdeAcordeon = new Date(desdeAcordeon);
+        let fechaHastaAcordeon = new Date(hastaAcordeon);
+
+        let diferenciaMs = fechaHasta - fechaDesde;
+        let diferenciaMsAcordeon = fechaHastaAcordeon - fechaDesdeAcordeon;
+
+        diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+        diferenciaDiasAcordeon = Math.floor(diferenciaMsAcordeon / (1000 * 60 * 60 * 24));
+
+        if (diferenciaDias <= 3 && getComputedStyle(visualizador).display !== "none") {
+            console.log('3 o menos días');
+            console.log(desde);
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 1);
+
+        }
+        else if(diferenciaDias > 4 && getComputedStyle(visualizador).display !== "none"){
+            console.log('4 o más días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desde, hasta, 0);
+        }
+        if (diferenciaDiasAcordeon <= 3 && getComputedStyle(seccionAcordeon).display !== "none") {
+            console.log('3 o menos días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desdeAcordeon, hastaAcordeon, 1);
+
+        }
+        else if(diferenciaDiasAcordeon > 4 && getComputedStyle(seccionAcordeon).display !== "none"){
+            console.log('4 o más días');
+            mediciones = await getMedicionesSeleccionarFecha(idHuerto, desdeAcordeon, hastaAcordeon, 0);
+        }
+    }
+
+    let horas = mediciones.map(function (medicion) {
+        return medicion.hora + ":" + medicion.minutos;
+    });
+
+    let dias = mediciones.map(function (medicion) {
+        let fecha = medicion.fecha_medicion;
+
+        let partes = fecha.split("-");
+        var anio = partes[0];
+        var mes = partes[1];
+        var dia = partes[2];
+
+        var fechaFormateada = dia + "/" + mes + "/" + anio;
+
+        return fechaFormateada;
+    });
+
+    let datos = {
+        labels: [],
+        datasets: [
+            {
+                label: "Nivel de luz",
+                data: [],
+                tension: 0.2,
+                fill: false,
+                backgroundColor: 'rgba(121,0,80,.8)',
+                borderColor: '#790050',
+                pointStyle: 'circle',
+                pointRadius: 7,
+                borderWidth: 2,
+            }
+        ]
+    };
+
+    let opciones = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                grid: {
+                    drawOnChartArea: false
+                }
+            },
+            y: {
+                stacked: true
+            }
+        },
+        plugins: {
+            legend: false,
+            title: {
+                display: true,
+                text: 'Luz: 1 - Oscuridad, 2 - Poco iluminado, 3 - Sombra, 4 - Luz directa',
+                position: 'top',
+                align: 'start',
+                padding: {
+                    bottom: 10
+                },
+                font: {
+                    size: 15
+                }
+            },
+            tooltip: {
+                backgroundColor: '#fff',
+                titleColor: '#000',
+                titleAlign: 'center',
+                bodyColor: '#333',
+                borderColor: '#666',
+                borderWidth: 1,
+                yAlign: 'top',
+                displayColors: false,
+            }
+        }//plugins
+    }
+
+    if(senyal === "Hoy"){
+        for (let i = 3; i >= 0; i--) {
+            datos.labels.push(horas[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+        }
+    }
+
+    if(senyal === "Semana") {
+        for (let i = 6; i >= 0; i--) {
+            datos.labels.push(dias[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+        }
+    }
+
+    if(senyal === "Fecha" && (diferenciaDias <= 3 || diferenciaDiasAcordeon <= 3)) {
+        for (let i = horas.length - 1; i >= 0; i--) {
+            datos.labels.push(horas[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+        }
+    }
+
+    if(senyal === "Fecha" && (diferenciaDias > 4 || diferenciaDiasAcordeon > 4))
+        for (let i = dias.length-1; i >= 0; i--) {
+            datos.labels.push(dias[i]);
+            datos.datasets[0].data.push(mediciones[i].mediaLuminosidad);
+        }
+
+    graficaBase.options = opciones;
+    graficaBase.data = datos;
+    graficaBase.update();
+
+    graficaAcordeonLuminosidad.options = opciones;
+    graficaAcordeonLuminosidad.data = datos;
+    graficaAcordeonLuminosidad.update();
+}
+//......................................................................................................................
+//......................................................................................................................
 //LLAMADA DE FUNCIONES:
 getHuertoPorDefecto();
 

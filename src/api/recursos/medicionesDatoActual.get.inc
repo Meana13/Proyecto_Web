@@ -14,18 +14,17 @@ $sql = "SELECT
         `mediciones`.`id_medicion`, 
         `mediciones`.`fecha_medicion`, 
         `mediciones`.`hora_medicion`, 
-        AVG(`medicion_salinidad`) as `mediaSalinidad`, 
-        ROUND(AVG(`medicion_humedad`),1) as `mediaHumedad`, 
-        ROUND(AVG(`medicion_luminosidad`),1) as `mediaLuminosidad`, 
-        ROUND(AVG(`medicion_ph`),1) as `mediapH`, 
-        ROUND(AVG(`medicion_temperatura`),1) as `mediaTemperatura`
+        `medicion_salinidad` as `mediaSalinidad`, 
+        ROUND(`medicion_humedad`,1) as `mediaHumedad`, 
+        ROUND(`medicion_luminosidad`,1) as `mediaLuminosidad`, 
+        ROUND(`medicion_ph`,1) as `mediapH`, 
+        ROUND(`medicion_temperatura`,1) as `mediaTemperatura`
 
         FROM `huertos`, `mediciones`
         
         WHERE `huertos`.`id_huerto` = `mediciones`.`id_huerto`
         AND `huertos`.`id_huerto` = $idHuerto
         
-        GROUP BY `mediciones`.`fecha_medicion`, `mediciones`.`hora_medicion`
         ORDER BY `mediciones`.`fecha_medicion` DESC, `mediciones`.`hora_medicion` DESC
         LIMIT 1";
 
