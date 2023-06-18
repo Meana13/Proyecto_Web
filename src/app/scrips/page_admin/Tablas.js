@@ -2,10 +2,12 @@
  * URL a la que se hacen las peticiones
  */
 const url= "../../../api/usuarios/";
+const urlUNICA= "../../../api/usuario/";
+const urlPaginador= "../../../api/paginador/";
+
 /**
  * Variables vacias
  */
-let datosusuario=[];
 let limite=15;
 
 /**
@@ -37,6 +39,21 @@ async function getUsuarios(npag,limite,rol){
 }
 
 /**
+ * Cargar un Usuario
+ */
+
+async function getunUsuario(id){
+    const respuesta=await fetch(urlUNICA + '?id='
+        + id);
+    if (respuesta.ok){
+        console.log("Ha entrado en el if")
+        const DatosUsuario = await respuesta.json();
+        console.log(DatosUsuario)
+        return DatosUsuario;
+    }
+}
+
+/**
  * Filtra la lista de usuarios y la devuelve
  */
 async function getUsuariosFiltrados(npag,limite,rol,filtro){
@@ -58,18 +75,51 @@ async function conseguirRol(){
     let rol=selector.value;
     console.log(rol);
     return rol;
-};
+}
 
 /**
- * Recibe la pagina seleccionada en el paginador
+ * Genera el paginador dependiendo de todos los usuarios
+ */
+
+    async function GenerarPaginador(){
+    let rol =document.getElementById("selector_rol").value;
+    let filtro=document.getElementById("buscador-admin");
+    let paginas =await fetch(urlPaginador + '?cantidad='
+            + limite + '&rol=?'+rol +'&filtro='+filtro);
+    const paginador = document.getElementById('paginadorAdmin');
+    for (let i = 1; i <= paginas; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.innerText = i;
+        paginador.appendChild(opt);
+    }
+}
+
+/**
+ * Devuelve la pagina seleccionada en el Paginador
  */
     async function conseguirPagina(){
+        GenerarPaginador();
         let paginador= document.getElementById('paginadorAdmin');
         let pagina=paginador.value;
         console.log(pagina);
         return pagina;
-};
-
+}
+ async function Abrir_ventana(id){
+    const datos=await getunUsuario(id)
+    const seccionHojaUsuario = document.getElementById("seccion-hoja-usuario");
+    const seccionTablas=document.getElementById("seccion-administrar-usuarios");
+    seccionHojaUsuario.style.display = "block";
+    seccionTablas.style.display="none";
+    const Nombre = document.getElementById('nombre_hoja');
+    const Apellidos = document.getElementById('apellidos_hoja');
+    const Email = document.getElementById('email');
+    const Direccion = document.getElementById('direccion_hoja');
+    Nombre.value=datos[0].nombre;
+    Apellidos.value=datos[0].apellidos;
+    Email.value=datos[0].email;
+    Direccion.value=datos[0].direccion;
+}
 /**
  *Genera tablas basadas en tres parametros:paginador,limite de usuario por pagina y rol;
  */
@@ -82,10 +132,13 @@ async function generarTablas() {
     tabla.innerHTML = "";
     datos.forEach((usuario) => {
         tabla.innerHTML += `<tr>
+             <td style="display: none">${usuario.id_cliente}</td>
+            <td style="display: none">${usuario.id_usuario}</td>
             <td>${usuario.nombre}</td>
             <td>${usuario.apellidos}</td>
             <td>${usuario.email}</td>
-            <td><button id="ver-hoja-usuario" onclick="Editar_usuario(${usuario.id_usuario})"><img src="../../../images/ver-perfil.svg" alt="Hoja de usuario"></button>
+            <td><button id="ver-hoja-usuario" onclick="Abrir_ventana(${usuario.id_usuario})"><img src="../../../images/ver-perfil.svg" alt="Boton ver perfil"
+                                ></button>
             </td>
         </tr>`;
     });
@@ -97,18 +150,20 @@ async function generarTablas() {
 async function generarTablasFiltrada() {
     let filtro= document.getElementById("buscador-admin")
     let rol= await conseguirRol();
-    let pag= await conseguirPagina();
+    let pag= 1;
     const datos = await getUsuariosFiltrados(pag,limite,rol,filtro);
     console.log(datos);
     let tabla = document.getElementById("body-usuarios");
     tabla.innerHTML = "";
     datos.forEach((usuario) => {
         tabla.innerHTML += `<tr>
+            <td style="display: none">${usuario.id_cliente}</td>
+            <td style="display: none">${usuario.id_usuario}</td>
             <td>${usuario.nombre}</td>
             <td>${usuario.apellidos}</td>
             <td>${usuario.email}</td>
-            <td><button id="ver-hoja-usuario"><img src="../../../images/ver-perfil.svg"
-                                alt="Hoja de usuario"></button>
+            <td><button><img src="../../../images/ver-perfil.svg" alt="Boton ver perfil"
+                                ></button>
             </td>
         </tr>`;
     });

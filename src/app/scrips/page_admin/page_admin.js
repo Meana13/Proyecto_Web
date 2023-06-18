@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
         secAdminUsuarios.style.display = "block";
         botonActivo = botonAdminUsuarios;
         secActiva = secAdminUsuarios;
+        /////////////////////////////
+
     });
 
     const botonAnyadir = document.getElementById("boton-añadir-usuario");
@@ -24,15 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
         botonActivo.style.backgroundColor = "";
         seccionAnyadir.style.display = "block";
         secActiva = seccionAnyadir;
-    });
-
-    const botonGenerarId = document.getElementById("boton-generar-id");
-    const cajaId = document.getElementById("caja-id");
-
-    // si se hace click a botonGenerarId hacemos que aparezca su seccion y desaparezcan las demas
-    botonGenerarId.addEventListener("click", () => {
-        const nuevoId = Math.floor(Math.random() * 1000000).toString().padStart(6, "0");
-        cajaId.textContent = nuevoId;
     });
 
     const botonHojaUsuario = document.getElementById("ver-hoja-usuario");
@@ -88,11 +81,4 @@ function crearTablaUsuarios(solicitud) {
 
 
     fila.append(celdaNombre, celdaApellidos, celdaEmail, celdaBoton);
-}
-function quitarDisable(elemento) {
-
-    var inputSelect = elemento.previousElementSibling;
-    if (inputSelect && (inputSelect.tagName === "INPUT" || inputSelect.tagName === "SELECT")) {
-        inputSelect.removeAttribute("disabled");
-    }
 }
