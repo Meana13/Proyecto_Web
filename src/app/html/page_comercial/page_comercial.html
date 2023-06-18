@@ -6,17 +6,20 @@
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Page comercial</title>
+
     <!-- Carga Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
-    <!-- Hojas de estilo -->
-    <link rel="stylesheet" href="../../css/page_comercial/estilos_page_comercial.css">
-    <link rel="stylesheet" href="../../css/estilos_general.css">
-    <link rel="stylesheet" href="../../css/landing_page/footer.css">
+    <!-- Carga de scripts -->
     <script src="../../scrips/page_comercial/grafica.js"></script>
     <script src="../../scrips/landing_page/control-acceso.js"></script>
-	<link rel="stylesheet" href="../../css/page_comercial/estilos_page_comercial.css">
+
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="../../css/estilos_general.css">
+    <link rel="stylesheet" href="../../css/landing_page/footer.css">
+    <link rel="stylesheet" href="../../css/page_comercial/estilos_page_comercial.css">
+
 </head>
 
 <body>
@@ -42,11 +45,10 @@
             </button>
             <ul class="nav-menu">
                 <li class="nav-menu-item">
-                    <button type="button" class="boton_menu" id="boton-solicitudes"
-                        onclick="mostrarSolicitudes()">solicitudes</button>
+                    <button type="button" class="boton_menu" id="boton-solicitudes">solicitudes</button>
                 </li>
                 <li class="nav-menu-item">
-                    <button type="button" class="boton_menu" id="boton-ventas" onclick="mostrarVentas()">ventas</button>
+                    <button type="button" class="boton_menu" id="boton-ventas">ventas</button>
                 </li>
                 <li class="nav-menu-item">
                     <button class="boton_menu " onclick="logout()">CERRAR SESIÓN</button>
@@ -77,19 +79,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        <button id="boton-solicitudes-pendientes" class="activo"
-                            onclick="mostrarContenidoEntreTres('boton-solicitudes-pendientes','boton-solicitudes-proceso','boton-solicitudes-finalizadas','solicitudes-pendientes', 'solicitudes-en-proceso', 'solicitudes-finalizadas')">SOLICITUDES
-                            PENDIENTES</button>
+                        <button id="boton-solicitudes-pendientes" class="activo">SOLICITUDES PENDIENTES</button>
                     </div>
                     <div class="col-4">
-                        <button id="boton-solicitudes-proceso"
-                            onclick="mostrarContenidoEntreTres('boton-solicitudes-proceso','boton-solicitudes-pendientes','boton-solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes', 'solicitudes-finalizadas')">SOLICITUDES
-                            EN PROCESO</button>
+                        <button id="boton-solicitudes-proceso">SOLICITUDES EN PROCESO</button>
                     </div>
                     <div class="col-4">
-                        <button id="boton-solicitudes-finalizadas"
-                            onclick="mostrarContenidoEntreTres('boton-solicitudes-finalizadas','boton-solicitudes-proceso','boton-solicitudes-pendientes','solicitudes-finalizadas', 'solicitudes-en-proceso','solicitudes-pendientes')">SOLICITUDES
-                            FINALIZADAS</button>
+                        <button id="boton-solicitudes-finalizadas">SOLICITUDES FINALIZADAS</button>
                     </div>
                 </div>
             </div>
@@ -106,25 +102,13 @@
             <!--Aquí empieza el buscador de la tabla-->
             <div class="container">
                 <div class="row">
-                    <input class="col-9 buscador" id="buscador-pendientes" placeholder="Escribe lo que quieras buscar...">
-                    <button class="col-3 boton-buscar" onclick="buscarSolicitudesPendientes()">Buscar</button>
+                    <input class="col-9 buscador" id="buscador-pendientes"
+                        placeholder="Escribe lo que quieras buscar...">
+                    <button class="col-3 boton-buscar">Buscar</button>
                 </div>
             </div>
             <!--Aquí acaba el buscador de la tabla-->
 
-            <!--Aquí empieza el paginador de solicitudes pendientes-->
-            <div id="paginadorPendientes" class="paginador">
-                <button onclick="cambiarPaginaPaginadorPendientes(1)">1</button>
-                <button onclick="cambiarPaginaPaginadorPendientes(2)">2</button>
-                <button onclick="cambiarPaginaPaginadorPendientes(3)">3</button>
-                <span class="btn-input">
-                    <button onclick="mostrarInput(this)">...</button>
-                    <input type="number" value="1" onchange="cambiarPaginaPaginadorPendientes(this.value)"
-                        onblur="ocultarInput(this)" />
-                </span>
-                <button>n</button>
-            </div>
-            <!--Aquí acaba el paginador de solicitudes pendientes-->
 
 
             <!--Aquí empieza la tabla de solicitudes pendientes-->
@@ -133,8 +117,8 @@
                 <!--Aquí empieza la cabecera de la tabla de solicitudes pendientes-->
                 <thead id="cabecera-tabla-solicitudes-pendientes">
                     <tr>
-                        <th>NOMBRE</th>
-                        <th>APELLIDOS</th>
+                        <th>E-MAIL</th>
+                        <th>ASUNTO</th>
                         <th>FECHA</th>
                         <th></th>
                     </tr>
@@ -149,6 +133,19 @@
             </table>
             <!--Aquí acaba la tabla de solicitudes pendientes-->
 
+            <!--Aquí empieza el paginador de solicitudes pendientes-->
+            <div id="paginadorPendientes" class="paginador">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <span class="btn-input">
+                    <button>...</button>
+                    <input type="number" value="1" />
+                </span>
+                <button>n</button>
+            </div>
+            <!--Aquí acaba el paginador de solicitudes pendientes-->
+
         </section>
         <!--Aquí acaba la sección de solicitudes pendientes-->
 
@@ -158,29 +155,14 @@
         <!--Aquí empieza la sección de solicitudes en proceso-->
         <section id="solicitudes-en-proceso">
 
-
             <!--Aquí empieza el buscador de la tabla-->
             <div class="container">
                 <div class="row">
                     <input class="col-9 buscador" id="buscador-proceso" placeholder="Escribe lo que quieras buscar...">
-                <button class="col-3 boton-buscar" onclick="buscarSolicitudesEnProceso()">Buscar</button>
+                    <button class="col-3 boton-buscar">Buscar</button>
                 </div>
             </div>
             <!--Aquí acaba el buscador de la tabla-->
-
-            <!--Aquí empieza el paginador de solicitudes en proceso-->
-            <div id="paginadorProceso" class="paginador">
-                <button onclick="cambiarPaginaPaginadorProceso(1)">1</button>
-                <button onclick="cambiarPaginaPaginadorProceso(2)">2</button>
-                <button onclick="cambiarPaginaPaginadorProceso(3)">3</button>
-                <span class="btn-input">
-                    <button onclick="mostrarInput(this)">...</button>
-                    <input type="number" value="1" onchange="cambiarPaginaPaginadorProceso(this.value)"
-                        onblur="ocultarInput(this)" />
-                </span>
-                <button>n</button>
-            </div>
-            <!--Aquí acaba el paginador de solicitudes en proceso-->
 
             <!--Aquí empieza la tabla de solicitudes en proceso-->
             <table id="tabla-proceso">
@@ -188,9 +170,9 @@
                 <!--Aquí empieza la cabecera de la tabla de solicitudes en proceso-->
                 <thead id="cabecera-tabla-solicitudes-proceso">
                     <tr>
-                        <th>NOMBRE</th>
-                        <th>APELLIDOS</th>
-                        <th id="fecha-pendientes">FECHA</th>
+                        <th>E-MAIL</th>
+                        <th>ASUNTO</th>
+                        <th>FECHA</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -204,6 +186,19 @@
             </table>
             <!--Aquí acaba la tabla de solicitudes en proceso-->
 
+            <!--Aquí empieza el paginador de solicitudes en proceso-->
+            <div id="paginadorProceso" class="paginador">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <span class="btn-input">
+                    <button>...</button>
+                    <input type="number" value="1" />
+                </span>
+                <button>n</button>
+            </div>
+            <!--Aquí acaba el paginador de solicitudes en proceso-->
+
         </section>
         <!--Aquí acaba de sección de solicitudes en proceso-->
 
@@ -216,25 +211,12 @@
             <!--Aquí empieza el buscador de la tabla-->
             <div class="container">
                 <div class="row">
-                    <input class="col-9 buscador" id="buscador-finalizadas" placeholder="Escribe lo que quieras buscar...">
-                    <button class="col-3 boton-buscar" onclick="buscarSolicitudesFinalizadas()">Buscar</button>
+                    <input class="col-9 buscador" id="buscador-finalizadas"
+                        placeholder="Escribe lo que quieras buscar...">
+                    <button class="col-3 boton-buscar">Buscar</button>
                 </div>
             </div>
             <!--Aquí acaba el buscador de la tabla-->
-
-            <!--Aquí empieza el paginador de solicitudes finalizadas-->
-            <div id="paginadorFinalizadas" class="paginador">
-                <button onclick="cambiarPaginaPaginadorFinalizadas(1)">1</button>
-                <button onclick="cambiarPaginaPaginadorFinalizadas(2)">2</button>
-                <button onclick="cambiarPaginaPaginadorFinalizadas(3)">3</button>
-                <span class="btn-input">
-                    <button onclick="mostrarInput(this)">...</button>
-                    <input type="number" value="1" onchange="cambiarPaginaPaginadorFinalizadas(this.value)"
-                        onblur="ocultarInput(this)" />
-                </span>
-                <button>n</button>
-            </div>
-            <!--Aquí acaba el paginador de solicitudes finalizadas-->
 
             <!--Aquí empieza la tabla de solicitudes finalizadas-->
             <table id="tabla-finalizadas">
@@ -242,8 +224,8 @@
                 <!--Aquí empieza la cabecera de la tabla de solicitudes finalizadas-->
                 <thead id="cabecera-tabla-solicitudes-finalizadas">
                     <tr>
-                        <th>NOMBRE</th>
-                        <th>APELLIDOS</th>
+                        <th>E-MAIL</th>
+                        <th>ASUNTO</th>
                         <th>FECHA</th>
                         <th></th>
                     </tr>
@@ -257,6 +239,19 @@
 
             </table>
             <!--Aquí acaba la tabla de solicitudes finalizadas-->
+
+            <!--Aquí empieza el paginador de solicitudes finalizadas-->
+            <div id="paginadorFinalizadas" class="paginador">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <span class="btn-input">
+                    <button>...</button>
+                    <input type="number" value="1" />
+                </span>
+                <button>n</button>
+            </div>
+            <!--Aquí acaba el paginador de solicitudes finalizadas-->
 
         </section>
         <!--Aquí acaba la sección de solicitudes finalizadas-->
@@ -276,10 +271,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                        <button id="boton-lista-ventas" onclick="mostrarListaVentas()">Ventas</button>
+                        <button id="boton-lista-ventas">Ventas</button>
                     </div>
                     <div class="col-6">
-                        <button id="boton-graficas" onclick="mostrarGraficas()">Gráficas</button>
+                        <button id="boton-graficas">Gráficas</button>
                     </div>
                 </div>
             </div>
@@ -292,21 +287,20 @@
             <!--Aquí empieza el buscador de la tabla-->
             <div class="container">
                 <div class="row">
-                <input class="col-9 buscador" id="buscador-ventas" placeholder="Escribe lo que quieras buscar...">
-                <button class="col-3 boton-buscar" onclick="buscarVentas()">Buscar</button>
+                    <input class="col-9 buscador" id="buscador-ventas" placeholder="Escribe lo que quieras buscar...">
+                    <button class="col-3 boton-buscar">Buscar</button>
                 </div>
             </div>
             <!--Aquí acaba el buscador de la tabla-->
 
             <!--Aquí empieza el paginador de ventas-->
             <div id="paginadorVentas" class="paginador">
-                <button onclick="cambiarPaginaPaginadorVentas(1)">1</button>
-                <button onclick="cambiarPaginaPaginadorVentas(2)">2</button>
-                <button onclick="cambiarPaginaPaginadorVentas(3)">3</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
                 <span class="btn-input">
-                    <button onclick="mostrarInput(this)">...</button>
-                    <input type="number" value="1" onchange="cambiarPaginaPaginadorVentas(this.value)"
-                        onblur="ocultarInput(this)" />
+                    <button>...</button>
+                    <input type="number" value="1" />
                 </span>
                 <button>n</button>
             </div>
@@ -318,8 +312,9 @@
                 <!--Aquí empieza la cabecera de la tabla de ventas-->
                 <thead id="cabecera-tabla-ventas">
                     <tr>
-                        <th>NOMBRE</th>
-                        <th>APELLIDOS</th>
+                        <th>E-MAIL</th>
+                        <th>PRODUCTO</th>
+                        <th>IMPORTE</th>
                         <th>FECHA</th>
                         <th></th>
                     </tr>
@@ -340,32 +335,16 @@
         <!--Aquí empieza la sección de graficas-ventas-->
         <section id="graficas-ventas">
 
-            <select id="selector-opciones-graficas" onchange="seleccionarOpcion()">
-                <option id="opcion-semana" value="semana">Semana</option>
-                <option id="opcion-dia" value="dia">Día</option>
-                <option id="opcion-mes" value="mes">Meses</option>
-                <option id="opcion-anio" value="anio">Años</option>
-
+            <select id="selector-opciones-graficas">
+                <option id="opcion-semana" value="semana">Última Semana</option>
+                <option id="opcion-mes" value="mes">Último Mes</option>
+                <option id="opcion-meses" value="anio">Meses del último año</option>
+                <option id="opcion-anios" value="anios">Años</option>
             </select>
 
-            <div id="chart-container-mes">
+            <div id="chart-container">
 
-                <canvas id="chart-mes"></canvas>
-
-            </div>
-            <div id="chart-container-anio">
-
-                <canvas id="chart-anio"></canvas>
-
-            </div>
-            <div id="chart-container-semana">
-
-                <canvas id="chart-semana"></canvas>
-
-            </div>
-            <div id="chart-container-dia">
-
-                <canvas id="chart-dia"></canvas>
+                <canvas id="chart"></canvas>
 
             </div>
 
@@ -377,23 +356,19 @@
     <!----------------------------------------------------------------------------------------------->
 
     <!----------------------------------------------------------------------------------------------->
-    <!--Aquí empieza la sección ver venta-->
+    <!--Aquí empieza la sección venta-->
     <section id="ver-venta">
 
         <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
         <div class="contenedor-datos">
+            <button id="boton-volver-a-lista-ventas">VOLVER ATRÁS</button>
             <h3>Detalles de la venta</h3>
-            <p><b>Nombre:</b><span id="id-venta"></span></p>
-            <p><b>Apellidos:</b><span id="email-venta"></span></p>
-            <p><b>E-mail:</b><span id="nombre-venta"></span></p>
-            <p><b>Dirección:</b><span id="direccion-venta"></span></p>
-            <p><b>Productos vendidos:</b></p>
-            <ul id="productos-vendidos">
-                <li>Producto 1</li>
-                <li>Producto 2</li>
-                <li>Producto 3</li>
-            </ul>
-            <button id="boton-volver-a-lista-ventas" onclick="volverAListaVentas()">VOLVER ATRÁS</button>
+            <p><b>Fecha:</b><span id="fecha-venta"></span></p>
+            <p><b>Nombre:</b><span id="nombre-venta"></span></p>
+            <p><b>Apellidos:</b><span id="apellidos-venta"></span></p>
+            <p><b>E-mail:</b><span id="email-venta"></span></p>
+            <p><b>Producto:</b><span id="producto-venta"></span></p>
+            <p><b>Importe:</b><span id="importe-venta"></span></p>
         </div>
 
     </section>
@@ -408,17 +383,32 @@
         <!--Los datos se referiran a la venta que hemos seleccionado y se recogerán de la base de datos.-->
         <div class="contenedor-datos">
             <h3>Detalles de la solicitud</h3>
-            <p><b>Nombre:</b> <span id="nombre-solicitud"></span></p>
-            <p><b>Apellidos:</b> <span id="apellidos-solicitud"></span></p>
-            <p><b>E-mail:</b><span id="email-solicitud"></span></p>
-            <p><b>Dirección:</b><span id="direccion-solicitud"></span></p>
-            <p><b>Solicitudes:</b></p>
-            <ul class="foco-de-detalle">
-                <li>E-mail 1</li>
-                <li>E-mail 2</li>
-                <li>E-mail 3</li>
-            </ul>
             <button id="boton-volver-a-lista-solicitudes">VOLVER ATRÁS</button>
+            <div>
+                <p><b>Nombre:</b></p>
+                <p class="ver-mas-dato" id="nombre-solicitud">Elena</p>
+            </div>
+            <div>
+                <p><b>Apellidos:</b></p>
+                <p class="ver-mas-dato" id="apellidos-solicitud">Deja de mandarme cosas</p>
+            </div>
+            <div>
+                <p><b>E-mail:</b></p>
+                <p class="ver-mas-dato" id="email-solicitud">dictadora@gmail.com</p>
+            </div>
+            <div>
+                <p><b>Asunto:</b></p>
+                <p class="ver-mas-dato" id="asunto-solicitud">soy un llorica</p>
+            </div>
+            <div>
+                <p><b>Mensaje:</b></p>
+                <p class="ver-mas-dato" id="mensaje-solicitud">QUIEROLLORARQUIEROLLORARQUIEROLLORARQUIEROLLORARQUIEROLLORARQUIEROLLORARQUIEROLLORARQUIEROLLORARQUIEROLLORARQUIEROLLORARQUIEROLLORARQUIEROLLORAR</p>
+            </div>
+
+            <button id="boton-pasar-a-pendientes">PASAR A "PENDIENTE"</button>
+            <button id="boton-pasar-a-proceso">PASAR A "EN PROCESO"</button>
+            <button id="boton-pasar-a-finalizada">PASAR A "FINALIZADA"</button>
+
         </div>
 
     </section>
@@ -433,7 +423,7 @@
     <footer>
         <div id="seccion-logo">
             <div class="linea-logo"></div>
-            <a href="index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
+            <a href="../../../index.html"><img src="../../../images/logoGTI.png" id="logoFooter"></a>
             <div class="linea-logo"></div>
         </div>
 
@@ -446,7 +436,9 @@
     </footer>
     <!--Aquí acaba el footer-->
     <!----------------------------------------------------------------------------------------------->
-    <script src="../../scrips/page_comercial/page_comercial.js"></script>
+    <script src="../../scrips/page_comercial/solicitudes.js"></script>
+    <script src="../../scrips/page_comercial/ventas.js"></script>
+    <script src="../../scrips/page_comercial/graficas.js"></script>
 </body>
 
 </html>

@@ -8,11 +8,10 @@ if (!isset($peticion)) {
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 
-$idHuerto = $peticion->parametrosQuery()['idHuerto'];
-
-$sql = "SELECT * 
-        FROM `notificaciones`
-        WHERE `notificaciones`.`id_huerto` = $idHuerto";
+$sql = "SELECT `fecha_medicion`
+        FROM `mediciones`
+        GROUP BY `mediciones`.`fecha_medicion`
+        ORDER BY `mediciones`.`fecha_medicion` DESC, `mediciones`.`hora_medicion` DESC";
 
 $result = mysqli_query($connexion, $sql);
 while ($row = mysqli_fetch_assoc($result)) {

@@ -1,5 +1,73 @@
 /*
     =========================================================================
+                             NOMBRE USUARIO HEADER
+    =========================================================================
+                                                                                */
+let nombreUsuario = document.getElementById('nombreUsuarioRegistrado');
+
+//------------------------------------------
+/*
+getSesionUsuario() --> datos
+                                    ____datos____
+                                    id_usuario: N
+                                    nombre: txt
+                                    idRol: N
+                                    rol: txt
+                                    _____________
+*/
+//------------------------------------------
+async function getSesionUsuario(){
+
+    const respuesta = await fetch('../../../api/sesion/');
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+//.......................................................
+/*
+            getDatosUsuario() --> datos
+                                            ____datos____
+                                            id_usuario: N
+                                            rol: N
+                                            nombre: txt
+                                            password: txt
+                                            _____________
+*/
+//.......................................................
+async function getDatosUsuario(){
+    let datosSesion = await getSesionUsuario();
+    let idUsuario = datosSesion.id_usuario;
+
+    const respuesta = await fetch('../../../api/usuario/' + '?idUsuario=' + idUsuario);
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        return datos;
+    }
+}
+
+//------------------------------------------
+/*
+            escribirNombreUsuario()
+*/
+//------------------------------------------
+
+async function escribirNombreUsuario(){
+    let datosUsuario = await getDatosUsuario();
+    let nombre = datosUsuario[0].nombre;
+
+    nombreUsuario.innerText = "";
+    nombreUsuario.innerText = nombre;
+}
+
+//llamada:
+escribirNombreUsuario();
+
+/*-----------------------------------------------Aquí acaban las funciones para el nombre de usuario del header*/
+
+
+/*
+    =========================================================================
                                 BOTONES MENÚ
     =========================================================================
                                                                                 */
@@ -64,10 +132,11 @@ botonCerrarAjustesHuerto.addEventListener("click", cerrarAjustesHuerto);
 
 
 /*
+/!*
     =========================================================================
               DIÁLOGO ATAJO PARA CAMBIAR LOS LÍMITES DE LAS MEDIDAS
     =========================================================================
-                                                                                */
+                                                                                *!/
 
 //Atajo cambiar límites de SALINIDAD:
 const abrirAtajoSal = document.getElementById('atajo_limites_sal');
@@ -174,8 +243,9 @@ cancelarAtajoLuz.addEventListener("click", cerrarDialogoLuz);
 
 
 
-/*-----------------------------------------------Aquí acaban las funciones para el diálogo de cambiar límites de medidas*/
+/!*-----------------------------------------------Aquí acaban las funciones para el diálogo de cambiar límites de medidas*!/
 
+*/
 
 
 

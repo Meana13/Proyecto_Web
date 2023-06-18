@@ -16,7 +16,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
     case 'POST':
         $bbdd_servidor = 'localhost';
-        $bbdd_nombre = 'bbdd';
+        $bbdd_nombre = 'proyecto_web';
         $bbdd_user = 'root';
         $bbdd_password = '';
         //$bbdd_servidor = 'pmeagon.upv.edu.es';
@@ -35,14 +35,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $usuario = $_POST['nombre'];
         $password = $_POST['password'];
 
-       /* $sql = "SELECT `usuarios`.`id`,
-       `usuarios`.`nombre`, 
-       `roles`.`id` as `idRol`, 
-       `roles`.`rol` 
-	FROM `usuarios` 
-		INNER JOIN `roles` ON `usuarios`.`rol` = `roles`.`id`
-	WHERE `usuarios`.`nombre` = '$usuario' AND `usuarios`.`password` = '$password'";
-        */
 
         $sql = "SELECT `usuarios`.`id_usuario`, `usuarios`.`nombre`, `roles`.`id` as idRol, `roles`.rol 
                 FROM `usuarios`, `roles` 
