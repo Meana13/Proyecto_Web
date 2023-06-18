@@ -178,6 +178,9 @@ h2 {
     font-size: 16px;
 }
 
+
+
+
 /*Estilo iconos de alerta*/
 .alertas-container {
     flex: 1 1 100%;
@@ -259,6 +262,13 @@ h2 {
 }
 
 /*Estilos para el filtro de la gráfica*/
+
+.filtros_graficas {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
 .cuerpo_del_visualizador article .grafica-container div {
     display: flex;
     justify-content: flex-start;
@@ -271,6 +281,9 @@ h2 {
     margin-right: 1rem;
     margin-bottom: 1rem;
 }
+
+
+
 
 form.seleccionar_fecha {
     display: none;
@@ -293,6 +306,29 @@ form.seleccionar_fecha {
     font-size: 16px;
     padding: 5px 10px;
 }
+
+
+
+#botonEnviarFiltroFecha {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #790050;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #botonEnviarFiltroFecha:hover {
+    background-color: #9D4179;
+  }
+  
+  #botonEnviarFiltroFecha:active {
+    background-color: #790050;
+  }
+
+
 
 
 /*Estilos de la gráfica*/
@@ -439,14 +475,6 @@ dialog.ajustes_de_huerto h3 {
     vertical-align: top;
 }
 
-
-/*Estilos para el switch de las notificaciones*/
-.notificaciones div {
-    display: flex;
-    justify-content: flex-end;
-    margin: 1rem;
-}
-
 .custom-switch.custom-switch-md .custom-control-label {
     padding-left: 2rem;
     padding-bottom: 1.5rem;
@@ -501,10 +529,6 @@ dialog.ajustes_de_huerto form.limites_medidas select {
     width: 50%;
     float: left;
 }
-
-
-
-
 
 /*Estilos para los botones de editar y guardar*/
 dialog.ajustes_de_huerto div.botones_editar_y_guardar {
@@ -572,8 +596,59 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input.boton_guardar_ajuste
     max-height: 50px;
 }
 
-#citas td:last-child {
-    width: 160px;
+
+/*Estilo apartado CITAS*/
+#citas {
+    text-align: center;
+}
+
+/* Estilos para la tabla de citas */
+#citas table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#citas th,
+#citas td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+#citas th {
+    background-color: #790050;
+}
+
+#citas te:last-child {
+    width: 120px;
+    background-color: var(--fondo);
+    border: 0;
+}
+
+#citas tbody tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+#citas tbody tr:nth-child(odd) td {
+    background-color: #fff;
+}
+
+#citas .boton-aceptar-rechazar {
+    padding: 6px 12px;
+    background-color: #D7D7D7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#citas .boton-aceptar-rechazar:hover {
+    background-color: #5D5C5C;
+}
+
+#citas .boton-aceptar-rechazar img {
+    vertical-align: middle;
+    margin-right: 6px;
 }
 
 table td button.boton-aceptar-rechazar {
@@ -1274,58 +1349,4 @@ input:disabled {
 
 #dialogo_cambios_perfil button:hover {
     opacity: 0.8;
-}
-
-
-
-
-
-
-
-/*Estilo apartado CITAS*/
-#citas {
-    text-align: center;
-}
-
-/* Estilos para la tabla de citas */
-#citas table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#citas th,
-#citas td {
-    padding: 8px;
-    border: 1px solid #ddd;
-}
-
-#citas th {
-    background-color: #790050;
-}
-
-#citas tbody tr:nth-child(even) td {
-    background-color: #f2f2f2;
-}
-
-#citas tbody tr:nth-child(odd) td {
-    background-color: #fff;
-}
-
-#citas .boton-aceptar-rechazar {
-    padding: 6px 12px;
-    background-color: #D7D7D7;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#citas .boton-aceptar-rechazar:hover {
-    background-color: #5D5C5C;
-}
-
-#citas .boton-aceptar-rechazar img {
-    vertical-align: middle;
-    margin-right: 6px;
 }

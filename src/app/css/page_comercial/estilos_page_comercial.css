@@ -33,7 +33,7 @@ h2 {
 
 /* Estilos para los botones de navegación */
 #botones-solicitudes button,
-#botones-ventas button  {
+#botones-ventas button {
     width: 100%;
     font: 1em Arial, sans-serif;
     color: var(--textoGeneral);
@@ -69,6 +69,19 @@ h2 {
     border-radius: .5em .5em 0em 0em;
 }
 
+#paginadorVentas {
+    width: 200px;
+    border-radius: 5px;
+    border: 0;
+    color: var(--textoBotones);
+    background-color: var(--secundario);
+}
+
+#container-paginador-ventas {
+    width: fit-content;
+    margin: 10px auto;
+    margin-top: 40px;
+}
 
 
 /* Estilos para los botones de navegación en dispositivos móviles */
@@ -166,11 +179,18 @@ h2 {
     align-self: flex-start;
     font-size: 1.5em;
     margin: 20px;
-    
+
 }
 
 .contenedor-datos div {
     display: flex;
+}
+
+#tabla-pendientes button {
+    border: 0;
+    background-color: var(--principal);
+    border-radius: 5px;
+    color: var(--textoBotones);
 }
 
 .ver-mas-dato {
@@ -200,15 +220,35 @@ h2 {
     font-size: 1.2em;
 }
 
-.contenedor-datos button {
+.contenedor-datos #botones-pasar-solicitud button {
     background-color: var(--secundario);
-    max-width: 300px;
     align-self: flex-end;
     font-size: 1.2em;
     padding: 10px;
     margin: 40px;
     border-radius: .5em;
+    border: 0;
     color: var(--textoBotones);
+}
+
+.contenedor-datos button {
+    border: 0;
+    border-radius: 5px;
+    background-color: var(--secundario);
+    padding: 10px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 50px;
+}
+
+.contenedor-datos button i::before {
+    font-size: 30px;
+    color: var(--textoBotones);
+}
+
+#botones-pasar-solicitud {
+    display: flex;
 }
 
 /* Estilos para los botones en la pantalla de detalles al pasar el cursor */

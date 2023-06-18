@@ -16,15 +16,13 @@ if(isset($peticion->parametrosPath()['filtro'])) {
 $sql = "SELECT clientes.id_cliente, clientes.id_usuario, clientes.nombre, apellidos, email, direccion
         FROM clientes
         JOIN usuarios ON clientes.id_usuario = usuarios.id_usuario
-        WHERE usuarios.rol=$rol
-        LIMIT $limite";
+        WHERE usuarios.rol=$rol";
 
 if ($pagina>1){
     $sql = "SELECT clientes.id_cliente, clientes.id_usuario, clientes.nombre, apellidos, email, direccion
         FROM clientes
         JOIN usuarios ON clientes.id_usuario = usuarios.id_usuario
-        WHERE usuarios.rol=$rol
-        LIMIT $pagina,$limite";
+        WHERE usuarios.rol=$rol";
 }
 $result = mysqli_query($connexion, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
