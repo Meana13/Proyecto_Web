@@ -26,7 +26,8 @@ elseif($senyal === "2") {
     $cantidad = $peticion->parametrosQuery()['cantidad'];
 
         $sql = "SELECT COUNT(`id_consulta`) AS `total`
-                FROM `consultas`";
+                FROM `consultas`
+                WHERE `estado_consulta` = $estado";
 
         $result = mysqli_query($connexion, $sql);
 

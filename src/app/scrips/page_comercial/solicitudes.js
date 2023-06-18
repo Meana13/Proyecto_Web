@@ -31,6 +31,11 @@ let botonPasarPte = document.getElementById('boton-pasar-a-pendientes');
 let botonPasarProceso = document.getElementById('boton-pasar-a-proceso');
 let botonPasarFin = document.getElementById('boton-pasar-a-finalizada');
 let botonVolverASolicitudes = document.getElementById('boton-volver-a-lista-solicitudes');
+//Paginador:
+let paginadorPendientes = document.getElementById('paginadorPtes');
+let paginadorProceso = document.getElementById('paginadorProceso');
+let paginadorFinalizadas = document.getElementById('paginadorFinalizadas');
+
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -41,6 +46,7 @@ let botonVolverASolicitudes = document.getElementById('boton-volver-a-lista-soli
 botonSolicitudes.addEventListener('click', function(){
     seccionSolicitudes.style.display = "block";
     seccionVentas.style.display = "none";
+    botonSolicitudesPendientes.click();
 })
 //......................................................................................................................
 //......................................................................................................................
@@ -62,7 +68,8 @@ botonVentas.addEventListener('click', function(){
 */
 //.......................................................
 botonSolicitudesPendientes.addEventListener('click', function (){
-    escribirTablaPendientes();
+    getPaginadorPendientes(1);
+    escribirTablaPendientes(1);
     botonSolicitudesPendientes.classList.add('activo');
     botonSolicitudesProceso.classList.remove('activo');
     botonSolicitudesFinalizadas.classList.remove('activo');
@@ -80,7 +87,8 @@ botonSolicitudesPendientes.addEventListener('click', function (){
 */
 //.......................................................
 botonSolicitudesProceso.addEventListener('click', function (){
-    escribirTablaProceso();
+    getPaginadorProceso(1);
+    escribirTablaProceso(1);
     botonSolicitudesProceso.classList.add('activo');
     botonSolicitudesPendientes.classList.remove('activo');
     botonSolicitudesFinalizadas.classList.remove('activo');
@@ -98,7 +106,8 @@ botonSolicitudesProceso.addEventListener('click', function (){
 */
 //.......................................................
 botonSolicitudesFinalizadas.addEventListener('click', function (){
-    escribirTablaFinalizadas();
+    getPaginadorFinalizadas(1);
+    escribirTablaFinalizadas(1);
     botonSolicitudesFinalizadas.classList.add("activo");
     botonSolicitudesProceso.classList.remove("activo");
     botonSolicitudesPendientes.classList.remove("activo");
@@ -164,11 +173,83 @@ async function getDatosCliente(idUsuario){
 //......................................................................................................................
 //.......................................................
 /*
+                getPaginadorPendientes()
+
+*/
+//.......................................................
+async function getPaginadorPendientes(pagina){
+    let datos = await getSolicitudesPorEstado(1,pagina,2)
+    console.log(datos);
+
+    for (let i = 1; i <= datos.paginas-1; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.innerText = i;
+        paginadorPendientes.appendChild(opt);
+    }
+
+}
+paginadorPendientes.addEventListener('change', async ()=>{
+    escribirTablaPendientes(paginadorPendientes.value);
+    console.log(paginadorPendientes.value);
+})
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+                getPaginadorProceso()
+
+*/
+//.......................................................
+async function getPaginadorProceso(pagina){
+    let datos = await getSolicitudesPorEstado(2,pagina,2)
+
+    for (let i = 1; i <= datos.paginas-1; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.innerText = i;
+        paginadorProceso.appendChild(opt);
+    }
+}
+paginadorProceso.addEventListener('change', async ()=>{
+    escribirTablaProceso(paginadorProceso.value);
+})
+
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+                getPaginadorPendientes()
+
+*/
+//.......................................................
+async function getPaginadorFinalizadas(pagina){
+    let datos = await getSolicitudesPorEstado(3,pagina,2)
+
+    for (let i = 1; i <= datos.paginas-1; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.innerText = i;
+        paginadorFinalizadas.appendChild(opt);
+    }
+    if(paginadorFinalizadas.value === 1){
+        paginadorFinalizadas.style.display = "none";
+    }
+}
+paginadorFinalizadas.addEventListener('change', async ()=>{
+    escribirTablaFinalizadas(paginadorFinalizadas.value);
+})
+
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
                 escribirTablaPendientes()
 */
 //.......................................................
-async function escribirTablaPendientes() {
-    let datos = await getSolicitudesPorEstado(1);
+async function escribirTablaPendientes(pagina) {
+    let datos = await getSolicitudesPorEstado(1,pagina,3);
+    console.log(datos);
 
     tablaPendientes.innerHTML = "";
     datos.forEach(function (solicitud) {
@@ -188,8 +269,8 @@ async function escribirTablaPendientes() {
                 escribirTablaProceso()
 */
 //.......................................................
-async function escribirTablaProceso() {
-    let datos = await getSolicitudesPorEstado(2);
+async function escribirTablaProceso(pagina) {
+    let datos = await getSolicitudesPorEstado(2, pagina, 3);
 
     tablaProceso.innerHTML = "";
     datos.forEach(function (solicitud) {
@@ -209,8 +290,8 @@ async function escribirTablaProceso() {
                 escribirTablaFinalizadas()
 */
 //.......................................................
-async function escribirTablaFinalizadas() {
-    let datos = await getSolicitudesPorEstado(3);
+async function escribirTablaFinalizadas(pagina) {
+    let datos = await getSolicitudesPorEstado(3, pagina, 3);
 
     tablaFinalizadas.innerHTML = "";
     datos.forEach(function (solicitud) {
@@ -326,13 +407,10 @@ async function verMasDeSolicitud(solicitud) {
         });
     });
 
-
-
-
 }
 
 
 //......................................................................................................................
 //......................................................................................................................
 //LLAMADA DE FUNCIONES
-escribirTablaPendientes(); //la llamamos aquí para que se carguen los datos cuando se cargue la página.
+botonSolicitudesPendientes.click();
