@@ -1,6 +1,6 @@
 <?php
 $bbdd_servidor ='localhost';
-$bbdd_nombre ='proyecto_web';
+$bbdd_nombre ='bbdd';
 $bbdd_user = 'root';
 $bbdd_password = '';
 

@@ -8,8 +8,8 @@
 
     <!-- carga de scripts-->
     <script src="../../scrips/page_admin/page_admin.js"></script>
-    <script src="../../scrips/page_admin/Administrar_usuarios.js"></script>
     <script src="../../scrips/page_admin/Tablas.js"></script>
+    <script src="../../scrips/page_admin/Administrar_usuarios.js"></script>
     <script src="../../scrips/landing_page/control-acceso.js"></script>
     <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
@@ -70,7 +70,6 @@
                 <button class="col-3 boton-buscar" onclick="generarTablasFiltrada()">Buscar</button>
             </div>
         </div>
-
         <select name="selector_rol" id="selector_rol" onchange="generarTablas()">
             <option value="1">Administrador</option>
             <option value="2">Comercial</option>
@@ -78,16 +77,6 @@
             <option value="4"selected>Usuario</option>
             <option value="5">No registrado</option>
         </select>
-        <div id="paginadorCitasTecnico" onclick="generarTablas()">
-        <div id="paginadorAdmin" onclick="GenerarPaginador()">
-            <button value="1">1</button>
-            <button value="2">2</button>
-            <button value="3">3</button>
-            <button>n</button>
-        </div>
-        <div id="buscador">
-            <input type="text" id="buscadorCitasTecnico"  placeholder="Busqueda por nombre,apellidos o email" onsubmit="generarTablasFiltrada()">
-        </div>
         <!-- TABLA USUARIOS -->
         <table id="tabla-usuarios">
             <thead>
