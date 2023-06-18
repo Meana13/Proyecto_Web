@@ -10,7 +10,7 @@
     <script src="../../scrips/page_admin/page_admin.js"></script>
     <script src="../../scrips/page_admin/Tablas.js"></script>
     <script src="../../scrips/page_admin/Administrar_usuarios.js"></script>
-    <!--<script src="../../scrips/landing_page/control-acceso.js"></script>-->
+    <script src="../../scrips/landing_page/control-acceso.js"></script>
     <script defer src="../../scrips/landing_page/script_index_menu_no_registrado.js"></script>
 
     <!--Carga de iconos de bootstrap-->
@@ -70,7 +70,6 @@
                 <button class="col-3 boton-buscar" onclick="generarTablasFiltrada()">Buscar</button>
             </div>
         </div>
-
         <select name="selector_rol" id="selector_rol" onchange="generarTablas()">
             <option value="1">Administrador</option>
             <option value="2">Comercial</option>
@@ -78,15 +77,6 @@
             <option value="4"selected>Usuario</option>
             <option value="5">No registrado</option>
         </select>
-        <div id="paginadorCitasTecnico" onclick="generarTablas()">
-            <button value="1">1</button>
-            <button value="2">2</button>
-            <button value="3">3</button>
-            <button>n</button>
-        </div>
-        <div id="buscador">
-            <input type="text" id="buscadorCitasTecnico"  placeholder="Busqueda por nombre,apellidos o email" onsubmit="generarTablasFiltrada()">
-        </div>
         <!-- TABLA USUARIOS -->
         <table id="tabla-usuarios">
             <thead>
@@ -99,6 +89,7 @@
             </thead>
             <tbody id="body-usuarios">
                 <tr>
+
                     <td>Ricardo</td>
                     <td>Marquez</td>
                     <td>ricmar@gmail.com</td>
@@ -175,10 +166,10 @@
         <div id="formulario-nuevo-usuario">
             <label for="tipo-usuario">Tipo de usuario:</label>
             <select id="tipo-usuario" name="usuarios">
-                <option value="usuario">Usuario</option>
-                <option value="administrador">Administrador</option>
-                <option value="comercial">Comercial</option>
-                <option value="tecnico">Técnico</option>
+                <option value="4">Usuario</option>
+                <option value="1">Administrador</option>
+                <option value="2">Comercial</option>
+                <option value="3">Técnico</option>
             </select>
             <!--------------->
             <br> <!---->
@@ -194,9 +185,12 @@
             <label>Dirección:</label>
             <input type="text" id="direccion" name="direccion">
             <br> <!---->
+            <label>Contraseña:</label>
+            <input type="text" id="contrasenya" name="contrasenya">
+            <br> <!---->
         </div>
 
-        <button type="button" class="boton-dar-de-alta">DAR DE ALTA</button>
+        <button type="button" class="boton-dar-de-alta" onclick="Anyadir_usuario_manual()">DAR DE ALTA</button>
     </section>
 
     <!-- FIN SECCION AÑADIR USUARIO -->
@@ -206,57 +200,35 @@
     <section id="seccion-hoja-usuario">
         <h3 id="hoja-de-usuario">Hoja de usuario</h3>
         <div id="formulario-hoja-usuario">
-            <form id="editar-usuario">
-                <div id="selector-tipo-usuario">
-                    <label>Tipo de usuario: </label>
-                    <select id="tipo-usuario" name="usuarios" disabled>
-                        <option value="usuario">Usuario</option>
-                        <option value="administrador">Administrador</option>
-                        <option value="comercial">Comercial</option>
-                        <option value="tecnico">Técnico</option>
-                    </select>
-                    <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg"
-                            alt="Editar"></button>
-                </div>
-                <br>
-                <label>Nombre de usuario: </label>
-                <input type="text" id="usuario" name="usuario">
-                <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg"
-                        alt="Editar"></button>
-                <br>
-                <label>Contraseña: </label>
-                <input type="text" id="contraseña" name="contraseña" disabled>
-                <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg"
-                        alt="Editar"></button>
-                <br>
-                <label>Nombre: </label>
-                <input type="text" id="nombre" name="nombre" disabled>
-                <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg"
-                        alt="Editar"></button>
-                <br>
-                <label>Apellidos: </label>
-                <input type="text" id="apellidos" name="apellidos" disabled>
-                <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg"
-                        alt="Editar"></button>
-                <br>
-                <label>E-mail: </label>
-                <input type="text" id="email" name="email" disabled>
-                <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg"
-                        alt="Editar"></button>
-                <br>
-                <label>Direccion: </label>
-                <input type="text" id="direccion" name="direccion" disabled>
-                <button id="icono-editar" type="button"><img src="../../../images/icono-editar.svg"
-                        alt="Editar"></button>
-                <br>
-                <label>Datos bancarios: </label>
-                <input type="text" id="direccion" name="direccion" disabled>
-                <button id="icono-editar"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
-                <div id="botones">
-                    <button id="boton-cancelar">Cancelar</button>
-                    <button id="boton-guardar-cambios" type="submit" onclick="Editar_usuario(event)">guardar
-                        cambios</button>
-            </form>
+         <form id="editar-usuario">
+            <br>
+            <label>Nombre de usuario: </label>
+            <input type="text" id="usuario" name="usuario" value="Usuario" disabled>
+            <button id="icono-editar" type="button" onclick="Permitir_editar()"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
+            <br>
+            <label>Contraseña: </label>
+            <input type="text" id="contraseña" name="contraseña" disabled>
+
+            <br>
+            <label>Nombre: </label>
+            <input type="text" id="nombre_hoja" name="nombre" value="Usuario" disabled>
+
+            <br>
+            <label>Apellidos: </label>
+            <input type="text" id="apellidos_hoja" name="apellidos" value="Usuario" disabled>
+
+            <br>
+            <label>E-mail: </label>
+            <input type="text" id="email" name="email" value="Usuario" disabled>
+            <br>
+            <label>Direccion: </label>
+            <input type="text" id="direccion_hoja" name="direccion" disabled value="Usuario">
+            <br>
+            <div id="botones">
+                <button id="boton-cancelar">Cancelar</button>
+                <button id="boton-guardar-cambios" type="submit" onclick="Editar_usuario(event)">guardar cambios</button>
+         </form>
+            </div>
         </div>
         </div>
     </section>
