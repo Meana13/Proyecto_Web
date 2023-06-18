@@ -103,24 +103,22 @@ button.boton_menu {
 /* Estilos para la pestaña de inicio de sesión */
 .login-tab {
   position: absolute;
-  right: 10px;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40px;
   right: 40px;
-  height: 30px;
+  height: fit-content;
   margin-top: 10px;
   width: fit-content;
 }
 
 /* Estilos para la imagen de la pestaña de inicio de sesión */
 .login-tab p {
-  font-size: 35px;
+  font-size: 30px;
   border-radius: 100%;
-  margin-right: 10px;
-  margin-top: 10px; 
+  margin-bottom: 0;
+  height: 40px;
 }
 
 /* Estilos para el icono de usuario */
@@ -260,7 +258,13 @@ button.boton_menu {
 
   .login-tab {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    margin-top: 20px;
+  }
+  
+  .login-tab p {
+    margin-right: 10px;
   }
 }
 
@@ -289,29 +293,15 @@ button.boton_menu {
     margin: auto 0;
   }
 
-  /* Estilos pop-up login */
   .login-tab {
-    position: absolute;
-    right: 60px;
     display: flex;
-    flex-direction: row;
-    width: fit-content;
-    margin-top: 25px;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 30px;
   }
-
-  /* Estilos imagen login */
-  .login-tab img {
-    width: 35px;
-    height: 35px;
+  
+  .login-tab p {
     margin-right: 10px;
-    border-radius: 100%;
-    border: 2px solid white;
-  }
-
-  /* Estilos icono de usuario */
-  #icono-usuario {
-    margin-right: 0;
-    margin-top: 10px;
   }
 
   /* Estilos menú de navegación */
