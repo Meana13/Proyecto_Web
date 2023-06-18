@@ -63,7 +63,8 @@ escribirNombreComercial();
 */
 //.......................................................
 botonVentasHeader.addEventListener('click', function(){
-    escribirTablaVentas();
+    getPaginadorVentas();
+    escribirTablaVentas(1);
     seccionSolicitudesGnral.style.display = "none";
     seccionVentasGnral.style.display = "block";
 })
@@ -75,7 +76,8 @@ botonVentasHeader.addEventListener('click', function(){
 */
 //.......................................................
 botonListaVentas.addEventListener('click', function(){
-    escribirTablaVentas();
+    getPaginadorVentas();
+    escribirTablaVentas(1);
     seccionListaVentas.style.display = "block";
     seccionGraficas.style.display = "none";
 })
@@ -111,7 +113,7 @@ botonGraficas.addEventListener('click', function(){
                                                        _______________
 */
 //.......................................................
-async function getVentas(pagina ){
+async function getVentas(pagina){
     console.log("pagina:" + pagina)
     const respuesta = await fetch('../../../api/ventas/'
         + '?senyal=' + 3
@@ -132,7 +134,6 @@ async function getVentas(pagina ){
 */
 //.......................................................
 async function getPaginadorVentas(){
-
     const respuesta = await fetch('../../../api/ventas/'
         + '?senyal=' + 2
         + '&cantidad=' + 10);
@@ -147,18 +148,11 @@ async function getPaginadorVentas(){
             paginadorVentas.appendChild(opt);
         }
     }
-    paginadorVentas.addEventListener('change', async () => {
-        let datos = await getVentas(paginadorVentas.value);
-        console.log(datos);
 
-    })
 }
-
-
-
-
-getPaginadorVentas();
-
+paginadorVentas.addEventListener('change', async () => {
+    escribirTablaVentas(paginadorVentas.value);
+})
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -166,9 +160,10 @@ getPaginadorVentas();
                 escribirTablaVentas()
 */
 //.......................................................
-async function escribirTablaVentas() {
-    let pagina = 1;
+async function escribirTablaVentas(pagina) {
+    console.log(pagina);
     let datos = await getVentas(pagina);
+    console.log('Tabla' + datos);
 
     tablaVentas.innerHTML = "";
 

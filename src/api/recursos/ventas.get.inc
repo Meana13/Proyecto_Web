@@ -46,9 +46,11 @@ if(isset($peticion->parametrosQuery()['senyal'])){
         $pagina = $auxiliar * $cantidad;
 
         $sql = "SELECT * 
-                FROM `ventas` 
-                ORDER BY `fecha`, `id_venta` 
-                LIMIT $pagina, $cantidad";
+        FROM `ventas`, `productos`, `clientes`
+        WHERE ventas.id_cliente = clientes.id_cliente
+        AND `ventas`.productos = `productos`.id_producto
+        ORDER BY `ventas`.fecha DESC
+        LIMIT $pagina, $cantidad";
 
         $result = mysqli_query($connexion, $sql);
         while ($row = mysqli_fetch_assoc($result)) {
