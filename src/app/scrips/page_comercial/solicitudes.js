@@ -22,6 +22,7 @@ const tablaPendientes = document.getElementById("tabla-solicitudes-pendientes");
 const tablaProceso = document.getElementById("tabla-solicitudes-proceso");
 const tablaFinalizadas = document.getElementById("tabla-solicitudes-finalizadas");
 //Ver más:
+let verMasFecha = document.getElementById('fecha-solicitud')
 let verMasNombre = document.getElementById('nombre-solicitud');
 let verMasApellido = document.getElementById('apellidos-solicitud');
 let verMasEmail = document.getElementById('email-solicitud');
@@ -239,6 +240,22 @@ async function getPaginadorFinalizadas(pagina){
 paginadorFinalizadas.addEventListener('change', async ()=>{
     escribirTablaFinalizadas(paginadorFinalizadas.value);
 })
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+         fecha:txt --> formatearFechaSolicitud() --> txt
+*/
+//.......................................................
+function formatearFechaSolicitud(fechaMal) {
+    let partes = fechaMal.split("-");
+    var anio = partes[0];
+    var mes = partes[1];
+    var dia = partes[2];
+
+    var fechaBien = dia + "/" + mes + "/" + anio;
+    return fechaBien;
+}
 
 //......................................................................................................................
 //......................................................................................................................
@@ -253,11 +270,12 @@ async function escribirTablaPendientes(pagina) {
 
     tablaPendientes.innerHTML = "";
     datos.forEach(function (solicitud) {
+        let fecha=formatearFechaSolicitud(solicitud.fecha);
         tablaPendientes.innerHTML +=
             `<tr>
             <td>${solicitud.email}</td>
             <td>${solicitud.asunto_formulario_contacto}</td>
-            <td>fecha</td>
+            <td>${fecha}</td>
             <td><button onclick='verMasDeSolicitud(${JSON.stringify(solicitud)})'>VER MÁS</button></td> 
             </tr>`
     });
@@ -274,11 +292,12 @@ async function escribirTablaProceso(pagina) {
 
     tablaProceso.innerHTML = "";
     datos.forEach(function (solicitud) {
+        let fecha=formatearFechaSolicitud(solicitud.fecha);
         tablaProceso.innerHTML +=
             `<tr>
             <td>${solicitud.email}</td>
             <td>${solicitud.asunto_formulario_contacto}</td>
-            <td>fecha</td>
+            <td>${fecha}</td>
             <td><button onclick='verMasDeSolicitud(${JSON.stringify(solicitud)})'>VER MÁS</button></td> 
             </tr>`
     });
@@ -295,11 +314,12 @@ async function escribirTablaFinalizadas(pagina) {
 
     tablaFinalizadas.innerHTML = "";
     datos.forEach(function (solicitud) {
+        let fecha=formatearFechaSolicitud(solicitud.fecha);
         tablaFinalizadas.innerHTML +=
             `<tr>
             <td>${solicitud.email}</td>
             <td>${solicitud.asunto_formulario_contacto}</td>
-            <td>fecha</td>
+            <td>${fecha}</td>
             <td><button onclick='verMasDeSolicitud(${JSON.stringify(solicitud)})'>VER MÁS</button></td> 
             </tr>`
     });
@@ -321,11 +341,13 @@ async function verMasDeSolicitud(solicitud) {
     let datos = await getDatosCliente(solicitud.id_usuario);
     console.log(solicitud);
 
+    verMasFecha.innerText = formatearFecha(solicitud.fecha);
     verMasNombre.innerText = datos[0].nombre;
     verMasApellido.innerText = datos[0].apellidos;
     verMasEmail.innerText = solicitud.email;
     verMasAsunto.innerText = solicitud.asunto_formulario_contacto;
     verMasMensaje.innerText = solicitud.mensaje;
+
 
     let estado = parseInt(solicitud.estado_consulta);
 

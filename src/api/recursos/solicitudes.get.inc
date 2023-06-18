@@ -15,7 +15,8 @@ if($senyal === "1"){
     $sql = "SELECT *
             FROM `consultas`, `asuntos_formulario_contacto`
             WHERE estado_consulta = $estado
-            AND `consultas`.asunto = `asuntos_formulario_contacto`.id_asunto_formulario_contacto";
+            AND `consultas`.asunto = `asuntos_formulario_contacto`.id_asunto_formulario_contacto
+            ORDER BY fecha DESC";
 
     $result = mysqli_query($connexion, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
@@ -44,6 +45,7 @@ elseif($senyal === "2") {
                 FROM `consultas`, `asuntos_formulario_contacto`
                 WHERE estado_consulta = $estado
                 AND `consultas`.asunto = `asuntos_formulario_contacto`.id_asunto_formulario_contacto
+                ORDER BY fecha DESC
                 LIMIT $pagina, $cantidad";
 
         $result = mysqli_query($connexion, $sql);
