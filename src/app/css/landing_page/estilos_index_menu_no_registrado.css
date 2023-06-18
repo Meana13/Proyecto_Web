@@ -115,7 +115,8 @@ button.boton_menu {
 
 /* Estilos para la imagen de la pestaña de inicio de sesión */
 .login-tab p,
-.login-tab a {
+.login-tab a,
+.login-tab i {
   font-size: 30px;
   border-radius: 100%;
   margin-bottom: 0;
@@ -265,7 +266,8 @@ button.boton_menu {
   }
 
   .login-tab p,
-  .login-tab a {
+  .login-tab a, 
+  .login-tab i {
     margin-right: 10px;
   }
 }
@@ -303,7 +305,8 @@ button.boton_menu {
   }
 
   .login-tab p,
-  .login-tab a {
+  .login-tab a,
+  .login-tab i {
     margin-right: 10px;
   }
 
