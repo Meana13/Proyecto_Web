@@ -1270,7 +1270,12 @@ dialog::backdrop {
 #dialogo-cambio-pass button:hover {
     opacity: 0.8;
 }
-
+input:disabled {
+    background-color: var(--fondoSecundario);
+    color: rgba(0, 0, 0, 0.6);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
 .contenedor5 {
     display: flex;
     justify-content: center;
