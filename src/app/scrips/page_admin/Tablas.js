@@ -4,6 +4,7 @@
 const url= "../../../api/usuarios/";
 const urlUNICA= "../../../api/usuario/";
 const urlPaginador= "../../../api/paginador/";
+const urlfiltro= "../../../api/filtro/";
 
 /**
  * Variables vacias
@@ -58,7 +59,7 @@ async function getunUsuario(id){
  */
 async function getUsuariosFiltrados(npag,limite,rol,filtro){
     console.log("Llega al get filtrados");
-    const respuesta=await fetch(url + '?cantidad='
+    const respuesta=await fetch(urlfiltro + '?cantidad='
         + limite + '&pagina=' +npag+'&rol='+rol +'&filtro='+filtro);
     if (respuesta.ok){
         const DatosUsuario = await respuesta.json();
@@ -148,15 +149,17 @@ async function generarTablas() {
  *Filtra la tabla y la muestra
  */
 async function generarTablasFiltrada() {
-    let filtro= document.getElementById("buscador-admin")
+    let filtro= document.getElementById("buscador-admin").value
     let rol= await conseguirRol();
-    let pag= 1;
-    const datos = await getUsuariosFiltrados(pag,limite,rol,filtro);
-    console.log(datos);
-    let tabla = document.getElementById("body-usuarios");
-    tabla.innerHTML = "";
-    datos.forEach((usuario) => {
-        tabla.innerHTML += `<tr>
+    let pag= 0;
+    console.log(filtro)
+    if (filtro!="") {
+        const datos = await getUsuariosFiltrados(pag, limite, rol, filtro);
+        console.log(datos);
+        let tabla = document.getElementById("body-usuarios");
+        tabla.innerHTML = "";
+        datos.forEach((usuario) => {
+            tabla.innerHTML += `<tr>
             <td style="display: none">${usuario.id_cliente}</td>
             <td style="display: none">${usuario.id_usuario}</td>
             <td>${usuario.nombre}</td>
@@ -166,7 +169,10 @@ async function generarTablasFiltrada() {
                                 ></button>
             </td>
         </tr>`;
-    });
+        });
+    }else{
+        generarTablas();
+    }
 }
 window.addEventListener("DOMContentLoaded", () => {
     generarTablas();
