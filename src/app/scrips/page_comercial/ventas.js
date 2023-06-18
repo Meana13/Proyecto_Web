@@ -16,6 +16,7 @@ let botonGraficas = document.getElementById('boton-graficas');
 let botonListaVentas = document.getElementById('boton-lista-ventas');
 //Tablas:
 let tablaVentas = document.getElementById('tabla-ventas');
+let paginadorVentas = document.getElementById('paginadorVentas');
 //Sección ver Venta:
 let botonVolverAVentas = document.getElementById('boton-volver-a-lista-ventas');
 let verVentaFecha = document.getElementById('fecha-venta');
@@ -24,6 +25,35 @@ let verVentaApellidos = document.getElementById('apellidos-venta');
 let verVentaEmail = document.getElementById('email-venta');
 let verVentaProducto = document.getElementById('producto-venta');
 let verVentaImporte = document.getElementById('importe-venta');
+
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+            getSesionComercial()
+*/
+//.......................................................
+async function getSesionComercial(){
+    const respuesta = await fetch('../../../api/sesion/');
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        console.log(datos);
+        return datos;
+    }
+}
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+            escribirNombreComercial()
+*/
+//.......................................................
+async function escribirNombreComercial(){
+   let datos = await getSesionComercial();
+   document.getElementById('nombre_comercial_header').innerText = "";
+   document.getElementById('nombre_comercial_header').innerText = datos.nombre;
+}
+escribirNombreComercial();
 
 //......................................................................................................................
 //......................................................................................................................
@@ -81,14 +111,55 @@ botonGraficas.addEventListener('click', function(){
                                                        _______________
 */
 //.......................................................
-async function getVentas(){
+async function getVentas(pagina){
+    const respuesta = await fetch('../../../api/ventas/'
+        + '?senyal=' + 3
+        + '&pagina=' + pagina
+        + '&cantidad=' + 10);
 
-    const respuesta = await fetch('../../../api/ventas/');
     if(respuesta.ok){
         const datos = await respuesta.json();
         return datos;
     }
 }
+//......................................................................................................................
+//......................................................................................................................
+//.......................................................
+/*
+                getPaginadorVentas()
+
+*/
+//.......................................................
+async function getPaginadorVentas(){
+
+    const respuesta = await fetch('../../../api/ventas/'
+        + '?senyal=' + 2
+        + '&cantidad=' + 10);
+
+    if(respuesta.ok){
+        const datos = await respuesta.json();
+        console.log(datos);
+        for (let i = 1; i <= datos.paginas; i++) {
+            const opt = document.createElement('option');
+            opt.value = i;
+            opt.innerText = i;
+            paginadorVentas.appendChild(opt);
+        }
+    }
+    paginadorVentas.addEventListener('change', () => {
+        cargarPaginaVentas(paginadorVentas.value);
+    })
+}
+
+async function cargarPaginaVentas(pagina) {
+    console.log(pagina);
+    const v = await getVentas(pagina);
+    console.log(v);
+}
+
+
+getPaginadorVentas();
+
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
