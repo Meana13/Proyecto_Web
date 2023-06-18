@@ -160,14 +160,17 @@ button.boton_menu {
 .fomulario_iniciar_sesion label {
   display: block;
   margin-bottom: 5px;
+  margin-left: 30px;
 }
 
 /* Estilos para los campos de entrada del formulario de inicio de sesión */
-.fomulario_iniciar_sesion input {
+.fomulario_iniciar_sesion input,
+#nombre {
   width: 180px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid black;
+  margin: 0 auto;
   margin-bottom: 15px;
 }
 
