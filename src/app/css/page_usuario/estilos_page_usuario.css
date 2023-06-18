@@ -330,119 +330,6 @@ form.seleccionar_fecha {
     font-size: 2.5rem;
 }
 
-/*Estilos de la descripción de la alerta*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion {
-    width: 100%;
-    height: auto;
-    margin-top: 2rem;
-    flex: 0 1 auto;
-    display: none;
-    flex-direction: column;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion p {
-    text-align: center;
-    font-size: 1.2rem;
-    margin: 0;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion button {
-    width: 50%;
-    align-self: center;
-    border: none;
-    background-color: transparent;
-    color: var(--principal);
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container .alerta_descripcion button:hover {
-    color: #9D4179;
-}
-
-/*Estilos para el dialogo de cambiar limites de medidas, que se pulsa desde el visualizador de datos*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.atajo_cambiar_limites_medidas {
-    display: none;
-}
-
-/*Estilos para cuando abramos el dialogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog.activo {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-radius: 1rem;
-    border: none;
-    background-color: var(--fondo);
-    padding: 2rem;
-    margin: auto auto;
-    height: fit-content;
-    width: 40%;
-}
-
-/*Estilos del fondo del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
-}
-
-/*Estilos del párrafo del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog p {
-    font-size: 1.1rem;
-}
-
-/*Estilos de los inputs del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog input,
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button {
-    padding: .5rem;
-    border-radius: 5px;
-    border: 1px solid var(--fondoSecundario);
-}
-
-/*Estilos del botón guardar y cancelar del diálogo*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button {
-    background-color: var(--principal);
-    color: var(--textoBotones);
-    text-transform: uppercase;
-    font-size: .9rem;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog button:hover {
-    background-color: #9D4179;
-    font-weight: bold;
-}
-
-
-/*Estilos para cuando abramos el dialogo de luz*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz.activo {
-    border-radius: 1rem;
-    border: none;
-    background-color: #FFF6ED;
-    padding: 2rem;
-    margin: auto auto;
-    display: block;
-    width: 40%;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz input {
-    margin: .5rem 0;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz select {
-    margin: 0 .5rem;
-}
-
-/*Estilos del botón guardar y cancelar del diálogo de luz*/
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz div.botones_editar_guardar_luz {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.cuerpo_del_visualizador article .datos_y_descripcion_alerta_container dialog#dialogo_atajo_luz button {
-    background-color: var(--principal);
-    color: var(--textoBotones);
-    text-transform: uppercase;
-    font-size: .9rem;
-    margin: 0 .5rem;
-}
-
 /*
     ======================================================================================
                         ESTILOS DE LA SECCIÓN DE AJUSTES DEL HUERTO
@@ -626,8 +513,8 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar {
 }
 
 
-dialog.ajustes_de_huerto div.botones_editar_y_guardar button.boton_editar_ajustes,
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"] {
+dialog.ajustes_de_huerto div.botones_editar_y_guardar button,
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input.boton_guardar_ajustes_huerto{
     background-color: var(--principal);
     color: var(--textoBotones);
     border-radius: 5px;
@@ -639,8 +526,8 @@ dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"] {
     margin-right: 1rem;
 }
 
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="submit"],
-dialog.ajustes_de_huerto div.botones_editar_y_guardar input[type="reset"] {
+dialog.ajustes_de_huerto div.botones_editar_y_guardar button.boton_guardar_ajustes_huerto,
+dialog.ajustes_de_huerto div.botones_editar_y_guardar input.boton_guardar_ajustes_huerto{
     display: none;
 }
 
