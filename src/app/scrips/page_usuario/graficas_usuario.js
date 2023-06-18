@@ -261,50 +261,62 @@ async function cargarDatoActualTabs(idHuerto) {
                                                         _______________________________
 */
 //------------------------------------------
-async function buscarAlertas(mediciones, idHuerto){
+async function buscarAlertas(mediciones, idHuerto) {
     const respuesta = await fetch('../../../api/notificaciones/' + '?idHuerto=' + idHuerto);
     if (respuesta.ok) {
         const notificaciones = await respuesta.json();
         console.log(mediciones);
         //si el usuario tiene las notificaciones activadas:
-        if(notificaciones[0].notificaciones === "1"){
+        if (notificaciones[0].notificaciones === "1") {
+
             //ALERTAS QUE SUPERAN LAS MÁXIMAS:
-            if(parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_max_salinidad)){
+            if (parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_max_salinidad)) {
                 alertasContainer.style.display = "block";
                 alertaRojaSal.style.display = "block";
                 alertaNaranjaSal.style.display = "none";
                 alertaRojaSal.setAttribute("data-content", "¡Salinidad alta!");
-            }
-            else{
-                alertasContainer.style.display = "none";
-                alertaRojaSal.style.display = "none";
-                alertaNaranjaSal.style.display = "none";
-                alertaRojaSal.setAttribute("data-content", "¡Salinidad alta!");
+                console.log("hola1")
             }
 
             //ALERTAS NARANJAS
-            if(parseInt(mediciones[0].mediaSalinidad) === parseInt(notificaciones[0].medicion_max_salinidad - 1)){
+            if (parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_max_salinidad) - 3 &&
+                parseInt(mediciones[0].mediaSalinidad) < parseInt(notificaciones[0].medicion_max_salinidad)) {
                 alertasContainer.style.display = "block";
                 alertaRojaSal.style.display = "none";
                 alertaNaranjaSal.style.display = "block";
                 alertaNaranjaSal.setAttribute("data-content", "¡Cuidado, la salinidad está aumentando!");
+                console.log("hola3")
             }
-            if(mediciones[0].mediaSalinidad === (notificaciones[0].medicion_min_salinidad + 1)){
+            else if (parseInt(mediciones[0].mediaSalinidad) <= parseInt(notificaciones[0].medicion_min_salinidad) + 3 &&
+                parseInt(mediciones[0].mediaSalinidad) > parseInt(notificaciones[0].medicion_min_salinidad)) {
                 alertasContainer.style.display = "block";
                 alertaRojaSal.style.display = "none";
                 alertaNaranjaSal.style.display = "block";
                 alertaNaranjaSal.setAttribute("data-content", "¡Cuidado, la salinidad está disminuyendo!");
+                console.log("hola4")
             }
 
             //ALERTAS POR DEBAJO DE LAS MÍNIMAS:
-            if(mediciones[0].mediaSalinidad <= notificaciones[0].medicion_min_salinidad){
+            if (parseInt(mediciones[0].mediaSalinidad) <= parseInt(notificaciones[0].medicion_min_salinidad)) {
                 alertasContainer.style.display = "block";
                 alertaRojaSal.style.display = "block";
                 alertaNaranjaSal.style.display = "none";
                 alertaRojaSal.setAttribute("data-content", "¡Salinidad baja!");
+                console.log("hola5")
             }
+            // Verificar si todas las medidas están dentro de un rango normal
+            if (
+                parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_min_salinidad) + 3 &&
+                parseInt(mediciones[0].mediaSalinidad) <= parseInt(notificaciones[0].medicion_max_salinidad) - 3
+            ) {
+                alertasContainer.style.display = "none";
+                alertaRojaSal.style.display = "none";
+                alertaNaranjaSal.style.display = "none";
+                console.log("holis")
+            }
+        } else{
+            alertasContainer.style.display = "none";
         }
-
     }
 }
 
