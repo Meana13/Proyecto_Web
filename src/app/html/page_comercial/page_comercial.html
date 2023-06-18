@@ -334,20 +334,22 @@
 
         <!--Aquí empieza la sección de graficas-ventas-->
         <section id="graficas-ventas">
-
-            <select id="selector-opciones-graficas">
-                <option id="opcion-semana" value="semana">Última Semana</option>
-                <option id="opcion-mes" value="mes">Último Mes</option>
-                <option id="opcion-meses" value="anio">Meses del último año</option>
-                <option id="opcion-anios" value="anios">Años</option>
-            </select>
-
-            <div id="chart-container">
-
-                <canvas id="chart"></canvas>
-
+            <div class="container">
+                <div class="row">
+                    <select class="col-12" id="selector-opciones-graficas">
+                        <option id="opcion-semana" value="semana">Última Semana</option>
+                        <option id="opcion-mes" value="mes">Último Mes</option>
+                        <option id="opcion-meses" value="anio">Meses del último año</option>
+                        <option id="opcion-anios" value="anios">Años</option>
+                    </select>
+        
+                    <div class="col-12" id="chart-container">
+        
+                        <canvas id="chart"></canvas>
+        
+                    </div>
+                </div>
             </div>
-
         </section>
         <!--Aquí acaba la sección de graficas-ventas-->
 
