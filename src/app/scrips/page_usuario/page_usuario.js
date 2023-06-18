@@ -132,10 +132,11 @@ botonCerrarAjustesHuerto.addEventListener("click", cerrarAjustesHuerto);
 
 
 /*
+/!*
     =========================================================================
               DIÁLOGO ATAJO PARA CAMBIAR LOS LÍMITES DE LAS MEDIDAS
     =========================================================================
-                                                                                */
+                                                                                *!/
 
 //Atajo cambiar límites de SALINIDAD:
 const abrirAtajoSal = document.getElementById('atajo_limites_sal');
@@ -242,8 +243,9 @@ cancelarAtajoLuz.addEventListener("click", cerrarDialogoLuz);
 
 
 
-/*-----------------------------------------------Aquí acaban las funciones para el diálogo de cambiar límites de medidas*/
+/!*-----------------------------------------------Aquí acaban las funciones para el diálogo de cambiar límites de medidas*!/
 
+*/
 
 
 
