@@ -174,7 +174,7 @@ h2 {
     display: flex;
 }
 
-#tabla-pendientes tr:last-child button {
+#tabla-pendientes button {
     border: 0;
     background-color: var(--principal);
     border-radius: 5px;
