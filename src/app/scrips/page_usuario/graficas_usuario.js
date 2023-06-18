@@ -34,7 +34,7 @@ let errorFechas = document.getElementById('error-fechas');
 let tabSalinidad = document.getElementById('tab_salinidad');
 let tabHumedad = document.getElementById('tab_humedad')
 //ALERTAS
-let alertasContainer = document.getElementById('alertas-container');
+let alertasContainerSal = document.getElementById('alertas-container');
 let alertaRojaSal = document.getElementById('alerta-roja-sal');
 let alertaNaranjaSal = document.getElementById('alerta-naranja-sal');
 
@@ -60,6 +60,11 @@ let enviarFechasAcordeon = document.getElementById('enviar-fechas-acordeon');
 let desdeInputAcordeon = document.getElementById('desde-acordeon-sal');
 let hastaInputAcordeon = document.getElementById('hasta-acordeon-sal');
 let errorFechasAcordeon = document.getElementById('error-fechas-acordeon');
+//ALERTAS
+let alertasContainerAcordeonSal = document.getElementById('alertas-container-acordeon-sal');
+let alertaRojaAcordeonSal = document.getElementById('alerta-roja-acordeon-sal');
+let alertaNaranjaAcordeonSal = document.getElementById('alerta-naranja-acordeon-sal');
+
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -266,60 +271,94 @@ async function buscarAlertas(mediciones, idHuerto) {
     if (respuesta.ok) {
         const notificaciones = await respuesta.json();
         console.log(mediciones);
-        //si el usuario tiene las notificaciones activadas:
+        //si el huerto tiene las notificaciones activadas:
         if (notificaciones[0].notificaciones === "1") {
-
             //ALERTAS QUE SUPERAN LAS MÁXIMAS:
+            //Salinidad:
             if (parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_max_salinidad)) {
-                alertasContainer.style.display = "block";
+                alertasContainerSal.style.display = "block";
                 alertaRojaSal.style.display = "block";
                 alertaNaranjaSal.style.display = "none";
                 alertaRojaSal.setAttribute("data-content", "¡Salinidad alta!");
-                console.log("hola1")
             }
-
+            //Salinidad acordeon:
+            if (parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_max_salinidad)) {
+                alertasContainerAcordeonSal.style.display = "block";
+                alertaRojaAcordeonSal.style.display = "block";
+                alertaNaranjaAcordeonSal.style.display = "none";
+                alertaRojaAcordeonSal.setAttribute("data-content", "¡Salinidad alta!");
+            }
             //ALERTAS NARANJAS
+            //Salinidad:
             if (parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_max_salinidad) - 3 &&
                 parseInt(mediciones[0].mediaSalinidad) < parseInt(notificaciones[0].medicion_max_salinidad)) {
-                alertasContainer.style.display = "block";
+                alertasContainerSal.style.display = "block";
                 alertaRojaSal.style.display = "none";
                 alertaNaranjaSal.style.display = "block";
                 alertaNaranjaSal.setAttribute("data-content", "¡Cuidado, la salinidad está aumentando!");
-                console.log("hola3")
             }
             else if (parseInt(mediciones[0].mediaSalinidad) <= parseInt(notificaciones[0].medicion_min_salinidad) + 3 &&
                 parseInt(mediciones[0].mediaSalinidad) > parseInt(notificaciones[0].medicion_min_salinidad)) {
-                alertasContainer.style.display = "block";
+                alertasContainerSal.style.display = "block";
                 alertaRojaSal.style.display = "none";
                 alertaNaranjaSal.style.display = "block";
                 alertaNaranjaSal.setAttribute("data-content", "¡Cuidado, la salinidad está disminuyendo!");
-                console.log("hola4")
+            }
+            //Salinidad Acordeon:
+            if (parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_max_salinidad) - 3 &&
+                parseInt(mediciones[0].mediaSalinidad) < parseInt(notificaciones[0].medicion_max_salinidad)) {
+                alertasContainerAcordeonSal.style.display = "block";
+                alertaRojaAcordeonSal.style.display = "none";
+                alertaNaranjaAcordeonSal.style.display = "block";
+                alertaNaranjaAcordeonSal.setAttribute("data-content", "¡Cuidado, la salinidad está aumentando!");
+            }
+            else if (parseInt(mediciones[0].mediaSalinidad) <= parseInt(notificaciones[0].medicion_min_salinidad) + 3 &&
+                parseInt(mediciones[0].mediaSalinidad) > parseInt(notificaciones[0].medicion_min_salinidad)) {
+                alertasContainerAcordeonSal.style.display = "block";
+                alertaRojaAcordeonSal.style.display = "none";
+                alertaNaranjaAcordeonSal.style.display = "block";
+                alertaNaranjaAcordeonSal.setAttribute("data-content", "¡Cuidado, la salinidad está disminuyendo!");
             }
 
             //ALERTAS POR DEBAJO DE LAS MÍNIMAS:
+            //Salinidad:
             if (parseInt(mediciones[0].mediaSalinidad) <= parseInt(notificaciones[0].medicion_min_salinidad)) {
-                alertasContainer.style.display = "block";
+                alertasContainerSal.style.display = "block";
                 alertaRojaSal.style.display = "block";
                 alertaNaranjaSal.style.display = "none";
                 alertaRojaSal.setAttribute("data-content", "¡Salinidad baja!");
-                console.log("hola5")
+            }
+            //Salinidad acordeon:
+            if (parseInt(mediciones[0].mediaSalinidad) <= parseInt(notificaciones[0].medicion_min_salinidad)) {
+                alertasContainerAcordeonSal.style.display = "block";
+                alertaRojaAcordeonSal.style.display = "block";
+                alertaNaranjaAcordeonSal.style.display = "none";
+                alertaRojaAcordeonSal.setAttribute("data-content", "¡Salinidad baja!");
             }
             // Verificar si todas las medidas están dentro de un rango normal
-            if (
-                parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_min_salinidad) + 3 &&
-                parseInt(mediciones[0].mediaSalinidad) <= parseInt(notificaciones[0].medicion_max_salinidad) - 3
-            ) {
-                alertasContainer.style.display = "none";
+            //Salinidad:
+            if (parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_min_salinidad) + 3 &&
+                parseInt(mediciones[0].mediaSalinidad) <= parseInt(notificaciones[0].medicion_max_salinidad) - 3) {
+                alertasContainerSal.style.display = "none";
                 alertaRojaSal.style.display = "none";
                 alertaNaranjaSal.style.display = "none";
-                console.log("holis")
             }
-        } else{
-            alertasContainer.style.display = "none";
+            //Salinidad acordeon:
+            if (parseInt(mediciones[0].mediaSalinidad) >= parseInt(notificaciones[0].medicion_min_salinidad) + 3 &&
+                parseInt(mediciones[0].mediaSalinidad) <= parseInt(notificaciones[0].medicion_max_salinidad) - 3) {
+                alertasContainerAcordeonSal.style.display = "none";
+                alertaRojaAcordeonSal.style.display = "none";
+                alertaNaranjaAcordeonSal.style.display = "none";
+            }
+
+        }
+        //Si no tiene las notificaciones activadas:
+        else{
+            alertasContainerSal.style.display = "none";
+            alertasContainerAcordeonSal.style.display = "none";
         }
     }
 }
-
 //......................................................................................................................
 //......................................................................................................................
 //------------------------------------------
@@ -360,30 +399,32 @@ async function cargarDatoActualSalinidad(idHuerto) {
 */
 //------------------------------------------
 async function cargarDatoActualHumedad(idHuerto) {
+
     const respuesta = await fetch('../../../api/medicionesDatoActual/' + '?idHuerto=' + idHuerto);
     if (respuesta.ok) {
         const mediciones = await respuesta.json();
 
         //para quitarle los decimales a la medida si los decimales son "0":
-        mediciones.forEach(function (objeto) {
-            var parteDecimalHumedad = objeto.mediaHumedad % 1;
-            var parteDecimalpH = objeto.mediapH % 1;
-            var parteDecimalLuz = objeto.mediaLuminosidad % 1;
-            var parteDecimalTemperatura = objeto.mediaTemperatura % 1;
+       mediciones.forEach(function (objeto) {
+           var parteDecimalHumedad = objeto.mediaHumedad % 1;
+           var parteDecimalpH = objeto.mediapH % 1;
+           var parteDecimalLuz = objeto.mediaLuminosidad % 1;
+           var parteDecimalTemperatura = objeto.mediaTemperatura % 1;
 
-            if(parteDecimalHumedad === 0){
-                objeto.mediaHumedad = Math.floor(objeto.mediaHumedad);
-            }
-            /*if (parteDecimalpH === 0) {
-                objeto.mediapH = Math.floor(objeto.mediapH);
-            }
-            if(parteDecimalLuz === 0){
-                objeto.mediaLuminosidad = Math.floor(objeto.mediaLuminosidad);
-            }if (parteDecimalTemperatura === 0) {
-                objeto.mediaTemperatura = Math.floor(objeto.mediaTemperatura);
-            }*/
-        });
-
+           if (parteDecimalHumedad === 0) {
+               objeto.mediaHumedad = Math.floor(objeto.mediaHumedad);
+           }
+           if (parteDecimalpH === 0) {
+               objeto.mediapH = Math.floor(objeto.mediapH);
+           }
+           if (parteDecimalLuz === 0) {
+               objeto.mediaLuminosidad = Math.floor(objeto.mediaLuminosidad);
+           }
+           if (parteDecimalTemperatura === 0) {
+               objeto.mediaTemperatura = Math.floor(objeto.mediaTemperatura);
+           }
+       });
+       
         //DATO ACTUAL HUMEDAD:
         datoActualTabHumedad.innerText = "";
         datoActualTabHumedad.innerText = mediciones[0].mediaHumedad + "%";
@@ -439,8 +480,10 @@ async function cargarDatoActualHumedad(idHuerto) {
                             datoActualAcordeonLuz.innerText = "Luz directa";
                         }
                     }*/
+
     }
 }
+
 
 //......................................................................................................................
 //......................................................................................................................
@@ -500,7 +543,6 @@ selectorDeHuertos.addEventListener('change', function () {
 */
 //------------------------------------------
 tabSalinidad.addEventListener('click',function () {
-    if(!tabSalinidad.classList.contains('activo')){
         let idHuerto = selectorDeHuertos.value;
         if(filtro.value === "Hoy"){
             construirGraficaSalinidad(idHuerto, "Hoy");
@@ -515,8 +557,6 @@ tabSalinidad.addEventListener('click',function () {
         cargarDatoActualSalinidad(idHuerto);
         tabSalinidad.classList.add("activo");
         tabHumedad.classList.remove("activo");
-    }
-
 });
 //......................................................................................................................
 //......................................................................................................................
