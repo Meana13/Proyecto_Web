@@ -250,6 +250,7 @@ select {
         width: auto;
         height: 30px;
         width: 90px;
+        padding: 5px 15px;
     }
 
     /* Estilos tabla */
