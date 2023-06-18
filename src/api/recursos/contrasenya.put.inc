@@ -6,11 +6,16 @@ if (!isset($peticion)) {
 require_once 'includes/connexion.php';
 if (!isset($connexion)) die();
 $contrasenya=$peticion->parametrosQuery()['clave'];
-$id_usuario=$peticion->parametrosQuery()['ID'];
+$email=$peticion->parametrosQuery()['email'];
 
-$sql="UPDATE usuarios
-      SET password = $contrasenya
-      WHERE id_usuario=$id_usuario";
+$sql = "UPDATE usuarios
+        SET password = '$contrasenya'
+        WHERE id_usuario= (
+            SELECT clientes.id_usuario
+            FROM clientes
+            WHERE email = '$email'
+        )";
+
 
 try {
     mysqli_query($connexion, $sql);

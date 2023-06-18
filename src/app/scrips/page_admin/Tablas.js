@@ -171,6 +171,9 @@ async function generarTablasFiltrada() {
     }
 }
 ////////////////////////////////////////////
+/**
+ *Consigue la informacion de un cliente
+ */
 async function getunCliente(id_cliente){
     const respuesta=await fetch(urlClientes + '?id='
         + id);
@@ -180,7 +183,9 @@ async function getunCliente(id_cliente){
         return DatosUsuario;
     }
 }
-
+/**
+ *Añade un usuario a la base de datos
+ */
 async function Anyadir_usuario_manual(){
     //TODO Abre la ventana de añadir usuario y tras poner los datos crea un usuario
     // Obtener los valores de los campos del formulario
@@ -209,6 +214,10 @@ async function Anyadir_usuario_manual(){
     return await respuesta.ok;
 
 }
+
+/**
+ *Quita los disable de los campos
+ */
 async function Permitir_editar() {
     const Nombre = document.getElementById('nombre_hoja');
     const Apellidos = document.getElementById('apellidos_hoja');
@@ -222,10 +231,6 @@ async function Permitir_editar() {
     Direccion.disabled = false;
 }
 
-async function Anyadir_usuario_de_la_tabla(id_cliente){
-    //TODO Al pulsar el boton de aceptar añade automaticamente al cliente como usuario;
-    const datos=await getunCliente(id)
-}
 async function Borrar_usuario(id_usuario){
     //TODO Abre la ventana de editar usuario y al pulsar el boton de eliminar lo elimina de la base de datos
     const respuesta = await fetch(urlClientes + id_usuario, {
@@ -234,6 +239,10 @@ async function Borrar_usuario(id_usuario){
     return await respuesta.ok;
 
 }
+
+/**
+ *Envia los datos actualiazados a la base de datos
+ */
 async function Editar_usuario(){
     //TODO:AL pulsar el boton de guardar cambios actualiza la base de datos
     event.preventDefault();
@@ -257,6 +266,9 @@ async function Editar_usuario(){
     return await respuesta.ok;
 };
 //////////////////////////////////////////
+/**
+ * Las funciones que se ejecutan nada mas comenzar
+ */
 window.addEventListener("DOMContentLoaded", () => {
     generarTablas();
 });
