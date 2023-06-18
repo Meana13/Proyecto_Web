@@ -173,6 +173,13 @@ h2 {
     display: flex;
 }
 
+#tabla-pendientes tr:last-child button {
+    border: 0;
+    background-color: var(--principal);
+    border-radius: 5px;
+    color: var(--textoBotones);
+}
+
 .ver-mas-dato {
     background-color: var(--textoBotones);
     border: 1px solid var(--textoGeneral);
