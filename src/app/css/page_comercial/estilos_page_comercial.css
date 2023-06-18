@@ -116,7 +116,7 @@ h2 {
 /* Estilos para el selector de gráfica */
 #selector-opciones-graficas {
     background-color: var(--fondoSecundario);
-    width: 10px;
+    width: 100%;
     max-width: 2000px;
     padding: 0.8em;
     display: block;
@@ -127,12 +127,8 @@ h2 {
 
 /* Estilos para los contenedores de las gráficas */
 #chart-container {
-    width: 90%;
     background-color: white;
-}
-
-#chart {
-    width: 95%;
+    margin: 0 auto;
 }
 
 /* Estilos adicionales para las gráficas en dispositivos móviles */
