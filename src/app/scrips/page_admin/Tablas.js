@@ -263,7 +263,7 @@ async function Editar_usuario(){
     if(respuesta.ok){
         alert("Se ha realizado el cambio")
     }
-};
+}
 //////////////////////////////////////////
 /**
  * Las funciones que se ejecutan nada mas comenzar

@@ -40,7 +40,7 @@ console.log(datos);
         <td>${cita.fecha_cita}</td> 
         <td>${cita.motivo_cita}</td> 
         <td><button id="boton-ver-cita">Ver ficha</button></td> 
-        <td> <button class="boton-eliminar-cita" onclick='eliminarCita(${JSON.stringify(cita)})'></button></td> 
+        <td> <button class="boton-eliminar-cita" onclick='eliminarCita(${JSON.stringify(cita)})'>X</button></td> 
       </tr>`;
 
     });
