@@ -245,6 +245,7 @@ h2 {
     display: none;
     background-color: var(--textoBotones);
     margin: 0 auto;
+    height: 100px;
 }
 
 .cuerpo_del_visualizador article.activo {
@@ -266,7 +267,7 @@ h2 {
 .filtros_graficas {
     display: flex;
     align-items: center;
-    height: 50px;
+    height:65px;
 }
 
 .cuerpo_del_visualizador article .grafica-container div {
