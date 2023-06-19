@@ -200,6 +200,7 @@ h2 {
 .alerta_grave i::before,
 .alerta_media i::before {
     border-radius: 50%;
+    border: 3px solid var(--textoBotones);
 }
 
 .alerta_grave:hover,
