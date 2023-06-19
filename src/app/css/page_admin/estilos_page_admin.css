@@ -30,6 +30,22 @@ h2 {
     margin: 0 auto;
 }
 
+/* ESTILOS PARA EL BOTON EDITAR DE HOJA DE USUARIO*/
+#boton-editar-final {
+    padding: 10px 20px;
+    background-color: #790050;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  #boton-editar-final:hover {
+    background-color: #9D4179;
+  }
+
+
 /* Estilos para la sección "opinión personal" */
 #seccion-opinion-personal {
     display: none;
