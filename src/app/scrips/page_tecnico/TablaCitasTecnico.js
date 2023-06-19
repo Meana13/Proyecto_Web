@@ -29,25 +29,27 @@ async function getCitas() {
 async function escribirTablaCitasTecnico() {
 
     let datos = await getCitas();
-
+console.log(datos);
     tablaCitasTecnico.innerHTML = "";
 
     // Si la cita tiene el estado de rechazada, no la mostraremos en la tabla
     datos.forEach(function (cita) {
 
-            tablaCitasTecnico.innerHTML += `<tr>
-        <td>${cita.nombre}</td>
-        <td>${cita.fecha_cita}</td>
-        <td>${cita.estado}</td>
-        <td><button id="boton-ver-cita">Ver ficha</button></td>
-        <td> <button class="boton-eliminar-cita" onclick='eliminarCita(${JSON.stringify(cita)})'></button></td>
+        tablaCitasTecnico.innerHTML += `<tr> 
+        <td>${cita.nombre}</td> 
+        <td>${cita.fecha_cita}</td> 
+        <td>${cita.motivo_cita}</td> 
+        <td><button id="boton-ver-cita">Ver ficha</button></td> 
+        <td> <button class="boton-eliminar-cita" onclick='eliminarCita(${JSON.stringify(cita)})'></button></td> 
       </tr>`;
 
     });
 }
+//Final de creación de tabla con datos.
+
 
 //......................................................................................................................
-// EliminarCita(citaEliminada) //
+// rechazarCita(citaRechazada) //
 // .....................................................................................................................
 
 async function eliminarCita(citaEliminada) {
@@ -73,38 +75,8 @@ async function eliminarCita(citaEliminada) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const secCitas = document.getElementById('seccion-citas');
-    const secOpiniones = document.getElementById('seccion-opiniones');
-    const secAdminHuertos = document.getElementById('seccion-administrar-huertos');
+//......................................................................................................................
+//......................................................................................................................
 
-    let secActiva = secCitas;
-
-    const mostrarSeccion = (seccion) => {
-        secActiva.style.display = 'none';
-        secActiva = seccion;
-        secActiva.style.display = 'block';
-
-        if (secActiva === secCitas) {
-            escribirTablaCitasTecnico();
-        }
-    };
-
-    const botonCitas = document.getElementById("boton-ver-cita");
-    const botonOpiniones = document.getElementById("boton-opiniones");
-    const botonAdminHuertos = document.getElementById("boton-administrar-huertos");
-
-    botonCitas.addEventListener("click", () => {
-        mostrarSeccion(secCitas);
-    });
-
-    botonOpiniones.addEventListener("click", () => {
-        mostrarSeccion(secOpiniones);
-    });
-
-    botonAdminHuertos.addEventListener("click", () => {
-        mostrarSeccion(secAdminHuertos);
-    });
-
-    mostrarSeccion(secCitas);
-});
+// Llamadas de funciones
+escribirTablaCitasTecnico();

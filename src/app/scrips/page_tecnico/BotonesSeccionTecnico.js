@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         secActiva.style.display = "block";
     })
 
-    botonAñadir.addEventListener("click", () => {
+    botonAnadir.addEventListener("click", () => {
         secActiva.style.display = "none";
         secActiva = secAñadir;
         secActiva.style.display = "block";
