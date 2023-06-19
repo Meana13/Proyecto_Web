@@ -25,7 +25,6 @@ let verVentaApellidos = document.getElementById('apellidos-venta');
 let verVentaEmail = document.getElementById('email-venta');
 let verVentaProducto = document.getElementById('producto-venta');
 let verVentaImporte = document.getElementById('importe-venta');
-
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -54,7 +53,6 @@ async function escribirNombreComercial(){
    document.getElementById('nombre_comercial_header').innerText = datos.nombre;
 }
 escribirNombreComercial();
-
 //......................................................................................................................
 //......................................................................................................................
 //.......................................................
@@ -80,6 +78,7 @@ botonListaVentas.addEventListener('click', function(){
     escribirTablaVentas(1);
     seccionListaVentas.style.display = "block";
     seccionGraficas.style.display = "none";
+    paginadorVentas.value = 1;
 })
 //......................................................................................................................
 //......................................................................................................................
@@ -114,7 +113,6 @@ botonGraficas.addEventListener('click', function(){
 */
 //.......................................................
 async function getVentas(pagina){
-    console.log("pagina:" + pagina)
     const respuesta = await fetch('../../../api/ventas/'
         + '?senyal=' + 3
         + '&pagina=' + pagina
@@ -130,7 +128,6 @@ async function getVentas(pagina){
 //.......................................................
 /*
                 getPaginadorVentas()
-
 */
 //.......................................................
 async function getPaginadorVentas(){
@@ -141,14 +138,13 @@ async function getPaginadorVentas(){
     if(respuesta.ok){
         const datos = await respuesta.json();
         console.log("paginadorVentas: " + datos);
-        for (let i = 1; i <= datos.paginas; i++) {
+        for (let i = 1; i <= datos.paginas-1; i++) {
             const opt = document.createElement('option');
             opt.value = i;
             opt.innerText = i;
             paginadorVentas.appendChild(opt);
         }
     }
-
 }
 paginadorVentas.addEventListener('change', async () => {
     escribirTablaVentas(paginadorVentas.value);
@@ -161,9 +157,7 @@ paginadorVentas.addEventListener('change', async () => {
 */
 //.......................................................
 async function escribirTablaVentas(pagina) {
-    console.log(pagina);
     let datos = await getVentas(pagina);
-    console.log('Tabla' + datos);
 
     tablaVentas.innerHTML = "";
 

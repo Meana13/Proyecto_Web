@@ -92,20 +92,6 @@
         <!---------------------------------------------------->
         <!--Aquí empieza la sección de solicitudes pendientes-->
         <section id="solicitudes-pendientes">
-
-
-            <!--Aquí empieza el buscador de la tabla-->
-            <div class="container">
-                <div class="row">
-                    <input class="col-9 buscador" id="buscador-pendientes"
-                        placeholder="Escribe lo que quieras buscar...">
-                    <button class="col-3 boton-buscar">Buscar</button>
-                </div>
-            </div>
-            <!--Aquí acaba el buscador de la tabla-->
-
-
-
             <!--Aquí empieza la tabla de solicitudes pendientes-->
             <table id="tabla-pendientes">
 
@@ -129,16 +115,9 @@
             <!--Aquí acaba la tabla de solicitudes pendientes-->
 
             <!--Aquí empieza el paginador de solicitudes pendientes-->
-            <!--<div id="paginadorPendientes" class="paginador">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <span class="btn-input">
-                    <button>...</button>
-                    <input type="number" value="1" />
-                </span>
-                <button>n</button>
-            </div>-->
+            <div>
+                <select id="paginadorPtes"></select>
+            </div>
 
             <!--Aquí acaba el paginador de solicitudes pendientes-->
 
@@ -150,15 +129,6 @@
         <!---------------------------------------------------->
         <!--Aquí empieza la sección de solicitudes en proceso-->
         <section id="solicitudes-en-proceso">
-
-            <!--Aquí empieza el buscador de la tabla-->
-            <div class="container">
-                <div class="row">
-                    <input class="col-9 buscador" id="buscador-proceso" placeholder="Escribe lo que quieras buscar...">
-                    <button class="col-3 boton-buscar">Buscar</button>
-                </div>
-            </div>
-            <!--Aquí acaba el buscador de la tabla-->
 
             <!--Aquí empieza la tabla de solicitudes en proceso-->
             <table id="tabla-proceso">
@@ -183,15 +153,8 @@
             <!--Aquí acaba la tabla de solicitudes en proceso-->
 
             <!--Aquí empieza el paginador de solicitudes en proceso-->
-            <div id="paginadorProceso" class="paginador">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <span class="btn-input">
-                    <button>...</button>
-                    <input type="number" value="1" />
-                </span>
-                <button>n</button>
+            <div>
+                <select id="paginadorProceso"></select>
             </div>
             <!--Aquí acaba el paginador de solicitudes en proceso-->
 
@@ -202,17 +165,6 @@
 
         <!---------------------------------------------------->
         <section id="solicitudes-finalizadas">
-
-
-            <!--Aquí empieza el buscador de la tabla-->
-            <div class="container">
-                <div class="row">
-                    <input class="col-9 buscador" id="buscador-finalizadas"
-                        placeholder="Escribe lo que quieras buscar...">
-                    <button class="col-3 boton-buscar">Buscar</button>
-                </div>
-            </div>
-            <!--Aquí acaba el buscador de la tabla-->
 
             <!--Aquí empieza la tabla de solicitudes finalizadas-->
             <table id="tabla-finalizadas">
@@ -237,15 +189,8 @@
             <!--Aquí acaba la tabla de solicitudes finalizadas-->
 
             <!--Aquí empieza el paginador de solicitudes finalizadas-->
-            <div id="paginadorFinalizadas" class="paginador">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <span class="btn-input">
-                    <button>...</button>
-                    <input type="number" value="1" />
-                </span>
-                <button>n</button>
+            <div>
+                <select id="paginadorFinalizadas"></select>
             </div>
             <!--Aquí acaba el paginador de solicitudes finalizadas-->
 
@@ -280,29 +225,10 @@
         <!--Aquí empieza la sección lista-ventas-->
         <section id="lista-ventas">
 
-            <!--Aquí empieza el buscador de la tabla-->
-            <div class="container">
-                <div class="row">
-                    <input class="col-9 buscador" id="buscador-ventas" placeholder="Escribe lo que quieras buscar...">
-                    <button class="col-3 boton-buscar">Buscar</button>
-                </div>
-            </div>
-            <!--Aquí acaba el buscador de la tabla-->
-
             <!--Aquí empieza el paginador de ventas-->
             <div id="container-paginador-ventas">
                 <select id="paginadorVentas"></select>
             </div>
-            <!--<div id="paginadorVentas" class="paginador">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <span class="btn-input">
-                    <button>...</button>
-                    <input type="number" value="1" />
-                </span>
-                <button>n</button>
-            </div>-->
             <!--Aquí acaba el paginador de ventas-->
 
             <!--Aquí empieza la tabla de ventas-->
@@ -385,6 +311,10 @@
         <div class="contenedor-datos">
             <button id="boton-volver-a-lista-solicitudes"><i class="bi bi-x"></i></button>
             <h3>Detalles de la solicitud</h3>
+            <div>
+                <p><b>Fecha:</b></p>
+                <p class="ver-mas-dato" id="fecha-solicitud"></p>
+            </div>
             <div>
                 <p><b>Nombre:</b></p>
                 <p class="ver-mas-dato" id="nombre-solicitud"></p>

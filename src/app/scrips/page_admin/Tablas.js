@@ -2,7 +2,6 @@
  * URL a la que se hacen las peticiones
  */
 const url= "../../../api/usuarios/";
-const urlUNICA= "../../../api/usuario/";
 const urlPaginador= "../../../api/paginador/";
 const urlfiltro= "../../../api/filtro/";
 const urlClientes= "../../../api/cliente/";
@@ -32,7 +31,7 @@ async function getUsuarios(npag,limite,rol){
  */
 
 async function getunUsuario(id){
-    const respuesta=await fetch(urlUNICA + '?id='
+    const respuesta=await fetch(urlClientes + '?id='
         + id);
     if (respuesta.ok){
         console.log("Ha entrado en el if")
@@ -223,8 +222,6 @@ async function Permitir_editar() {
     const Apellidos = document.getElementById('apellidos_hoja');
     const Email = document.getElementById('email');
     const Direccion = document.getElementById('direccion_hoja');
-    const Usuario= document.getElementById('usuario');
-    Usuario.disabled=false;
     Nombre.disabled = false;
     Apellidos.disabled = false;
     Email.disabled = false;
@@ -263,7 +260,9 @@ async function Editar_usuario(){
         method: 'put',
         body: JSON.stringify(usuario)
     })
-    return await respuesta.ok;
+    if(respuesta.ok){
+        alert("Se ha realizado el cambio")
+    }
 };
 //////////////////////////////////////////
 /**
