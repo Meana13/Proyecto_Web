@@ -1,5 +1,5 @@
 //......................................................................................................................
-/* SECCIÓN CITAS USUARIO REGISTRADO */
+/* SECCIÓN CITAS TECNICO */
 //......................................................................................................................
 
 // DECLARACIÓN DE VARIABLES:
@@ -29,23 +29,24 @@ async function getCitas() {
 async function escribirTablaCitasTecnico() {
 
     let datos = await getCitas();
-
+console.log(datos);
     tablaCitasTecnico.innerHTML = "";
 
     // Si la cita tiene el estado de rechazada, no la mostraremos en la tabla
     datos.forEach(function (cita) {
 
-            tablaCitasTecnico.innerHTML += `<tr>
-        <td>${cita.nombre}</td>
-        <td>${cita.fecha_cita}</td>
-        <td>${cita.estado}</td>
-        <td><button id="boton-ver-cita">Ver ficha</button></td>
-        <td> <button class="boton-eliminar-cita" onclick='eliminarCita(${JSON.stringify(cita)})'></button></td>
+        tablaCitasTecnico.innerHTML += `<tr> 
+        <td>${cita.nombre}</td> 
+        <td>${cita.fecha_cita}</td> 
+        <td>${cita.motivo_cita}</td> 
+        <td><button id="boton-ver-cita">Ver ficha</button></td> 
+        <td> <button class="boton-eliminar-cita" onclick='eliminarCita(${JSON.stringify(cita)})'></button></td> 
       </tr>`;
 
     });
 }
 
+//Se termina de crear la tabla de citas.
 
 
 //......................................................................................................................
