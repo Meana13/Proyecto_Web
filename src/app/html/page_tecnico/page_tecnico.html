@@ -26,7 +26,7 @@
     <header class="header">
         <a href="../../../index.html" class="logo nav-link"><img class="logo nav-link" src="../../../images/logoGTI.png" alt=""></a>
         <div class="login-tab">
-            <img src="../../../images/tecnico.png" alt="">
+            <i class="bi bi-person-circle"></i>
             <label>Nicorom</label>
         </div>
 
@@ -64,17 +64,7 @@
     <section id="seccion-citas">
         <h3>CALENDARIO DE CITAS</h3>
 
-        <!-- <div id="paginadorCitasTecnico" onclick="generarTablas()">
-            <button value="1">1</button>
-            <button value="2">2</button>
-            <button value="3">3</button>
-            <button>n</button>
-        </div>
-        <div id="buscador">
-            <input type="text" id="buscadorCitasTecnico"  placeholder="Busqueda por nombre,apellidos o email" onsubmit="generarTablasFiltrada()">
-        </div>-->
-
-        <table id="tabla-citas">
+        <table>
             <thead>
             <button id="boton-crear-cita">CREAR CITA</button>
                 <tr>
@@ -91,7 +81,7 @@
                 <td>03/02/2023</td>
                 <td>Motivo1</td>
                 <td>
-                    <button id="boton-ver-cita">Ver ficha</button>
+                    <button id="boton-ver-cita" onclick="botonVerFicha()">Ver ficha</button>
                 </td>
 
                 <td>
@@ -103,7 +93,7 @@
                 <td>10/04/2023</td>
                 <td>Motivo2</td>
                 <td>
-                    <button id="boton-ver-cita">Ver ficha</button>
+                    <button id="boton-ver-cita" onclick="botonVerFicha()>Ver ficha</button>
                 </td>
 
                 <td>
@@ -115,7 +105,7 @@
                 <td>16/04/2023</td>
                 <td>Motivo3</td>
                 <td>
-                    <button id="boton-ver-cita">Ver ficha</button>
+                    <button id="boton-ver-cita" onclick="botonVerFicha()>Ver ficha</button>
                 </td>
 
                 <td>
@@ -127,7 +117,7 @@
                 <td>23/04/2023</td>
                 <td>Motivo4</td>
                 <td>
-                    <button id="boton-ver-cita">Ver ficha</button>
+                    <button id="boton-ver-cita" onclick="botonVerFicha()>Ver ficha</button>
                 </td>
 
                 <td>
@@ -139,7 +129,7 @@
                 <td>27/04/2023</td>
                 <td>Motivo5</td>
                 <td>
-                    <button id="boton-ver-cita">Ver ficha</button>
+                    <button id="boton-ver-cita"onclick="botonVerFicha()>Ver ficha</button>
                 </td>
 
                 <td>
@@ -151,7 +141,7 @@
                 <td>04/05/2023</td>
                 <td>Motivo6</td>
                 <td>
-                    <button id="boton-ver-cita">Ver ficha</button>
+                    <button id="boton-ver-cita" onclick="botonVerFicha()>Ver ficha</button>
                 </td>
 
                 <td>
@@ -521,9 +511,9 @@
 
 <!-- Scripts de funcionalidad -->
 
-    <script src="../../scrips/page_tecnico/page_tecnico.js"></script>
     <script src="../../scrips/page_tecnico/TablaCitasTecnico.js"></script>
-
+    <script src="../../scrips/page_tecnico/BotonesSeccionTecnico.js"></script>
+    <!-- <script src="../../scrips/page_tecnico/opinionesTecnico.js"></script> -->
 </body>
 
 </html>
