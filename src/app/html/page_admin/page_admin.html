@@ -62,6 +62,7 @@
     <section id="seccion-administrar-usuarios">
 
         <h2>ADMINISTRACIÓN DE USUARIOS</h2>
+        <button id="boton-añadir-usuario">Añadir Usuario</button>
         <div class="container">
             <div class="row">
                 <input class="col-9 buscador" id="buscador-admin" placeholder="Busqueda por nombre, apellidos o email">
@@ -200,7 +201,6 @@
          <form id="editar-usuario">
             <br>
              <div id="id_usuario""display: none" value:id></div>
-            <button id="icono-editar" type="button" onclick="Permitir_editar()"><img src="../../../images/icono-editar.svg" alt="Editar"></button>
             <br>
 
             <br>
@@ -221,7 +221,9 @@
             <div id="botones">
                 <button id="boton-cancelar">Cancelar</button>
                 <button id="boton-guardar-cambios" type="submit" onclick="Editar_usuario()">guardar cambios</button>
+                <button id="boton-editar-final" type="button" onclick="Permitir_editar()">Editar</button>
          </form>
+
             </div>
         </div>
         </div>
